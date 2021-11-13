@@ -21,8 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>TaskVenator 2.0 xd</h1>
-        <div id="example"></div>
+        <div id="app"></div>
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
