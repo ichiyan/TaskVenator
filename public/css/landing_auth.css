@@ -1,6 +1,13 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 a, a:hover{
     text-decoration: none;
 }
@@ -10,7 +17,7 @@ a, a:hover{
 # Header
 --------------------------------------------------------------*/
 #header {
-    background: #282A36;
+    background: #2A2C37;
     transition: all 0.5s;
     z-index: 997;
     padding: 10px 0;
@@ -35,9 +42,10 @@ a, a:hover{
   /**
   * Get Started Button
   */
+
   .get-started-btn {
     margin-left: 22px;
-    background: #9580FF;
+    background: #5fcf80;
     color: #fff;
     border-radius: 50px;
     padding: 8px 25px;
@@ -47,7 +55,7 @@ a, a:hover{
     display: inline-block;
   }
   .get-started-btn:hover {
-    background: #7b61ff;
+    background: #3ac162;
     color: #fff;
   }
   @media (max-width: 768px) {
@@ -95,7 +103,7 @@ a, a:hover{
     margin-left: 5px;
   }
   .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-    color: #9580FF;
+    color: #8AFF80;
   }
   .navbar .dropdown ul {
     display: block;
@@ -151,3 +159,81 @@ a, a:hover{
       left: -100%;
     }
   }
+
+  /*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+    width: 100%;
+    height: 80vh;
+    background-color: #9580FF;
+    background-size: cover;
+    position: relative;
+  }
+
+  #hero .container {
+    padding-top: 72px;
+  }
+  @media (max-width: 992px) {
+    #hero .container {
+      padding-top: 62px;
+    }
+  }
+  #hero h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #383A59;
+    font-family: "Poppins", sans-serif;
+  }
+  #hero h2 {
+    color: #383A59;
+    margin: 10px 0 0 0;
+    font-size: 24px;
+  }
+  #hero .btn-get-started {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 35px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin-top: 30px;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+  #hero .btn-get-started:hover {
+    background: #2A2C37;
+    border: 2px solid #2A2C37;
+  }
+  @media (min-width: 1024px) {
+    #hero {
+      background-attachment: fixed;
+    }
+  }
+  @media (max-width: 768px) {
+    #hero {
+      height: 100vh;
+    }
+    #hero h1 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+    #hero h2 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+#landing-pixels{
+    width: 100%;
+	height: 100%;
+}
+
+.landing-pixel{
+    background-color: #9580FF;
+	float: left;
+}

@@ -10,7 +10,7 @@
  require('../../public/css/landing_auth.css');
  require('../../public/css/shop.css');
  require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.js');
-
+ require('../../node_modules/jquery/dist/jquery.min.js');
 
  /**
   * Next, we will create a fresh React component instance and attach it to
