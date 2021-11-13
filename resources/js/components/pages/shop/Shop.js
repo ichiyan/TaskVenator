@@ -12,15 +12,15 @@ function Shop(){
         setClicked(event.target.getAttribute("name"));
     }
 return(
-    <div className="main_shop">
-        <div className="weaponForm">
+    <div className="Shop-main_shop">
+        <div className="Shop-weaponForm">
         <Form
             products={products}
             setProducts={setProducts}
         /><hr></hr>
         </div>
 
-        <div className="shopNavigator">
+        <div className="Shop-shopNavigator">
                 <div className="button">
                 <button onClick={showItem} name="Items" className="displayButtons">Items</button>
                 </div>
@@ -35,7 +35,7 @@ return(
                 </div>
          </div>
 
-        <div className="shop">
+        <div className="Shop-shop">
            
             <Display 
                 products={products}

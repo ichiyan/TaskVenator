@@ -1,26 +1,19 @@
-.App {
+    /* desinging shopp */
+  .Shop-main{
     background-color: #383A59;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    font-size: calc(10px + 2vmin);
     color: white;
-  }
-  
-  
-  /* desinging shopp */
-  .main_shop{
-    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid white;
   }
-  .weaponForm{
+  .Shop-weaponForm{
     display: flex;
     flex-direction: column;
   }
-  .shop{
+  .Shop-shop{
     display: flex;
     width:80%;
     flex: 4;
@@ -30,14 +23,14 @@
     /* background-color: white; */
     
   }
-  .weaponList{
+  .Shop-weaponList{
     
     display: flex;
     gap: 2rem;
     
    
   }
-  .items{
+  .Shop-items{
     display: inline-block;
     color: white;
     margin-left: 20px;
@@ -47,7 +40,7 @@
     width: 200px;
   }
   
-  .shopNavigator{
+  .Shop-shopNavigator{
     background-color: #C4C4C4;
     display: flex;
     flex-direction: row;
@@ -58,17 +51,17 @@
     gap:14rem;
   
   }
-  .displayButtons:hover{
+  .Shop-displayButtons:hover{
     background-color: #FF9580;
   }
-  .displayButtons {
+  .Shop-displayButtons {
     background-color: #C4C4C4;
     padding: 15px;
     font-size: 20px;
     border: none;
     cursor: pointer;
   }
-  .weaponList{
+  .Shop-weaponList{
     display: flex;
     
   }

@@ -21,7 +21,7 @@ function Display ({products, bought, setBought, clicked}){
         {products.map((p, index)=>{
             if(p.type === clicked){
             return (
-              <div key = {index} className="items">
+              <div key = {index} className="Shop-items">
                       <h3>{p.index}</h3>
                      <h3>{p.name}</h3>
                      <h3>{p.type}</h3>
@@ -37,7 +37,7 @@ function Display ({products, bought, setBought, clicked}){
                 </form>
                 </div>)
             }else if (clicked === "All"){
-                return( <div key = {index} className="items">
+                return( <div key = {index} className="Shop-items">
                 <h3>{p.index}</h3>
                <h3>{p.name}</h3>
                <h3>{p.type}</h3>
@@ -53,7 +53,7 @@ function Display ({products, bought, setBought, clicked}){
           </form>
           </div>);
             }else if (clicked === ""){
-                return( <div key = {index} className="items">
+                return( <div key = {index} className="Shop-items">
                 <h3>{p.index}</h3>
                <h3>{p.name}</h3>
                <h3>{p.type}</h3>
