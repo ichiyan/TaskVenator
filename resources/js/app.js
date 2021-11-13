@@ -5,7 +5,10 @@
  * building robust, powerful web applications using React + Laravel.
  */
 
- require('./bootstrap');
+ require('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
+ require('../../public/css/shop.css');
+ require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.js');
+ 
 
  /**
   * Next, we will create a fresh React component instance and attach it to
@@ -14,3 +17,4 @@
   */
 
  require('./components/routes/AppRouter');
+ 
