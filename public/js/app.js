@@ -732,11 +732,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -744,119 +741,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var Register = function Register() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // particlesJS.load('particles-js', 'particles.json', function() {
-    //     console.log('callback - particles-js config loaded');
-    //  });
-    particlesJS('particles-js', {
-      "particles": {
-        "number": {
-          "value": 400,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#ffffff"
-        },
-        "shape": {
-          "type": "edge",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          },
-          "polygon": {
-            "nb_sides": 5
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 10,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": false,
-          "distance": 500,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 2
-        },
-        "move": {
-          "enable": true,
-          "speed": 4,
-          "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "bubble"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 400,
-            "line_linked": {
-              "opacity": 0.5
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 4,
-            "duration": 0.3,
-            "opacity": 1,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
+    particlesJS.load('particles-js', 'particles.json');
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       id: "particles-js",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
         className: "test",
         children: "TEST"
       })
@@ -8516,7 +8406,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nhtml,body{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n}\n\na, a:hover{\n    text-decoration: none;\n}\n\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n    background: #2A2C37;\n    transition: all 0.5s;\n    z-index: 997;\n    padding: 10px 0;\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\n  }\n  #header .logo {\n    font-size: 24px;\n    margin: 0;\n    padding: 0;\n    line-height: 1;\n    font-weight: 600;\n    letter-spacing: 1px;\n    font-family: \"Playfair Display\", serif;\n  }\n  #header .logo a {\n    color: #fff;\n  }\n  #header .logo img {\n    max-height: 40px;\n  }\n\n  /**\n  * Get Started Button\n  */\n\n  .get-started-btn {\n    margin-left: 22px;\n    background: #5fcf80;\n    color: #fff;\n    border-radius: 50px;\n    padding: 8px 25px;\n    white-space: nowrap;\n    transition: 0.3s;\n    font-size: 14px;\n    display: inline-block;\n  }\n  .get-started-btn:hover {\n    background: #3ac162;\n    color: #fff;\n  }\n  @media (max-width: 768px) {\n    .get-started-btn {\n      margin: 0 15px 0 0;\n      padding: 6px 18px;\n    }\n  }\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n/**\n* Desktop Navigation\n*/\n\n.navbar {\n    padding: 0;\n  }\n  .navbar ul {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    list-style: none;\n    align-items: center;\n  }\n  .navbar li {\n    position: relative;\n  }\n  .navbar a, .navbar a:focus {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10px 0 10px 30px;\n    font-family: \"Playfair Display\", serif;\n    font-size: 16px;\n    font-weight: 400;\n    color: #fff;\n    white-space: nowrap;\n    transition: 0.3s;\n  }\n  .navbar a i, .navbar a:focus i {\n    font-size: 12px;\n    line-height: 0;\n    margin-left: 5px;\n  }\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\n    color: #8AFF80;\n  }\n  .navbar .dropdown ul {\n    display: block;\n    position: absolute;\n    left: 30px;\n    top: calc(100% + 30px);\n    margin: 0;\n    padding: 10px 0;\n    z-index: 99;\n    opacity: 0;\n    visibility: hidden;\n    background: #fff;\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n    transition: 0.3s;\n    border-radius: 4px;\n  }\n  .navbar .dropdown ul li {\n    min-width: 200px;\n  }\n  .navbar .dropdown ul a {\n    padding: 10px 20px;\n    font-size: 14px;\n    text-transform: none;\n    font-weight: 500;\n  }\n  .navbar .dropdown ul a i {\n    font-size: 12px;\n  }\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\n    color: #5fcf80;\n  }\n  .navbar .dropdown:hover > ul {\n    opacity: 1;\n    top: 100%;\n    visibility: visible;\n  }\n  .navbar .dropdown .dropdown ul {\n    top: 0;\n    left: calc(100% - 30px);\n    visibility: hidden;\n  }\n  .navbar .dropdown .dropdown:hover > ul {\n    opacity: 1;\n    top: 0;\n    left: 100%;\n    visibility: visible;\n  }\n  @media (max-width: 1366px) {\n    .navbar .dropdown .dropdown ul {\n      left: -90%;\n    }\n    .navbar .dropdown .dropdown:hover > ul {\n      left: -100%;\n    }\n  }\n\n  /*--------------------------------------------------------------\n# Hero Section\n--------------------------------------------------------------*/\n#hero {\n    width: 100%;\n    height: 80vh;\n    background-color: #9580FF;\n    background-size: cover;\n    position: relative;\n  }\n\n  #hero .container {\n    padding-top: 72px;\n  }\n  @media (max-width: 992px) {\n    #hero .container {\n      padding-top: 62px;\n    }\n  }\n  #hero h1 {\n    margin: 0;\n    font-size: 48px;\n    font-weight: 700;\n    line-height: 56px;\n    color: #383A59;\n    font-family: \"Poppins\", sans-serif;\n  }\n  #hero h2 {\n    color: #383A59;\n    margin: 10px 0 0 0;\n    font-size: 24px;\n  }\n  #hero .btn-get-started {\n    font-family: \"Raleway\", sans-serif;\n    font-weight: 500;\n    font-size: 15px;\n    letter-spacing: 1px;\n    display: inline-block;\n    padding: 10px 35px;\n    border-radius: 50px;\n    transition: 0.5s;\n    margin-top: 30px;\n    border: 2px solid #fff;\n    color: #fff;\n  }\n  #hero .btn-get-started:hover {\n    background: #2A2C37;\n    border: 2px solid #2A2C37;\n  }\n  @media (min-width: 1024px) {\n    #hero {\n      background-attachment: fixed;\n    }\n  }\n  @media (max-width: 768px) {\n    #hero {\n      height: 100vh;\n    }\n    #hero h1 {\n      font-size: 28px;\n      line-height: 36px;\n    }\n    #hero h2 {\n      font-size: 18px;\n      line-height: 24px;\n    }\n  }\n\n#landing-pixels{\n    width: 100%;\n\theight: 100%;\n}\n\n.landing-pixel{\n    background-color: #9580FF;\n\tfloat: left;\n}\n\n /*--------------------------------------------------------------\n# Register\n--------------------------------------------------------------*/\ncanvas {\n    display: block;\n    vertical-align: bottom;\n}\n\n#particles-js {\n    width: 100%;\n    height: 100%;\n    background-color: #9580ff;\n    background-attachment: fixed;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nhtml,body{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n}\n\na, a:hover{\n    text-decoration: none;\n}\n\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n    background: #2A2C37;\n    transition: all 0.5s;\n    z-index: 997;\n    padding: 10px 0;\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\n  }\n  #header .logo {\n    font-size: 24px;\n    margin: 0;\n    padding: 0;\n    line-height: 1;\n    font-weight: 600;\n    letter-spacing: 1px;\n    font-family: \"Playfair Display\", serif;\n  }\n  #header .logo a {\n    color: #fff;\n  }\n  #header .logo img {\n    max-height: 40px;\n  }\n\n  /**\n  * Get Started Button\n  */\n\n  .get-started-btn {\n    margin-left: 22px;\n    background: #5fcf80;\n    color: #fff;\n    border-radius: 50px;\n    padding: 8px 25px;\n    white-space: nowrap;\n    transition: 0.3s;\n    font-size: 14px;\n    display: inline-block;\n  }\n  .get-started-btn:hover {\n    background: #3ac162;\n    color: #fff;\n  }\n  @media (max-width: 768px) {\n    .get-started-btn {\n      margin: 0 15px 0 0;\n      padding: 6px 18px;\n    }\n  }\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n/**\n* Desktop Navigation\n*/\n\n.navbar {\n    padding: 0;\n  }\n  .navbar ul {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    list-style: none;\n    align-items: center;\n  }\n  .navbar li {\n    position: relative;\n  }\n  .navbar a, .navbar a:focus {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10px 0 10px 30px;\n    font-family: \"Playfair Display\", serif;\n    font-size: 16px;\n    font-weight: 400;\n    color: #fff;\n    white-space: nowrap;\n    transition: 0.3s;\n  }\n  .navbar a i, .navbar a:focus i {\n    font-size: 12px;\n    line-height: 0;\n    margin-left: 5px;\n  }\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\n    color: #8AFF80;\n  }\n  .navbar .dropdown ul {\n    display: block;\n    position: absolute;\n    left: 30px;\n    top: calc(100% + 30px);\n    margin: 0;\n    padding: 10px 0;\n    z-index: 99;\n    opacity: 0;\n    visibility: hidden;\n    background: #fff;\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n    transition: 0.3s;\n    border-radius: 4px;\n  }\n  .navbar .dropdown ul li {\n    min-width: 200px;\n  }\n  .navbar .dropdown ul a {\n    padding: 10px 20px;\n    font-size: 14px;\n    text-transform: none;\n    font-weight: 500;\n  }\n  .navbar .dropdown ul a i {\n    font-size: 12px;\n  }\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\n    color: #5fcf80;\n  }\n  .navbar .dropdown:hover > ul {\n    opacity: 1;\n    top: 100%;\n    visibility: visible;\n  }\n  .navbar .dropdown .dropdown ul {\n    top: 0;\n    left: calc(100% - 30px);\n    visibility: hidden;\n  }\n  .navbar .dropdown .dropdown:hover > ul {\n    opacity: 1;\n    top: 0;\n    left: 100%;\n    visibility: visible;\n  }\n  @media (max-width: 1366px) {\n    .navbar .dropdown .dropdown ul {\n      left: -90%;\n    }\n    .navbar .dropdown .dropdown:hover > ul {\n      left: -100%;\n    }\n  }\n\n  /*--------------------------------------------------------------\n# Hero Section\n--------------------------------------------------------------*/\n#hero {\n    width: 100%;\n    height: 80vh;\n    background-color: #9580FF;\n    background-size: cover;\n    position: relative;\n  }\n\n  #hero .container {\n    padding-top: 72px;\n  }\n  @media (max-width: 992px) {\n    #hero .container {\n      padding-top: 62px;\n    }\n  }\n  #hero h1 {\n    margin: 0;\n    font-size: 48px;\n    font-weight: 700;\n    line-height: 56px;\n    color: #383A59;\n    font-family: \"Poppins\", sans-serif;\n  }\n  #hero h2 {\n    color: #383A59;\n    margin: 10px 0 0 0;\n    font-size: 24px;\n  }\n  #hero .btn-get-started {\n    font-family: \"Raleway\", sans-serif;\n    font-weight: 500;\n    font-size: 15px;\n    letter-spacing: 1px;\n    display: inline-block;\n    padding: 10px 35px;\n    border-radius: 50px;\n    transition: 0.5s;\n    margin-top: 30px;\n    border: 2px solid #fff;\n    color: #fff;\n  }\n  #hero .btn-get-started:hover {\n    background: #2A2C37;\n    border: 2px solid #2A2C37;\n  }\n  @media (min-width: 1024px) {\n    #hero {\n      background-attachment: fixed;\n    }\n  }\n  @media (max-width: 768px) {\n    #hero {\n      height: 100vh;\n    }\n    #hero h1 {\n      font-size: 28px;\n      line-height: 36px;\n    }\n    #hero h2 {\n      font-size: 18px;\n      line-height: 24px;\n    }\n  }\n\n#landing-pixels{\n    width: 100%;\n\theight: 100%;\n}\n\n.landing-pixel{\n    background-color: #9580FF;\n\tfloat: left;\n}\n\n /*--------------------------------------------------------------\n# Register\n--------------------------------------------------------------*/\ncanvas {\n    display: block;\n}\n\n#particles-js {\n    width: 100%;\n    height: 100%;\n    background-color: #9580ff;\n    background-attachment: fixed;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
