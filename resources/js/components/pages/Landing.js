@@ -27,7 +27,7 @@ const Landing = () => {
                 r--;
             }
         }).resize();
-    });
+    }, []);
 
 
     return (

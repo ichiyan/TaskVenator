@@ -4,11 +4,11 @@ import LandingNavbar from "./LandingNavbar";
 
 const Header = () => {
     return (
-        <header id="header" class="fixed-top">
-            <div class="container d-flex justify-content-between align-items-center">
-                 <h1 class="logo me-auto"><Link to="">TaskVenator</Link></h1>
+        <header id="header" className="fixed-top">
+            <div className="container d-flex justify-content-between align-items-center">
+                 <h1 className="logo me-auto"><Link to="">TaskVenator</Link></h1>
                  <LandingNavbar/>
-                 <Link to="" className="get-started-btn">Get Started</Link>
+                 <Link to="/register" className="get-started-btn">Get Started</Link>
             </div>
         </header>
     );

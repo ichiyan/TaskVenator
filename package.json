@@ -25,6 +25,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "particles.js": "^2.0.0",
         "react-router-dom": "^6.0.2"
     }
 }

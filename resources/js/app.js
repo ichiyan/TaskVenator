@@ -5,12 +5,14 @@
  * building robust, powerful web applications using React + Laravel.
  */
 
-/* CSS */
+
  require('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
  require('../../public/css/landing_auth.css');
  require('../../public/css/shop.css');
  require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.js');
  require('../../node_modules/jquery/dist/jquery.min.js');
+ require('../../public/js/particles.js');
+
 
  /**
   * Next, we will create a fresh React component instance and attach it to

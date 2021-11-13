@@ -237,3 +237,19 @@ a, a:hover{
     background-color: #9580FF;
 	float: left;
 }
+
+ /*--------------------------------------------------------------
+# Register
+--------------------------------------------------------------*/
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    background-color: #9580ff;
+    background-attachment: fixed;
+}
+
