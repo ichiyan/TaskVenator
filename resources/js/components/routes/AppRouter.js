@@ -1,15 +1,19 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+import Landing from "../pages/Landing";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
 import Shop from "../pages/shop/shop";
+
 
 const AppRouter = () => {
     return (
         <div>
             <Router>
                 <Routes>
+                    <Route path='/' exact element={<Landing/>}></Route>
                     <Route path='/register' element={<Register/>}></Route>
                     <Route path='/login' element={<Login/>}></Route>
                     <Route path='/shop' element={<Shop/>}></Route>
