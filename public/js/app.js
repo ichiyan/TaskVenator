@@ -751,7 +751,7 @@ var Register = function Register() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "card signup-signin-card",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "row no-gutters",
+          className: "row",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "col-md-5",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
@@ -762,71 +762,83 @@ var Register = function Register() {
               className: "signup-signin-card-img"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "col-md-6",
+            className: "col-md-7",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "card-body",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
                 className: "signup-signin-card-description",
                 children: "Sign up"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                "class": "form-group",
+                className: "form-group signup-signin-form-group",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                   type: "text",
-                  "class": "form-input",
+                  className: "form-input",
                   name: "name",
                   id: "name",
                   placeholder: "Your Name"
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                "class": "form-group",
+                className: "form-group signup-signin-form-group",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                   type: "email",
-                  "class": "form-input",
+                  className: "form-input",
                   name: "email",
                   id: "email",
                   placeholder: "Email"
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                "class": "form-group",
+                className: "form-group signup-signin-form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                   type: "text",
-                  "class": "form-input",
+                  className: "form-input",
                   name: "password",
                   id: "password",
                   placeholder: "Password"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                   toggle: "#password",
-                  "class": "zmdi zmdi-eye field-icon toggle-password"
+                  className: "zmdi zmdi-eye field-icon toggle-password"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                "class": "form-group",
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  type: "text",
+                  className: "form-input",
+                  name: "password",
+                  id: "password",
+                  placeholder: "Confirm Password"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  toggle: "#password",
+                  className: "zmdi zmdi-eye field-icon toggle-password"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                   type: "checkbox",
                   name: "agree-term",
                   id: "agree-term",
-                  "class": "agree-term"
+                  className: "agree-term"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
                   "for": "agree-term",
-                  "class": "label-agree-term",
+                  className: "label-agree-term",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {})
                   }), "I agree all statements in  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                     href: "#",
-                    "class": "term-service",
+                    className: "term-service",
                     children: "Terms of service"
                   })]
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                "class": "form-group",
+                className: "form-group signup-signin-form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                   type: "submit",
                   name: "submit",
                   id: "submit",
-                  "class": "form-submit submit",
+                  className: "form-submit submit",
                   value: "Sign up"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                   href: "#",
-                  "class": "submit-link submit",
+                  className: "submit-link submit",
                   children: "Sign in"
                 })]
               })]
@@ -8490,7 +8502,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nhtml,body{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n}\n\na, a:hover{\n    text-decoration: none;\n}\n\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n    background: #2A2C37;\n    transition: all 0.5s;\n    z-index: 997;\n    padding: 10px 0;\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\n  }\n  #header .logo {\n    font-size: 24px;\n    margin: 0;\n    padding: 0;\n    line-height: 1;\n    font-weight: 600;\n    letter-spacing: 1px;\n    font-family: \"Playfair Display\", serif;\n  }\n  #header .logo a {\n    color: #fff;\n  }\n  #header .logo img {\n    max-height: 40px;\n  }\n\n  /**\n  * Get Started Button\n  */\n\n  .get-started-btn {\n    margin-left: 22px;\n    background: #5fcf80;\n    color: #fff;\n    border-radius: 50px;\n    padding: 8px 25px;\n    white-space: nowrap;\n    transition: 0.3s;\n    font-size: 14px;\n    display: inline-block;\n  }\n  .get-started-btn:hover {\n    background: #3ac162;\n    color: #fff;\n  }\n  @media (max-width: 768px) {\n    .get-started-btn {\n      margin: 0 15px 0 0;\n      padding: 6px 18px;\n    }\n  }\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n/**\n* Desktop Navigation\n*/\n\n.navbar {\n    padding: 0;\n  }\n  .navbar ul {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    list-style: none;\n    align-items: center;\n  }\n  .navbar li {\n    position: relative;\n  }\n  .navbar a, .navbar a:focus {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10px 0 10px 30px;\n    font-family: \"Playfair Display\", serif;\n    font-size: 16px;\n    font-weight: 400;\n    color: #fff;\n    white-space: nowrap;\n    transition: 0.3s;\n  }\n  .navbar a i, .navbar a:focus i {\n    font-size: 12px;\n    line-height: 0;\n    margin-left: 5px;\n  }\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\n    color: #8AFF80;\n  }\n  .navbar .dropdown ul {\n    display: block;\n    position: absolute;\n    left: 30px;\n    top: calc(100% + 30px);\n    margin: 0;\n    padding: 10px 0;\n    z-index: 99;\n    opacity: 0;\n    visibility: hidden;\n    background: #fff;\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n    transition: 0.3s;\n    border-radius: 4px;\n  }\n  .navbar .dropdown ul li {\n    min-width: 200px;\n  }\n  .navbar .dropdown ul a {\n    padding: 10px 20px;\n    font-size: 14px;\n    text-transform: none;\n    font-weight: 500;\n  }\n  .navbar .dropdown ul a i {\n    font-size: 12px;\n  }\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\n    color: #5fcf80;\n  }\n  .navbar .dropdown:hover > ul {\n    opacity: 1;\n    top: 100%;\n    visibility: visible;\n  }\n  .navbar .dropdown .dropdown ul {\n    top: 0;\n    left: calc(100% - 30px);\n    visibility: hidden;\n  }\n  .navbar .dropdown .dropdown:hover > ul {\n    opacity: 1;\n    top: 0;\n    left: 100%;\n    visibility: visible;\n  }\n  @media (max-width: 1366px) {\n    .navbar .dropdown .dropdown ul {\n      left: -90%;\n    }\n    .navbar .dropdown .dropdown:hover > ul {\n      left: -100%;\n    }\n  }\n\n  /*--------------------------------------------------------------\n# Hero Section\n--------------------------------------------------------------*/\n#hero {\n    width: 100%;\n    height: 80vh;\n    background-color: #9580FF;\n    background-size: cover;\n    position: relative;\n  }\n\n  #hero .container {\n    padding-top: 72px;\n  }\n  @media (max-width: 992px) {\n    #hero .container {\n      padding-top: 62px;\n    }\n  }\n  #hero h1 {\n    margin: 0;\n    font-size: 48px;\n    font-weight: 700;\n    line-height: 56px;\n    color: #383A59;\n    font-family: \"Poppins\", sans-serif;\n  }\n  #hero h2 {\n    color: #383A59;\n    margin: 10px 0 0 0;\n    font-size: 24px;\n  }\n  #hero .btn-get-started {\n    font-family: \"Raleway\", sans-serif;\n    font-weight: 500;\n    font-size: 15px;\n    letter-spacing: 1px;\n    display: inline-block;\n    padding: 10px 35px;\n    border-radius: 50px;\n    transition: 0.5s;\n    margin-top: 30px;\n    border: 2px solid #fff;\n    color: #fff;\n  }\n  #hero .btn-get-started:hover {\n    background: #2A2C37;\n    border: 2px solid #2A2C37;\n  }\n  @media (min-width: 1024px) {\n    #hero {\n      background-attachment: fixed;\n    }\n  }\n  @media (max-width: 768px) {\n    #hero {\n      height: 100vh;\n    }\n    #hero h1 {\n      font-size: 28px;\n      line-height: 36px;\n    }\n    #hero h2 {\n      font-size: 18px;\n      line-height: 24px;\n    }\n  }\n\n#landing-pixels{\n    width: 100%;\n\theight: 100%;\n}\n\n.landing-pixel{\n    background-color: #9580FF;\n\tfloat: left;\n}\n\n /*--------------------------------------------------------------\n# Register\n--------------------------------------------------------------*/\ncanvas {\n    display: block;\n}\n\n#particles-js {\n    width: 100%;\n    height: 100%;\n    background-color: #9580ff;\n    background-attachment: fixed;\n    position: absolute;\n}\n\n.container.signup-signin {\n    width: 1200px !important;\n    padding: 10%;\n}\n\n\n.signup-signin-card {\n    border: 0 !important;\n    border-radius: 27.5px !important;\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n    overflow: visible !important;\n    padding: 0 !important;\n}\n\n.signup-signin-card-img {\n    border-radius: 27.5px 0 0 27.5px !important;\n    /* position: absolute; */\n    width: 100%;\n    height: 100%;\n    border-radius: 0 ;\n    -o-object-fit: cover;\n        object-fit: cover;\n}\n\n.signup-signin-card-img-top{\n    position: absolute;\n    height: 115%;\n    left: -50%;\n}\n\n.signup-signin-card .card-body {\n    padding: 85px 60px 60px;\n}\n\n@media (max-width: 422px) {\n     .signup-signin-card .card-body {\n        padding: 35px 24px;\n    }\n}\n\n.signup-signin-card-description {\n    font-size: 25px;\n    color: #000;\n    font-weight: bold;\n    margin-bottom: 23px;\n}\n\n.signup-signin-card form {\n    max-width: 326px;\n }\n\n.signup-signin-card .form-control {\n    border: 1px solid #d5dae2;\n    padding: 15px 25px;\n    margin-bottom: 20px;\n    min-height: 45px;\n    font-size: 13px;\n    line-height: 15;\n    font-weight: normal;\n}\n    .signup-signin-card .form-control::-moz-placeholder {\n    color: #919aa3; }\n    .signup-signin-card .form-control:-ms-input-placeholder {\n    color: #919aa3; }\n    .signup-signin-card .form-control::placeholder {\n    color: #919aa3; }\n\n.signup-signin-card .signup-signin-btn {\n    font-family: \"Raleway\", sans-serif;\n    padding: 13px 20px 12px;\n    background-color: #66518b;\n    border-radius: 4px;\n    font-size: 17px;\n    font-weight: bold;\n    line-height: 20px;\n    color: #fff;\n    margin-bottom: 24px;\n}\n\n.signup-signin-card .signup-signin-btn:hover {\n    background-color: #7861ad;\n}\n\n.signup-signin-card .forgot-password-link {\n    font-size: 14px;\n    color: #919aa3;\n    margin-bottom: 12px;\n }\n.signup-signin-card-footer-text {\n    font-size: 16px;\n    color: #0d2366;\n    margin-bottom: 60px;\n}\n\n@media (max-width: 767px) {\n    .signup-signin-card-footer-text {\n        margin-bottom: 24px; }\n}\n\n.signup-signin-card-footer-nav a {\n    font-size: 14px;\n    color: #919aa3;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nhtml,body{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    font-family: \"Source Sans Pro\", 'sans-serif';\n}\n\na, a:hover{\n    text-decoration: none;\n}\n\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n    background: #2A2C37;\n    transition: all 0.5s;\n    z-index: 997;\n    padding: 10px 0;\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\n  }\n  #header .logo {\n    font-size: 24px;\n    margin: 0;\n    padding: 0;\n    line-height: 1;\n    font-weight: 600;\n    letter-spacing: 1px;\n    font-family: \"Playfair Display\", serif;\n  }\n  #header .logo a {\n    color: #fff;\n  }\n  #header .logo img {\n    max-height: 40px;\n  }\n\n  /**\n  * Get Started Button\n  */\n\n  .get-started-btn {\n    margin-left: 22px;\n    background: #5fcf80;\n    color: #fff;\n    border-radius: 50px;\n    padding: 8px 25px;\n    white-space: nowrap;\n    transition: 0.3s;\n    font-size: 14px;\n    display: inline-block;\n  }\n  .get-started-btn:hover {\n    background: #3ac162;\n    color: #fff;\n  }\n  @media (max-width: 768px) {\n    .get-started-btn {\n      margin: 0 15px 0 0;\n      padding: 6px 18px;\n    }\n  }\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n/**\n* Desktop Navigation\n*/\n\n.navbar {\n    padding: 0;\n  }\n  .navbar ul {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    list-style: none;\n    align-items: center;\n  }\n  .navbar li {\n    position: relative;\n  }\n  .navbar a, .navbar a:focus {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10px 0 10px 30px;\n    font-family: \"Playfair Display\", serif;\n    font-size: 16px;\n    font-weight: 400;\n    color: #fff;\n    white-space: nowrap;\n    transition: 0.3s;\n  }\n  .navbar a i, .navbar a:focus i {\n    font-size: 12px;\n    line-height: 0;\n    margin-left: 5px;\n  }\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\n    color: #8AFF80;\n  }\n  .navbar .dropdown ul {\n    display: block;\n    position: absolute;\n    left: 30px;\n    top: calc(100% + 30px);\n    margin: 0;\n    padding: 10px 0;\n    z-index: 99;\n    opacity: 0;\n    visibility: hidden;\n    background: #fff;\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n    transition: 0.3s;\n    border-radius: 4px;\n  }\n  .navbar .dropdown ul li {\n    min-width: 200px;\n  }\n  .navbar .dropdown ul a {\n    padding: 10px 20px;\n    font-size: 14px;\n    text-transform: none;\n    font-weight: 500;\n  }\n  .navbar .dropdown ul a i {\n    font-size: 12px;\n  }\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\n    color: #5fcf80;\n  }\n  .navbar .dropdown:hover > ul {\n    opacity: 1;\n    top: 100%;\n    visibility: visible;\n  }\n  .navbar .dropdown .dropdown ul {\n    top: 0;\n    left: calc(100% - 30px);\n    visibility: hidden;\n  }\n  .navbar .dropdown .dropdown:hover > ul {\n    opacity: 1;\n    top: 0;\n    left: 100%;\n    visibility: visible;\n  }\n  @media (max-width: 1366px) {\n    .navbar .dropdown .dropdown ul {\n      left: -90%;\n    }\n    .navbar .dropdown .dropdown:hover > ul {\n      left: -100%;\n    }\n  }\n\n  /*--------------------------------------------------------------\n# Hero Section\n--------------------------------------------------------------*/\n#hero {\n    width: 100%;\n    height: 80vh;\n    background-color: #9580FF;\n    background-size: cover;\n    position: relative;\n  }\n\n  #hero .container {\n    padding-top: 72px;\n  }\n  @media (max-width: 992px) {\n    #hero .container {\n      padding-top: 62px;\n    }\n  }\n  #hero h1 {\n    margin: 0;\n    font-size: 48px;\n    font-weight: 700;\n    line-height: 56px;\n    color: #383A59;\n    font-family: \"Poppins\", sans-serif;\n  }\n  #hero h2 {\n    color: #383A59;\n    margin: 10px 0 0 0;\n    font-size: 24px;\n  }\n  #hero .btn-get-started {\n    font-family: \"Raleway\", sans-serif;\n    font-weight: 500;\n    font-size: 15px;\n    letter-spacing: 1px;\n    display: inline-block;\n    padding: 10px 35px;\n    border-radius: 50px;\n    transition: 0.5s;\n    margin-top: 30px;\n    border: 2px solid #fff;\n    color: #fff;\n  }\n  #hero .btn-get-started:hover {\n    background: #2A2C37;\n    border: 2px solid #2A2C37;\n  }\n  @media (min-width: 1024px) {\n    #hero {\n      background-attachment: fixed;\n    }\n  }\n  @media (max-width: 768px) {\n    #hero {\n      height: 100vh;\n    }\n    #hero h1 {\n      font-size: 28px;\n      line-height: 36px;\n    }\n    #hero h2 {\n      font-size: 18px;\n      line-height: 24px;\n    }\n  }\n\n#landing-pixels{\n    width: 100%;\n\theight: 100%;\n}\n\n.landing-pixel{\n    background-color: #9580FF;\n\tfloat: left;\n}\n\n /*--------------------------------------------------------------\n# Registration\n--------------------------------------------------------------*/\ncanvas {\n    display: block;\n}\n\n#particles-js {\n    width: 100%;\n    height: 100%;\n    background-color: #9580ff;\n    background-attachment: fixed;\n    position: absolute;\n}\n\n.container.signup-signin {\n    padding-top: 10%;\n    width: 60%;\n}\n\n\n.signup-signin-card {\n    border: 0 !important;\n    border-radius: 27.5px !important;\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n    overflow: visible !important;\n    padding: 0 !important;\n    margin: 0 !important;\n}\n\n.signup-signin-card-img {\n    border-radius: 27.5px 0 0 27.5px !important;\n    width: 100%;\n    height: 100%;\n    border-radius: 0 ;\n    -o-object-fit: cover;\n        object-fit: cover;\n}\n\n.signup-signin-card-img-top{\n    position: absolute;\n    height: 115%;\n    right: -10%;\n}\n\n.signup-signin-card .card-body {\n    padding: 50px 40px 50px;\n}\n\n\n.signup-signin-card-description {\n    font-size: 25px;\n    color: #000;\n    font-weight: bold;\n    margin-bottom: 23px;\n}\n\n.signup-signin-card form {\n    max-width: 326px;\n }\n\n\n/* .signup-signin-card .forgot-password-link {\n    font-size: 14px;\n    color: #919aa3;\n    margin-bottom: 12px;\n }\n.signup-signin-card-footer-text {\n    font-size: 16px;\n    color: #0d2366;\n    margin-bottom: 60px;\n}\n\n.signup-signin-card-footer-nav a {\n    font-size: 14px;\n    color: #919aa3;\n} */\n\n\n.signup-signin-form-group > input {\n    border: none;\n    box-sizing: border-box;\n    border-bottom: 1px solid #ebebeb;\n    background: transparent;\n    width: 100%;\n    display: block;\n    color: #000;\n    font-size: 14px;\n    padding: 3px 0;\n}\n\n.signup-signin-form-group > input:focus {\n    outline: none;\n}\n\n.signup-signin-form-group > .field-icon {\n    /* float: right;\n    margin-right: 0px;\n    margin-top: -22px;\n    position: relative;\n    z-index: 2; */\n    color: #000;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) {\n    width: 2em;\n    margin: 0;\n    padding: 0;\n    font-size: 1em;\n    display: none;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\n    display: inline-block;\n    margin-bottom: 25px;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\n    display: inline-block;\n    width: 13px;\n    height: 13px;\n    margin-right: 15px;\n    margin-bottom: 4px;\n    border: 1px solid #000;\n    border-radius: 2px;\n    background: transparent;\n    vertical-align: bottom;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\n    background: transparent;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\n    content: '\\2713';\n    display: block;\n    color: #000;\n    font-size: 11px;\n    line-height: 1.2;\n    text-align: center;\n    font-weight: bold;\n}\n\n.signup-signin-form-group > .label-agree-term {\n    font-size: 13px;\n    font-weight: 400;\n    color: #000;\n}\n.signup-signin-form-group > .term-service {\n    color: #000;\n}\n.signup-signin-form-group > .form-submit {\n    width: auto;\n    display: inline-block;\n    border: none;\n    background: #5FCF80;\n    color: #fff;\n    padding: 10px;\n    height: 50px;\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n    margin-right: 25px;\n}\n.signup-signin-form-group > .form-submit:hover {\n    background-color: #3ac162;\n}\n.signup-signin-form-group > .submit {\n    width: 130px;\n    border-radius: 25px;\n    text-transform: uppercase;\n    font-size: 13px;\n    cursor: pointer;\n}\n.signup-signin-form-group > .submit-link {\n    border: 2px solid #5FCF80;\n    text-decoration: none;\n    display: inline-block;\n    vertical-align: middle;\n    padding: 12px 0;\n    text-align: center;\n    color: #000;\n}\n.signup-signin-form-group > .submit-link:hover {\n    background: #fff;\n    color: #3ac162;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
