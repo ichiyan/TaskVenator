@@ -251,7 +251,7 @@ canvas {
     height: 100%;
     background-color: #9580ff;
     background-attachment: fixed;
-    position: absolute;
+    position: fixed;
 }
 
 .container.signup-signin {
@@ -422,3 +422,7 @@ canvas {
     color: #3ac162;
 }
 
+.signup-signin .error-msg{
+    color: red;
+    font-size: small;
+}
