@@ -1,8 +1,8 @@
 import React from "react";
 import Form from "./addProductForm";
-
 import Display from "./display";
 import { useState } from 'react';
+
 function Shop(){
     const[products, setProducts]= useState([]);
     const[bought, setBought]= useState([]);
@@ -13,7 +13,9 @@ function Shop(){
     }
 return(
     <div className="Shop-main_shop">
+        <button>test</button>
         <div className="Shop-weaponForm">
+            
         <Form
             products={products}
             setProducts={setProducts}
@@ -22,16 +24,16 @@ return(
 
         <div className="Shop-shopNavigator">
                 <div className="button">
-                <button onClick={showItem} name="Items" className="displayButtons">Items</button>
+                <button onClick={showItem} name="Items" className="Shop-displayButton">Items</button>
                 </div>
                 <div className="button">
-                <button onClick={showItem} name="Potions" className="displayButtons">Potions</button>
+                <button onClick={showItem} name="Potions" className="Shop-displayButton">Potions</button>
                 </div>
                 <div className="button">
-                <button onClick={showItem} name="Outfit" className="displayButtons">Outfit</button>
+                <button onClick={showItem} name="Outfit" className="Shop-displayButton">Outfit</button>
                 </div>
                 <div className="button">
-                <button onClick={showItem} name="All" className="displayButtons">All</button>
+                <button onClick={showItem} name="All" className="Shop-displayButton">All</button>
                 </div>
          </div>
 

@@ -1,5 +1,5 @@
     /* desinging shopp */
-  .Shop-main{
+  .Shop-main_shop{
     background-color: #383A59;
     min-height: 100vh;
     display: flex;
@@ -51,10 +51,10 @@
     gap:14rem;
   
   }
-  .Shop-displayButtons:hover{
+  .Shop-displayButton:hover{
     background-color: #FF9580;
   }
-  .Shop-displayButtons {
+  .Shop-displayButton {
     background-color: #C4C4C4;
     padding: 15px;
     font-size: 20px;
