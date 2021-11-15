@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import axios from 'axios';
 
 import Landing from "../pages/Landing";
+import Auth from "../pages/Auth";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
 import Shop from "../pages/shop/shop";
@@ -19,8 +20,8 @@ const AppRouter = () => {
             <Router>
                 <Routes>
                     <Route path='/' exact element={<Landing/>}></Route>
-                    <Route path='/register' element={<Register/>}></Route>
-                    <Route path='/login' element={<Login/>}></Route>
+                    <Route path='/register' element={<Auth page="register"/>}></Route>
+                    <Route path='/login' element={<Auth page="login"/>}></Route>
                     <Route path='/shop' element={<Shop/>}></Route>
                 </Routes>
             </Router>

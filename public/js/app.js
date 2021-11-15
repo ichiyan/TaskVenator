@@ -2756,15 +2756,172 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
 
 
 
 var Login = function Login() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-      children: "Login"
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      invalidCredentialsMsg = _useState2[0],
+      setInvalidCredentialsMsg = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)({
+    email: '',
+    password: '',
+    error_list: []
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loginUser = _useState4[0],
+      setLoginUser = _useState4[1];
+
+  var inputHandler = function inputHandler(e) {
+    e.persist();
+    setLoginUser(_objectSpread(_objectSpread({}, loginUser), {}, _defineProperty({}, e.target.name, e.target.value)));
+  };
+
+  var loginSubmitHandler = function loginSubmitHandler(e) {
+    e.preventDefault();
+    var data = {
+      email: loginUser.email,
+      password: loginUser.password
+    };
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/sanctum/csrf-cookie').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("api/login", data).then(function (res) {
+        if (res.data.status === 200) {
+          localStorage.setItem('auth_token', res.data.token);
+          localStorage.setItem('auth_name', res.data.username); //remove swal after
+
+          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+            text: res.data.message,
+            icon: "success"
+          });
+          navigate('/');
+        } else if (res.data.status === 401) {
+          setInvalidCredentialsMsg(res.data.message);
+        } else {
+          setLoginUser(_objectSpread(_objectSpread({}, loginUser), {}, {
+            error_list: res.data.validation_errors
+          }));
+        }
+      });
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "container signup-signin",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "card signup-signin-card",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "col-md-5",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            src: "assets/images/avatar-mage.png",
+            className: "signup-signin-card-img-top login-img"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            src: "assets/images/pixel-grassfield.png",
+            className: "signup-signin-card-img"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "col-md-7",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "card-body",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              className: "signup-signin-card-description",
+              children: "Log in"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+              onSubmit: loginSubmitHandler,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "email",
+                  className: "form-input",
+                  name: "email",
+                  id: "email",
+                  placeholder: "Email",
+                  onChange: inputHandler,
+                  value: loginUser.email
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                  className: "error-msg",
+                  children: loginUser.error_list.email
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "text",
+                  className: "form-input",
+                  name: "password",
+                  id: "password",
+                  placeholder: "Password",
+                  onChange: inputHandler,
+                  value: loginUser.password
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                  toggle: "#password",
+                  className: "zmdi zmdi-eye field-icon toggle-password"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                  className: "error-msg",
+                  children: loginUser.error_list.password
+                })]
+              }), invalidCredentialsMsg === '' ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "error-msg",
+                children: invalidCredentialsMsg
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "form-group signup-signin-form-group",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+                  to: "",
+                  className: "",
+                  children: "Forgot password"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "submit",
+                  name: "submit",
+                  id: "submit",
+                  className: "form-submit submit",
+                  value: "Log in"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+                  to: "/login",
+                  className: "submit-link submit",
+                  children: "Sign up"
+                })]
+              })]
+            })]
+          })
+        })]
+      })
     })
   });
 };
@@ -2853,8 +3010,7 @@ var Register = function Register() {
           sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
             text: res.data.message,
             icon: "success"
-          });
-          navigate('/');
+          }); // navigate('/');
         } else {
           setRegisterUser(_objectSpread(_objectSpread({}, registerUser), {}, {
             error_list: res.data.validation_errors
@@ -2864,133 +3020,126 @@ var Register = function Register() {
     });
   };
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    particlesJS.load('particles-js', 'particles.json');
-  }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      id: "particles-js"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "container signup-signin",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "card signup-signin-card",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "col-md-5",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-              src: "assets/images/female-warrior.png",
-              className: "signup-signin-card-img-top"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-              src: "assets/images/pixel-grassfield.png",
-              className: "signup-signin-card-img"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "col-md-7",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "card-body",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                className: "signup-signin-card-description",
-                children: "Sign up"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
-                onSubmit: registerSubmitHandler,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "form-group signup-signin-form-group",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                    type: "text",
-                    className: "form-input",
-                    name: "name",
-                    id: "name",
-                    placeholder: "Your Name",
-                    onChange: inputHandler,
-                    value: registerUser.name
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    className: "error-msg",
-                    children: registerUser.error_list.name
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "form-group signup-signin-form-group",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                    type: "email",
-                    className: "form-input",
-                    name: "email",
-                    id: "email",
-                    placeholder: "Email",
-                    onChange: inputHandler,
-                    value: registerUser.email
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    className: "error-msg",
-                    children: registerUser.error_list.email
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "form-group signup-signin-form-group",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                    type: "text",
-                    className: "form-input",
-                    name: "password",
-                    id: "password",
-                    placeholder: "Password",
-                    onChange: inputHandler,
-                    value: registerUser.password
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    toggle: "#password",
-                    className: "zmdi zmdi-eye field-icon toggle-password"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    className: "error-msg",
-                    children: registerUser.error_list.password
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "form-group signup-signin-form-group",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                    type: "text",
-                    className: "form-input",
-                    name: "confirm_password",
-                    id: "password",
-                    placeholder: "Confirm Password",
-                    onChange: inputHandler,
-                    value: registerUser.confirm_password
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    toggle: "#password",
-                    className: "zmdi zmdi-eye field-icon toggle-password"
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "form-group signup-signin-form-group",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                    type: "checkbox",
-                    name: "agree-term",
-                    id: "agree-term",
-                    className: "agree-term"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
-                    htmlFor: "agree-term",
-                    className: "label-agree-term",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {})
-                    }), "I agree all statements in  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-                      to: "#",
-                      className: "term-service",
-                      children: "Terms of service"
-                    })]
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  className: "form-group signup-signin-form-group",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                    type: "submit",
-                    name: "submit",
-                    id: "submit",
-                    className: "form-submit submit",
-                    value: "Sign up"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-                    to: "/login",
-                    className: "submit-link submit",
-                    children: "Sign in"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    className: "container signup-signin",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "card signup-signin-card",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "col-md-5",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: "assets/images/female-warrior.png",
+            className: "signup-signin-card-img-top register-img"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: "assets/images/pixel-grassfield.png",
+            className: "signup-signin-card-img"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "col-md-7",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "card-body",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "signup-signin-card-description",
+              children: "Sign up"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+              onSubmit: registerSubmitHandler,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "text",
+                  className: "form-input",
+                  name: "name",
+                  id: "name",
+                  placeholder: "Your Name",
+                  onChange: inputHandler,
+                  value: registerUser.name
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "error-msg",
+                  children: registerUser.error_list.name
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "email",
+                  className: "form-input",
+                  name: "email",
+                  id: "email",
+                  placeholder: "Email",
+                  onChange: inputHandler,
+                  value: registerUser.email
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "error-msg",
+                  children: registerUser.error_list.email
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "text",
+                  className: "form-input",
+                  name: "password",
+                  id: "password",
+                  placeholder: "Password",
+                  onChange: inputHandler,
+                  value: registerUser.password
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  toggle: "#password",
+                  className: "zmdi zmdi-eye field-icon toggle-password"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "error-msg",
+                  children: registerUser.error_list.password
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "text",
+                  className: "form-input",
+                  name: "confirm_password",
+                  id: "password",
+                  placeholder: "Confirm Password",
+                  onChange: inputHandler,
+                  value: registerUser.confirm_password
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  toggle: "#password",
+                  className: "zmdi zmdi-eye field-icon toggle-password"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "checkbox",
+                  name: "agree-term",
+                  id: "agree-term",
+                  className: "agree-term"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+                  htmlFor: "agree-term",
+                  className: "label-agree-term",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {})
+                  }), "I agree all statements in  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+                    to: "#",
+                    className: "term-service",
+                    children: "Terms of service"
                   })]
                 })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group signup-signin-form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "submit",
+                  name: "submit",
+                  id: "submit",
+                  className: "form-submit submit",
+                  value: "Sign up"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+                  to: "/login",
+                  className: "submit-link submit",
+                  children: "Sign in"
+                })]
               })]
-            })
-          })]
-        })
+            })]
+          })
+        })]
       })
-    })]
+    })
   });
 };
 
@@ -3107,6 +3256,46 @@ var LandingNavbar = function LandingNavbar() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LandingNavbar);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Auth.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/pages/Auth.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
+/* harmony import */ var _auth_Register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../auth/Register */ "./resources/js/components/auth/Register.js");
+/* harmony import */ var _auth_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../auth/Login */ "./resources/js/components/auth/Login.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+var Auth = function Auth(_ref) {
+  var page = _ref.page;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    particlesJS.load('particles-js', 'particles.json');
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      id: "particles-js"
+    }), page === "login" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_auth_Login__WEBPACK_IMPORTED_MODULE_3__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_auth_Register__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Auth);
 
 /***/ }),
 
@@ -3576,15 +3765,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Landing__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Landing */ "./resources/js/components/pages/Landing.js");
-/* harmony import */ var _auth_Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../auth/Login */ "./resources/js/components/auth/Login.js");
-/* harmony import */ var _auth_Register__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../auth/Register */ "./resources/js/components/auth/Register.js");
-/* harmony import */ var _pages_shop_shop__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/shop/shop */ "./resources/js/components/pages/shop/shop.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_Auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Auth */ "./resources/js/components/pages/Auth.js");
+/* harmony import */ var _auth_Login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../auth/Login */ "./resources/js/components/auth/Login.js");
+/* harmony import */ var _auth_Register__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../auth/Register */ "./resources/js/components/auth/Register.js");
+/* harmony import */ var _pages_shop_shop__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/shop/shop */ "./resources/js/components/pages/shop/shop.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -3601,22 +3792,26 @@ __webpack_require__.r(__webpack_exports__);
 (axios__WEBPACK_IMPORTED_MODULE_2___default().defaults.withCredentials) = true;
 
 var AppRouter = function AppRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.BrowserRouter, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
           path: "/",
           exact: true,
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_Landing__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Landing__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
           path: "/register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_auth_Register__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            page: "register"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
           path: "/login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_auth_Login__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            page: "login"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
           path: "/shop",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_shop_shop__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_shop_shop__WEBPACK_IMPORTED_MODULE_7__["default"], {})
         })]
       })
     })
@@ -3626,7 +3821,7 @@ var AppRouter = function AppRouter() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppRouter);
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(AppRouter, {}), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(AppRouter, {}), document.getElementById('app'));
 }
 
 /***/ }),
@@ -10653,7 +10848,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nhtml,body{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    font-family: \"Source Sans Pro\", 'sans-serif';\n}\n\na, a:hover{\n    text-decoration: none;\n}\n\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n    background: #2A2C37;\n    transition: all 0.5s;\n    z-index: 997;\n    padding: 10px 0;\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\n  }\n  #header .logo {\n    font-size: 24px;\n    margin: 0;\n    padding: 0;\n    line-height: 1;\n    font-weight: 600;\n    letter-spacing: 1px;\n    font-family: \"Playfair Display\", serif;\n  }\n  #header .logo a {\n    color: #fff;\n  }\n  #header .logo img {\n    max-height: 40px;\n  }\n\n  /**\n  * Get Started Button\n  */\n\n  .get-started-btn {\n    margin-left: 22px;\n    background: #5fcf80;\n    color: #fff;\n    border-radius: 50px;\n    padding: 8px 25px;\n    white-space: nowrap;\n    transition: 0.3s;\n    font-size: 14px;\n    display: inline-block;\n  }\n  .get-started-btn:hover {\n    background: #3ac162;\n    color: #fff;\n  }\n  @media (max-width: 768px) {\n    .get-started-btn {\n      margin: 0 15px 0 0;\n      padding: 6px 18px;\n    }\n  }\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n/**\n* Desktop Navigation\n*/\n\n.navbar {\n    padding: 0;\n  }\n  .navbar ul {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    list-style: none;\n    align-items: center;\n  }\n  .navbar li {\n    position: relative;\n  }\n  .navbar a, .navbar a:focus {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10px 0 10px 30px;\n    font-family: \"Playfair Display\", serif;\n    font-size: 16px;\n    font-weight: 400;\n    color: #fff;\n    white-space: nowrap;\n    transition: 0.3s;\n  }\n  .navbar a i, .navbar a:focus i {\n    font-size: 12px;\n    line-height: 0;\n    margin-left: 5px;\n  }\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\n    color: #8AFF80;\n  }\n  .navbar .dropdown ul {\n    display: block;\n    position: absolute;\n    left: 30px;\n    top: calc(100% + 30px);\n    margin: 0;\n    padding: 10px 0;\n    z-index: 99;\n    opacity: 0;\n    visibility: hidden;\n    background: #fff;\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n    transition: 0.3s;\n    border-radius: 4px;\n  }\n  .navbar .dropdown ul li {\n    min-width: 200px;\n  }\n  .navbar .dropdown ul a {\n    padding: 10px 20px;\n    font-size: 14px;\n    text-transform: none;\n    font-weight: 500;\n  }\n  .navbar .dropdown ul a i {\n    font-size: 12px;\n  }\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\n    color: #5fcf80;\n  }\n  .navbar .dropdown:hover > ul {\n    opacity: 1;\n    top: 100%;\n    visibility: visible;\n  }\n  .navbar .dropdown .dropdown ul {\n    top: 0;\n    left: calc(100% - 30px);\n    visibility: hidden;\n  }\n  .navbar .dropdown .dropdown:hover > ul {\n    opacity: 1;\n    top: 0;\n    left: 100%;\n    visibility: visible;\n  }\n  @media (max-width: 1366px) {\n    .navbar .dropdown .dropdown ul {\n      left: -90%;\n    }\n    .navbar .dropdown .dropdown:hover > ul {\n      left: -100%;\n    }\n  }\n\n  /*--------------------------------------------------------------\n# Hero Section\n--------------------------------------------------------------*/\n#hero {\n    width: 100%;\n    height: 80vh;\n    background-color: #9580FF;\n    background-size: cover;\n    position: relative;\n  }\n\n  #hero .container {\n    padding-top: 72px;\n  }\n  @media (max-width: 992px) {\n    #hero .container {\n      padding-top: 62px;\n    }\n  }\n  #hero h1 {\n    margin: 0;\n    font-size: 48px;\n    font-weight: 700;\n    line-height: 56px;\n    color: #383A59;\n    font-family: \"Poppins\", sans-serif;\n  }\n  #hero h2 {\n    color: #383A59;\n    margin: 10px 0 0 0;\n    font-size: 24px;\n  }\n  #hero .btn-get-started {\n    font-family: \"Raleway\", sans-serif;\n    font-weight: 500;\n    font-size: 15px;\n    letter-spacing: 1px;\n    display: inline-block;\n    padding: 10px 35px;\n    border-radius: 50px;\n    transition: 0.5s;\n    margin-top: 30px;\n    border: 2px solid #fff;\n    color: #fff;\n  }\n  #hero .btn-get-started:hover {\n    background: #2A2C37;\n    border: 2px solid #2A2C37;\n  }\n  @media (min-width: 1024px) {\n    #hero {\n      background-attachment: fixed;\n    }\n  }\n  @media (max-width: 768px) {\n    #hero {\n      height: 100vh;\n    }\n    #hero h1 {\n      font-size: 28px;\n      line-height: 36px;\n    }\n    #hero h2 {\n      font-size: 18px;\n      line-height: 24px;\n    }\n  }\n\n#landing-pixels{\n    width: 100%;\n\theight: 100%;\n}\n\n.landing-pixel{\n    background-color: #9580FF;\n\tfloat: left;\n}\n\n /*--------------------------------------------------------------\n# Registration\n--------------------------------------------------------------*/\ncanvas {\n    display: block;\n}\n\n#particles-js {\n    width: 100%;\n    height: 100%;\n    background-color: #9580ff;\n    background-attachment: fixed;\n    position: fixed;\n}\n\n.container.signup-signin {\n    padding-top: 10%;\n    width: 60%;\n}\n\n\n.signup-signin-card {\n    border: 0 !important;\n    border-radius: 27.5px !important;\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n    overflow: visible !important;\n    padding: 0 !important;\n    margin: 0 !important;\n}\n\n.signup-signin-card-img {\n    border-radius: 27.5px 0 0 27.5px !important;\n    width: 100%;\n    height: 100%;\n    border-radius: 0 ;\n    -o-object-fit: cover;\n        object-fit: cover;\n}\n\n.signup-signin-card-img-top{\n    position: absolute;\n    height: 115%;\n    right: -10%;\n}\n\n.signup-signin-card .card-body {\n    padding: 50px 40px 50px;\n}\n\n\n.signup-signin-card-description {\n    font-size: 25px;\n    color: #000;\n    font-weight: bold;\n    margin-bottom: 23px;\n}\n\n.signup-signin-card form {\n    max-width: 326px;\n }\n\n\n/* .signup-signin-card .forgot-password-link {\n    font-size: 14px;\n    color: #919aa3;\n    margin-bottom: 12px;\n }\n.signup-signin-card-footer-text {\n    font-size: 16px;\n    color: #0d2366;\n    margin-bottom: 60px;\n}\n\n.signup-signin-card-footer-nav a {\n    font-size: 14px;\n    color: #919aa3;\n} */\n\n\n.signup-signin-form-group > input {\n    border: none;\n    box-sizing: border-box;\n    border-bottom: 1px solid #ebebeb;\n    background: transparent;\n    width: 100%;\n    display: block;\n    color: #000;\n    font-size: 14px;\n    padding: 3px 0;\n}\n\n.signup-signin-form-group > input:focus {\n    outline: none;\n}\n\n.signup-signin-form-group > .field-icon {\n    /* float: right;\n    margin-right: 0px;\n    margin-top: -22px;\n    position: relative;\n    z-index: 2; */\n    color: #000;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) {\n    width: 2em;\n    margin: 0;\n    padding: 0;\n    font-size: 1em;\n    display: none;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\n    display: inline-block;\n    margin-bottom: 25px;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\n    display: inline-block;\n    width: 13px;\n    height: 13px;\n    margin-right: 15px;\n    margin-bottom: 4px;\n    border: 1px solid #000;\n    border-radius: 2px;\n    background: transparent;\n    vertical-align: bottom;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\n    background: transparent;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\n    content: '\\2713';\n    display: block;\n    color: #000;\n    font-size: 11px;\n    line-height: 1.2;\n    text-align: center;\n    font-weight: bold;\n}\n\n.signup-signin-form-group > .label-agree-term {\n    font-size: 13px;\n    font-weight: 400;\n    color: #000;\n}\n.signup-signin-form-group > .term-service {\n    color: #000;\n}\n.signup-signin-form-group > .form-submit {\n    width: auto;\n    display: inline-block;\n    border: none;\n    background: #5FCF80;\n    color: #fff;\n    padding: 10px;\n    height: 50px;\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n    margin-right: 25px;\n}\n.signup-signin-form-group > .form-submit:hover {\n    background-color: #3ac162;\n}\n.signup-signin-form-group > .submit {\n    width: 130px;\n    border-radius: 25px;\n    text-transform: uppercase;\n    font-size: 13px;\n    cursor: pointer;\n}\n.signup-signin-form-group > .submit-link {\n    border: 2px solid #5FCF80;\n    text-decoration: none;\n    display: inline-block;\n    vertical-align: middle;\n    padding: 12px 0;\n    text-align: center;\n    color: #000;\n}\n.signup-signin-form-group > .submit-link:hover {\n    background: #fff;\n    color: #3ac162;\n}\n\n.signup-signin .error-msg{\n    color: red;\n    font-size: small;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nhtml,body{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    font-family: \"Source Sans Pro\", 'sans-serif';\n}\n\na, a:hover{\n    text-decoration: none;\n}\n\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n    background: #2A2C37;\n    transition: all 0.5s;\n    z-index: 997;\n    padding: 10px 0;\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\n  }\n  #header .logo {\n    font-size: 24px;\n    margin: 0;\n    padding: 0;\n    line-height: 1;\n    font-weight: 600;\n    letter-spacing: 1px;\n    font-family: \"Playfair Display\", serif;\n  }\n  #header .logo a {\n    color: #fff;\n  }\n  #header .logo img {\n    max-height: 40px;\n  }\n\n  /**\n  * Get Started Button\n  */\n\n  .get-started-btn {\n    margin-left: 22px;\n    background: #5fcf80;\n    color: #fff;\n    border-radius: 50px;\n    padding: 8px 25px;\n    white-space: nowrap;\n    transition: 0.3s;\n    font-size: 14px;\n    display: inline-block;\n  }\n  .get-started-btn:hover {\n    background: #3ac162;\n    color: #fff;\n  }\n  @media (max-width: 768px) {\n    .get-started-btn {\n      margin: 0 15px 0 0;\n      padding: 6px 18px;\n    }\n  }\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n/**\n* Desktop Navigation\n*/\n\n.navbar {\n    padding: 0;\n  }\n  .navbar ul {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    list-style: none;\n    align-items: center;\n  }\n  .navbar li {\n    position: relative;\n  }\n  .navbar a, .navbar a:focus {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10px 0 10px 30px;\n    font-family: \"Playfair Display\", serif;\n    font-size: 16px;\n    font-weight: 400;\n    color: #fff;\n    white-space: nowrap;\n    transition: 0.3s;\n  }\n  .navbar a i, .navbar a:focus i {\n    font-size: 12px;\n    line-height: 0;\n    margin-left: 5px;\n  }\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\n    color: #8AFF80;\n  }\n  .navbar .dropdown ul {\n    display: block;\n    position: absolute;\n    left: 30px;\n    top: calc(100% + 30px);\n    margin: 0;\n    padding: 10px 0;\n    z-index: 99;\n    opacity: 0;\n    visibility: hidden;\n    background: #fff;\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n    transition: 0.3s;\n    border-radius: 4px;\n  }\n  .navbar .dropdown ul li {\n    min-width: 200px;\n  }\n  .navbar .dropdown ul a {\n    padding: 10px 20px;\n    font-size: 14px;\n    text-transform: none;\n    font-weight: 500;\n  }\n  .navbar .dropdown ul a i {\n    font-size: 12px;\n  }\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\n    color: #5fcf80;\n  }\n  .navbar .dropdown:hover > ul {\n    opacity: 1;\n    top: 100%;\n    visibility: visible;\n  }\n  .navbar .dropdown .dropdown ul {\n    top: 0;\n    left: calc(100% - 30px);\n    visibility: hidden;\n  }\n  .navbar .dropdown .dropdown:hover > ul {\n    opacity: 1;\n    top: 0;\n    left: 100%;\n    visibility: visible;\n  }\n  @media (max-width: 1366px) {\n    .navbar .dropdown .dropdown ul {\n      left: -90%;\n    }\n    .navbar .dropdown .dropdown:hover > ul {\n      left: -100%;\n    }\n  }\n\n  /*--------------------------------------------------------------\n# Hero Section\n--------------------------------------------------------------*/\n#hero {\n    width: 100%;\n    height: 80vh;\n    background-color: #9580FF;\n    background-size: cover;\n    position: relative;\n  }\n\n  #hero .container {\n    padding-top: 72px;\n  }\n  @media (max-width: 992px) {\n    #hero .container {\n      padding-top: 62px;\n    }\n  }\n  #hero h1 {\n    margin: 0;\n    font-size: 48px;\n    font-weight: 700;\n    line-height: 56px;\n    color: #383A59;\n    font-family: \"Poppins\", sans-serif;\n  }\n  #hero h2 {\n    color: #383A59;\n    margin: 10px 0 0 0;\n    font-size: 24px;\n  }\n  #hero .btn-get-started {\n    font-family: \"Raleway\", sans-serif;\n    font-weight: 500;\n    font-size: 15px;\n    letter-spacing: 1px;\n    display: inline-block;\n    padding: 10px 35px;\n    border-radius: 50px;\n    transition: 0.5s;\n    margin-top: 30px;\n    border: 2px solid #fff;\n    color: #fff;\n  }\n  #hero .btn-get-started:hover {\n    background: #2A2C37;\n    border: 2px solid #2A2C37;\n  }\n  @media (min-width: 1024px) {\n    #hero {\n      background-attachment: fixed;\n    }\n  }\n  @media (max-width: 768px) {\n    #hero {\n      height: 100vh;\n    }\n    #hero h1 {\n      font-size: 28px;\n      line-height: 36px;\n    }\n    #hero h2 {\n      font-size: 18px;\n      line-height: 24px;\n    }\n  }\n\n#landing-pixels{\n    width: 100%;\n\theight: 100%;\n}\n\n.landing-pixel{\n    background-color: #9580FF;\n\tfloat: left;\n}\n\n /*--------------------------------------------------------------\n# Registration\n--------------------------------------------------------------*/\ncanvas {\n    display: block;\n}\n\n#particles-js {\n    width: 100%;\n    height: 100%;\n    background-color: #9580ff;\n    background-attachment: fixed;\n    position: fixed;\n}\n\n.container.signup-signin {\n    padding-top: 10%;\n    width: 60%;\n}\n\n\n.signup-signin-card {\n    border: 0 !important;\n    border-radius: 27.5px !important;\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n    overflow: visible !important;\n    padding: 0 !important;\n    margin: 0 !important;\n}\n\n.signup-signin-card-img {\n    border-radius: 27.5px 0 0 27.5px !important;\n    width: 100%;\n    height: 100%;\n    border-radius: 0 ;\n    -o-object-fit: cover;\n        object-fit: cover;\n}\n\n.signup-signin-card-img-top{\n    position: absolute;\n    right: -10%;\n}\n\n.register-img{\n    height: 115%;\n}\n\n.login-img{\n    height: 155%;\n    top: -20%;\n}\n\n.signup-signin-card .card-body {\n    padding: 50px 40px 50px;\n}\n\n\n.signup-signin-card-description {\n    font-size: 25px;\n    color: #000;\n    font-weight: bold;\n    margin-bottom: 23px;\n}\n\n.signup-signin-card form {\n    max-width: 326px;\n }\n\n\n/* .signup-signin-card .forgot-password-link {\n    font-size: 14px;\n    color: #919aa3;\n    margin-bottom: 12px;\n }\n.signup-signin-card-footer-text {\n    font-size: 16px;\n    color: #0d2366;\n    margin-bottom: 60px;\n}\n\n.signup-signin-card-footer-nav a {\n    font-size: 14px;\n    color: #919aa3;\n} */\n\n\n.signup-signin-form-group > input {\n    border: none;\n    box-sizing: border-box;\n    border-bottom: 1px solid #ebebeb;\n    background: transparent;\n    width: 100%;\n    display: block;\n    color: #000;\n    font-size: 14px;\n    padding: 3px 0;\n}\n\n.signup-signin-form-group > input:focus {\n    outline: none;\n}\n\n.signup-signin-form-group > .field-icon {\n    /* float: right;\n    margin-right: 0px;\n    margin-top: -22px;\n    position: relative;\n    z-index: 2; */\n    color: #000;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) {\n    width: 2em;\n    margin: 0;\n    padding: 0;\n    font-size: 1em;\n    display: none;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\n    display: inline-block;\n    margin-bottom: 25px;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\n    display: inline-block;\n    width: 13px;\n    height: 13px;\n    margin-right: 15px;\n    margin-bottom: 4px;\n    border: 1px solid #000;\n    border-radius: 2px;\n    background: transparent;\n    vertical-align: bottom;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\n    background: transparent;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\n    content: '\\2713';\n    display: block;\n    color: #000;\n    font-size: 11px;\n    line-height: 1.2;\n    text-align: center;\n    font-weight: bold;\n}\n\n.signup-signin-form-group > .label-agree-term {\n    font-size: 13px;\n    font-weight: 400;\n    color: #000;\n}\n.signup-signin-form-group > .term-service {\n    color: #000;\n}\n.signup-signin-form-group > .form-submit {\n    width: auto;\n    display: inline-block;\n    border: none;\n    background: #5FCF80;\n    color: #fff;\n    padding: 10px;\n    height: 50px;\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n    margin-right: 25px;\n}\n.signup-signin-form-group > .form-submit:hover {\n    background-color: #3ac162;\n}\n.signup-signin-form-group > .submit {\n    width: 130px;\n    border-radius: 25px;\n    text-transform: uppercase;\n    font-size: 13px;\n    cursor: pointer;\n}\n.signup-signin-form-group > .submit-link {\n    border: 2px solid #5FCF80;\n    text-decoration: none;\n    display: inline-block;\n    vertical-align: middle;\n    padding: 12px 0;\n    text-align: center;\n    color: #000;\n}\n.signup-signin-form-group > .submit-link:hover {\n    background: #fff;\n    color: #3ac162;\n}\n\n.signup-signin .error-msg{\n    color: red;\n    font-size: small;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -57975,7 +58170,7 @@ function _extends() {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"D:\\\\coding projects\\\\Laravel-ReactJS\\\\task_venator\\\\task_venator","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/","#USER"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"D:\\\\coding projects\\\\Laravel-ReactJS\\\\task_venator\\\\task_venator","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
