@@ -5,9 +5,8 @@ import axios from 'axios';
 
 import Landing from "../pages/Landing";
 import Auth from "../pages/Auth";
-import Login from "../auth/Login";
-import Register from "../auth/Register";
 import Shop from "../pages/shop/shop";
+import Home from "../pages/Home";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -22,6 +21,7 @@ const AppRouter = () => {
                     <Route path='/' exact element={<Landing/>}></Route>
                     <Route path='/register' element={<Auth page="register"/>}></Route>
                     <Route path='/login' element={<Auth page="login"/>}></Route>
+                    <Route path='/home' element={<Home/>}></Route>
                     <Route path='/shop' element={<Shop/>}></Route>
                 </Routes>
             </Router>
