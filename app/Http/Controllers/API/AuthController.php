@@ -73,9 +73,9 @@ class AuthController extends Controller
     }
 
     public function logout(){
-        auth()->user()->currentAccessToken()->delete();
+        //intelephense flags tokens() as undefined method but it works lol
+        auth()->user()->tokens()->delete();
         return response()->json([
-
             'status'=>200,
             'message'=>"Logged Out Successfully",
         ]);

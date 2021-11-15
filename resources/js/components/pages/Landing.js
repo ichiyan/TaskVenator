@@ -34,11 +34,11 @@ const Landing = () => {
         <div>
             <Header page="landing"/>
             {/* Hero Section */}
-            <section id="hero" class="d-flex justify-content-center align-items-center">
-                <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+            <section id="hero" className="d-flex justify-content-center align-items-center">
+                <div className="container position-relative" data-aos="zoom-in" data-aos-delay="100">
                 <h1>Lorem Ipsum,<br/>At vero eos et </h1>
                 <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
-                <a href="/register" class="btn-get-started">Get Started</a>
+                <a href="/register" className="btn-get-started">Get Started</a>
                 </div>
             </section>
             <div id="landing-pixels"></div>

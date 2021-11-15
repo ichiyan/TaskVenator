@@ -3183,7 +3183,7 @@ var Header = function Header(_ref) {
       if (res.data.status === 200) {
         localStorage.removeItem('auth_token');
         localStorage.removeItem('auth_name');
-        console.log("removed token");
+        console.log(res.data.message);
       }
     });
   };
@@ -3477,9 +3477,9 @@ var Landing = function Landing() {
       page: "landing"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
       id: "hero",
-      "class": "d-flex justify-content-center align-items-center",
+      className: "d-flex justify-content-center align-items-center",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        "class": "container position-relative",
+        className: "container position-relative",
         "data-aos": "zoom-in",
         "data-aos-delay": "100",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
@@ -3488,7 +3488,7 @@ var Landing = function Landing() {
           children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
           href: "/register",
-          "class": "btn-get-started",
+          className: "btn-get-started",
           children: "Get Started"
         })]
       })
@@ -3914,6 +3914,11 @@ __webpack_require__.r(__webpack_exports__);
 (axios__WEBPACK_IMPORTED_MODULE_2___default().defaults.headers.post["Content-Type"]) = 'application/json';
 (axios__WEBPACK_IMPORTED_MODULE_2___default().defaults.headers.post.Accept) = 'application/json';
 (axios__WEBPACK_IMPORTED_MODULE_2___default().defaults.withCredentials) = true;
+axios__WEBPACK_IMPORTED_MODULE_2___default().interceptors.request.use(function (config) {
+  var token = localStorage.getItem('auth_token');
+  config.headers.Authorization = token ? "Bearer ".concat(token) : '';
+  return config;
+});
 
 var AppRouter = function AppRouter() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {

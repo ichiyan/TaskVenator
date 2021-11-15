@@ -12,7 +12,7 @@ const Header = ({page}) => {
             if(res.data.status === 200){
                 localStorage.removeItem('auth_token');
                 localStorage.removeItem('auth_name');
-                console.log("removed token");
+                console.log(res.data.message);
             }
         });
     }
