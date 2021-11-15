@@ -1,57 +1,46 @@
 import React from "react";
-import Form from "./addProductForm";
-import Display from "./display";
-import { useState } from 'react';
+import AddOutfitForm from './AddOutfitForm';
+
 
 function Shop(){
-    const[products, setProducts]= useState([]);
-    const[bought, setBought]= useState([]);
-    const[clicked, setClicked]= useState("");
 
-    const showItem =(event) =>{
-        setClicked(event.target.getAttribute("name"));
-    }
+    
 return(
-    <div className="Shop-main_shop">
-        <button>test</button>
-        <div className="Shop-weaponForm">
-            
-        <Form
-            products={products}
-            setProducts={setProducts}
-        /><hr></hr>
+    <div className="shop-main_shop">
+        <div className="shop-weaponForm"> 
+        <AddOutfitForm/> 
+    
         </div>
+      
 
-        <div className="Shop-shopNavigator">
+        <div className="shop-shopNavigator">
                 <div className="button">
-                <button onClick={showItem} name="Items" className="Shop-displayButton">Items</button>
+                <button  name="Items" className="shop-displayButton">Items</button>
                 </div>
                 <div className="button">
-                <button onClick={showItem} name="Potions" className="Shop-displayButton">Potions</button>
+                <button  name="Potions" className="shop-displayButton">Potions</button>
                 </div>
                 <div className="button">
-                <button onClick={showItem} name="Outfit" className="Shop-displayButton">Outfit</button>
+                <button name="Outfit" className="shop-displayButton">Outfit</button>
                 </div>
                 <div className="button">
-                <button onClick={showItem} name="All" className="Shop-displayButton">All</button>
+                <button  name="All" className="shop-displayButton">All</button>
                 </div>
          </div>
 
-        <div className="Shop-shop">
-           
+        {/* <div className="shop-shop">
             <Display 
-                products={products}
+                outfit={outfit}
+                potion={potion}
+                item={item}
                 bought={bought}
                 setBought= {setBought}
                 clicked={clicked}
             />
-        </div>
-        
-        
-
+        </div> */}
         
     </div>
-    )
+    );
 }
 
 export default Shop;
