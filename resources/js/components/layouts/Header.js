@@ -28,7 +28,10 @@ const Header = ({page}) => {
     }else{
         trailingButtons = (
             // replace with user icon
-            <Link to="" onClick={logoutHandler} className="get-started-btn">Log out</Link>
+           <div>
+                <Link to="/home" className="get-started-btn">Home</Link>
+                <Link to="" onClick={logoutHandler} className="get-started-btn">Log out</Link>
+           </div>
         )
     }
 

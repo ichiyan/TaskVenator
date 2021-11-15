@@ -3199,11 +3199,17 @@ var Header = function Header(_ref) {
     trailingButtons =
     /*#__PURE__*/
     // replace with user icon
-    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-      to: "",
-      onClick: logoutHandler,
-      className: "get-started-btn",
-      children: "Log out"
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+        to: "/home",
+        className: "get-started-btn",
+        children: "Home"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+        to: "",
+        onClick: logoutHandler,
+        className: "get-started-btn",
+        children: "Log out"
+      })]
     });
   }
 
@@ -3254,7 +3260,7 @@ var HomeNavbar = function HomeNavbar() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           className: "active",
-          to: "/",
+          to: "/home",
           children: "Tasks"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {

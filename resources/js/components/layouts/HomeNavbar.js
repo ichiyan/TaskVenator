@@ -5,7 +5,7 @@ const HomeNavbar = () => {
     return (
         <nav id="navbar" className="navbar order-last order-lg-0">
             <ul>
-                <li><Link className="active" to="/">Tasks</Link></li>
+                <li><Link className="active" to="/home">Tasks</Link></li>
                 <li><Link to="">Inventory</Link></li>
                 <li><Link to="">Shop</Link></li>
                 <li><Link to="">Features</Link></li>
