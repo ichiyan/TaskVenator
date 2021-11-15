@@ -240,7 +240,7 @@ a, a:hover{
 }
 
  /*--------------------------------------------------------------
-# Registration
+# Registration and Login
 --------------------------------------------------------------*/
 canvas {
     display: block;
@@ -334,7 +334,7 @@ canvas {
     width: 100%;
     display: block;
     color: #000;
-    font-size: 14px;
+    font-size: 16px;
     padding: 3px 0;
 }
 
@@ -432,5 +432,9 @@ canvas {
 
 .signup-signin .error-msg{
     color: red;
+    font-size: small;
+}
+
+.signup-signin .forgot-password{
     font-size: small;
 }

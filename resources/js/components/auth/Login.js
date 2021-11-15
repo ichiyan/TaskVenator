@@ -75,11 +75,12 @@ const Login = () => {
                                 </div>
                                 {invalidCredentialsMsg === '' ? null : <span className="error-msg">{invalidCredentialsMsg}</span>}
                                 <div className="form-group signup-signin-form-group">
-                                    <Link to="" className="">Forgot password</Link>
+                                    <Link to="" className="forgot-password">Forgot password</Link>
                                 </div>
+                                <br/>
                                 <div className="form-group signup-signin-form-group">
                                     <input type="submit" name="submit" id="submit" className="form-submit submit" value="Log in"/>
-                                    <Link to="/login" className="submit-link submit">Sign up</Link>
+                                    <Link to="/register" className="submit-link submit">Sign up</Link>
                                 </div>
                             </form>
                         </div>
