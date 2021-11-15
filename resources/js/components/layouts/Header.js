@@ -1,10 +1,12 @@
 import axios from "axios";
 import React from "react";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import HomeNavbar from "./HomeNavbar";
 import LandingNavbar from "./LandingNavbar";
 
 const Header = ({page}) => {
+
+    const navigate = useNavigate();
 
     const logoutHandler = (e) => {
         e.preventDefault();
@@ -13,6 +15,7 @@ const Header = ({page}) => {
                 localStorage.removeItem('auth_token');
                 localStorage.removeItem('auth_name');
                 console.log(res.data.message);
+                navigate('/');
             }
         });
     }
@@ -32,7 +35,7 @@ const Header = ({page}) => {
     return (
         <header id="header" className="fixed-top">
             <div className="container d-flex justify-content-between align-items-center">
-                 <h1 className="logo me-auto"><Link to="">TaskVenator</Link></h1>
+                 <h1 className="logo me-auto"><Link to="/">TaskVenator</Link></h1>
                  {page === "home" ? <HomeNavbar/> : <LandingNavbar/>}
                  {trailingButtons}
             </div>

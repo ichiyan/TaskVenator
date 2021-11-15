@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import $ from "jquery";
+import {Link} from 'react-router-dom';
 
 import Header from "../layouts/Header";
 
@@ -29,6 +30,16 @@ const Landing = () => {
         }).resize();
     }, []);
 
+    var heroButtons = '';
+
+    if(!localStorage.getItem('auth_token')){
+        heroButtons = (
+           <div>
+                <Link to="/register" className="btn-get-started">Get Started</Link>
+                <Link to="/login" className="btn-login">Log In</Link>
+           </div>
+        );
+    }
 
     return (
         <div>
@@ -36,9 +47,9 @@ const Landing = () => {
             {/* Hero Section */}
             <section id="hero" className="d-flex justify-content-center align-items-center">
                 <div className="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-                <h1>Lorem Ipsum,<br/>At vero eos et </h1>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
-                <a href="/register" className="btn-get-started">Get Started</a>
+                    <h1>Lorem Ipsum,<br/>At vero eos et </h1>
+                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+                    {heroButtons}
                 </div>
             </section>
             <div id="landing-pixels"></div>

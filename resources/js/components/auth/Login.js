@@ -37,9 +37,8 @@ const Login = () => {
                 if(res.data.status === 200){
                     localStorage.setItem('auth_token', res.data.token);
                     localStorage.setItem('auth_name', res.data.username);
-                    //remove swal after
-                    Swal.fire({text: res.data.message, icon: "success"});
-                    navigate('/');
+                    console.log(res.data.message);
+                    navigate('/home');
                 }else if (res.data.status === 401){
                     setInvalidCredentialsMsg(res.data.message);
                 }else{
