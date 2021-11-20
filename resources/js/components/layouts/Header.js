@@ -1,11 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
-import { DropdownButton } from "react-bootstrap";
 import HomeNavbar from "./HomeNavbar";
 import LandingNavbar from "./LandingNavbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Header = ({page}) => {
 
@@ -73,7 +72,7 @@ const Header = ({page}) => {
                     <ul>
                         <li className="custom-nav-item">
                             <Link to="" className="nav-icon-btn">
-                                <FontAwesomeIcon className="navIcon" icon={faCommentDots}/>
+                                <FontAwesomeIcon className="navIcon" icon={faBell}/>
                             </Link>
                         </li>
                         <li className="custom-nav-item">
