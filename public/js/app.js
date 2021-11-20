@@ -13096,7 +13096,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var Header = function Header(_ref) {
   var page = _ref.page;
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
@@ -13105,6 +13104,20 @@ var Header = function Header(_ref) {
       _useState2 = _slicedToArray(_useState, 2),
       isOpenDropdown = _useState2[0],
       setIsOpenDropdown = _useState2[1];
+
+  var ref = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    var checkIfClickedOutside = function checkIfClickedOutside(e) {
+      if (isOpenDropdown && ref.current && !ref.current.contains(e.target)) {
+        setIsOpenDropdown(false);
+      }
+    };
+
+    document.addEventListener("click", checkIfClickedOutside);
+    return function () {
+      document.removeEventListener("click", checkIfClickedOutside);
+    };
+  }, [isOpenDropdown]);
 
   var dropdownHandler = function dropdownHandler() {
     setIsOpenDropdown(!isOpenDropdown);
@@ -13138,6 +13151,7 @@ var Header = function Header(_ref) {
 
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "custom-dropdown",
+      ref: ref,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(CustomDropDownItem, {
         text: "My Profile",
         leftIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__.FontAwesomeIcon, {

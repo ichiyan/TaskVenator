@@ -1,18 +1,29 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import { DropdownButton } from "react-bootstrap";
 import HomeNavbar from "./HomeNavbar";
 import LandingNavbar from "./LandingNavbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt } from '@fortawesome/free-solid-svg-icons'
-import DropdownItem from "@restart/ui/esm/DropdownItem";
 
 const Header = ({page}) => {
 
     const navigate = useNavigate();
-
     const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+    const ref = useRef();
+
+    useEffect( () => {
+        const checkIfClickedOutside = (e) => {
+            if(isOpenDropdown && ref.current && !ref.current.contains(e.target)){
+                setIsOpenDropdown(false);
+            }
+        }
+        document.addEventListener("click", checkIfClickedOutside);
+        return () => {
+            document.removeEventListener("click", checkIfClickedOutside);
+        }
+    } , [isOpenDropdown]);
 
     const dropdownHandler = () => {
         setIsOpenDropdown(!isOpenDropdown);
@@ -30,7 +41,7 @@ const Header = ({page}) => {
             );
         }
         return (
-            <div className="custom-dropdown">
+            <div className="custom-dropdown" ref={ref}>
                 <CustomDropDownItem text="My Profile" leftIcon={<FontAwesomeIcon icon={faUserAlt}/>}/>
                 <CustomDropDownItem text="Settings" leftIcon={<FontAwesomeIcon icon={faCog}/>}/>
                 <CustomDropDownItem text="Logout" leftIcon={<FontAwesomeIcon icon={faSignOutAlt}/>}/>
