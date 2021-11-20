@@ -1,78 +1,84 @@
+import Button from "@restart/ui/esm/Button";
 import React from "react";
 
-function Display ({outfit, item, potion, bought, setBought, clicked}){
+function Display (){
     
-    const submitToHandler=(event)=>{
-        event.preventDefault();
-        setBought([
-            ...bought,{
-                name: event.target.weaponName.value, 
-                class: event.target.weaponClass.value,
-                damage: event.target.weaponDamage.value,
-                type:event.target.weaponType.value
-            }
-        ])
-        alert("napalit na nimo successfully");
-
-        console.log(event.target.weaponName);
-    }
     return (
-        <ul>
-        {products.map((p, index)=>{
-            if(clicked === "Items"){
-            return (
-              <div key = {index} className="shop-items">
-                      <h3>{p.index}</h3>
-                     <h3>{p.name}</h3>
-                     <h3>{p.type}</h3>
-                     <h3>{p.class}</h3>
-                     <h3>{p.damage}</h3>
-                 <form onSubmit={submitToHandler}>
-               
-                     <input name="weaponName" value={p.name} type="hidden" /><br></br>
-                     <input name="weaponClass" value={p.class} type="hidden" /><br></br>
-                     <input name="weaponDamage" value={p.damage} type="hidden" /><br></br>
-                     <input name="weaponType" value={p.type} type="hidden" /><br></br>
-                     <button type="submit">buy</button>
-                </form>
-                </div>)
-            }else if (clicked === "All"){
-                return( <div key = {index} className="shop-items">
-                <h3>{p.index}</h3>
-               <h3>{p.name}</h3>
-               <h3>{p.type}</h3>
-               <h3>{p.class}</h3>
-               <h3>{p.damage}</h3>
-           <form onSubmit={submitToHandler}>
-          
-               <input name="weaponName" value={p.name} type="hidden" /><br></br>
-               <input name="weaponClass" value={p.class} type="hidden" /><br></br>
-               <input name="weaponDamage" value={p.damage} type="hidden" /><br></br>
-               <input name="weaponType" value={p.type} type="hidden" /><br></br>
-               <button type="submit">buy</button>
-          </form>
-          </div>);
-            }else if (clicked === ""){
-                return( <div key = {index} className="shop-items">
-                <h3>{p.index}</h3>
-               <h3>{p.name}</h3>
-               <h3>{p.type}</h3>
-               <h3>{p.class}</h3>
-               <h3>{p.damage}</h3>
-           <form onSubmit={submitToHandler}>
-               <input name="weaponName" value={p.name} type="hidden" /><br></br>
-               <input name="weaponClass" value={p.class} type="hidden" /><br></br>
-               <input name="weaponDamage" value={p.damage} type="hidden" /><br></br>
-               <input name="weaponType" value={p.type} type="hidden" /><br></br>
-               <button type="submit">buy</button>
-          </form>
-          </div>);
-            }else{
-                return("");
-            }
-        })}
-       
-      </ul>
+        // map
+        <div className="shop-category">
+            <div className="shop-categoryName">
+                <h3>Hp Potion</h3>
+            </div>
+          <div className="shop-items">
+                <h2>Image</h2>
+                <h6>Large Potion</h6>
+                <p>Heals 100hp</p>
+                <Button>12 <br></br> BUY</Button>
+          </div>
+          <div className="shop-items">
+                <h2>Image</h2>
+                <h6>Large Potion</h6>
+                <p>Heals 70hp</p>
+                <Button>12 <br></br> BUY</Button>
+          </div>
+          <div className="shop-items">
+                <h2>Image</h2>
+                <h6>Large Potion</h6>
+                <p>Heals 50hp</p>
+                <Button>12 <br></br> BUY</Button>
+          </div>
+          <div className="shop-categoryName">
+                <h3>Powerup Potion</h3>
+            </div>
+          <div className="shop-items">
+                <h2>Image</h2>
+                <h6>Large Potion</h6>
+                <p>Add 2 seconds stun</p>
+                <Button>12 <br></br> BUY</Button>
+          </div>
+          <div className="shop-items">
+                <h2>Image</h2>
+                <h6>Medium Potion</h6>
+                <p>Add 1 second stun</p>
+                <Button>12 <br></br> BUY</Button>
+          </div>
+          <div className="shop-items">
+                <h2>Image</h2>
+                <h6>Small Potion</h6>
+                <p>Add 0.5 second stun</p>
+                <Button>12 <br></br> BUY</Button>
+          </div>
+          <div className="shop-items">
+                <h2>Image</h2>
+                <h6>Large Potion</h6>
+                <p>Heals 100hp</p>
+                <Button>12 <br></br> BUY</Button>
+          </div>
+          <div className="shop-items">
+                <h2>Image</h2>
+                <h6>Large Potion</h6>
+                <p>Heals 100hp</p>
+                <Button>12 <br></br> BUY</Button>
+          </div>
+         
+        
+         
+
+        
+            
+        </div>
+    //   <div className="shop-category">
+        //   <h3>Hp Potion</h3>
+        //   <div className="shop-items">
+        //         <h2>test</h2>
+        //         <h2>test</h2>
+        //         <h2>test</h2>
+        //         <h2>test</h2>
+        //   </div>
+
+    //      <h3>Powerup Potion</h3>
+
+    //   </div>
     );
 }
 export default Display;
