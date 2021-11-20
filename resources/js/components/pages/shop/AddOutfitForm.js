@@ -1,6 +1,6 @@
 import { Button, Modal } from 'react-bootstrap';
 import { useState } from "react";
-
+import Swal from 'sweetalert2';
 
 function AddOutfitForm (){
   const [show, setShow] = useState(false);
@@ -20,8 +20,7 @@ function AddOutfitForm (){
     int: '',
     agi: '',
     crit: '',
-    critDmg: '',
-    price: ''
+    critDmg: ''
   });
 
   
@@ -47,35 +46,33 @@ function AddOutfitForm (){
         agi: outfit.agi,
         crit: outfit.crit,
         critDmg: outfit.critDmg,
-        price: outfit.price
 
       }
-      setOutfit({
-        name: '',
-        class: '',
-        type: '',
-        pAttack: '',
-        mAttack: '',
-        pDef: '',
-        mDef: '',
-        str: '',
-        int: '',
-        agi: '',
-        crit: '',
-        critDmg: '',
-        price: ''
-      });
+      // setOutfit({
+      //   name: '',
+      //   class: '',
+      //   type: '',
+      //   pAttack: '',
+      //   mAttack: '',
+      //   pDef: '',
+      //   mDef: '',
+      //   str: '',
+      //   int: '',
+      //   agi: '',
+      //   crit: '',
+      //   critDmg: ''
+      // });
     }
 
   return (  
      <div>
          <div>
          <Button variant="primary" onClick={handleShow}>
-             Create Outfit
+             Create Weapon
         </Button>
         <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
-          <Modal.Title>Create Outfit</Modal.Title>
+          <Modal.Title>Create Weapon</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <form onSubmit={outfitSubmitHandler}>
@@ -134,10 +131,6 @@ function AddOutfitForm (){
             <div className="form-group">        
             <label>Crit Damage</label>
             <input name="critDmg" className="form-control" type="text" onChange={inputHandler} value={outfit.critDmg}/>
-            </div>
-            <div className="form-group">        
-            <label>Price</label>
-            <input name="price" className="form-control" type="number" onChange={inputHandler} value={outfit.price}/>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary mr-auto" onClick={handleClose}>Close</button>
