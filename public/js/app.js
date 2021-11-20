@@ -4628,7 +4628,7 @@ function AddItemForm() {
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     name: '',
-    description: '',
+    description: "",
     price: ''
   }),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -4636,21 +4636,21 @@ function AddItemForm() {
       setItem = _useState4[1];
 
   var inputHandler = function inputHandler(e) {
+    console.log(e.target.value);
     setItem(_objectSpread(_objectSpread({}, item), {}, _defineProperty({}, e.target.name, e.target.value)));
   };
 
-  var potionSubmitHandler = function potionSubmitHandler(e) {
+  var itemSubmitHandler = function itemSubmitHandler(e) {
     e.preventDefault();
     var data = {
       name: item.name,
       description: item.description,
       price: item.price
-    };
-    setPotion({
-      name: '',
-      description: '',
-      price: ''
-    });
+    }; // setItem({
+    //   name: '',
+    //   description: '',
+    //   price: ''
+    // });
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -4670,7 +4670,7 @@ function AddItemForm() {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["default"].Body, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
-            onSubmit: potionSubmitHandler,
+            onSubmit: itemSubmitHandler,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
@@ -4689,7 +4689,7 @@ function AddItemForm() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
                 className: "form-control",
                 rows: "3",
-                name: "desciption",
+                name: "description",
                 onChange: inputHandler,
                 value: item.description
               })]
@@ -4807,6 +4807,7 @@ function AddOutfitForm() {
 
   var outfitSubmitHandler = function outfitSubmitHandler(e) {
     e.preventDefault();
+    console.log(outfit);
     var data = {
       name: outfit.name,
       "class": outfit["class"],
@@ -5190,7 +5191,7 @@ function AddPotionForm() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
                 className: "form-control",
                 rows: "3",
-                name: "desciption",
+                name: "description",
                 onChange: inputHandler,
                 value: potion.description
               })]
@@ -5269,7 +5270,7 @@ function Display() {
             src: "assets/images/health-potion1.png"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          classNmae: "shop-itemsInfo",
+          className: "shop-itemsInfo",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
             children: "Large Potion"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
@@ -5286,7 +5287,7 @@ function Display() {
             src: "assets/images/health-potion2.png"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          classNmae: "shop-itemsInfo",
+          className: "shop-itemsInfo",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
             children: "Medium Potion"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
@@ -5303,7 +5304,7 @@ function Display() {
             src: "assets/images/health-potion3.png"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          classNmae: "shop-itemsInfo",
+          className: "shop-itemsInfo",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
             children: "Small Potion"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
@@ -5325,7 +5326,7 @@ function Display() {
             src: "assets/images/powerup-potion1.png"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          classNmae: "shop-itemsInfo",
+          className: "shop-itemsInfo",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
             children: "Large Potion"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
@@ -5342,7 +5343,7 @@ function Display() {
             src: "assets/images/powerup-potion2.png"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          classNmae: "shop-itemsInfo",
+          className: "shop-itemsInfo",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
             children: "Medium Potion"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
@@ -5359,7 +5360,7 @@ function Display() {
             src: "assets/images/powerup-potion3.png"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          classNmae: "shop-itemsInfo",
+          className: "shop-itemsInfo",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
             children: "Small Potion"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {

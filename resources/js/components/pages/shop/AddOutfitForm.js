@@ -34,6 +34,7 @@ function AddOutfitForm (){
 
     const outfitSubmitHandler = (e) =>{
       e.preventDefault();
+      console.log(outfit)
       const data ={
         name: outfit.name,
         class: outfit.class,

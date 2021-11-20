@@ -10,20 +10,22 @@ function AddItemForm (){
 
   const[item, setItem]= useState({
     name: '',
-    description: '',
+    description: "",
     price: '',
   });
 
   
     const inputHandler =(e) =>{
+      console.log(e.target.value);
       setItem({
         ...item,[e.target.name]:  e.target.value
       });
       
     }
 
-    const potionSubmitHandler = (e) =>{
+    const itemSubmitHandler = (e) =>{
       e.preventDefault();
+      
       const data ={
         name: item.name,
         description: item.description,
@@ -31,12 +33,12 @@ function AddItemForm (){
 
 
       }
-      setPotion({
-        name: '',
-        description: '',
-        price: ''
+      // setItem({
+      //   name: '',
+      //   description: '',
+      //   price: ''
        
-      });
+      // });
     }
 
   return (  
@@ -50,14 +52,14 @@ function AddItemForm (){
           <Modal.Title>Create Item</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <form onSubmit={potionSubmitHandler}>
+        <form onSubmit={itemSubmitHandler}>
           <div className="form-group">
             <label>Item Name</label>
             <input className="form-control" name="name" type="text" onChange={inputHandler} value={item.name}/>
           </div>
             <div className="form-group">
             <label>Description</label>
-            <textarea className="form-control" rows="3" name="desciption" onChange={inputHandler} value={item.description}></textarea>
+            <textarea className="form-control" rows="3" name="description" onChange={inputHandler} value={item.description}></textarea>
             </div>
             <div className="form-group">
             <label>Price</label>

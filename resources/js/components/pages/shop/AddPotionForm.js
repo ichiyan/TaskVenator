@@ -77,7 +77,7 @@ function AddPotionForm (){
             </div>
             <div className="form-group">
             <label>Description</label>
-            <textarea className="form-control" rows="3" name="desciption" onChange={inputHandler} value={potion.description}></textarea>
+            <textarea className="form-control" rows="3" name="description" onChange={inputHandler} value={potion.description}></textarea>
             </div>
             <div className="form-group">
             <label>Price</label>
