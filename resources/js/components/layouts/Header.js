@@ -1,12 +1,42 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
+import { DropdownButton } from "react-bootstrap";
 import HomeNavbar from "./HomeNavbar";
 import LandingNavbar from "./LandingNavbar";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import DropdownItem from "@restart/ui/esm/DropdownItem";
 
 const Header = ({page}) => {
 
     const navigate = useNavigate();
+
+    const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+
+    const dropdownHandler = () => {
+        setIsOpenDropdown(!isOpenDropdown);
+    }
+
+    const CustomDropDownMenu = () => {
+        const CustomDropDownItem = ({leftIcon, rightIcon, text, link}) => {
+            return (
+                // <Link to={text === "Logout" ? '' : link} onClick={text === "Logout" ? logoutHandler : ''} className="custom-menu-item">
+                <div onClick={text === "Logout" ? logoutHandler : null} className="custom-menu-item">
+                    <span className="dropdown-icon-left">{leftIcon}</span>
+                    <span className="custom-dropdown-item">{text}</span>
+                    <span className="dropdown-icon-right">{rightIcon}</span>
+                </div>
+            );
+        }
+        return (
+            <div className="custom-dropdown">
+                <CustomDropDownItem text="My Profile" leftIcon={<FontAwesomeIcon icon={faUserAlt}/>}/>
+                <CustomDropDownItem text="Settings" leftIcon={<FontAwesomeIcon icon={faCog}/>}/>
+                <CustomDropDownItem text="Logout" leftIcon={<FontAwesomeIcon icon={faSignOutAlt}/>}/>
+            </div>
+        );
+    }
 
     const logoutHandler = (e) => {
         e.preventDefault();
@@ -27,10 +57,22 @@ const Header = ({page}) => {
         )
     }else{
         trailingButtons = (
-            // replace with user icon
            <div>
-                <Link to="/home" className="get-started-btn">Home</Link>
-                <Link to="" onClick={logoutHandler} className="get-started-btn">Log out</Link>
+                <nav id="navbar" className="navbar order-last order-lg-0">
+                    <ul>
+                        <li className="custom-nav-item">
+                            <Link to="" className="nav-icon-btn">
+                                <FontAwesomeIcon className="navIcon" icon={faCommentDots}/>
+                            </Link>
+                        </li>
+                        <li className="custom-nav-item">
+                            <Link to="" className="nav-icon-btn">
+                                <FontAwesomeIcon className="navIcon" icon={faUser} onClick={dropdownHandler}/>
+                                {isOpenDropdown === true ? <CustomDropDownMenu/> : null}
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
            </div>
         )
     }
