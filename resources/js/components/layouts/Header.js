@@ -38,7 +38,7 @@ const Header = ({page}) => {
     return (
         <header id="header" className="fixed-top">
             <div className="container d-flex justify-content-between align-items-center">
-                 <h1 className="logo me-auto"><Link to="/">TaskVenator</Link></h1>
+                 <h1 className="logo"><Link to="/">TaskVenator</Link></h1>
                  {page === "home" ? <HomeNavbar/> : <LandingNavbar/>}
                  {trailingButtons}
             </div>

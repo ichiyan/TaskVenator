@@ -286,16 +286,16 @@ canvas {
 
 .signup-signin-card-img {
     border-radius: 27.5px 0 0 27.5px !important;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     border-radius: 0 ;
     -o-object-fit: cover;
         object-fit: cover;
 }
 
 .signup-signin-card-img-top{
-    position: absolute;
-    right: -10%;
+    position: absolute !important;
+    right: 53% !important;
 }
 
 .register-img{
@@ -308,7 +308,7 @@ canvas {
 }
 
 .signup-signin-card .card-body {
-    padding: 50px 40px 50px;
+    padding: 50px 40px 50px 60px;
 }
 
 
@@ -333,6 +333,7 @@ canvas {
     color: #000;
     font-size: 16px;
     padding: 3px 0;
+    margin: 8px 8px 15px 0;
 }
 
 .signup-signin-form-group > input:focus {
