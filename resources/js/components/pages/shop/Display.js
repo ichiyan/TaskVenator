@@ -140,6 +140,12 @@ function Display ({clicked}){
                 <Button>12 <br></br> BUY</Button>
                 </div> 
           </div>
+          <div className="shop-hide">
+                <div className="shop-itemsInfo">
+                <h6>Medium Potion</h6>
+                <p>Heals 70hp</p>
+                </div> 
+          </div>
           <div className="shop-categoryName">
                 <h3>Outfit</h3>
           </div>
@@ -153,21 +159,33 @@ function Display ({clicked}){
                 <Button>12 <br></br> BUY</Button>
                 </div> 
           </div>
+          <div className="shop-hide">
+                <div className="shop-itemsInfo">
+                <h6>Medium Potion</h6>
+                <p>Heals 70hp</p>
+                </div> 
+          </div>
         </div>
       );
     }else{
       return(
         <div className="shop-category">
-        <div className="shop-items">
-              <div className="shop-itemsImage">
-               <h3>image</h3>
-              </div>
-              <div className="shop-itemsInfo">
-              <h6>Small Potion</h6>
-              <p>asdasd</p>
-              <Button>12 <br></br> BUY</Button>
-              </div> 
-        </div>
+          <div className="shop-items">
+                <div className="shop-itemsImage">
+                  <h3>image</h3>
+                </div>
+                <div className="shop-itemsInfo">
+                  <h6>Small Potion</h6>
+                  <p>asdasd</p>
+                  <Button>12 <br></br> BUY</Button>
+                </div> 
+            </div>
+          <div className="shop-hide">
+                  <div className="shop-itemsInfo">
+                  <h6>Medium Potion</h6>
+                  <p>Heals 70hp</p>
+                  </div> 
+            </div>
       </div>
       );
     }
