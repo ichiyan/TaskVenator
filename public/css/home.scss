@@ -101,22 +101,21 @@
             padding: 10px;
         }
 
+        .health-bar, .xp-bar, .bar{
+            height: 10px;
+            display: inline-block;
+        }
+
         .health-bar, .xp-bar{
             width: 15%;
-            height: 10px;
             background: #2A2C37;
             position: relative;
             margin-left: 25px;
         }
 
-        .health-bar, .xp-bar, .bar {
-            width: 100%;
-            height: 10px;
+        .bar {
             transition: width .5s linear;
             display: inline-block;
-        }
-
-        .bar{
             position: absolute;
         }
 
@@ -134,8 +133,6 @@
             top: 0;
             right: 0;
             bottom: 0;
-            width: 0px;
-
             transition: width .5s linear;
         }
 

@@ -1,14 +1,40 @@
 import { faBahai, faHeart, faKhanda } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import AvatarHeaderInfo from "./AvatarHeaderInfo";
 
 const AvatarHeader = () => {
 
-    const [hp, setHp] = useState();
+    var hpTotal = 50;
+    const [hp, setHp] = useState(50);
+    const [barWidth, setBarWidth] = useState("100");
+    const [hitWidth, setHitWidth] = useState("0");
+
+    const hitHandler = () => {
+        const updatedHp = hp - 10;
+        if(updatedHp == 0){
+            console.log("dead");
+            setHp(50);
+            console.log("revived");
+            console.log(hp);
+        }else{
+            setHp(updatedHp);
+        }
+        console.log(hp);
+
+        const newBarWidth = updatedHp / hpTotal * 100;
+        const newHitWidth = 10 / hp * 100;
+
+        setHitWidth(newHitWidth);
+
+        setTimeout(function(){
+            setHitWidth(0);
+            setBarWidth(newBarWidth);
+        }, 500);
 
 
 
+    }
 
     return (
         <div className="avatar-header d-flex">
@@ -26,18 +52,18 @@ const AvatarHeader = () => {
                         </div>
                         <div className="health-section">
                             <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>
-                            <span class="health-bar" data-total="1000" data-value="1000">
-                                <div class="hp bar">
-                                    <div class="hit"></div>
+                            <span className="health-bar" data-total={hpTotal} data-value={hp}>
+                                <div className="hp bar" style={{width: barWidth + "%"}}>
+                                    <div className="hit" style={{width: hitWidth + "%"}}></div>
                                 </div>
                             </span>
-                            <span className="hp-txt">50/50</span>
+                            <span className="hp-txt">{hp}/{hpTotal}</span>
                         </div>
                         <div className="xp-section">
                             <span> <img className="health-icon" src="assets/images/xp-icon.png"></img></span>
-                            <span class="xp-bar" data-total="1000" data-value="1000">
-                                <div class="xp bar">
-                                    <div class=""></div>
+                            <span className="xp-bar" data-total="1000" data-value="1000">
+                                <div className="xp bar">
+                                    <div className=""></div>
                                 </div>
                             </span>
                             <span className="xp-txt">50/50</span>
@@ -45,8 +71,8 @@ const AvatarHeader = () => {
                     </div>
                 </div>
                 <br/><br/>
-                <button class="damage random btn btn-primary" onClick={hitHandler}>hit random</button>
-                 <button class="reset btn btn-secondary">reset</button>
+                <button className="damage random btn btn-primary" onClick={hitHandler}>damage</button>
+                 {/* <button className="reset btn btn-secondary">reset</button> */}
             </div>
         </div>
     );
