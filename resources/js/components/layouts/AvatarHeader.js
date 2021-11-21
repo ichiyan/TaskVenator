@@ -1,9 +1,15 @@
 import { faBahai, faHeart, faKhanda } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import AvatarHeaderInfo from "./AvatarHeaderInfo";
 
 const AvatarHeader = () => {
+
+    const [hp, setHp] = useState();
+
+
+
+
     return (
         <div className="avatar-header d-flex">
             <div className="container avatar d-flex">
@@ -11,36 +17,36 @@ const AvatarHeader = () => {
                     <div className="col-1 avatar-img-space d-flex">
                         <img className="avatar-img align-self-center" src="assets/images/avatar-male-warrior.png"/>
                     </div>
-                    <div className="col avatar-header-info">
-                        <div className="row justify-content-start">
-                            <div className="col-1 icons">
-                                <FontAwesomeIcon icon={faKhanda} className="circle-icon"></FontAwesomeIcon>
-                            </div>
-                            <div className="col-4 info">
-                                <h1 className="username">username</h1>
-                                <p className="class">lvl 1 Warrior</p>
-                            </div>
+                    <div className="col avatar-header-info align-self-start">
+                        <div className="first-row">
+                            <span className="circle-icon">
+                                <img className="class-icon" src="assets/images/warrior-class-icon.png"></img>
+                            </span>
+                            <span className="username">username<p className="class">lvl 1 warrior</p></span>
                         </div>
-                        <div className="row justify-content-start">
-                            <div className="col-1 icons">
-                                <FontAwesomeIcon icon={faHeart} className="health-icon"></FontAwesomeIcon>
-                            </div>
-                            <div className="col-4 info">
-                                {/* <span className="username">username</span> */}
-                                <span className="health">50/50</span>
-                            </div>
+                        <div className="health-section">
+                            <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>
+                            <span class="health-bar" data-total="1000" data-value="1000">
+                                <div class="hp bar">
+                                    <div class="hit"></div>
+                                </div>
+                            </span>
+                            <span className="hp-txt">50/50</span>
                         </div>
-                        <div className="row justify-content-start">
-                            <div className="col-1 icons">
-                                <FontAwesomeIcon icon={faBahai} className="xp-icon"></FontAwesomeIcon>
-                            </div>
-                            <div className="col-4 info">
-                                {/* <span className="username">username</span> */}
-                                <span className="xp">50/50</span>
-                            </div>
+                        <div className="xp-section">
+                            <span> <img className="health-icon" src="assets/images/xp-icon.png"></img></span>
+                            <span class="xp-bar" data-total="1000" data-value="1000">
+                                <div class="xp bar">
+                                    <div class=""></div>
+                                </div>
+                            </span>
+                            <span className="xp-txt">50/50</span>
                         </div>
                     </div>
                 </div>
+                <br/><br/>
+                <button class="damage random btn btn-primary" onClick={hitHandler}>hit random</button>
+                 <button class="reset btn btn-secondary">reset</button>
             </div>
         </div>
     );

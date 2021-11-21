@@ -42,59 +42,101 @@
 
     .avatar-header-info {
         margin-left: 10px;
+        height: 100%;
+
+        .first-row{
+            display: inline-block;
+        }
 
         .username{
             color: azure;
             font-size: 1.2rem;
-            padding-bottom: 1px;
-            margin: 0;
+            padding-bottom: 0;
         }
 
         .class{
             color: #9580FF;
             font-size: small;
             text-transform: uppercase;
-            padding: 0;
-            margin: 0;
+            padding-top: 0;
+            padding-bottom: 8px;
+            margin-bottom: 0;
+        }
 
+        .username, .class{
+            margin-left: 50px;
         }
 
         .circle-icon {
             background-color: aliceblue;
             width: 35px;
             height: 35px;
-            padding: 5px;
             border-radius: 50%;
+            padding: 0;
             text-align: center;
             line-height: 35px;
-            vertical-align: middle;
+            position: absolute;
+            margin-top: 8px;
         }
 
-        .icons{
-            padding-right: 0 !important;
-            margin-right: 0 !important;
+        .class-icon{
+            width: 65%;
+            height: 65%;
+            object-fit: cover;
         }
 
-        .info{
-            padding-left: 0 !important;
-            margin-left: 0 !important;
+        .health-section{
+            padding-bottom: 5px;
         }
 
         .health-icon, .xp-icon{
-            font-size: 1.2rem;
+            margin-left: 5px;
+            width: 20px;
+            height: 20px;
         }
 
-        .health-icon{
-            color: red;
-        }
-
-        .xp-icon{
-            color: yellow;
-        }
-
-        .health, .xp{
+        .hp-txt, .xp-txt{
             color: #9580FF;
             font-size: small;
+            padding: 10px;
+        }
+
+        .health-bar, .xp-bar{
+            width: 15%;
+            height: 10px;
+            background: #2A2C37;
+            position: relative;
+            margin-left: 25px;
+        }
+
+        .health-bar, .xp-bar, .bar {
+            width: 100%;
+            height: 10px;
+            transition: width .5s linear;
+            display: inline-block;
+        }
+
+        .bar{
+            position: absolute;
+        }
+
+        .hp.bar{
+            background: #FF80BF;
+        }
+
+        .xp.bar{
+            background: #80FFEA;
+        }
+
+        .hit {
+            background: rgba(255,255,255,0.6);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 0px;
+
+            transition: width .5s linear;
         }
 
     }

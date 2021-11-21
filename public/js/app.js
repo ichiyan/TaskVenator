@@ -13065,11 +13065,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _AvatarHeaderInfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AvatarHeaderInfo */ "./resources/js/components/layouts/AvatarHeaderInfo.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -13078,11 +13089,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AvatarHeader = function AvatarHeader() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      hp = _useState2[0],
+      setHp = _useState2[1];
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "avatar-header d-flex",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "container avatar d-flex",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "row align-self-center justify-content-start align-items-center",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "col-1 avatar-img-space d-flex",
@@ -13091,58 +13107,74 @@ var AvatarHeader = function AvatarHeader() {
             src: "assets/images/avatar-male-warrior.png"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "col avatar-header-info",
+          className: "col avatar-header-info align-self-start",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "row justify-content-start",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col-1 icons",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-                icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faKhanda,
-                className: "circle-icon"
+            className: "first-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "circle-icon",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                className: "class-icon",
+                src: "assets/images/warrior-class-icon.png"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "col-4 info",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-                className: "username",
-                children: "username"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              className: "username",
+              children: ["username", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
                 className: "class",
-                children: "lvl 1 Warrior"
+                children: "lvl 1 warrior"
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "row justify-content-start",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col-1 icons",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-                icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faHeart,
-                className: "health-icon"
+            className: "health-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                className: "health-icon",
+                src: "assets/images/health-icon.png"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              "class": "health-bar",
+              "data-total": "1000",
+              "data-value": "1000",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                "class": "hp bar",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  "class": "hit"
+                })
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col-4 info",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "health",
-                children: "50/50"
-              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "hp-txt",
+              children: "50/50"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "row justify-content-start",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col-1 icons",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-                icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faBahai,
-                className: "xp-icon"
+            className: "xp-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                className: "health-icon",
+                src: "assets/images/xp-icon.png"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              "class": "xp-bar",
+              "data-total": "1000",
+              "data-value": "1000",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                "class": "xp bar",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  "class": ""
+                })
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "col-4 info",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "xp",
-                children: "50/50"
-              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "xp-txt",
+              children: "50/50"
             })]
           })]
         })]
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        "class": "damage random btn btn-primary",
+        onClick: hitHandler,
+        children: "hit random"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        "class": "reset btn btn-secondary",
+        children: "reset"
+      })]
     })
   });
 };
@@ -21035,7 +21067,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n.internal-pages {\n  height: 100vh;\n  width: 100vw;\n  background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n.avatar-header {\n  width: 100%;\n  height: 140px;\n  position: absolute;\n  background-color: #2F3144;\n}\n.avatar-header .avatar {\n  height: 100% !important;\n}\n.avatar-header .row {\n  height: 80% !important;\n  width: 100% !important;\n}\n.avatar-header .avatar-img-space {\n  background-color: #9580FF;\n  height: 100%;\n  width: 120px;\n  padding: 0 !important;\n}\n.avatar-header .avatar-img {\n  max-width: 120px;\n  max-height: 80%;\n  padding: 8px;\n}\n.avatar-header .avatar-header-info {\n  margin-left: 10px;\n}\n.avatar-header .avatar-header-info .username {\n  color: azure;\n  font-size: 1.2rem;\n  padding-bottom: 1px;\n  margin: 0;\n}\n.avatar-header .avatar-header-info .class {\n  color: #9580FF;\n  font-size: small;\n  text-transform: uppercase;\n  padding: 0;\n  margin: 0;\n}\n.avatar-header .avatar-header-info .circle-icon {\n  background-color: aliceblue;\n  width: 35px;\n  height: 35px;\n  padding: 5px;\n  border-radius: 50%;\n  text-align: center;\n  line-height: 35px;\n  vertical-align: middle;\n}\n.avatar-header .avatar-header-info .icons {\n  padding-right: 0 !important;\n  margin-right: 0 !important;\n}\n.avatar-header .avatar-header-info .info {\n  padding-left: 0 !important;\n  margin-left: 0 !important;\n}\n.avatar-header .avatar-header-info .health-icon, .avatar-header .avatar-header-info .xp-icon {\n  font-size: 1.2rem;\n}\n.avatar-header .avatar-header-info .health-icon {\n  color: red;\n}\n.avatar-header .avatar-header-info .xp-icon {\n  color: yellow;\n}\n.avatar-header .avatar-header-info .health, .avatar-header .avatar-header-info .xp {\n  color: #9580FF;\n  font-size: small;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n.internal-pages {\n  height: 100vh;\n  width: 100vw;\n  background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n.avatar-header {\n  width: 100%;\n  height: 140px;\n  position: absolute;\n  background-color: #2F3144;\n}\n.avatar-header .avatar {\n  height: 100% !important;\n}\n.avatar-header .row {\n  height: 80% !important;\n  width: 100% !important;\n}\n.avatar-header .avatar-img-space {\n  background-color: #9580FF;\n  height: 100%;\n  width: 120px;\n  padding: 0 !important;\n}\n.avatar-header .avatar-img {\n  max-width: 120px;\n  max-height: 80%;\n  padding: 8px;\n}\n.avatar-header .avatar-header-info {\n  margin-left: 10px;\n  height: 100%;\n}\n.avatar-header .avatar-header-info .first-row {\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .username {\n  color: azure;\n  font-size: 1.2rem;\n  padding-bottom: 0;\n}\n.avatar-header .avatar-header-info .class {\n  color: #9580FF;\n  font-size: small;\n  text-transform: uppercase;\n  padding-top: 0;\n  padding-bottom: 8px;\n  margin-bottom: 0;\n}\n.avatar-header .avatar-header-info .username, .avatar-header .avatar-header-info .class {\n  margin-left: 50px;\n}\n.avatar-header .avatar-header-info .circle-icon {\n  background-color: aliceblue;\n  width: 35px;\n  height: 35px;\n  border-radius: 50%;\n  padding: 0;\n  text-align: center;\n  line-height: 35px;\n  position: absolute;\n  margin-top: 8px;\n}\n.avatar-header .avatar-header-info .class-icon {\n  width: 65%;\n  height: 65%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.avatar-header .avatar-header-info .health-section {\n  padding-bottom: 5px;\n}\n.avatar-header .avatar-header-info .health-icon, .avatar-header .avatar-header-info .xp-icon {\n  margin-left: 5px;\n  width: 20px;\n  height: 20px;\n}\n.avatar-header .avatar-header-info .hp-txt, .avatar-header .avatar-header-info .xp-txt {\n  color: #9580FF;\n  font-size: small;\n  padding: 10px;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar {\n  width: 15%;\n  height: 10px;\n  background: #2A2C37;\n  position: relative;\n  margin-left: 25px;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar, .avatar-header .avatar-header-info .bar {\n  width: 100%;\n  height: 10px;\n  transition: width 0.5s linear;\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .bar {\n  position: absolute;\n}\n.avatar-header .avatar-header-info .hp.bar {\n  background: #FF80BF;\n}\n.avatar-header .avatar-header-info .xp.bar {\n  background: #80FFEA;\n}\n.avatar-header .avatar-header-info .hit {\n  background: rgba(255, 255, 255, 0.6);\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  width: 0px;\n  transition: width 0.5s linear;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
