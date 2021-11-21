@@ -1,0 +1,101 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+.internal-pages{
+    height: 100vh;
+    width: 100vw;
+    background-color: #383A59;
+}
+
+/*--------------------------------------------------------------
+# Avatar Header
+--------------------------------------------------------------*/
+
+.avatar-header{
+    width: 100%;
+    height: 140px;
+    position: absolute;
+    background-color: #2F3144;
+
+    .avatar{
+        height: 100% !important;
+    }
+
+    .row {
+        height: 80% !important;
+        width: 100% !important;
+    }
+
+    .avatar-img-space{
+        background-color: #9580FF;
+        height: 100%;
+        width: 120px;
+        padding: 0 !important;
+    }
+
+    .avatar-img{
+        max-width: 120px;
+        max-height: 80%;
+        padding:8px;
+    }
+
+    .avatar-header-info {
+        margin-left: 10px;
+
+        .username{
+            color: azure;
+            font-size: 1.2rem;
+            padding-bottom: 1px;
+            margin: 0;
+        }
+
+        .class{
+            color: #9580FF;
+            font-size: small;
+            text-transform: uppercase;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .circle-icon {
+            background-color: aliceblue;
+            width: 35px;
+            height: 35px;
+            padding: 5px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            vertical-align: middle;
+        }
+
+        .icons{
+            padding-right: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .info{
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+        }
+
+        .health-icon, .xp-icon{
+            font-size: 1.2rem;
+        }
+
+        .health-icon{
+            color: red;
+        }
+
+        .xp-icon{
+            color: yellow;
+        }
+
+        .health, .xp{
+            color: #9580FF;
+            font-size: small;
+        }
+
+    }
+}
