@@ -14,6 +14,7 @@ function Shop(){
 
     
 return(
+    
     <div className="shop-main_shop">
         <div className="shop-weaponForm"> 
         <AddOutfitForm/> 
@@ -21,8 +22,8 @@ return(
         <AddItemForm/>
         </div>
       
-
-        <div className="shop-shopNavigator">
+       
+        <div className="shop-shopNavigator"> 
                 <div className="button">
                 <button  name="Items" onClick={showItem} className="shop-displayButton">All</button>
                 </div>
@@ -34,8 +35,10 @@ return(
                 </div>
                 <div className="button">
                 <button  name="All" onClick={showItem} className="shop-displayButton">Outfit</button>
-                </div>
-         </div>
+                </div> 
+
+            </div>
+    
 
          <div className="shop-shop"> 
             <Display/>
