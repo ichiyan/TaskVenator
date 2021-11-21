@@ -1,10 +1,9 @@
 import Button from "@restart/ui/esm/Button";
 import React from "react";
 
-function Display (){
-    
+function Display ({clicked}){
+    if(clicked=== "Potions"){
     return (
-        // map
         <div className="shop-category">
             <div className="shop-categoryName">
                 <h3>Hp Potion</h3>
@@ -74,12 +73,54 @@ function Display (){
                 <Button>12 <br></br> BUY</Button>
                 </div> 
           </div>
-         
-    
-       
-         
         </div>
-  
     );
+    }else if(clicked==="Outfit"){
+      return(
+        <div className="shop-category">
+          <div className="shop-categoryName">
+                <h3>Weapons</h3>
+          </div>
+          <div className="shop-items">
+                <div className="shop-itemsImage">
+                  <img src="assets/images/ak47.png"></img>
+                </div>
+                <div className="shop-itemsInfo">
+                <h6>Small Potion</h6>
+                <p>Add stuns for 0.5 seconds</p>
+                <Button>12 <br></br> BUY</Button>
+                </div> 
+          </div>
+          <div className="shop-categoryName">
+                <h3>Outfit</h3>
+          </div>
+          <div className="shop-items">
+                <div className="shop-itemsImage">
+                  <img src="assets/images/ak47.png"></img>
+                </div>
+                <div className="shop-itemsInfo">
+                <h6>Small Potion</h6>
+                <p>Add stuns for 0.5 seconds</p>
+                <Button>12 <br></br> BUY</Button>
+                </div> 
+          </div>
+        </div>
+      );
+    }else{
+      return(
+        <div className="shop-category">
+        <div className="shop-items">
+              <div className="shop-itemsImage">
+               <h3>image</h3>
+              </div>
+              <div className="shop-itemsInfo">
+              <h6>Small Potion</h6>
+              <p>asdasd</p>
+              <Button>12 <br></br> BUY</Button>
+              </div> 
+        </div>
+      </div>
+      );
+    }
 }
 export default Display;

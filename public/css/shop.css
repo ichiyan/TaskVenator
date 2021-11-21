@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid white;
+    font-family: "Playfair Display", serif;
   }
   .shop-weaponForm{
     display: flex;
@@ -62,26 +63,17 @@
   .shop-items Button:hover{
     background-color: #C0C034;
   }
-  .shop-shopNavigator{
-    background-color: #C4C4C4;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid white;
+
+  /* button navigator */
+  .shop-main_shop .btn-group{
     width:90%;
-    gap:14rem;
-  
+
+  }
+  .shop-main_shop .btn-group .btn:hover{
+    background-color: #FF9580;
   }
   .shop-displayButton:hover{
     background-color: #FF9580;
-  }
-  .shop-displayButton {
-    background-color: #C4C4C4;
-    padding: 15px;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
   }
   .shop-weaponList{
     display: flex;
