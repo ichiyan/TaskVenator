@@ -2,31 +2,26 @@ import Button from "@restart/ui/esm/Button";
 import React from "react";
 
 function Display ({clicked}){
-    if(clicked=== "Potions"){
+    if(clicked === "Potions"){
     return (
         <div className="shop-category">
             <div className="shop-categoryName">
                 <h3>Hp Potion</h3>
             </div>
-          <div className="shop-items">
-                <div className="shop-itemsImage">
-                  <img src="assets/images/health-potion1.png"></img>
-                </div>
-                <div className="shop-itemsInfo">
-                <h6>Large Potion</h6>
-                <p>Heals 100hp</p>
-                <Button>12 <br></br> BUY</Button>
-                </div>
-                
-          </div>
-          <div className="shop-items">
-                <div className="shop-itemsImage">
-                  <img src="assets/images/health-potion2.png"></img>
-                </div>
+            <div className="shop-items">
+                  <div className="shop-itemsImage">
+                    <img src="assets/images/health-potion1.png"></img>
+                  </div>
+                  <div className="shop-itemsInfo">
+                  <h6>Large Potion</h6>
+                  <p>Heals 100hp</p>
+                  <Button>12 <br></br> BUY</Button>
+                  </div>
+            </div>
+           <div className="shop-hide">
                 <div className="shop-itemsInfo">
                 <h6>Medium Potion</h6>
                 <p>Heals 70hp</p>
-                <Button>12 <br></br> BUY</Button>
                 </div> 
           </div>
           <div className="shop-items">
@@ -37,6 +32,60 @@ function Display ({clicked}){
                 <h6>Small Potion</h6>
                 <p>Heals 50hp</p>
                 <Button>12 <br></br> BUY</Button>
+                </div> 
+          </div>
+          <div className="shop-hide">
+                <div className="shop-itemsInfo">
+                <h6>Medium Potion</h6>
+                <p>Heals 70hp</p>
+                </div> 
+          </div>
+          <div className="shop-items">
+                <div className="shop-itemsImage">
+                  <img src="assets/images/health-potion3.png"></img>
+                </div>
+                <div className="shop-itemsInfo">
+                <h6>Small Potion</h6>
+                <p>Heals 50hp</p>
+                <Button>12 <br></br> BUY</Button>
+                </div> 
+          </div>
+          <div className="shop-hide">
+                <div className="shop-itemsInfo">
+                <h6>Medium Potion</h6>
+                <p>Heals 70hp</p>
+                </div> 
+          </div>
+          <div className="shop-items">
+                <div className="shop-itemsImage">
+                  <img src="assets/images/health-potion3.png"></img>
+                </div>
+                <div className="shop-itemsInfo">
+                <h6>Small Potion</h6>
+                <p>Heals 50hp</p>
+                <Button>12 <br></br> BUY</Button>
+                </div> 
+          </div>
+          <div className="shop-hide">
+                <div className="shop-itemsInfo">
+                <h6>Medium Potion</h6>
+                <p>Heals 70hp</p>
+                </div> 
+          </div>
+          <div className="shop-items">
+                <div className="shop-itemsImage">
+                  <img src="assets/images/health-potion3.png"></img>
+                </div>
+                <div className="shop-itemsInfo">
+                <h6>Small Potion</h6>
+                <p>Heals 50hp</p>
+                <Button>12 <br></br> BUY</Button>
+                </div> 
+          </div>
+          <div className="shop-hide">
+                <div className="shop-itemsInfo">
+                <h6>Medium Potion</h6>
+                <p>Heals 70hp</p>
                 </div> 
           </div>
           <div className="shop-categoryName">
@@ -72,7 +121,7 @@ function Display ({clicked}){
                 <p>Add stuns for 0.5 seconds</p>
                 <Button>12 <br></br> BUY</Button>
                 </div> 
-          </div>
+          </div>  
         </div>
     );
     }else if(clicked==="Outfit"){

@@ -39,6 +39,8 @@
   .shop-category{
     font: black;
   }
+
+  /* displaying items in shop  */
   .shop-items{
     display: inline-block;
     color: black;
@@ -63,7 +65,26 @@
   .shop-items Button:hover{
     background-color: #C0C034;
   }
-
+ /* displaying the hide info in div  */
+ .shop-hide{
+  display: inline-block;
+  color: black;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid white;
+  background-color: #8AFF80;
+  width: 200px;
+ }
+ .shop-hide{
+   display: none;
+ }
+ .shop-items:hover + .shop-hide{
+   display:inline-block;
+   margin-left: -50px;
+   vertical-align:top;
+ }
+ 
   /* button navigator */
   .shop-main_shop .btn-group{
     width:90%;
