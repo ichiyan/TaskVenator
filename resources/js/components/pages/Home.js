@@ -1,13 +1,12 @@
 import React from "react";
+import AvatarHeader from "../layouts/AvatarHeader";
 import Header from "../layouts/Header";
-
 
 const Home = () => {
     return (
-        <div>
+        <div className="internal-pages">
             <Header page="home"/>
-            <br/><br/><br/>
-            <h1>HOME PAGE</h1>
+            <AvatarHeader/>
         </div>
     );
 }

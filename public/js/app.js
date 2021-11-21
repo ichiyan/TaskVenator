@@ -12635,6 +12635,8 @@ __webpack_require__(/*! ../../node_modules/bootstrap/dist/css/bootstrap.min.css 
 
 __webpack_require__(/*! ../../public/css/landing_auth.css */ "./public/css/landing_auth.css");
 
+__webpack_require__(/*! ../../public/css/home.css */ "./public/css/home.css");
+
 __webpack_require__(/*! ../../public/css/shop.css */ "./public/css/shop.css");
 
 __webpack_require__(/*! ../../node_modules/bootstrap/dist/js/bootstrap.bundle.js */ "./node_modules/bootstrap/dist/js/bootstrap.bundle.js");
@@ -13052,6 +13054,68 @@ var Register = function Register() {
 
 /***/ }),
 
+/***/ "./resources/js/components/layouts/AvatarHeader.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/layouts/AvatarHeader.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _AvatarImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AvatarImage */ "./resources/js/components/layouts/AvatarImage.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var AvatarHeader = function AvatarHeader() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "avatar-header d-flex",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "container avatar d-flex align-items-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AvatarImage__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AvatarHeader);
+
+/***/ }),
+
+/***/ "./resources/js/components/layouts/AvatarImage.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/layouts/AvatarImage.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var AvatarImage = function AvatarImage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "avatar-image-container d-flex align-self-center",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+      className: "avatar-img justify-content-center align-self-center",
+      src: "assets/images/avatar-male-warrior.png"
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AvatarImage);
+
+/***/ }),
+
 /***/ "./resources/js/components/layouts/Header.js":
 /*!***************************************************!*\
   !*** ./resources/js/components/layouts/Header.js ***!
@@ -13417,20 +13481,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
+/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 
 var Home = function Home() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "internal-pages",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
       page: "home"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-      children: "HOME PAGE"
-    })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
   });
 };
 
@@ -20832,6 +20897,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";/*!\n * Bootstrap v
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/home.css":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/home.css ***!
+  \***************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n\n.internal-pages{\n    height: 100vh;\n    width: 100vw;\n    background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n\n.avatar-header{\n    width: 100%;\n    height: 20%;\n    position: absolute;\n    background-color: #2F3144;\n}\n\n.container.avatar{\n    height: 100%;\n}\n\n.avatar-image-container{\n    height: 80%;\n    width: 115px;\n    background-color: #9580FF;\n}\n\n.avatar-image-container .avatar-img{\n    max-width: 115px;\n    max-height: 80%;\n}\n\n\n\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/landing_auth.css":
 /*!***********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/landing_auth.css ***!
@@ -20849,7 +20938,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\r\n# General\r\n--------------------------------------------------------------*/\r\nhtml,body{\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Source Sans Pro\", 'sans-serif';\r\n}\r\n\r\na, a:hover{\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n/*--------------------------------------------------------------\r\n# Header\r\n--------------------------------------------------------------*/\r\n#header {\r\n    background: #2A2C37;\r\n    transition: all 0.5s;\r\n    z-index: 997;\r\n    padding: 10px 0;\r\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\r\n  }\r\n  #header .logo {\r\n    font-size: 24px;\r\n    margin: 0;\r\n    padding: 0;\r\n    line-height: 1;\r\n    font-weight: 600;\r\n    letter-spacing: 1px;\r\n    font-family: \"Playfair Display\", serif;\r\n  }\r\n  #header .logo a {\r\n    color: #fff;\r\n  }\r\n  #header .logo img {\r\n    max-height: 40px;\r\n  }\r\n\r\n  /**\r\n  * Get Started Button\r\n  */\r\n\r\n  .get-started-btn {\r\n    margin-left: 22px;\r\n    background: #5fcf80;\r\n    color: #fff;\r\n    border-radius: 50px;\r\n    padding: 8px 25px;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n    font-size: 14px;\r\n    display: inline-block;\r\n  }\r\n  .get-started-btn:hover {\r\n    background: #3ac162;\r\n    color: #fff;\r\n  }\r\n  @media (max-width: 768px) {\r\n    .get-started-btn {\r\n      margin: 0 15px 0 0;\r\n      padding: 6px 18px;\r\n    }\r\n  }\r\n\r\n/*--------------------------------------------------------------\r\n# Navigation Menu\r\n--------------------------------------------------------------*/\r\n/**\r\n* Desktop Navigation\r\n*/\r\n\r\n.navbar {\r\n    padding: 0;\r\n  }\r\n  .navbar ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    list-style: none;\r\n    align-items: center;\r\n  }\r\n  .navbar li {\r\n    position: relative;\r\n  }\r\n  .navbar a, .navbar a:focus {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    padding: 10px 0 10px 30px;\r\n    font-family: \"Playfair Display\", serif;\r\n    font-size: 16px;\r\n    font-weight: 400;\r\n    color: #fff;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n  }\r\n  .navbar a i, .navbar a:focus i {\r\n    font-size: 12px;\r\n    line-height: 0;\r\n    margin-left: 5px;\r\n  }\r\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\r\n    color: #8AFF80;\r\n  }\r\n\r\n  /*\r\n  .navbar .dropdown ul {\r\n    display: block;\r\n    position: absolute;\r\n    left: 30px;\r\n    top: calc(100% + 30px);\r\n    margin: 0;\r\n    padding: 10px 0;\r\n    z-index: 99;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    background: #fff;\r\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\r\n    transition: 0.3s;\r\n    border-radius: 4px;\r\n  }\r\n  .navbar .dropdown ul li {\r\n    min-width: 200px;\r\n  }\r\n  .navbar .dropdown ul a {\r\n    padding: 10px 20px;\r\n    font-size: 14px;\r\n    text-transform: none;\r\n    font-weight: 500;\r\n  }\r\n  .navbar .dropdown ul a i {\r\n    font-size: 12px;\r\n  }\r\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\r\n    color: #5fcf80;\r\n  }\r\n  .navbar .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 100%;\r\n    visibility: visible;\r\n  }\r\n  .navbar .dropdown .dropdown ul {\r\n    top: 0;\r\n    left: calc(100% - 30px);\r\n    visibility: hidden;\r\n  }\r\n  .navbar .dropdown .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 0;\r\n    left: 100%;\r\n    visibility: visible;\r\n  }\r\n   @media (max-width: 1366px) {\r\n    .navbar .dropdown .dropdown ul {\r\n      left: -90%;\r\n    }\r\n    .navbar .dropdown .dropdown:hover > ul {\r\n      left: -100%;\r\n    }\r\n  } */\r\n\r\n  .navIcon{\r\n      font-size: 1.3rem;\r\n  }\r\n\r\n  .custom-dropdown{\r\n      position: absolute;\r\n      top: calc(100% + 10px);\r\n      width: 250px;\r\n      transform: translateX(-90%);\r\n      border-radius: 10px;\r\n      padding: 0.5rem;\r\n      overflow: hidden;\r\n      background-color: #242526;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-dropdown-item{\r\n      font-family: \"Source Sans Pro\", 'sans-serif';\r\n      font-size: small;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-menu-item{\r\n      height: 50%;\r\n      display: flex;\r\n      align-items: center;\r\n      padding: 0.5rem;\r\n  }\r\n\r\n  .custom-menu-item:hover{\r\n      background-color: #525357;\r\n  }\r\n\r\n  .dropdown-icon-left{\r\n      padding-right: 5px;\r\n  }\r\n\r\n  .dropdown-icon-right{\r\n      margin-left: auto;\r\n  }\r\n\r\n  /*--------------------------------------------------------------\r\n# Hero Section\r\n--------------------------------------------------------------*/\r\n#hero {\r\n    width: 100%;\r\n    height: 80vh;\r\n    background-color: #9580FF;\r\n    background-size: cover;\r\n    position: relative;\r\n  }\r\n\r\n  #hero .container {\r\n    padding-top: 72px;\r\n  }\r\n  @media (max-width: 992px) {\r\n    #hero .container {\r\n      padding-top: 62px;\r\n    }\r\n  }\r\n  #hero h1 {\r\n    margin: 0;\r\n    font-size: 48px;\r\n    font-weight: 700;\r\n    line-height: 56px;\r\n    color: #383A59;\r\n    font-family: \"Poppins\", sans-serif;\r\n  }\r\n  #hero h2 {\r\n    color: #383A59;\r\n    margin: 10px 0 0 0;\r\n    font-size: 24px;\r\n  }\r\n  #hero .btn-get-started, #hero .btn-login {\r\n    font-family: \"Raleway\", sans-serif;\r\n    font-weight: 500;\r\n    font-size: 15px;\r\n    letter-spacing: 1px;\r\n    display: inline-block;\r\n    padding: 10px 35px;\r\n    border-radius: 50px;\r\n    transition: 0.5s;\r\n    margin: 30px 30px 0 0;\r\n    border: 2px solid #2A2C37;\r\n    color: #fff;\r\n  }\r\n\r\n  #hero .btn-get-started{\r\n    background-color: #2A2C37;\r\n  }\r\n\r\n  #hero .btn-login{\r\n    border: 2px solid #fff;\r\n  }\r\n\r\n  #hero .btn-get-started:hover {\r\n    background: #383A59;\r\n    border: 2px solid #383A59;\r\n  }\r\n\r\n  #hero .btn-login:hover {\r\n    border: 2px solid #383A59;\r\n    color: #383A59;\r\n  }\r\n\r\n  @media (min-width: 1024px) {\r\n    #hero {\r\n      background-attachment: fixed;\r\n    }\r\n  }\r\n  @media (max-width: 768px) {\r\n    #hero {\r\n      height: 100vh;\r\n    }\r\n    #hero h1 {\r\n      font-size: 28px;\r\n      line-height: 36px;\r\n    }\r\n    #hero h2 {\r\n      font-size: 18px;\r\n      line-height: 24px;\r\n    }\r\n  }\r\n\r\n#landing-pixels{\r\n    width: 100%;\r\n\theight: 100%;\r\n}\r\n\r\n.landing-pixel{\r\n    background-color: #9580FF;\r\n\tfloat: left;\r\n}\r\n\r\n /*--------------------------------------------------------------\r\n# Registration and Login\r\n--------------------------------------------------------------*/\r\ncanvas {\r\n    display: block;\r\n}\r\n\r\n#particles-js {\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: #9580ff;\r\n    background-attachment: fixed;\r\n    position: fixed;\r\n}\r\n\r\n.container.signup-signin {\r\n    padding-top: 10%;\r\n    width: 60%;\r\n}\r\n\r\n\r\n.signup-signin-card {\r\n    border: 0 !important;\r\n    border-radius: 27.5px !important;\r\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\r\n    overflow: visible !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.signup-signin-card-img {\r\n    border-radius: 27.5px 0 0 27.5px !important;\r\n    width: 100% !important;\r\n    height: 100% !important;\r\n    border-radius: 0 ;\r\n    -o-object-fit: cover;\r\n        object-fit: cover;\r\n}\r\n\r\n.signup-signin-card-img-top{\r\n    position: absolute !important;\r\n    right: 53% !important;\r\n}\r\n\r\n.register-img{\r\n    height: 115%;\r\n}\r\n\r\n.login-img{\r\n    height: 155%;\r\n    top: -20%;\r\n}\r\n\r\n.signup-signin-card .card-body {\r\n    padding: 50px 40px 50px 60px;\r\n}\r\n\r\n\r\n.signup-signin-card-description {\r\n    font-size: 25px;\r\n    color: #000;\r\n    font-weight: bold;\r\n    margin-bottom: 23px;\r\n}\r\n\r\n.signup-signin-card form {\r\n    max-width: 326px;\r\n }\r\n\r\n.signup-signin-form-group > input {\r\n    border: none;\r\n    box-sizing: border-box;\r\n    border-bottom: 1px solid #ebebeb;\r\n    background: transparent;\r\n    width: 100%;\r\n    display: block;\r\n    color: #000;\r\n    font-size: 16px;\r\n    padding: 3px 0;\r\n    margin: 8px 8px 15px 0;\r\n}\r\n\r\n.signup-signin-form-group > input:focus {\r\n    outline: none;\r\n}\r\n\r\n.signup-signin-form-group > .field-icon {\r\n    /* float: right;\r\n    margin-right: 0px;\r\n    margin-top: -22px;\r\n    position: relative;\r\n    z-index: 2; */\r\n    color: #000;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) {\r\n    width: 2em;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-size: 1em;\r\n    display: none;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\r\n    display: inline-block;\r\n    margin-bottom: 25px;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\r\n    display: inline-block;\r\n    width: 13px;\r\n    height: 13px;\r\n    margin-right: 15px;\r\n    margin-bottom: 4px;\r\n    border: 1px solid #000;\r\n    border-radius: 2px;\r\n    background: transparent;\r\n    vertical-align: bottom;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\r\n    background: transparent;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\r\n    content: '\\2713';\r\n    display: block;\r\n    color: #000;\r\n    font-size: 11px;\r\n    line-height: 1.2;\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\n.signup-signin-form-group > .label-agree-term {\r\n    font-size: 13px;\r\n    font-weight: 400;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .term-service {\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .form-submit {\r\n    width: auto;\r\n    display: inline-block;\r\n    border: none;\r\n    background: #5FCF80;\r\n    color: #fff;\r\n    padding: 10px;\r\n    height: 50px;\r\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\r\n    margin-right: 25px;\r\n}\r\n.signup-signin-form-group > .form-submit:hover {\r\n    background-color: #3ac162;\r\n}\r\n.signup-signin-form-group > .submit {\r\n    width: 130px;\r\n    border-radius: 25px;\r\n    text-transform: uppercase;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n}\r\n.signup-signin-form-group > .submit-link {\r\n    border: 2px solid #5FCF80;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .submit-link:hover {\r\n    background: #fff;\r\n    color: #3ac162;\r\n}\r\n\r\n.signup-signin .error-msg{\r\n    color: red;\r\n    font-size: small;\r\n}\r\n\r\n.signup-signin .forgot-password{\r\n    font-size: small;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nhtml,body{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    font-family: \"Source Sans Pro\", 'sans-serif';\n}\n\na, a:hover{\n    text-decoration: none;\n}\n\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n    background: #2A2C37;\n    transition: all 0.5s;\n    z-index: 997;\n    padding: 10px 0;\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\n    position: relative;\n  }\n  #header .logo {\n    font-size: 24px;\n    margin: 0;\n    padding: 0;\n    line-height: 1;\n    font-weight: 600;\n    letter-spacing: 1px;\n    font-family: \"Playfair Display\", serif;\n  }\n  #header .logo a {\n    color: #fff;\n  }\n  #header .logo img {\n    max-height: 40px;\n  }\n\n  /**\n  * Get Started Button\n  */\n\n  .get-started-btn {\n    margin-left: 22px;\n    background: #5fcf80;\n    color: #fff;\n    border-radius: 50px;\n    padding: 8px 25px;\n    white-space: nowrap;\n    transition: 0.3s;\n    font-size: 14px;\n    display: inline-block;\n  }\n  .get-started-btn:hover {\n    background: #3ac162;\n    color: #fff;\n  }\n  @media (max-width: 768px) {\n    .get-started-btn {\n      margin: 0 15px 0 0;\n      padding: 6px 18px;\n    }\n  }\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n/**\n* Desktop Navigation\n*/\n\n.navbar {\n    padding: 0;\n  }\n  .navbar ul {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    list-style: none;\n    align-items: center;\n  }\n  .navbar li {\n    position: relative;\n  }\n  .navbar a, .navbar a:focus {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10px 0 10px 30px;\n    font-family: \"Playfair Display\", serif;\n    font-size: 16px;\n    font-weight: 400;\n    color: #fff;\n    white-space: nowrap;\n    transition: 0.3s;\n  }\n  .navbar a i, .navbar a:focus i {\n    font-size: 12px;\n    line-height: 0;\n    margin-left: 5px;\n  }\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\n    color: #8AFF80;\n  }\n\n  /*\n  .navbar .dropdown ul {\n    display: block;\n    position: absolute;\n    left: 30px;\n    top: calc(100% + 30px);\n    margin: 0;\n    padding: 10px 0;\n    z-index: 99;\n    opacity: 0;\n    visibility: hidden;\n    background: #fff;\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n    transition: 0.3s;\n    border-radius: 4px;\n  }\n  .navbar .dropdown ul li {\n    min-width: 200px;\n  }\n  .navbar .dropdown ul a {\n    padding: 10px 20px;\n    font-size: 14px;\n    text-transform: none;\n    font-weight: 500;\n  }\n  .navbar .dropdown ul a i {\n    font-size: 12px;\n  }\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\n    color: #5fcf80;\n  }\n  .navbar .dropdown:hover > ul {\n    opacity: 1;\n    top: 100%;\n    visibility: visible;\n  }\n  .navbar .dropdown .dropdown ul {\n    top: 0;\n    left: calc(100% - 30px);\n    visibility: hidden;\n  }\n  .navbar .dropdown .dropdown:hover > ul {\n    opacity: 1;\n    top: 0;\n    left: 100%;\n    visibility: visible;\n  }\n   @media (max-width: 1366px) {\n    .navbar .dropdown .dropdown ul {\n      left: -90%;\n    }\n    .navbar .dropdown .dropdown:hover > ul {\n      left: -100%;\n    }\n  } */\n\n  .navIcon{\n      font-size: 1.3rem;\n  }\n\n  .custom-dropdown{\n      position: absolute;\n      top: calc(100% + 10px);\n      width: 250px;\n      transform: translateX(-90%);\n      border-radius: 10px;\n      padding: 0.5rem;\n      overflow: hidden;\n      background-color: #242526;\n      color: #fff !important;\n  }\n\n  .custom-dropdown-item{\n      font-family: \"Source Sans Pro\", 'sans-serif';\n      font-size: small;\n      color: #fff !important;\n  }\n\n  .custom-menu-item{\n      height: 50%;\n      display: flex;\n      align-items: center;\n      padding: 0.5rem;\n  }\n\n  .custom-menu-item:hover{\n      background-color: #525357;\n  }\n\n  .dropdown-icon-left{\n      padding-right: 5px;\n  }\n\n  .dropdown-icon-right{\n      margin-left: auto;\n  }\n\n  /*--------------------------------------------------------------\n# Hero Section\n--------------------------------------------------------------*/\n#hero {\n    width: 100%;\n    height: 80vh;\n    background-color: #9580FF;\n    background-size: cover;\n    position: relative;\n  }\n\n  #hero .container {\n    padding-top: 72px;\n  }\n  @media (max-width: 992px) {\n    #hero .container {\n      padding-top: 62px;\n    }\n  }\n  #hero h1 {\n    margin: 0;\n    font-size: 48px;\n    font-weight: 700;\n    line-height: 56px;\n    color: #383A59;\n    font-family: \"Poppins\", sans-serif;\n  }\n  #hero h2 {\n    color: #383A59;\n    margin: 10px 0 0 0;\n    font-size: 24px;\n  }\n  #hero .btn-get-started, #hero .btn-login {\n    font-family: \"Raleway\", sans-serif;\n    font-weight: 500;\n    font-size: 15px;\n    letter-spacing: 1px;\n    display: inline-block;\n    padding: 10px 35px;\n    border-radius: 50px;\n    transition: 0.5s;\n    margin: 30px 30px 0 0;\n    border: 2px solid #2A2C37;\n    color: #fff;\n  }\n\n  #hero .btn-get-started{\n    background-color: #2A2C37;\n  }\n\n  #hero .btn-login{\n    border: 2px solid #fff;\n  }\n\n  #hero .btn-get-started:hover {\n    background: #383A59;\n    border: 2px solid #383A59;\n  }\n\n  #hero .btn-login:hover {\n    border: 2px solid #383A59;\n    color: #383A59;\n  }\n\n  @media (min-width: 1024px) {\n    #hero {\n      background-attachment: fixed;\n    }\n  }\n  @media (max-width: 768px) {\n    #hero {\n      height: 100vh;\n    }\n    #hero h1 {\n      font-size: 28px;\n      line-height: 36px;\n    }\n    #hero h2 {\n      font-size: 18px;\n      line-height: 24px;\n    }\n  }\n\n#landing-pixels{\n    width: 100%;\n\theight: 100%;\n}\n\n.landing-pixel{\n    background-color: #9580FF;\n\tfloat: left;\n}\n\n /*--------------------------------------------------------------\n# Registration and Login\n--------------------------------------------------------------*/\ncanvas {\n    display: block;\n}\n\n#particles-js {\n    width: 100%;\n    height: 100%;\n    background-color: #9580ff;\n    background-attachment: fixed;\n    position: fixed;\n}\n\n.container.signup-signin {\n    padding-top: 10%;\n    width: 60%;\n}\n\n\n.signup-signin-card {\n    border: 0 !important;\n    border-radius: 27.5px !important;\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n    overflow: visible !important;\n    padding: 0 !important;\n    margin: 0 !important;\n}\n\n.signup-signin-card-img {\n    border-radius: 27.5px 0 0 27.5px !important;\n    width: 100% !important;\n    height: 100% !important;\n    border-radius: 0 ;\n    -o-object-fit: cover;\n        object-fit: cover;\n}\n\n.signup-signin-card-img-top{\n    position: absolute !important;\n    right: 53% !important;\n}\n\n.register-img{\n    height: 115%;\n}\n\n.login-img{\n    height: 155%;\n    top: -20%;\n}\n\n.signup-signin-card .card-body {\n    padding: 50px 40px 50px 60px;\n}\n\n\n.signup-signin-card-description {\n    font-size: 25px;\n    color: #000;\n    font-weight: bold;\n    margin-bottom: 23px;\n}\n\n.signup-signin-card form {\n    max-width: 326px;\n }\n\n.signup-signin-form-group > input {\n    border: none;\n    box-sizing: border-box;\n    border-bottom: 1px solid #ebebeb;\n    background: transparent;\n    width: 100%;\n    display: block;\n    color: #000;\n    font-size: 16px;\n    padding: 3px 0;\n    margin: 8px 8px 15px 0;\n}\n\n.signup-signin-form-group > input:focus {\n    outline: none;\n}\n\n.signup-signin-form-group > .field-icon {\n    /* float: right;\n    margin-right: 0px;\n    margin-top: -22px;\n    position: relative;\n    z-index: 2; */\n    color: #000;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) {\n    width: 2em;\n    margin: 0;\n    padding: 0;\n    font-size: 1em;\n    display: none;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\n    display: inline-block;\n    margin-bottom: 25px;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\n    display: inline-block;\n    width: 13px;\n    height: 13px;\n    margin-right: 15px;\n    margin-bottom: 4px;\n    border: 1px solid #000;\n    border-radius: 2px;\n    background: transparent;\n    vertical-align: bottom;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\n    background: transparent;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\n    content: '\\2713';\n    display: block;\n    color: #000;\n    font-size: 11px;\n    line-height: 1.2;\n    text-align: center;\n    font-weight: bold;\n}\n\n.signup-signin-form-group > .label-agree-term {\n    font-size: 13px;\n    font-weight: 400;\n    color: #000;\n}\n.signup-signin-form-group > .term-service {\n    color: #000;\n}\n.signup-signin-form-group > .form-submit {\n    width: auto;\n    display: inline-block;\n    border: none;\n    background: #5FCF80;\n    color: #fff;\n    padding: 10px;\n    height: 50px;\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n    margin-right: 25px;\n}\n.signup-signin-form-group > .form-submit:hover {\n    background-color: #3ac162;\n}\n.signup-signin-form-group > .submit {\n    width: 130px;\n    border-radius: 25px;\n    text-transform: uppercase;\n    font-size: 13px;\n    cursor: pointer;\n}\n.signup-signin-form-group > .submit-link {\n    border: 2px solid #5FCF80;\n    text-decoration: none;\n    display: inline-block;\n    vertical-align: middle;\n    padding: 12px 0;\n    text-align: center;\n    color: #000;\n}\n.signup-signin-form-group > .submit-link:hover {\n    background: #fff;\n    color: #3ac162;\n}\n\n.signup-signin .error-msg{\n    color: red;\n    font-size: small;\n}\n\n.signup-signin .forgot-password{\n    font-size: small;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -65548,6 +65637,36 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./public/css/home.css":
+/*!*****************************!*\
+  !*** ./public/css/home.css ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_home_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./home.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/home.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_home_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_home_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
