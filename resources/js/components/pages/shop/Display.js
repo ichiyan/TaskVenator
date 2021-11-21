@@ -101,6 +101,12 @@ function Display ({clicked}){
                 <Button>12 <br></br> BUY</Button>
                 </div> 
           </div>
+          <div className="shop-hide">
+                <div className="shop-itemsInfo">
+                <h6>Medium Potion</h6>
+                <p>Heals 70hp</p>
+                </div> 
+          </div>
           <div className="shop-items">
                 <div className="shop-itemsImage">
                   <img src="assets/images/powerup-potion2.png"></img>
@@ -109,6 +115,12 @@ function Display ({clicked}){
                 <h6>Medium Potion</h6>
                 <p>Add stuns for 1 seconds</p>
                 <Button>12 <br></br> BUY</Button>
+                </div> 
+          </div>
+          <div className="shop-hide">
+                <div className="shop-itemsInfo">
+                <h6>Medium Potion</h6>
+                <p>Heals 70hp</p>
                 </div> 
           </div>
 
@@ -122,6 +134,12 @@ function Display ({clicked}){
                 <Button>12 <br></br> BUY</Button>
                 </div> 
           </div>  
+          <div className="shop-hide">
+                <div className="shop-itemsInfo">
+                <h6>Medium Potion</h6>
+                <p>Heals 70hp</p>
+                </div> 
+          </div>
         </div>
     );
     }else if(clicked==="Outfit"){
