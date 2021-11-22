@@ -32,6 +32,7 @@
         height: 100%;
         width: 120px;
         padding: 0 !important;
+        margin-left: 10px;
     }
 
     .avatar-img{
@@ -107,7 +108,7 @@
         }
 
         .health-bar, .xp-bar{
-            width: 15%;
+            width: 50%;
             background: #2A2C37;
             position: relative;
             margin-left: 25px;
@@ -143,6 +144,11 @@
         .transition.increase{
             left: 0;
         }
-
     }
+
+    .party-carousel{
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+    }
+
 }
