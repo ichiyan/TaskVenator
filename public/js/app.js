@@ -13071,17 +13071,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _AvatarHeaderInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AvatarHeaderInfo */ "./resources/js/components/layouts/AvatarHeaderInfo.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -13090,102 +13079,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-var AvatarHeader = function AvatarHeader() {
-  var hpTotal = 50;
-  var xpTotal = 50;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(50),
-      _useState2 = _slicedToArray(_useState, 2),
-      hp = _useState2[0],
-      setHp = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      xp = _useState4[0],
-      setXp = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("100"),
-      _useState6 = _slicedToArray(_useState5, 2),
-      hpBarWidth = _useState6[0],
-      sethpBarWidth = _useState6[1];
-
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("0"),
-      _useState8 = _slicedToArray(_useState7, 2),
-      hpHitWidth = _useState8[0],
-      sethpHitWidth = _useState8[1];
-
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("0"),
-      _useState10 = _slicedToArray(_useState9, 2),
-      HpIncreaseWidth = _useState10[0],
-      setHPIncreaseWidth = _useState10[1];
-
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("0"),
-      _useState12 = _slicedToArray(_useState11, 2),
-      xpBarWidth = _useState12[0],
-      setXPBarWidth = _useState12[1];
-
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("0"),
-      _useState14 = _slicedToArray(_useState13, 2),
-      xpIncreaseWidth = _useState14[0],
-      setXPIncreaseWidth = _useState14[1];
-
-  var hitHandler = function hitHandler() {
-    var updatedHp;
-
-    if (hp == 0) {
-      updatedHp = 50;
-    } else {
-      updatedHp = hp - 10;
-    }
-
-    setHp(updatedHp);
-    var newhpBarWidth = updatedHp / hpTotal * 100;
-    var newhpHitWidth = 10 / hp * 100;
-    sethpHitWidth(newhpHitWidth);
-    setTimeout(function () {
-      sethpHitWidth(0);
-      sethpBarWidth(newhpBarWidth);
-    }, 500);
-  };
-
-  var healHandler = function healHandler() {
-    var updatedHp;
-    var newHPBarWidth;
-
-    if (hp == hpTotal) {
-      //    full health modal or sumn
-      updatedHp = hpTotal;
-    } else {
-      updatedHp = hp + 10;
-      newHPBarWidth = updatedHp / hpTotal * 100;
-    }
-
-    setHp(updatedHp);
-    setHPIncreaseWidth(newHPBarWidth);
-    setTimeout(function () {
-      sethpBarWidth(newHPBarWidth);
-    }, 500);
-  };
-
-  var addXPHandler = function addXPHandler() {
-    var updatedXp = 0;
-    var newXPBarWidth;
-
-    if (xp == xpTotal) {
-      newXPBarWidth = 0;
-    } else {
-      updatedXp = xp + 10;
-      newXPBarWidth = updatedXp / xpTotal * 100;
-    }
-
-    setXp(updatedXp);
-    setXPIncreaseWidth(newXPBarWidth);
-    setTimeout(function () {
-      setXPBarWidth(newXPBarWidth);
-    }, 500);
-  };
-
+var AvatarHeader = function AvatarHeader(_ref) {
+  var hp = _ref.hp,
+      hpTotal = _ref.hpTotal,
+      hpBarWidth = _ref.hpBarWidth,
+      hpHitWidth = _ref.hpHitWidth,
+      HpIncreaseWidth = _ref.HpIncreaseWidth,
+      xp = _ref.xp,
+      xpTotal = _ref.xpTotal,
+      xpBarWidth = _ref.xpBarWidth,
+      xpIncreaseWidth = _ref.xpIncreaseWidth;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "avatar-header d-flex",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -13276,19 +13179,7 @@ var AvatarHeader = function AvatarHeader() {
             })]
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        className: "btn btn-danger",
-        onClick: hitHandler,
-        children: "damage"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        className: "btn btn-success",
-        onClick: healHandler,
-        children: "heal"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        className: "btn btn-primary",
-        onClick: addXPHandler,
-        children: "add XP"
-      })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})]
     })
   });
 };
@@ -13703,6 +13594,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
 /* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/Header */ "./resources/js/components/layouts/Header.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -13710,11 +13614,141 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Home = function Home() {
+  var hpTotal = 50;
+  var xpTotal = 50;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(50),
+      _useState2 = _slicedToArray(_useState, 2),
+      hp = _useState2[0],
+      setHp = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      xp = _useState4[0],
+      setXp = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("100"),
+      _useState6 = _slicedToArray(_useState5, 2),
+      hpBarWidth = _useState6[0],
+      sethpBarWidth = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState8 = _slicedToArray(_useState7, 2),
+      hpHitWidth = _useState8[0],
+      sethpHitWidth = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState10 = _slicedToArray(_useState9, 2),
+      HpIncreaseWidth = _useState10[0],
+      setHPIncreaseWidth = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState12 = _slicedToArray(_useState11, 2),
+      xpBarWidth = _useState12[0],
+      setXPBarWidth = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState14 = _slicedToArray(_useState13, 2),
+      xpIncreaseWidth = _useState14[0],
+      setXPIncreaseWidth = _useState14[1];
+
+  var hitHandler = function hitHandler() {
+    var updatedHp;
+
+    if (hp == 0) {
+      updatedHp = 50;
+    } else {
+      updatedHp = hp - 10;
+    }
+
+    setHp(updatedHp);
+    var newhpBarWidth = updatedHp / hpTotal * 100;
+    var newhpHitWidth = 10 / hp * 100;
+    sethpHitWidth(newhpHitWidth);
+    setTimeout(function () {
+      sethpHitWidth(0);
+      sethpBarWidth(newhpBarWidth);
+    }, 500);
+  };
+
+  var healHandler = function healHandler() {
+    var updatedHp;
+    var newHPBarWidth;
+
+    if (hp == hpTotal) {
+      //    full health modal or sumn
+      updatedHp = hpTotal;
+    } else {
+      updatedHp = hp + 10;
+      newHPBarWidth = updatedHp / hpTotal * 100;
+    }
+
+    setHp(updatedHp);
+    setHPIncreaseWidth(newHPBarWidth);
+    setTimeout(function () {
+      sethpBarWidth(newHPBarWidth);
+    }, 500);
+  };
+
+  var addXPHandler = function addXPHandler() {
+    var updatedXp = 0;
+    var newXPBarWidth;
+
+    if (xp == xpTotal) {
+      newXPBarWidth = 0;
+    } else {
+      updatedXp = xp + 10;
+      newXPBarWidth = updatedXp / xpTotal * 100;
+    }
+
+    setXp(updatedXp);
+    setXPIncreaseWidth(newXPBarWidth);
+    setTimeout(function () {
+      setXPBarWidth(newXPBarWidth);
+    }, 500);
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "internal-pages",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
       page: "home"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      hp: hp,
+      hpTotal: hpTotal,
+      hpBarWidth: hpBarWidth,
+      hpHitWidth: hpHitWidth,
+      HpIncreaseWidth: HpIncreaseWidth,
+      xp: xp,
+      xpTotal: xpTotal,
+      xpBarWidth: xpBarWidth,
+      xpIncreaseWidth: xpIncreaseWidth
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      style: {
+        margin: 15 + "%"
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        style: {
+          margin: 10 + "px"
+        },
+        className: "btn btn-danger",
+        onClick: hitHandler,
+        children: "damage"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        style: {
+          margin: 10 + "px"
+        },
+        className: "btn btn-success",
+        onClick: healHandler,
+        children: "heal"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        style: {
+          margin: 10 + "px"
+        },
+        className: "btn btn-primary",
+        onClick: addXPHandler,
+        children: "add XP"
+      })]
+    })]
   });
 };
 
