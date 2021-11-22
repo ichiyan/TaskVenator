@@ -15,6 +15,7 @@ class CreatePotionTable extends Migration
     {
         Schema::create('potion', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->nullable();
             $table->string('name');
             $table->string('type');
             $table->string('size');

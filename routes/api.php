@@ -27,6 +27,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 Route::post('addPotion', [PotionController::class, 'store']);
-
+Route::get('potions',[PotionController::class, 'index']);
 
 

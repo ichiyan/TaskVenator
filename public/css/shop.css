@@ -41,6 +41,9 @@
   }
 
   /* displaying items in shop  */
+  .shop-returnMap{
+    display: inline-block;
+  }
   .shop-items{
     display: inline-block;
     color: black;
@@ -73,7 +76,7 @@
   margin-bottom: 20px;
   text-align: center;
   border: 1px solid white;
-  background-color: #8AFF80;
+  background-color: #C0FFBB;
   width: 200px;
  }
  .shop-hide{

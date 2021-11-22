@@ -10,6 +10,7 @@ class Potion extends Model
     use HasFactory;
     protected $table='potion';
     protected $fillable = [
+        'image',
         'name',
         'type',
         'size',

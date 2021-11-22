@@ -1,148 +1,57 @@
 import Button from "@restart/ui/esm/Button";
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 function Display ({clicked}){
-    if(clicked === "Potions"){
-    return (
-        <div className="shop-category">
-            <div className="shop-categoryName">
-                <h3>Hp Potion</h3>
-            </div>
-            <div className="shop-items">
-                  <div className="shop-itemsImage">
-                    <img src="assets/images/health-potion1.png"></img>
-                  </div>
-                  <div className="shop-itemsInfo">
-                  <h6>Large Potion</h6>
-                  <p>Heals 100hp</p>
-                  <Button>12 <br></br> BUY</Button>
-                  </div>
-            </div>
-           <div className="shop-hide">
-                <div className="shop-itemsInfo">
-                <h6>Medium Potion</h6>
-                <p>Heals 70hp</p>
-                </div> 
-          </div>
-          <div className="shop-items">
-                <div className="shop-itemsImage">
-                  <img src="assets/images/health-potion3.png"></img>
-                </div>
-                <div className="shop-itemsInfo">
-                <h6>Small Potion</h6>
-                <p>Heals 50hp</p>
-                <Button>12 <br></br> BUY</Button>
-                </div> 
-          </div>
-          <div className="shop-hide">
-                <div className="shop-itemsInfo">
-                <h6>Medium Potion</h6>
-                <p>Heals 70hp</p>
-                </div> 
-          </div>
-          <div className="shop-items">
-                <div className="shop-itemsImage">
-                  <img src="assets/images/health-potion3.png"></img>
-                </div>
-                <div className="shop-itemsInfo">
-                <h6>Small Potion</h6>
-                <p>Heals 50hp</p>
-                <Button>12 <br></br> BUY</Button>
-                </div> 
-          </div>
-          <div className="shop-hide">
-                <div className="shop-itemsInfo">
-                <h6>Medium Potion</h6>
-                <p>Heals 70hp</p>
-                </div> 
-          </div>
-          <div className="shop-items">
-                <div className="shop-itemsImage">
-                  <img src="assets/images/health-potion3.png"></img>
-                </div>
-                <div className="shop-itemsInfo">
-                <h6>Small Potion</h6>
-                <p>Heals 50hp</p>
-                <Button>12 <br></br> BUY</Button>
-                </div> 
-          </div>
-          <div className="shop-hide">
-                <div className="shop-itemsInfo">
-                <h6>Medium Potion</h6>
-                <p>Heals 70hp</p>
-                </div> 
-          </div>
-          <div className="shop-items">
-                <div className="shop-itemsImage">
-                  <img src="assets/images/health-potion3.png"></img>
-                </div>
-                <div className="shop-itemsInfo">
-                <h6>Small Potion</h6>
-                <p>Heals 50hp</p>
-                <Button>12 <br></br> BUY</Button>
-                </div> 
-          </div>
-          <div className="shop-hide">
-                <div className="shop-itemsInfo">
-                <h6>Medium Potion</h6>
-                <p>Heals 70hp</p>
-                </div> 
-          </div>
-          <div className="shop-categoryName">
-                <h3>Powerup Potion</h3>
-            </div>
-            <div className="shop-items">
-                <div className="shop-itemsImage">
-                  <img src="assets/images/powerup-potion1.png"></img>
-                </div>
-                <div className="shop-itemsInfo">
-                <h6>Large Potion</h6>
-                <p>Add stuns for 2 seconds</p>
-                <Button>12 <br></br> BUY</Button>
-                </div> 
-          </div>
-          <div className="shop-hide">
-                <div className="shop-itemsInfo">
-                <h6>Medium Potion</h6>
-                <p>Heals 70hp</p>
-                </div> 
-          </div>
-          <div className="shop-items">
-                <div className="shop-itemsImage">
-                  <img src="assets/images/powerup-potion2.png"></img>
-                </div>
-                <div className="shop-itemsInfo">
-                <h6>Medium Potion</h6>
-                <p>Add stuns for 1 seconds</p>
-                <Button>12 <br></br> BUY</Button>
-                </div> 
-          </div>
-          <div className="shop-hide">
-                <div className="shop-itemsInfo">
-                <h6>Medium Potion</h6>
-                <p>Heals 70hp</p>
-                </div> 
-          </div>
+   const[display,setDisplay]=useState({
+         products:[],
+   });
 
-          <div className="shop-items">
-                <div className="shop-itemsImage">
-                  <img src="assets/images/powerup-potion3.png"></img>
-                </div>
-                <div className="shop-itemsInfo">
-                <h6>Small Potion</h6>
-                <p>Add stuns for 0.5 seconds</p>
-                <Button>12 <br></br> BUY</Button>
-                </div> 
-          </div>  
-          <div className="shop-hide">
-                <div className="shop-itemsInfo">
-                <h6>Medium Potion</h6>
-                <p>Heals 70hp</p>
-                </div> 
-          </div>
-        </div>
-    );
-    }else if(clicked==="Outfit"){
+   useEffect(()=>{
+      axios.get(`/api/potions`).then(res =>{
+            if(res.data.status===200){
+                  setDisplay({
+                        products:res.data.potions
+                  });
+            }
+      })
+   },[])
+   
+  
+    if(clicked === "Potions"){
+                return (
+                  <div className="shop-category">
+                        <div className="shop-categoryName">
+                              <h3>Potions</h3>
+                        </div>
+                        {display.products.map((p,index)=>{
+                              return (
+                                    <div key={index} className="shop-returnMap">
+                                    <div className="shop-items"> 
+                                          <div className="shop-itemsImage">
+                                             <img src={p.image}></img>
+                                           </div>
+                                           <div className="shop-itemsInfo">
+                                                <h6>{p.name}</h6>
+                                                <p>{p.size}</p>
+                                                <Button>{p.price}<br></br> BUY</Button>
+                                          </div>
+                                    </div> 
+                                    <div className="shop-hide">
+                                          <div className="shop-itemsInfo">
+                                          <h6>{p.description}</h6>
+                                          <p>Heals 70hp</p>
+                                          </div> 
+                                     </div>
+                                    </div>
+                                    
+                              )
+                        })}
+                      
+
+                   </div>
+              );
+      }else if(clicked==="Outfit"){
       return(
         <div className="shop-category">
           <div className="shop-categoryName">
