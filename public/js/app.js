@@ -13667,6 +13667,7 @@ var Home = function Home() {
     sethpHitWidth(newhpHitWidth);
     setTimeout(function () {
       sethpHitWidth(0);
+      setHPIncreaseWidth(newhpBarWidth);
       sethpBarWidth(newhpBarWidth);
     }, 500);
   };
@@ -13726,7 +13727,12 @@ var Home = function Home() {
       style: {
         margin: 15 + "%"
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        style: {
+          color: "white"
+        },
+        children: "TEST"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         style: {
           margin: 10 + "px"
         },

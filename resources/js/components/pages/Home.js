@@ -33,6 +33,7 @@ const Home = () => {
 
         setTimeout(function(){
             sethpHitWidth(0);
+            setHPIncreaseWidth(newhpBarWidth);
             sethpBarWidth(newhpBarWidth);
         }, 500);
     }
@@ -81,6 +82,7 @@ const Home = () => {
             <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
              {/* TESTING */}
              <div style={{margin: 15 + "%"}}>
+                 <p style={{color: "white"}}>TEST</p>
                 <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
                 <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
                 <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
