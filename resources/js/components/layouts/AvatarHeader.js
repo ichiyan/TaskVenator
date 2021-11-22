@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import Carousel from 'react-elastic-carousel';
-import AvatarImage from "./AvatarImage";
+import PartyMemberAvatar from "./PartyMemberAvatar";
 
 const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
                        xp, xpTotal, xpBarWidth, xpIncreaseWidth}) => {
@@ -17,7 +17,9 @@ const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
         <div className="avatar-header d-flex">
             <div className="container avatar d-flex">
                 <div className="row align-self-center justify-content-between align-items-center">
-                    <AvatarImage/>
+                    <div className="col-1 avatar-img-space d-flex">
+                        <img className="avatar-img align-self-center" src="assets/images/avatar-male-warrior.png"/>
+                    </div>
                     <div className="col avatar-header-info align-self-start">
                         <div className="first-row">
                             <span className="circle-icon">
@@ -47,11 +49,11 @@ const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
                     <div className="col-7 party-carousel">
                         <Carousel itemsToShow={4} pagination={false} breakPoints={breakPoints}>
                             {/* pass props */}
-                            <AvatarImage/>
-                            <AvatarImage/>
-                            <AvatarImage/>
-                            <AvatarImage/>
-                            <AvatarImage/>
+                            <PartyMemberAvatar/>
+                            <PartyMemberAvatar/>
+                            <PartyMemberAvatar/>
+                            <PartyMemberAvatar/>
+                            <PartyMemberAvatar/>
                         </Carousel>
                     </div>
                 </div>

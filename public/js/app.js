@@ -13817,7 +13817,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_elastic_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-elastic-carousel */ "./node_modules/react-elastic-carousel/dist/index.es.js");
-/* harmony import */ var _AvatarImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AvatarImage */ "./resources/js/components/layouts/AvatarImage.js");
+/* harmony import */ var _PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PartyMemberAvatar */ "./resources/js/components/layouts/PartyMemberAvatar.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -13854,7 +13854,13 @@ var AvatarHeader = function AvatarHeader(_ref) {
       className: "container avatar d-flex",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "row align-self-center justify-content-between align-items-center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AvatarImage__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "col-1 avatar-img-space d-flex",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            className: "avatar-img align-self-center",
+            src: "assets/images/avatar-male-warrior.png"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "col avatar-header-info align-self-start",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "first-row",
@@ -13937,7 +13943,7 @@ var AvatarHeader = function AvatarHeader(_ref) {
             itemsToShow: 4,
             pagination: false,
             breakPoints: breakPoints,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AvatarImage__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AvatarImage__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AvatarImage__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AvatarImage__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AvatarImage__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
           })
         })]
       })
@@ -13946,36 +13952,6 @@ var AvatarHeader = function AvatarHeader(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AvatarHeader);
-
-/***/ }),
-
-/***/ "./resources/js/components/layouts/AvatarImage.js":
-/*!********************************************************!*\
-  !*** ./resources/js/components/layouts/AvatarImage.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var AvatarImage = function AvatarImage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "col-1 avatar-img-space d-flex",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-      className: "avatar-img align-self-center",
-      src: "assets/images/avatar-male-warrior.png"
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AvatarImage);
 
 /***/ }),
 
@@ -14289,6 +14265,45 @@ var LandingNavbar = function LandingNavbar() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LandingNavbar);
+
+/***/ }),
+
+/***/ "./resources/js/components/layouts/PartyMemberAvatar.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/layouts/PartyMemberAvatar.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var PartyMemberAvatar = function PartyMemberAvatar() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "avatar-img-space d-flex",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+      className: "party-member",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        className: "party-member-username",
+        children: "usernameqwertyqwerty"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          className: "avatar-img align-self-center",
+          src: "assets/images/avatar-male-warrior.png"
+        })
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PartyMemberAvatar);
 
 /***/ }),
 
@@ -22041,7 +22056,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n.internal-pages {\n  height: 100vh;\n  width: 100vw;\n  background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n.avatar-header {\n  width: 100%;\n  height: 140px;\n  position: absolute;\n  background-color: #2F3144;\n}\n.avatar-header .avatar {\n  height: 100% !important;\n}\n.avatar-header .row {\n  height: 80% !important;\n  width: 100% !important;\n}\n.avatar-header .avatar-img-space {\n  background-color: #9580FF;\n  height: 100%;\n  width: 120px;\n  padding: 0 !important;\n  margin-left: 10px;\n}\n.avatar-header .avatar-img {\n  max-width: 120px;\n  max-height: 80%;\n  padding: 8px;\n}\n.avatar-header .avatar-header-info {\n  margin-left: 10px;\n  height: 100%;\n}\n.avatar-header .avatar-header-info .first-row {\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .username {\n  color: azure;\n  font-size: 1.2rem;\n  padding-bottom: 0;\n}\n.avatar-header .avatar-header-info .class {\n  color: #9580FF;\n  font-size: small;\n  text-transform: uppercase;\n  padding-top: 0;\n  padding-bottom: 8px;\n  margin-bottom: 0;\n}\n.avatar-header .avatar-header-info .username, .avatar-header .avatar-header-info .class {\n  margin-left: 50px;\n}\n.avatar-header .avatar-header-info .circle-icon {\n  background-color: aliceblue;\n  width: 35px;\n  height: 35px;\n  border-radius: 50%;\n  padding: 0;\n  text-align: center;\n  line-height: 35px;\n  position: absolute;\n  margin-top: 8px;\n}\n.avatar-header .avatar-header-info .class-icon {\n  width: 65%;\n  height: 65%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.avatar-header .avatar-header-info .health-section {\n  padding-bottom: 5px;\n}\n.avatar-header .avatar-header-info .health-icon, .avatar-header .avatar-header-info .xp-icon {\n  margin-left: 5px;\n  width: 20px;\n  height: 20px;\n}\n.avatar-header .avatar-header-info .hp-txt, .avatar-header .avatar-header-info .xp-txt {\n  color: #9580FF;\n  font-size: small;\n  padding: 10px;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar, .avatar-header .avatar-header-info .bar {\n  height: 10px;\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar {\n  width: 50%;\n  background: #2A2C37;\n  position: relative;\n  margin-left: 25px;\n}\n.avatar-header .avatar-header-info .bar {\n  transition: width 0.5s linear;\n  position: absolute;\n}\n.avatar-header .avatar-header-info .hp.bar {\n  background: #FF80BF;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .xp.bar {\n  background: #80FFEA;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .transition {\n  background: rgba(255, 255, 255, 0.6);\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  transition: width 0.5s linear;\n}\n.avatar-header .avatar-header-info .transition.decrease {\n  right: 0;\n}\n.avatar-header .avatar-header-info .transition.increase {\n  left: 0;\n}\n.avatar-header .party-carousel {\n  margin-right: 0 !important;\n  padding-right: 0 !important;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n.internal-pages {\n  height: 100vh;\n  width: 100vw;\n  background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n.avatar-header {\n  width: 100%;\n  height: 140px;\n  position: absolute;\n  background-color: #2F3144;\n}\n.avatar-header .avatar {\n  height: 100% !important;\n}\n.avatar-header .row {\n  height: 80% !important;\n  width: 100% !important;\n}\n.avatar-header .avatar-img-space {\n  background-color: #9580FF;\n  height: 100%;\n  width: 120px;\n  padding: 0 !important;\n  margin-left: 10px;\n}\n.avatar-header .avatar-img {\n  max-width: 120px;\n  max-height: 80%;\n  padding: 8px;\n}\n.avatar-header .avatar-header-info {\n  margin-left: 10px;\n  height: 100%;\n}\n.avatar-header .avatar-header-info .first-row {\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .username {\n  color: azure;\n  font-size: 1.2rem;\n  padding-bottom: 0;\n}\n.avatar-header .avatar-header-info .class {\n  color: #9580FF;\n  font-size: small;\n  text-transform: uppercase;\n  padding-top: 0;\n  padding-bottom: 8px;\n  margin-bottom: 0;\n}\n.avatar-header .avatar-header-info .username, .avatar-header .avatar-header-info .class {\n  margin-left: 50px;\n}\n.avatar-header .avatar-header-info .circle-icon {\n  background-color: aliceblue;\n  width: 35px;\n  height: 35px;\n  border-radius: 50%;\n  padding: 0;\n  text-align: center;\n  line-height: 35px;\n  position: absolute;\n  margin-top: 8px;\n}\n.avatar-header .avatar-header-info .class-icon {\n  width: 65%;\n  height: 65%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.avatar-header .avatar-header-info .health-section {\n  padding-bottom: 5px;\n}\n.avatar-header .avatar-header-info .health-icon, .avatar-header .avatar-header-info .xp-icon {\n  margin-left: 5px;\n  width: 20px;\n  height: 20px;\n}\n.avatar-header .avatar-header-info .hp-txt, .avatar-header .avatar-header-info .xp-txt {\n  color: #9580FF;\n  font-size: small;\n  padding: 10px;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar, .avatar-header .avatar-header-info .bar {\n  height: 10px;\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar {\n  width: 50%;\n  background: #2A2C37;\n  position: relative;\n  margin-left: 25px;\n}\n.avatar-header .avatar-header-info .bar {\n  transition: width 0.5s linear;\n  position: absolute;\n}\n.avatar-header .avatar-header-info .hp.bar {\n  background: #FF80BF;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .xp.bar {\n  background: #80FFEA;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .transition {\n  background: rgba(255, 255, 255, 0.6);\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  transition: width 0.5s linear;\n}\n.avatar-header .avatar-header-info .transition.decrease {\n  right: 0;\n}\n.avatar-header .avatar-header-info .transition.increase {\n  left: 0;\n}\n.avatar-header .party-carousel {\n  margin-right: 0 !important;\n  padding-right: 0 !important;\n}\n.avatar-header .party-carousel .party-member {\n  position: relative;\n}\n.avatar-header .party-carousel .party-member-username {\n  position: absolute;\n  padding: 0 5px;\n  width: 120px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.avatar-header .party-carousel .avatar-img {\n  max-width: 120px;\n  max-height: 95%;\n  padding: 25px 8px 8px 8px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
