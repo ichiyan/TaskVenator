@@ -115,7 +115,6 @@
 
         .bar {
             transition: width .5s linear;
-            display: inline-block;
             position: absolute;
         }
 
@@ -125,15 +124,23 @@
 
         .xp.bar{
             background: #80FFEA;
+            z-index: 1;
         }
 
-        .hit {
+        .transition{
             background: rgba(255,255,255,0.6);
             position: absolute;
             top: 0;
-            right: 0;
             bottom: 0;
             transition: width .5s linear;
+        }
+
+        .transition.decrease{
+            right: 0;
+        }
+
+        .transition.increase{
+            left: 0;
         }
 
     }
