@@ -1,6 +1,6 @@
 import { Button, Modal } from 'react-bootstrap';
 import { useState } from "react";
-
+import axios from 'axios';
 
 function AddPotionForm (){
   const [show, setShow] = useState(false);
@@ -14,10 +14,12 @@ function AddPotionForm (){
     size: '',
     description: '',
     price: '',
+    error_list:[],
   });
 
   
     const inputHandler =(e) =>{
+      e.persist();
       setPotion({
         ...potion,[e.target.name]:  e.target.value
       });
@@ -35,13 +37,14 @@ function AddPotionForm (){
 
 
       }
-      setPotion({
-        name: '',
-        type: '',
-        description: '',
-        price: ''
-       
+      axios.post(`/api/addPotion`,data).then(res =>{
+        if(res.data.status === 200){
+            console.log(res.data.message);
+        }else {
+          setPotion({...potion,error_list:res.data.errors});
+        }
       });
+      
     }
 
   return (  
