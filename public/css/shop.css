@@ -78,6 +78,7 @@
   border: 1px solid white;
   background-color: #C0FFBB;
   width: 200px;
+  position: absolute;
  }
  .shop-hide{
    display: none;
