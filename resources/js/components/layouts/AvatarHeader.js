@@ -12,11 +12,14 @@ const AvatarHeader = () => {
     const [xp, setXp] = useState(0);
     const [hpBarWidth, sethpBarWidth] = useState("100");
     const [hpHitWidth, sethpHitWidth] = useState("0");
+    const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
+
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
 
     const hitHandler = () => {
         let updatedHp;
+
         if(hp == 0){
             updatedHp = 50;
         }else{
@@ -32,6 +35,26 @@ const AvatarHeader = () => {
         setTimeout(function(){
             sethpHitWidth(0);
             sethpBarWidth(newhpBarWidth);
+        }, 500);
+    }
+
+    const healHandler = () => {
+        let updatedHp;
+        let newHPBarWidth;
+
+        if(hp == hpTotal){
+            //    full health modal or sumn
+            updatedHp = hpTotal;
+        }else{
+            updatedHp = hp + 10;
+            newHPBarWidth = updatedHp / hpTotal * 100;
+        }
+        setHp(updatedHp);
+
+        setHPIncreaseWidth(newHPBarWidth);
+
+        setTimeout(function(){
+            sethpBarWidth(newHPBarWidth);
         }, 500);
     }
 
@@ -74,14 +97,14 @@ const AvatarHeader = () => {
                                 <div className="hp bar" style={{width: hpBarWidth + "%"}}>
                                     <div className="transition decrease" style={{width: hpHitWidth + "%"}}></div>
                                 </div>
+                                <div className="transition increase" style={{width: HpIncreaseWidth + "%"}}></div>
                             </span>
                             <span className="hp-txt">{hp}/{hpTotal}</span>
                         </div>
                         <div className="xp-section">
                             <span> <img className="health-icon" src="assets/images/xp-icon.png"></img></span>
                             <span className="xp-bar" data-total={xpTotal} data-value={xp}>
-                                <div className="xp bar"style={{width: xpBarWidth + "%"}}>
-                                </div>
+                                <div className="xp bar"style={{width: xpBarWidth + "%"}}> </div>
                                 <div className="transition increase" style={{width: xpIncreaseWidth + "%"}}></div>
                             </span>
                             <span className="xp-txt">{xp}/{xpTotal}</span>
@@ -89,7 +112,9 @@ const AvatarHeader = () => {
                     </div>
                 </div>
                 <br/><br/>
+                {/* TESTING */}
                 <button className="btn btn-danger" onClick={hitHandler}>damage</button>
+                <button className="btn btn-success" onClick={healHandler}>heal</button>
                 <button className="btn btn-primary" onClick={addXPHandler}>add XP</button>
             </div>
         </div>

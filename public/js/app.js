@@ -13117,13 +13117,18 @@ var AvatarHeader = function AvatarHeader() {
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("0"),
       _useState10 = _slicedToArray(_useState9, 2),
-      xpBarWidth = _useState10[0],
-      setXPBarWidth = _useState10[1];
+      HpIncreaseWidth = _useState10[0],
+      setHPIncreaseWidth = _useState10[1];
 
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("0"),
       _useState12 = _slicedToArray(_useState11, 2),
-      xpIncreaseWidth = _useState12[0],
-      setXPIncreaseWidth = _useState12[1];
+      xpBarWidth = _useState12[0],
+      setXPBarWidth = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("0"),
+      _useState14 = _slicedToArray(_useState13, 2),
+      xpIncreaseWidth = _useState14[0],
+      setXPIncreaseWidth = _useState14[1];
 
   var hitHandler = function hitHandler() {
     var updatedHp;
@@ -13141,6 +13146,25 @@ var AvatarHeader = function AvatarHeader() {
     setTimeout(function () {
       sethpHitWidth(0);
       sethpBarWidth(newhpBarWidth);
+    }, 500);
+  };
+
+  var healHandler = function healHandler() {
+    var updatedHp;
+    var newHPBarWidth;
+
+    if (hp == hpTotal) {
+      //    full health modal or sumn
+      updatedHp = hpTotal;
+    } else {
+      updatedHp = hp + 10;
+      newHPBarWidth = updatedHp / hpTotal * 100;
+    }
+
+    setHp(updatedHp);
+    setHPIncreaseWidth(newHPBarWidth);
+    setTimeout(function () {
+      sethpBarWidth(newHPBarWidth);
     }, 500);
   };
 
@@ -13198,11 +13222,11 @@ var AvatarHeader = function AvatarHeader() {
                 className: "health-icon",
                 src: "assets/images/health-icon.png"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
               className: "health-bar",
               "data-total": hpTotal,
               "data-value": hp,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "hp bar",
                 style: {
                   width: hpBarWidth + "%"
@@ -13213,7 +13237,12 @@ var AvatarHeader = function AvatarHeader() {
                     width: hpHitWidth + "%"
                   }
                 })
-              })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "transition increase",
+                style: {
+                  width: HpIncreaseWidth + "%"
+                }
+              })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
               className: "hp-txt",
               children: [hp, "/", hpTotal]
@@ -13233,7 +13262,8 @@ var AvatarHeader = function AvatarHeader() {
                 className: "xp bar",
                 style: {
                   width: xpBarWidth + "%"
-                }
+                },
+                children: " "
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "transition increase",
                 style: {
@@ -13250,6 +13280,10 @@ var AvatarHeader = function AvatarHeader() {
         className: "btn btn-danger",
         onClick: hitHandler,
         children: "damage"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        className: "btn btn-success",
+        onClick: healHandler,
+        children: "heal"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         className: "btn btn-primary",
         onClick: addXPHandler,
@@ -21147,7 +21181,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n.internal-pages {\n  height: 100vh;\n  width: 100vw;\n  background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n.avatar-header {\n  width: 100%;\n  height: 140px;\n  position: absolute;\n  background-color: #2F3144;\n}\n.avatar-header .avatar {\n  height: 100% !important;\n}\n.avatar-header .row {\n  height: 80% !important;\n  width: 100% !important;\n}\n.avatar-header .avatar-img-space {\n  background-color: #9580FF;\n  height: 100%;\n  width: 120px;\n  padding: 0 !important;\n}\n.avatar-header .avatar-img {\n  max-width: 120px;\n  max-height: 80%;\n  padding: 8px;\n}\n.avatar-header .avatar-header-info {\n  margin-left: 10px;\n  height: 100%;\n}\n.avatar-header .avatar-header-info .first-row {\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .username {\n  color: azure;\n  font-size: 1.2rem;\n  padding-bottom: 0;\n}\n.avatar-header .avatar-header-info .class {\n  color: #9580FF;\n  font-size: small;\n  text-transform: uppercase;\n  padding-top: 0;\n  padding-bottom: 8px;\n  margin-bottom: 0;\n}\n.avatar-header .avatar-header-info .username, .avatar-header .avatar-header-info .class {\n  margin-left: 50px;\n}\n.avatar-header .avatar-header-info .circle-icon {\n  background-color: aliceblue;\n  width: 35px;\n  height: 35px;\n  border-radius: 50%;\n  padding: 0;\n  text-align: center;\n  line-height: 35px;\n  position: absolute;\n  margin-top: 8px;\n}\n.avatar-header .avatar-header-info .class-icon {\n  width: 65%;\n  height: 65%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.avatar-header .avatar-header-info .health-section {\n  padding-bottom: 5px;\n}\n.avatar-header .avatar-header-info .health-icon, .avatar-header .avatar-header-info .xp-icon {\n  margin-left: 5px;\n  width: 20px;\n  height: 20px;\n}\n.avatar-header .avatar-header-info .hp-txt, .avatar-header .avatar-header-info .xp-txt {\n  color: #9580FF;\n  font-size: small;\n  padding: 10px;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar, .avatar-header .avatar-header-info .bar {\n  height: 10px;\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar {\n  width: 15%;\n  background: #2A2C37;\n  position: relative;\n  margin-left: 25px;\n}\n.avatar-header .avatar-header-info .bar {\n  transition: width 0.5s linear;\n  position: absolute;\n}\n.avatar-header .avatar-header-info .hp.bar {\n  background: #FF80BF;\n}\n.avatar-header .avatar-header-info .xp.bar {\n  background: #80FFEA;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .transition {\n  background: rgba(255, 255, 255, 0.6);\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  transition: width 0.5s linear;\n}\n.avatar-header .avatar-header-info .transition.decrease {\n  right: 0;\n}\n.avatar-header .avatar-header-info .transition.increase {\n  left: 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n.internal-pages {\n  height: 100vh;\n  width: 100vw;\n  background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n.avatar-header {\n  width: 100%;\n  height: 140px;\n  position: absolute;\n  background-color: #2F3144;\n}\n.avatar-header .avatar {\n  height: 100% !important;\n}\n.avatar-header .row {\n  height: 80% !important;\n  width: 100% !important;\n}\n.avatar-header .avatar-img-space {\n  background-color: #9580FF;\n  height: 100%;\n  width: 120px;\n  padding: 0 !important;\n}\n.avatar-header .avatar-img {\n  max-width: 120px;\n  max-height: 80%;\n  padding: 8px;\n}\n.avatar-header .avatar-header-info {\n  margin-left: 10px;\n  height: 100%;\n}\n.avatar-header .avatar-header-info .first-row {\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .username {\n  color: azure;\n  font-size: 1.2rem;\n  padding-bottom: 0;\n}\n.avatar-header .avatar-header-info .class {\n  color: #9580FF;\n  font-size: small;\n  text-transform: uppercase;\n  padding-top: 0;\n  padding-bottom: 8px;\n  margin-bottom: 0;\n}\n.avatar-header .avatar-header-info .username, .avatar-header .avatar-header-info .class {\n  margin-left: 50px;\n}\n.avatar-header .avatar-header-info .circle-icon {\n  background-color: aliceblue;\n  width: 35px;\n  height: 35px;\n  border-radius: 50%;\n  padding: 0;\n  text-align: center;\n  line-height: 35px;\n  position: absolute;\n  margin-top: 8px;\n}\n.avatar-header .avatar-header-info .class-icon {\n  width: 65%;\n  height: 65%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.avatar-header .avatar-header-info .health-section {\n  padding-bottom: 5px;\n}\n.avatar-header .avatar-header-info .health-icon, .avatar-header .avatar-header-info .xp-icon {\n  margin-left: 5px;\n  width: 20px;\n  height: 20px;\n}\n.avatar-header .avatar-header-info .hp-txt, .avatar-header .avatar-header-info .xp-txt {\n  color: #9580FF;\n  font-size: small;\n  padding: 10px;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar, .avatar-header .avatar-header-info .bar {\n  height: 10px;\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar {\n  width: 15%;\n  background: #2A2C37;\n  position: relative;\n  margin-left: 25px;\n}\n.avatar-header .avatar-header-info .bar {\n  transition: width 0.5s linear;\n  position: absolute;\n}\n.avatar-header .avatar-header-info .hp.bar {\n  background: #FF80BF;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .xp.bar {\n  background: #80FFEA;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .transition {\n  background: rgba(255, 255, 255, 0.6);\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  transition: width 0.5s linear;\n}\n.avatar-header .avatar-header-info .transition.decrease {\n  right: 0;\n}\n.avatar-header .avatar-header-info .transition.increase {\n  left: 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
