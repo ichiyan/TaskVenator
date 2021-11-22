@@ -76,10 +76,13 @@ const Home = () => {
         }, 500);
 
     }
+
+
     return (
         <div className="internal-pages">
             <Header page="home"/>
             <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
+             {/* {this.test} */}
              {/* TESTING */}
              <div style={{margin: 15 + "%"}}>
                  <p style={{color: "white"}}>TEST</p>

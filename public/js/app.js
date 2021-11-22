@@ -14286,8 +14286,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PartyMemberAvatar = function PartyMemberAvatar() {
+  var avatarHandler = function avatarHandler() {
+    console.log(test);
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "avatar-img-space d-flex",
+    onClick: avatarHandler,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
       className: "party-member",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
