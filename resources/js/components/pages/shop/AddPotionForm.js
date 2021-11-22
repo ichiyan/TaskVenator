@@ -11,7 +11,7 @@ function AddPotionForm (){
 
   const[potion, setPotion]= useState({
     name: '',
-    type: '',
+    type: 'Hp Potion',
     size: "Small",
     description: '',
     price: '',

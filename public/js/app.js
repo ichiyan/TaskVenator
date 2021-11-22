@@ -5101,7 +5101,7 @@ function AddPotionForm() {
 
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     name: '',
-    type: '',
+    type: 'Hp Potion',
     size: "Small",
     description: '',
     price: ''
