@@ -72,6 +72,10 @@
     height:20px;
     width:20px;
   }
+  .shop-empty{
+    background-color: black;
+    height:200px;
+  }
  /* displaying the hide info in div  */
  .shop-hide{
   display: inline-block;

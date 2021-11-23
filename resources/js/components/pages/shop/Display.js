@@ -50,7 +50,9 @@ function Display ({clicked}){
                             }else{
                                   return(
                                         <div classNmae="shop-category">
-
+                                          <div className="shop-empty">
+                                          <h3>empty</h3>
+                                          </div>
                                         </div>
                                   )
                             }
@@ -83,9 +85,11 @@ function Display ({clicked}){
                               )
                             }else{
                                   return(
-                                        <div classNmae="shop-category">
-
-                                        </div>
+                                    <div classNmae="shop-category">
+                                          <div className="shop-empty">
+                                                <h3>empty</h3>
+                                          </div>
+                                     </div>
                                   )
                             }
                         })}

@@ -36,6 +36,7 @@ class WeaponController extends Controller
         $weapon->mDef= $request->input('mDef');
         $weapon->str= $request->input('str');
         $weapon->int= $request->input('int');
+        $weapon->agi= $request->input('agi');
         $weapon->crit= $request->input('crit');
         $weapon->critDmg= $request->input('critDmg');
         $weapon->price= $request->input('price');

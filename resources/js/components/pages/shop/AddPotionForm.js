@@ -34,6 +34,7 @@ function AddPotionForm (){
 
   const potionSubmitHandler = (e) =>{
     e.preventDefault();
+    
     const formData = new FormData();
     formData.append('image', picture.image);
     formData.append('name', potion.name);
@@ -45,12 +46,12 @@ function AddPotionForm (){
 
     axios.post(`/api/addPotion`,formData).then(res =>{
       if(res.data.status === 200){
-          alert(res.data.message);
+         alert(res.data.message);
       }else {
-        setPotion({...potion,error_list:res.data.errors});
+        // setPotion({...potion,error_list:res.data.errors});
       }
     });
-    // console.log(picture);
+    
 
     // const data ={
     //   name: potion.name,
