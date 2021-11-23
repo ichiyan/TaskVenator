@@ -161,12 +161,37 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            color: black;
         }
 
         .avatar-img{
             max-width: 120px;
             max-height: 95%;
             padding: 25px 8px 8px 8px;
+        }
+
+        .party-avatar-info{
+            width: 250px !important;
+            padding: 0 0 8px 8px !important;
+            margin: 0 !important;
+
+            .username{
+                position: absolute;
+                width: 150px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 18px;
+            }
+
+            .class{
+                margin-left: 0;
+            }
+
+            .health-section{
+                padding-top: 50px;
+            }
+
         }
 
     }

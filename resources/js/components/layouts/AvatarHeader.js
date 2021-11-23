@@ -49,11 +49,11 @@ const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
                     <div className="col-7 party-carousel">
                         <Carousel itemsToShow={4} pagination={false} breakPoints={breakPoints}>
                             {/* pass props */}
-                            <PartyMemberAvatar/>
-                            <PartyMemberAvatar/>
-                            <PartyMemberAvatar/>
-                            <PartyMemberAvatar/>
-                            <PartyMemberAvatar/>
+                            <PartyMemberAvatar username="username"/>
+                            <PartyMemberAvatar username="asdfeeeeeeeeeeeeeeeeeeeeeeeee"/>
+                            <PartyMemberAvatar username="zxcvby"/>
+                            <PartyMemberAvatar username="qwerty"/>
+                            <PartyMemberAvatar username="lkjhgf"/>
                         </Carousel>
                     </div>
                 </div>
