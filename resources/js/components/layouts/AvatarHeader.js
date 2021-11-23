@@ -61,10 +61,18 @@ const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
                                     </Carousel>
                                 </div>
                                 <div className="col-1">
-                                    <button className="btn btn-primary btn-custom-primary"><FontAwesomeIcon icon={faInfoCircle} className="info-icon"/>Party</button>
+                                    <button className="btn btn-primary btn-custom-primary party-info-btn"><FontAwesomeIcon icon={faInfoCircle} className="info-icon"/>Party</button>
                                 </div>
                             </Fragment>
-                        :   null
+                        :   <Fragment>
+                                <div className="col-7 text-center">
+                                    <p className="prompt">Tired of completing tasks and battling monsters alone?</p>
+                                    <button className="btn btn-primary btn-custom-primary">Form a Party</button>
+                                    <span>
+                                        <button className="btn btn-outline-primary btn-custom-outline-primary">Join a Party</button>
+                                    </span>
+                                </div>
+                            </Fragment>
                     }
                 </div>
             </div>

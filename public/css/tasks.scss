@@ -199,16 +199,36 @@
     .btn-custom-primary{
         background-color: #3ac162;
         color: #fff;
-        border-radius: 10px;
+        border-radius: 50px;
         border-color: #5fcf80;
+        margin: 7px;
     }
 
     .btn-custom-primary:hover{
         background-color: #5fcf80;
     }
 
+    .btn-custom-outline-primary{
+        border-radius: 50px;
+        border-color: #5fcf80;
+        color: #fff;
+        margin: 7px;
+    }
+
+    .btn-custom-outline-primary:hover{
+        background-color: #5fcf80;
+    }
+
+    .party-info-btn{
+        margin: 0 !important;
+    }
+
     .info-icon{
         padding-right: 2px;
+    }
+
+    .prompt{
+        color: aliceblue;
     }
 
 }
