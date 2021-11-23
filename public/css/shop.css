@@ -60,6 +60,7 @@
     height: 100px;
   }
   
+  /* css for buttons in shop */
   .shop-items Button{
     background-color: #FFFF80;
     width: 100px;
@@ -78,18 +79,22 @@
   }
  /* displaying the hide info in div  */
  .shop-hide{
-  display: inline-block;
+   display: inline-block;
   color: black;
   margin-left: 40px;
   margin-bottom: 20px;
-  text-align: center;
   border: 1px solid white;
   background-color: #C0FFBB;
-  width: 200px;
+  width: 300px;
   position: absolute;
  }
  .shop-hide{
    display: none;
+ }
+ .shop-hide .shop-itemsInfo p{
+   display: inline-block;
+  font-size: 10px;
+  margin-left: 5px;
  }
  .shop-items:hover + .shop-hide{
    display:inline-block;
@@ -102,7 +107,7 @@
     width:90%;
 
   }
-  .shop-main_shop .btn-group .btn:hover{
+  .shop-main_shop .btn-group .btn:hover,  .shop-main_shop .btn-group .btn:focus{
     background-color: #FF9580;
   }
   .shop-displayButton:hover{

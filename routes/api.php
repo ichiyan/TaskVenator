@@ -4,7 +4,7 @@ use App\Http\Controllers\API\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\PotionController;
-use App\Http\Controllers\API\WeaponController;
+use App\Http\Controllers\API\OutfitController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,6 +31,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 Route::post('addPotion', [PotionController::class, 'store']);
 Route::get('potions',[PotionController::class, 'index']);
 //storing and retrieving weapon
-Route::post('addWeapon', [WeaponController::class, 'store']);
-Route::get('weapons',[WeaponController::class, 'index']);
+Route::post('addOutfit', [OutfitController::class, 'store']);
+Route::get('outfit',[OutfitController::class, 'index']);
 

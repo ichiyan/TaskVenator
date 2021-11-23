@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AddItemForm from "./AddItemForm";
-import AddWeaponForm from './AddWeaponForm';
+import AddOutfitForm from './AddOutfitForm';
 import AddPotionForm from './AddPotionForm';
 import Display from "./Display";
 
@@ -19,7 +19,7 @@ return(
     
     <div className="shop-main_shop">
         <div className="shop-weaponForm"> 
-        <AddWeaponForm/> 
+        <AddOutfitForm/> 
         <AddPotionForm/>
         <AddItemForm/>
         </div>

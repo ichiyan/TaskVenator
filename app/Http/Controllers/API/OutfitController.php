@@ -4,20 +4,20 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Weapon;
+use App\Models\Outfit;
 
-class WeaponController extends Controller
+class OutfitController extends Controller
 {
     public function index(Request $request){
-        $weapon= Weapon::all();
+        $outfit= Outfit::all();
 
         return response()->json([
             'status' => 200,
-            'potions' => $weapon,
+            'outfit' => $outfit,
         ]);
 }
     public function store(Request $request){
-        $weapon= new Weapon;
+        $weapon= new Outfit;
         if($request->hasFile('image')){
             $file= $request->file('image');
             $extension= $file->getClientOriginalExtension();
@@ -26,7 +26,7 @@ class WeaponController extends Controller
             $weapon->image = 'assets/images/' .$filename;
 
         }
-     
+        $weapon->outfitType= $request->input('outfitType');
         $weapon->name= $request->input('name');
         $weapon->class= $request->input('class');
         $weapon->type= $request->input('type');
@@ -44,7 +44,7 @@ class WeaponController extends Controller
 
         return response()->json([
             'status' => 200,
-            'message' => 'Weapon Added Successfully',
+            'message' => 'Outfit Added Successfully',
         ]);
 
     }

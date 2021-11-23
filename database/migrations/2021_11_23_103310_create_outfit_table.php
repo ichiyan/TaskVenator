@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWeaponTable extends Migration
+class CreateOutfitTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateWeaponTable extends Migration
      */
     public function up()
     {
-        Schema::create('weapon', function (Blueprint $table) {
+        Schema::create('outfit', function (Blueprint $table) {
             $table->id();
+            $table->string('outfitType');
             $table->string('image')->nullable();
             $table->string('name');
             $table->string('class');
