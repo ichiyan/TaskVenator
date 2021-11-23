@@ -150,6 +150,15 @@
         margin-right: 0 !important;
         padding-right: 0 !important;
 
+        //right arrow
+        .jRFJkP{
+            color: #999;
+        }
+
+        .rec.rec-arrow:disabled {
+            visibility: hidden;
+        }
+
         .party-member{
             position: relative;
         }

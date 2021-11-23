@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import $ from "jquery";
-import {Link,  useLocation} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import Header from "../layouts/Header";
 
