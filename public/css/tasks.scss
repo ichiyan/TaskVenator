@@ -196,4 +196,19 @@
 
     }
 
+    .btn-custom-primary{
+        background-color: #3ac162;
+        color: #fff;
+        border-radius: 10px;
+        border-color: #5fcf80;
+    }
+
+    .btn-custom-primary:hover{
+        background-color: #5fcf80;
+    }
+
+    .info-icon{
+        padding-right: 2px;
+    }
+
 }

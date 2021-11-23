@@ -1,9 +1,11 @@
-import React, { useRef, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import React, { Fragment, useRef, useState } from "react";
 import Carousel from 'react-elastic-carousel';
 import PartyMemberAvatar from "./PartyMemberAvatar";
 
 const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
-                       xp, xpTotal, xpBarWidth, xpIncreaseWidth}) => {
+                       xp, xpTotal, xpBarWidth, xpIncreaseWidth, hasParty}) => {
 
 
     const breakPoints = [
@@ -46,16 +48,24 @@ const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
                             <span className="xp-txt">{xp}/{xpTotal}</span>
                         </div>
                     </div>
-                    <div className="col-7 party-carousel">
-                        <Carousel itemsToShow={4} pagination={false} breakPoints={breakPoints}>
-                            {/* pass props */}
-                            <PartyMemberAvatar username="username"/>
-                            <PartyMemberAvatar username="asdfeeeeeeeeeeeeeeeeeeeeeeeee"/>
-                            <PartyMemberAvatar username="zxcvby"/>
-                            <PartyMemberAvatar username="qwerty"/>
-                            <PartyMemberAvatar username="lkjhgf"/>
-                        </Carousel>
-                    </div>
+                    { hasParty === "true"
+                        ?   <Fragment>
+                                <div className="col-7 party-carousel">
+                                    <Carousel itemsToShow={4} pagination={false} breakPoints={breakPoints}>
+                                        {/* pass props */}
+                                        <PartyMemberAvatar username="username"/>
+                                        <PartyMemberAvatar username="asdfeeeeeeeeeeeeeeeeeeeeeeeee"/>
+                                        <PartyMemberAvatar username="zxcvby"/>
+                                        <PartyMemberAvatar username="qwerty"/>
+                                        <PartyMemberAvatar username="lkjhgf"/>
+                                    </Carousel>
+                                </div>
+                                <div className="col-1">
+                                    <button className="btn btn-primary btn-custom-primary"><FontAwesomeIcon icon={faInfoCircle} className="info-icon"/>Party</button>
+                                </div>
+                            </Fragment>
+                        :   null
+                    }
                 </div>
             </div>
         </div>

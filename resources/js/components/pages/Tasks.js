@@ -81,7 +81,7 @@ const Tasks = () => {
     return (
         <div className="internal-pages">
             <Header page="tasks"/>
-            <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
+            <AvatarHeader hasParty="false" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
              {/* {this.test} */}
              {/* TESTING */}
              <div style={{margin: 15 + "%"}}>
