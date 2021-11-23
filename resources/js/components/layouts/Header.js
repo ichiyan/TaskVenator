@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
-import HomeNavbar from "./HomeNavbar";
-import LandingNavbar from "./LandingNavbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import TasksNavbar from "./TasksNavbar";
+import HomeNavbar from "./HomeNavbar";
 
 const Header = ({page}) => {
 
@@ -56,16 +56,19 @@ const Header = ({page}) => {
                 localStorage.removeItem('auth_name');
                 console.log(res.data.message);
                 navigate('/');
+                location.reload();
             }
         });
     }
 
     var trailingButtons = '';
+    var isLoggedIn = "false";
     if(!localStorage.getItem('auth_token')){
         trailingButtons = (
             <Link to="/register" className="get-started-btn">Get Started</Link>
         )
     }else{
+        isLoggedIn = "true";
         trailingButtons = (
            <div>
                 <nav id="navbar" className="navbar order-last order-lg-0">
@@ -91,7 +94,7 @@ const Header = ({page}) => {
         <header id="header" className="fixed-top">
             <div className="container d-flex justify-content-between align-items-center">
                  <h1 className="logo"><Link to="/">TaskVenator</Link></h1>
-                 {page === "home" ? <HomeNavbar/> : <LandingNavbar/>}
+                 {page === "home" ? <HomeNavbar isLoggedIn={isLoggedIn}/> : <TasksNavbar/>}
                  {trailingButtons}
             </div>
         </header>

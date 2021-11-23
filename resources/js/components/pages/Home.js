@@ -1,95 +1,67 @@
-import React from "react";
-import { useRef, useState } from "react";
-import AvatarHeader from "../layouts/AvatarHeader";
+import React, { useEffect, useState } from "react";
+import $ from "jquery";
+import {Link,  useLocation} from 'react-router-dom';
+
 import Header from "../layouts/Header";
 
 const Home = () => {
 
-    var hpTotal = 50;
-    var xpTotal = 50;
-    const [hp, setHp] = useState(50);
-    const [xp, setXp] = useState(0);
-    const [hpBarWidth, sethpBarWidth] = useState("100");
-    const [hpHitWidth, sethpHitWidth] = useState("0");
-    const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
+    const [isLogged, setIsLogged] = useState();
 
-    const [xpBarWidth, setXPBarWidth] = useState("0");
-    const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
+    useEffect(() => {
+        $(window).resize(function() {
+            $("#landing-pixels").html("");
+            var grid = 60,
+                windowWidth = $(window).width(),
+                windowHeight = $(window).height() * 0.50,
+                pW = windowWidth/grid,
+                pH = pW,
+                rows = parseInt(windowHeight/pH);
+            var r = rows;
+            while (r > 0){
+                var p = 0;
+                while (p < grid) {
+                    var tenth = r/rows;
+                    var randomNumber = r < rows/10 ? (Math.random() * tenth) : (Math.random() * tenth) + (tenth - .1);
+                    var opacity = randomNumber.toFixed(2);
+                    $("#landing-pixels").append("<div style='opacity: "+opacity+"; height: "+pH+"px; width: "+pW+"px' class='landing-pixel'></div>");
+                    p++;
+                }
+                r--;
+            }
+        }).resize();
 
-    const hitHandler = () => {
-        let updatedHp;
+    }, []);
 
-        if(hp == 0){
-            updatedHp = 50;
-        }else{
-            updatedHp = hp - 10;
-        }
-        setHp(updatedHp);
+    var heroButtons = '';
 
-        const newhpBarWidth = updatedHp / hpTotal * 100;
-        const newhpHitWidth = 10 / hp * 100;
-
-        sethpHitWidth(newhpHitWidth);
-
-        setTimeout(function(){
-            sethpHitWidth(0);
-            setHPIncreaseWidth(newhpBarWidth);
-            sethpBarWidth(newhpBarWidth);
-        }, 500);
+    if(!localStorage.getItem('auth_token')){
+        heroButtons = (
+           <div>
+                <Link to="/register" className="btn-get-started">Get Started</Link>
+                <Link to="/login" className="btn-login">Log In</Link>
+           </div>
+        );
+    }else{
+        heroButtons = (
+            <div>
+                 <Link to="/tasks" className="btn-get-started">Get Tasks Done</Link>
+            </div>
+         );
     }
-
-    const healHandler = () => {
-        let updatedHp;
-        let newHPBarWidth;
-
-        if(hp == hpTotal){
-            //    full health modal or sumn
-            updatedHp = hpTotal;
-        }else{
-            updatedHp = hp + 10;
-            newHPBarWidth = updatedHp / hpTotal * 100;
-        }
-        setHp(updatedHp);
-
-        setHPIncreaseWidth(newHPBarWidth);
-
-        setTimeout(function(){
-            sethpBarWidth(newHPBarWidth);
-        }, 500);
-    }
-
-    const addXPHandler = () => {
-        let updatedXp = 0;
-        let newXPBarWidth;
-        if(xp == xpTotal){
-            newXPBarWidth = 0;
-        }else{
-            updatedXp = xp + 10;
-            newXPBarWidth = updatedXp / xpTotal * 100;
-        }
-        setXp(updatedXp);
-
-        setXPIncreaseWidth(newXPBarWidth);
-
-        setTimeout(function(){
-            setXPBarWidth(newXPBarWidth);
-        }, 500);
-
-    }
-
 
     return (
-        <div className="internal-pages">
+        <div>
             <Header page="home"/>
-            <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
-             {/* {this.test} */}
-             {/* TESTING */}
-             <div style={{margin: 15 + "%"}}>
-                 <p style={{color: "white"}}>TEST</p>
-                <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
-                <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
-                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
-             </div>
+            {/* Hero Section */}
+            <section id="hero" className="d-flex justify-content-center align-items-center">
+                <div className="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+                    <h1>Lorem Ipsum,<br/>At vero eos et </h1>
+                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+                    {heroButtons}
+                </div>
+            </section>
+            <div id="landing-pixels"></div>
         </div>
     );
 }

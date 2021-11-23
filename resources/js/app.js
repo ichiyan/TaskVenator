@@ -7,8 +7,8 @@
 
 
  require('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
- require('../../public/css/landing_auth.css');
- require('../../public/css/home.scss');
+ require('../../public/css/home_auth.css');
+ require('../../public/css/tasks.scss');
  require('../../public/css/shop.css');
  require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.js');
  require('../../node_modules/jquery/dist/jquery.min.js');
