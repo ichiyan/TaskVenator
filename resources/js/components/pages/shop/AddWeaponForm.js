@@ -40,30 +40,30 @@ function AddWeaponForm (){
     const weaponSubmitHandler = (e) =>{
       e.preventDefault();
      
-      // const formData = new FormData();
-      // formData.append('image', picture.image);
-      // formData.append('name', weapon.name);
-      // formData.append('class', weapon.class);
-      // formData.append('type', weapon.type);
-      // formData.append('pAttack', weapon.pAttack);
-      // formData.append('mAttack', weapon.mAttack);
-      // formData.append('pDef', weapon.pDef);
-      // formData.append('mDef', weapon.mDef);
-      // formData.append('str', weapon.str);
-      // formData.append('int', weapon.int);
-      // formData.append('agi', weapon.agi);
-      // formData.append('crit', weapon.crit);
-      // formData.append('critDmg', weapon.critDmg);
-      // formData.append('price', weapon.price);
+      const formData = new FormData();
+      formData.append('image', picture.image);
+      formData.append('name', weapon.name);
+      formData.append('class', weapon.class);
+      formData.append('type', weapon.type);
+      formData.append('pAttack', weapon.pAttack);
+      formData.append('mAttack', weapon.mAttack);
+      formData.append('pDef', weapon.pDef);
+      formData.append('mDef', weapon.mDef);
+      formData.append('str', weapon.str);
+      formData.append('int', weapon.int);
+      formData.append('agi', weapon.agi);
+      formData.append('crit', weapon.crit);
+      formData.append('critDmg', weapon.critDmg);
+      formData.append('price', weapon.price);
 
   
-      // axios.post(`/api/addWeapon`,formData).then(res =>{
-      //   if(res.data.status === 200){
-      //       alert(res.data.message);
-      //   }else {
-      //     // setPotion({...potion,error_list:res.data.errors});
-      //   }
-      // });
+      axios.post(`/api/addWeapon`,formData).then(res =>{
+        if(res.data.status === 200){
+            alert(res.data.message);
+        }else {
+          // setPotion({...potion,error_list:res.data.errors});
+        }
+      });
       // const data ={
       //   name: weapon.name,
       //   class: weapon.class,
@@ -79,7 +79,7 @@ function AddWeaponForm (){
       //   critDmg: weapon.critDmg,
       //   price: weapon.price
       // }
-      console.log(5);
+   
       // setWeapon({
       //   name: '',
       //   class: '',
