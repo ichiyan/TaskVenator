@@ -12,8 +12,7 @@ function AddPotionForm (){
   const[potion, setPotion]= useState({
     name: '',
     type: 'Hp Potion',
-    size: 'Small',
-    // effect:'',
+    size: "Small",
     description: '',
     price: '',
  
@@ -39,7 +38,6 @@ function AddPotionForm (){
       formData.append('name', potion.name);
       formData.append('type', potion.type);
       formData.append('size', potion.size);
-      formData.appennd('effect', potion.effect);
       formData.append('description', potion.description);
       formData.append('price', potion.price);
 
@@ -107,10 +105,6 @@ function AddPotionForm (){
               <option value="Large">Large</option>
             </select>
             </div>
-            {/* <div className="form-group">
-            <label>Potion Effect</label>
-            <input className="form-control" name="effect" type="number" onChange={inputHandler} value={potion.effect}/>
-          </div> */}
             <div className="form-group">
             <label>Description</label>
             <textarea className="form-control" rows="3" name="description" onChange={inputHandler} value={potion.description}></textarea>

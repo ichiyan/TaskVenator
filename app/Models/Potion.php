@@ -14,7 +14,6 @@ class Potion extends Model
         'name',
         'type',
         'size',
-        // 'effect',
         'description',
         'price',
     ];
