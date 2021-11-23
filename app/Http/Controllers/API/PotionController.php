@@ -32,6 +32,7 @@ class PotionController extends Controller
                 $potion->name= $request->input('name');
                 $potion->type= $request->input('type');
                 $potion->size= $request->input('size');
+                // $potion->effect=$request->input('effect');
                 $potion->description= $request->input('description');
                 $potion->price= $request->input('price');
                 $potion->save();
