@@ -13,6 +13,7 @@ function AddPotionForm (){
     name: '',
     type: 'Hp Potion',
     size: "Small",
+    effect:'',
     description: '',
     price: '',
  
@@ -31,44 +32,45 @@ function AddPotionForm (){
     setPicture({image: e.target.files[0]});
   }
 
-    const potionSubmitHandler = (e) =>{
-      e.preventDefault();
-      const formData = new FormData();
-      formData.append('image', picture.image);
-      formData.append('name', potion.name);
-      formData.append('type', potion.type);
-      formData.append('size', potion.size);
-      formData.append('description', potion.description);
-      formData.append('price', potion.price);
+  const potionSubmitHandler = (e) =>{
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('image', picture.image);
+    formData.append('name', potion.name);
+    formData.append('type', potion.type);
+    formData.append('size', potion.size);
+    formData.append('effect', potion.effect);
+    formData.append('description', potion.description);
+    formData.append('price', potion.price);
 
-      axios.post(`/api/addPotion`,formData).then(res =>{
-        if(res.data.status === 200){
-            console.log(res.data.message);
-        }else {
-          setPotion({...potion,error_list:res.data.errors});
-        }
-      });
-      // console.log(picture);
+    axios.post(`/api/addPotion`,formData).then(res =>{
+      if(res.data.status === 200){
+          alert(res.data.message);
+      }else {
+        setPotion({...potion,error_list:res.data.errors});
+      }
+    });
+    // console.log(picture);
 
-      // const data ={
-      //   name: potion.name,
-      //   type: potion.type,
-      //   size: potion.size,
-      //   description: potion.description,
-      //   price: potion.price
+    // const data ={
+    //   name: potion.name,
+    //   type: potion.type,
+    //   size: potion.size,
+    //   description: potion.description,
+    //   price: potion.price
 
 
-      // }
-      // axios.post(`/api/addPotion`,data).then(res =>{
-      //   if(res.data.status === 200){
-      //       console.log(res.data.message);
-      //   }else {
-      //     setPotion({...potion,error_list:res.data.errors});
-      //   }
-      // });
-     
-      
-    }
+    // }
+    // axios.post(`/api/addPotion`,data).then(res =>{
+    //   if(res.data.status === 200){
+    //       console.log(res.data.message);
+    //   }else {
+    //     setPotion({...potion,error_list:res.data.errors});
+    //   }
+    // });
+    
+    
+  }
 
   return (  
      <div>
@@ -104,6 +106,10 @@ function AddPotionForm (){
               <option value="Medium">Medium</option>
               <option value="Large">Large</option>
             </select>
+            </div>
+            <div className="form-group">
+            <label>Potion Effect</label>
+            <input className="form-control" name="effect" type="number" onChange={inputHandler} value={potion.effect}/>
             </div>
             <div className="form-group">
             <label>Description</label>

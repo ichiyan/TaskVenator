@@ -68,6 +68,10 @@
   .shop-items Button:hover{
     background-color: #C0C034;
   }
+  .shop-itemsInfo img{
+    height:20px;
+    width:20px;
+  }
  /* displaying the hide info in div  */
  .shop-hide{
   display: inline-block;

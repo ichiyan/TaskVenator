@@ -13,6 +13,7 @@ function Display ({clicked}){
                   setDisplay({
                         products:res.data.potions
                   });
+                  
             }
       })
    },[])
@@ -22,9 +23,10 @@ function Display ({clicked}){
                 return (
                   <div className="shop-category">
                         <div className="shop-categoryName">
-                              <h3>Potions</h3>
+                              <h3>Health Potions</h3>
                         </div>
                         {display.products.map((p,index)=>{
+                               if(p.type === "Hp Potion"){
                               return (
                                     <div key={index} className="shop-returnMap">
                                     <div className="shop-items"> 
@@ -34,20 +36,59 @@ function Display ({clicked}){
                                            <div className="shop-itemsInfo">
                                                 <h6>{p.name}</h6>
                                                 <p>{p.size}</p>
-                                                <Button>{p.price}<br></br> BUY</Button>
+                                                <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
                                           </div>
                                     </div> 
                                     <div className="shop-hide">
                                           <div className="shop-itemsInfo">
                                           <h6>{p.description}</h6>
-                                          <p>Heals 70hp</p>
                                           </div> 
                                      </div>
                                     </div>
                                     
                               )
+                            }else{
+                                  return(
+                                        <div classNmae="shop-category">
+
+                                        </div>
+                                  )
+                            }
                         })}
-                      
+
+                        <div className="shop-categoryName">
+                              <h3>Powerup Potions</h3>
+                        </div>
+                        {display.products.map((p,index)=>{
+                               if(p.type === "Powerup Potion"){
+                              return (
+                                    <div key={index} className="shop-returnMap">
+                                    <div className="shop-items"> 
+                                          <div className="shop-itemsImage">
+                                             <img src={p.image}></img>
+                                           </div>
+                                           <div className="shop-itemsInfo">
+                                                <h6>{p.name}</h6>
+                                                <p>{p.size}</p>
+                                                <Button> <img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                          </div>
+                                    </div> 
+                                    <div className="shop-hide">
+                                          <div className="shop-itemsInfo">
+                                          <h6>{p.description}</h6>
+                                          </div> 
+                                     </div>
+                                    </div>
+                                    
+                              )
+                            }else{
+                                  return(
+                                        <div classNmae="shop-category">
+
+                                        </div>
+                                  )
+                            }
+                        })}
 
                    </div>
               );
