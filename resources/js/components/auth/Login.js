@@ -37,7 +37,7 @@ const Login = () => {
                     localStorage.setItem('auth_token', res.data.token);
                     localStorage.setItem('auth_name', res.data.username);
                     console.log(res.data.message);
-                    navigate('/home');
+                    navigate('/tasks');
                 }else if (res.data.status === 401){
                     setInvalidCredentialsMsg(res.data.message);
                 }else{
