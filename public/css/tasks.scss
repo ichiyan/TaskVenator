@@ -1,0 +1,243 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+.internal-pages{
+    height: 100vh;
+    width: 100vw;
+    background-color: #383A59;
+}
+
+/*--------------------------------------------------------------
+# Avatar Header
+--------------------------------------------------------------*/
+
+.avatar-header{
+    width: 100%;
+    height: 140px;
+    position: absolute;
+    background-color: #2F3144;
+
+    .avatar{
+        height: 100% !important;
+    }
+
+    .row {
+        height: 80% !important;
+        width: 100% !important;
+    }
+
+    .avatar-img-space{
+        background-color: #9580FF;
+        height: 100%;
+        width: 120px;
+        padding: 0 !important;
+        margin-left: 10px;
+    }
+
+    .avatar-img{
+        max-width: 120px;
+        max-height: 80%;
+        padding:8px;
+    }
+
+    .avatar-header-info {
+        margin-left: 10px;
+        height: 100%;
+
+        .first-row{
+            display: inline-block;
+        }
+
+        .username{
+            color: azure;
+            font-size: 1.2rem;
+            padding-bottom: 0;
+        }
+
+        .class{
+            color: #9580FF;
+            font-size: small;
+            text-transform: uppercase;
+            padding-top: 0;
+            padding-bottom: 8px;
+            margin-bottom: 0;
+        }
+
+        .username, .class{
+            margin-left: 50px;
+        }
+
+        .circle-icon {
+            background-color: aliceblue;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            padding: 0;
+            text-align: center;
+            line-height: 35px;
+            position: absolute;
+            margin-top: 8px;
+        }
+
+        .class-icon{
+            width: 65%;
+            height: 65%;
+            object-fit: cover;
+        }
+
+        .health-section{
+            padding-bottom: 5px;
+        }
+
+        .health-icon, .xp-icon{
+            margin-left: 5px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .hp-txt, .xp-txt{
+            color: #9580FF;
+            font-size: small;
+            padding: 10px;
+        }
+
+        .health-bar, .xp-bar, .bar{
+            height: 10px;
+            display: inline-block;
+        }
+
+        .health-bar, .xp-bar{
+            width: 50%;
+            background: #2A2C37;
+            position: relative;
+            margin-left: 25px;
+        }
+
+        .bar {
+            transition: width .5s linear;
+            position: absolute;
+        }
+
+        .hp.bar{
+            background: #FF80BF;
+            z-index: 1;
+        }
+
+        .xp.bar{
+            background: #80FFEA;
+            z-index: 1;
+        }
+
+        .transition{
+            background: rgba(255,255,255,0.6);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            transition: width .5s linear;
+        }
+
+        .transition.decrease{
+            right: 0;
+        }
+
+        .transition.increase{
+            left: 0;
+        }
+    }
+
+    .party-carousel{
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+
+        //right arrow
+        .jRFJkP{
+            color: #999;
+        }
+
+        .rec.rec-arrow:disabled {
+            visibility: hidden;
+        }
+
+        .party-member{
+            position: relative;
+        }
+
+        .party-member-username{
+            position: absolute;
+            padding: 0 5px;
+            width: 120px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: black;
+        }
+
+        .avatar-img{
+            max-width: 120px;
+            max-height: 95%;
+            padding: 25px 8px 8px 8px;
+        }
+
+        .party-avatar-info{
+            width: 250px !important;
+            padding: 0 0 8px 8px !important;
+            margin: 0 !important;
+
+            .username{
+                position: absolute;
+                width: 150px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 18px;
+            }
+
+            .class{
+                margin-left: 0;
+            }
+
+            .health-section{
+                padding-top: 50px;
+            }
+
+        }
+
+    }
+
+    .btn-custom-primary{
+        background-color: #3ac162;
+        color: #fff;
+        border-radius: 50px;
+        border-color: #5fcf80;
+        margin: 7px;
+    }
+
+    .btn-custom-primary:hover{
+        background-color: #5fcf80;
+    }
+
+    .btn-custom-outline-primary{
+        border-radius: 50px;
+        border-color: #5fcf80;
+        color: #fff;
+        margin: 7px;
+    }
+
+    .btn-custom-outline-primary:hover{
+        background-color: #5fcf80;
+    }
+
+    .party-info-btn{
+        margin: 0 !important;
+    }
+
+    .info-icon{
+        padding-right: 2px;
+    }
+
+    .prompt{
+        color: aliceblue;
+    }
+
+}
