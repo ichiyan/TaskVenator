@@ -7,6 +7,7 @@ import Landing from "../pages/Landing";
 import Auth from "../pages/Auth";
 import Shop from "../pages/shop/shop";
 import Home from "../pages/Home";
+import GroupTasks from "../pages/party/GroupTasks";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -29,6 +30,7 @@ const AppRouter = () => {
                     <Route path='/login' element={<Auth page="login"/>}></Route>
                     <Route path='/home' element={<Home/>}></Route>
                     <Route path='/shop' element={<Shop/>}></Route>
+                    <Route path='/group_tasks' element={<GroupTasks/>}></Route>
                 </Routes>
             </Router>
         </div>

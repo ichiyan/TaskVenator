@@ -7,8 +7,7 @@ function GroupMemberPublicTasks(){
     return(
         <div>
             test group tasks
-            <TaskItem></TaskItem>
-            <TaskItem></TaskItem>
+            <TaskItem/>
         </div>
     )
 
