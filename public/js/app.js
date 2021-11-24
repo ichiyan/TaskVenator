@@ -14413,10 +14413,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index */ "./resources/js/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
 
 
 
@@ -14427,24 +14425,24 @@ var TasksNavbar = function TasksNavbar() {
     className: "navbar order-last order-lg-0",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
           className: "active",
           to: "/tasks",
           children: "Tasks"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
           to: "",
           children: "Inventory"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
           to: "",
           children: "Shop"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-          to: "",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/party",
           children: "Party"
         })
       })]
@@ -14813,31 +14811,206 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
-/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../layouts/Header */ "./resources/js/components/layouts/Header.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
+/* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
 
 
+var GroupTasks = function GroupTasks() {
+  var hpTotal = 50;
+  var xpTotal = 50;
 
-function GroupTasks() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(50),
+      _useState2 = _slicedToArray(_useState, 2),
+      hp = _useState2[0],
+      setHp = _useState2[1];
+
+  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      xp = _useState4[0],
+      setXp = _useState4[1];
+
+  var _useState5 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("100"),
+      _useState6 = _slicedToArray(_useState5, 2),
+      hpBarWidth = _useState6[0],
+      sethpBarWidth = _useState6[1];
+
+  var _useState7 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState8 = _slicedToArray(_useState7, 2),
+      hpHitWidth = _useState8[0],
+      sethpHitWidth = _useState8[1];
+
+  var _useState9 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState10 = _slicedToArray(_useState9, 2),
+      HpIncreaseWidth = _useState10[0],
+      setHPIncreaseWidth = _useState10[1];
+
+  var _useState11 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState12 = _slicedToArray(_useState11, 2),
+      xpBarWidth = _useState12[0],
+      setXPBarWidth = _useState12[1];
+
+  var _useState13 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState14 = _slicedToArray(_useState13, 2),
+      xpIncreaseWidth = _useState14[0],
+      setXPIncreaseWidth = _useState14[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Header, {
       page: "group_tasks"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
-      className: "d-flex justify-content-center align-items-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-        children: "test why not"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AvatarHeader, {
+      hasParty: "true",
+      hp: hp,
+      hpTotal: hpTotal,
+      hpBarWidth: hpBarWidth,
+      hpHitWidth: hpHitWidth,
+      HpIncreaseWidth: HpIncreaseWidth,
+      xp: xp,
+      xpTotal: xpTotal,
+      xpBarWidth: xpBarWidth,
+      xpIncreaseWidth: xpIncreaseWidth
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+      className: "justify-content-center align-items-center party-content",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/party",
+          children: "Party"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/group_tasks",
+          children: "Group Tasks"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+        children: " Group Tasks "
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.GroupMemberPublicTasks, {})]
     })]
   });
-}
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GroupTasks);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/party/Party.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/pages/party/Party.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
+/* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var Party = function Party() {
+  var hpTotal = 50;
+  var xpTotal = 50;
+
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(50),
+      _useState2 = _slicedToArray(_useState, 2),
+      hp = _useState2[0],
+      setHp = _useState2[1];
+
+  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      xp = _useState4[0],
+      setXp = _useState4[1];
+
+  var _useState5 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("100"),
+      _useState6 = _slicedToArray(_useState5, 2),
+      hpBarWidth = _useState6[0],
+      sethpBarWidth = _useState6[1];
+
+  var _useState7 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState8 = _slicedToArray(_useState7, 2),
+      hpHitWidth = _useState8[0],
+      sethpHitWidth = _useState8[1];
+
+  var _useState9 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState10 = _slicedToArray(_useState9, 2),
+      HpIncreaseWidth = _useState10[0],
+      setHPIncreaseWidth = _useState10[1];
+
+  var _useState11 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState12 = _slicedToArray(_useState11, 2),
+      xpBarWidth = _useState12[0],
+      setXPBarWidth = _useState12[1];
+
+  var _useState13 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState14 = _slicedToArray(_useState13, 2),
+      xpIncreaseWidth = _useState14[0],
+      setXPIncreaseWidth = _useState14[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Header, {
+      page: "group_tasks"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AvatarHeader, {
+      hasParty: "true",
+      hp: hp,
+      hpTotal: hpTotal,
+      hpBarWidth: hpBarWidth,
+      hpHitWidth: hpHitWidth,
+      HpIncreaseWidth: HpIncreaseWidth,
+      xp: xp,
+      xpTotal: xpTotal,
+      xpBarWidth: xpBarWidth,
+      xpIncreaseWidth: xpIncreaseWidth
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+      className: "d-flex justify-content-center align-items-center party-content",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/party",
+          children: "Party"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/group_tasks",
+          children: "Group Tasks"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+        children: "PARTY LANDING PAGE"
+      })]
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Party);
 
 /***/ }),
 
@@ -15247,6 +15420,60 @@ function GroupMemberPublicTasks() {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/tasks/HomeDailyTasks.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/pages/tasks/HomeDailyTasks.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function HomeDailyTasks() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: "test"
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomeDailyTasks);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/tasks/HomeTasks.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/pages/tasks/HomeTasks.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function HomeTasks() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: "test"
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomeTasks);
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/tasks/TaskItem.js":
 /*!*********************************************************!*\
   !*** ./resources/js/components/pages/tasks/TaskItem.js ***!
@@ -15287,16 +15514,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Auth */ "./resources/js/components/pages/Auth.js");
 /* harmony import */ var _pages_shop_shop__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/shop/shop */ "./resources/js/components/pages/shop/shop.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
-/* harmony import */ var _pages_Tasks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/Tasks */ "./resources/js/components/pages/Tasks.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_party_Party__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/party/Party */ "./resources/js/components/pages/party/Party.js");
+/* harmony import */ var _pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
+/* harmony import */ var _pages_Tasks__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -15319,32 +15548,35 @@ axios__WEBPACK_IMPORTED_MODULE_2___default().interceptors.request.use(function (
 });
 
 var AppRouter = function AppRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.BrowserRouter, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "/",
           exact: true,
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "/register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
             page: "register"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "/login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
             page: "login"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "/tasks",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "/shop",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_shop_shop__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_shop_shop__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+          path: "/party",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_party_Party__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "/group_tasks",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_7__["default"], {})
         })]
       })
     })
@@ -15354,8 +15586,85 @@ var AppRouter = function AppRouter() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppRouter);
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(AppRouter, {}), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(AppRouter, {}), document.getElementById('app'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/index.js":
+/*!*******************************!*\
+  !*** ./resources/js/index.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Link": () => (/* reexport safe */ react_router_dom__WEBPACK_IMPORTED_MODULE_0__.Link),
+/* harmony export */   "React": () => (/* reexport default export from named module */ react__WEBPACK_IMPORTED_MODULE_1__),
+/* harmony export */   "$": () => (/* reexport default from dynamic */ jquery__WEBPACK_IMPORTED_MODULE_2___default.a),
+/* harmony export */   "useEffect": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useEffect),
+/* harmony export */   "useState": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useState),
+/* harmony export */   "Login": () => (/* reexport safe */ _components_auth_Login__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   "Register": () => (/* reexport safe */ _components_auth_Register__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   "AvatarHeader": () => (/* reexport safe */ _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   "Header": () => (/* reexport safe */ _components_layouts_Header__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   "HomeNavbar": () => (/* reexport safe */ _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   "PartyMemberAvatar": () => (/* reexport safe */ _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   "TasksNavbar": () => (/* reexport safe */ _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   "GroupTasks": () => (/* reexport safe */ _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   "Party": () => (/* reexport safe */ _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_11__["default"]),
+/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_16__["default"]),
+/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_17__["default"]),
+/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_18__["default"])
+/* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/auth/Login */ "./resources/js/components/auth/Login.js");
+/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.js");
+/* harmony import */ var _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
+/* harmony import */ var _components_layouts_Header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/layouts/Header */ "./resources/js/components/layouts/Header.js");
+/* harmony import */ var _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/layouts/HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
+/* harmony import */ var _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/layouts/PartyMemberAvatar */ "./resources/js/components/layouts/PartyMemberAvatar.js");
+/* harmony import */ var _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/layouts/TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
+/* harmony import */ var _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
+/* harmony import */ var _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/party/Party */ "./resources/js/components/pages/party/Party.js");
+/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
+/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
+/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
+/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
+/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+
+
+
+
+
+
+
+
+
+
+
+
+ //export {default as AddProductForm} from "./components/pages/shop/AddProductForm";
+//export {default as Display} from "./components/pages/shop/Display";
+//export {default as Shop} from "./components/pages/shop/Shop";
+
+
+
+
+
+
+
+
 
 /***/ }),
 
@@ -22449,6 +22758,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\r\n# General\r\n--------------------------------------------------------------*/\r\nhtml,body{\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Source Sans Pro\", 'sans-serif';\r\n}\r\n\r\na, a:hover{\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n/*--------------------------------------------------------------\r\n# Header\r\n--------------------------------------------------------------*/\r\n#header {\r\n    background: #2A2C37;\r\n    transition: all 0.5s;\r\n    z-index: 997;\r\n    padding: 10px 0;\r\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 0;\r\n  }\r\n  #header .logo {\r\n    font-size: 24px;\r\n    margin: 0;\r\n    padding: 0;\r\n    line-height: 1;\r\n    font-weight: 600;\r\n    letter-spacing: 1px;\r\n    font-family: \"Playfair Display\", serif;\r\n  }\r\n  #header .logo a {\r\n    color: #fff;\r\n  }\r\n  #header .logo img {\r\n    max-height: 40px;\r\n  }\r\n\r\n  /**\r\n  * Get Started Button\r\n  */\r\n\r\n  .get-started-btn {\r\n    margin-left: 22px;\r\n    background: #5fcf80;\r\n    color: #fff;\r\n    border-radius: 50px;\r\n    padding: 8px 25px;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n    font-size: 14px;\r\n    display: inline-block;\r\n  }\r\n  .get-started-btn:hover {\r\n    background: #3ac162;\r\n    color: #fff;\r\n  }\r\n  @media (max-width: 768px) {\r\n    .get-started-btn {\r\n      margin: 0 15px 0 0;\r\n      padding: 6px 18px;\r\n    }\r\n  }\r\n\r\n/*--------------------------------------------------------------\r\n# Navigation Menu\r\n--------------------------------------------------------------*/\r\n/**\r\n* Desktop Navigation\r\n*/\r\n\r\n.navbar {\r\n    padding: 0;\r\n  }\r\n  .navbar ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    list-style: none;\r\n    align-items: center;\r\n  }\r\n  .navbar li {\r\n    position: relative;\r\n  }\r\n  .navbar a, .navbar a:focus {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    padding: 10px 0 10px 30px;\r\n    font-family: \"Playfair Display\", serif;\r\n    font-size: 16px;\r\n    font-weight: 400;\r\n    color: #fff;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n  }\r\n  .navbar a i, .navbar a:focus i {\r\n    font-size: 12px;\r\n    line-height: 0;\r\n    margin-left: 5px;\r\n  }\r\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\r\n    color: #8AFF80;\r\n  }\r\n\r\n  /*\r\n  .navbar .dropdown ul {\r\n    display: block;\r\n    position: absolute;\r\n    left: 30px;\r\n    top: calc(100% + 30px);\r\n    margin: 0;\r\n    padding: 10px 0;\r\n    z-index: 99;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    background: #fff;\r\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\r\n    transition: 0.3s;\r\n    border-radius: 4px;\r\n  }\r\n  .navbar .dropdown ul li {\r\n    min-width: 200px;\r\n  }\r\n  .navbar .dropdown ul a {\r\n    padding: 10px 20px;\r\n    font-size: 14px;\r\n    text-transform: none;\r\n    font-weight: 500;\r\n  }\r\n  .navbar .dropdown ul a i {\r\n    font-size: 12px;\r\n  }\r\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\r\n    color: #5fcf80;\r\n  }\r\n  .navbar .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 100%;\r\n    visibility: visible;\r\n  }\r\n  .navbar .dropdown .dropdown ul {\r\n    top: 0;\r\n    left: calc(100% - 30px);\r\n    visibility: hidden;\r\n  }\r\n  .navbar .dropdown .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 0;\r\n    left: 100%;\r\n    visibility: visible;\r\n  }\r\n   @media (max-width: 1366px) {\r\n    .navbar .dropdown .dropdown ul {\r\n      left: -90%;\r\n    }\r\n    .navbar .dropdown .dropdown:hover > ul {\r\n      left: -100%;\r\n    }\r\n  } */\r\n\r\n  .navIcon{\r\n      font-size: 1.3rem;\r\n  }\r\n\r\n  .custom-dropdown{\r\n      position: absolute;\r\n      top: calc(100% + 10px);\r\n      width: 250px;\r\n      transform: translateX(-90%);\r\n      border-radius: 10px;\r\n      padding: 0.5rem;\r\n      overflow: hidden;\r\n      background-color: #242526;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-dropdown-item{\r\n      font-family: \"Source Sans Pro\", 'sans-serif';\r\n      font-size: small;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-menu-item{\r\n      height: 50%;\r\n      display: flex;\r\n      align-items: center;\r\n      padding: 0.5rem;\r\n  }\r\n\r\n  .custom-menu-item:hover{\r\n      background-color: #525357;\r\n  }\r\n\r\n  .dropdown-icon-left{\r\n      padding-right: 5px;\r\n  }\r\n\r\n  .dropdown-icon-right{\r\n      margin-left: auto;\r\n  }\r\n\r\n  /*--------------------------------------------------------------\r\n# Hero Section\r\n--------------------------------------------------------------*/\r\n#hero {\r\n    width: 100%;\r\n    height: 80vh;\r\n    background-color: #9580FF;\r\n    background-size: cover;\r\n    position: relative;\r\n  }\r\n\r\n  #hero .container {\r\n    padding-top: 72px;\r\n  }\r\n  @media (max-width: 992px) {\r\n    #hero .container {\r\n      padding-top: 62px;\r\n    }\r\n  }\r\n  #hero h1 {\r\n    margin: 0;\r\n    font-size: 48px;\r\n    font-weight: 700;\r\n    line-height: 56px;\r\n    color: #383A59;\r\n    font-family: \"Poppins\", sans-serif;\r\n  }\r\n  #hero h2 {\r\n    color: #383A59;\r\n    margin: 10px 0 0 0;\r\n    font-size: 24px;\r\n  }\r\n  #hero .btn-get-started, #hero .btn-login {\r\n    font-family: \"Raleway\", sans-serif;\r\n    font-weight: 500;\r\n    font-size: 15px;\r\n    letter-spacing: 1px;\r\n    display: inline-block;\r\n    padding: 10px 35px;\r\n    border-radius: 50px;\r\n    transition: 0.5s;\r\n    margin: 30px 30px 0 0;\r\n    border: 2px solid #2A2C37;\r\n    color: #fff;\r\n  }\r\n\r\n  #hero .btn-get-started{\r\n    background-color: #2A2C37;\r\n  }\r\n\r\n  #hero .btn-login{\r\n    border: 2px solid #fff;\r\n  }\r\n\r\n  #hero .btn-get-started:hover {\r\n    background: #383A59;\r\n    border: 2px solid #383A59;\r\n  }\r\n\r\n  #hero .btn-login:hover {\r\n    border: 2px solid #383A59;\r\n    color: #383A59;\r\n  }\r\n\r\n  @media (min-width: 1024px) {\r\n    #hero {\r\n      background-attachment: fixed;\r\n    }\r\n  }\r\n  @media (max-width: 768px) {\r\n    #hero {\r\n      height: 100vh;\r\n    }\r\n    #hero h1 {\r\n      font-size: 28px;\r\n      line-height: 36px;\r\n    }\r\n    #hero h2 {\r\n      font-size: 18px;\r\n      line-height: 24px;\r\n    }\r\n  }\r\n\r\n#landing-pixels{\r\n    width: 100%;\r\n\theight: 100%;\r\n}\r\n\r\n.landing-pixel{\r\n    background-color: #9580FF;\r\n\tfloat: left;\r\n}\r\n\r\n /*--------------------------------------------------------------\r\n# Registration and Login\r\n--------------------------------------------------------------*/\r\ncanvas {\r\n    display: block;\r\n}\r\n\r\n#particles-js {\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: #9580ff;\r\n    background-attachment: fixed;\r\n    position: fixed;\r\n}\r\n\r\n.container.signup-signin {\r\n    padding-top: 7%;\r\n    width: 60%;\r\n}\r\n\r\n\r\n.signup-signin-card {\r\n    border: 0 !important;\r\n    border-radius: 27.5px !important;\r\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\r\n    overflow: visible !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.signup-signin-card-img {\r\n    border-radius: 27.5px 0 0 27.5px !important;\r\n    width: 100% !important;\r\n    height: 100% !important;\r\n    border-radius: 0 ;\r\n    -o-object-fit: cover;\r\n        object-fit: cover;\r\n}\r\n\r\n.signup-signin-card-img-top{\r\n    position: absolute !important;\r\n    right: 53% !important;\r\n}\r\n\r\n.register-img{\r\n    height: 115%;\r\n}\r\n\r\n.login-img{\r\n    height: 155%;\r\n    top: -20%;\r\n}\r\n\r\n.signup-signin-card .card-body {\r\n    padding: 50px 40px 50px 60px;\r\n}\r\n\r\n\r\n.signup-signin-card-description {\r\n    font-size: 25px;\r\n    color: #000;\r\n    font-weight: bold;\r\n    margin-bottom: 23px;\r\n}\r\n\r\n.signup-signin-card form {\r\n    max-width: 326px;\r\n }\r\n\r\n.signup-signin-form-group > input {\r\n    border: none;\r\n    box-sizing: border-box;\r\n    border-bottom: 1px solid #ebebeb;\r\n    background: transparent;\r\n    width: 100%;\r\n    display: block;\r\n    color: #000;\r\n    font-size: 16px;\r\n    padding: 3px 0;\r\n    margin: 8px 8px 15px 0;\r\n}\r\n\r\n.signup-signin-form-group > input:focus {\r\n    outline: none;\r\n}\r\n\r\n.signup-signin-form-group > .field-icon {\r\n    /* float: right;\r\n    margin-right: 0px;\r\n    margin-top: -22px;\r\n    position: relative;\r\n    z-index: 2; */\r\n    color: #000;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) {\r\n    width: 2em;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-size: 1em;\r\n    display: none;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\r\n    display: inline-block;\r\n    margin-bottom: 25px;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\r\n    display: inline-block;\r\n    width: 13px;\r\n    height: 13px;\r\n    margin-right: 15px;\r\n    margin-bottom: 4px;\r\n    border: 1px solid #000;\r\n    border-radius: 2px;\r\n    background: transparent;\r\n    vertical-align: bottom;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\r\n    background: transparent;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\r\n    content: '\\2713';\r\n    display: block;\r\n    color: #000;\r\n    font-size: 11px;\r\n    line-height: 1.2;\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\n.signup-signin-form-group > .label-agree-term {\r\n    font-size: 13px;\r\n    font-weight: 400;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .term-service {\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .form-submit {\r\n    width: auto;\r\n    display: inline-block;\r\n    border: none;\r\n    background: #5FCF80;\r\n    color: #fff;\r\n    padding: 10px;\r\n    height: 50px;\r\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\r\n    margin-right: 25px;\r\n}\r\n.signup-signin-form-group > .form-submit:hover {\r\n    background-color: #3ac162;\r\n}\r\n.signup-signin-form-group > .submit {\r\n    width: 130px;\r\n    border-radius: 25px;\r\n    text-transform: uppercase;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n}\r\n.signup-signin-form-group > .submit-link {\r\n    border: 2px solid #5FCF80;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .submit-link:hover {\r\n    background: #fff;\r\n    color: #3ac162;\r\n}\r\n\r\n.signup-signin .error-msg{\r\n    color: red;\r\n    font-size: small;\r\n}\r\n\r\n.signup-signin .forgot-password{\r\n    font-size: small;\r\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/party_tasks.css":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/party_tasks.css ***!
+  \**********************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".party-content{\n    margin: 15%;\n    display: flex;\n    flex-direction:column;\n    padding:1rem;\n}\n\nbutton {\n    margin: 1rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -61035,11 +61368,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_swipeable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-swipeable */ "./node_modules/react-elastic-carousel/node_modules/react-swipeable/es/index.js");
+/* harmony import */ var react_swipeable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-swipeable */ "./node_modules/react-swipeable/es/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! resize-observer-polyfill */ "./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js");
-/* harmony import */ var react_only_when__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-only-when */ "./node_modules/react-elastic-carousel/node_modules/react-only-when/dist/index.es.js");
+/* harmony import */ var react_only_when__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-only-when */ "./node_modules/react-only-when/dist/index.es.js");
 
 
 
@@ -63092,537 +63425,6 @@ Carousel.propTypes = {
 
 /***/ }),
 
-/***/ "./node_modules/react-elastic-carousel/node_modules/react-only-when/dist/index.es.js":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/react-elastic-carousel/node_modules/react-only-when/dist/index.es.js ***!
-  \*******************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-};
-
-var inherits = function (subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-};
-
-var objectWithoutProperties = function (obj, keys) {
-  var target = {};
-
-  for (var i in obj) {
-    if (keys.indexOf(i) >= 0) continue;
-    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-    target[i] = obj[i];
-  }
-
-  return target;
-};
-
-var possibleConstructorReturn = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return call && (typeof call === "object" || typeof call === "function") ? call : self;
-};
-
-var Only = function (_Component) {
-  inherits(Only, _Component);
-
-  function Only() {
-    classCallCheck(this, Only);
-    return possibleConstructorReturn(this, (Only.__proto__ || Object.getPrototypeOf(Only)).apply(this, arguments));
-  }
-
-  createClass(Only, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          children = _props.children,
-          when = _props.when,
-          hiddenMode = _props.hiddenMode,
-          className = _props.className;
-
-      var singleChild = react__WEBPACK_IMPORTED_MODULE_0__.Children.only(children);
-      var _singleChild$props = singleChild.props,
-          style = _singleChild$props.style,
-          restOfChildProps = objectWithoutProperties(_singleChild$props, ['style']);
-
-      var extendedProps = _extends({}, restOfChildProps);
-
-      var keepNode = hiddenMode && hiddenMode !== "withNull";
-
-      if (keepNode) {
-        if (hiddenMode === "withCss") {
-          extendedProps.className = extendedProps.className + ' ' + className;
-        } else {
-          extendedProps.style = _extends({}, style, hiddenMode === "withDisplay" && { display: "none" }, hiddenMode === "withVisibility" && { visibility: "hidden" });
-        }
-      }
-      var cloned = react__WEBPACK_IMPORTED_MODULE_0__.cloneElement(singleChild, extendedProps);
-      var toHide = keepNode ? cloned : null;
-
-      return when ? singleChild : toHide;
-    }
-  }]);
-  return Only;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-Only.defaultProps = {
-  hiddenMode: "withNull",
-  className: "r-o_hidden"
-};
-Only.propTypes = {
-  /** A single child element */
-  children: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().element.isRequired),
-
-  /** When true, children will rendered as is  */
-  when: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool.isRequired),
-
-  /** Determines how "react-only-when" should hide the child element 
-   * "withNull": Will not render the child
-   * "withDisplay": Will render the child with display:none  
-   * "withVisibility": Will render the child with visibility:hidden
-   * "withCss": Will render the child with a CSS class (you can pass it a custom className prop)
-  */
-  hiddenMode: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOf(["withNull", "withDisplay", "withVisibility", "withCss"]),
-  /** This is working in combination with hiddenMode={"withCss"}   */
-  className: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string)
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Only);
-//# sourceMappingURL=index.es.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/react-elastic-carousel/node_modules/react-swipeable/es/index.js":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/react-elastic-carousel/node_modules/react-swipeable/es/index.js ***!
-  \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DOWN": () => (/* binding */ DOWN),
-/* harmony export */   "LEFT": () => (/* binding */ LEFT),
-/* harmony export */   "RIGHT": () => (/* binding */ RIGHT),
-/* harmony export */   "Swipeable": () => (/* binding */ Swipeable),
-/* harmony export */   "UP": () => (/* binding */ UP),
-/* harmony export */   "useSwipeable": () => (/* binding */ useSwipeable)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
-
-var defaultProps = {
-  preventDefaultTouchmoveEvent: false,
-  delta: 10,
-  rotationAngle: 0,
-  trackMouse: false,
-  trackTouch: true
-};
-var initialState = {
-  xy: [0, 0],
-  swiping: false,
-  eventData: undefined,
-  start: undefined
-};
-var LEFT = 'Left';
-var RIGHT = 'Right';
-var UP = 'Up';
-var DOWN = 'Down';
-var touchStart = 'touchstart';
-var touchMove = 'touchmove';
-var touchEnd = 'touchend';
-var mouseMove = 'mousemove';
-var mouseUp = 'mouseup';
-
-function getDirection(absX, absY, deltaX, deltaY) {
-  if (absX > absY) {
-    if (deltaX > 0) {
-      return LEFT;
-    }
-
-    return RIGHT;
-  } else if (deltaY > 0) {
-    return UP;
-  }
-
-  return DOWN;
-}
-
-function rotateXYByAngle(pos, angle) {
-  if (angle === 0) return pos;
-  var angleInRadians = Math.PI / 180 * angle;
-  var x = pos[0] * Math.cos(angleInRadians) + pos[1] * Math.sin(angleInRadians);
-  var y = pos[1] * Math.cos(angleInRadians) - pos[0] * Math.sin(angleInRadians);
-  return [x, y];
-}
-
-function getHandlers(set, handlerProps) {
-  var onStart = function onStart(event) {
-    // if more than a single touch don't track, for now...
-    if (event.touches && event.touches.length > 1) return;
-    set(function (state, props) {
-      // setup mouse listeners on document to track swipe since swipe can leave container
-      if (props.trackMouse) {
-        document.addEventListener(mouseMove, onMove);
-        document.addEventListener(mouseUp, onUp);
-      }
-
-      var _ref = event.touches ? event.touches[0] : event,
-          clientX = _ref.clientX,
-          clientY = _ref.clientY;
-
-      var xy = rotateXYByAngle([clientX, clientY], props.rotationAngle);
-      return _extends({}, state, initialState, {
-        eventData: {
-          initial: [].concat(xy),
-          first: true
-        },
-        xy: xy,
-        start: event.timeStamp || 0
-      });
-    });
-  };
-
-  var onMove = function onMove(event) {
-    set(function (state, props) {
-      if (!state.xy[0] || !state.xy[1] || event.touches && event.touches.length > 1) {
-        return state;
-      }
-
-      var _ref2 = event.touches ? event.touches[0] : event,
-          clientX = _ref2.clientX,
-          clientY = _ref2.clientY;
-
-      var _rotateXYByAngle = rotateXYByAngle([clientX, clientY], props.rotationAngle),
-          x = _rotateXYByAngle[0],
-          y = _rotateXYByAngle[1];
-
-      var deltaX = state.xy[0] - x;
-      var deltaY = state.xy[1] - y;
-      var absX = Math.abs(deltaX);
-      var absY = Math.abs(deltaY);
-      var time = (event.timeStamp || 0) - state.start;
-      var velocity = Math.sqrt(absX * absX + absY * absY) / (time || 1); // if swipe is under delta and we have not started to track a swipe: skip update
-
-      if (absX < props.delta && absY < props.delta && !state.swiping) return state;
-      var dir = getDirection(absX, absY, deltaX, deltaY);
-
-      var eventData = _extends({}, state.eventData, {
-        event: event,
-        absX: absX,
-        absY: absY,
-        deltaX: deltaX,
-        deltaY: deltaY,
-        velocity: velocity,
-        dir: dir
-      });
-
-      props.onSwiping && props.onSwiping(eventData); // track if a swipe is cancelable(handler for swiping or swiped(dir) exists)
-      // so we can call preventDefault if needed
-
-      var cancelablePageSwipe = false;
-
-      if (props.onSwiping || props.onSwiped || props["onSwiped" + dir]) {
-        cancelablePageSwipe = true;
-      }
-
-      if (cancelablePageSwipe && props.preventDefaultTouchmoveEvent && props.trackTouch && event.cancelable) event.preventDefault(); // first is now always false
-
-      return _extends({}, state, {
-        eventData: _extends({}, eventData, {
-          first: false
-        }),
-        swiping: true
-      });
-    });
-  };
-
-  var onEnd = function onEnd(event) {
-    set(function (state, props) {
-      var eventData;
-
-      if (state.swiping) {
-        eventData = _extends({}, state.eventData, {
-          event: event
-        });
-        props.onSwiped && props.onSwiped(eventData);
-        props["onSwiped" + eventData.dir] && props["onSwiped" + eventData.dir](eventData);
-      }
-
-      return _extends({}, state, initialState, {
-        eventData: eventData
-      });
-    });
-  };
-
-  var cleanUpMouse = function cleanUpMouse() {
-    // safe to just call removeEventListener
-    document.removeEventListener(mouseMove, onMove);
-    document.removeEventListener(mouseUp, onUp);
-  };
-
-  var onUp = function onUp(e) {
-    cleanUpMouse();
-    onEnd(e);
-  };
-
-  var attachTouch = function attachTouch(el) {
-    if (el && el.addEventListener) {
-      // attach touch event listeners and handlers
-      var tls = [[touchStart, onStart], [touchMove, onMove], [touchEnd, onEnd]];
-      tls.forEach(function (_ref3) {
-        var e = _ref3[0],
-            h = _ref3[1];
-        return el.addEventListener(e, h);
-      }); // return properly scoped cleanup method for removing listeners
-
-      return function () {
-        return tls.forEach(function (_ref4) {
-          var e = _ref4[0],
-              h = _ref4[1];
-          return el.removeEventListener(e, h);
-        });
-      };
-    }
-  };
-
-  var onRef = function onRef(el) {
-    // "inline" ref functions are called twice on render, once with null then again with DOM element
-    // ignore null here
-    if (el === null) return;
-    set(function (state, props) {
-      // if the same DOM el as previous just return state
-      if (state.el === el) return state;
-      var addState = {}; // if new DOM el clean up old DOM and reset cleanUpTouch
-
-      if (state.el && state.el !== el && state.cleanUpTouch) {
-        state.cleanUpTouch();
-        addState.cleanUpTouch = null;
-      } // only attach if we want to track touch
-
-
-      if (props.trackTouch && el) {
-        addState.cleanUpTouch = attachTouch(el);
-      } // store event attached DOM el for comparison, clean up, and re-attachment
-
-
-      return _extends({}, state, {
-        el: el
-      }, addState);
-    });
-  }; // set ref callback to attach touch event listeners
-
-
-  var output = {
-    ref: onRef // if track mouse attach mouse down listener
-
-  };
-
-  if (handlerProps.trackMouse) {
-    output.onMouseDown = onStart;
-  }
-
-  return [output, attachTouch];
-}
-
-function updateTransientState(state, props, attachTouch) {
-  var addState = {}; // clean up touch handlers if no longer tracking touches
-
-  if (!props.trackTouch && state.cleanUpTouch) {
-    state.cleanUpTouch();
-    addState.cleanUpTouch = null;
-  } else if (props.trackTouch && !state.cleanUpTouch) {
-    // attach/re-attach touch handlers
-    if (state.el) {
-      addState.cleanUpTouch = attachTouch(state.el);
-    }
-  }
-
-  return _extends({}, state, addState);
-}
-
-function useSwipeable(props) {
-  var trackMouse = props.trackMouse;
-  var transientState = react__WEBPACK_IMPORTED_MODULE_0__.useRef(_extends({}, initialState, {
-    type: 'hook'
-  }));
-  var transientProps = react__WEBPACK_IMPORTED_MODULE_0__.useRef();
-  transientProps.current = _extends({}, defaultProps, props);
-
-  var _React$useMemo = react__WEBPACK_IMPORTED_MODULE_0__.useMemo(function () {
-    return getHandlers(function (cb) {
-      return transientState.current = cb(transientState.current, transientProps.current);
-    }, {
-      trackMouse: trackMouse
-    });
-  }, [trackMouse]),
-      handlers = _React$useMemo[0],
-      attachTouch = _React$useMemo[1];
-
-  transientState.current = updateTransientState(transientState.current, transientProps.current, attachTouch);
-  return handlers;
-}
-var Swipeable =
-/*#__PURE__*/
-function (_React$PureComponent) {
-  _inheritsLoose(Swipeable, _React$PureComponent);
-
-  function Swipeable(props) {
-    var _this;
-
-    _this = _React$PureComponent.call(this, props) || this;
-
-    _this._set = function (cb) {
-      _this.transientState = cb(_this.transientState, _this.props);
-    };
-
-    _this.transientState = _extends({}, initialState, {
-      type: 'class'
-    });
-    return _this;
-  }
-
-  var _proto = Swipeable.prototype;
-
-  _proto.render = function render() {
-    var _this$props = this.props,
-        className = _this$props.className,
-        style = _this$props.style,
-        _this$props$nodeName = _this$props.nodeName,
-        nodeName = _this$props$nodeName === void 0 ? 'div' : _this$props$nodeName,
-        innerRef = _this$props.innerRef,
-        children = _this$props.children,
-        trackMouse = _this$props.trackMouse;
-
-    var _getHandlers = getHandlers(this._set, {
-      trackMouse: trackMouse
-    }),
-        handlers = _getHandlers[0],
-        attachTouch = _getHandlers[1];
-
-    this.transientState = updateTransientState(this.transientState, this.props, attachTouch);
-    var ref = innerRef ? function (el) {
-      return innerRef(el), handlers.ref(el);
-    } : handlers.ref;
-    return react__WEBPACK_IMPORTED_MODULE_0__.createElement(nodeName, _extends({}, handlers, {
-      className: className,
-      style: style,
-      ref: ref
-    }), children);
-  };
-
-  return Swipeable;
-}(react__WEBPACK_IMPORTED_MODULE_0__.PureComponent);
-Swipeable.propTypes = {
-  onSwiped: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
-  onSwiping: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
-  onSwipedUp: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
-  onSwipedRight: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
-  onSwipedDown: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
-  onSwipedLeft: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
-  delta: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number),
-  preventDefaultTouchmoveEvent: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),
-  nodeName: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string),
-  trackMouse: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),
-  trackTouch: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),
-  innerRef: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
-  rotationAngle: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number)
-};
-Swipeable.defaultProps = defaultProps;
-
-
-
-
-/***/ }),
-
 /***/ "./node_modules/react-is/cjs/react-is.development.js":
 /*!***********************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.development.js ***!
@@ -63827,6 +63629,167 @@ exports.typeOf = typeOf;
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/react-is/cjs/react-is.development.js");
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/react-only-when/dist/index.es.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-only-when/dist/index.es.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+var inherits = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+
+var objectWithoutProperties = function (obj, keys) {
+  var target = {};
+
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
+  }
+
+  return target;
+};
+
+var possibleConstructorReturn = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+
+var Only = function (_Component) {
+  inherits(Only, _Component);
+
+  function Only() {
+    classCallCheck(this, Only);
+    return possibleConstructorReturn(this, (Only.__proto__ || Object.getPrototypeOf(Only)).apply(this, arguments));
+  }
+
+  createClass(Only, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          when = _props.when,
+          hiddenMode = _props.hiddenMode,
+          className = _props.className;
+
+      var singleChild = react__WEBPACK_IMPORTED_MODULE_0__.Children.only(children);
+      var _singleChild$props = singleChild.props,
+          style = _singleChild$props.style,
+          restOfChildProps = objectWithoutProperties(_singleChild$props, ['style']);
+
+      var extendedProps = _extends({}, restOfChildProps);
+
+      var keepNode = hiddenMode && hiddenMode !== "withNull";
+
+      if (keepNode) {
+        if (hiddenMode === "withCss") {
+          extendedProps.className = extendedProps.className + ' ' + className;
+        } else {
+          extendedProps.style = _extends({}, style, hiddenMode === "withDisplay" && { display: "none" }, hiddenMode === "withVisibility" && { visibility: "hidden" });
+        }
+      }
+      var cloned = react__WEBPACK_IMPORTED_MODULE_0__.cloneElement(singleChild, extendedProps);
+      var toHide = keepNode ? cloned : null;
+
+      return when ? singleChild : toHide;
+    }
+  }]);
+  return Only;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+Only.defaultProps = {
+  hiddenMode: "withNull",
+  className: "r-o_hidden"
+};
+Only.propTypes = {
+  /** A single child element */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().element.isRequired),
+
+  /** When true, children will rendered as is  */
+  when: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool.isRequired),
+
+  /** Determines how "react-only-when" should hide the child element 
+   * "withNull": Will not render the child
+   * "withDisplay": Will render the child with display:none  
+   * "withVisibility": Will render the child with visibility:hidden
+   * "withCss": Will render the child with a CSS class (you can pass it a custom className prop)
+  */
+  hiddenMode: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOf(["withNull", "withDisplay", "withVisibility", "withCss"]),
+  /** This is working in combination with hiddenMode={"withCss"}   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string)
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Only);
+//# sourceMappingURL=index.es.js.map
 
 
 /***/ }),
@@ -65203,6 +65166,376 @@ const normalizeHash = hash => !hash || hash === "#" ? "" : hash.startsWith("#") 
 
 
 //# sourceMappingURL=index.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/react-swipeable/es/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/react-swipeable/es/index.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DOWN": () => (/* binding */ DOWN),
+/* harmony export */   "LEFT": () => (/* binding */ LEFT),
+/* harmony export */   "RIGHT": () => (/* binding */ RIGHT),
+/* harmony export */   "Swipeable": () => (/* binding */ Swipeable),
+/* harmony export */   "UP": () => (/* binding */ UP),
+/* harmony export */   "useSwipeable": () => (/* binding */ useSwipeable)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+var defaultProps = {
+  preventDefaultTouchmoveEvent: false,
+  delta: 10,
+  rotationAngle: 0,
+  trackMouse: false,
+  trackTouch: true
+};
+var initialState = {
+  xy: [0, 0],
+  swiping: false,
+  eventData: undefined,
+  start: undefined
+};
+var LEFT = 'Left';
+var RIGHT = 'Right';
+var UP = 'Up';
+var DOWN = 'Down';
+var touchStart = 'touchstart';
+var touchMove = 'touchmove';
+var touchEnd = 'touchend';
+var mouseMove = 'mousemove';
+var mouseUp = 'mouseup';
+
+function getDirection(absX, absY, deltaX, deltaY) {
+  if (absX > absY) {
+    if (deltaX > 0) {
+      return LEFT;
+    }
+
+    return RIGHT;
+  } else if (deltaY > 0) {
+    return UP;
+  }
+
+  return DOWN;
+}
+
+function rotateXYByAngle(pos, angle) {
+  if (angle === 0) return pos;
+  var angleInRadians = Math.PI / 180 * angle;
+  var x = pos[0] * Math.cos(angleInRadians) + pos[1] * Math.sin(angleInRadians);
+  var y = pos[1] * Math.cos(angleInRadians) - pos[0] * Math.sin(angleInRadians);
+  return [x, y];
+}
+
+function getHandlers(set, handlerProps) {
+  var onStart = function onStart(event) {
+    // if more than a single touch don't track, for now...
+    if (event.touches && event.touches.length > 1) return;
+    set(function (state, props) {
+      // setup mouse listeners on document to track swipe since swipe can leave container
+      if (props.trackMouse) {
+        document.addEventListener(mouseMove, onMove);
+        document.addEventListener(mouseUp, onUp);
+      }
+
+      var _ref = event.touches ? event.touches[0] : event,
+          clientX = _ref.clientX,
+          clientY = _ref.clientY;
+
+      var xy = rotateXYByAngle([clientX, clientY], props.rotationAngle);
+      return _extends({}, state, initialState, {
+        eventData: {
+          initial: [].concat(xy),
+          first: true
+        },
+        xy: xy,
+        start: event.timeStamp || 0
+      });
+    });
+  };
+
+  var onMove = function onMove(event) {
+    set(function (state, props) {
+      if (!state.xy[0] || !state.xy[1] || event.touches && event.touches.length > 1) {
+        return state;
+      }
+
+      var _ref2 = event.touches ? event.touches[0] : event,
+          clientX = _ref2.clientX,
+          clientY = _ref2.clientY;
+
+      var _rotateXYByAngle = rotateXYByAngle([clientX, clientY], props.rotationAngle),
+          x = _rotateXYByAngle[0],
+          y = _rotateXYByAngle[1];
+
+      var deltaX = state.xy[0] - x;
+      var deltaY = state.xy[1] - y;
+      var absX = Math.abs(deltaX);
+      var absY = Math.abs(deltaY);
+      var time = (event.timeStamp || 0) - state.start;
+      var velocity = Math.sqrt(absX * absX + absY * absY) / (time || 1); // if swipe is under delta and we have not started to track a swipe: skip update
+
+      if (absX < props.delta && absY < props.delta && !state.swiping) return state;
+      var dir = getDirection(absX, absY, deltaX, deltaY);
+
+      var eventData = _extends({}, state.eventData, {
+        event: event,
+        absX: absX,
+        absY: absY,
+        deltaX: deltaX,
+        deltaY: deltaY,
+        velocity: velocity,
+        dir: dir
+      });
+
+      props.onSwiping && props.onSwiping(eventData); // track if a swipe is cancelable(handler for swiping or swiped(dir) exists)
+      // so we can call preventDefault if needed
+
+      var cancelablePageSwipe = false;
+
+      if (props.onSwiping || props.onSwiped || props["onSwiped" + dir]) {
+        cancelablePageSwipe = true;
+      }
+
+      if (cancelablePageSwipe && props.preventDefaultTouchmoveEvent && props.trackTouch && event.cancelable) event.preventDefault(); // first is now always false
+
+      return _extends({}, state, {
+        eventData: _extends({}, eventData, {
+          first: false
+        }),
+        swiping: true
+      });
+    });
+  };
+
+  var onEnd = function onEnd(event) {
+    set(function (state, props) {
+      var eventData;
+
+      if (state.swiping) {
+        eventData = _extends({}, state.eventData, {
+          event: event
+        });
+        props.onSwiped && props.onSwiped(eventData);
+        props["onSwiped" + eventData.dir] && props["onSwiped" + eventData.dir](eventData);
+      }
+
+      return _extends({}, state, initialState, {
+        eventData: eventData
+      });
+    });
+  };
+
+  var cleanUpMouse = function cleanUpMouse() {
+    // safe to just call removeEventListener
+    document.removeEventListener(mouseMove, onMove);
+    document.removeEventListener(mouseUp, onUp);
+  };
+
+  var onUp = function onUp(e) {
+    cleanUpMouse();
+    onEnd(e);
+  };
+
+  var attachTouch = function attachTouch(el) {
+    if (el && el.addEventListener) {
+      // attach touch event listeners and handlers
+      var tls = [[touchStart, onStart], [touchMove, onMove], [touchEnd, onEnd]];
+      tls.forEach(function (_ref3) {
+        var e = _ref3[0],
+            h = _ref3[1];
+        return el.addEventListener(e, h);
+      }); // return properly scoped cleanup method for removing listeners
+
+      return function () {
+        return tls.forEach(function (_ref4) {
+          var e = _ref4[0],
+              h = _ref4[1];
+          return el.removeEventListener(e, h);
+        });
+      };
+    }
+  };
+
+  var onRef = function onRef(el) {
+    // "inline" ref functions are called twice on render, once with null then again with DOM element
+    // ignore null here
+    if (el === null) return;
+    set(function (state, props) {
+      // if the same DOM el as previous just return state
+      if (state.el === el) return state;
+      var addState = {}; // if new DOM el clean up old DOM and reset cleanUpTouch
+
+      if (state.el && state.el !== el && state.cleanUpTouch) {
+        state.cleanUpTouch();
+        addState.cleanUpTouch = null;
+      } // only attach if we want to track touch
+
+
+      if (props.trackTouch && el) {
+        addState.cleanUpTouch = attachTouch(el);
+      } // store event attached DOM el for comparison, clean up, and re-attachment
+
+
+      return _extends({}, state, {
+        el: el
+      }, addState);
+    });
+  }; // set ref callback to attach touch event listeners
+
+
+  var output = {
+    ref: onRef // if track mouse attach mouse down listener
+
+  };
+
+  if (handlerProps.trackMouse) {
+    output.onMouseDown = onStart;
+  }
+
+  return [output, attachTouch];
+}
+
+function updateTransientState(state, props, attachTouch) {
+  var addState = {}; // clean up touch handlers if no longer tracking touches
+
+  if (!props.trackTouch && state.cleanUpTouch) {
+    state.cleanUpTouch();
+    addState.cleanUpTouch = null;
+  } else if (props.trackTouch && !state.cleanUpTouch) {
+    // attach/re-attach touch handlers
+    if (state.el) {
+      addState.cleanUpTouch = attachTouch(state.el);
+    }
+  }
+
+  return _extends({}, state, addState);
+}
+
+function useSwipeable(props) {
+  var trackMouse = props.trackMouse;
+  var transientState = react__WEBPACK_IMPORTED_MODULE_0__.useRef(_extends({}, initialState, {
+    type: 'hook'
+  }));
+  var transientProps = react__WEBPACK_IMPORTED_MODULE_0__.useRef();
+  transientProps.current = _extends({}, defaultProps, props);
+
+  var _React$useMemo = react__WEBPACK_IMPORTED_MODULE_0__.useMemo(function () {
+    return getHandlers(function (cb) {
+      return transientState.current = cb(transientState.current, transientProps.current);
+    }, {
+      trackMouse: trackMouse
+    });
+  }, [trackMouse]),
+      handlers = _React$useMemo[0],
+      attachTouch = _React$useMemo[1];
+
+  transientState.current = updateTransientState(transientState.current, transientProps.current, attachTouch);
+  return handlers;
+}
+var Swipeable =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  _inheritsLoose(Swipeable, _React$PureComponent);
+
+  function Swipeable(props) {
+    var _this;
+
+    _this = _React$PureComponent.call(this, props) || this;
+
+    _this._set = function (cb) {
+      _this.transientState = cb(_this.transientState, _this.props);
+    };
+
+    _this.transientState = _extends({}, initialState, {
+      type: 'class'
+    });
+    return _this;
+  }
+
+  var _proto = Swipeable.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        className = _this$props.className,
+        style = _this$props.style,
+        _this$props$nodeName = _this$props.nodeName,
+        nodeName = _this$props$nodeName === void 0 ? 'div' : _this$props$nodeName,
+        innerRef = _this$props.innerRef,
+        children = _this$props.children,
+        trackMouse = _this$props.trackMouse;
+
+    var _getHandlers = getHandlers(this._set, {
+      trackMouse: trackMouse
+    }),
+        handlers = _getHandlers[0],
+        attachTouch = _getHandlers[1];
+
+    this.transientState = updateTransientState(this.transientState, this.props, attachTouch);
+    var ref = innerRef ? function (el) {
+      return innerRef(el), handlers.ref(el);
+    } : handlers.ref;
+    return react__WEBPACK_IMPORTED_MODULE_0__.createElement(nodeName, _extends({}, handlers, {
+      className: className,
+      style: style,
+      ref: ref
+    }), children);
+  };
+
+  return Swipeable;
+}(react__WEBPACK_IMPORTED_MODULE_0__.PureComponent);
+Swipeable.propTypes = {
+  onSwiped: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
+  onSwiping: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
+  onSwipedUp: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
+  onSwipedRight: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
+  onSwipedDown: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
+  onSwipedLeft: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
+  delta: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number),
+  preventDefaultTouchmoveEvent: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),
+  nodeName: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string),
+  trackMouse: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),
+  trackTouch: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),
+  innerRef: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
+  rotationAngle: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number)
+};
+Swipeable.defaultProps = defaultProps;
+
+
 
 
 /***/ }),
@@ -73774,6 +74107,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_home_auth_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./public/css/party_tasks.css":
+/*!************************************!*\
+  !*** ./public/css/party_tasks.css ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./party_tasks.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/party_tasks.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

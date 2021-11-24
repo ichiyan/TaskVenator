@@ -1,5 +1,4 @@
-import React from "react";
-import {Link} from 'react-router-dom';
+import {Link, React} from "../../index";
 
 const TasksNavbar = () => {
     return (
@@ -8,7 +7,7 @@ const TasksNavbar = () => {
                 <li><Link className="active" to="/tasks">Tasks</Link></li>
                 <li><Link to="">Inventory</Link></li>
                 <li><Link to="">Shop</Link></li>
-                <li><Link to="">Party</Link></li>
+                <li><Link to="/party">Party</Link></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle"></i>
         </nav>

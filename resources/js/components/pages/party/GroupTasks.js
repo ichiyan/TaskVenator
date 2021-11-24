@@ -1,16 +1,43 @@
-import React from "react";
-import GroupMemberPublicTasks from "../tasks/GroupMemberPublicTasks";
-import Header from "../../layouts/Header";
+import {Header, Link, React,
+        useEffect, useState,
+        GroupMemberPublicTasks,
+        AvatarHeader} from "../../../index";
+import '../../../../../public/css/party_tasks.css';
 
-import { useState } from 'react';
+const GroupTasks = () => {
 
-function GroupTasks(){
+    var hpTotal = 50;
+    var xpTotal = 50;
+    const [hp, setHp] = useState(50);
+    const [xp, setXp] = useState(0);
+    const [hpBarWidth, sethpBarWidth] = useState("100");
+    const [hpHitWidth, sethpHitWidth] = useState("0");
+    const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
+    const [xpBarWidth, setXPBarWidth] = useState("0");
+    const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
 
     return(
         <div>
             <Header page="group_tasks"/>
-            <section className="d-flex justify-content-center align-items-center">
-                <h1>test why not</h1>
+
+            <AvatarHeader
+                hasParty="true"
+                hp={hp}
+                hpTotal={hpTotal}
+                hpBarWidth={hpBarWidth}
+                hpHitWidth={hpHitWidth}
+                HpIncreaseWidth={HpIncreaseWidth}
+                xp={xp}
+                xpTotal={xpTotal}
+                xpBarWidth={xpBarWidth}
+                xpIncreaseWidth={xpIncreaseWidth}
+            />
+
+            <section className="justify-content-center align-items-center party-content">
+                <button><Link to="/party">Party</Link></button>
+                <button><Link to="/group_tasks">Group Tasks</Link></button>
+
+                <h1> Group Tasks </h1>
                 <GroupMemberPublicTasks/>
             </section>
         </div>
