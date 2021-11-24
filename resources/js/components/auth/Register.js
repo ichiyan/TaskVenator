@@ -41,7 +41,7 @@ const Register = () => {
                     localStorage.setItem('auth_token', res.data.token);
                     localStorage.setItem('auth_name', res.data.username);
                     Swal.fire({text: res.data.message, icon: "success"});
-                    navigate('/home');
+                    navigate('/tasks');
                 }else{
                     setRegisterUser({
                         ...registerUser,
