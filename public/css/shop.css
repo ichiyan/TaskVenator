@@ -3,15 +3,13 @@
     background-color: #383A59;
   }
   .shop-main_shop{
-    min-height: 100vh;
     display: flex;
-    color: white;
+    background-color: #383A59;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: "Playfair Display", serif;
-    margin-top: 150px;
-    
+    margin-top: 140px;
   }
   .shop-weaponForm{
     display: flex;
@@ -21,15 +19,14 @@
     display: flex;
     flex-direction: row;
   }
+
+  
   .shop-shop{
     width:90%;
     /* flex-direction: column;
     align-items: center;
     justify-content: center; */
-    overflow-y: scroll;
-    height: 500px;
     margin-bottom: 10px;
-    background-color: white;
     
     
   }
@@ -80,29 +77,21 @@
     height:200px;
   }
  /* displaying the hide info in div  */
+ .shop-toolTip{
+   align-items: center;
+ }
  .shop-hide{
-   /* display: inline-block; */
-  color: black;
-  margin-left: 40px;
-  margin-bottom: 20px;
-  border: 1px solid white;
-  background-color: #C0FFBB;
-  width: 300px;
-  /* position: absolute; */
+  color: white;
+  width: 200px;
+  text-align: center;
+  text-justify: inter-word;
+  
  }
- /* .shop-hide{
-   display: none;
+ .shop-hide .shop-weaponInfo{
+  text-align-last: left;
  }
- .shop-hide .shop-itemsInfo p{
-   display: inline-block;
-  font-size: 10px;
-  margin-left: 5px;
- }
- .shop-items:hover + .shop-hide{
-   display:inline-block;
-   margin-left: -50px;
-   vertical-align:top;
- }
+ 
+ 
   */
   /* button navigator */
   .shop-main_shop .btn-group{
@@ -121,7 +110,7 @@
   }
   
   /* test div */
-  .shop-categoryName h3{
+  .shop-categoryName p{
     margin: 10px;
-    color: black;
+    color: white;
   }

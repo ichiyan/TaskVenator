@@ -43,58 +43,60 @@ function Display ({clicked}){
                 return (
                   <div className="shop-category">
                         <div className="shop-categoryName">
-                              <h3>Health Potions</h3>
+                              <p>Health Potions</p>
                         </div>
                         {display1.potions.map((p,index)=>{
                                if(p.type === "Hp Potion"){
                               return (
-                              <div key={index} className="shop-returnMap">
-                                    <div data-tip data-for='testing' className="shop-items"> 
-                                          <div className="shop-itemsImage">
-                                             <img src={p.image}></img>
-                                           </div>
-                                           <div className="shop-itemsInfo">
-                                                <h6>{p.name}</h6>
-                                                <p>{p.size}</p>
-                                                <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                          </div>
-                                    </div> 
-                                    <ReactTooltip id='testing' place="right" aria-haspopup='true'>
-                                    <div className="shop-hide">
-                                          <div className="shop-itemsInfo">
-                                          <h6>{p.description}</h6>
+                                    <div key={index} className="shop-returnMap">
+                                          <div data-tip data-for={p.name} className="shop-items"> 
+                                                <div className="shop-itemsImage">
+                                                <img src={p.image}></img>
+                                                </div>
+                                                <div className="shop-itemsInfo">
+                                                      <h6>{p.name}</h6>
+                                                      <p>{p.size}</p>
+                                                      <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                </div>
                                           </div> 
-                                     </div>
-                                     </ReactTooltip>
-                               </div>
+                                          <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                <div className="shop-hide">
+                                                      <div className="shop-itemsInfo">
+                                                            <p>{p.description}</p>
+                                                      </div> 
+                                                </div>
+                                          </ReactTooltip>
+                                    </div>
                                     
                               )
                             }
                         })}
 
                         <div className="shop-categoryName">
-                              <h3>Powerup Potions</h3>
+                              <p>Powerup Potions</p>
                         </div>
                         {display1.potions.map((p,index)=>{
                                if(p.type === "Powerup Potion"){
                               return (
-                                    <div  key={index} className="shop-returnMap">
-                                    <div className="shop-items"> 
-                                          <div className="shop-itemsImage">
-                                             <img src={p.image}></img>
-                                           </div>
-                                           <div className="shop-itemsInfo">
-                                                <h6>{p.name}</h6>
-                                                <p>{p.size}</p>
-                                                <Button> <img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                          </div>
-                                    </div> 
-                                    <div className="shop-hide">
-                                          <div className="shop-itemsInfo">
-                                          <h6>{p.description}</h6>
+                                    <div key={index} className="shop-returnMap">
+                                          <div data-tip data-for={p.name} className="shop-items"> 
+                                                <div className="shop-itemsImage">
+                                                <img src={p.image}></img>
+                                                </div>
+                                                <div className="shop-itemsInfo">
+                                                      <h6>{p.name}</h6>
+                                                      <p>{p.size}</p>
+                                                      <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                </div>
                                           </div> 
-                                     </div>
-                                    </div>
+                                          <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                <div className="shop-hide">
+                                                      <div className="shop-itemsInfo">
+                                                            <p>{p.description}</p>
+                                                      </div> 
+                                                </div>
+                                          </ReactTooltip>
+                               </div>
                                     
                               )
                             }
@@ -106,37 +108,38 @@ function Display ({clicked}){
             return(
                   <div className="shop-category">
                         <div className="shop-categoryName">
-                              <h3>Weapons</h3>
+                              <p>Weapons</p>
                         </div>
                         {display2.outfit.map((w,index)=>{
                              if(w.outfitType === "Weapon"){
                               return (
-                                    <div key={index} className="shop-returnMap">
-                                    <div className="shop-items"> 
-                                          <div className="shop-itemsImage">
-                                             <img src={w.image}></img>
-                                           </div>
-                                           <div className="shop-itemsInfo">
-                                                <h6>{w.name}</h6>
-                                                {/* <p>{p.size}</p> */}
-                                                <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
-                                          </div>
-                                    </div> 
-                                    <div className="shop-hide">
-                                          <div className="shop-itemsInfo">
-                                                      <div>
-                                                            <h5>Attributes</h5>
-                                                      </div>
-                                                      <p>Physical Attack: {w.pAttack}</p>
-                                                      <p>Magical Attack: {w.mAttack}</p>
-                                                      <p>Physical Defense: {w.pDef}</p>
-                                                      <p>Magical Defense: {w.mDef}</p>
-                                                      <p>Strength: {w.str}</p>
-                                                      <p>Agility: {w.agi}</p>
-                                                      <p>Critical: {w.crit}</p>
-                                                      <p>Critical Damage: {w.critDmg}</p>
+                                    <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                          <div className="shop-items"> 
+                                                <div className="shop-itemsImage">
+                                                <img src={w.image}></img>
+                                                </div>
+                                                <div className="shop-itemsInfo">
+                                                      <h6>{w.name}</h6>
+                                                      <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                </div>
                                           </div> 
-                                     </div>
+                                          <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                <div className="shop-hide">
+                                                      <div className="shop-itemsInfo">
+                                                            <div className="shop-weaponInfo">
+                                                                  <h5>Attributes</h5>
+                                                                  <p>Physical Attack: {w.pAttack}</p>
+                                                                  <p>Magical Attack: {w.mAttack}</p>
+                                                                  <p>Physical Defense: {w.pDef}</p>
+                                                                  <p>Magical Defense: {w.mDef}</p>
+                                                                  <p>Strength: {w.str}</p>
+                                                                  <p>Agility: {w.agi}</p>
+                                                                  <p>Critical: {w.crit}</p>
+                                                                  <p>Critical Damage: {w.critDmg}</p>
+                                                            </div>
+                                                      </div> 
+                                                </div>
+                                          </ReactTooltip>
                                     </div>
                                     
                               )
@@ -144,37 +147,39 @@ function Display ({clicked}){
                           
                         })}
                         <div className="shop-categoryName">
-                              <h3>Costume</h3>
+                              <p>Costume</p>
                         </div>
                         {display2.outfit.map((w,index)=>{
                              if(w.outfitType === "Costume"){
                               return (
-                                    <div key={index} className="shop-returnMap">
-                                    <div className="shop-items"> 
-                                          <div className="shop-itemsImage">
-                                             <img src={w.image}></img>
-                                           </div>
-                                           <div className="shop-itemsInfo">
-                                                <h6>{w.name}</h6>
-                                                {/* <p>{p.size}</p> */}
-                                                <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
-                                          </div>
-                                    </div> 
-                                    <div className="shop-hide">
-                                          <div className="shop-itemsInfo">
-                                                <div>
-                                                      <h5>Attributes</h5>
+                                    <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                          <div className="shop-items"> 
+                                                <div className="shop-itemsImage">
+                                                <img src={w.image}></img>
                                                 </div>
-                                                <p>Physical Attack: {w.pAttack}</p>
-                                                <p>Magical Attack: {w.mAttack}</p>
-                                                <p>Physical Defense: {w.pDef}</p>
-                                                <p>Magical Defense: {w.mDef}</p>
-                                                <p>Strength: {w.str}</p>
-                                                <p>Agility: {w.agi}</p>
-                                                <p>Critical: {w.crit}</p>
-                                                <p>Critical Damage: {w.critDmg}</p>
-                                           </div> 
-                                     </div>
+                                                <div className="shop-itemsInfo">
+                                                      <h6>{w.name}</h6>
+                                                      {/* <p>{p.size}</p> */}
+                                                      <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                </div>
+                                          </div> 
+                                          <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                <div className="shop-hide">
+                                                      <div className="shop-itemsInfo">
+                                                            <div className="shop-weaponInfo">
+                                                                  <h5>Attributes</h5>
+                                                                  <p>Physical Attack: {w.pAttack}</p>
+                                                                  <p>Magical Attack: {w.mAttack}</p>
+                                                                  <p>Physical Defense: {w.pDef}</p>
+                                                                  <p>Magical Defense: {w.mDef}</p>
+                                                                  <p>Strength: {w.str}</p>
+                                                                  <p>Agility: {w.agi}</p>
+                                                                  <p>Critical: {w.crit}</p>
+                                                                  <p>Critical Damage: {w.critDmg}</p>
+                                                            </div>
+                                                      </div> 
+                                                </div>
+                                          </ReactTooltip>
                                     </div>
                                     
                               )
@@ -188,133 +193,136 @@ function Display ({clicked}){
             return(
                   <div className="shop-category">
                         <div className="shop-categoryName">
-                              <h3>Health Potions</h3>
+                              <p>Health Potions</p>
                         </div>
                         {display1.potions.map((p,index)=>{
                                if(p.type === "Hp Potion"){
                               return (
                                     <div key={index} className="shop-returnMap">
-                                    <div className="shop-items"> 
-                                          <div className="shop-itemsImage">
-                                             <img src={p.image}></img>
-                                           </div>
-                                           <div className="shop-itemsInfo">
-                                                <h6>{p.name}</h6>
-                                                <p>{p.size}</p>
-                                                <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                          </div>
-                                    </div> 
-                                    <div className="shop-hide">
-                                          <div className="shop-itemsInfo">
-                                          <h6>{p.description}</h6>
+                                          <div data-tip data-for={p.name} className="shop-items"> 
+                                                <div className="shop-itemsImage">
+                                                <img src={p.image}></img>
+                                                </div>
+                                                <div className="shop-itemsInfo">
+                                                      <h6>{p.name}</h6>
+                                                      <p>{p.size}</p>
+                                                      <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                </div>
                                           </div> 
-                                     </div>
+                                          <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                <div className="shop-hide">
+                                                      <div className="shop-itemsInfo">
+                                                            <p>{p.description}</p>
+                                                      </div> 
+                                                </div>
+                                          </ReactTooltip>
                                     </div>
-                                    
-                              )
+                                   )
                             }
                         })}
 
                         <div className="shop-categoryName">
-                              <h3>Powerup Potions</h3>
+                              <p>Powerup Potions</p>
                         </div>
                         {display1.potions.map((p,index)=>{
                                if(p.type === "Powerup Potion"){
                               return (
-                                    <div  key={index} className="shop-returnMap">
-                                    <div className="shop-items"> 
-                                          <div className="shop-itemsImage">
-                                             <img src={p.image}></img>
-                                           </div>
-                                           <div className="shop-itemsInfo">
-                                                <h6>{p.name}</h6>
-                                                <p>{p.size}</p>
-                                                <Button> <img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                          </div>
-                                    </div> 
-                                    <div className="shop-hide">
-                                          <div className="shop-itemsInfo">
-                                          <h6>{p.description}</h6>
+                                    <div key={index} className="shop-returnMap">
+                                          <div data-tip data-for={p.name} className="shop-items"> 
+                                                <div className="shop-itemsImage">
+                                                <img src={p.image}></img>
+                                                </div>
+                                                <div className="shop-itemsInfo">
+                                                      <h6>{p.name}</h6>
+                                                      <p>{p.size}</p>
+                                                      <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                </div>
                                           </div> 
-                                     </div>
+                                          <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                <div className="shop-hide">
+                                                      <div className="shop-itemsInfo">
+                                                            <p>{p.description}</p>
+                                                      </div> 
+                                                </div>
+                                          </ReactTooltip>
                                     </div>
-                                    
-                              )
+                               )
                             }
                         })}
                          <div className="shop-categoryName">
-                              <h3>Weapons</h3>
+                              <p>Weapons</p>
                         </div>
                         {display2.outfit.map((w,index)=>{
                              if(w.outfitType === "Weapon"){
                               return (
-                                    <div key={index} className="shop-returnMap">
-                                    <div className="shop-items"> 
-                                          <div className="shop-itemsImage">
-                                             <img src={w.image}></img>
-                                           </div>
-                                           <div className="shop-itemsInfo">
-                                                <h6>{w.name}</h6>
-                                                {/* <p>{p.size}</p> */}
-                                                <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
-                                          </div>
-                                    </div> 
-                                    <div className="shop-hide">
-                                          <div className="shop-itemsInfo">
-                                                <div>
-                                                      <h5>Attributes</h5>
+                                    <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                          <div className="shop-items"> 
+                                                <div className="shop-itemsImage">
+                                                <img src={w.image}></img>
                                                 </div>
-                                                {/* <p>Physical Attack: {w.pAttack}</p>
-                                                <p>Magical Attack: {w.mAttack}</p> */}
-                                                {/* <p>Physical Defense: {w.pDef}</p>
-                                                <p>Magical Defense: {w.mDef}</p>
-                                                <p>Strength: {w.str}</p>
-                                                <p>Agility: {w.agi}</p>
-                                                <p>Critical: {w.crit}</p>
-                                                <p>Critical Damage: {w.critDmg}</p> */}
-                                           </div> 
-                                     </div>
-                                    </div>
-                                    
-                              )
+                                                <div className="shop-itemsInfo">
+                                                      <h6>{w.name}</h6>
+                                                      <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                </div>
+                                          </div> 
+                                          <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                <div className="shop-hide">
+                                                      <div className="shop-itemsInfo">
+                                                            <div className="shop-weaponInfo">
+                                                                  <h5>Attributes</h5>
+                                                                  <p>Physical Attack: {w.pAttack}</p>
+                                                                  <p>Magical Attack: {w.mAttack}</p>
+                                                                  <p>Physical Defense: {w.pDef}</p>
+                                                                  <p>Magical Defense: {w.mDef}</p>
+                                                                  <p>Strength: {w.str}</p>
+                                                                  <p>Agility: {w.agi}</p>
+                                                                  <p>Critical: {w.crit}</p>
+                                                                  <p>Critical Damage: {w.critDmg}</p>
+                                                            </div>
+                                                      </div> 
+                                                </div>
+                                          </ReactTooltip>
+                                    </div>     
+                                    )
                              }
                           
                         })}
                      
                         <div className="shop-categoryName">
-                              <h3>Costume</h3>
+                              <p>Costume</p>
                         </div>
                         {display2.outfit.map((w,index)=>{
                              if(w.outfitType === "Costume"){
                               return (
-                                    <div key={index} className="shop-returnMap">
-                                    <div className="shop-items"> 
-                                          <div className="shop-itemsImage">
-                                             <img src={w.image}></img>
-                                           </div>
-                                           <div className="shop-itemsInfo">
-                                                <h6>{w.name}</h6>
-                                                {/* <p>{p.size}</p> */}
-                                                <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
-                                          </div>
-                                    </div> 
-                                    <div className="shop-hide">
-                                          <div className="shop-itemsInfo">
-                                                <div>
-                                                      <h5>Attributes</h5>
+                                    <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                          <div className="shop-items"> 
+                                                <div className="shop-itemsImage">
+                                                <img src={w.image}></img>
                                                 </div>
-                                                {/* <p>Physical Attack: {w.pAttack}</p>
-                                                <p>Magical Attack: {w.mAttack}</p> */}
-                                                {/* <p>Physical Defense: {w.pDef}</p>
-                                                <p>Magical Defense: {w.mDef}</p>
-                                                <p>Strength: {w.str}</p>
-                                                <p>Agility: {w.agi}</p>
-                                                <p>Critical: {w.crit}</p>
-                                                <p>Critical Damage: {w.critDmg}</p> */}
-                                           </div> 
-                                     </div>
-                                    </div>
-                                    
+                                                <div className="shop-itemsInfo">
+                                                      <h6>{w.name}</h6>
+                                                      {/* <p>{p.size}</p> */}
+                                                      <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                </div>
+                                          </div> 
+                                          <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                <div className="shop-hide">
+                                                      <div className="shop-itemsInfo">
+                                                            <div className="shop-weaponInfo">
+                                                                  <h5>Attributes</h5>
+                                                                  <p>Physical Attack: {w.pAttack}</p>
+                                                                  <p>Magical Attack: {w.mAttack}</p>
+                                                                  <p>Physical Defense: {w.pDef}</p>
+                                                                  <p>Magical Defense: {w.mDef}</p>
+                                                                  <p>Strength: {w.str}</p>
+                                                                  <p>Agility: {w.agi}</p>
+                                                                  <p>Critical: {w.crit}</p>
+                                                                  <p>Critical Damage: {w.critDmg}</p>
+                                                            </div>
+                                                      </div> 
+                                                </div>
+                                          </ReactTooltip>
+                                    </div> 
                               )
                              }
                           
