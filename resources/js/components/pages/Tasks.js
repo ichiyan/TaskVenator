@@ -85,9 +85,9 @@ const Tasks = ({tab}) => {
 
     var renderTab = '';
     if  (tab === "party"){
-        renderTab =   <Party/>
+        renderTab =   <Party/>;
     }else if (tab === "shop"){
-        renderTab = <Shop/>
+        renderTab = <Shop/>;
     }
 
 
@@ -96,7 +96,8 @@ const Tasks = ({tab}) => {
         <div>
             <Header page="tasks"/>
             <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
-            <div style={{marginTop: 15 + "%"}}>
+            <div className="main-section">
+                {/* main-section class in tasks.scss already sets margin-top to 15% */}
                  {/* <p style={{color: "white"}}>TEST</p>
                 <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
                 <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
