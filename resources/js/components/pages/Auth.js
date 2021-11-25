@@ -14,7 +14,7 @@ const Auth = ({page}) =>{
 
     return (
         <div>
-           <Header/>
+           <Header page="home"/>
            <div id="particles-js"></div>
             {page === "login" ? <Login/> : <Register/>}
         </div>

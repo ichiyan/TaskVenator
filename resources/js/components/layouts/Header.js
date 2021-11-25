@@ -1,12 +1,52 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import TasksNavbar from "./TasksNavbar";
 import HomeNavbar from "./HomeNavbar";
-import LandingNavbar from "./LandingNavbar";
 
 const Header = ({page}) => {
 
     const navigate = useNavigate();
+    const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+    const ref = useRef();
+
+    useEffect( () => {
+        const checkIfClickedOutside = (e) => {
+            if(isOpenDropdown && ref.current && !ref.current.contains(e.target)){
+                setIsOpenDropdown(false);
+            }
+        }
+        document.addEventListener("click", checkIfClickedOutside);
+        return () => {
+            document.removeEventListener("click", checkIfClickedOutside);
+        }
+    } , [isOpenDropdown]);
+
+    const dropdownHandler = () => {
+        setIsOpenDropdown(!isOpenDropdown);
+    }
+
+    const CustomDropDownMenu = () => {
+        const CustomDropDownItem = ({leftIcon, rightIcon, text, link}) => {
+            return (
+                // <Link to={text === "Logout" ? '' : link} onClick={text === "Logout" ? logoutHandler : ''} className="custom-menu-item">
+                <div onClick={text === "Logout" ? logoutHandler : null} className="custom-menu-item">
+                    <span className="dropdown-icon-left">{leftIcon}</span>
+                    <span className="custom-dropdown-item">{text}</span>
+                    <span className="dropdown-icon-right">{rightIcon}</span>
+                </div>
+            );
+        }
+        return (
+            <div className="custom-dropdown" ref={ref}>
+                <CustomDropDownItem text="My Profile" leftIcon={<FontAwesomeIcon icon={faUserAlt}/>}/>
+                <CustomDropDownItem text="Settings" leftIcon={<FontAwesomeIcon icon={faCog}/>}/>
+                <CustomDropDownItem text="Logout" leftIcon={<FontAwesomeIcon icon={faSignOutAlt}/>}/>
+            </div>
+        );
+    }
 
     const logoutHandler = (e) => {
         e.preventDefault();
@@ -16,21 +56,36 @@ const Header = ({page}) => {
                 localStorage.removeItem('auth_name');
                 console.log(res.data.message);
                 navigate('/');
+                location.reload();
             }
         });
     }
 
     var trailingButtons = '';
+    var isLoggedIn = "false";
     if(!localStorage.getItem('auth_token')){
         trailingButtons = (
             <Link to="/register" className="get-started-btn">Get Started</Link>
         )
     }else{
+        isLoggedIn = "true";
         trailingButtons = (
-            // replace with user icon
            <div>
-                <Link to="/home" className="get-started-btn">Home</Link>
-                <Link to="" onClick={logoutHandler} className="get-started-btn">Log out</Link>
+                <nav id="navbar" className="navbar order-last order-lg-0">
+                    <ul>
+                        <li className="custom-nav-item">
+                            <Link to="" className="nav-icon-btn">
+                                <FontAwesomeIcon className="navIcon" icon={faBell}/>
+                            </Link>
+                        </li>
+                        <li className="custom-nav-item">
+                            <Link to="" className="nav-icon-btn">
+                                <FontAwesomeIcon className="navIcon" icon={faUser} onClick={dropdownHandler}/>
+                                {isOpenDropdown === true ? <CustomDropDownMenu/> : null}
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
            </div>
         )
     }
@@ -38,8 +93,8 @@ const Header = ({page}) => {
     return (
         <header id="header" className="fixed-top">
             <div className="container d-flex justify-content-between align-items-center">
-                 <h1 className="logo me-auto"><Link to="/">TaskVenator</Link></h1>
-                 {page === "home" ? <HomeNavbar/> : <LandingNavbar/>}
+                 <h1 className="logo"><Link to="/">TaskVenator</Link></h1>
+                 {page === "home" ? <HomeNavbar isLoggedIn={isLoggedIn}/> : <TasksNavbar/>}
                  {trailingButtons}
             </div>
         </header>

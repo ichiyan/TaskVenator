@@ -1,13 +1,15 @@
     /* desinging shopp */
-  .shop-main_shop{
+  .shop-parentOfAll{
     background-color: #383A59;
-    min-height: 100vh;
+  }
+  .shop-main_shop{
     display: flex;
-    color: white;
+    background-color: #383A59;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
+    font-family: "Playfair Display", serif;
+    margin-top: 140px;
   }
   .shop-weaponForm{
     display: flex;
@@ -17,15 +19,14 @@
     display: flex;
     flex-direction: row;
   }
+
+  
   .shop-shop{
     width:90%;
     /* flex-direction: column;
     align-items: center;
     justify-content: center; */
-    overflow-y: scroll;
-    height: 500px;
     margin-bottom: 10px;
-    background-color: white;
     
     
   }
@@ -38,13 +39,17 @@
   .shop-category{
     font: black;
   }
+
+  /* displaying items in shop  */
+  .shop-returnMap{
+    display: inline-block;
+  }
   .shop-items{
     display: inline-block;
     color: black;
     margin-left: 40px;
     margin-bottom: 20px;
     text-align: center;
-    border: 1px solid white;
     background-color: #8AFF80;
     width: 200px;
   }
@@ -54,6 +59,7 @@
     height: 100px;
   }
   
+  /* css for buttons in shop */
   .shop-items Button{
     background-color: #FFFF80;
     width: 100px;
@@ -62,26 +68,44 @@
   .shop-items Button:hover{
     background-color: #C0C034;
   }
-  .shop-shopNavigator{
-    background-color: #C4C4C4;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid white;
-    width:90%;
-    gap:14rem;
+  .shop-itemsInfo img{
+    height:20px;
+    width:20px;
+  }
+  .shop-empty{
+    background-color: black;
+    height:200px;
+  }
+ /* displaying the hide info in div  */
+ .shop-toolTip{
+   align-items: center;
+ }
+ .shop-hide{
+  color: white;
+  width: 200px;
+  text-align: center;
+  text-justify: inter-word;
   
+ }
+ .shop-hide .shop-weaponInfo{
+  text-align-last: left;
+ }
+ .shop-Empty{
+   background-color: black;
+ }
+ 
+ 
+  */
+  /* button navigator */
+  .shop-main_shop .btn-group{
+    width:90%;
+
+  }
+  .shop-main_shop .btn-group .btn:hover,  .shop-main_shop .btn-group .btn:focus{
+    background-color: #FF9580;
   }
   .shop-displayButton:hover{
     background-color: #FF9580;
-  }
-  .shop-displayButton {
-    background-color: #C4C4C4;
-    padding: 15px;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
   }
   .shop-weaponList{
     display: flex;
@@ -89,7 +113,8 @@
   }
   
   /* test div */
-  .shop-categoryName h3{
+  .shop-categoryName p{
     margin: 10px;
-    color: black;
+    color: white;
+  
   }

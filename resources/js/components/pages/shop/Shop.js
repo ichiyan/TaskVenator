@@ -1,19 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddItemForm from "./AddItemForm";
 import AddOutfitForm from './AddOutfitForm';
 import AddPotionForm from './AddPotionForm';
 import Display from "./Display";
+import Header from "../../layouts/Header";
+import AvatarHeader from "../../layouts/AvatarHeader";
 
 function Shop(){
+    var hpTotal = 50;
+    var xpTotal = 50;
+    const [hp, setHp] = useState(50);
+    const [xp, setXp] = useState(0);
+    const [hpBarWidth, sethpBarWidth] = useState("100");
+    const [hpHitWidth, sethpHitWidth] = useState("0");
+    const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
+
+    const [xpBarWidth, setXPBarWidth] = useState("0");
+    const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
     const[clicked, setClicked] =useState("");
 
     const showItem =(event) =>{
-        setClicked(event.target.getAttribute("name"));
-        console.log(clicked);
+        setClicked(event.target.value);
     }
+    useEffect(()=>{
+        setClicked(clicked);
+    },[clicked]);
 
     
 return(
+    <div className="shop-parentOfAll">
+        <Header page="shop"/>
+        <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} />
+
     <div className="shop-main_shop">
         <div className="shop-weaponForm"> 
         <AddOutfitForm/> 
@@ -21,26 +39,21 @@ return(
         <AddItemForm/>
         </div>
       
-
-        <div className="shop-shopNavigator">
-                <div className="button">
-                <button  name="Items" onClick={showItem} className="shop-displayButton">All</button>
-                </div>
-                <div className="button">
-                <button  name="Potions" onClick={showItem} className="shop-displayButton">Items</button>
-                </div>
-                <div className="button">
-                <button name="Outfit" onClick={showItem} className="shop-displayButton">Potions</button>
-                </div>
-                <div className="button">
-                <button  name="All" onClick={showItem} className="shop-displayButton">Outfit</button>
-                </div>
-         </div>
+       
+        <div className="btn-group btn-group-lg" role="group">
+                <button type="button" name="All" onClick={showItem} className="btn btn-secondary" value="All">All</button>
+                <button type="button" name="Potions" onClick={showItem} className="btn btn-secondary" value="Potions">Potions</button>
+                <button type="button" name="Outfit" onClick={showItem} className="btn btn-secondary" value="Outfit">Outfit</button>
+        </div>
+    
 
          <div className="shop-shop"> 
-            <Display/>
+            <Display
+                clicked={clicked}
+            />
         </div>  
         
+    </div>
     </div>
     );
 }
