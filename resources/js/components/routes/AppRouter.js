@@ -6,6 +6,8 @@ import axios from 'axios';
 import Auth from "../pages/Auth";
 import Shop from "../pages/shop/shop";
 import Home from "../pages/Home";
+import Party from "../pages/party/Party";
+import GroupTasks from "../pages/party/GroupTasks";
 import Tasks from "../pages/Tasks";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
@@ -29,6 +31,8 @@ const AppRouter = () => {
                     <Route path='/login' element={<Auth page="login"/>}></Route>
                     <Route path='/tasks' element={<Tasks/>}></Route>
                     <Route path='/shop' element={<Shop/>}></Route>
+                    <Route path='/party' element={<Party/>}></Route>
+                    <Route path='/group_tasks' element={<GroupTasks/>}></Route>
                 </Routes>
             </Router>
         </div>
