@@ -70,8 +70,8 @@ function Display ({clicked}){
                                     
                               )
                             }
+                              
                         })}
-
                         <div className="shop-categoryName">
                               <p>Powerup Potions</p>
                         </div>

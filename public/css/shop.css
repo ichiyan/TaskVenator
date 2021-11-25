@@ -90,6 +90,9 @@
  .shop-hide .shop-weaponInfo{
   text-align-last: left;
  }
+ .shop-Empty{
+   background-color: black;
+ }
  
  
   */
@@ -113,4 +116,5 @@
   .shop-categoryName p{
     margin: 10px;
     color: white;
+  
   }
