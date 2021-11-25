@@ -14406,9 +14406,53 @@ var PartyMemberAvatar = function PartyMemberAvatar(_ref) {
 /*!********************************************************!*\
   !*** ./resources/js/components/layouts/TasksNavbar.js ***!
   \********************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\resources\\js\\components\\layouts\\TasksNavbar.js: Unexpected token (9:1)\n\n\u001b[0m \u001b[90m  7 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"true\"\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/tasks\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mTasks\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mLink\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mInventory\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mLink\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/shop\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mShop\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mLink\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 11 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 12 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"true\"\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/shop\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mShop\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mLink\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n    at Object._raise (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:541:17)\n    at Object.raiseWithData (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:534:17)\n    at Object.raise (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:495:17)\n    at Object.unexpected (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:3587:16)\n    at Object.jsxParseIdentifier (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7259:12)\n    at Object.jsxParseNamespacedName (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7269:23)\n    at Object.jsxParseElementName (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7280:21)\n    at Object.jsxParseOpeningElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7367:22)\n    at Object.jsxParseElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7400:33)\n    at Object.jsxParseElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7416:32)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index */ "./resources/js/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var TasksNavbar = function TasksNavbar() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("nav", {
+    id: "navbar",
+    className: "navbar order-last order-lg-0",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "true",
+          to: "/tasks",
+          children: "Tasks"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "",
+          children: "Inventory"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/shop",
+          children: "Shop"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/party",
+          children: "Party"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+      className: "bi bi-list mobile-nav-toggle"
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TasksNavbar);
 
 /***/ }),
 
