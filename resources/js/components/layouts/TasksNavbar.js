@@ -4,7 +4,7 @@ const TasksNavbar = () => {
     return (
         <nav id="navbar" className="navbar order-last order-lg-0">
             <ul>
-                <li><Link className="active" to="/tasks">Tasks</Link></li>
+                <li><Link className="true" to="/tasks">Tasks</Link></li>
                 <li><Link to="">Inventory</Link></li>
                 <li><Link to="/shop">Shop</Link></li>
                 <li><Link to="/party">Party</Link></li>
