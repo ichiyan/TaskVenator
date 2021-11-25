@@ -82,7 +82,6 @@ const Tasks = () => {
         <div className="internal-pages">
             <Header page="tasks"/>
             <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
-             {/* {this.test} */}
              {/* TESTING */}
              <div style={{margin: 15 + "%"}}>
                  <p style={{color: "white"}}>TEST</p>
@@ -90,6 +89,12 @@ const Tasks = () => {
                 <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
                 <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
              </div>
+              {/* if page is shop
+                        // render shop component
+
+                 if page is party
+                        // render party component
+              */}
         </div>
     );
 }
