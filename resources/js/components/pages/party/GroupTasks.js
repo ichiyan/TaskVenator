@@ -1,6 +1,6 @@
 import {Header, Link, React,
         useEffect, useState,
-        GroupMemberPublicTasks,
+        GroupMemberPublicTasks, HomeTasks, HomeDailyTasks,
         AvatarHeader} from "../../../index";
 import '../../../../../public/css/party_tasks.css';
 
@@ -17,7 +17,7 @@ const GroupTasks = () => {
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
 
     return(
-        <div>
+        <div className="internal-pages">
             <Header page="group_tasks"/>
 
             <AvatarHeader
@@ -33,12 +33,25 @@ const GroupTasks = () => {
                 xpIncreaseWidth={xpIncreaseWidth}
             />
 
-            <section className="justify-content-center align-items-center party-content">
-                <button><Link to="/party">Party</Link></button>
-                <button><Link to="/group_tasks">Group Tasks</Link></button>
+            <section className="party-section">
+                <div className="party-nav">
+                    <div className="party-nav-item"><Link to="/party">Party</Link></div>
+                    <div className="party-nav-item party-active-nav"><Link to="/group_tasks">Group Tasks</Link></div>
+                </div>
+                <div className="party-content" >
+                    <h1>Group Tasks</h1>
+                    <GroupMemberPublicTasks/>
+                    <GroupMemberPublicTasks/>
 
-                <h1> Group Tasks </h1>
-                <GroupMemberPublicTasks/>
+                    <h1>Daily Tasks</h1>
+                    <HomeDailyTasks/>
+                    <HomeDailyTasks/>
+
+                    <h1>Home Tasks</h1>
+                    <HomeTasks/>
+                    <HomeTasks/>
+                </div>
+
             </section>
         </div>
     )

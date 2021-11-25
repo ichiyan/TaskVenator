@@ -1,11 +1,18 @@
-import React from "react";
-import { useState } from 'react';
+import {React, useEffect, useState, TaskItem} from "../../../index";
+import '../../../../../public/css/party_tasks.css';
 
-function HomeTasks(){
+const HomeTasks = () => {
 
     return(
-        <div>
-            test
+        <div className="tasks-group">
+            <div className="tasks-group-header">
+                <div className="tasks-group-title"> name </div>
+            </div>
+            <div className="tasks-group-content">
+                <TaskItem/>
+                <TaskItem/>
+            </div>
+
         </div>
     )
 

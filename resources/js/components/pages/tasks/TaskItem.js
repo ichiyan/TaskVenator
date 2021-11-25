@@ -1,11 +1,11 @@
-import React from "react";
-import { useState } from 'react';
+import {React, useEffect, useState,} from "../../../index";
+import '../../../../../public/css/party_tasks.css';
 
-function TaskItem(){
+const TaskItem = () => {
 
     return(
         <div>
-            one item
+            <div className="task-item-content"> one time</div>
         </div>
     )
 

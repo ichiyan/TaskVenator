@@ -1,13 +1,20 @@
-import React from "react";
-import TaskItem from "./TaskItem";
-import { useState } from 'react';
+import {React, useEffect, useState, TaskItem} from "../../../index";
+import '../../../../../public/css/party_tasks.css';
 
-function GroupMemberPublicTasks(){
+const GroupMemberPublicTasks = () => {
 
     return(
-        <div>
-            test group tasks
-            <TaskItem/>
+        <div className="tasks-group accordion">
+            <div className="accordion-item">
+                <div className="tasks-group-header accordion-title">
+                    <div className="tasks-group-title"> name </div>
+                    <div className="task-progress-bar"> 50% </div>
+                </div>
+                <div className="tasks-group-content accordion-content">
+                    <TaskItem/>
+                    <TaskItem/>
+                </div>
+            </div>
         </div>
     )
 

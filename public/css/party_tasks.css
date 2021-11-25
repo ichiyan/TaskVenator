@@ -1,10 +1,87 @@
-.party-content{
-    margin: 15%;
+.party-section{
+    margin: 15% 5% 10% 5%;
     display: flex;
     flex-direction:column;
-    padding:1rem;
 }
 
-button {
+.party-content{
+    display: flex;
+    flex-direction:column;
+    background-color: #C4C4C4;
+    padding:1rem;
+    border-radius: 5px;
+    border-color: #4f5378;
+    border-width: 1rem 0.3rem 0.3rem 0.3rem;
+}
+
+.party-nav{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.party-nav-item{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #2F3144;
+    font-size: large;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.party-nav-item a{
+    color: #C4C4C4;
+}
+
+.party-active-nav{
+    margin-top: 1rem;
+    background-color: #4f5378;
+    height:100%;
+}
+
+.tasks-group{
+    width: 50%;
+    border-radius: 0.5rem;
     margin: 1rem;
+}
+
+.tasks-group-header{
+    background-color: #95c5ed;
+    padding: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.tasks-group-title{
+    text-decoration: 10px;
+}
+
+.task-progress-bar{
+    background-color: #d6ddf3;
+    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+    width: 40%;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    margin-left: auto;
+}
+
+.tasks-group-content{
+    background-color: #d6ddf3;
+    padding: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.tasks-daily-group{
+    padding: 0.5rem;
 }

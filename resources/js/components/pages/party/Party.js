@@ -16,7 +16,7 @@ const Party = () => {
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
 
     return(
-        <div>
+        <div className="internal-pages">
             <Header page="group_tasks"/>
             <AvatarHeader
                 hasParty="true"
@@ -31,11 +31,14 @@ const Party = () => {
                 xpIncreaseWidth={xpIncreaseWidth}
             />
 
-            <section className="d-flex justify-content-center align-items-center party-content">
-                <button><Link to="/party">Party</Link></button>
-                <button><Link to="/group_tasks">Group Tasks</Link></button>
-
-                <h1>PARTY LANDING PAGE</h1>
+            <section className="party-section" >
+                <div className="party-nav">
+                    <div className="party-nav-item party-active-nav"><Link to="/party">Party</Link></div>
+                    <div className="party-nav-item"><Link to="/group_tasks">Group Tasks</Link></div>
+                </div>
+                <div className="party-content" >
+                    <h1>PARTY LANDING PAGE</h1>
+                </div>
             </section>
 
         </div>
