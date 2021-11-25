@@ -1,14 +1,17 @@
     /* desinging shopp */
-  .shop-main_shop{
+  .shop-parentOfAll{
     background-color: #383A59;
+  }
+  .shop-main_shop{
     min-height: 100vh;
     display: flex;
     color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
     font-family: "Playfair Display", serif;
+    margin-top: 150px;
+    
   }
   .shop-weaponForm{
     display: flex;
@@ -50,7 +53,6 @@
     margin-left: 40px;
     margin-bottom: 20px;
     text-align: center;
-    border: 1px solid white;
     background-color: #8AFF80;
     width: 200px;
   }
@@ -79,16 +81,16 @@
   }
  /* displaying the hide info in div  */
  .shop-hide{
-   display: inline-block;
+   /* display: inline-block; */
   color: black;
   margin-left: 40px;
   margin-bottom: 20px;
   border: 1px solid white;
   background-color: #C0FFBB;
   width: 300px;
-  position: absolute;
+  /* position: absolute; */
  }
- .shop-hide{
+ /* .shop-hide{
    display: none;
  }
  .shop-hide .shop-itemsInfo p{
@@ -101,7 +103,7 @@
    margin-left: -50px;
    vertical-align:top;
  }
- 
+  */
   /* button navigator */
   .shop-main_shop .btn-group{
     width:90%;

@@ -1,6 +1,7 @@
 import Button from "@restart/ui/esm/Button";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import ReactTooltip from 'react-tooltip';
 
 function Display ({clicked}){
    const[display1,setDisplay1]=useState({
@@ -48,7 +49,7 @@ function Display ({clicked}){
                                if(p.type === "Hp Potion"){
                               return (
                               <div key={index} className="shop-returnMap">
-                                    <div className="shop-items"> 
+                                    <div data-tip data-for='testing' className="shop-items"> 
                                           <div className="shop-itemsImage">
                                              <img src={p.image}></img>
                                            </div>
@@ -58,12 +59,14 @@ function Display ({clicked}){
                                                 <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
                                           </div>
                                     </div> 
+                                    <ReactTooltip id='testing' place="right" aria-haspopup='true'>
                                     <div className="shop-hide">
                                           <div className="shop-itemsInfo">
                                           <h6>{p.description}</h6>
                                           </div> 
                                      </div>
-                                    </div>
+                                     </ReactTooltip>
+                               </div>
                                     
                               )
                             }
@@ -122,7 +125,7 @@ function Display ({clicked}){
                                     <div className="shop-hide">
                                           <div className="shop-itemsInfo">
                                                       <div>
-                                                            <h7>Attributes</h7>
+                                                            <h5>Attributes</h5>
                                                       </div>
                                                       <p>Physical Attack: {w.pAttack}</p>
                                                       <p>Magical Attack: {w.mAttack}</p>
@@ -160,7 +163,7 @@ function Display ({clicked}){
                                     <div className="shop-hide">
                                           <div className="shop-itemsInfo">
                                                 <div>
-                                                      <h7>Attributes</h7>
+                                                      <h5>Attributes</h5>
                                                 </div>
                                                 <p>Physical Attack: {w.pAttack}</p>
                                                 <p>Magical Attack: {w.mAttack}</p>
@@ -259,7 +262,7 @@ function Display ({clicked}){
                                     <div className="shop-hide">
                                           <div className="shop-itemsInfo">
                                                 <div>
-                                                      <h7>Attributes</h7>
+                                                      <h5>Attributes</h5>
                                                 </div>
                                                 {/* <p>Physical Attack: {w.pAttack}</p>
                                                 <p>Magical Attack: {w.mAttack}</p> */}
@@ -298,7 +301,7 @@ function Display ({clicked}){
                                     <div className="shop-hide">
                                           <div className="shop-itemsInfo">
                                                 <div>
-                                                      <h7>Attributes</h7>
+                                                      <h5>Attributes</h5>
                                                 </div>
                                                 {/* <p>Physical Attack: {w.pAttack}</p>
                                                 <p>Magical Attack: {w.mAttack}</p> */}
