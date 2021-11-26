@@ -14132,7 +14132,7 @@ var Header = function Header(_ref) {
   var isLoggedIn = "false";
 
   if (!localStorage.getItem('auth_token')) {
-    trailingButtons = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+    trailingButtons = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
       to: "/register",
       className: "get-started-btn",
       children: "Get Started"
@@ -14146,22 +14146,22 @@ var Header = function Header(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
             className: "custom-nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
               to: "",
               className: "nav-icon-btn",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
                 className: "navIcon",
-                icon: Object(function webpackMissingModule() { var e = new Error("Cannot find module '@fortawesome/free-solid-svg-icons'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+                icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faBell
               })
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
             className: "custom-nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
               to: "",
               className: "nav-icon-btn",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
                 className: "navIcon",
-                icon: Object(function webpackMissingModule() { var e = new Error("Cannot find module '@fortawesome/free-solid-svg-icons'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+                icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUser,
                 onClick: dropdownHandler
               }), isOpenDropdown === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(CustomDropDownMenu, {}) : null]
             })
@@ -14178,7 +14178,7 @@ var Header = function Header(_ref) {
       className: "container d-flex justify-content-between align-items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
         className: "logo",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
           to: "/",
           children: "TaskVenator"
         })
@@ -22670,7 +22670,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nhtml,body{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    font-family: \"Source Sans Pro\", 'sans-serif';\n}\n\na, a:hover{\n    text-decoration: none;\n}\n\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n    background: #2A2C37;\n    transition: all 0.5s;\n    z-index: 997;\n    padding: 10px 0;\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\n    position: -webkit-sticky;\n    position: sticky;\n    top: 0;\n  }\n  #header .logo {\n    font-size: 24px;\n    margin: 0;\n    padding: 0;\n    line-height: 1;\n    font-weight: 600;\n    letter-spacing: 1px;\n    font-family: \"Playfair Display\", serif;\n  }\n  #header .logo a {\n    color: #fff;\n  }\n  #header .logo img {\n    max-height: 40px;\n  }\n\n  /**\n  * Get Started Button\n  */\n\n  .get-started-btn {\n    margin-left: 22px;\n    background: #5fcf80;\n    color: #fff;\n    border-radius: 50px;\n    padding: 8px 25px;\n    white-space: nowrap;\n    transition: 0.3s;\n    font-size: 14px;\n    display: inline-block;\n  }\n  .get-started-btn:hover {\n    background: #3ac162;\n    color: #fff;\n  }\n  @media (max-width: 768px) {\n    .get-started-btn {\n      margin: 0 15px 0 0;\n      padding: 6px 18px;\n    }\n  }\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n/**\n* Desktop Navigation\n*/\n\n.navbar {\n    padding: 0;\n  }\n  .navbar ul {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    list-style: none;\n    align-items: center;\n  }\n  .navbar li {\n    position: relative;\n  }\n  .navbar a, .navbar a:focus {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10px 0 10px 30px;\n    font-family: \"Playfair Display\", serif;\n    font-size: 16px;\n    font-weight: 400;\n    color: #fff;\n    white-space: nowrap;\n    transition: 0.3s;\n  }\n  .navbar a i, .navbar a:focus i {\n    font-size: 12px;\n    line-height: 0;\n    margin-left: 5px;\n  }\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\n    color: #8AFF80;\n  }\n\n  /*\n  .navbar .dropdown ul {\n    display: block;\n    position: absolute;\n    left: 30px;\n    top: calc(100% + 30px);\n    margin: 0;\n    padding: 10px 0;\n    z-index: 99;\n    opacity: 0;\n    visibility: hidden;\n    background: #fff;\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n    transition: 0.3s;\n    border-radius: 4px;\n  }\n  .navbar .dropdown ul li {\n    min-width: 200px;\n  }\n  .navbar .dropdown ul a {\n    padding: 10px 20px;\n    font-size: 14px;\n    text-transform: none;\n    font-weight: 500;\n  }\n  .navbar .dropdown ul a i {\n    font-size: 12px;\n  }\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\n    color: #5fcf80;\n  }\n  .navbar .dropdown:hover > ul {\n    opacity: 1;\n    top: 100%;\n    visibility: visible;\n  }\n  .navbar .dropdown .dropdown ul {\n    top: 0;\n    left: calc(100% - 30px);\n    visibility: hidden;\n  }\n  .navbar .dropdown .dropdown:hover > ul {\n    opacity: 1;\n    top: 0;\n    left: 100%;\n    visibility: visible;\n  }\n   @media (max-width: 1366px) {\n    .navbar .dropdown .dropdown ul {\n      left: -90%;\n    }\n    .navbar .dropdown .dropdown:hover > ul {\n      left: -100%;\n    }\n  } */\n\n  .navIcon{\n      font-size: 1.3rem;\n  }\n\n  .custom-dropdown{\n      position: absolute;\n      top: calc(100% + 10px);\n      width: 250px;\n      transform: translateX(-90%);\n      border-radius: 10px;\n      padding: 0.5rem;\n      overflow: hidden;\n      background-color: #242526;\n      color: #fff !important;\n  }\n\n  .custom-dropdown-item{\n      font-family: \"Source Sans Pro\", 'sans-serif';\n      font-size: small;\n      color: #fff !important;\n  }\n\n  .custom-menu-item{\n      height: 50%;\n      display: flex;\n      align-items: center;\n      padding: 0.5rem;\n  }\n\n  .custom-menu-item:hover{\n      background-color: #525357;\n  }\n\n  .dropdown-icon-left{\n      padding-right: 5px;\n  }\n\n  .dropdown-icon-right{\n      margin-left: auto;\n  }\n\n  /*--------------------------------------------------------------\n# Hero Section\n--------------------------------------------------------------*/\n#hero {\n    width: 100%;\n    height: 80vh;\n    background-color: #9580FF;\n    background-size: cover;\n    position: relative;\n  }\n\n  #hero .container {\n    padding-top: 72px;\n  }\n  @media (max-width: 992px) {\n    #hero .container {\n      padding-top: 62px;\n    }\n  }\n  #hero h1 {\n    margin: 0;\n    font-size: 48px;\n    font-weight: 700;\n    line-height: 56px;\n    color: #383A59;\n    font-family: \"Poppins\", sans-serif;\n  }\n  #hero h2 {\n    color: #383A59;\n    margin: 10px 0 0 0;\n    font-size: 24px;\n  }\n  #hero .btn-get-started, #hero .btn-login {\n    font-size: 15px;\n    letter-spacing: 1px;\n    display: inline-block;\n    padding: 10px 35px;\n    border-radius: 50px;\n    transition: 0.5s;\n    margin: 30px 30px 0 0;\n    border: 2px solid #2A2C37;\n    color: #fff;\n  }\n\n  #hero .btn-get-started{\n    background-color: #2A2C37;\n  }\n\n  #hero .btn-login{\n    border: 2px solid #fff;\n  }\n\n  #hero .btn-get-started:hover {\n    background: #383A59;\n    border: 2px solid #383A59;\n  }\n\n  #hero .btn-login:hover {\n    border: 2px solid #383A59;\n    color: #383A59;\n  }\n\n  @media (min-width: 1024px) {\n    #hero {\n      background-attachment: fixed;\n    }\n  }\n  @media (max-width: 768px) {\n    #hero {\n      height: 100vh;\n    }\n    #hero h1 {\n      font-size: 28px;\n      line-height: 36px;\n    }\n    #hero h2 {\n      font-size: 18px;\n      line-height: 24px;\n    }\n  }\n\n#landing-pixels{\n    width: 100%;\n\theight: 100%;\n}\n\n.landing-pixel{\n    background-color: #9580FF;\n\tfloat: left;\n}\n\n /*--------------------------------------------------------------\n# Registration and Login\n--------------------------------------------------------------*/\ncanvas {\n    display: block;\n}\n\n#particles-js {\n    width: 100%;\n    height: 100%;\n    background-color: #9580ff;\n    background-attachment: fixed;\n    position: fixed;\n}\n\n.container.signup-signin {\n    padding-top: 7%;\n    width: 60%;\n}\n\n\n.signup-signin-card {\n    border: 0 !important;\n    border-radius: 27.5px !important;\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n    overflow: visible !important;\n    padding: 0 !important;\n    margin: 0 !important;\n}\n\n.signup-signin-card-img {\n    border-radius: 27.5px 0 0 27.5px !important;\n    width: 100% !important;\n    height: 100% !important;\n    border-radius: 0 ;\n    -o-object-fit: cover;\n        object-fit: cover;\n}\n\n.signup-signin-card-img-top{\n    position: absolute !important;\n    right: 53% !important;\n}\n\n.register-img{\n    height: 115%;\n}\n\n.login-img{\n    height: 155%;\n    top: -20%;\n}\n\n.signup-signin-card .card-body {\n    padding: 50px 40px 50px 60px;\n}\n\n\n.signup-signin-card-description {\n    font-size: 25px;\n    color: #000;\n    font-weight: bold;\n    margin-bottom: 23px;\n}\n\n.signup-signin-card form {\n    max-width: 326px;\n }\n\n.signup-signin-form-group > input {\n    border: none;\n    box-sizing: border-box;\n    border-bottom: 1px solid #ebebeb;\n    background: transparent;\n    width: 100%;\n    display: block;\n    color: #000;\n    font-size: 16px;\n    padding: 3px 0;\n    margin: 8px 8px 15px 0;\n}\n\n.signup-signin-form-group > input:focus {\n    outline: none;\n}\n\n.signup-signin-form-group > .field-icon {\n    /* float: right;\n    margin-right: 0px;\n    margin-top: -22px;\n    position: relative;\n    z-index: 2; */\n    color: #000;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) {\n    width: 2em;\n    margin: 0;\n    padding: 0;\n    font-size: 1em;\n    display: none;\n}\n\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\n    display: inline-block;\n    margin-bottom: 25px;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\n    display: inline-block;\n    width: 13px;\n    height: 13px;\n    margin-right: 15px;\n    margin-bottom: 4px;\n    border: 1px solid #000;\n    border-radius: 2px;\n    background: transparent;\n    vertical-align: bottom;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\n    background: transparent;\n}\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\n    content: '\\2713';\n    display: block;\n    color: #000;\n    font-size: 11px;\n    line-height: 1.2;\n    text-align: center;\n    font-weight: bold;\n}\n\n.signup-signin-form-group > .label-agree-term {\n    font-size: 13px;\n    font-weight: 400;\n    color: #000;\n}\n.signup-signin-form-group > .term-service {\n    color: #000;\n}\n.signup-signin-form-group > .form-submit {\n    width: auto;\n    display: inline-block;\n    border: none;\n    background: #5FCF80;\n    color: #fff;\n    padding: 10px;\n    height: 50px;\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n    margin-right: 25px;\n}\n.signup-signin-form-group > .form-submit:hover {\n    background-color: #3ac162;\n}\n.signup-signin-form-group > .submit {\n    width: 130px;\n    border-radius: 25px;\n    text-transform: uppercase;\n    font-size: 13px;\n    cursor: pointer;\n}\n.signup-signin-form-group > .submit-link {\n    border: 2px solid #5FCF80;\n    text-decoration: none;\n    display: inline-block;\n    vertical-align: middle;\n    padding: 12px 0;\n    text-align: center;\n    color: #000;\n}\n.signup-signin-form-group > .submit-link:hover {\n    background: #fff;\n    color: #3ac162;\n}\n\n.signup-signin .error-msg{\n    color: red;\n    font-size: small;\n}\n\n.signup-signin .forgot-password{\n    font-size: small;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\r\n# General\r\n--------------------------------------------------------------*/\r\nhtml,body{\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Source Sans Pro\", 'sans-serif';\r\n}\r\n\r\na, a:hover{\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n/*--------------------------------------------------------------\r\n# Header\r\n--------------------------------------------------------------*/\r\n#header {\r\n    background: #2A2C37;\r\n    transition: all 0.5s;\r\n    z-index: 997;\r\n    padding: 10px 0;\r\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 0;\r\n  }\r\n  #header .logo {\r\n    font-size: 24px;\r\n    margin: 0;\r\n    padding: 0;\r\n    line-height: 1;\r\n    font-weight: 600;\r\n    letter-spacing: 1px;\r\n    font-family: \"Playfair Display\", serif;\r\n  }\r\n  #header .logo a {\r\n    color: #fff;\r\n  }\r\n  #header .logo img {\r\n    max-height: 40px;\r\n  }\r\n\r\n  /**\r\n  * Get Started Button\r\n  */\r\n\r\n  .get-started-btn {\r\n    margin-left: 22px;\r\n    background: #5fcf80;\r\n    color: #fff;\r\n    border-radius: 50px;\r\n    padding: 8px 25px;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n    font-size: 14px;\r\n    display: inline-block;\r\n  }\r\n  .get-started-btn:hover {\r\n    background: #3ac162;\r\n    color: #fff;\r\n  }\r\n  @media (max-width: 768px) {\r\n    .get-started-btn {\r\n      margin: 0 15px 0 0;\r\n      padding: 6px 18px;\r\n    }\r\n  }\r\n\r\n/*--------------------------------------------------------------\r\n# Navigation Menu\r\n--------------------------------------------------------------*/\r\n/**\r\n* Desktop Navigation\r\n*/\r\n\r\n.navbar {\r\n    padding: 0;\r\n  }\r\n  .navbar ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    list-style: none;\r\n    align-items: center;\r\n  }\r\n  .navbar li {\r\n    position: relative;\r\n  }\r\n  .navbar a, .navbar a:focus {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    padding: 10px 0 10px 30px;\r\n    font-family: \"Playfair Display\", serif;\r\n    font-size: 16px;\r\n    font-weight: 400;\r\n    color: #fff;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n  }\r\n  .navbar a i, .navbar a:focus i {\r\n    font-size: 12px;\r\n    line-height: 0;\r\n    margin-left: 5px;\r\n  }\r\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\r\n    color: #8AFF80;\r\n  }\r\n\r\n  /*\r\n  .navbar .dropdown ul {\r\n    display: block;\r\n    position: absolute;\r\n    left: 30px;\r\n    top: calc(100% + 30px);\r\n    margin: 0;\r\n    padding: 10px 0;\r\n    z-index: 99;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    background: #fff;\r\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\r\n    transition: 0.3s;\r\n    border-radius: 4px;\r\n  }\r\n  .navbar .dropdown ul li {\r\n    min-width: 200px;\r\n  }\r\n  .navbar .dropdown ul a {\r\n    padding: 10px 20px;\r\n    font-size: 14px;\r\n    text-transform: none;\r\n    font-weight: 500;\r\n  }\r\n  .navbar .dropdown ul a i {\r\n    font-size: 12px;\r\n  }\r\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\r\n    color: #5fcf80;\r\n  }\r\n  .navbar .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 100%;\r\n    visibility: visible;\r\n  }\r\n  .navbar .dropdown .dropdown ul {\r\n    top: 0;\r\n    left: calc(100% - 30px);\r\n    visibility: hidden;\r\n  }\r\n  .navbar .dropdown .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 0;\r\n    left: 100%;\r\n    visibility: visible;\r\n  }\r\n   @media (max-width: 1366px) {\r\n    .navbar .dropdown .dropdown ul {\r\n      left: -90%;\r\n    }\r\n    .navbar .dropdown .dropdown:hover > ul {\r\n      left: -100%;\r\n    }\r\n  } */\r\n\r\n  .navIcon{\r\n      font-size: 1.3rem;\r\n  }\r\n\r\n  .custom-dropdown{\r\n      position: absolute;\r\n      top: calc(100% + 10px);\r\n      width: 250px;\r\n      transform: translateX(-90%);\r\n      border-radius: 10px;\r\n      padding: 0.5rem;\r\n      overflow: hidden;\r\n      background-color: #242526;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-dropdown-item{\r\n      font-family: \"Source Sans Pro\", 'sans-serif';\r\n      font-size: small;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-menu-item{\r\n      height: 50%;\r\n      display: flex;\r\n      align-items: center;\r\n      padding: 0.5rem;\r\n  }\r\n\r\n  .custom-menu-item:hover{\r\n      background-color: #525357;\r\n  }\r\n\r\n  .dropdown-icon-left{\r\n      padding-right: 5px;\r\n  }\r\n\r\n  .dropdown-icon-right{\r\n      margin-left: auto;\r\n  }\r\n\r\n  /*--------------------------------------------------------------\r\n# Hero Section\r\n--------------------------------------------------------------*/\r\n#hero {\r\n    width: 100%;\r\n    height: 80vh;\r\n    background-color: #9580FF;\r\n    background-size: cover;\r\n    position: relative;\r\n  }\r\n\r\n  #hero .container {\r\n    padding-top: 72px;\r\n  }\r\n  @media (max-width: 992px) {\r\n    #hero .container {\r\n      padding-top: 62px;\r\n    }\r\n  }\r\n  #hero h1 {\r\n    margin: 0;\r\n    font-size: 48px;\r\n    font-weight: 700;\r\n    line-height: 56px;\r\n    color: #383A59;\r\n    font-family: \"Poppins\", sans-serif;\r\n  }\r\n  #hero h2 {\r\n    color: #383A59;\r\n    margin: 10px 0 0 0;\r\n    font-size: 24px;\r\n  }\r\n  #hero .btn-get-started, #hero .btn-login {\r\n    font-size: 15px;\r\n    letter-spacing: 1px;\r\n    display: inline-block;\r\n    padding: 10px 35px;\r\n    border-radius: 50px;\r\n    transition: 0.5s;\r\n    margin: 30px 30px 0 0;\r\n    border: 2px solid #2A2C37;\r\n    color: #fff;\r\n  }\r\n\r\n  #hero .btn-get-started{\r\n    background-color: #2A2C37;\r\n  }\r\n\r\n  #hero .btn-login{\r\n    border: 2px solid #fff;\r\n  }\r\n\r\n  #hero .btn-get-started:hover {\r\n    background: #383A59;\r\n    border: 2px solid #383A59;\r\n  }\r\n\r\n  #hero .btn-login:hover {\r\n    border: 2px solid #383A59;\r\n    color: #383A59;\r\n  }\r\n\r\n  @media (min-width: 1024px) {\r\n    #hero {\r\n      background-attachment: fixed;\r\n    }\r\n  }\r\n  @media (max-width: 768px) {\r\n    #hero {\r\n      height: 100vh;\r\n    }\r\n    #hero h1 {\r\n      font-size: 28px;\r\n      line-height: 36px;\r\n    }\r\n    #hero h2 {\r\n      font-size: 18px;\r\n      line-height: 24px;\r\n    }\r\n  }\r\n\r\n#landing-pixels{\r\n    width: 100%;\r\n\theight: 100%;\r\n}\r\n\r\n.landing-pixel{\r\n    background-color: #9580FF;\r\n\tfloat: left;\r\n}\r\n\r\n /*--------------------------------------------------------------\r\n# Registration and Login\r\n--------------------------------------------------------------*/\r\ncanvas {\r\n    display: block;\r\n}\r\n\r\n#particles-js {\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: #9580ff;\r\n    background-attachment: fixed;\r\n    position: fixed;\r\n}\r\n\r\n.container.signup-signin {\r\n    padding-top: 7%;\r\n    width: 60%;\r\n}\r\n\r\n\r\n.signup-signin-card {\r\n    border: 0 !important;\r\n    border-radius: 27.5px !important;\r\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\r\n    overflow: visible !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.signup-signin-card-img {\r\n    border-radius: 27.5px 0 0 27.5px !important;\r\n    width: 100% !important;\r\n    height: 100% !important;\r\n    border-radius: 0 ;\r\n    -o-object-fit: cover;\r\n        object-fit: cover;\r\n}\r\n\r\n.signup-signin-card-img-top{\r\n    position: absolute !important;\r\n    right: 53% !important;\r\n}\r\n\r\n.register-img{\r\n    height: 115%;\r\n}\r\n\r\n.login-img{\r\n    height: 155%;\r\n    top: -20%;\r\n}\r\n\r\n.signup-signin-card .card-body {\r\n    padding: 50px 40px 50px 60px;\r\n}\r\n\r\n\r\n.signup-signin-card-description {\r\n    font-size: 25px;\r\n    color: #000;\r\n    font-weight: bold;\r\n    margin-bottom: 23px;\r\n}\r\n\r\n.signup-signin-card form {\r\n    max-width: 326px;\r\n }\r\n\r\n.signup-signin-form-group > input {\r\n    border: none;\r\n    box-sizing: border-box;\r\n    border-bottom: 1px solid #ebebeb;\r\n    background: transparent;\r\n    width: 100%;\r\n    display: block;\r\n    color: #000;\r\n    font-size: 16px;\r\n    padding: 3px 0;\r\n    margin: 8px 8px 15px 0;\r\n}\r\n\r\n.signup-signin-form-group > input:focus {\r\n    outline: none;\r\n}\r\n\r\n.signup-signin-form-group > .field-icon {\r\n    /* float: right;\r\n    margin-right: 0px;\r\n    margin-top: -22px;\r\n    position: relative;\r\n    z-index: 2; */\r\n    color: #000;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) {\r\n    width: 2em;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-size: 1em;\r\n    display: none;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\r\n    display: inline-block;\r\n    margin-bottom: 25px;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\r\n    display: inline-block;\r\n    width: 13px;\r\n    height: 13px;\r\n    margin-right: 15px;\r\n    margin-bottom: 4px;\r\n    border: 1px solid #000;\r\n    border-radius: 2px;\r\n    background: transparent;\r\n    vertical-align: bottom;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\r\n    background: transparent;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\r\n    content: '\\2713';\r\n    display: block;\r\n    color: #000;\r\n    font-size: 11px;\r\n    line-height: 1.2;\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\n.signup-signin-form-group > .label-agree-term {\r\n    font-size: 13px;\r\n    font-weight: 400;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .term-service {\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .form-submit {\r\n    width: auto;\r\n    display: inline-block;\r\n    border: none;\r\n    background: #5FCF80;\r\n    color: #fff;\r\n    padding: 10px;\r\n    height: 50px;\r\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\r\n    margin-right: 25px;\r\n}\r\n.signup-signin-form-group > .form-submit:hover {\r\n    background-color: #3ac162;\r\n}\r\n.signup-signin-form-group > .submit {\r\n    width: 130px;\r\n    border-radius: 25px;\r\n    text-transform: uppercase;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n}\r\n.signup-signin-form-group > .submit-link {\r\n    border: 2px solid #5FCF80;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .submit-link:hover {\r\n    background: #fff;\r\n    color: #3ac162;\r\n}\r\n\r\n.signup-signin .error-msg{\r\n    color: red;\r\n    font-size: small;\r\n}\r\n\r\n.signup-signin .forgot-password{\r\n    font-size: small;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22694,7 +22694,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\n    display: flex;\n    flex-direction:column;\n}\n\n.party-content{\n    display: flex;\n    flex-direction:column;\n    background-color: #C4C4C4;\n    padding:1rem;\n    border-radius: 5px;\n    border-color: #4f5378;\n    border-width: 1rem 0.3rem 0.3rem 0.3rem;\n}\n\n.party-nav{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 3rem;\n    align-items: center;\n    justify-content: center;\n    position: -webkit-sticky;\n    position: sticky;\n    border-radius: 0.5rem 0.5rem 0 0;\n}\n\n.party-nav-item{\n    display: flex;\n    flex-direction: row;\n    width: 50%;\n    height: 100%;\n    align-items: center;\n    justify-content: center;\n    background-color: #2F3144;\n    font-size: large;\n    border-radius: 0.5rem 0.5rem 0 0;\n}\n\n.party-nav-item a{\n    color: #C4C4C4;\n}\n\n.party-active-nav{\n    margin-top: 1rem;\n    background-color: #4f5378;\n    height:100%;\n}\n\n.tasks-group{\n    width: 50%;\n    border-radius: 0.5rem;\n    margin: 1rem;\n}\n\n.tasks-group-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem 0.5rem 0 0;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n}\n\n.tasks-group-title{\n    -webkit-text-decoration: 10px;\n            text-decoration: 10px;\n}\n\n.task-progress-bar{\n    background-color: #d6ddf3;\n    padding: 0.2rem 0.3rem 0.2rem 0.3rem;\n    width: 40%;\n    border-radius: 1rem;\n    margin-right: 1rem;\n    margin-left: auto;\n}\n\n.tasks-group-content{\n    background-color: #d6ddf3;\n    padding: 1rem;\n    border-radius: 0 0 0.5rem 0.5rem;\n}\n\n.tasks-daily-group{\n    padding: 0.5rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\r\n    display: flex;\r\n    flex-direction:column;\r\n}\r\n\r\n.party-content{\r\n    display: flex;\r\n    flex-direction:column;\r\n    background-color: #C4C4C4;\r\n    padding:1rem;\r\n    border-radius: 5px;\r\n    border-color: #4f5378;\r\n    border-width: 1rem 0.3rem 0.3rem 0.3rem;\r\n}\r\n\r\n.party-nav{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    height: 3rem;\r\n    align-items: center;\r\n    justify-content: center;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    border-radius: 0.5rem 0.5rem 0 0;\r\n}\r\n\r\n.party-nav-item{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 50%;\r\n    height: 100%;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background-color: #2F3144;\r\n    font-size: large;\r\n    border-radius: 0.5rem 0.5rem 0 0;\r\n}\r\n\r\n.party-nav-item a{\r\n    color: #C4C4C4;\r\n}\r\n\r\n.party-active-nav{\r\n    margin-top: 1rem;\r\n    background-color: #4f5378;\r\n    height:100%;\r\n}\r\n\r\n.tasks-group{\r\n    width: 50%;\r\n    border-radius: 0.5rem;\r\n    margin: 1rem;\r\n}\r\n\r\n.tasks-group-header{\r\n    background-color: #95c5ed;\r\n    padding: 0.5rem;\r\n    border-radius: 0.5rem 0.5rem 0 0;\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n}\r\n\r\n.tasks-group-title{\r\n    -webkit-text-decoration: 10px;\r\n            text-decoration: 10px;\r\n}\r\n\r\n.task-progress-bar{\r\n    background-color: #d6ddf3;\r\n    padding: 0.2rem 0.3rem 0.2rem 0.3rem;\r\n    width: 40%;\r\n    border-radius: 1rem;\r\n    margin-right: 1rem;\r\n    margin-left: auto;\r\n}\r\n\r\n.tasks-group-content{\r\n    background-color: #d6ddf3;\r\n    padding: 1rem;\r\n    border-radius: 0 0 0.5rem 0.5rem;\r\n}\r\n\r\n.tasks-daily-group{\r\n    padding: 0.5rem;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34186,6 +34186,769 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/checkPropTypes.js":
+/*!***************************************************!*\
+  !*** ./node_modules/prop-types/checkPropTypes.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var printWarning = function() {};
+
+if (true) {
+  var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+  var loggedTypeFailures = {};
+  var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if (true) {
+    for (var typeSpecName in typeSpecs) {
+      if (has(typeSpecs, typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error(
+              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
+              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
+            );
+            err.name = 'Invariant Violation';
+            throw err;
+          }
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+          error = ex;
+        }
+        if (error && !(error instanceof Error)) {
+          printWarning(
+            (componentName || 'React class') + ': type specification of ' +
+            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
+            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
+            'You may have forgotten to pass an argument to the type checker ' +
+            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
+            'shape all require an argument).'
+          );
+        }
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          printWarning(
+            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
+          );
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Resets warning cache when testing.
+ *
+ * @private
+ */
+checkPropTypes.resetWarningCache = function() {
+  if (true) {
+    loggedTypeFailures = {};
+  }
+}
+
+module.exports = checkPropTypes;
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/factoryWithTypeCheckers.js":
+/*!************************************************************!*\
+  !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+
+var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
+
+var has = Function.call.bind(Object.prototype.hasOwnProperty);
+var printWarning = function() {};
+
+if (true) {
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+function emptyFunctionThatReturnsNull() {
+  return null;
+}
+
+module.exports = function(isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
+    }
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    elementType: createElementTypeTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker,
+    exact: createStrictShapeTypeChecker,
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  }
+  /*eslint-enable no-self-compare*/
+
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message) {
+    this.message = message;
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
+
+  function createChainableTypeChecker(validate) {
+    if (true) {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+
+      if (secret !== ReactPropTypesSecret) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          var err = new Error(
+            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+            'Use `PropTypes.checkPropTypes()` to call them. ' +
+            'Read more at http://fb.me/use-check-prop-types'
+          );
+          err.name = 'Invariant Violation';
+          throw err;
+        } else if ( true && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (
+            !manualPropTypeCallCache[cacheKey] &&
+            // Avoid spamming the console because they are often not actionable except for lib authors
+            manualPropTypeWarningCount < 3
+          ) {
+            printWarning(
+              'You are manually calling a React.PropTypes validation ' +
+              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
+              'and will throw in the standalone `prop-types` package. ' +
+              'You may be seeing this warning due to a third-party PropTypes ' +
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
+            );
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+
+    return chainedCheckType;
+  }
+
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+  }
+
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!ReactIs.isValidElementType(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      if (true) {
+        if (arguments.length > 1) {
+          printWarning(
+            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
+            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
+          );
+        } else {
+          printWarning('Invalid argument supplied to oneOf, expected an array.');
+        }
+      }
+      return emptyFunctionThatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+
+      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+        var type = getPreciseType(value);
+        if (type === 'symbol') {
+          return String(value);
+        }
+        return value;
+      });
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (has(propValue, key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+       true ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : 0;
+      return emptyFunctionThatReturnsNull;
+    }
+
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        printWarning(
+          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
+        );
+        return emptyFunctionThatReturnsNull;
+      }
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
+          return null;
+        }
+      }
+
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          continue;
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createStrictShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      // We need to check all keys in case some are required but missing from
+      // props.
+      var allKeys = assign({}, props[propName], shapeTypes);
+      for (var key in allKeys) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          return new PropTypeError(
+            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+          );
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+
+    return createChainableTypeChecker(validate);
+  }
+
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
+            }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
+        }
+
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
+    }
+
+    // falsy value can't be a Symbol
+    if (!propValue) {
+      return false;
+    }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+
+  ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/prop-types/index.js ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (true) {
+  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(/*! ./factoryWithTypeCheckers */ "./node_modules/prop-types/factoryWithTypeCheckers.js")(ReactIs.isElement, throwOnDirectAccess);
+} else {}
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
@@ -60511,55 +61274,129 @@ if (false) {} else {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "MemoryRouter": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.MemoryRouter),
-/* harmony export */   "Navigate": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.Navigate),
-/* harmony export */   "Outlet": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.Outlet),
-/* harmony export */   "Route": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.Route),
-/* harmony export */   "Router": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.Router),
-/* harmony export */   "Routes": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.Routes),
-/* harmony export */   "UNSAFE_LocationContext": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.UNSAFE_LocationContext),
-/* harmony export */   "UNSAFE_NavigationContext": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.UNSAFE_NavigationContext),
-/* harmony export */   "UNSAFE_RouteContext": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.UNSAFE_RouteContext),
-/* harmony export */   "createRoutesFromChildren": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.createRoutesFromChildren),
-/* harmony export */   "generatePath": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.generatePath),
-/* harmony export */   "matchPath": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.matchPath),
-/* harmony export */   "matchRoutes": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.matchRoutes),
-/* harmony export */   "renderMatches": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.renderMatches),
-/* harmony export */   "resolvePath": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.resolvePath),
-/* harmony export */   "useHref": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useHref),
-/* harmony export */   "useInRouterContext": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useInRouterContext),
-/* harmony export */   "useLocation": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useLocation),
-/* harmony export */   "useMatch": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useMatch),
-/* harmony export */   "useNavigate": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useNavigate),
-/* harmony export */   "useNavigationType": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useNavigationType),
-/* harmony export */   "useOutlet": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useOutlet),
-/* harmony export */   "useParams": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useParams),
-/* harmony export */   "useResolvedPath": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useResolvedPath),
-/* harmony export */   "useRoutes": () => (/* reexport safe */ react_router__WEBPACK_IMPORTED_MODULE_1__.useRoutes),
-/* harmony export */   "BrowserRouter": () => (/* binding */ BrowserRouter),
-/* harmony export */   "HashRouter": () => (/* binding */ HashRouter),
-/* harmony export */   "Link": () => (/* binding */ Link),
-/* harmony export */   "NavLink": () => (/* binding */ NavLink),
-/* harmony export */   "createSearchParams": () => (/* binding */ createSearchParams),
-/* harmony export */   "useLinkClickHandler": () => (/* binding */ useLinkClickHandler),
-/* harmony export */   "useSearchParams": () => (/* binding */ useSearchParams)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "consts": () => (/* binding */ consts)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! history */ "./node_modules/history/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/index.js");
-/**
- * React Router DOM v6.0.2
- *
- * Copyright (c) Remix Software Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.md file in the root directory of this source tree.
- *
- * @license MIT
- */
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_swipeable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-swipeable */ "./node_modules/react-swipeable/es/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! resize-observer-polyfill */ "./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js");
+/* harmony import */ var react_only_when__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-only-when */ "./node_modules/react-only-when/dist/index.es.js");
 
 
 
+
+
+
+
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
 
 function _getPrototypeOf(o) {
   _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
@@ -76849,7 +77686,7 @@ function _extends() {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\coding projects\\\\Laravel-ReactJS\\\\task_venator\\\\TaskVenator"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\coding projects\\\\Laravel-ReactJS\\\\task_venator\\\\TaskVenator","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 
@@ -76937,6 +77774,18 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\coding projects\\\
 /******/ 				}
 /******/ 			}
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
