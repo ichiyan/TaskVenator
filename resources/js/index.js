@@ -1,6 +1,7 @@
 
 export {Link} from 'react-router-dom';
 export {default as React} from "react";
+export {default as ReactDOM} from 'react-dom';
 export {default as $} from "jquery";
 export { useEffect, useState } from "react";
 

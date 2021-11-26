@@ -14834,6 +14834,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var GroupTasks = function GroupTasks() {
   var hpTotal = 50;
   var xpTotal = 50;
+  var name1 = "Mhady";
+  var percent1 = 80;
+  var name2 = "Lisette";
+  var percent2 = 40;
 
   var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(50),
       _useState2 = _slicedToArray(_useState, 2),
@@ -14873,7 +14877,7 @@ var GroupTasks = function GroupTasks() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "internal-pages",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Header, {
-      page: "group_tasks"
+      page: "party"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AvatarHeader, {
       hasParty: "true",
       hp: hp,
@@ -14906,11 +14910,19 @@ var GroupTasks = function GroupTasks() {
         className: "party-content",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
           children: "Group Tasks"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.GroupMemberPublicTasks, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.GroupMemberPublicTasks, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-          children: "Daily Tasks"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.HomeDailyTasks, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.HomeDailyTasks, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.GroupMemberPublicTasks, {
+          name: name1
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.GroupMemberPublicTasks, {
+          name: name2
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
           children: "Home Tasks"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.HomeTasks, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.HomeTasks, {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.HomeTasks, {
+          name: name1
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.HomeTasks, {
+          name: name2
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "Daily Tasks"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.HomeDailyTasks, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.HomeDailyTasks, {})]
       })]
     })]
   });
@@ -15426,28 +15438,106 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
 /* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
 
-var GroupMemberPublicTasks = function GroupMemberPublicTasks() {
+
+var GroupMemberPublicTasks = function GroupMemberPublicTasks(_ref) {
+  var name = _ref.name;
+  var tasks = ["Apple", "Banana", "Tea", "Coffee"];
+
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      isActive = _useState2[0],
+      setIsActive = _useState2[1];
+
+  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      checked = _useState4[0],
+      setChecked = _useState4[1];
+
+  var percentage = checked == 0 ? 0 : checked.length / tasks.length * 100;
+
+  var isChecked = function isChecked(item) {
+    return checked.includes(item) ? "checked-item" : "not-checked-item";
+  };
+
+  var checkedItems = checked.length ? checked.reduce(function (total, item) {
+    return total + ", " + item;
+  }) : "";
+
+  var handleCheck = function handleCheck(event) {
+    var updatedList = _toConsumableArray(checked);
+
+    if (event.target.checked) {
+      updatedList = [].concat(_toConsumableArray(checked), [event.target.value]);
+    } else {
+      updatedList.splice(checked.indexOf(event.target.value), 1);
+    }
+
+    setChecked(updatedList);
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "tasks-group accordion",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "accordion-item",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "tasks-group-header accordion-title",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        onClick: function onClick() {
+          return setIsActive(!isActive);
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "tasks-group-title",
-          children: " name "
+          children: [" ", name, "'s tasks "]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "task-progress-bar",
-          children: " 50% "
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "task-progress-bar-colored",
+            style: {
+              width: percentage + "%"
+            },
+            children: [percentage, "%"]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "accordion-icon",
+          children: [" ", isActive ? '--' : '+', " "]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      }), isActive && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "tasks-group-content accordion-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.TaskItem, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.TaskItem, {})]
+        children: tasks.map(function (task, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              value: task,
+              type: "checkbox",
+              onChange: handleCheck
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: isChecked(task),
+              children: task
+            })]
+          }, index);
+        })
       })]
     })
   });
@@ -15522,24 +15612,97 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
 /* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
 
-var HomeTasks = function HomeTasks() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "tasks-group",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "tasks-group-header",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "tasks-group-title",
-        children: " name "
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "tasks-group-content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.TaskItem, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.TaskItem, {})]
-    })]
+
+var HomeTasks = function HomeTasks(_ref) {
+  var name = _ref.name;
+  var tasks = ["Apple", "Banana", "Tea", "Coffee"];
+
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      isActive = _useState2[0],
+      setIsActive = _useState2[1];
+
+  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      checked = _useState4[0],
+      setChecked = _useState4[1];
+
+  var isChecked = function isChecked(item) {
+    return checked.includes(item) ? "checked-item" : "not-checked-item";
+  };
+
+  var checkedItems = checked.length ? checked.reduce(function (total, item) {
+    return total + ", " + item;
+  }) : "";
+
+  var handleCheck = function handleCheck(event) {
+    var updatedList = _toConsumableArray(checked);
+
+    if (event.target.checked) {
+      updatedList = [].concat(_toConsumableArray(checked), [event.target.value]);
+    } else {
+      updatedList.splice(checked.indexOf(event.target.value), 1);
+    }
+
+    setChecked(updatedList);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "tasks-group accordion",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "accordion-item",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "tasks-header accordion-title",
+        onClick: function onClick() {
+          return setIsActive(!isActive);
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "tasks-group-title",
+          children: [" ", name, " "]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "accordion-icon",
+          children: [" ", isActive ? '--' : '+', " "]
+        })]
+      }), isActive && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "tasks-group-content accordion-content",
+        children: tasks.map(function (task, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              value: isChecked(task),
+              type: "checkbox",
+              onClick: handleCheck
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "check",
+              children: task
+            })]
+          }, index);
+        })
+      })]
+    })
   });
 };
 
@@ -15561,16 +15724,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
 /* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
 
 var TaskItem = function TaskItem() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      checked = _useState2[0],
+      setChecked = _useState2[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      value: "item",
+      type: "checkbox"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "task-item-content",
       children: " one time"
-    })
+    })]
   });
 };
 
@@ -15679,46 +15863,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Link": () => (/* reexport safe */ react_router_dom__WEBPACK_IMPORTED_MODULE_0__.Link),
 /* harmony export */   "React": () => (/* reexport default export from named module */ react__WEBPACK_IMPORTED_MODULE_1__),
-/* harmony export */   "$": () => (/* reexport default from dynamic */ jquery__WEBPACK_IMPORTED_MODULE_2___default.a),
+/* harmony export */   "ReactDOM": () => (/* reexport default export from named module */ react_dom__WEBPACK_IMPORTED_MODULE_2__),
+/* harmony export */   "$": () => (/* reexport default from dynamic */ jquery__WEBPACK_IMPORTED_MODULE_3___default.a),
 /* harmony export */   "useEffect": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useEffect),
 /* harmony export */   "useState": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useState),
-/* harmony export */   "Login": () => (/* reexport safe */ _components_auth_Login__WEBPACK_IMPORTED_MODULE_3__["default"]),
-/* harmony export */   "Register": () => (/* reexport safe */ _components_auth_Register__WEBPACK_IMPORTED_MODULE_4__["default"]),
-/* harmony export */   "AvatarHeader": () => (/* reexport safe */ _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   "Header": () => (/* reexport safe */ _components_layouts_Header__WEBPACK_IMPORTED_MODULE_6__["default"]),
-/* harmony export */   "HomeNavbar": () => (/* reexport safe */ _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_7__["default"]),
-/* harmony export */   "PartyMemberAvatar": () => (/* reexport safe */ _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_8__["default"]),
-/* harmony export */   "TasksNavbar": () => (/* reexport safe */ _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_9__["default"]),
-/* harmony export */   "GroupTasks": () => (/* reexport safe */ _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_10__["default"]),
-/* harmony export */   "Party": () => (/* reexport safe */ _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_11__["default"]),
-/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_12__["default"]),
-/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_13__["default"]),
-/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_14__["default"]),
-/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_15__["default"]),
-/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_16__["default"]),
-/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_17__["default"]),
-/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_18__["default"])
+/* harmony export */   "Login": () => (/* reexport safe */ _components_auth_Login__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   "Register": () => (/* reexport safe */ _components_auth_Register__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   "AvatarHeader": () => (/* reexport safe */ _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   "Header": () => (/* reexport safe */ _components_layouts_Header__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   "HomeNavbar": () => (/* reexport safe */ _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   "PartyMemberAvatar": () => (/* reexport safe */ _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   "TasksNavbar": () => (/* reexport safe */ _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   "GroupTasks": () => (/* reexport safe */ _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_11__["default"]),
+/* harmony export */   "Party": () => (/* reexport safe */ _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_16__["default"]),
+/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_17__["default"]),
+/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_18__["default"]),
+/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_19__["default"])
 /* harmony export */ });
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/auth/Login */ "./resources/js/components/auth/Login.js");
-/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.js");
-/* harmony import */ var _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
-/* harmony import */ var _components_layouts_Header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/layouts/Header */ "./resources/js/components/layouts/Header.js");
-/* harmony import */ var _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/layouts/HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
-/* harmony import */ var _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/layouts/PartyMemberAvatar */ "./resources/js/components/layouts/PartyMemberAvatar.js");
-/* harmony import */ var _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/layouts/TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
-/* harmony import */ var _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
-/* harmony import */ var _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/party/Party */ "./resources/js/components/pages/party/Party.js");
-/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
-/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
-/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
-/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/auth/Login */ "./resources/js/components/auth/Login.js");
+/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.js");
+/* harmony import */ var _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
+/* harmony import */ var _components_layouts_Header__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/layouts/Header */ "./resources/js/components/layouts/Header.js");
+/* harmony import */ var _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/layouts/HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
+/* harmony import */ var _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/layouts/PartyMemberAvatar */ "./resources/js/components/layouts/PartyMemberAvatar.js");
+/* harmony import */ var _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/layouts/TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
+/* harmony import */ var _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
+/* harmony import */ var _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/party/Party */ "./resources/js/components/pages/party/Party.js");
+/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
+/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
+/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
+/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
+/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+
 
 
 
@@ -22858,7 +23045,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\n    margin: 15% 5% 10% 5%;\n    display: flex;\n    flex-direction:column;\n}\n\n.party-content{\n    display: flex;\n    flex-direction:column;\n    background-color: #C4C4C4;\n    padding:1rem;\n    border-radius: 5px;\n    border-color: #4f5378;\n    border-width: 1rem 0.3rem 0.3rem 0.3rem;\n}\n\n.party-nav{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 3rem;\n    align-items: center;\n    justify-content: center;\n    position: -webkit-sticky;\n    position: sticky;\n    border-radius: 0.5rem 0.5rem 0 0;\n}\n\n.party-nav-item{\n    display: flex;\n    flex-direction: row;\n    width: 50%;\n    height: 100%;\n    align-items: center;\n    justify-content: center;\n    background-color: #2F3144;\n    font-size: large;\n    border-radius: 0.5rem 0.5rem 0 0;\n}\n\n.party-nav-item a{\n    color: #C4C4C4;\n}\n\n.party-active-nav{\n    margin-top: 1rem;\n    background-color: #4f5378;\n    height:100%;\n}\n\n.tasks-group{\n    width: 50%;\n    border-radius: 0.5rem;\n    margin: 1rem;\n}\n\n.tasks-group-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem 0.5rem 0 0;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n}\n\n.tasks-group-title{\n    -webkit-text-decoration: 10px;\n            text-decoration: 10px;\n}\n\n.task-progress-bar{\n    background-color: #d6ddf3;\n    padding: 0.2rem 0.3rem 0.2rem 0.3rem;\n    width: 40%;\n    border-radius: 1rem;\n    margin-right: 1rem;\n    margin-left: auto;\n}\n\n.tasks-group-content{\n    background-color: #d6ddf3;\n    padding: 1rem;\n    border-radius: 0 0 0.5rem 0.5rem;\n}\n\n.tasks-daily-group{\n    padding: 0.5rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\n    margin: 15% 5% 10% 5%;\n    display: flex;\n    flex-direction:column;\n}\n\n.party-content{\n    display: flex;\n    flex-direction:column;\n    padding:1rem;\n}\n\n.party-nav{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 3rem;\n    align-items: center;\n    justify-content: center;\n}\n\n.party-nav-item{\n    display: flex;\n    flex-direction: row;\n    width: 20%;\n    height: 100%;\n    align-items: center;\n    justify-content: center;\n    font-size: large;\n    border-radius: 1.5rem;\n}\n\n.party-nav-item a:hover{\n    color: #5FCF80;\n}\n\n.party-nav-item a{\n    color: whitesmoke;\n}\n\n.party-active-nav{\n    border-color: #5FCF80;\n    border-width: 0.2rem;\n}\n\nh1{\n    color: #95c5ed;\n}\n\n.tasks-group{\n    width: 50%;\n    border-radius: 0.5rem;\n    margin: 1rem;\n    background-color: #d6ddf3;\n}\n\n.tasks-group-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-around;\n}\n\n.tasks-group-title{\n    font-size: 1.2rem;\n    margin-right: 1.5rem;\n}\n\n.task-progress-bar{\n    background-color: #d6ddf3;\n    width: 40%;\n    border-radius: 0.8rem;\n}\n\n.task-progress-bar-colored{\n    background-color: #9580FF;\n    padding: 0.1rem 0.2rem 0.1rem 0.4rem;\n    border-radius: 0.8rem;\n}\n\n.tasks-group-content{\n    background-color: #d6ddf3;\n    padding: 1rem;\n    border-radius: 0 0 0.5rem 0.5rem;\n}\n\n.tasks-daily-group{\n    padding: 0.5rem;\n}\n\n.tasks-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n}\n\n.accordion-icon{\n    font-size: 1.7rem;\n    margin: 0 1rem 0 auto;\n}\n\n.checked-item {\n    text-decoration: line-through;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

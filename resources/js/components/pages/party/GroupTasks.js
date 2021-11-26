@@ -8,6 +8,12 @@ const GroupTasks = () => {
 
     var hpTotal = 50;
     var xpTotal = 50;
+
+    var name1 = "Mhady"
+    var percent1 = 80;
+    var name2 = "Lisette"
+    var percent2 = 40;
+
     const [hp, setHp] = useState(50);
     const [xp, setXp] = useState(0);
     const [hpBarWidth, sethpBarWidth] = useState("100");
@@ -18,7 +24,7 @@ const GroupTasks = () => {
 
     return(
         <div className="internal-pages">
-            <Header page="group_tasks"/>
+            <Header page="party"/>
 
             <AvatarHeader
                 hasParty="true"
@@ -40,16 +46,26 @@ const GroupTasks = () => {
                 </div>
                 <div className="party-content" >
                     <h1>Group Tasks</h1>
-                    <GroupMemberPublicTasks/>
-                    <GroupMemberPublicTasks/>
+                    <GroupMemberPublicTasks
+                        name = {name1}
+                    />
+                    <GroupMemberPublicTasks
+                        name = {name2}
+                    />
+
+                    <h1>Home Tasks</h1>
+                    <HomeTasks
+                        name = {name1}
+                    />
+                    <HomeTasks
+                        name = {name2}
+                    />
 
                     <h1>Daily Tasks</h1>
                     <HomeDailyTasks/>
                     <HomeDailyTasks/>
 
-                    <h1>Home Tasks</h1>
-                    <HomeTasks/>
-                    <HomeTasks/>
+
                 </div>
 
             </section>

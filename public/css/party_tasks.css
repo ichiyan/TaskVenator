@@ -7,11 +7,7 @@
 .party-content{
     display: flex;
     flex-direction:column;
-    background-color: #C4C4C4;
     padding:1rem;
-    border-radius: 5px;
-    border-color: #4f5378;
-    border-width: 1rem 0.3rem 0.3rem 0.3rem;
 }
 
 .party-nav{
@@ -21,59 +17,68 @@
     height: 3rem;
     align-items: center;
     justify-content: center;
-    position: sticky;
-    border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .party-nav-item{
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 20%;
     height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: #2F3144;
     font-size: large;
-    border-radius: 0.5rem 0.5rem 0 0;
+    border-radius: 1.5rem;
+}
+
+.party-nav-item a:hover{
+    color: #5FCF80;
 }
 
 .party-nav-item a{
-    color: #C4C4C4;
+    color: whitesmoke;
 }
 
 .party-active-nav{
-    margin-top: 1rem;
-    background-color: #4f5378;
-    height:100%;
+    border-color: #5FCF80;
+    border-width: 0.2rem;
+}
+
+h1{
+    color: #95c5ed;
 }
 
 .tasks-group{
     width: 50%;
     border-radius: 0.5rem;
     margin: 1rem;
+    background-color: #d6ddf3;
 }
 
 .tasks-group-header{
     background-color: #95c5ed;
     padding: 0.5rem;
-    border-radius: 0.5rem 0.5rem 0 0;
+    border-radius: 0.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 .tasks-group-title{
-    text-decoration: 10px;
+    font-size: 1.2rem;
+    margin-right: 1.5rem;
 }
 
 .task-progress-bar{
     background-color: #d6ddf3;
-    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
     width: 40%;
-    border-radius: 1rem;
-    margin-right: 1rem;
-    margin-left: auto;
+    border-radius: 0.8rem;
+}
+
+.task-progress-bar-colored{
+    background-color: #9580FF;
+    padding: 0.1rem 0.2rem 0.1rem 0.4rem;
+    border-radius: 0.8rem;
 }
 
 .tasks-group-content{
@@ -84,4 +89,23 @@
 
 .tasks-daily-group{
     padding: 0.5rem;
+}
+
+.tasks-header{
+    background-color: #95c5ed;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.accordion-icon{
+    font-size: 1.7rem;
+    margin: 0 1rem 0 auto;
+}
+
+.checked-item {
+    text-decoration: line-through;
 }
