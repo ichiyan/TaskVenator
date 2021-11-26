@@ -1,9 +1,6 @@
-import React, { useEffect } from "react";
-import { useRef, useState } from "react";
-import { Party } from "../..";
-import AvatarHeader from "../layouts/AvatarHeader";
-import Header from "../layouts/Header";
-import Shop from "./shop/shop";
+import {Header, React,
+    useEffect, useState, GroupTasks,TasksTab,
+    AvatarHeader, Shop, Party} from "../../index";
 
 const Tasks = ({tab}) => {
 
@@ -86,15 +83,19 @@ const Tasks = ({tab}) => {
     var renderTab = '';
     if  (tab === "party"){
         renderTab =   <Party/>;
+    }else if (tab === "group_tasks"){
+        renderTab = <GroupTasks/>;
     }else if (tab === "shop"){
         renderTab = <Shop/>;
+    }else if (tab === "tasks"){
+        renderTab = <TasksTab/>;
     }
 
 
 
     return (
         <div>
-            <Header page="tasks"/>
+            <Header page={tab}/>
             <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
             <div className="main-section">
                 {/* main-section class in tasks.scss already sets margin-top to 15% */}
