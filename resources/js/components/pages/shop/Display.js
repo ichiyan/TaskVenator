@@ -2,6 +2,7 @@ import Button from "@restart/ui/esm/Button";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import ReactTooltip from 'react-tooltip';
+import Swal from 'sweetalert2';
 
 function Display ({clicked}){
    const[display1,setDisplay1]=useState({
@@ -36,6 +37,10 @@ function Display ({clicked}){
       })
    },[])
 
+   const buttonHandler=(e)=>{
+      Swal.fire("You successfully bought the item");
+   }
+
    
    
   
@@ -56,7 +61,7 @@ function Display ({clicked}){
                                                 <div className="shop-itemsInfo">
                                                       <h6>{p.name}</h6>
                                                       <p>{p.size}</p>
-                                                      <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
                                                 </div>
                                           </div> 
                                           <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
@@ -86,7 +91,7 @@ function Display ({clicked}){
                                                 <div className="shop-itemsInfo">
                                                       <h6>{p.name}</h6>
                                                       <p>{p.size}</p>
-                                                      <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
                                                 </div>
                                           </div> 
                                           <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
@@ -120,7 +125,7 @@ function Display ({clicked}){
                                                 </div>
                                                 <div className="shop-itemsInfo">
                                                       <h6>{w.name}</h6>
-                                                      <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
                                                 </div>
                                           </div> 
                                           <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
@@ -160,7 +165,7 @@ function Display ({clicked}){
                                                 <div className="shop-itemsInfo">
                                                       <h6>{w.name}</h6>
                                                       {/* <p>{p.size}</p> */}
-                                                      <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
                                                 </div>
                                           </div> 
                                           <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
@@ -206,7 +211,7 @@ function Display ({clicked}){
                                                 <div className="shop-itemsInfo">
                                                       <h6>{p.name}</h6>
                                                       <p>{p.size}</p>
-                                                      <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
                                                 </div>
                                           </div> 
                                           <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
@@ -235,7 +240,7 @@ function Display ({clicked}){
                                                 <div className="shop-itemsInfo">
                                                       <h6>{p.name}</h6>
                                                       <p>{p.size}</p>
-                                                      <Button><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
                                                 </div>
                                           </div> 
                                           <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
@@ -262,7 +267,7 @@ function Display ({clicked}){
                                                 </div>
                                                 <div className="shop-itemsInfo">
                                                       <h6>{w.name}</h6>
-                                                      <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
                                                 </div>
                                           </div> 
                                           <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
@@ -302,7 +307,7 @@ function Display ({clicked}){
                                                 <div className="shop-itemsInfo">
                                                       <h6>{w.name}</h6>
                                                       {/* <p>{p.size}</p> */}
-                                                      <Button><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
                                                 </div>
                                           </div> 
                                           <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
