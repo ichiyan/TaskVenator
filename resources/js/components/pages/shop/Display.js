@@ -1,12 +1,12 @@
-import React from "react";
+import {React} from "../../../index";
 
-function Display ({products, bought, setBought, clicked}){
-    
+const Display = ({products, bought, setBought, clicked}) => {
+
     const submitToHandler=(event)=>{
         event.preventDefault();
         setBought([
             ...bought,{
-                name: event.target.weaponName.value, 
+                name: event.target.weaponName.value,
                 class: event.target.weaponClass.value,
                 damage: event.target.weaponDamage.value,
                 type:event.target.weaponType.value
@@ -28,7 +28,7 @@ function Display ({products, bought, setBought, clicked}){
                      <h3>{p.class}</h3>
                      <h3>{p.damage}</h3>
                  <form onSubmit={submitToHandler}>
-               
+
                      <input name="weaponName" value={p.name} type="hidden" /><br></br>
                      <input name="weaponClass" value={p.class} type="hidden" /><br></br>
                      <input name="weaponDamage" value={p.damage} type="hidden" /><br></br>
@@ -44,7 +44,7 @@ function Display ({products, bought, setBought, clicked}){
                <h3>{p.class}</h3>
                <h3>{p.damage}</h3>
            <form onSubmit={submitToHandler}>
-          
+
                <input name="weaponName" value={p.name} type="hidden" /><br></br>
                <input name="weaponClass" value={p.class} type="hidden" /><br></br>
                <input name="weaponDamage" value={p.damage} type="hidden" /><br></br>
@@ -71,7 +71,7 @@ function Display ({products, bought, setBought, clicked}){
                 return("");
             }
         })}
-       
+
       </ul>
     );
 }
