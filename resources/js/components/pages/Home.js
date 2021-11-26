@@ -31,6 +31,8 @@ const Home = () => {
             }
         }).resize();
 
+        document.body.classList.remove('internal-pages');
+
     }, []);
 
     var heroButtons = '';

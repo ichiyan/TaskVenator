@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRef, useState } from "react";
+import { Party } from "../..";
 import AvatarHeader from "../layouts/AvatarHeader";
 import Header from "../layouts/Header";
+import Shop from "./shop/shop";
 
-const Tasks = () => {
+const Tasks = ({tab}) => {
 
     var hpTotal = 50;
     var xpTotal = 50;
@@ -15,6 +17,10 @@ const Tasks = () => {
 
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
+
+    useEffect( () => {
+        document.body.classList.add('internal-pages');
+    });
 
     const hitHandler = () => {
         let updatedHp;
@@ -77,19 +83,27 @@ const Tasks = () => {
 
     }
 
+    var renderTab = '';
+    if  (tab === "party"){
+        renderTab =   <Party/>;
+    }else if (tab === "shop"){
+        renderTab = <Shop/>;
+    }
+
+
 
     return (
-        <div className="internal-pages">
+        <div>
             <Header page="tasks"/>
             <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
-             {/* {this.test} */}
-             {/* TESTING */}
-             <div style={{margin: 15 + "%"}}>
-                 <p style={{color: "white"}}>TEST</p>
+            <div className="main-section">
+                {/* main-section class in tasks.scss already sets margin-top to 15% */}
+                 {/* <p style={{color: "white"}}>TEST</p>
                 <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
                 <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
-                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
-             </div>
+                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button> */}
+                 {renderTab}
+            </div>
         </div>
     );
 }

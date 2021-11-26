@@ -36,18 +36,18 @@ return(
          </div>
 
         <div className="shop">
-           
-            <Display 
+
+            <Display
                 products={products}
                 bought={bought}
                 setBought= {setBought}
                 clicked={clicked}
             />
         </div>
-        
-        
 
-        
+
+
+
     </div>
     )
 }
