@@ -29,10 +29,10 @@ const AppRouter = () => {
                     <Route path='/' exact element={<Home/>}></Route>
                     <Route path='/register' element={<Auth page="register"/>}></Route>
                     <Route path='/login' element={<Auth page="login"/>}></Route>
-                    <Route path='/tasks' element={<Tasks/>}></Route>
+                    <Route path='/tasks' element={<Tasks tab="tasks"/>}></Route>
                     <Route path='/shop' element={<Tasks tab="shop"/>}></Route>
                     <Route path='/party' element={<Tasks tab="party"/>}></Route>
-                    <Route path='/group_tasks' element={<GroupTasks/>}></Route>
+                    <Route path='/group_tasks' element={<Tasks tab="group_tasks"/>}></Route>
                 </Routes>
             </Router>
         </div>

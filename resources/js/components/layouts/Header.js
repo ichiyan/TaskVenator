@@ -61,7 +61,7 @@ const Header = ({page}) => {
         });
     }
 
-    var trailingButtons = '';
+    let trailingButtons = '';
     var isLoggedIn = "false";
     if(!localStorage.getItem('auth_token')){
         trailingButtons = (
@@ -94,7 +94,7 @@ const Header = ({page}) => {
         <header id="header" className="fixed-top">
             <div className="container d-flex justify-content-between align-items-center">
                  <h1 className="logo"><Link to="/">TaskVenator</Link></h1>
-                 {page === "home" ? <HomeNavbar isLoggedIn={isLoggedIn}/> : <TasksNavbar/>}
+                 {page === "home" ? <HomeNavbar isLoggedIn={isLoggedIn}/> : <TasksNavbar active={page}/>}
                  {trailingButtons}
             </div>
         </header>
