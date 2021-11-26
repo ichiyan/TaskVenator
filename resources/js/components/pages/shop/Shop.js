@@ -1,9 +1,8 @@
-import React from "react";
-import Form from "./addProductForm";
+import {React,
+    useEffect, useState,
+    Form, Display } from "../../../index";
 
-import Display from "./display";
-import { useState } from 'react';
-function Shop(){
+const Shop = () => {
     const[products, setProducts]= useState([]);
     const[bought, setBought]= useState([]);
     const[clicked, setClicked]= useState("");

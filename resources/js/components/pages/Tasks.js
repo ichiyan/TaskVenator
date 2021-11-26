@@ -22,7 +22,7 @@ const Tasks = ({tab}) => {
     const hitHandler = () => {
         let updatedHp;
 
-        if(hp == 0){
+        if(hp === 0){
             updatedHp = 50;
         }else{
             updatedHp = hp - 10;
@@ -45,7 +45,7 @@ const Tasks = ({tab}) => {
         let updatedHp;
         let newHPBarWidth;
 
-        if(hp == hpTotal){
+        if(hp === hpTotal){
             //    full health modal or sumn
             updatedHp = hpTotal;
         }else{
@@ -64,7 +64,7 @@ const Tasks = ({tab}) => {
     const addXPHandler = () => {
         let updatedXp = 0;
         let newXPBarWidth;
-        if(xp == xpTotal){
+        if(xp === xpTotal){
             newXPBarWidth = 0;
         }else{
             updatedXp = xp + 10;
@@ -80,7 +80,7 @@ const Tasks = ({tab}) => {
 
     }
 
-    var renderTab = '';
+    let renderTab = '';
     if  (tab === "party"){
         renderTab =   <Party/>;
     }else if (tab === "group_tasks"){

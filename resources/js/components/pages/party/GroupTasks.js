@@ -7,9 +7,7 @@ import '../../../../../public/css/party_tasks.css';
 const GroupTasks = () => {
 
     var name1 = "Mhady"
-    var percent1 = 80;
     var name2 = "Lisette"
-    var percent2 = 40;
 
     return(
         <section className="container party-section">
