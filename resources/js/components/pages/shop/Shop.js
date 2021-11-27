@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import AddItemForm from "./AddItemForm";
 import AddOutfitForm from './AddOutfitForm';
 import AddPotionForm from './AddPotionForm';
 import Display from "./Display";
 import Header from "../../layouts/Header";
 import AvatarHeader from "../../layouts/AvatarHeader";
+import { Link } from "react-router-dom";
+
 
 function Shop(){
     var hpTotal = 50;
@@ -37,14 +38,16 @@ return(
         <AddOutfitForm/> 
         <AddPotionForm/>
         </div>
-      
-       
         <div className="btn-group btn-group-lg" role="group">
                 <button type="button" name="All" onClick={showItem} className="btn btn-secondary" value="All">All</button>
                 <button type="button" name="Potions" onClick={showItem} className="btn btn-secondary" value="Potions">Potions</button>
                 <button type="button" name="Outfit" onClick={showItem} className="btn btn-secondary" value="Outfit">Outfit</button>
+                
         </div>
-    
+        <Link to="/all">All</Link>
+        <Link to="/potions">Potions</Link>
+        <Link to="/weapons">Weapons</Link>
+        <Link to="/outfit">Outfit</Link>
 
          <div className="shop-shop"> 
             <Display

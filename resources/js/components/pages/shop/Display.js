@@ -41,6 +41,7 @@ function Display ({clicked}){
       Swal.fire("You have successfully bought the item");
    }
 
+
    
    
   

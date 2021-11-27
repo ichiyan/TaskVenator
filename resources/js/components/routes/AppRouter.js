@@ -9,6 +9,10 @@ import Home from "../pages/Home";
 import Party from "../pages/party/Party";
 import GroupTasks from "../pages/party/GroupTasks";
 import Tasks from "../pages/Tasks";
+import All from "../pages/shop/All";
+import Potions from "../pages/shop/Potions";
+import Weapons from "../pages/shop/Weapons";
+import Outfit from "../pages/shop/Outfit";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -33,6 +37,10 @@ const AppRouter = () => {
                     <Route path='/shop' element={<Shop/>}></Route>
                     <Route path='/party' element={<Party/>}></Route>
                     <Route path='/group_tasks' element={<GroupTasks/>}></Route>
+                    <Route path='/all' element={<All/>}></Route>
+                    <Route path='/potions' element={<Potions/>}></Route>
+                    <Route path='/weapons' element={<Weapons/>}></Route>
+                    <Route path='/outfit' element={<Outfit/>}></Route>
                 </Routes>
             </Router>
         </div>
