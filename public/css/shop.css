@@ -2,6 +2,13 @@
   .shop-parentOfAll{
     background-color: #383A59;
   }
+  .shop-filtShop{
+    display: flex;
+    flex-direction: row;
+    margin-left: 70px;
+    margin-right: 70px;
+    
+  }
   .shop-main_shop{
     display: flex;
     background-color: #383A59;
@@ -22,24 +29,21 @@
 
   
   .shop-shop{
-    width:90%;
-    /* flex-direction: column;
-    align-items: center;
-    justify-content: center; */
     margin: auto;
     display:flex;
     flex-direction: row;
-    background-color: blue;
+    flex: 10.5;
+ 
   }
   .shop-filter{
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    
-    max-width:200px;
-    height:300px;
-    background-color: green;
+    margin-top: 50px;
+    height:100px;
+    flex: 1.5;
+    color: white;
   }
+  
   .shop-weaponList{
     
     display: flex;

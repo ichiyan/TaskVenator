@@ -26,6 +26,7 @@ function Shop(){
     useEffect(()=>{
         setClicked(clicked);
     },[clicked]);
+   
 
     
 return(
