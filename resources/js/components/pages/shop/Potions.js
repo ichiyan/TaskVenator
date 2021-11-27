@@ -73,7 +73,11 @@ useEffect(()=>{
               </div>
 
               <div className="shop-shop"> 
-                
+                  <div className="shop-filter">
+                       <button className="btn btn-secondary">All</button>
+                       <button className="btn btn-secondary">Health Potion</button>
+                       <button className="btn btn-secondary">Powerup Potion</button> 
+                  </div>
                  <div className="shop-category">
                         <div className="shop-categoryName">
                               <p>Health Potions</p>

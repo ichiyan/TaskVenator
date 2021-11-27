@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
 
 function Outfit(){
+  
     var hpTotal = 50;
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
@@ -17,18 +18,23 @@ function Outfit(){
     const [hpHitWidth, sethpHitWidth] = useState("0");
     const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
 
-    const [xpBarWidth, setXPBarWidth] = useState("0");
-    const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
-    const[clicked, setClicked] =useState("");
-
-    const[display1,setDisplay1]=useState({
-        potions:[],
-  });
+    const[charClass,setCharClass]=useState("All");
+    const[rarity, setRarity]=useState("All");
+ 
 
   const[display2,setDisplay2]=useState({
         outfit:[],
   });
-  
+  const rarityHandler=(e)=>{
+      setRarity(e.target.value);
+      console.log(rarity);
+      
+  }
+  const classHandler=(e)=>{
+        setCharClass(e.target.value);
+        
+  }
+
   useEffect(() =>{
      axios.get(`/api/outfit`).then(res =>{
            if(res.data.status===200){
@@ -42,13 +48,8 @@ function Outfit(){
            }
      })
   },[])
+  
 
-  const showItem =(event) =>{
-    setClicked(event.target.value);
-}
-useEffect(()=>{
-    setClicked(clicked);
-},[clicked]);
 
   const buttonHandler=(e)=>{
      Swal.fire("You have successfully bought the item");
@@ -57,17 +58,11 @@ useEffect(()=>{
     return(
         <div className="shop-parentOfAll">
               <Header page="shop"/>
-              <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} />
+              <AvatarHeader hasParty="false" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} />
               
               
               <div className="shop-main_shop">
-                <div className="btn-group btn-group-lg" role="group">
-                    <button type="button" name="All" onClick={showItem} className="btn btn-secondary" value="All">All</button>
-                    <button type="button" name="Potions" onClick={showItem} className="btn btn-secondary" value="Potions">Potions</button>
-                    <button type="button" name="Warrior" onClick={showItem} className="btn btn-secondary" value="Warrior">Warrior</button>
-                    
-                </div>
-                <div>
+              <div>
         <Link to="/all">All</Link>
         <Link to="/potions">Potions</Link>
         <Link to="/weapons">Weapons</Link>
@@ -76,81 +71,575 @@ useEffect(()=>{
               </div>
 
               <div className="shop-shop"> 
-                
+              
+                   <div className="shop-filter">
+                        <label>Class</label>
+                              <select name="class" className="form-select" onChange={classHandler}>
+                                    <option value="All">All</option>
+                                    <option value="Warrior">Warrior</option>
+                                    <option value="Assassin">Assassin</option>
+                                    <option valu="Mage">Mage</option>
+                              </select><br></br>
+                              <label>Rarity</label>
+                              <select name="class" className="form-select" onChange={rarityHandler}>
+                                    <option value="All">All</option>
+                                    <option value="Common">Common</option>
+                                    <option value="Uncommon">Uncommon</option>
+                                    <option value="Rare">Rare</option>
+                              </select><br></br>
+                  </div>
                  <div className="shop-category">
-                 <div className="shop-categoryName">
+                        <div className="shop-categoryName">
                               <p>Weapons</p>
                         </div>
                         {display2.outfit.map((w,index)=>{
-                            if(clicked === w.class){
-                                if(w.outfitType === "Costume"){
-                                    return (
-                                          <div data-tip data-for={w.name} key={index} className="shop-returnMap">
-                                                <div className="shop-items"> 
-                                                      <div className="shop-itemsImage">
-                                                      <img src={w.image}></img>
-                                                      </div>
-                                                      <div className="shop-itemsInfo">
-                                                            <h6>{w.name}</h6>
-                                                            <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
-                                                      </div>
-                                                </div> 
-                                                <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                      <div className="shop-hide">
-                                                            <div className="shop-itemsInfo">
-                                                                  <div className="shop-weaponInfo">
-                                                                        <h5>Attributes</h5>
-                                                                        <p>Physical Attack: {w.pAttack}</p>
-                                                                        <p>Magical Attack: {w.mAttack}</p>
-                                                                        <p>Physical Defense: {w.pDef}</p>
-                                                                        <p>Magical Defense: {w.mDef}</p>
-                                                                        <p>Strength: {w.str}</p>
-                                                                        <p>Agility: {w.agi}</p>
-                                                                        <p>Critical: {w.crit}</p>
-                                                                        <p>Critical Damage: {w.critDmg}</p>
+                              if(charClass==="All" && rarity==="All"){
+                                        if(w.outfitType === "Costume"){
+                                              return (
+                                                    <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                          <div className="shop-items"> 
+                                                                <div className="shop-itemsImage">
+                                                                <img src={w.image}></img>
+                                                                </div>
+                                                                <div className="shop-itemsInfo">
+                                                                      <h6>{w.name}</h6>
+                                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                </div>
+                                                          </div> 
+                                                          <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                <div className="shop-hide">
+                                                                      <div className="shop-itemsInfo">
+                                                                            <div className="shop-weaponInfo">
+                                                                                  <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                  <p>Class: {w.class}</p>
+                                                                                  <p>Physical Attack: {w.pAttack}</p>
+                                                                                  <p>Magical Attack: {w.mAttack}</p>
+                                                                                  <p>Physical Defense: {w.pDef}</p>
+                                                                                  <p>Magical Defense: {w.mDef}</p>
+                                                                                  <p>Strength: {w.str}</p>
+                                                                                  <p>Agility: {w.agi}</p>
+                                                                                  <p>Critical: {w.crit}</p>
+                                                                                  <p>Critical Damage: {w.critDmg}</p>
+                                                                            </div>
+                                                                      </div> 
+                                                                </div>
+                                                          </ReactTooltip>
+                                                    </div>     
+                                                    )
+                                                }
+                                          }else if(charClass==="All" && rarity==="Common"){
+                                                if(w.outfitType === "Costume" && rarity===w.type){
+                                                      return (
+                                                            <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                  <div className="shop-items"> 
+                                                                        <div className="shop-itemsImage">
+                                                                        <img src={w.image}></img>
+                                                                        </div>
+                                                                        <div className="shop-itemsInfo">
+                                                                              <h6>{w.name}</h6>
+                                                                              <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                        </div>
+                                                                  </div> 
+                                                                  <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                        <div className="shop-hide">
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <div className="shop-weaponInfo">
+                                                                                         <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                          <p>Class: {w.class}</p>
+                                                                                          <p>Physical Attack: {w.pAttack}</p>
+                                                                                          <p>Magical Attack: {w.mAttack}</p>
+                                                                                          <p>Physical Defense: {w.pDef}</p>
+                                                                                          <p>Magical Defense: {w.mDef}</p>
+                                                                                          <p>Strength: {w.str}</p>
+                                                                                          <p>Agility: {w.agi}</p>
+                                                                                          <p>Critical: {w.crit}</p>
+                                                                                          <p>Critical Damage: {w.critDmg}</p>
+                                                                                    </div>
+                                                                              </div> 
+                                                                        </div>
+                                                                  </ReactTooltip>
+                                                            </div>     
+                                                            )
+                                                        }
+                                          }else if(charClass==="All" && rarity==="Rare"){
+                                             if(w.outfitType === "Costume" && rarity===w.type){
+                                                return (
+                                                      <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                            <div className="shop-items"> 
+                                                                  <div className="shop-itemsImage">
+                                                                  <img src={w.image}></img>
+                                                                  </div>
+                                                                  <div className="shop-itemsInfo">
+                                                                        <h6>{w.name}</h6>
+                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
                                                                   </div>
                                                             </div> 
-                                                      </div>
-                                                </ReactTooltip>
-                                          </div>     
-                                          )
-                                    }
-                            }else if(clicked === ""){if(w.outfitType === "Costume"){
-                              return (
-                                    <div data-tip data-for={w.name} key={index} className="shop-returnMap">
-                                          <div className="shop-items"> 
-                                                <div className="shop-itemsImage">
-                                                <img src={w.image}></img>
-                                                </div>
-                                                <div className="shop-itemsInfo">
-                                                      <h6>{w.name}</h6>
-                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
-                                                </div>
-                                          </div> 
-                                          <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                <div className="shop-hide">
-                                                      <div className="shop-itemsInfo">
-                                                            <div className="shop-weaponInfo">
-                                                                  <h5>Attributes</h5>
-                                                                  <p>Physical Attack: {w.pAttack}</p>
-                                                                  <p>Magical Attack: {w.mAttack}</p>
-                                                                  <p>Physical Defense: {w.pDef}</p>
-                                                                  <p>Magical Defense: {w.mDef}</p>
-                                                                  <p>Strength: {w.str}</p>
-                                                                  <p>Agility: {w.agi}</p>
-                                                                  <p>Critical: {w.crit}</p>
-                                                                  <p>Critical Damage: {w.critDmg}</p>
-                                                            </div>
-                                                      </div> 
-                                                </div>
-                                          </ReactTooltip>
-                                    </div>     
-                                    )
-                             }
-                            }
-                          
-                        })}
-                   </div>
+                                                            <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                  <div className="shop-hide">
+                                                                        <div className="shop-itemsInfo">
+                                                                              <div className="shop-weaponInfo">
+                                                                                    <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                    <p>Class: {w.class}</p>
+                                                                                    <p>Physical Attack: {w.pAttack}</p>
+                                                                                    <p>Magical Attack: {w.mAttack}</p>
+                                                                                    <p>Physical Defense: {w.pDef}</p>
+                                                                                    <p>Magical Defense: {w.mDef}</p>
+                                                                                    <p>Strength: {w.str}</p>
+                                                                                    <p>Agility: {w.agi}</p>
+                                                                                    <p>Critical: {w.crit}</p>
+                                                                                    <p>Critical Damage: {w.critDmg}</p>
+                                                                              </div>
+                                                                        </div> 
+                                                                  </div>
+                                                            </ReactTooltip>
+                                                      </div>     
+                                                      )
+                                                      }
+                                                }else if(charClass==="All" && rarity==="Uncommon"){
+                                                      if(w.outfitType === "Costume" && rarity===w.type){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                 }else if(charClass==="Warrior" && rarity==="All"){
+                                                      if(w.outfitType === "Costume" && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Warrior" && rarity==="Common"){
+                                                      if(w.outfitType === "Costume" && w.type===rarity && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Warrior" && rarity==="Uncommon"){
+                                                      if(w.outfitType === "Costume" && w.type===rarity && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Warrior" && rarity==="Rare"){
+                                                      if(w.outfitType === "Costume" && w.type===rarity && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Assassin" && rarity==="All"){
+                                                      if(w.outfitType === "Costume" && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Assassin" && rarity==="Common"){
+                                                      if(w.outfitType === "Costume" && w.type===rarity && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Assassin" && rarity==="Uncommon"){
+                                                      if(w.outfitType === "Costume" && w.type===rarity && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Assassin" && rarity==="Rare"){
+                                                      if(w.outfitType === "Costume" && w.type===rarity && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Mage" && rarity==="All"){
+                                                      if(w.outfitType === "Costume" && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Mage" && rarity==="Common"){
+                                                      if(w.outfitType === "Costume" && w.type===rarity && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Mage" && rarity==="Uncommon"){
+                                                      if(w.outfitType === "Costume" && w.type===rarity && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }else if(charClass==="Mage" && rarity==="Rare"){
+                                                      if(w.outfitType === "Costume" && w.type===rarity && w.class===charClass){
+                                                            return (
+                                                                  <div data-tip data-for={w.name} key={index} className="shop-returnMap">
+                                                                        <div className="shop-items"> 
+                                                                              <div className="shop-itemsImage">
+                                                                              <img src={w.image}></img>
+                                                                              </div>
+                                                                              <div className="shop-itemsInfo">
+                                                                                    <h6>{w.name}</h6>
+                                                                                    <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
+                                                                              </div>
+                                                                        </div> 
+                                                                        <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                                                              <div className="shop-hide">
+                                                                                    <div className="shop-itemsInfo">
+                                                                                          <div className="shop-weaponInfo">
+                                                                                                <h5>{w.type}&nbsp;Attributes</h5>
+                                                                                                <p>Class: {w.class}</p>
+                                                                                                <p>Physical Attack: {w.pAttack}</p>
+                                                                                                <p>Magical Attack: {w.mAttack}</p>
+                                                                                                <p>Physical Defense: {w.pDef}</p>
+                                                                                                <p>Magical Defense: {w.mDef}</p>
+                                                                                                <p>Strength: {w.str}</p>
+                                                                                                <p>Agility: {w.agi}</p>
+                                                                                                <p>Critical: {w.crit}</p>
+                                                                                                <p>Critical Damage: {w.critDmg}</p>
+                                                                                          </div>
+                                                                                    </div> 
+                                                                              </div>
+                                                                        </ReactTooltip>
+                                                                  </div>     
+                                                            )
+                                                      }
+                                                }
+                                           })}
+                              </div>
                 
               </div>  
 

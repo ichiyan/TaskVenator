@@ -63,7 +63,7 @@ useEffect(()=>{
                 <div className="btn-group btn-group-lg" role="group">
                     <button type="button" name="All" onClick={showItem} className="btn btn-secondary" value="All">All</button>
                     <button type="button" name="Potions" onClick={showItem} className="btn btn-secondary" value="Potions">Potions</button>
-                    <button type="button" name="Warrior" onClick={showItem} className="btn btn-secondary" value="Warrior">Warrior</button>
+                    <button type="button" name="Outfit" onClick={showItem} className="btn btn-secondary" value="Outfit">Outfit</button>
                     
                 </div>
                 <div>
@@ -75,7 +75,12 @@ useEffect(()=>{
               </div>
 
               <div className="shop-shop"> 
-                
+                <div className="shop-filter">
+                       <button name="All" className="btn btn-secondary" onClick={showItem} value="All">All</button>
+                       <button name="Warrior" className="btn btn-secondary"onClick={showItem} value="Warrior">Warrior</button>
+                       <button name="Assassin" className="btn btn-secondary" onClick={showItem} value="Assassin">Assassin</button> 
+                       <button name="Mage" className="btn btn-secondary" onClick={showItem} value="Mage">Mage</button> 
+                  </div>
                  <div className="shop-category">
                  <div className="shop-categoryName">
                               <p>Weapons</p>

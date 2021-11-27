@@ -27,10 +27,18 @@
     align-items: center;
     justify-content: center; */
     margin: auto;
+    display:flex;
+    flex-direction: row;
+    background-color: blue;
+  }
+  .shop-filter{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
     
-  
-    
-    
+    max-width:200px;
+    height:300px;
+    background-color: green;
   }
   .shop-weaponList{
     
@@ -40,6 +48,7 @@
   }
   .shop-category{
     font: black;
+    margin-left: 20px;
   }
 
   /* displaying items in shop  */
@@ -53,7 +62,7 @@
     margin-bottom: 20px;
     text-align: center;
     background-color: #8AFF80;
-    width: 200px;
+    width: 150px;
   }
   .shop-itemsImage img{
     margin-top: 10px;
