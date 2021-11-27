@@ -38,7 +38,7 @@ function Display ({clicked}){
    },[])
 
    const buttonHandler=(e)=>{
-      Swal.fire("You successfully bought the item");
+      Swal.fire("You have successfully bought the item");
    }
 
    

@@ -16955,7 +16955,7 @@ function Display(_ref) {
   }, []);
 
   var buttonHandler = function buttonHandler(e) {
-    sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().fire("You successfully bought the item");
+    sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().fire("You have successfully bought the item");
   };
 
   if (clicked === "Potions") {
@@ -17541,7 +17541,7 @@ function Shop() {
       className: "shop-main_shop",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "shop-weaponForm",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_AddOutfitForm__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_AddPotionForm__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_AddItemForm__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_AddOutfitForm__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_AddPotionForm__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "btn-group btn-group-lg",
         role: "group",

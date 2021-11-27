@@ -36,7 +36,6 @@ return(
         <div className="shop-weaponForm"> 
         <AddOutfitForm/> 
         <AddPotionForm/>
-        <AddItemForm/>
         </div>
       
        
