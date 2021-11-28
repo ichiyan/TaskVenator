@@ -94,12 +94,12 @@ const Tasks = ({tab}) => {
         <div>
             <Header page="tasks"/>
             <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
-            <div className="main-section" style={{margin: "15%"}}>
+            <div className="main-section">
                 {/* main-section class in tasks.scss already sets margin-top to 15% */}
-                 <p style={{color: "white"}}>TEST</p>
+                 {/* <p style={{color: "white"}}>TEST</p>
                 <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
                 <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
-                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
+                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button> */}
                  {renderTab}
             </div>
         </div>

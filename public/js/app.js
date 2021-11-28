@@ -14778,38 +14778,9 @@ var Tasks = function Tasks(_ref) {
       xpTotal: xpTotal,
       xpBarWidth: xpBarWidth,
       xpIncreaseWidth: xpIncreaseWidth
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "main-section",
-      style: {
-        margin: "15%"
-      },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-        style: {
-          color: "white"
-        },
-        children: "TEST"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-        style: {
-          margin: 10 + "px"
-        },
-        className: "btn btn-danger",
-        onClick: hitHandler,
-        children: "damage"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-        style: {
-          margin: 10 + "px"
-        },
-        className: "btn btn-success",
-        onClick: healHandler,
-        children: "heal"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-        style: {
-          margin: 10 + "px"
-        },
-        className: "btn btn-primary",
-        onClick: addXPHandler,
-        children: "add XP"
-      }), renderTab]
+      children: renderTab
     })]
   });
 };
