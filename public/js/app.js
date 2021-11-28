@@ -15175,39 +15175,34 @@ function All() {
     sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().fire("You have successfully bought the item");
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    className: "shop-parentOfAll",
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
+    className: "container party-section",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "shop-main_shop",
+      className: "shop-nav",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "shop-weaponForm"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "shop-nav",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "shop-nav-item shop-active-nav",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-            to: "/all",
-            children: "All"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-            to: "/potions",
-            children: "Potions"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-            to: "/weapons",
-            children: "Weapons"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-            to: "/outfit",
-            children: "Outfit"
-          })
-        })]
+        className: "shop-nav-item shop-active-nav",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+          to: "/all",
+          children: "All"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+          to: "/potions",
+          children: "Potions"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+          to: "/weapons",
+          children: "Weapons"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+          to: "/outfit",
+          children: "Outfit"
+        })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "shop-filtShop",
@@ -15566,38 +15561,35 @@ function Outfit() {
     sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("You have successfully bought the item");
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    className: "shop-parentOfAll",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      className: "shop-main_shop",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "shop-nav",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-            to: "/all",
-            children: "All"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-            to: "/potions",
-            children: "Potions"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-            to: "/weapons",
-            children: "Weapons"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-nav-item shop-active-nav",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-            to: "/outfit",
-            children: "Outfit"
-          })
-        })]
-      })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("section", {
+    className: "container party-section",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "shop-nav",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+          to: "/all",
+          children: "All"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+          to: "/potions",
+          children: "Potions"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+          to: "/weapons",
+          children: "Weapons"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-nav-item shop-active-nav",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+          to: "/outfit",
+          children: "Outfit"
+        })
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "shop-filtShop",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -16771,38 +16763,35 @@ function Potions() {
     sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("You have successfully bought the item");
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-    className: "shop-parentOfAll",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: "shop-main_shop",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "shop-nav",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-            to: "/all",
-            children: "All"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "shop-nav-item shop-active-nav",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-            to: "/potions",
-            children: "Potions"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-            to: "/weapons",
-            children: "Weapons"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-            to: "/outfit",
-            children: "Outfit"
-          })
-        })]
-      })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
+    className: "container party-section",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      className: "shop-nav",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+          to: "/all",
+          children: "All"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "shop-nav-item shop-active-nav",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+          to: "/potions",
+          children: "Potions"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+          to: "/weapons",
+          children: "Weapons"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+          to: "/outfit",
+          children: "Outfit"
+        })
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "shop-filtShop",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
@@ -17673,38 +17662,35 @@ function Weapons() {
     sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("You have successfully bought the item");
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    className: "shop-parentOfAll",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      className: "shop-main_shop",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "shop-nav",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-            to: "/all",
-            children: "All"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-            to: "/potions",
-            children: "Potions"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-nav-item shop-active-nav",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-            to: "/weapons",
-            children: "Weapons"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-            to: "/outfit",
-            children: "Outfit"
-          })
-        })]
-      })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("section", {
+    className: "container party-section",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "shop-nav",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+          to: "/all",
+          children: "All"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+          to: "/potions",
+          children: "Potions"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-nav-item shop-active-nav",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+          to: "/weapons",
+          children: "Weapons"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+          to: "/outfit",
+          children: "Outfit"
+        })
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "shop-filtShop",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -26291,7 +26277,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "    /* desinging shopp */\r\n  .shop-parentOfAll{\r\n    background-color: #383A59;\r\n  }\r\n  .shop-filtShop{\r\n    display: flex;\r\n    flex-direction: row;\r\n    margin-left: 70px;\r\n    margin-right: 70px;\r\n    \r\n  }\r\n  .shop-main_shop{\r\n    display: flex;\r\n    background-color: #383A59;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-family: \"Playfair Display\", serif;\r\n    margin-top: 140px;\r\n  }\r\n  .shop-nav{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    height: 3rem;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.shop-nav-item{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 20%;\r\n    height: 100%;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: large;\r\n    border-radius: 1.5rem;\r\n}\r\n\r\n.shop-nav-item a:hover{\r\n    color: #5FCF80;\r\n}\r\n\r\n.shop-nav-item a{\r\n    color: whitesmoke;\r\n}\r\n\r\n.shop-active-nav{\r\n    border-color: #5FCF80;\r\n    border-width: 0.2rem;\r\n}\r\n  .shop-weaponForm{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n\r\n  \r\n  .shop-shop{\r\n    margin: auto;\r\n    display:flex;\r\n    flex-direction: row;\r\n    flex: 10.5;\r\n \r\n  }\r\n  .shop-filter{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n    height:100px;\r\n    flex: 1.5;\r\n    color: white;\r\n  }\r\n  \r\n  .shop-weaponList{\r\n    \r\n    display: flex;\r\n    gap: 2rem;\r\n    \r\n  }\r\n  .shop-category{\r\n    font: black;\r\n    margin-left: 20px;\r\n  }\r\n\r\n  /* displaying items in shop  */\r\n  .shop-returnMap{\r\n    display: inline-block;\r\n  }\r\n  .shop-items{\r\n    display: inline-block;\r\n    color: black;\r\n    margin-left: 40px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    background-color: #8AFF80;\r\n    width: 150px;\r\n  }\r\n  .shop-itemsImage img{\r\n    margin-top: 10px;\r\n    width: 100px;\r\n    height: 100px;\r\n  }\r\n  \r\n  /* css for buttons in shop */\r\n  .shop-items Button{\r\n    background-color: #FFFF80;\r\n    width: 100px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .shop-items Button:hover{\r\n    background-color: #C0C034;\r\n  }\r\n  .shop-itemsInfo img{\r\n    height:20px;\r\n    width:20px;\r\n  }\r\n  .shop-empty{\r\n    background-color: black;\r\n    height:200px;\r\n  }\r\n /* displaying the hide info in div  */\r\n .shop-toolTip{\r\n   align-items: center;\r\n }\r\n .shop-hide{\r\n  color: white;\r\n  width: 200px;\r\n  text-align: center;\r\n  text-justify: inter-word;\r\n  \r\n }\r\n .shop-hide .shop-weaponInfo{\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n }\r\n .shop-Empty{\r\n   background-color: black;\r\n }\r\n \r\n \r\n  */\r\n  /* button navigator */\r\n  .shop-main_shop .btn-group{\r\n    width:90%;\r\n\r\n  }\r\n  .shop-main_shop .btn-group .btn:hover,  .shop-main_shop .btn-group .btn:focus{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-displayButton:hover{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-weaponList{\r\n    display: flex;\r\n    \r\n  }\r\n  \r\n  /* test div */\r\n  .shop-categoryName p{\r\n    margin: 10px;\r\n    color: white;\r\n  \r\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "    /* desinging shopp */\r\n  .shop-parentOfAll{\r\n    background-color: #383A59;\r\n    \r\n  }\r\n  .shop-filtShop{\r\n    display: flex;\r\n    flex-direction: row;   \r\n  }\r\n \r\n  .shop-nav{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    height: 3rem;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.shop-nav-item{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 20%;\r\n    height: 100%;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: large;\r\n    border-radius: 1.5rem;\r\n}\r\n\r\n.shop-nav-item a:hover{\r\n    color: #5FCF80;\r\n}\r\n\r\n.shop-nav-item a{\r\n    color: whitesmoke;\r\n}\r\n\r\n.shop-active-nav{\r\n    border-color: #5FCF80;\r\n    border-width: 0.2rem;\r\n}\r\n  .shop-weaponForm{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n\r\n  \r\n  .shop-shop{\r\n    margin: auto;\r\n    display:flex;\r\n    flex-direction: row;\r\n    flex: 10.5;\r\n \r\n  }\r\n  .shop-filter{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n    height:100px;\r\n    flex: 1.5;\r\n    color: white;\r\n  }\r\n  \r\n  .shop-weaponList{\r\n    \r\n    display: flex;\r\n    gap: 2rem;\r\n    \r\n  }\r\n  .shop-category{\r\n    font: black;\r\n    margin-left: 20px;\r\n  }\r\n\r\n  /* displaying items in shop  */\r\n  .shop-returnMap{\r\n    display: inline-block;\r\n  }\r\n  .shop-items{\r\n    display: inline-block;\r\n    color: black;\r\n    margin-left: 40px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    background-color: #8AFF80;\r\n    width: 150px;\r\n  }\r\n  .shop-itemsImage img{\r\n    margin-top: 10px;\r\n    width: 100px;\r\n    height: 100px;\r\n  }\r\n  \r\n  /* css for buttons in shop */\r\n  .shop-items Button{\r\n    background-color: #FFFF80;\r\n    width: 100px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .shop-items Button:hover{\r\n    background-color: #C0C034;\r\n  }\r\n  .shop-itemsInfo img{\r\n    height:20px;\r\n    width:20px;\r\n  }\r\n  .shop-empty{\r\n    background-color: black;\r\n    height:200px;\r\n  }\r\n /* displaying the hide info in div  */\r\n .shop-toolTip{\r\n   align-items: center;\r\n }\r\n .shop-hide{\r\n  color: white;\r\n  width: 200px;\r\n  text-align: center;\r\n  text-justify: inter-word;\r\n  \r\n }\r\n .shop-hide .shop-weaponInfo{\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n }\r\n .shop-Empty{\r\n   background-color: black;\r\n }\r\n \r\n \r\n  */\r\n  /* button navigator */\r\n  .shop-main_shop .btn-group{\r\n    width:90%;\r\n\r\n  }\r\n  .shop-main_shop .btn-group .btn:hover,  .shop-main_shop .btn-group .btn:focus{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-displayButton:hover{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-weaponList{\r\n    display: flex;\r\n    \r\n  }\r\n  \r\n  /* test div */\r\n  .shop-categoryName p{\r\n    margin: 10px;\r\n    color: white;\r\n  \r\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

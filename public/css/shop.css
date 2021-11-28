@@ -1,23 +1,13 @@
     /* desinging shopp */
   .shop-parentOfAll{
     background-color: #383A59;
+    
   }
   .shop-filtShop{
     display: flex;
-    flex-direction: row;
-    margin-left: 70px;
-    margin-right: 70px;
-    
+    flex-direction: row;   
   }
-  .shop-main_shop{
-    display: flex;
-    background-color: #383A59;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: "Playfair Display", serif;
-    margin-top: 140px;
-  }
+ 
   .shop-nav{
     display: flex;
     flex-direction: row;

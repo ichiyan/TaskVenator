@@ -55,16 +55,15 @@ function Outfit(){
   }
 
     return(
-        <div className="shop-parentOfAll">
-            
-              <div className="shop-main_shop">
+        <section className="container party-section">
+          
                   <div className="shop-nav">
                         <div className="shop-nav-item"><Link to="/all">All</Link></div>
                         <div className="shop-nav-item"><Link to="/potions">Potions</Link></div>
                         <div className="shop-nav-item"><Link to="/weapons">Weapons</Link></div>
                         <div className="shop-nav-item shop-active-nav"><Link to="/outfit">Outfit</Link></div>
                   </div>
-              </div>
+            
               <div className="shop-filtShop">
                   <div className="shop-filter">
                               <p>Class</p>
@@ -639,7 +638,7 @@ function Outfit(){
                         </div>
                   </div>  
 
-         </div>
+         </section>
    
     );
 }

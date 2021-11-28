@@ -27,9 +27,9 @@ function Shop(){
 
     
     return(
-        <div className="shop-parentOfAll">
+        <section className="container party-section">
               
-              <div className="shop-main_shop">
+            <div className="shop-main_shop">
               <div className="shop-weaponForm"> 
                   <AddOutfitForm/> 
                   <AddPotionForm/>
@@ -184,7 +184,7 @@ function Shop(){
               </div>  
 
          </div>
-         </div>
+    </section>
    
     );
 }
