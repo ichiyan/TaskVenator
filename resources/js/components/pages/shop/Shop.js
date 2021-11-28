@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from "react";
-import AddItemForm from "./AddItemForm";
-import AddOutfitForm from './AddOutfitForm';
-import AddPotionForm from './AddPotionForm';
-import Display from "./Display";
-import Header from "../../layouts/Header";
-import AvatarHeader from "../../layouts/AvatarHeader";
+import {React,
+    useEffect, useState,
+    Form, Display } from "../../../index";
 
-function Shop(){
-    var hpTotal = 50;
-    var xpTotal = 50;
-    const [hp, setHp] = useState(50);
-    const [xp, setXp] = useState(0);
-    const [hpBarWidth, sethpBarWidth] = useState("100");
-    const [hpHitWidth, sethpHitWidth] = useState("0");
-    const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
-
-    const [xpBarWidth, setXPBarWidth] = useState("0");
-    const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
-    const[clicked, setClicked] =useState("");
+const Shop = () => {
+    const[products, setProducts]= useState([]);
+    const[bought, setBought]= useState([]);
+    const[clicked, setClicked]= useState("");
 
     const showItem =(event) =>{
         setClicked(event.target.value);

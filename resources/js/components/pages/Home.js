@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from "react";
-import $ from "jquery";
-import {Link} from 'react-router-dom';
-
-import Header from "../layouts/Header";
+import {Header, Link, React,$,
+    useEffect, useState} from "../../index";
 
 const Home = () => {
 
