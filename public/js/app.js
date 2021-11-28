@@ -14408,9 +14408,57 @@ var PartyMemberAvatar = function PartyMemberAvatar(_ref) {
 /*!********************************************************!*\
   !*** ./resources/js/components/layouts/TasksNavbar.js ***!
   \********************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\resources\\js\\components\\layouts\\TasksNavbar.js: Unexpected token (7:1)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m         \u001b[33m<\u001b[39m\u001b[33mnav\u001b[39m id\u001b[33m=\u001b[39m\u001b[32m\"navbar\"\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"navbar order-last order-lg-0\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m             \u001b[33m<\u001b[39m\u001b[33mul\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"true\"\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/tasks\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mTasks\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mLink\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mInventory\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mLink\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/shop\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mShop\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mLink\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n    at Object._raise (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:541:17)\n    at Object.raiseWithData (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:534:17)\n    at Object.raise (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:495:17)\n    at Object.unexpected (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:3587:16)\n    at Object.jsxParseIdentifier (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7259:12)\n    at Object.jsxParseNamespacedName (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7269:23)\n    at Object.jsxParseElementName (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7280:21)\n    at Object.jsxParseOpeningElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7367:22)\n    at Object.jsxParseElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7400:33)\n    at Object.jsxParseElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7416:32)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index */ "./resources/js/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var TasksNavbar = function TasksNavbar(_ref) {
+  var active = _ref.active;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("nav", {
+    id: "navbar",
+    className: "navbar order-last order-lg-0",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: active === "tasks" ? "active" : "",
+          to: "/tasks",
+          children: "Tasks"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: active === "inventory" ? "active" : "",
+          to: "",
+          children: "Inventory"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: active === "shop" ? "active" : "",
+          to: "/shop",
+          children: "Shop"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: active === "party" ? "active" : "",
+          to: "/party",
+          children: "Party"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+      className: "bi bi-list mobile-nav-toggle"
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TasksNavbar);
 
 /***/ }),
 
@@ -14974,9 +15022,170 @@ var AddProductForm = function AddProductForm(_ref) {
 /*!*******************************************************!*\
   !*** ./resources/js/components/pages/shop/Display.js ***!
   \*******************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\resources\\js\\components\\pages\\shop\\Display.js: Unexpected token (1:1)\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mButton\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m\"@restart/ui/esm/Button\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m axios \u001b[36mfrom\u001b[39m \u001b[32m\"axios\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mReact\u001b[39m\u001b[33m,\u001b[39m { useState\u001b[33m,\u001b[39m useEffect } \u001b[36mfrom\u001b[39m \u001b[32m\"react\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:541:17)\n    at Object.raiseWithData (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:534:17)\n    at Object.raise (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:495:17)\n    at Object.unexpected (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:3587:16)\n    at Object.jsxParseIdentifier (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7259:12)\n    at Object.jsxParseNamespacedName (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7269:23)\n    at Object.jsxParseElementName (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7280:21)\n    at Object.jsxParseOpeningElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7367:22)\n    at Object.jsxParseElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7400:33)\n    at Object.jsxParseElement (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7474:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+
+
+
+var Display = function Display(_ref) {
+  var products = _ref.products,
+      bought = _ref.bought,
+      setBought = _ref.setBought,
+      clicked = _ref.clicked;
+
+  var submitToHandler = function submitToHandler(event) {
+    event.preventDefault();
+    setBought([].concat(_toConsumableArray(bought), [{
+      name: event.target.weaponName.value,
+      "class": event.target.weaponClass.value,
+      damage: event.target.weaponDamage.value,
+      type: event.target.weaponType.value
+    }]));
+    alert("napalit na nimo successfully");
+    console.log(event.target.weaponName);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
+    children: products.map(function (p, index) {
+      if (p.type === clicked) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "items",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.index
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.name
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.type
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p["class"]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.damage
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+            onSubmit: submitToHandler,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponName",
+              value: p.name,
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponClass",
+              value: p["class"],
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponDamage",
+              value: p.damage,
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponType",
+              value: p.type,
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              type: "submit",
+              children: "buy"
+            })]
+          })]
+        }, index);
+      } else if (clicked === "All") {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "items",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.index
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.name
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.type
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p["class"]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.damage
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+            onSubmit: submitToHandler,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponName",
+              value: p.name,
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponClass",
+              value: p["class"],
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponDamage",
+              value: p.damage,
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponType",
+              value: p.type,
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              type: "submit",
+              children: "buy"
+            })]
+          })]
+        }, index);
+      } else if (clicked === "") {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "items",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.index
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.name
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.type
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p["class"]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: p.damage
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+            onSubmit: submitToHandler,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponName",
+              value: p.name,
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponClass",
+              value: p["class"],
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponDamage",
+              value: p.damage,
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "weaponType",
+              value: p.type,
+              type: "hidden"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              type: "submit",
+              children: "buy"
+            })]
+          })]
+        }, index);
+      } else {
+        return "";
+      }
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Display);
 
 /***/ }),
 
@@ -14984,9 +15193,108 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*!****************************************************!*\
   !*** ./resources/js/components/pages/shop/Shop.js ***!
   \****************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\resources\\js\\components\\pages\\shop\\Shop.js: Unexpected token (1:1)\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mReact\u001b[39m\u001b[33m,\u001b[39m { useEffect\u001b[33m,\u001b[39m useState } \u001b[36mfrom\u001b[39m \u001b[32m\"react\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mAddItemForm\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m\"./AddItemForm\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mAddOutfitForm\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'./AddOutfitForm'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:541:17)\n    at Object.raiseWithData (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:534:17)\n    at Object.raise (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:495:17)\n    at Object.unexpected (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:3587:16)\n    at Object.jsxParseIdentifier (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7259:12)\n    at Object.jsxParseNamespacedName (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7269:23)\n    at Object.jsxParseElementName (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7280:21)\n    at Object.jsxParseOpeningElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7367:22)\n    at Object.jsxParseElementAt (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7400:33)\n    at Object.jsxParseElement (D:\\coding projects\\Laravel-ReactJS\\task_venator\\TaskVenator\\node_modules\\@babel\\parser\\lib\\index.js:7474:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var Shop = function Shop() {
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      products = _useState2[0],
+      setProducts = _useState2[1];
+
+  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      bought = _useState4[0],
+      setBought = _useState4[1];
+
+  var _useState5 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      clicked = _useState6[0],
+      setClicked = _useState6[1];
+
+  var showItem = function showItem(event) {
+    setClicked(event.target.value);
+  };
+
+  (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setClicked(clicked);
+  }, [clicked]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "shop-parentOfAll",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Header, {
+      page: "shop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(AvatarHeader, {
+      hasParty: "true",
+      hp: hp,
+      hpTotal: hpTotal,
+      hpBarWidth: hpBarWidth,
+      hpHitWidth: hpHitWidth,
+      HpIncreaseWidth: HpIncreaseWidth,
+      xp: xp,
+      xpTotal: xpTotal
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "shop-main_shop",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "shop-weaponForm",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(AddOutfitForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(AddPotionForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(AddItemForm, {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "btn-group btn-group-lg",
+        role: "group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          type: "button",
+          name: "All",
+          onClick: showItem,
+          className: "btn btn-secondary",
+          value: "All",
+          children: "All"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          type: "button",
+          name: "Potions",
+          onClick: showItem,
+          className: "btn btn-secondary",
+          value: "Potions",
+          children: "Potions"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          type: "button",
+          name: "Outfit",
+          onClick: showItem,
+          className: "btn btn-secondary",
+          value: "Outfit",
+          children: "Outfit"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "shop-shop",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Display, {
+          clicked: clicked
+        })
+      })]
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Shop);
 
 /***/ }),
 
@@ -15445,8 +15753,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "GroupTasks": () => (/* reexport safe */ _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_11__["default"]),
 /* harmony export */   "Party": () => (/* reexport safe */ _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_12__["default"]),
 /* harmony export */   "Form": () => (/* reexport safe */ _components_pages_shop_AddProductForm__WEBPACK_IMPORTED_MODULE_13__["default"]),
-/* harmony export */   "Display": () => (/* reexport default from dynamic */ _components_pages_shop_Display__WEBPACK_IMPORTED_MODULE_14___default.a),
-/* harmony export */   "Shop": () => (/* reexport default from dynamic */ _components_pages_shop_Shop__WEBPACK_IMPORTED_MODULE_15___default.a),
+/* harmony export */   "Display": () => (/* reexport safe */ _components_pages_shop_Display__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   "Shop": () => (/* reexport safe */ _components_pages_shop_Shop__WEBPACK_IMPORTED_MODULE_15__["default"]),
 /* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_16__["default"]),
 /* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_17__["default"]),
 /* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_18__["default"]),
@@ -15472,9 +15780,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/party/Party */ "./resources/js/components/pages/party/Party.js");
 /* harmony import */ var _components_pages_shop_AddProductForm__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/shop/AddProductForm */ "./resources/js/components/pages/shop/AddProductForm.js");
 /* harmony import */ var _components_pages_shop_Display__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/shop/Display */ "./resources/js/components/pages/shop/Display.js");
-/* harmony import */ var _components_pages_shop_Display__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_components_pages_shop_Display__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var _components_pages_shop_Shop__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/shop/Shop */ "./resources/js/components/pages/shop/Shop.js");
-/* harmony import */ var _components_pages_shop_Shop__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_components_pages_shop_Shop__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
 /* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
 /* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
