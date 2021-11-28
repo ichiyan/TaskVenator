@@ -3,6 +3,8 @@ export {default as React} from "react";
 export {default as ReactDOM} from 'react-dom';
 export {default as $} from "jquery";
 export { useEffect, useState, Fragment } from "react";
+export { default as axios } from "axios";
+export { default as io } from "socket.io-client";
 export { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt, faPaperPlane, faCircle} from '@fortawesome/free-solid-svg-icons'
 

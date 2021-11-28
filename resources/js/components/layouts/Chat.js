@@ -1,5 +1,5 @@
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
-import {React, Fragment, $, useState, FontAwesomeIcon, faPaperPlane, faCommentDots} from "../../index";
+import {React, Fragment, $, useState, useEffect, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
+import { io } from "socket.io-client";
 
 const Chat = () => {
 
@@ -8,7 +8,7 @@ const Chat = () => {
     }
 
     return (
-        <Fragment className="chat-popup">
+        <div className="chat-popup">
             <div className="chat-box">
                 <div className="client">
                     <div className="client-info">
@@ -17,7 +17,7 @@ const Chat = () => {
                     </div>
                 </div>
                 <div className="chats">
-                    <div class="client-chat">
+                    <div className="client-chat">
                        <p className="client-username">username</p>
                        <div className="client-message">
                            Test party member
@@ -25,7 +25,7 @@ const Chat = () => {
                        <p className="time-elapsed">5m ago</p>
                     </div>
                     <div className="user-chat">
-                        <div class="user-message text-right">
+                        <div className="user-message text-right">
                             Test user
                         </div>
                     </div>
@@ -46,7 +46,7 @@ const Chat = () => {
                     <FontAwesomeIcon icon={faCommentDots} className="chat-icon fa-stack-1x"></FontAwesomeIcon>
                 </span>
             </div>
-        </Fragment>
+        </div>
 
     );
 }

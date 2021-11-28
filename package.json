@@ -28,11 +28,14 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/react-fontawesome": "^0.1.16",
+        "express": "^4.17.1",
         "particles.js": "^2.0.0",
         "react-bootstrap": "^2.0.2",
         "react-elastic-carousel": "^0.11.5",
         "react-router-dom": "^6.0.2",
         "react-tooltip": "^4.2.21",
+        "socket.io": "^4.4.0",
+        "socket.io-client": "^4.4.0",
         "styled-components": "^5.3.3",
         "sweetalert2": "^11.1.10"
     }
