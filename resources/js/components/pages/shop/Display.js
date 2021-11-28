@@ -1,8 +1,8 @@
 import Button from "@restart/ui/esm/Button";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
 import ReactTooltip from 'react-tooltip';
 import Swal from 'sweetalert2';
+import {React} from "../../../index";
 
 function Display ({clicked}){
    const[display1,setDisplay1]=useState({

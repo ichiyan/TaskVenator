@@ -1,10 +1,6 @@
-import { useEffect } from "react";
-import React from "react";
-
-
-import Header from "../layouts/Header";
-import Register from "../auth/Register";
-import Login from "../auth/Login";
+import {Header, Link, React,Login,
+    useEffect, useState,Register
+    } from "../../index";
 
 const Auth = ({page}) =>{
 

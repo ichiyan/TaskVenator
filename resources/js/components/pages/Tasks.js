@@ -1,9 +1,8 @@
-import React from "react";
-import { useRef, useState } from "react";
-import AvatarHeader from "../layouts/AvatarHeader";
-import Header from "../layouts/Header";
+import {Header, React,
+    useEffect, useState, GroupTasks,TasksTab,
+    AvatarHeader, Shop, Party} from "../../index";
 
-const Tasks = () => {
+const Tasks = ({tab}) => {
 
     var hpTotal = 50;
     var xpTotal = 50;
@@ -16,10 +15,14 @@ const Tasks = () => {
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
 
+    useEffect( () => {
+        document.body.classList.add('internal-pages');
+    });
+
     const hitHandler = () => {
         let updatedHp;
 
-        if(hp == 0){
+        if(hp === 0){
             updatedHp = 50;
         }else{
             updatedHp = hp - 10;
@@ -42,7 +45,7 @@ const Tasks = () => {
         let updatedHp;
         let newHPBarWidth;
 
-        if(hp == hpTotal){
+        if(hp === hpTotal){
             //    full health modal or sumn
             updatedHp = hpTotal;
         }else{
@@ -61,7 +64,7 @@ const Tasks = () => {
     const addXPHandler = () => {
         let updatedXp = 0;
         let newXPBarWidth;
-        if(xp == xpTotal){
+        if(xp === xpTotal){
             newXPBarWidth = 0;
         }else{
             updatedXp = xp + 10;
@@ -77,19 +80,31 @@ const Tasks = () => {
 
     }
 
+    let renderTab = '';
+    if  (tab === "party"){
+        renderTab =   <Party/>;
+    }else if (tab === "group_tasks"){
+        renderTab = <GroupTasks/>;
+    }else if (tab === "shop"){
+        renderTab = <Shop/>;
+    }else if (tab === "tasks"){
+        renderTab = <TasksTab/>;
+    }
+
+
 
     return (
-        <div className="internal-pages">
-            <Header page="tasks"/>
+        <div>
+            <Header page={tab}/>
             <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
-             {/* {this.test} */}
-             {/* TESTING */}
-             <div style={{margin: 15 + "%"}}>
-                 <p style={{color: "white"}}>TEST</p>
+            <div className="main-section">
+                {/* main-section class in tasks.scss already sets margin-top to 15% */}
+                 {/* <p style={{color: "white"}}>TEST</p>
                 <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
                 <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
-                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
-             </div>
+                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button> */}
+                 {renderTab}
+            </div>
         </div>
     );
 }
