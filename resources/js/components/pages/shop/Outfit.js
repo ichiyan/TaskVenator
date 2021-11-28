@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Header from "../../layouts/Header";
-import AvatarHeader from "../../layouts/AvatarHeader";
 
 import Button from "@restart/ui/esm/Button";
-import axios from "axios";
-import ReactTooltip from 'react-tooltip';
-import Swal from 'sweetalert2';
-import { Link } from "react-router-dom";
+import {Link, React, useEffect, useState, 
+      AddPotionForm, AddOutfitForm, Swal, ReactTooltip,axios } from "../../../index";
 
 function Outfit(){
     var hpTotal = 50;

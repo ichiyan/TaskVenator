@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import AddOutfitForm from './AddOutfitForm';
-import AddPotionForm from './AddPotionForm';
-import { Link } from "react-router-dom";
+
+import Button from "@restart/ui/esm/Button";
+import {Link, React, useEffect, useState, 
+      AddPotionForm, AddOutfitForm, 
+      Swal, ReactTooltip,axios } from "../../../index";
 
 
 function Shop(){

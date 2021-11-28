@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from "react";
 import Button from "@restart/ui/esm/Button";
-import axios from "axios";
-import ReactTooltip from 'react-tooltip';
-import Swal from 'sweetalert2';
-import AddOutfitForm from './AddOutfitForm';
-import AddPotionForm from './AddPotionForm';
-import { Link } from "react-router-dom";
-
+import {Link, React, useEffect, useState, 
+      AddPotionForm, AddOutfitForm, Swal, ReactTooltip,axios } from "../../../index";
 function All(){
     var hpTotal = 50;
     var xpTotal = 50;

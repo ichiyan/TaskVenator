@@ -4,6 +4,9 @@ export {default as React} from "react";
 export {default as ReactDOM} from 'react-dom';
 export {default as $} from "jquery";
 export { useEffect, useState } from "react";
+export {Swal} from 'sweetalert2';
+export {default as ReactTooltip} from 'react-tooltip';
+export {default as axios} from "axios";
 
 export {default as Login} from "./components/auth/Login";
 export {default as Register} from "./components/auth/Register";
@@ -23,6 +26,8 @@ export {default as All} from "./components/pages/shop/All";
 export {default as Outfit} from "./components/pages/shop/Outfit";
 export {default as Potions} from "./components/pages/shop/Potions";
 export {default as Weapons} from "./components/pages/shop/Weapons";
+export {default as AddOutfitForm} from "./components/pages/shop/AddOutfitForm";
+export {default as AddPotionForm} from "./components/pages/shop/AddPotionForm";
 
 export {default as GroupMemberPublicTasks} from "./components/pages/tasks/GroupMemberPublicTasks";
 export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks";
