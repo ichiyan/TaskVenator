@@ -87,7 +87,7 @@ function Outfit(){
                   </div>
 
                   <div className="shop-shop"> 
-                  <div className="shop-category">
+                   <div className="shop-category">
                               <div className="shop-categoryName">
                                     <p>Outfit</p>
                               </div>
