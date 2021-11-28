@@ -3,6 +3,8 @@ import Button from "@restart/ui/esm/Button";
 import axios from "axios";
 import ReactTooltip from 'react-tooltip';
 import Swal from 'sweetalert2';
+import AddOutfitForm from './AddOutfitForm';
+import AddPotionForm from './AddPotionForm';
 import { Link } from "react-router-dom";
 
 function All(){
@@ -62,16 +64,18 @@ useEffect(()=>{
 
     return(
         <section className="container party-section">
-              
-                  <div className="shop-nav">
-                        <div className="shop-nav-item shop-active-nav"><Link to="/all">All</Link></div>
-                        <div className="shop-nav-item"><Link to="/potions">Potions</Link></div>
-                        <div className="shop-nav-item"><Link to="/weapons">Weapons</Link></div>
-                        <div className="shop-nav-item"><Link to="/outfit">Outfit</Link></div>
-                  </div>
+              <div className="shop-Form">
+                  <AddOutfitForm/> 
+                  <AddPotionForm/>
+            </div>
+              <div className="party-nav">
+                        <div className="party-nav-item party-active-nav"><Link to="/all">All</Link></div>
+                        <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
+                        <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
+                        <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
+             </div>
            
               <div className="shop-filtShop">
-                      
               <div className="shop-shop"> 
                  <div className="shop-category">
                         <div className="shop-categoryName">
