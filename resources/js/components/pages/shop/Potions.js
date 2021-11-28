@@ -62,11 +62,11 @@ function Potions(){
               
             
               <div className="shop-main_shop">
-                  <div>
-                        <Link to="/all">All</Link> &nbsp;
-                        <Link to="/potions">Potions</Link> &nbsp;
-                        <Link to="/weapons">Weapons</Link> &nbsp;
-                        <Link to="/outfit">Outfit</Link> &nbsp;
+                  <div className="shop-nav">
+                        <div className="shop-nav-item"><Link to="/all">All</Link></div>
+                        <div className="shop-nav-item shop-active-nav"><Link to="/potions">Potions</Link></div>
+                        <div className="shop-nav-item"><Link to="/weapons">Weapons</Link></div>
+                        <div className="shop-nav-item"><Link to="/outfit">Outfit</Link></div>
                   </div>
               </div>
               <div className="shop-filtShop">

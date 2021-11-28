@@ -18,6 +18,38 @@
     font-family: "Playfair Display", serif;
     margin-top: 140px;
   }
+  .shop-nav{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.shop-nav-item{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    border-radius: 1.5rem;
+}
+
+.shop-nav-item a:hover{
+    color: #5FCF80;
+}
+
+.shop-nav-item a{
+    color: whitesmoke;
+}
+
+.shop-active-nav{
+    border-color: #5FCF80;
+    border-width: 0.2rem;
+}
   .shop-weaponForm{
     display: flex;
     flex-direction: row;

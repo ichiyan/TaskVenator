@@ -17,7 +17,7 @@ export {default as TasksNavbar} from "./components/layouts/TasksNavbar";
 export {default as GroupTasks} from "./components/pages/party/GroupTasks";
 export {default as Party} from "./components/pages/party/Party";
 
-export {default as Form} from "./components/pages/shop/AddProductForm";
+
 export {default as Display} from "./components/pages/shop/Display";
 export {default as Shop} from "./components/pages/shop/Shop";
 

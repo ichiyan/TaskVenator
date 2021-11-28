@@ -19,14 +19,6 @@ function Shop(){
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
     const[clicked, setClicked] =useState("");
-// import {React,
-//     useEffect, useState,
-//     Form, Display } from "../../../index";
-
-// const Shop = () => {
-//     const[products, setProducts]= useState([]);
-//     const[bought, setBought]= useState([]);
-//     const[clicked, setClicked]= useState("");
 
     const showItem =(event) =>{
         setClicked(event.target.value);

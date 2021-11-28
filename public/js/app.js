@@ -15798,10 +15798,10 @@ var Tasks = function Tasks(_ref) {
     renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Party, {});
   } else if (tab === "group_tasks") {
     renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.GroupTasks, {});
-  } else if (tab === "shop") {
-    renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Shop, {});
   } else if (tab === "tasks") {
     renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.TasksTab, {});
+  } else if (tab === "shop") {
+    renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Shop, {});
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -15981,10 +15981,10 @@ var Party = function Party() {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/shop/AddProductForm.js":
-/*!**************************************************************!*\
-  !*** ./resources/js/components/pages/shop/AddProductForm.js ***!
-  \**************************************************************/
+/***/ "./resources/js/components/pages/shop/AddOutfitForm.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/pages/shop/AddOutfitForm.js ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -16018,20 +16018,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-/***/ "./resources/js/components/pages/shop/Display.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/pages/shop/Display.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 
 
@@ -16369,7 +16356,7 @@ function AddOutfitForm() {
       })]
     })
   });
-};
+}
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddOutfitForm);
 
@@ -16422,7 +16409,7 @@ function AddPotionForm() {
       show = _useState2[0],
       setShow = _useState2[1];
 
-  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
       picture = _useState4[0],
       setPicture = _useState4[1];
@@ -16653,26 +16640,6 @@ function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArra
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
-/* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
@@ -16686,119 +16653,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var HomeTasks = function HomeTasks(_ref) {
-  var name = _ref.name;
-  var tasks = ["Apple", "Banana", "Tea", "Coffee"];
-
-  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-      _useState2 = _slicedToArray(_useState, 2),
-      isActive = _useState2[0],
-      setIsActive = _useState2[1];
-
-  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      checked = _useState4[0],
-      setChecked = _useState4[1];
-
-  var isChecked = function isChecked(item) {
-    return checked.includes(item) ? "checked-item" : "not-checked-item";
-  };
-
-  var checkedItems = checked.length ? checked.reduce(function (total, item) {
-    return total + ", " + item;
-  }) : "";
-
-  var handleCheck = function handleCheck(event) {
-    var updatedList = _toConsumableArray(checked);
-
-    if (event.target.checked) {
-      updatedList = [].concat(_toConsumableArray(checked), [event.target.value]);
-    } else {
-      updatedList.splice(checked.indexOf(event.target.value), 1);
-    }
-
-    setChecked(updatedList);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "tasks-group accordion",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "accordion-item",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "tasks-header accordion-title",
-        onClick: function onClick() {
-          return setIsActive(!isActive);
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "tasks-group-title",
-          children: [" ", name, " "]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "accordion-icon",
-          children: [" ", isActive ? '--' : '+', " "]
-        })]
-      }), isActive && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "tasks-group-content accordion-content",
-        children: tasks.map(function (task, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              value: task,
-              type: "checkbox",
-              onClick: handleCheck
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: isChecked(task),
-              children: task
-            })]
-          }, index);
-        })
-      })]
-    })
-  });
-};
 
 
 
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
-/* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-var TaskItem = function TaskItem() {
-  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      checked = _useState2[0],
-      setChecked = _useState2[1];
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-      value: "item",
-      type: "checkbox"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "task-item-content",
-      children: " one time"
-    })]
-  });
-};
 
 
 function All() {
@@ -16810,21 +16668,25 @@ function All() {
       hp = _useState2[0],
       setHp = _useState2[1];
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Auth */ "./resources/js/components/pages/Auth.js");
-/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _pages_Tasks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Tasks */ "./resources/js/components/pages/Tasks.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      xp = _useState4[0],
+      setXp = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("100"),
+      _useState6 = _slicedToArray(_useState5, 2),
+      hpBarWidth = _useState6[0],
+      sethpBarWidth = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState8 = _slicedToArray(_useState7, 2),
+      hpHitWidth = _useState8[0],
+      sethpHitWidth = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState10 = _slicedToArray(_useState9, 2),
+      HpIncreaseWidth = _useState10[0],
+      setHPIncreaseWidth = _useState10[1];
 
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
       _useState12 = _slicedToArray(_useState11, 2),
@@ -16899,326 +16761,273 @@ __webpack_require__.r(__webpack_exports__);
       HpIncreaseWidth: HpIncreaseWidth,
       xp: xp,
       xpTotal: xpTotal
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-      className: "shop-main_shop",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "btn-group btn-group-lg",
-        role: "group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-          type: "button",
-          name: "All",
-          onClick: showItem,
-          className: "btn btn-secondary",
-          value: "All",
-          children: "All"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-          type: "button",
-          name: "Potions",
-          onClick: showItem,
-          className: "btn btn-secondary",
-          value: "Potions",
-          children: "Potions"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-          type: "button",
-          name: "Outfit",
-          onClick: showItem,
-          className: "btn btn-secondary",
-          value: "Outfit",
-          children: "Outfit"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/all",
-          children: "All"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/potions",
-          children: "Potions"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/weapons",
-          children: "Weapons"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/outfit",
-          children: "Outfit"
-        })]
-      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      className: "shop-shop",
+      className: "shop-main_shop",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "shop-category",
+        className: "shop-nav",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-categoryName",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-            children: "Health Potions"
+          className: "shop-nav-item shop-active-nav",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/all",
+            children: "All"
           })
-        }), display1.potions.map(function (p, index) {
-          if (p.type === "Hp Potion") {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "shop-returnMap",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                "data-tip": true,
-                "data-for": p.name,
-                className: "shop-items",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "shop-itemsImage",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                    src: p.image
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                  className: "shop-itemsInfo",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
-                    children: p.name
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-                    children: p.size
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                    onClick: buttonHandler,
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                      src: "assets/images/currency.png"
-                    }), p.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), " BUY"]
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                id: p.name,
-                place: "right",
-                "aria-haspopup": "true",
-                className: "shop-toolTip",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "shop-hide",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                    className: "shop-itemsInfo",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-                      children: p.description
-                    })
-                  })
-                })
-              })]
-            }, index);
-          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-categoryName",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-            children: "Powerup Potions"
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/potions",
+            children: "Potions"
           })
-        }), display1.potions.map(function (p, index) {
-          if (p.type === "Powerup Potion") {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "shop-returnMap",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                "data-tip": true,
-                "data-for": p.name,
-                className: "shop-items",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "shop-itemsImage",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                    src: p.image
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                  className: "shop-itemsInfo",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
-                    children: p.name
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-                    children: p.size
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                    onClick: buttonHandler,
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                      src: "assets/images/currency.png"
-                    }), p.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), " BUY"]
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                id: p.name,
-                place: "right",
-                "aria-haspopup": "true",
-                className: "shop-toolTip",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "shop-hide",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                    className: "shop-itemsInfo",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-                      children: p.description
-                    })
-                  })
-                })
-              })]
-            }, index);
-          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-categoryName",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/weapons",
             children: "Weapons"
           })
-        }), display2.outfit.map(function (w, index) {
-          if (w.outfitType === "Weapon") {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              "data-tip": true,
-              "data-for": w.name,
-              className: "shop-returnMap",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                className: "shop-items",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "shop-itemsImage",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                    src: w.image
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                  className: "shop-itemsInfo",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
-                    children: w.name
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                    onClick: buttonHandler,
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                      src: "assets/images/currency.png"
-                    }), w.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), " BUY"]
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                id: w.name,
-                place: "right",
-                "aria-haspopup": "true",
-                className: "shop-toolTip",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "shop-hide",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                    className: "shop-itemsInfo",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                      className: "shop-weaponInfo",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
-                        children: "Attributes"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Physical Attack: ", w.pAttack]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Magical Attack: ", w.mAttack]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Physical Defense: ", w.pDef]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Magical Defense: ", w.mDef]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Strength: ", w.str]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Agility: ", w.agi]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Critical: ", w.crit]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Critical Damage: ", w.critDmg]
-                      })]
-                    })
-                  })
-                })
-              })]
-            }, index);
-          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "shop-categoryName",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-            children: "Costume"
-          })
-        }), display2.outfit.map(function (w, index) {
-          if (w.outfitType === "Costume") {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              "data-tip": true,
-              "data-for": w.name,
-              className: "shop-returnMap",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                className: "shop-items",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "shop-itemsImage",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                    src: w.image
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                  className: "shop-itemsInfo",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
-                    children: w.name
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                    onClick: buttonHandler,
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                      src: "assets/images/currency.png"
-                    }), w.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), " BUY"]
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                id: w.name,
-                place: "right",
-                "aria-haspopup": "true",
-                className: "shop-toolTip",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "shop-hide",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                    className: "shop-itemsInfo",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                      className: "shop-weaponInfo",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
-                        children: "Attributes"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Physical Attack: ", w.pAttack]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Magical Attack: ", w.mAttack]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Physical Defense: ", w.pDef]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Magical Defense: ", w.mDef]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Strength: ", w.str]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Agility: ", w.agi]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Critical: ", w.crit]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-                        children: ["Critical Damage: ", w.critDmg]
-                      })]
-                    })
-                  })
-                })
-              })]
-            }, index);
-          }
-var AppRouter = function AppRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-          path: "/",
-          exact: true,
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-          path: "/register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            page: "register"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-          path: "/login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            page: "login"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-          path: "/tasks",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            tab: "tasks"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-          path: "/shop",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            tab: "shop"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-          path: "/party",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            tab: "party"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-          path: "/group_tasks",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            tab: "group_tasks"
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/outfit",
+            children: "Outfit"
           })
         })]
       })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "shop-filtShop",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-shop",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "shop-category",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "shop-categoryName",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+              children: "Health Potions"
+            })
+          }), display1.potions.map(function (p, index) {
+            if (p.type === "Hp Potion") {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "shop-returnMap",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  "data-tip": true,
+                  "data-for": p.name,
+                  className: "shop-items",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "shop-itemsImage",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      src: p.image
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "shop-itemsInfo",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
+                      children: p.name
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                      children: p.size
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                      onClick: buttonHandler,
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                        src: "assets/images/currency.png"
+                      }), p.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), " BUY"]
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  id: p.name,
+                  place: "right",
+                  "aria-haspopup": "true",
+                  className: "shop-toolTip",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "shop-hide",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      className: "shop-itemsInfo",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                        children: p.description
+                      })
+                    })
+                  })
+                })]
+              }, index);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "shop-categoryName",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+              children: "Powerup Potions"
+            })
+          }), display1.potions.map(function (p, index) {
+            if (p.type === "Powerup Potion") {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "shop-returnMap",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  "data-tip": true,
+                  "data-for": p.name,
+                  className: "shop-items",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "shop-itemsImage",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      src: p.image
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "shop-itemsInfo",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
+                      children: p.name
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                      children: p.size
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                      onClick: buttonHandler,
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                        src: "assets/images/currency.png"
+                      }), p.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), " BUY"]
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  id: p.name,
+                  place: "right",
+                  "aria-haspopup": "true",
+                  className: "shop-toolTip",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "shop-hide",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      className: "shop-itemsInfo",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                        children: p.description
+                      })
+                    })
+                  })
+                })]
+              }, index);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "shop-categoryName",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+              children: "Weapons"
+            })
+          }), display2.outfit.map(function (w, index) {
+            if (w.outfitType === "Weapon") {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                "data-tip": true,
+                "data-for": w.name,
+                className: "shop-returnMap",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "shop-items",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "shop-itemsImage",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      src: w.image
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "shop-itemsInfo",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
+                      children: w.name
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                      onClick: buttonHandler,
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                        src: "assets/images/currency.png"
+                      }), w.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), " BUY"]
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  id: w.name,
+                  place: "right",
+                  "aria-haspopup": "true",
+                  className: "shop-toolTip",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "shop-hide",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      className: "shop-itemsInfo",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                        className: "shop-weaponInfo",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                          children: "Attributes"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Physical Attack: ", w.pAttack]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Magical Attack: ", w.mAttack]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Physical Defense: ", w.pDef]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Magical Defense: ", w.mDef]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Strength: ", w.str]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Agility: ", w.agi]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Critical: ", w.crit]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Critical Damage: ", w.critDmg]
+                        })]
+                      })
+                    })
+                  })
+                })]
+              }, index);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "shop-categoryName",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+              children: "Costume"
+            })
+          }), display2.outfit.map(function (w, index) {
+            if (w.outfitType === "Costume") {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                "data-tip": true,
+                "data-for": w.name,
+                className: "shop-returnMap",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "shop-items",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "shop-itemsImage",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      src: w.image
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "shop-itemsInfo",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h6", {
+                      children: w.name
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                      onClick: buttonHandler,
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                        src: "assets/images/currency.png"
+                      }), w.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), " BUY"]
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  id: w.name,
+                  place: "right",
+                  "aria-haspopup": "true",
+                  className: "shop-toolTip",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "shop-hide",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      className: "shop-itemsInfo",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                        className: "shop-weaponInfo",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                          children: "Attributes"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Physical Attack: ", w.pAttack]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Magical Attack: ", w.mAttack]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Physical Defense: ", w.pDef]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Magical Defense: ", w.mDef]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Strength: ", w.str]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Agility: ", w.agi]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Critical: ", w.crit]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["Critical Damage: ", w.critDmg]
+                        })]
+                      })
+                    })
+                  })
+                })]
+              }, index);
+            }
+          })]
+        })
+      })
     })]
   });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppRouter);
-
-if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(AppRouter, {}), document.getElementById('app'));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (All);
@@ -17234,68 +17043,17 @@ if (document.getElementById('app')) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Link": () => (/* reexport safe */ react_router_dom__WEBPACK_IMPORTED_MODULE_0__.Link),
-/* harmony export */   "React": () => (/* reexport default export from named module */ react__WEBPACK_IMPORTED_MODULE_1__),
-/* harmony export */   "ReactDOM": () => (/* reexport default export from named module */ react_dom__WEBPACK_IMPORTED_MODULE_2__),
-/* harmony export */   "$": () => (/* reexport default from dynamic */ jquery__WEBPACK_IMPORTED_MODULE_3___default.a),
-/* harmony export */   "useEffect": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useEffect),
-/* harmony export */   "useState": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useState),
-/* harmony export */   "Login": () => (/* reexport safe */ _components_auth_Login__WEBPACK_IMPORTED_MODULE_4__["default"]),
-/* harmony export */   "Register": () => (/* reexport safe */ _components_auth_Register__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   "AvatarHeader": () => (/* reexport safe */ _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_6__["default"]),
-/* harmony export */   "Header": () => (/* reexport safe */ _components_layouts_Header__WEBPACK_IMPORTED_MODULE_7__["default"]),
-/* harmony export */   "HomeNavbar": () => (/* reexport safe */ _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_8__["default"]),
-/* harmony export */   "PartyMemberAvatar": () => (/* reexport safe */ _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_9__["default"]),
-/* harmony export */   "TasksNavbar": () => (/* reexport safe */ _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_10__["default"]),
-/* harmony export */   "GroupTasks": () => (/* reexport safe */ _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_11__["default"]),
-/* harmony export */   "Party": () => (/* reexport safe */ _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_12__["default"]),
-/* harmony export */   "Form": () => (/* reexport safe */ _components_pages_shop_AddProductForm__WEBPACK_IMPORTED_MODULE_13__["default"]),
-/* harmony export */   "Display": () => (/* reexport safe */ _components_pages_shop_Display__WEBPACK_IMPORTED_MODULE_14__["default"]),
-/* harmony export */   "Shop": () => (/* reexport safe */ _components_pages_shop_Shop__WEBPACK_IMPORTED_MODULE_15__["default"]),
-/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_16__["default"]),
-/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_17__["default"]),
-/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_18__["default"]),
-/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_19__["default"]),
-/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_20__["default"]),
-/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_21__["default"]),
-/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_22__["default"]),
-/* harmony export */   "TasksTab": () => (/* reexport safe */ _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_23__["default"])
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @restart/ui/esm/Button */ "./node_modules/@restart/ui/esm/Button.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/auth/Login */ "./resources/js/components/auth/Login.js");
-/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.js");
-/* harmony import */ var _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
-/* harmony import */ var _components_layouts_Header__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/layouts/Header */ "./resources/js/components/layouts/Header.js");
-/* harmony import */ var _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/layouts/HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
-/* harmony import */ var _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/layouts/PartyMemberAvatar */ "./resources/js/components/layouts/PartyMemberAvatar.js");
-/* harmony import */ var _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/layouts/TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
-/* harmony import */ var _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
-/* harmony import */ var _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/party/Party */ "./resources/js/components/pages/party/Party.js");
-/* harmony import */ var _components_pages_shop_AddProductForm__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/shop/AddProductForm */ "./resources/js/components/pages/shop/AddProductForm.js");
-/* harmony import */ var _components_pages_shop_Display__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/shop/Display */ "./resources/js/components/pages/shop/Display.js");
-/* harmony import */ var _components_pages_shop_Shop__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/shop/Shop */ "./resources/js/components/pages/shop/Shop.js");
-/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
-/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
-/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
-/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
-/* harmony import */ var _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/pages/TasksTab */ "./resources/js/components/pages/TasksTab.js");
-
-
-
-
-
-
-
-
+/* harmony import */ var react_tooltip__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-tooltip */ "./node_modules/react-tooltip/dist/index.es.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
@@ -17318,21 +17076,21 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Display(_ref) {
   var clicked = _ref.clicked;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({
     potions: []
   }),
       _useState2 = _slicedToArray(_useState, 2),
       display1 = _useState2[0],
       setDisplay1 = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({
     outfit: []
   }),
       _useState4 = _slicedToArray(_useState3, 2),
       display2 = _useState4[0],
       setDisplay2 = _useState4[1];
 
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/outfit").then(function (res) {
       if (res.data.status === 200) {
         setDisplay2({
@@ -17341,7 +17099,7 @@ function Display(_ref) {
       }
     });
   }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/potions").then(function (res) {
       if (res.data.status === 200) {
         setDisplay1({
@@ -17352,7 +17110,7 @@ function Display(_ref) {
   }, []);
 
   var buttonHandler = function buttonHandler(e) {
-    sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().fire("You have successfully bought the item");
+    sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire("You have successfully bought the item");
   };
 
   if (clicked === "Potions") {
@@ -17389,7 +17147,7 @@ function Display(_ref) {
                   }), p.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), " BUY"]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"], {
               id: p.name,
               place: "right",
               "aria-haspopup": "true",
@@ -17437,7 +17195,7 @@ function Display(_ref) {
                   }), p.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), " BUY"]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"], {
               id: p.name,
               place: "right",
               "aria-haspopup": "true",
@@ -17488,7 +17246,7 @@ function Display(_ref) {
                   }), w.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), " BUY"]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"], {
               id: w.name,
               place: "right",
               "aria-haspopup": "true",
@@ -17553,7 +17311,7 @@ function Display(_ref) {
                   }), w.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), " BUY"]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"], {
               id: w.name,
               place: "right",
               "aria-haspopup": "true",
@@ -17625,7 +17383,7 @@ function Display(_ref) {
                   }), p.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), " BUY"]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"], {
               id: p.name,
               place: "right",
               "aria-haspopup": "true",
@@ -17673,7 +17431,7 @@ function Display(_ref) {
                   }), p.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), " BUY"]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"], {
               id: p.name,
               place: "right",
               "aria-haspopup": "true",
@@ -17719,7 +17477,7 @@ function Display(_ref) {
                   }), w.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), " BUY"]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"], {
               id: w.name,
               place: "right",
               "aria-haspopup": "true",
@@ -17784,7 +17542,7 @@ function Display(_ref) {
                   }), w.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), " BUY"]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"], {
               id: w.name,
               place: "right",
               "aria-haspopup": "true",
@@ -17959,19 +17717,32 @@ function Outfit() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "shop-main_shop",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/all",
-          children: "All"
-        }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/potions",
-          children: "Potions"
-        }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/weapons",
-          children: "Weapons"
-        }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/outfit",
-          children: "Outfit"
-        }), " \xA0"]
+        className: "shop-nav",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/all",
+            children: "All"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/potions",
+            children: "Potions"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/weapons",
+            children: "Weapons"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "shop-nav-item shop-active-nav",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/outfit",
+            children: "Outfit"
+          })
+        })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "shop-filtShop",
@@ -19162,19 +18933,32 @@ function Potions() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "shop-main_shop",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-          to: "/all",
-          children: "All"
-        }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-          to: "/potions",
-          children: "Potions"
-        }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-          to: "/weapons",
-          children: "Weapons"
-        }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-          to: "/outfit",
-          children: "Outfit"
-        }), " \xA0"]
+        className: "shop-nav",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+            to: "/all",
+            children: "All"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "shop-nav-item shop-active-nav",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+            to: "/potions",
+            children: "Potions"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+            to: "/weapons",
+            children: "Weapons"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+            to: "/outfit",
+            children: "Outfit"
+          })
+        })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "shop-filtShop",
@@ -19933,6 +19717,167 @@ function Potions() {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/shop/Shop.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/pages/shop/Shop.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _AddOutfitForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddOutfitForm */ "./resources/js/components/pages/shop/AddOutfitForm.js");
+/* harmony import */ var _AddPotionForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddPotionForm */ "./resources/js/components/pages/shop/AddPotionForm.js");
+/* harmony import */ var _Display__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Display */ "./resources/js/components/pages/shop/Display.js");
+/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../layouts/Header */ "./resources/js/components/layouts/Header.js");
+/* harmony import */ var _layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+function Shop() {
+  var hpTotal = 50;
+  var xpTotal = 50;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(50),
+      _useState2 = _slicedToArray(_useState, 2),
+      hp = _useState2[0],
+      setHp = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      xp = _useState4[0],
+      setXp = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("100"),
+      _useState6 = _slicedToArray(_useState5, 2),
+      hpBarWidth = _useState6[0],
+      sethpBarWidth = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState8 = _slicedToArray(_useState7, 2),
+      hpHitWidth = _useState8[0],
+      sethpHitWidth = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState10 = _slicedToArray(_useState9, 2),
+      HpIncreaseWidth = _useState10[0],
+      setHPIncreaseWidth = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState12 = _slicedToArray(_useState11, 2),
+      xpBarWidth = _useState12[0],
+      setXPBarWidth = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
+      _useState14 = _slicedToArray(_useState13, 2),
+      xpIncreaseWidth = _useState14[0],
+      setXPIncreaseWidth = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState16 = _slicedToArray(_useState15, 2),
+      clicked = _useState16[0],
+      setClicked = _useState16[1];
+
+  var showItem = function showItem(event) {
+    setClicked(event.target.value);
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setClicked(clicked);
+  }, [clicked]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "shop-parentOfAll",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      page: "shop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      hasParty: "true",
+      hp: hp,
+      hpTotal: hpTotal,
+      hpBarWidth: hpBarWidth,
+      hpHitWidth: hpHitWidth,
+      HpIncreaseWidth: HpIncreaseWidth,
+      xp: xp,
+      xpTotal: xpTotal
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "shop-main_shop",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "shop-weaponForm",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AddOutfitForm__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AddPotionForm__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "btn-group btn-group-lg",
+        role: "group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          type: "button",
+          name: "All",
+          onClick: showItem,
+          className: "btn btn-secondary",
+          value: "All",
+          children: "All"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          type: "button",
+          name: "Potions",
+          onClick: showItem,
+          className: "btn btn-secondary",
+          value: "Potions",
+          children: "Potions"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          type: "button",
+          name: "Outfit",
+          onClick: showItem,
+          className: "btn btn-secondary",
+          value: "Outfit",
+          children: "Outfit"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+        to: "/all",
+        children: "All"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+        to: "/potions",
+        children: "Potions"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+        to: "/weapons",
+        children: "Weapons"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+        to: "/outfit",
+        children: "Outfit"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "shop-shop",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Display__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          clicked: clicked
+        })
+      })]
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Shop);
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/shop/Weapons.js":
 /*!*******************************************************!*\
   !*** ./resources/js/components/pages/shop/Weapons.js ***!
@@ -20062,19 +20007,32 @@ function Weapons() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "shop-main_shop",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/all",
-          children: "All"
-        }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/potions",
-          children: "Potions"
-        }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/weapons",
-          children: "Weapons"
-        }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/outfit",
-          children: "Outfit"
-        }), " \xA0"]
+        className: "shop-nav",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/all",
+            children: "All"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/potions",
+            children: "Potions"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "shop-nav-item shop-active-nav",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/weapons",
+            children: "Weapons"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "shop-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "/outfit",
+            children: "Outfit"
+          })
+        })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "shop-filtShop",
@@ -21133,10 +21091,10 @@ function Weapons() {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/shop/shop.js":
-/*!****************************************************!*\
-  !*** ./resources/js/components/pages/shop/shop.js ***!
-  \****************************************************/
+/***/ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/pages/tasks/GroupMemberPublicTasks.js ***!
+  \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21144,14 +21102,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _AddOutfitForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddOutfitForm */ "./resources/js/components/pages/shop/AddOutfitForm.js");
-/* harmony import */ var _AddPotionForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddPotionForm */ "./resources/js/components/pages/shop/AddPotionForm.js");
-/* harmony import */ var _Display__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Display */ "./resources/js/components/pages/shop/Display.js");
-/* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../layouts/Header */ "./resources/js/components/layouts/Header.js");
-/* harmony import */ var _layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
+/* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -21169,167 +21130,81 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var GroupMemberPublicTasks = function GroupMemberPublicTasks(_ref) {
+  var name = _ref.name;
+  var tasks = ["Apple", "Banana", "Tea", "Coffee"];
 
-
-
-
-
-function Shop() {
-  var hpTotal = 50;
-  var xpTotal = 50;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(50),
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState2 = _slicedToArray(_useState, 2),
-      hp = _useState2[0],
-      setHp = _useState2[1];
+      isActive = _useState2[0],
+      setIsActive = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
-      xp = _useState4[0],
-      setXp = _useState4[1];
+      checked = _useState4[0],
+      setChecked = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("100"),
-      _useState6 = _slicedToArray(_useState5, 2),
-      hpBarWidth = _useState6[0],
-      sethpBarWidth = _useState6[1];
+  var percentage = checked == 0 ? 0 : checked.length / tasks.length * 100;
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
-      _useState8 = _slicedToArray(_useState7, 2),
-      hpHitWidth = _useState8[0],
-      sethpHitWidth = _useState8[1];
-
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
-      _useState10 = _slicedToArray(_useState9, 2),
-      HpIncreaseWidth = _useState10[0],
-      setHPIncreaseWidth = _useState10[1];
-
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
-      _useState12 = _slicedToArray(_useState11, 2),
-      xpBarWidth = _useState12[0],
-      setXPBarWidth = _useState12[1];
-
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("0"),
-      _useState14 = _slicedToArray(_useState13, 2),
-      xpIncreaseWidth = _useState14[0],
-      setXPIncreaseWidth = _useState14[1];
-
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState16 = _slicedToArray(_useState15, 2),
-      clicked = _useState16[0],
-      setClicked = _useState16[1];
-
-  var showItem = function showItem(event) {
-    setClicked(event.target.value);
+  var isChecked = function isChecked(item) {
+    return checked.includes(item) ? "checked-item" : "not-checked-item";
   };
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setClicked(clicked);
-  }, [clicked]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    className: "shop-parentOfAll",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      page: "shop"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      hasParty: "true",
-      hp: hp,
-      hpTotal: hpTotal,
-      hpBarWidth: hpBarWidth,
-      hpHitWidth: hpHitWidth,
-      HpIncreaseWidth: HpIncreaseWidth,
-      xp: xp,
-      xpTotal: xpTotal
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-      className: "shop-main_shop",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "shop-weaponForm",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AddOutfitForm__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AddPotionForm__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "btn-group btn-group-lg",
-        role: "group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-          type: "button",
-          name: "All",
-          onClick: showItem,
-          className: "btn btn-secondary",
-          value: "All",
-          children: "All"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-          type: "button",
-          name: "Potions",
-          onClick: showItem,
-          className: "btn btn-secondary",
-          value: "Potions",
-          children: "Potions"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-          type: "button",
-          name: "Outfit",
-          onClick: showItem,
-          className: "btn btn-secondary",
-          value: "Outfit",
-          children: "Outfit"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-        to: "/all",
-        children: "All"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-        to: "/potions",
-        children: "Potions"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-        to: "/weapons",
-        children: "Weapons"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-        to: "/outfit",
-        children: "Outfit"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        className: "shop-shop",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Display__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          clicked: clicked
-        })
-      })]
-    })]
-  });
-}
+  var checkedItems = checked.length ? checked.reduce(function (total, item) {
+    return total + ", " + item;
+  }) : "";
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Shop);
+  var handleCheck = function handleCheck(event) {
+    var updatedList = _toConsumableArray(checked);
 
-/***/ }),
+    if (event.target.checked) {
+      updatedList = [].concat(_toConsumableArray(checked), [event.target.value]);
+    } else {
+      updatedList.splice(checked.indexOf(event.target.value), 1);
+    }
 
-/***/ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js":
-/*!***********************************************************************!*\
-  !*** ./resources/js/components/pages/tasks/GroupMemberPublicTasks.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    setChecked(updatedList);
+  };
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
-/* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-var GroupMemberPublicTasks = function GroupMemberPublicTasks() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "tasks-group accordion",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "accordion-item",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "tasks-group-header accordion-title",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        onClick: function onClick() {
+          return setIsActive(!isActive);
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "tasks-group-title",
-          children: " name "
+          children: [" ", name, "'s tasks "]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "task-progress-bar",
-          children: " 50% "
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "task-progress-bar-colored",
+            style: {
+              width: percentage + "%"
+            },
+            children: [percentage, "%"]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "accordion-icon",
+          children: [" ", isActive ? '--' : '+', " "]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      }), isActive && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "tasks-group-content accordion-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.TaskItem, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.TaskItem, {})]
+        children: tasks.map(function (task, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              value: task,
+              type: "checkbox",
+              onChange: handleCheck
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: isChecked(task),
+              children: task
+            })]
+          }, index);
+        })
       })]
     })
   });
@@ -21404,24 +21279,97 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
 /* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
 
-var HomeTasks = function HomeTasks() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "tasks-group",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "tasks-group-header",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "tasks-group-title",
-        children: " name "
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "tasks-group-content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.TaskItem, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.TaskItem, {})]
-    })]
+
+var HomeTasks = function HomeTasks(_ref) {
+  var name = _ref.name;
+  var tasks = ["Apple", "Banana", "Tea", "Coffee"];
+
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      isActive = _useState2[0],
+      setIsActive = _useState2[1];
+
+  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      checked = _useState4[0],
+      setChecked = _useState4[1];
+
+  var isChecked = function isChecked(item) {
+    return checked.includes(item) ? "checked-item" : "not-checked-item";
+  };
+
+  var checkedItems = checked.length ? checked.reduce(function (total, item) {
+    return total + ", " + item;
+  }) : "";
+
+  var handleCheck = function handleCheck(event) {
+    var updatedList = _toConsumableArray(checked);
+
+    if (event.target.checked) {
+      updatedList = [].concat(_toConsumableArray(checked), [event.target.value]);
+    } else {
+      updatedList.splice(checked.indexOf(event.target.value), 1);
+    }
+
+    setChecked(updatedList);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "tasks-group accordion",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "accordion-item",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "tasks-header accordion-title",
+        onClick: function onClick() {
+          return setIsActive(!isActive);
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "tasks-group-title",
+          children: [" ", name, " "]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "accordion-icon",
+          children: [" ", isActive ? '--' : '+', " "]
+        })]
+      }), isActive && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "tasks-group-content accordion-content",
+        children: tasks.map(function (task, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              value: task,
+              type: "checkbox",
+              onClick: handleCheck
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: isChecked(task),
+              children: task
+            })]
+          }, index);
+        })
+      })]
+    })
   });
 };
 
@@ -21443,16 +21391,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
 /* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
 
 var TaskItem = function TaskItem() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      checked = _useState2[0],
+      setChecked = _useState2[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      value: "item",
+      type: "checkbox"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "task-item-content",
       children: " one time"
-    })
+    })]
   });
 };
 
@@ -21473,24 +21442,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Auth */ "./resources/js/components/pages/Auth.js");
-/* harmony import */ var _pages_shop_shop__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/shop/shop */ "./resources/js/components/pages/shop/shop.js");
-/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _pages_party_Party__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/party/Party */ "./resources/js/components/pages/party/Party.js");
-/* harmony import */ var _pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
-/* harmony import */ var _pages_Tasks__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/Tasks */ "./resources/js/components/pages/Tasks.js");
-/* harmony import */ var _pages_shop_All__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/shop/All */ "./resources/js/components/pages/shop/All.js");
-/* harmony import */ var _pages_shop_Potions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/shop/Potions */ "./resources/js/components/pages/shop/Potions.js");
-/* harmony import */ var _pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/shop/Weapons */ "./resources/js/components/pages/shop/Weapons.js");
-/* harmony import */ var _pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../pages/shop/Outfit */ "./resources/js/components/pages/shop/Outfit.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
+/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/components/pages/Home.js");
+/* harmony import */ var _pages_Tasks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+/* harmony import */ var _pages_shop_All__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/shop/All */ "./resources/js/components/pages/shop/All.js");
+/* harmony import */ var _pages_shop_Potions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/shop/Potions */ "./resources/js/components/pages/shop/Potions.js");
+/* harmony import */ var _pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/shop/Weapons */ "./resources/js/components/pages/shop/Weapons.js");
+/* harmony import */ var _pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/shop/Outfit */ "./resources/js/components/pages/shop/Outfit.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -21515,47 +21478,55 @@ axios__WEBPACK_IMPORTED_MODULE_2___default().interceptors.request.use(function (
 });
 
 var AppRouter = function AppRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.BrowserRouter, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/",
           exact: true,
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
             page: "register"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
             page: "login"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/tasks",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
-          path: "/shop",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_shop_shop__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            tab: "tasks"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/party",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_party_Party__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            tab: "party"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+          path: "/shop",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            tab: "Shop"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/group_tasks",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            tab: "group_tasks"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/all",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_shop_All__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_shop_All__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/potions",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_shop_Potions__WEBPACK_IMPORTED_MODULE_10__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_shop_Potions__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/weapons",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_11__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/outfit",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_12__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_9__["default"], {})
         })]
       })
     })
@@ -21565,7 +21536,7 @@ var AppRouter = function AppRouter() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppRouter);
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(AppRouter, {}), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(AppRouter, {}), document.getElementById('app'));
 }
 
 /***/ }),
@@ -21581,46 +21552,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Link": () => (/* reexport safe */ react_router_dom__WEBPACK_IMPORTED_MODULE_0__.Link),
 /* harmony export */   "React": () => (/* reexport default export from named module */ react__WEBPACK_IMPORTED_MODULE_1__),
-/* harmony export */   "$": () => (/* reexport default from dynamic */ jquery__WEBPACK_IMPORTED_MODULE_2___default.a),
+/* harmony export */   "ReactDOM": () => (/* reexport default export from named module */ react_dom__WEBPACK_IMPORTED_MODULE_2__),
+/* harmony export */   "$": () => (/* reexport default from dynamic */ jquery__WEBPACK_IMPORTED_MODULE_3___default.a),
 /* harmony export */   "useEffect": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useEffect),
 /* harmony export */   "useState": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useState),
-/* harmony export */   "Login": () => (/* reexport safe */ _components_auth_Login__WEBPACK_IMPORTED_MODULE_3__["default"]),
-/* harmony export */   "Register": () => (/* reexport safe */ _components_auth_Register__WEBPACK_IMPORTED_MODULE_4__["default"]),
-/* harmony export */   "AvatarHeader": () => (/* reexport safe */ _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   "Header": () => (/* reexport safe */ _components_layouts_Header__WEBPACK_IMPORTED_MODULE_6__["default"]),
-/* harmony export */   "HomeNavbar": () => (/* reexport safe */ _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_7__["default"]),
-/* harmony export */   "PartyMemberAvatar": () => (/* reexport safe */ _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_8__["default"]),
-/* harmony export */   "TasksNavbar": () => (/* reexport safe */ _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_9__["default"]),
-/* harmony export */   "GroupTasks": () => (/* reexport safe */ _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_10__["default"]),
-/* harmony export */   "Party": () => (/* reexport safe */ _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_11__["default"]),
-/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_12__["default"]),
-/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_13__["default"]),
-/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_14__["default"]),
-/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_15__["default"]),
-/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_16__["default"]),
-/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_17__["default"]),
-/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_18__["default"])
+/* harmony export */   "Login": () => (/* reexport safe */ _components_auth_Login__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   "Register": () => (/* reexport safe */ _components_auth_Register__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   "AvatarHeader": () => (/* reexport safe */ _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   "Header": () => (/* reexport safe */ _components_layouts_Header__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   "HomeNavbar": () => (/* reexport safe */ _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   "PartyMemberAvatar": () => (/* reexport safe */ _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   "TasksNavbar": () => (/* reexport safe */ _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   "GroupTasks": () => (/* reexport safe */ _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_11__["default"]),
+/* harmony export */   "Party": () => (/* reexport safe */ _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   "Display": () => (/* reexport safe */ _components_pages_shop_Display__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   "Shop": () => (/* reexport safe */ _components_pages_shop_Shop__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_16__["default"]),
+/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_17__["default"]),
+/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_18__["default"]),
+/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_19__["default"]),
+/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_20__["default"]),
+/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_21__["default"]),
+/* harmony export */   "TasksTab": () => (/* reexport safe */ _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_22__["default"])
 /* harmony export */ });
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/auth/Login */ "./resources/js/components/auth/Login.js");
-/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.js");
-/* harmony import */ var _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
-/* harmony import */ var _components_layouts_Header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/layouts/Header */ "./resources/js/components/layouts/Header.js");
-/* harmony import */ var _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/layouts/HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
-/* harmony import */ var _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/layouts/PartyMemberAvatar */ "./resources/js/components/layouts/PartyMemberAvatar.js");
-/* harmony import */ var _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/layouts/TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
-/* harmony import */ var _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
-/* harmony import */ var _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/party/Party */ "./resources/js/components/pages/party/Party.js");
-/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
-/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
-/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
-/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/auth/Login */ "./resources/js/components/auth/Login.js");
+/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.js");
+/* harmony import */ var _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
+/* harmony import */ var _components_layouts_Header__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/layouts/Header */ "./resources/js/components/layouts/Header.js");
+/* harmony import */ var _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/layouts/HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
+/* harmony import */ var _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/layouts/PartyMemberAvatar */ "./resources/js/components/layouts/PartyMemberAvatar.js");
+/* harmony import */ var _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/layouts/TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
+/* harmony import */ var _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
+/* harmony import */ var _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/party/Party */ "./resources/js/components/pages/party/Party.js");
+/* harmony import */ var _components_pages_shop_Display__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/shop/Display */ "./resources/js/components/pages/shop/Display.js");
+/* harmony import */ var _components_pages_shop_Shop__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/shop/Shop */ "./resources/js/components/pages/shop/Shop.js");
+/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
+/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
+/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
+/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
+/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+/* harmony import */ var _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pages/TasksTab */ "./resources/js/components/pages/TasksTab.js");
 
 
 
@@ -21633,9 +21612,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- //export {default as AddProductForm} from "./components/pages/shop/AddProductForm";
-//export {default as Display} from "./components/pages/shop/Display";
-//export {default as Shop} from "./components/pages/shop/Shop";
+
+
+
+
 
 
 
@@ -26705,11 +26685,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\r\n# General\r\n--------------------------------------------------------------*/\r\nhtml,body{\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Source Sans Pro\", 'sans-serif';\r\n}\r\n\r\na, a:hover{\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n/*--------------------------------------------------------------\r\n# Header\r\n--------------------------------------------------------------*/\r\n#header {\r\n    background: #2A2C37;\r\n    transition: all 0.5s;\r\n    z-index: 997;\r\n    padding: 10px 0;\r\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 0;\r\n  }\r\n  #header .logo {\r\n    font-size: 24px;\r\n    margin: 0;\r\n    padding: 0;\r\n    line-height: 1;\r\n    font-weight: 600;\r\n    letter-spacing: 1px;\r\n    font-family: \"Playfair Display\", serif;\r\n  }\r\n  #header .logo a {\r\n    color: #fff;\r\n  }\r\n  #header .logo img {\r\n    max-height: 40px;\r\n  }\r\n\r\n  /**\r\n  * Get Started Button\r\n  */\r\n\r\n  .get-started-btn {\r\n    margin-left: 22px;\r\n    background: #5fcf80;\r\n    color: #fff;\r\n    border-radius: 50px;\r\n    padding: 8px 25px;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n    font-size: 14px;\r\n    display: inline-block;\r\n  }\r\n  .get-started-btn:hover {\r\n    background: #3ac162;\r\n    color: #fff;\r\n  }\r\n  @media (max-width: 768px) {\r\n    .get-started-btn {\r\n      margin: 0 15px 0 0;\r\n      padding: 6px 18px;\r\n    }\r\n  }\r\n\r\n/*--------------------------------------------------------------\r\n# Navigation Menu\r\n--------------------------------------------------------------*/\r\n/**\r\n* Desktop Navigation\r\n*/\r\n\r\n.navbar {\r\n    padding: 0;\r\n  }\r\n  .navbar ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    list-style: none;\r\n    align-items: center;\r\n  }\r\n  .navbar li {\r\n    position: relative;\r\n  }\r\n  .navbar a, .navbar a:focus {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    padding: 10px 0 10px 30px;\r\n    font-family: \"Playfair Display\", serif;\r\n    font-size: 16px;\r\n    font-weight: 400;\r\n    color: #fff;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n  }\r\n  .navbar a i, .navbar a:focus i {\r\n    font-size: 12px;\r\n    line-height: 0;\r\n    margin-left: 5px;\r\n  }\r\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\r\n    color: #8AFF80;\r\n  }\r\n\r\n  /*\r\n  .navbar .dropdown ul {\r\n    display: block;\r\n    position: absolute;\r\n    left: 30px;\r\n    top: calc(100% + 30px);\r\n    margin: 0;\r\n    padding: 10px 0;\r\n    z-index: 99;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    background: #fff;\r\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\r\n    transition: 0.3s;\r\n    border-radius: 4px;\r\n  }\r\n  .navbar .dropdown ul li {\r\n    min-width: 200px;\r\n  }\r\n  .navbar .dropdown ul a {\r\n    padding: 10px 20px;\r\n    font-size: 14px;\r\n    text-transform: none;\r\n    font-weight: 500;\r\n  }\r\n  .navbar .dropdown ul a i {\r\n    font-size: 12px;\r\n  }\r\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\r\n    color: #5fcf80;\r\n  }\r\n  .navbar .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 100%;\r\n    visibility: visible;\r\n  }\r\n  .navbar .dropdown .dropdown ul {\r\n    top: 0;\r\n    left: calc(100% - 30px);\r\n    visibility: hidden;\r\n  }\r\n  .navbar .dropdown .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 0;\r\n    left: 100%;\r\n    visibility: visible;\r\n  }\r\n   @media (max-width: 1366px) {\r\n    .navbar .dropdown .dropdown ul {\r\n      left: -90%;\r\n    }\r\n    .navbar .dropdown .dropdown:hover > ul {\r\n      left: -100%;\r\n    }\r\n  } */\r\n\r\n  .navIcon{\r\n      font-size: 1.3rem;\r\n  }\r\n\r\n  .custom-dropdown{\r\n      position: absolute;\r\n      top: calc(100% + 10px);\r\n      width: 250px;\r\n      transform: translateX(-90%);\r\n      border-radius: 10px;\r\n      padding: 0.5rem;\r\n      overflow: hidden;\r\n      background-color: #242526;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-dropdown-item{\r\n      font-family: \"Source Sans Pro\", 'sans-serif';\r\n      font-size: small;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-menu-item{\r\n      height: 50%;\r\n      display: flex;\r\n      align-items: center;\r\n      padding: 0.5rem;\r\n  }\r\n\r\n  .custom-menu-item:hover{\r\n      background-color: #525357;\r\n  }\r\n\r\n  .dropdown-icon-left{\r\n      padding-right: 5px;\r\n  }\r\n\r\n  .dropdown-icon-right{\r\n      margin-left: auto;\r\n  }\r\n\r\n  /*--------------------------------------------------------------\r\n# Hero Section\r\n--------------------------------------------------------------*/\r\n#hero {\r\n    width: 100%;\r\n    height: 80vh;\r\n    background-color: #9580FF;\r\n    background-size: cover;\r\n    position: relative;\r\n  }\r\n\r\n  #hero .container {\r\n    padding-top: 72px;\r\n  }\r\n  @media (max-width: 992px) {\r\n    #hero .container {\r\n      padding-top: 62px;\r\n    }\r\n  }\r\n  #hero h1 {\r\n    margin: 0;\r\n    font-size: 48px;\r\n    font-weight: 700;\r\n    line-height: 56px;\r\n    color: #383A59;\r\n    font-family: \"Poppins\", sans-serif;\r\n  }\r\n  #hero h2 {\r\n    color: #383A59;\r\n    margin: 10px 0 0 0;\r\n    font-size: 24px;\r\n  }\r\n  #hero .btn-get-started, #hero .btn-login {\r\n    font-size: 15px;\r\n    letter-spacing: 1px;\r\n    display: inline-block;\r\n    padding: 10px 35px;\r\n    border-radius: 50px;\r\n    transition: 0.5s;\r\n    margin: 30px 30px 0 0;\r\n    border: 2px solid #2A2C37;\r\n    color: #fff;\r\n  }\r\n\r\n  #hero .btn-get-started{\r\n    background-color: #2A2C37;\r\n  }\r\n\r\n  #hero .btn-login{\r\n    border: 2px solid #fff;\r\n  }\r\n\r\n  #hero .btn-get-started:hover {\r\n    background: #383A59;\r\n    border: 2px solid #383A59;\r\n  }\r\n\r\n  #hero .btn-login:hover {\r\n    border: 2px solid #383A59;\r\n    color: #383A59;\r\n  }\r\n\r\n  @media (min-width: 1024px) {\r\n    #hero {\r\n      background-attachment: fixed;\r\n    }\r\n  }\r\n  @media (max-width: 768px) {\r\n    #hero {\r\n      height: 100vh;\r\n    }\r\n    #hero h1 {\r\n      font-size: 28px;\r\n      line-height: 36px;\r\n    }\r\n    #hero h2 {\r\n      font-size: 18px;\r\n      line-height: 24px;\r\n    }\r\n  }\r\n\r\n#landing-pixels{\r\n    width: 100%;\r\n\theight: 100%;\r\n}\r\n\r\n.landing-pixel{\r\n    background-color: #9580FF;\r\n\tfloat: left;\r\n}\r\n\r\n /*--------------------------------------------------------------\r\n# Registration and Login\r\n--------------------------------------------------------------*/\r\ncanvas {\r\n    display: block;\r\n}\r\n\r\n#particles-js {\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: #9580ff;\r\n    background-attachment: fixed;\r\n    position: fixed;\r\n}\r\n\r\n.container.signup-signin {\r\n    padding-top: 7%;\r\n    width: 60%;\r\n}\r\n\r\n\r\n.signup-signin-card {\r\n    border: 0 !important;\r\n    border-radius: 27.5px !important;\r\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\r\n    overflow: visible !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.signup-signin-card-img {\r\n    border-radius: 27.5px 0 0 27.5px !important;\r\n    width: 100% !important;\r\n    height: 100% !important;\r\n    border-radius: 0 ;\r\n    -o-object-fit: cover;\r\n        object-fit: cover;\r\n}\r\n\r\n.signup-signin-card-img-top{\r\n    position: absolute !important;\r\n    right: 53% !important;\r\n}\r\n\r\n.register-img{\r\n    height: 115%;\r\n}\r\n\r\n.login-img{\r\n    height: 155%;\r\n    top: -20%;\r\n}\r\n\r\n.signup-signin-card .card-body {\r\n    padding: 50px 40px 50px 60px;\r\n}\r\n\r\n\r\n.signup-signin-card-description {\r\n    font-size: 25px;\r\n    color: #000;\r\n    font-weight: bold;\r\n    margin-bottom: 23px;\r\n}\r\n\r\n.signup-signin-card form {\r\n    max-width: 326px;\r\n }\r\n\r\n.signup-signin-form-group > input {\r\n    border: none;\r\n    box-sizing: border-box;\r\n    border-bottom: 1px solid #ebebeb;\r\n    background: transparent;\r\n    width: 100%;\r\n    display: block;\r\n    color: #000;\r\n    font-size: 16px;\r\n    padding: 3px 0;\r\n    margin: 8px 8px 15px 0;\r\n}\r\n\r\n.signup-signin-form-group > input:focus {\r\n    outline: none;\r\n}\r\n\r\n.signup-signin-form-group > .field-icon {\r\n    /* float: right;\r\n    margin-right: 0px;\r\n    margin-top: -22px;\r\n    position: relative;\r\n    z-index: 2; */\r\n    color: #000;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) {\r\n    width: 2em;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-size: 1em;\r\n    display: none;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\r\n    display: inline-block;\r\n    margin-bottom: 25px;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\r\n    display: inline-block;\r\n    width: 13px;\r\n    height: 13px;\r\n    margin-right: 15px;\r\n    margin-bottom: 4px;\r\n    border: 1px solid #000;\r\n    border-radius: 2px;\r\n    background: transparent;\r\n    vertical-align: bottom;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\r\n    background: transparent;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\r\n    content: '\\2713';\r\n    display: block;\r\n    color: #000;\r\n    font-size: 11px;\r\n    line-height: 1.2;\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\n.signup-signin-form-group > .label-agree-term {\r\n    font-size: 13px;\r\n    font-weight: 400;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .term-service {\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .form-submit {\r\n    width: auto;\r\n    display: inline-block;\r\n    border: none;\r\n    background: #5FCF80;\r\n    color: #fff;\r\n    padding: 10px;\r\n    height: 50px;\r\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\r\n    margin-right: 25px;\r\n}\r\n.signup-signin-form-group > .form-submit:hover {\r\n    background-color: #3ac162;\r\n}\r\n.signup-signin-form-group > .submit {\r\n    width: 130px;\r\n    border-radius: 25px;\r\n    text-transform: uppercase;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n}\r\n.signup-signin-form-group > .submit-link {\r\n    border: 2px solid #5FCF80;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .submit-link:hover {\r\n    background: #fff;\r\n    color: #3ac162;\r\n}\r\n\r\n.signup-signin .error-msg{\r\n    color: red;\r\n    font-size: small;\r\n}\r\n\r\n.signup-signin .forgot-password{\r\n    font-size: small;\r\n}\r\n", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE$2);
 
       if (hideEvent.defaultPrevented) {
         return;
@@ -26721,11 +26697,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/*------------------------------------
 
       this._isShown = false;
 
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\n    display: flex;\n    flex-direction:column;\n}\n\n.party-content{\n    display: flex;\n    flex-direction:column;\n    padding:1rem;\n}\n\n.party-nav{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 3rem;\n    align-items: center;\n    justify-content: center;\n}\n\n.party-nav-item{\n    display: flex;\n    flex-direction: row;\n    width: 20%;\n    height: 100%;\n    align-items: center;\n    justify-content: center;\n    font-size: large;\n    border-radius: 1.5rem;\n}\n\n.party-nav-item a:hover{\n    color: #5FCF80;\n}\n\n.party-nav-item a{\n    color: whitesmoke;\n}\n\n.party-active-nav{\n    border-color: #5FCF80;\n    border-width: 0.2rem;\n}\n\nh1{\n    color: #95c5ed;\n}\n\n.tasks-group{\n    width: 50%;\n    border-radius: 0.5rem;\n    margin: 1rem;\n    background-color: #d6ddf3;\n}\n\n.tasks-group-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-around;\n}\n\n.tasks-group-title{\n    font-size: 1.2rem;\n    margin-right: 1.5rem;\n}\n\n.task-progress-bar{\n    background-color: #d6ddf3;\n    width: 40%;\n    border-radius: 0.8rem;\n}\n\n.task-progress-bar-colored{\n    background-color: #9580FF;\n    padding: 0.1rem 0.2rem 0.1rem 0.4rem;\n    border-radius: 0.8rem;\n}\n\n.tasks-group-content{\n    background-color: #d6ddf3;\n    padding: 1rem;\n    border-radius: 0 0 0.5rem 0.5rem;\n}\n\n.tasks-daily-group{\n    padding: 0.5rem;\n}\n\n.tasks-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n}\n\n.accordion-icon{\n    font-size: 1.7rem;\n    margin: 0 1rem 0 auto;\n}\n\n.checked-item {\n    text-decoration: line-through;\n}\n", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+      this._element.classList.remove(CLASS_NAME_SHOW$3);
 
       this._backdrop.hide();
 
@@ -26751,11 +26723,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\n    display: flex;\n 
     dispose() {
       this._backdrop.dispose();
 
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n.internal-pages {\n  background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n.avatar-header {\n  width: 100%;\n  height: 140px;\n  position: absolute;\n  background-color: #2F3144;\n}\n.avatar-header .avatar {\n  height: 100% !important;\n}\n.avatar-header .row {\n  height: 80% !important;\n  width: 100% !important;\n}\n.avatar-header .avatar-img-space {\n  background-color: #9580FF;\n  height: 100%;\n  width: 120px;\n  padding: 0 !important;\n  margin-left: 10px;\n}\n.avatar-header .avatar-img {\n  max-width: 120px;\n  max-height: 80%;\n  padding: 8px;\n}\n.avatar-header .avatar-header-info {\n  margin-left: 10px;\n  height: 100%;\n}\n.avatar-header .avatar-header-info .first-row {\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .username {\n  color: azure;\n  font-size: 1.2rem;\n  padding-bottom: 0;\n}\n.avatar-header .avatar-header-info .class {\n  color: #9580FF;\n  font-size: small;\n  text-transform: uppercase;\n  padding-top: 0;\n  padding-bottom: 8px;\n  margin-bottom: 0;\n}\n.avatar-header .avatar-header-info .username, .avatar-header .avatar-header-info .class {\n  margin-left: 50px;\n}\n.avatar-header .avatar-header-info .circle-icon {\n  background-color: aliceblue;\n  width: 35px;\n  height: 35px;\n  border-radius: 50%;\n  padding: 0;\n  text-align: center;\n  line-height: 35px;\n  position: absolute;\n  margin-top: 8px;\n}\n.avatar-header .avatar-header-info .class-icon {\n  width: 65%;\n  height: 65%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.avatar-header .avatar-header-info .health-section {\n  padding-bottom: 5px;\n}\n.avatar-header .avatar-header-info .health-icon, .avatar-header .avatar-header-info .xp-icon {\n  margin-left: 5px;\n  width: 20px;\n  height: 20px;\n}\n.avatar-header .avatar-header-info .hp-txt, .avatar-header .avatar-header-info .xp-txt {\n  color: #9580FF;\n  font-size: small;\n  padding: 10px;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar, .avatar-header .avatar-header-info .bar {\n  height: 10px;\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar {\n  width: 50%;\n  background: #2A2C37;\n  position: relative;\n  margin-left: 25px;\n}\n.avatar-header .avatar-header-info .bar {\n  transition: width 0.5s linear;\n  position: absolute;\n}\n.avatar-header .avatar-header-info .hp.bar {\n  background: #FF80BF;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .xp.bar {\n  background: #80FFEA;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .transition {\n  background: rgba(255, 255, 255, 0.6);\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  transition: width 0.5s linear;\n}\n.avatar-header .avatar-header-info .transition.decrease {\n  right: 0;\n}\n.avatar-header .avatar-header-info .transition.increase {\n  left: 0;\n}\n.avatar-header .party-carousel {\n  margin-right: 0 !important;\n  padding-right: 0 !important;\n}\n.avatar-header .party-carousel .jRFJkP {\n  color: #999;\n}\n.avatar-header .party-carousel .rec.rec-arrow:disabled {\n  visibility: hidden;\n}\n.avatar-header .party-carousel .party-member {\n  position: relative;\n}\n.avatar-header .party-carousel .party-member-username {\n  position: absolute;\n  padding: 0 5px;\n  width: 120px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: black;\n}\n.avatar-header .party-carousel .avatar-img {\n  max-width: 120px;\n  max-height: 95%;\n  padding: 25px 8px 8px 8px;\n}\n.avatar-header .party-carousel .party-avatar-info {\n  width: 250px !important;\n  padding: 0 0 8px 8px !important;\n  margin: 0 !important;\n}\n.avatar-header .party-carousel .party-avatar-info .username {\n  position: absolute;\n  width: 150px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  font-size: 18px;\n}\n.avatar-header .party-carousel .party-avatar-info .class {\n  margin-left: 0;\n}\n.avatar-header .party-carousel .party-avatar-info .health-section {\n  padding-top: 50px;\n}\n.avatar-header .btn-custom-primary {\n  background-color: #3ac162;\n  color: #fff;\n  border-radius: 50px;\n  border-color: #5fcf80;\n  margin: 7px;\n}\n.avatar-header .btn-custom-primary:hover {\n  background-color: #5fcf80;\n}\n.avatar-header .btn-custom-outline-primary {\n  border-radius: 50px;\n  border-color: #5fcf80;\n  color: #fff;\n  margin: 7px;\n}\n.avatar-header .btn-custom-outline-primary:hover {\n  background-color: #5fcf80;\n}\n.avatar-header .party-info-btn {\n  margin: 0 !important;\n}\n.avatar-header .info-icon {\n  padding-right: 2px;\n}\n.avatar-header .prompt {\n  color: aliceblue;\n}\n\n/*--------------------------------------------------------------\n# Main Section\n--------------------------------------------------------------*/\n.main-section {\n  margin-top: 15%;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+      this._focustrap.deactivate();
 
       super.dispose();
     } // Private
@@ -28588,7 +28556,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\r\n# General\r\n--------------------------------------------------------------*/\r\nhtml,body{\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Source Sans Pro\", 'sans-serif';\r\n}\r\n\r\na, a:hover{\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n/*--------------------------------------------------------------\r\n# Header\r\n--------------------------------------------------------------*/\r\n#header {\r\n    background: #2A2C37;\r\n    transition: all 0.5s;\r\n    z-index: 997;\r\n    padding: 10px 0;\r\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 0;\r\n  }\r\n  #header .logo {\r\n    font-size: 24px;\r\n    margin: 0;\r\n    padding: 0;\r\n    line-height: 1;\r\n    font-weight: 600;\r\n    letter-spacing: 1px;\r\n    font-family: \"Playfair Display\", serif;\r\n  }\r\n  #header .logo a {\r\n    color: #fff;\r\n  }\r\n  #header .logo img {\r\n    max-height: 40px;\r\n  }\r\n\r\n  /**\r\n  * Get Started Button\r\n  */\r\n\r\n  .get-started-btn {\r\n    margin-left: 22px;\r\n    background: #5fcf80;\r\n    color: #fff;\r\n    border-radius: 50px;\r\n    padding: 8px 25px;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n    font-size: 14px;\r\n    display: inline-block;\r\n  }\r\n  .get-started-btn:hover {\r\n    background: #3ac162;\r\n    color: #fff;\r\n  }\r\n  @media (max-width: 768px) {\r\n    .get-started-btn {\r\n      margin: 0 15px 0 0;\r\n      padding: 6px 18px;\r\n    }\r\n  }\r\n\r\n/*--------------------------------------------------------------\r\n# Navigation Menu\r\n--------------------------------------------------------------*/\r\n/**\r\n* Desktop Navigation\r\n*/\r\n\r\n.navbar {\r\n    padding: 0;\r\n  }\r\n  .navbar ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    list-style: none;\r\n    align-items: center;\r\n  }\r\n  .navbar li {\r\n    position: relative;\r\n  }\r\n  .navbar a, .navbar a:focus {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    padding: 10px 0 10px 30px;\r\n    font-family: \"Playfair Display\", serif;\r\n    font-size: 16px;\r\n    font-weight: 400;\r\n    color: #fff;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n  }\r\n  .navbar a i, .navbar a:focus i {\r\n    font-size: 12px;\r\n    line-height: 0;\r\n    margin-left: 5px;\r\n  }\r\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\r\n    color: #8AFF80;\r\n  }\r\n\r\n  /*\r\n  .navbar .dropdown ul {\r\n    display: block;\r\n    position: absolute;\r\n    left: 30px;\r\n    top: calc(100% + 30px);\r\n    margin: 0;\r\n    padding: 10px 0;\r\n    z-index: 99;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    background: #fff;\r\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\r\n    transition: 0.3s;\r\n    border-radius: 4px;\r\n  }\r\n  .navbar .dropdown ul li {\r\n    min-width: 200px;\r\n  }\r\n  .navbar .dropdown ul a {\r\n    padding: 10px 20px;\r\n    font-size: 14px;\r\n    text-transform: none;\r\n    font-weight: 500;\r\n  }\r\n  .navbar .dropdown ul a i {\r\n    font-size: 12px;\r\n  }\r\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\r\n    color: #5fcf80;\r\n  }\r\n  .navbar .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 100%;\r\n    visibility: visible;\r\n  }\r\n  .navbar .dropdown .dropdown ul {\r\n    top: 0;\r\n    left: calc(100% - 30px);\r\n    visibility: hidden;\r\n  }\r\n  .navbar .dropdown .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 0;\r\n    left: 100%;\r\n    visibility: visible;\r\n  }\r\n   @media (max-width: 1366px) {\r\n    .navbar .dropdown .dropdown ul {\r\n      left: -90%;\r\n    }\r\n    .navbar .dropdown .dropdown:hover > ul {\r\n      left: -100%;\r\n    }\r\n  } */\r\n\r\n  .navIcon{\r\n      font-size: 1.3rem;\r\n  }\r\n\r\n  .custom-dropdown{\r\n      position: absolute;\r\n      top: calc(100% + 10px);\r\n      width: 250px;\r\n      transform: translateX(-90%);\r\n      border-radius: 10px;\r\n      padding: 0.5rem;\r\n      overflow: hidden;\r\n      background-color: #242526;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-dropdown-item{\r\n      font-family: \"Source Sans Pro\", 'sans-serif';\r\n      font-size: small;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-menu-item{\r\n      height: 50%;\r\n      display: flex;\r\n      align-items: center;\r\n      padding: 0.5rem;\r\n  }\r\n\r\n  .custom-menu-item:hover{\r\n      background-color: #525357;\r\n  }\r\n\r\n  .dropdown-icon-left{\r\n      padding-right: 5px;\r\n  }\r\n\r\n  .dropdown-icon-right{\r\n      margin-left: auto;\r\n  }\r\n\r\n  /*--------------------------------------------------------------\r\n# Hero Section\r\n--------------------------------------------------------------*/\r\n#hero {\r\n    width: 100%;\r\n    height: 80vh;\r\n    background-color: #9580FF;\r\n    background-size: cover;\r\n    position: relative;\r\n  }\r\n\r\n  #hero .container {\r\n    padding-top: 72px;\r\n  }\r\n  @media (max-width: 992px) {\r\n    #hero .container {\r\n      padding-top: 62px;\r\n    }\r\n  }\r\n  #hero h1 {\r\n    margin: 0;\r\n    font-size: 48px;\r\n    font-weight: 700;\r\n    line-height: 56px;\r\n    color: #383A59;\r\n    font-family: \"Poppins\", sans-serif;\r\n  }\r\n  #hero h2 {\r\n    color: #383A59;\r\n    margin: 10px 0 0 0;\r\n    font-size: 24px;\r\n  }\r\n  #hero .btn-get-started, #hero .btn-login {\r\n    font-family: \"Raleway\", sans-serif;\r\n    font-weight: 500;\r\n    font-size: 15px;\r\n    letter-spacing: 1px;\r\n    display: inline-block;\r\n    padding: 10px 35px;\r\n    border-radius: 50px;\r\n    transition: 0.5s;\r\n    margin: 30px 30px 0 0;\r\n    border: 2px solid #2A2C37;\r\n    color: #fff;\r\n  }\r\n\r\n  #hero .btn-get-started{\r\n    background-color: #2A2C37;\r\n  }\r\n\r\n  #hero .btn-login{\r\n    border: 2px solid #fff;\r\n  }\r\n\r\n  #hero .btn-get-started:hover {\r\n    background: #383A59;\r\n    border: 2px solid #383A59;\r\n  }\r\n\r\n  #hero .btn-login:hover {\r\n    border: 2px solid #383A59;\r\n    color: #383A59;\r\n  }\r\n\r\n  @media (min-width: 1024px) {\r\n    #hero {\r\n      background-attachment: fixed;\r\n    }\r\n  }\r\n  @media (max-width: 768px) {\r\n    #hero {\r\n      height: 100vh;\r\n    }\r\n    #hero h1 {\r\n      font-size: 28px;\r\n      line-height: 36px;\r\n    }\r\n    #hero h2 {\r\n      font-size: 18px;\r\n      line-height: 24px;\r\n    }\r\n  }\r\n\r\n#landing-pixels{\r\n    width: 100%;\r\n\theight: 100%;\r\n}\r\n\r\n.landing-pixel{\r\n    background-color: #9580FF;\r\n\tfloat: left;\r\n}\r\n\r\n /*--------------------------------------------------------------\r\n# Registration and Login\r\n--------------------------------------------------------------*/\r\ncanvas {\r\n    display: block;\r\n}\r\n\r\n#particles-js {\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: #9580ff;\r\n    background-attachment: fixed;\r\n    position: fixed;\r\n}\r\n\r\n.container.signup-signin {\r\n    padding-top: 7%;\r\n    width: 60%;\r\n}\r\n\r\n\r\n.signup-signin-card {\r\n    border: 0 !important;\r\n    border-radius: 27.5px !important;\r\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\r\n    overflow: visible !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.signup-signin-card-img {\r\n    border-radius: 27.5px 0 0 27.5px !important;\r\n    width: 100% !important;\r\n    height: 100% !important;\r\n    border-radius: 0 ;\r\n    -o-object-fit: cover;\r\n        object-fit: cover;\r\n}\r\n\r\n.signup-signin-card-img-top{\r\n    position: absolute !important;\r\n    right: 53% !important;\r\n}\r\n\r\n.register-img{\r\n    height: 115%;\r\n}\r\n\r\n.login-img{\r\n    height: 155%;\r\n    top: -20%;\r\n}\r\n\r\n.signup-signin-card .card-body {\r\n    padding: 50px 40px 50px 60px;\r\n}\r\n\r\n\r\n.signup-signin-card-description {\r\n    font-size: 25px;\r\n    color: #000;\r\n    font-weight: bold;\r\n    margin-bottom: 23px;\r\n}\r\n\r\n.signup-signin-card form {\r\n    max-width: 326px;\r\n }\r\n\r\n.signup-signin-form-group > input {\r\n    border: none;\r\n    box-sizing: border-box;\r\n    border-bottom: 1px solid #ebebeb;\r\n    background: transparent;\r\n    width: 100%;\r\n    display: block;\r\n    color: #000;\r\n    font-size: 16px;\r\n    padding: 3px 0;\r\n    margin: 8px 8px 15px 0;\r\n}\r\n\r\n.signup-signin-form-group > input:focus {\r\n    outline: none;\r\n}\r\n\r\n.signup-signin-form-group > .field-icon {\r\n    /* float: right;\r\n    margin-right: 0px;\r\n    margin-top: -22px;\r\n    position: relative;\r\n    z-index: 2; */\r\n    color: #000;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) {\r\n    width: 2em;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-size: 1em;\r\n    display: none;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\r\n    display: inline-block;\r\n    margin-bottom: 25px;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\r\n    display: inline-block;\r\n    width: 13px;\r\n    height: 13px;\r\n    margin-right: 15px;\r\n    margin-bottom: 4px;\r\n    border: 1px solid #000;\r\n    border-radius: 2px;\r\n    background: transparent;\r\n    vertical-align: bottom;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\r\n    background: transparent;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\r\n    content: '\\2713';\r\n    display: block;\r\n    color: #000;\r\n    font-size: 11px;\r\n    line-height: 1.2;\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\n.signup-signin-form-group > .label-agree-term {\r\n    font-size: 13px;\r\n    font-weight: 400;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .term-service {\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .form-submit {\r\n    width: auto;\r\n    display: inline-block;\r\n    border: none;\r\n    background: #5FCF80;\r\n    color: #fff;\r\n    padding: 10px;\r\n    height: 50px;\r\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\r\n    margin-right: 25px;\r\n}\r\n.signup-signin-form-group > .form-submit:hover {\r\n    background-color: #3ac162;\r\n}\r\n.signup-signin-form-group > .submit {\r\n    width: 130px;\r\n    border-radius: 25px;\r\n    text-transform: uppercase;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n}\r\n.signup-signin-form-group > .submit-link {\r\n    border: 2px solid #5FCF80;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .submit-link:hover {\r\n    background: #fff;\r\n    color: #3ac162;\r\n}\r\n\r\n.signup-signin .error-msg{\r\n    color: red;\r\n    font-size: small;\r\n}\r\n\r\n.signup-signin .forgot-password{\r\n    font-size: small;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\r\n# General\r\n--------------------------------------------------------------*/\r\nhtml,body{\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Source Sans Pro\", 'sans-serif';\r\n}\r\n\r\na, a:hover{\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n/*--------------------------------------------------------------\r\n# Header\r\n--------------------------------------------------------------*/\r\n#header {\r\n    background: #2A2C37;\r\n    transition: all 0.5s;\r\n    z-index: 997;\r\n    padding: 10px 0;\r\n    box-shadow: 0px 0 18px rgba(55, 66, 59, 0.08);\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 0;\r\n  }\r\n  #header .logo {\r\n    font-size: 24px;\r\n    margin: 0;\r\n    padding: 0;\r\n    line-height: 1;\r\n    font-weight: 600;\r\n    letter-spacing: 1px;\r\n    font-family: \"Playfair Display\", serif;\r\n  }\r\n  #header .logo a {\r\n    color: #fff;\r\n  }\r\n  #header .logo img {\r\n    max-height: 40px;\r\n  }\r\n\r\n  /**\r\n  * Get Started Button\r\n  */\r\n\r\n  .get-started-btn {\r\n    margin-left: 22px;\r\n    background: #5fcf80;\r\n    color: #fff;\r\n    border-radius: 50px;\r\n    padding: 8px 25px;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n    font-size: 14px;\r\n    display: inline-block;\r\n  }\r\n  .get-started-btn:hover {\r\n    background: #3ac162;\r\n    color: #fff;\r\n  }\r\n  @media (max-width: 768px) {\r\n    .get-started-btn {\r\n      margin: 0 15px 0 0;\r\n      padding: 6px 18px;\r\n    }\r\n  }\r\n\r\n/*--------------------------------------------------------------\r\n# Navigation Menu\r\n--------------------------------------------------------------*/\r\n/**\r\n* Desktop Navigation\r\n*/\r\n\r\n.navbar {\r\n    padding: 0;\r\n  }\r\n  .navbar ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    list-style: none;\r\n    align-items: center;\r\n  }\r\n  .navbar li {\r\n    position: relative;\r\n  }\r\n  .navbar a, .navbar a:focus {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    padding: 10px 0 10px 30px;\r\n    font-family: \"Playfair Display\", serif;\r\n    font-size: 16px;\r\n    font-weight: 400;\r\n    color: #fff;\r\n    white-space: nowrap;\r\n    transition: 0.3s;\r\n  }\r\n  .navbar a i, .navbar a:focus i {\r\n    font-size: 12px;\r\n    line-height: 0;\r\n    margin-left: 5px;\r\n  }\r\n  .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {\r\n    color: #8AFF80;\r\n  }\r\n\r\n  /*\r\n  .navbar .dropdown ul {\r\n    display: block;\r\n    position: absolute;\r\n    left: 30px;\r\n    top: calc(100% + 30px);\r\n    margin: 0;\r\n    padding: 10px 0;\r\n    z-index: 99;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    background: #fff;\r\n    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\r\n    transition: 0.3s;\r\n    border-radius: 4px;\r\n  }\r\n  .navbar .dropdown ul li {\r\n    min-width: 200px;\r\n  }\r\n  .navbar .dropdown ul a {\r\n    padding: 10px 20px;\r\n    font-size: 14px;\r\n    text-transform: none;\r\n    font-weight: 500;\r\n  }\r\n  .navbar .dropdown ul a i {\r\n    font-size: 12px;\r\n  }\r\n  .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {\r\n    color: #5fcf80;\r\n  }\r\n  .navbar .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 100%;\r\n    visibility: visible;\r\n  }\r\n  .navbar .dropdown .dropdown ul {\r\n    top: 0;\r\n    left: calc(100% - 30px);\r\n    visibility: hidden;\r\n  }\r\n  .navbar .dropdown .dropdown:hover > ul {\r\n    opacity: 1;\r\n    top: 0;\r\n    left: 100%;\r\n    visibility: visible;\r\n  }\r\n   @media (max-width: 1366px) {\r\n    .navbar .dropdown .dropdown ul {\r\n      left: -90%;\r\n    }\r\n    .navbar .dropdown .dropdown:hover > ul {\r\n      left: -100%;\r\n    }\r\n  } */\r\n\r\n  .navIcon{\r\n      font-size: 1.3rem;\r\n  }\r\n\r\n  .custom-dropdown{\r\n      position: absolute;\r\n      top: calc(100% + 10px);\r\n      width: 250px;\r\n      transform: translateX(-90%);\r\n      border-radius: 10px;\r\n      padding: 0.5rem;\r\n      overflow: hidden;\r\n      background-color: #242526;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-dropdown-item{\r\n      font-family: \"Source Sans Pro\", 'sans-serif';\r\n      font-size: small;\r\n      color: #fff !important;\r\n  }\r\n\r\n  .custom-menu-item{\r\n      height: 50%;\r\n      display: flex;\r\n      align-items: center;\r\n      padding: 0.5rem;\r\n  }\r\n\r\n  .custom-menu-item:hover{\r\n      background-color: #525357;\r\n  }\r\n\r\n  .dropdown-icon-left{\r\n      padding-right: 5px;\r\n  }\r\n\r\n  .dropdown-icon-right{\r\n      margin-left: auto;\r\n  }\r\n\r\n  /*--------------------------------------------------------------\r\n# Hero Section\r\n--------------------------------------------------------------*/\r\n#hero {\r\n    width: 100%;\r\n    height: 80vh;\r\n    background-color: #9580FF;\r\n    background-size: cover;\r\n    position: relative;\r\n  }\r\n\r\n  #hero .container {\r\n    padding-top: 72px;\r\n  }\r\n  @media (max-width: 992px) {\r\n    #hero .container {\r\n      padding-top: 62px;\r\n    }\r\n  }\r\n  #hero h1 {\r\n    margin: 0;\r\n    font-size: 48px;\r\n    font-weight: 700;\r\n    line-height: 56px;\r\n    color: #383A59;\r\n    font-family: \"Poppins\", sans-serif;\r\n  }\r\n  #hero h2 {\r\n    color: #383A59;\r\n    margin: 10px 0 0 0;\r\n    font-size: 24px;\r\n  }\r\n  #hero .btn-get-started, #hero .btn-login {\r\n    font-size: 15px;\r\n    letter-spacing: 1px;\r\n    display: inline-block;\r\n    padding: 10px 35px;\r\n    border-radius: 50px;\r\n    transition: 0.5s;\r\n    margin: 30px 30px 0 0;\r\n    border: 2px solid #2A2C37;\r\n    color: #fff;\r\n  }\r\n\r\n  #hero .btn-get-started{\r\n    background-color: #2A2C37;\r\n  }\r\n\r\n  #hero .btn-login{\r\n    border: 2px solid #fff;\r\n  }\r\n\r\n  #hero .btn-get-started:hover {\r\n    background: #383A59;\r\n    border: 2px solid #383A59;\r\n  }\r\n\r\n  #hero .btn-login:hover {\r\n    border: 2px solid #383A59;\r\n    color: #383A59;\r\n  }\r\n\r\n  @media (min-width: 1024px) {\r\n    #hero {\r\n      background-attachment: fixed;\r\n    }\r\n  }\r\n  @media (max-width: 768px) {\r\n    #hero {\r\n      height: 100vh;\r\n    }\r\n    #hero h1 {\r\n      font-size: 28px;\r\n      line-height: 36px;\r\n    }\r\n    #hero h2 {\r\n      font-size: 18px;\r\n      line-height: 24px;\r\n    }\r\n  }\r\n\r\n#landing-pixels{\r\n    width: 100%;\r\n\theight: 100%;\r\n}\r\n\r\n.landing-pixel{\r\n    background-color: #9580FF;\r\n\tfloat: left;\r\n}\r\n\r\n /*--------------------------------------------------------------\r\n# Registration and Login\r\n--------------------------------------------------------------*/\r\ncanvas {\r\n    display: block;\r\n}\r\n\r\n#particles-js {\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: #9580ff;\r\n    background-attachment: fixed;\r\n    position: fixed;\r\n}\r\n\r\n.container.signup-signin {\r\n    padding-top: 7%;\r\n    width: 60%;\r\n}\r\n\r\n\r\n.signup-signin-card {\r\n    border: 0 !important;\r\n    border-radius: 27.5px !important;\r\n    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\r\n    overflow: visible !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.signup-signin-card-img {\r\n    border-radius: 27.5px 0 0 27.5px !important;\r\n    width: 100% !important;\r\n    height: 100% !important;\r\n    border-radius: 0 ;\r\n    -o-object-fit: cover;\r\n        object-fit: cover;\r\n}\r\n\r\n.signup-signin-card-img-top{\r\n    position: absolute !important;\r\n    right: 53% !important;\r\n}\r\n\r\n.register-img{\r\n    height: 115%;\r\n}\r\n\r\n.login-img{\r\n    height: 155%;\r\n    top: -20%;\r\n}\r\n\r\n.signup-signin-card .card-body {\r\n    padding: 50px 40px 50px 60px;\r\n}\r\n\r\n\r\n.signup-signin-card-description {\r\n    font-size: 25px;\r\n    color: #000;\r\n    font-weight: bold;\r\n    margin-bottom: 23px;\r\n}\r\n\r\n.signup-signin-card form {\r\n    max-width: 326px;\r\n }\r\n\r\n.signup-signin-form-group > input {\r\n    border: none;\r\n    box-sizing: border-box;\r\n    border-bottom: 1px solid #ebebeb;\r\n    background: transparent;\r\n    width: 100%;\r\n    display: block;\r\n    color: #000;\r\n    font-size: 16px;\r\n    padding: 3px 0;\r\n    margin: 8px 8px 15px 0;\r\n}\r\n\r\n.signup-signin-form-group > input:focus {\r\n    outline: none;\r\n}\r\n\r\n.signup-signin-form-group > .field-icon {\r\n    /* float: right;\r\n    margin-right: 0px;\r\n    margin-top: -22px;\r\n    position: relative;\r\n    z-index: 2; */\r\n    color: #000;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) {\r\n    width: 2em;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-size: 1em;\r\n    display: none;\r\n}\r\n\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label {\r\n    display: inline-block;\r\n    margin-bottom: 25px;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old) + label > span {\r\n    display: inline-block;\r\n    width: 13px;\r\n    height: 13px;\r\n    margin-right: 15px;\r\n    margin-bottom: 4px;\r\n    border: 1px solid #000;\r\n    border-radius: 2px;\r\n    background: transparent;\r\n    vertical-align: bottom;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span {\r\n    background: transparent;\r\n}\r\n.signup-signin-form-group > input[type=checkbox]:not(old):checked + label > span:before {\r\n    content: '\\2713';\r\n    display: block;\r\n    color: #000;\r\n    font-size: 11px;\r\n    line-height: 1.2;\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\n.signup-signin-form-group > .label-agree-term {\r\n    font-size: 13px;\r\n    font-weight: 400;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .term-service {\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .form-submit {\r\n    width: auto;\r\n    display: inline-block;\r\n    border: none;\r\n    background: #5FCF80;\r\n    color: #fff;\r\n    padding: 10px;\r\n    height: 50px;\r\n    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\r\n    margin-right: 25px;\r\n}\r\n.signup-signin-form-group > .form-submit:hover {\r\n    background-color: #3ac162;\r\n}\r\n.signup-signin-form-group > .submit {\r\n    width: 130px;\r\n    border-radius: 25px;\r\n    text-transform: uppercase;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n}\r\n.signup-signin-form-group > .submit-link {\r\n    border: 2px solid #5FCF80;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    color: #000;\r\n}\r\n.signup-signin-form-group > .submit-link:hover {\r\n    background: #fff;\r\n    color: #3ac162;\r\n}\r\n\r\n.signup-signin .error-msg{\r\n    color: red;\r\n    font-size: small;\r\n}\r\n\r\n.signup-signin .forgot-password{\r\n    font-size: small;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28612,7 +28580,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\r\n    margin: 15% 5% 10% 5%;\r\n    display: flex;\r\n    flex-direction:column;\r\n}\r\n\r\n.party-content{\r\n    display: flex;\r\n    flex-direction:column;\r\n    background-color: #C4C4C4;\r\n    padding:1rem;\r\n    border-radius: 5px;\r\n    border-color: #4f5378;\r\n    border-width: 1rem 0.3rem 0.3rem 0.3rem;\r\n}\r\n\r\n.party-nav{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    height: 3rem;\r\n    align-items: center;\r\n    justify-content: center;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    border-radius: 0.5rem 0.5rem 0 0;\r\n}\r\n\r\n.party-nav-item{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 50%;\r\n    height: 100%;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background-color: #2F3144;\r\n    font-size: large;\r\n    border-radius: 0.5rem 0.5rem 0 0;\r\n}\r\n\r\n.party-nav-item a{\r\n    color: #C4C4C4;\r\n}\r\n\r\n.party-active-nav{\r\n    margin-top: 1rem;\r\n    background-color: #4f5378;\r\n    height:100%;\r\n}\r\n\r\n.tasks-group{\r\n    width: 50%;\r\n    border-radius: 0.5rem;\r\n    margin: 1rem;\r\n}\r\n\r\n.tasks-group-header{\r\n    background-color: #95c5ed;\r\n    padding: 0.5rem;\r\n    border-radius: 0.5rem 0.5rem 0 0;\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n}\r\n\r\n.tasks-group-title{\r\n    -webkit-text-decoration: 10px;\r\n            text-decoration: 10px;\r\n}\r\n\r\n.task-progress-bar{\r\n    background-color: #d6ddf3;\r\n    padding: 0.2rem 0.3rem 0.2rem 0.3rem;\r\n    width: 40%;\r\n    border-radius: 1rem;\r\n    margin-right: 1rem;\r\n    margin-left: auto;\r\n}\r\n\r\n.tasks-group-content{\r\n    background-color: #d6ddf3;\r\n    padding: 1rem;\r\n    border-radius: 0 0 0.5rem 0.5rem;\r\n}\r\n\r\n.tasks-daily-group{\r\n    padding: 0.5rem;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\r\n    display: flex;\r\n    flex-direction:column;\r\n}\r\n\r\n.party-content{\r\n    display: flex;\r\n    flex-direction:column;\r\n    padding:1rem;\r\n}\r\n\r\n.party-nav{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    height: 3rem;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.party-nav-item{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 20%;\r\n    height: 100%;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: large;\r\n    border-radius: 1.5rem;\r\n}\r\n\r\n.party-nav-item a:hover{\r\n    color: #5FCF80;\r\n}\r\n\r\n.party-nav-item a{\r\n    color: whitesmoke;\r\n}\r\n\r\n.party-active-nav{\r\n    border-color: #5FCF80;\r\n    border-width: 0.2rem;\r\n}\r\n\r\nh1{\r\n    color: #95c5ed;\r\n}\r\n\r\n.tasks-group{\r\n    width: 50%;\r\n    border-radius: 0.5rem;\r\n    margin: 1rem;\r\n    background-color: #d6ddf3;\r\n}\r\n\r\n.tasks-group-header{\r\n    background-color: #95c5ed;\r\n    padding: 0.5rem;\r\n    border-radius: 0.5rem;\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: space-around;\r\n}\r\n\r\n.tasks-group-title{\r\n    font-size: 1.2rem;\r\n    margin-right: 1.5rem;\r\n}\r\n\r\n.task-progress-bar{\r\n    background-color: #d6ddf3;\r\n    width: 40%;\r\n    border-radius: 0.8rem;\r\n}\r\n\r\n.task-progress-bar-colored{\r\n    background-color: #9580FF;\r\n    padding: 0.1rem 0.2rem 0.1rem 0.4rem;\r\n    border-radius: 0.8rem;\r\n}\r\n\r\n.tasks-group-content{\r\n    background-color: #d6ddf3;\r\n    padding: 1rem;\r\n    border-radius: 0 0 0.5rem 0.5rem;\r\n}\r\n\r\n.tasks-daily-group{\r\n    padding: 0.5rem;\r\n}\r\n\r\n.tasks-header{\r\n    background-color: #95c5ed;\r\n    padding: 0.5rem;\r\n    border-radius: 0.5rem;\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n}\r\n\r\n.accordion-icon{\r\n    font-size: 1.7rem;\r\n    margin: 0 1rem 0 auto;\r\n}\r\n\r\n.checked-item {\r\n    text-decoration: line-through;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28636,7 +28604,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "    /* desinging shopp */\r\n  .shop-parentOfAll{\r\n    background-color: #383A59;\r\n  }\r\n  .shop-filtShop{\r\n    display: flex;\r\n    flex-direction: row;\r\n    margin-left: 70px;\r\n    margin-right: 70px;\r\n    \r\n  }\r\n  .shop-main_shop{\r\n    display: flex;\r\n    background-color: #383A59;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-family: \"Playfair Display\", serif;\r\n    margin-top: 140px;\r\n  }\r\n  .shop-weaponForm{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n\r\n  \r\n  .shop-shop{\r\n    margin: auto;\r\n    display:flex;\r\n    flex-direction: row;\r\n    flex: 10.5;\r\n \r\n  }\r\n  .shop-filter{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n    height:100px;\r\n    flex: 1.5;\r\n    color: white;\r\n  }\r\n  \r\n  .shop-weaponList{\r\n    \r\n    display: flex;\r\n    gap: 2rem;\r\n    \r\n  }\r\n  .shop-category{\r\n    font: black;\r\n    margin-left: 20px;\r\n  }\r\n\r\n  /* displaying items in shop  */\r\n  .shop-returnMap{\r\n    display: inline-block;\r\n  }\r\n  .shop-items{\r\n    display: inline-block;\r\n    color: black;\r\n    margin-left: 40px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    background-color: #8AFF80;\r\n    width: 150px;\r\n  }\r\n  .shop-itemsImage img{\r\n    margin-top: 10px;\r\n    width: 100px;\r\n    height: 100px;\r\n  }\r\n  \r\n  /* css for buttons in shop */\r\n  .shop-items Button{\r\n    background-color: #FFFF80;\r\n    width: 100px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .shop-items Button:hover{\r\n    background-color: #C0C034;\r\n  }\r\n  .shop-itemsInfo img{\r\n    height:20px;\r\n    width:20px;\r\n  }\r\n  .shop-empty{\r\n    background-color: black;\r\n    height:200px;\r\n  }\r\n /* displaying the hide info in div  */\r\n .shop-toolTip{\r\n   align-items: center;\r\n }\r\n .shop-hide{\r\n  color: white;\r\n  width: 200px;\r\n  text-align: center;\r\n  text-justify: inter-word;\r\n  \r\n }\r\n .shop-hide .shop-weaponInfo{\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n }\r\n .shop-Empty{\r\n   background-color: black;\r\n }\r\n \r\n \r\n  */\r\n  /* button navigator */\r\n  .shop-main_shop .btn-group{\r\n    width:90%;\r\n\r\n  }\r\n  .shop-main_shop .btn-group .btn:hover,  .shop-main_shop .btn-group .btn:focus{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-displayButton:hover{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-weaponList{\r\n    display: flex;\r\n    \r\n  }\r\n  \r\n  /* test div */\r\n  .shop-categoryName p{\r\n    margin: 10px;\r\n    color: white;\r\n  \r\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "    /* desinging shopp */\r\n  .shop-parentOfAll{\r\n    background-color: #383A59;\r\n  }\r\n  .shop-filtShop{\r\n    display: flex;\r\n    flex-direction: row;\r\n    margin-left: 70px;\r\n    margin-right: 70px;\r\n    \r\n  }\r\n  .shop-main_shop{\r\n    display: flex;\r\n    background-color: #383A59;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-family: \"Playfair Display\", serif;\r\n    margin-top: 140px;\r\n  }\r\n  .shop-nav{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    height: 3rem;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.shop-nav-item{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 20%;\r\n    height: 100%;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: large;\r\n    border-radius: 1.5rem;\r\n}\r\n\r\n.shop-nav-item a:hover{\r\n    color: #5FCF80;\r\n}\r\n\r\n.shop-nav-item a{\r\n    color: whitesmoke;\r\n}\r\n\r\n.shop-active-nav{\r\n    border-color: #5FCF80;\r\n    border-width: 0.2rem;\r\n}\r\n  .shop-weaponForm{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n\r\n  \r\n  .shop-shop{\r\n    margin: auto;\r\n    display:flex;\r\n    flex-direction: row;\r\n    flex: 10.5;\r\n \r\n  }\r\n  .shop-filter{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n    height:100px;\r\n    flex: 1.5;\r\n    color: white;\r\n  }\r\n  \r\n  .shop-weaponList{\r\n    \r\n    display: flex;\r\n    gap: 2rem;\r\n    \r\n  }\r\n  .shop-category{\r\n    font: black;\r\n    margin-left: 20px;\r\n  }\r\n\r\n  /* displaying items in shop  */\r\n  .shop-returnMap{\r\n    display: inline-block;\r\n  }\r\n  .shop-items{\r\n    display: inline-block;\r\n    color: black;\r\n    margin-left: 40px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    background-color: #8AFF80;\r\n    width: 150px;\r\n  }\r\n  .shop-itemsImage img{\r\n    margin-top: 10px;\r\n    width: 100px;\r\n    height: 100px;\r\n  }\r\n  \r\n  /* css for buttons in shop */\r\n  .shop-items Button{\r\n    background-color: #FFFF80;\r\n    width: 100px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .shop-items Button:hover{\r\n    background-color: #C0C034;\r\n  }\r\n  .shop-itemsInfo img{\r\n    height:20px;\r\n    width:20px;\r\n  }\r\n  .shop-empty{\r\n    background-color: black;\r\n    height:200px;\r\n  }\r\n /* displaying the hide info in div  */\r\n .shop-toolTip{\r\n   align-items: center;\r\n }\r\n .shop-hide{\r\n  color: white;\r\n  width: 200px;\r\n  text-align: center;\r\n  text-justify: inter-word;\r\n  \r\n }\r\n .shop-hide .shop-weaponInfo{\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n }\r\n .shop-Empty{\r\n   background-color: black;\r\n }\r\n \r\n \r\n  */\r\n  /* button navigator */\r\n  .shop-main_shop .btn-group{\r\n    width:90%;\r\n\r\n  }\r\n  .shop-main_shop .btn-group .btn:hover,  .shop-main_shop .btn-group .btn:focus{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-displayButton:hover{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-weaponList{\r\n    display: flex;\r\n    \r\n  }\r\n  \r\n  /* test div */\r\n  .shop-categoryName p{\r\n    margin: 10px;\r\n    color: white;\r\n  \r\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28660,7 +28628,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n.internal-pages {\n  height: 100vh;\n  width: 100vw;\n  background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n.avatar-header {\n  width: 100%;\n  height: 140px;\n  position: absolute;\n  background-color: #2F3144;\n}\n.avatar-header .avatar {\n  height: 100% !important;\n}\n.avatar-header .row {\n  height: 80% !important;\n  width: 100% !important;\n}\n.avatar-header .avatar-img-space {\n  background-color: #9580FF;\n  height: 100%;\n  width: 120px;\n  padding: 0 !important;\n  margin-left: 10px;\n}\n.avatar-header .avatar-img {\n  max-width: 120px;\n  max-height: 80%;\n  padding: 8px;\n}\n.avatar-header .avatar-header-info {\n  margin-left: 10px;\n  height: 100%;\n}\n.avatar-header .avatar-header-info .first-row {\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .username {\n  color: azure;\n  font-size: 1.2rem;\n  padding-bottom: 0;\n}\n.avatar-header .avatar-header-info .class {\n  color: #9580FF;\n  font-size: small;\n  text-transform: uppercase;\n  padding-top: 0;\n  padding-bottom: 8px;\n  margin-bottom: 0;\n}\n.avatar-header .avatar-header-info .username, .avatar-header .avatar-header-info .class {\n  margin-left: 50px;\n}\n.avatar-header .avatar-header-info .circle-icon {\n  background-color: aliceblue;\n  width: 35px;\n  height: 35px;\n  border-radius: 50%;\n  padding: 0;\n  text-align: center;\n  line-height: 35px;\n  position: absolute;\n  margin-top: 8px;\n}\n.avatar-header .avatar-header-info .class-icon {\n  width: 65%;\n  height: 65%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.avatar-header .avatar-header-info .health-section {\n  padding-bottom: 5px;\n}\n.avatar-header .avatar-header-info .health-icon, .avatar-header .avatar-header-info .xp-icon {\n  margin-left: 5px;\n  width: 20px;\n  height: 20px;\n}\n.avatar-header .avatar-header-info .hp-txt, .avatar-header .avatar-header-info .xp-txt {\n  color: #9580FF;\n  font-size: small;\n  padding: 10px;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar, .avatar-header .avatar-header-info .bar {\n  height: 10px;\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar {\n  width: 50%;\n  background: #2A2C37;\n  position: relative;\n  margin-left: 25px;\n}\n.avatar-header .avatar-header-info .bar {\n  transition: width 0.5s linear;\n  position: absolute;\n}\n.avatar-header .avatar-header-info .hp.bar {\n  background: #FF80BF;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .xp.bar {\n  background: #80FFEA;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .transition {\n  background: rgba(255, 255, 255, 0.6);\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  transition: width 0.5s linear;\n}\n.avatar-header .avatar-header-info .transition.decrease {\n  right: 0;\n}\n.avatar-header .avatar-header-info .transition.increase {\n  left: 0;\n}\n.avatar-header .party-carousel {\n  margin-right: 0 !important;\n  padding-right: 0 !important;\n}\n.avatar-header .party-carousel .jRFJkP {\n  color: #999;\n}\n.avatar-header .party-carousel .rec.rec-arrow:disabled {\n  visibility: hidden;\n}\n.avatar-header .party-carousel .party-member {\n  position: relative;\n}\n.avatar-header .party-carousel .party-member-username {\n  position: absolute;\n  padding: 0 5px;\n  width: 120px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: black;\n}\n.avatar-header .party-carousel .avatar-img {\n  max-width: 120px;\n  max-height: 95%;\n  padding: 25px 8px 8px 8px;\n}\n.avatar-header .party-carousel .party-avatar-info {\n  width: 250px !important;\n  padding: 0 0 8px 8px !important;\n  margin: 0 !important;\n}\n.avatar-header .party-carousel .party-avatar-info .username {\n  position: absolute;\n  width: 150px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  font-size: 18px;\n}\n.avatar-header .party-carousel .party-avatar-info .class {\n  margin-left: 0;\n}\n.avatar-header .party-carousel .party-avatar-info .health-section {\n  padding-top: 50px;\n}\n.avatar-header .btn-custom-primary {\n  background-color: #3ac162;\n  color: #fff;\n  border-radius: 50px;\n  border-color: #5fcf80;\n  margin: 7px;\n}\n.avatar-header .btn-custom-primary:hover {\n  background-color: #5fcf80;\n}\n.avatar-header .btn-custom-outline-primary {\n  border-radius: 50px;\n  border-color: #5fcf80;\n  color: #fff;\n  margin: 7px;\n}\n.avatar-header .btn-custom-outline-primary:hover {\n  background-color: #5fcf80;\n}\n.avatar-header .party-info-btn {\n  margin: 0 !important;\n}\n.avatar-header .info-icon {\n  padding-right: 2px;\n}\n.avatar-header .prompt {\n  color: aliceblue;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\n.internal-pages {\n  background-color: #383A59;\n}\n\n/*--------------------------------------------------------------\n# Avatar Header\n--------------------------------------------------------------*/\n.avatar-header {\n  width: 100%;\n  height: 140px;\n  position: absolute;\n  background-color: #2F3144;\n}\n.avatar-header .avatar {\n  height: 100% !important;\n}\n.avatar-header .row {\n  height: 80% !important;\n  width: 100% !important;\n}\n.avatar-header .avatar-img-space {\n  background-color: #9580FF;\n  height: 100%;\n  width: 120px;\n  padding: 0 !important;\n  margin-left: 10px;\n}\n.avatar-header .avatar-img {\n  max-width: 120px;\n  max-height: 80%;\n  padding: 8px;\n}\n.avatar-header .avatar-header-info {\n  margin-left: 10px;\n  height: 100%;\n}\n.avatar-header .avatar-header-info .first-row {\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .username {\n  color: azure;\n  font-size: 1.2rem;\n  padding-bottom: 0;\n}\n.avatar-header .avatar-header-info .class {\n  color: #9580FF;\n  font-size: small;\n  text-transform: uppercase;\n  padding-top: 0;\n  padding-bottom: 8px;\n  margin-bottom: 0;\n}\n.avatar-header .avatar-header-info .username, .avatar-header .avatar-header-info .class {\n  margin-left: 50px;\n}\n.avatar-header .avatar-header-info .circle-icon {\n  background-color: aliceblue;\n  width: 35px;\n  height: 35px;\n  border-radius: 50%;\n  padding: 0;\n  text-align: center;\n  line-height: 35px;\n  position: absolute;\n  margin-top: 8px;\n}\n.avatar-header .avatar-header-info .class-icon {\n  width: 65%;\n  height: 65%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.avatar-header .avatar-header-info .health-section {\n  padding-bottom: 5px;\n}\n.avatar-header .avatar-header-info .health-icon, .avatar-header .avatar-header-info .xp-icon {\n  margin-left: 5px;\n  width: 20px;\n  height: 20px;\n}\n.avatar-header .avatar-header-info .hp-txt, .avatar-header .avatar-header-info .xp-txt {\n  color: #9580FF;\n  font-size: small;\n  padding: 10px;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar, .avatar-header .avatar-header-info .bar {\n  height: 10px;\n  display: inline-block;\n}\n.avatar-header .avatar-header-info .health-bar, .avatar-header .avatar-header-info .xp-bar {\n  width: 50%;\n  background: #2A2C37;\n  position: relative;\n  margin-left: 25px;\n}\n.avatar-header .avatar-header-info .bar {\n  transition: width 0.5s linear;\n  position: absolute;\n}\n.avatar-header .avatar-header-info .hp.bar {\n  background: #FF80BF;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .xp.bar {\n  background: #80FFEA;\n  z-index: 1;\n}\n.avatar-header .avatar-header-info .transition {\n  background: rgba(255, 255, 255, 0.6);\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  transition: width 0.5s linear;\n}\n.avatar-header .avatar-header-info .transition.decrease {\n  right: 0;\n}\n.avatar-header .avatar-header-info .transition.increase {\n  left: 0;\n}\n.avatar-header .party-carousel {\n  margin-right: 0 !important;\n  padding-right: 0 !important;\n}\n.avatar-header .party-carousel .jRFJkP {\n  color: #999;\n}\n.avatar-header .party-carousel .rec.rec-arrow:disabled {\n  visibility: hidden;\n}\n.avatar-header .party-carousel .party-member {\n  position: relative;\n}\n.avatar-header .party-carousel .party-member-username {\n  position: absolute;\n  padding: 0 5px;\n  width: 120px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: black;\n}\n.avatar-header .party-carousel .avatar-img {\n  max-width: 120px;\n  max-height: 95%;\n  padding: 25px 8px 8px 8px;\n}\n.avatar-header .party-carousel .party-avatar-info {\n  width: 250px !important;\n  padding: 0 0 8px 8px !important;\n  margin: 0 !important;\n}\n.avatar-header .party-carousel .party-avatar-info .username {\n  position: absolute;\n  width: 150px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  font-size: 18px;\n}\n.avatar-header .party-carousel .party-avatar-info .class {\n  margin-left: 0;\n}\n.avatar-header .party-carousel .party-avatar-info .health-section {\n  padding-top: 50px;\n}\n.avatar-header .btn-custom-primary {\n  background-color: #3ac162;\n  color: #fff;\n  border-radius: 50px;\n  border-color: #5fcf80;\n  margin: 7px;\n}\n.avatar-header .btn-custom-primary:hover {\n  background-color: #5fcf80;\n}\n.avatar-header .btn-custom-outline-primary {\n  border-radius: 50px;\n  border-color: #5fcf80;\n  color: #fff;\n  margin: 7px;\n}\n.avatar-header .btn-custom-outline-primary:hover {\n  background-color: #5fcf80;\n}\n.avatar-header .party-info-btn {\n  margin: 0 !important;\n}\n.avatar-header .info-icon {\n  padding-right: 2px;\n}\n.avatar-header .prompt {\n  color: aliceblue;\n}\n\n/*--------------------------------------------------------------\n# Main Section\n--------------------------------------------------------------*/\n.main-section {\n  margin-top: 15%;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -42635,769 +42603,6 @@ function triggerBrowserReflow(node) {
   // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   node.offsetHeight;
 }
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/checkPropTypes.js":
-/*!***************************************************!*\
-  !*** ./node_modules/prop-types/checkPropTypes.js ***!
-  \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var printWarning = function() {};
-
-if (true) {
-  var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
-  var loggedTypeFailures = {};
-  var has = Function.call.bind(Object.prototype.hasOwnProperty);
-
-  printWarning = function(text) {
-    var message = 'Warning: ' + text;
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-}
-
-/**
- * Assert that the values match with the type specs.
- * Error messages are memorized and will only be shown once.
- *
- * @param {object} typeSpecs Map of name to a ReactPropType
- * @param {object} values Runtime values that need to be type-checked
- * @param {string} location e.g. "prop", "context", "child context"
- * @param {string} componentName Name of the component for error messages.
- * @param {?Function} getStack Returns the component stack.
- * @private
- */
-function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-  if (true) {
-    for (var typeSpecName in typeSpecs) {
-      if (has(typeSpecs, typeSpecName)) {
-        var error;
-        // Prop type validation may throw. In case they do, we don't want to
-        // fail the render phase where it didn't fail before. So we log it.
-        // After these have been cleaned up, we'll let them throw.
-        try {
-          // This is intentionally an invariant that gets caught. It's the same
-          // behavior as without this statement except with a better message.
-          if (typeof typeSpecs[typeSpecName] !== 'function') {
-            var err = Error(
-              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
-              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
-            );
-            err.name = 'Invariant Violation';
-            throw err;
-          }
-          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
-        } catch (ex) {
-          error = ex;
-        }
-        if (error && !(error instanceof Error)) {
-          printWarning(
-            (componentName || 'React class') + ': type specification of ' +
-            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
-            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
-            'You may have forgotten to pass an argument to the type checker ' +
-            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
-            'shape all require an argument).'
-          );
-        }
-        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-          // Only monitor this failure once because there tends to be a lot of the
-          // same error.
-          loggedTypeFailures[error.message] = true;
-
-          var stack = getStack ? getStack() : '';
-
-          printWarning(
-            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
-          );
-        }
-      }
-    }
-  }
-}
-
-/**
- * Resets warning cache when testing.
- *
- * @private
- */
-checkPropTypes.resetWarningCache = function() {
-  if (true) {
-    loggedTypeFailures = {};
-  }
-}
-
-module.exports = checkPropTypes;
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/factoryWithTypeCheckers.js":
-/*!************************************************************!*\
-  !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
-  \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
-var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
-
-var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
-var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
-
-var has = Function.call.bind(Object.prototype.hasOwnProperty);
-var printWarning = function() {};
-
-if (true) {
-  printWarning = function(text) {
-    var message = 'Warning: ' + text;
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-}
-
-function emptyFunctionThatReturnsNull() {
-  return null;
-}
-
-module.exports = function(isValidElement, throwOnDirectAccess) {
-  /* global Symbol */
-  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
-  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
-
-  /**
-   * Returns the iterator method function contained on the iterable object.
-   *
-   * Be sure to invoke the function with the iterable as context:
-   *
-   *     var iteratorFn = getIteratorFn(myIterable);
-   *     if (iteratorFn) {
-   *       var iterator = iteratorFn.call(myIterable);
-   *       ...
-   *     }
-   *
-   * @param {?object} maybeIterable
-   * @return {?function}
-   */
-  function getIteratorFn(maybeIterable) {
-    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-    if (typeof iteratorFn === 'function') {
-      return iteratorFn;
-    }
-  }
-
-  /**
-   * Collection of methods that allow declaration and validation of props that are
-   * supplied to React components. Example usage:
-   *
-   *   var Props = require('ReactPropTypes');
-   *   var MyArticle = React.createClass({
-   *     propTypes: {
-   *       // An optional string prop named "description".
-   *       description: Props.string,
-   *
-   *       // A required enum prop named "category".
-   *       category: Props.oneOf(['News','Photos']).isRequired,
-   *
-   *       // A prop named "dialog" that requires an instance of Dialog.
-   *       dialog: Props.instanceOf(Dialog).isRequired
-   *     },
-   *     render: function() { ... }
-   *   });
-   *
-   * A more formal specification of how these methods are used:
-   *
-   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
-   *   decl := ReactPropTypes.{type}(.isRequired)?
-   *
-   * Each and every declaration produces a function with the same signature. This
-   * allows the creation of custom validation functions. For example:
-   *
-   *  var MyLink = React.createClass({
-   *    propTypes: {
-   *      // An optional string or URI prop named "href".
-   *      href: function(props, propName, componentName) {
-   *        var propValue = props[propName];
-   *        if (propValue != null && typeof propValue !== 'string' &&
-   *            !(propValue instanceof URI)) {
-   *          return new Error(
-   *            'Expected a string or an URI for ' + propName + ' in ' +
-   *            componentName
-   *          );
-   *        }
-   *      }
-   *    },
-   *    render: function() {...}
-   *  });
-   *
-   * @internal
-   */
-
-  var ANONYMOUS = '<<anonymous>>';
-
-  // Important!
-  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
-  var ReactPropTypes = {
-    array: createPrimitiveTypeChecker('array'),
-    bool: createPrimitiveTypeChecker('boolean'),
-    func: createPrimitiveTypeChecker('function'),
-    number: createPrimitiveTypeChecker('number'),
-    object: createPrimitiveTypeChecker('object'),
-    string: createPrimitiveTypeChecker('string'),
-    symbol: createPrimitiveTypeChecker('symbol'),
-
-    any: createAnyTypeChecker(),
-    arrayOf: createArrayOfTypeChecker,
-    element: createElementTypeChecker(),
-    elementType: createElementTypeTypeChecker(),
-    instanceOf: createInstanceTypeChecker,
-    node: createNodeChecker(),
-    objectOf: createObjectOfTypeChecker,
-    oneOf: createEnumTypeChecker,
-    oneOfType: createUnionTypeChecker,
-    shape: createShapeTypeChecker,
-    exact: createStrictShapeTypeChecker,
-  };
-
-  /**
-   * inlined Object.is polyfill to avoid requiring consumers ship their own
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-   */
-  /*eslint-disable no-self-compare*/
-  function is(x, y) {
-    // SameValue algorithm
-    if (x === y) {
-      // Steps 1-5, 7-10
-      // Steps 6.b-6.e: +0 != -0
-      return x !== 0 || 1 / x === 1 / y;
-    } else {
-      // Step 6.a: NaN == NaN
-      return x !== x && y !== y;
-    }
-  }
-  /*eslint-enable no-self-compare*/
-
-  /**
-   * We use an Error-like object for backward compatibility as people may call
-   * PropTypes directly and inspect their output. However, we don't use real
-   * Errors anymore. We don't inspect their stack anyway, and creating them
-   * is prohibitively expensive if they are created too often, such as what
-   * happens in oneOfType() for any type before the one that matched.
-   */
-  function PropTypeError(message) {
-    this.message = message;
-    this.stack = '';
-  }
-  // Make `instanceof Error` still work for returned errors.
-  PropTypeError.prototype = Error.prototype;
-
-  function createChainableTypeChecker(validate) {
-    if (true) {
-      var manualPropTypeCallCache = {};
-      var manualPropTypeWarningCount = 0;
-    }
-    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
-      componentName = componentName || ANONYMOUS;
-      propFullName = propFullName || propName;
-
-      if (secret !== ReactPropTypesSecret) {
-        if (throwOnDirectAccess) {
-          // New behavior only for users of `prop-types` package
-          var err = new Error(
-            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-            'Use `PropTypes.checkPropTypes()` to call them. ' +
-            'Read more at http://fb.me/use-check-prop-types'
-          );
-          err.name = 'Invariant Violation';
-          throw err;
-        } else if ( true && typeof console !== 'undefined') {
-          // Old behavior for people using React.PropTypes
-          var cacheKey = componentName + ':' + propName;
-          if (
-            !manualPropTypeCallCache[cacheKey] &&
-            // Avoid spamming the console because they are often not actionable except for lib authors
-            manualPropTypeWarningCount < 3
-          ) {
-            printWarning(
-              'You are manually calling a React.PropTypes validation ' +
-              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
-              'and will throw in the standalone `prop-types` package. ' +
-              'You may be seeing this warning due to a third-party PropTypes ' +
-              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
-            );
-            manualPropTypeCallCache[cacheKey] = true;
-            manualPropTypeWarningCount++;
-          }
-        }
-      }
-      if (props[propName] == null) {
-        if (isRequired) {
-          if (props[propName] === null) {
-            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
-          }
-          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
-        }
-        return null;
-      } else {
-        return validate(props, propName, componentName, location, propFullName);
-      }
-    }
-
-    var chainedCheckType = checkType.bind(null, false);
-    chainedCheckType.isRequired = checkType.bind(null, true);
-
-    return chainedCheckType;
-  }
-
-  function createPrimitiveTypeChecker(expectedType) {
-    function validate(props, propName, componentName, location, propFullName, secret) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== expectedType) {
-        // `propValue` being instance of, say, date/regexp, pass the 'object'
-        // check, but we can offer a more precise error message here rather than
-        // 'of type `object`'.
-        var preciseType = getPreciseType(propValue);
-
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createAnyTypeChecker() {
-    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
-  }
-
-  function createArrayOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
-      }
-      var propValue = props[propName];
-      if (!Array.isArray(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
-      }
-      for (var i = 0; i < propValue.length; i++) {
-        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
-        if (error instanceof Error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createElementTypeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      if (!isValidElement(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createElementTypeTypeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      if (!ReactIs.isValidElementType(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createInstanceTypeChecker(expectedClass) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!(props[propName] instanceof expectedClass)) {
-        var expectedClassName = expectedClass.name || ANONYMOUS;
-        var actualClassName = getClassName(props[propName]);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createEnumTypeChecker(expectedValues) {
-    if (!Array.isArray(expectedValues)) {
-      if (true) {
-        if (arguments.length > 1) {
-          printWarning(
-            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
-            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
-          );
-        } else {
-          printWarning('Invalid argument supplied to oneOf, expected an array.');
-        }
-      }
-      return emptyFunctionThatReturnsNull;
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      for (var i = 0; i < expectedValues.length; i++) {
-        if (is(propValue, expectedValues[i])) {
-          return null;
-        }
-      }
-
-      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
-        var type = getPreciseType(value);
-        if (type === 'symbol') {
-          return String(value);
-        }
-        return value;
-      });
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createObjectOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
-      }
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
-      }
-      for (var key in propValue) {
-        if (has(propValue, key)) {
-          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-          if (error instanceof Error) {
-            return error;
-          }
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createUnionTypeChecker(arrayOfTypeCheckers) {
-    if (!Array.isArray(arrayOfTypeCheckers)) {
-       true ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : 0;
-      return emptyFunctionThatReturnsNull;
-    }
-
-    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-      var checker = arrayOfTypeCheckers[i];
-      if (typeof checker !== 'function') {
-        printWarning(
-          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
-          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
-        );
-        return emptyFunctionThatReturnsNull;
-      }
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-        var checker = arrayOfTypeCheckers[i];
-        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
-          return null;
-        }
-      }
-
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createNodeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!isNode(props[propName])) {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      for (var key in shapeTypes) {
-        var checker = shapeTypes[key];
-        if (!checker) {
-          continue;
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createStrictShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      // We need to check all keys in case some are required but missing from
-      // props.
-      var allKeys = assign({}, props[propName], shapeTypes);
-      for (var key in allKeys) {
-        var checker = shapeTypes[key];
-        if (!checker) {
-          return new PropTypeError(
-            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
-            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
-            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
-          );
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-
-    return createChainableTypeChecker(validate);
-  }
-
-  function isNode(propValue) {
-    switch (typeof propValue) {
-      case 'number':
-      case 'string':
-      case 'undefined':
-        return true;
-      case 'boolean':
-        return !propValue;
-      case 'object':
-        if (Array.isArray(propValue)) {
-          return propValue.every(isNode);
-        }
-        if (propValue === null || isValidElement(propValue)) {
-          return true;
-        }
-
-        var iteratorFn = getIteratorFn(propValue);
-        if (iteratorFn) {
-          var iterator = iteratorFn.call(propValue);
-          var step;
-          if (iteratorFn !== propValue.entries) {
-            while (!(step = iterator.next()).done) {
-              if (!isNode(step.value)) {
-                return false;
-              }
-            }
-          } else {
-            // Iterator will provide entry [k,v] tuples rather than values.
-            while (!(step = iterator.next()).done) {
-              var entry = step.value;
-              if (entry) {
-                if (!isNode(entry[1])) {
-                  return false;
-                }
-              }
-            }
-          }
-        } else {
-          return false;
-        }
-
-        return true;
-      default:
-        return false;
-    }
-  }
-
-  function isSymbol(propType, propValue) {
-    // Native Symbol.
-    if (propType === 'symbol') {
-      return true;
-    }
-
-    // falsy value can't be a Symbol
-    if (!propValue) {
-      return false;
-    }
-
-    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
-    if (propValue['@@toStringTag'] === 'Symbol') {
-      return true;
-    }
-
-    // Fallback for non-spec compliant Symbols which are polyfilled.
-    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
-      return true;
-    }
-
-    return false;
-  }
-
-  // Equivalent of `typeof` but with special handling for array and regexp.
-  function getPropType(propValue) {
-    var propType = typeof propValue;
-    if (Array.isArray(propValue)) {
-      return 'array';
-    }
-    if (propValue instanceof RegExp) {
-      // Old webkits (at least until Android 4.0) return 'function' rather than
-      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
-      // passes PropTypes.object.
-      return 'object';
-    }
-    if (isSymbol(propType, propValue)) {
-      return 'symbol';
-    }
-    return propType;
-  }
-
-  // This handles more types than `getPropType`. Only used for error messages.
-  // See `createPrimitiveTypeChecker`.
-  function getPreciseType(propValue) {
-    if (typeof propValue === 'undefined' || propValue === null) {
-      return '' + propValue;
-    }
-    var propType = getPropType(propValue);
-    if (propType === 'object') {
-      if (propValue instanceof Date) {
-        return 'date';
-      } else if (propValue instanceof RegExp) {
-        return 'regexp';
-      }
-    }
-    return propType;
-  }
-
-  // Returns a string that is postfixed to a warning about an invalid type.
-  // For example, "undefined" or "of type array"
-  function getPostfixForTypeWarning(value) {
-    var type = getPreciseType(value);
-    switch (type) {
-      case 'array':
-      case 'object':
-        return 'an ' + type;
-      case 'boolean':
-      case 'date':
-      case 'regexp':
-        return 'a ' + type;
-      default:
-        return type;
-    }
-  }
-
-  // Returns class name of the object, if any.
-  function getClassName(propValue) {
-    if (!propValue.constructor || !propValue.constructor.name) {
-      return ANONYMOUS;
-    }
-    return propValue.constructor.name;
-  }
-
-  ReactPropTypes.checkPropTypes = checkPropTypes;
-  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
-  ReactPropTypes.PropTypes = ReactPropTypes;
-
-  return ReactPropTypes;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/prop-types/index.js ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (true) {
-  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(/*! ./factoryWithTypeCheckers */ "./node_modules/prop-types/factoryWithTypeCheckers.js")(ReactIs.isElement, throwOnDirectAccess);
-} else {}
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
-  \*************************************************************/
-/***/ ((module) => {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-
-module.exports = ReactPropTypesSecret;
-
 
 /***/ }),
 
@@ -69741,100 +68946,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {

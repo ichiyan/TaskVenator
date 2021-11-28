@@ -85,10 +85,10 @@ const Tasks = ({tab}) => {
         renderTab =   <Party/>;
     }else if (tab === "group_tasks"){
         renderTab = <GroupTasks/>;
-    }else if (tab === "shop"){
-        renderTab = <Shop/>;
     }else if (tab === "tasks"){
         renderTab = <TasksTab/>;
+    }else if (tab === "shop"){
+        renderTab = <Shop/>;
     }
 
 

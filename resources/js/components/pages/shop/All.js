@@ -70,23 +70,16 @@ useEffect(()=>{
               
               
               <div className="shop-main_shop">
-                <div className="btn-group btn-group-lg" role="group">
-                    <button type="button" name="All" onClick={showItem} className="btn btn-secondary" value="All">All</button>
-                    <button type="button" name="Potions" onClick={showItem} className="btn btn-secondary" value="Potions">Potions</button>
-                    <button type="button" name="Outfit" onClick={showItem} className="btn btn-secondary" value="Outfit">Outfit</button>
-                    
-                </div>
-                <div>
-      <Link to="/all">All</Link>
-        <Link to="/potions">Potions</Link>
-        <Link to="/weapons">Weapons</Link>
-        <Link to="/outfit">Outfit</Link>
-
+                  <div className="shop-nav">
+                        <div className="shop-nav-item shop-active-nav"><Link to="/all">All</Link></div>
+                        <div className="shop-nav-item"><Link to="/potions">Potions</Link></div>
+                        <div className="shop-nav-item"><Link to="/weapons">Weapons</Link></div>
+                        <div className="shop-nav-item"><Link to="/outfit">Outfit</Link></div>
+                  </div>
               </div>
-              </div>
-
+              <div className="shop-filtShop">
+                      
               <div className="shop-shop"> 
-                
                  <div className="shop-category">
                         <div className="shop-categoryName">
                               <p>Health Potions</p>
@@ -226,6 +219,7 @@ useEffect(()=>{
                 
               </div>  
 
+         </div>
          </div>
    
     );
