@@ -1,6 +1,5 @@
-@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-
+@charset "UTF-8";
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -3465,12 +3464,10 @@ textarea.form-control-lg {
   background-color: transparent;
 }
 
-.btn-outline-primary {
+.btn-link {
+  font-weight: 400;
   color: #3490dc;
   text-decoration: underline;
-}
-.btn-link:hover {
-  color: #2a73b0;
 }
 .btn-link:hover {
   color: #2a73b0;
