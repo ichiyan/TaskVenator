@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Header from "../../layouts/Header";
-import AvatarHeader from "../../layouts/AvatarHeader";
-
 import Button from "@restart/ui/esm/Button";
 import axios from "axios";
 import ReactTooltip from 'react-tooltip';
@@ -65,11 +62,10 @@ useEffect(()=>{
 
     return(
         <div className="shop-parentOfAll">
-              <Header page="shop"/>
-              <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} />
-              
               
               <div className="shop-main_shop">
+              <div className="shop-weaponForm"> 
+             </div>
                   <div className="shop-nav">
                         <div className="shop-nav-item shop-active-nav"><Link to="/all">All</Link></div>
                         <div className="shop-nav-item"><Link to="/potions">Potions</Link></div>

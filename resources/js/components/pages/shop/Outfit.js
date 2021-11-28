@@ -56,10 +56,7 @@ function Outfit(){
 
     return(
         <div className="shop-parentOfAll">
-              <Header page="shop"/>
-              <AvatarHeader hasParty="false" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} />
-              
-              
+            
               <div className="shop-main_shop">
                   <div className="shop-nav">
                         <div className="shop-nav-item"><Link to="/all">All</Link></div>
