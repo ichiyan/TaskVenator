@@ -1,55 +1,49 @@
-import React from "react";
-import Form from "./addProductForm";
+import {React,
+    useEffect, useState,
+    Form, Display } from "../../../index";
 
-import Display from "./display";
-import { useState } from 'react';
-function Shop(){
+const Shop = () => {
     const[products, setProducts]= useState([]);
     const[bought, setBought]= useState([]);
     const[clicked, setClicked]= useState("");
 
     const showItem =(event) =>{
-        setClicked(event.target.getAttribute("name"));
+        setClicked(event.target.value);
     }
+    useEffect(()=>{
+        setClicked(clicked);
+    },[clicked]);
+
+
 return(
-    <div className="main_shop">
-        <div className="weaponForm">
-        <Form
-            products={products}
-            setProducts={setProducts}
-        /><hr></hr>
+    <div className="shop-parentOfAll">
+        <Header page="shop"/>
+        <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} />
+
+    <div className="shop-main_shop">
+        <div className="shop-weaponForm">
+        <AddOutfitForm/>
+        <AddPotionForm/>
+        <AddItemForm/>
         </div>
 
-        <div className="shopNavigator">
-                <div className="button">
-                <button onClick={showItem} name="Items" className="displayButtons">Items</button>
-                </div>
-                <div className="button">
-                <button onClick={showItem} name="Potions" className="displayButtons">Potions</button>
-                </div>
-                <div className="button">
-                <button onClick={showItem} name="Outfit" className="displayButtons">Outfit</button>
-                </div>
-                <div className="button">
-                <button onClick={showItem} name="All" className="displayButtons">All</button>
-                </div>
-         </div>
 
-        <div className="shop">
+        <div className="btn-group btn-group-lg" role="group">
+                <button type="button" name="All" onClick={showItem} className="btn btn-secondary" value="All">All</button>
+                <button type="button" name="Potions" onClick={showItem} className="btn btn-secondary" value="Potions">Potions</button>
+                <button type="button" name="Outfit" onClick={showItem} className="btn btn-secondary" value="Outfit">Outfit</button>
+        </div>
 
+
+         <div className="shop-shop">
             <Display
-                products={products}
-                bought={bought}
-                setBought= {setBought}
                 clicked={clicked}
             />
         </div>
 
-
-
-
     </div>
-    )
+    </div>
+    );
 }
 
 export default Shop;

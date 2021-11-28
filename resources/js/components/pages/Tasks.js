@@ -1,9 +1,6 @@
-import React, { useEffect } from "react";
-import { useRef, useState } from "react";
-import { Party } from "../..";
-import AvatarHeader from "../layouts/AvatarHeader";
-import Header from "../layouts/Header";
-import Shop from "./shop/shop";
+import {Header, React,
+    useEffect, useState, GroupTasks,TasksTab,
+    AvatarHeader, Shop, Party} from "../../index";
 
 const Tasks = ({tab}) => {
 
@@ -25,7 +22,7 @@ const Tasks = ({tab}) => {
     const hitHandler = () => {
         let updatedHp;
 
-        if(hp == 0){
+        if(hp === 0){
             updatedHp = 50;
         }else{
             updatedHp = hp - 10;
@@ -48,7 +45,7 @@ const Tasks = ({tab}) => {
         let updatedHp;
         let newHPBarWidth;
 
-        if(hp == hpTotal){
+        if(hp === hpTotal){
             //    full health modal or sumn
             updatedHp = hpTotal;
         }else{
@@ -67,7 +64,7 @@ const Tasks = ({tab}) => {
     const addXPHandler = () => {
         let updatedXp = 0;
         let newXPBarWidth;
-        if(xp == xpTotal){
+        if(xp === xpTotal){
             newXPBarWidth = 0;
         }else{
             updatedXp = xp + 10;
@@ -83,16 +80,20 @@ const Tasks = ({tab}) => {
 
     }
 
-    var renderTab = '';
+    let renderTab = '';
     if  (tab === "party"){
         renderTab =   <Party/>;
+    }else if (tab === "group_tasks"){
+        renderTab = <GroupTasks/>;
     }else if (tab === "shop"){
         renderTab = <Shop/>;
+    }else if (tab === "tasks"){
+        renderTab = <TasksTab/>;
     }
 
     return (
         <div>
-            <Header page="tasks"/>
+            <Header page={tab}/>
             <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
             <div className="main-section">
                 {/* main-section class in tasks.scss already sets margin-top to 15% */}
