@@ -29,6 +29,7 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/react-fontawesome": "^0.1.16",
         "express": "^4.17.1",
+        "ioredis": "^4.28.1",
         "particles.js": "^2.0.0",
         "react-bootstrap": "^2.0.2",
         "react-elastic-carousel": "^0.11.5",

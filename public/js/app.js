@@ -13666,6 +13666,7 @@ var Login = function Login() {
       password: loginUser.password
     };
     axios__WEBPACK_IMPORTED_MODULE_0___default().get('/sanctum/csrf-cookie').then(function (response) {
+      console.log(response);
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("api/login", data).then(function (res) {
         if (res.data.status === 200) {
           localStorage.setItem('auth_token', res.data.token);
