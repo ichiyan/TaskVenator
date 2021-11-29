@@ -26,7 +26,8 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::get('message', [MessageController::class, 'conversation']);
+    Route::get('participants', [MessageController::class, 'getParticipants']);
+    Route::post('send_message', [MessageController::class, 'sendMessage']);
 });
 
 //storing and g potion

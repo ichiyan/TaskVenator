@@ -22,6 +22,7 @@ io.on('connection', function (socket) {
         var i = users.indexOf('socket.id');
         users.splice(i,1, 0);
         io.emit('updateUserStatus', users);
+        console.log(i + "disconnected");
     });
 
 });

@@ -1,7 +1,64 @@
-import {React, Fragment, $, useState, useEffect, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
-import { io } from "socket.io-client";
+import {React, Fragment, $, axios, io, useState, useEffect, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
 
-const Chat = ({onlineCount}) => {
+const Chat = () => {
+
+    const [message, setMessage] = useState('');
+    const [onlineCount, setOnlineCount] = useState(0);
+    const [receiverId, setReceiverId] = useState(0);
+
+    useEffect( () => {
+
+        axios.get(`api/participants`).then( res => {
+            if(res.data.status === 200){
+                 var user_id = res.data.auth_user_info.id;
+                 var chat_user_id = res.data.chat_user_info.id;
+
+                 setReceiverId(chat_user_id);
+
+                 var onlineCtr = 0;
+
+                 var ip_address = '127.0.0.1';
+                 var socket_port = '8005';
+                 var socket = io(ip_address + ':' + socket_port);
+
+                 socket.on('connect', function() {
+                    socket.emit('user_connected', user_id);
+                });
+
+                socket.on('updateUserStatus', (data) => {
+                    onlineCtr = 0;
+                    $.each(data, function (key, val) {
+                        //add condition to check if authUser status is not set to 'appear offline'
+                        if(val !== null && val !==0 ){
+                            onlineCtr++;
+                        }
+                    });
+                    setOnlineCount(onlineCtr);
+                });
+            }
+        });
+
+    });
+
+    const messageHandler = (e) => {
+        e.persist();
+        setMessage(e.target.value);
+        if(e.key === "Enter"){
+            sendMessageHandler();
+        }
+    }
+
+    const sendMessageHandler = () => {
+        const data = {
+            message: message,
+            receiver_id: receiverId,
+        }
+        axios.get('/sanctum/csrf-cookie').then(response => {
+            axios.post(`api/send_message`, data).then(res => {
+                console.log(res.data.data);
+            });
+        });
+    }
 
     const chatPopUpHandler = () => {
         $(".chat-box").slideToggle("slow");
@@ -33,8 +90,8 @@ const Chat = ({onlineCount}) => {
                 </div>
 
                 <div className="chat-input">
-                    <input type="text" placeholder="Enter Message"/>
-                    <span className="send-btn fa-stack fa-1x">
+                    <input onKeyPress={messageHandler} name="message" type="text" placeholder="Enter Message"/>
+                    <span onClick={sendMessageHandler} className="send-btn fa-stack fa-1x">
                         <FontAwesomeIcon icon={faCircle} className="send-icon-circle fa-stack-2x"></FontAwesomeIcon>
                         <FontAwesomeIcon icon={faPaperPlane} className="send-icon fa-stack-1x"></FontAwesomeIcon>
                     </span>
