@@ -1,9 +1,8 @@
 var app = require('express')();
 var http = require('http').Server(app);
 
-//check how to deal with cors
 var io = require('socket.io')(http, {
-    cors: {origin: "*"}
+    cors: {origin: "http://127.0.0.1:8000"}
 });
 
 var users = [];

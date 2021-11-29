@@ -14204,7 +14204,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Chat = function Chat() {
+var Chat = function Chat(_ref) {
+  var onlineCount = _ref.onlineCount;
+
   var chatPopUpHandler = function chatPopUpHandler() {
     (0,_index__WEBPACK_IMPORTED_MODULE_0__.$)(".chat-box").slideToggle("slow");
   };
@@ -14220,9 +14222,9 @@ var Chat = function Chat() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
             className: "party-name",
             children: "Party Name"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
             className: "sub-info",
-            children: "4/5 online"
+            children: [onlineCount, "/5 online"]
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -15181,22 +15183,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
 /* harmony import */ var _public_css_party_tasks_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/css/party_tasks.css */ "./public/css/party_tasks.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
 
 
 var Party = function Party() {
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      onlineCount = _useState2[0],
+      setOnlineCount = _useState2[1];
+
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/message").then(function (res) {
       if (res.data.status === 200) {
         var user_id = res.data.authUserInfo.id;
+        var onlineCtr = 0;
         var ip_address = '127.0.0.1';
         var socket_port = '8005';
         var socket = (0,_index__WEBPACK_IMPORTED_MODULE_0__.io)(ip_address + ':' + socket_port);
         socket.on('connect', function () {
           console.log(user_id);
           socket.emit('user_connected', user_id);
+        });
+        socket.on('updateUserStatus', function (data) {
+          onlineCtr = 0;
+          _index__WEBPACK_IMPORTED_MODULE_0__.$.each(data, function (key, val) {
+            if (val !== null && val !== 0) {
+              onlineCtr++;
+            }
+          });
+          console.log("TEST 1 " + onlineCtr);
+          setOnlineCount(onlineCtr);
         });
       }
     });
@@ -15241,7 +15271,9 @@ var Party = function Party() {
           children: "PARTY LANDING PAGE"
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Chat, {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Chat, {
+      onlineCount: onlineCount
+    })]
   });
 };
 

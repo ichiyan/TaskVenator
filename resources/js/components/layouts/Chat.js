@@ -1,7 +1,7 @@
 import {React, Fragment, $, useState, useEffect, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
 import { io } from "socket.io-client";
 
-const Chat = () => {
+const Chat = ({onlineCount}) => {
 
     const chatPopUpHandler = () => {
         $(".chat-box").slideToggle("slow");
@@ -13,7 +13,7 @@ const Chat = () => {
                 <div className="client">
                     <div className="client-info">
                         <h1 className="party-name">Party Name</h1>
-                        <p className="sub-info">4/5 online</p>
+                        <p className="sub-info">{onlineCount}/5 online</p>
                     </div>
                 </div>
                 <div className="chats">
