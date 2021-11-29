@@ -19,18 +19,19 @@ const Party = () => {
                  var socket = io(ip_address + ':' + socket_port);
 
                  socket.on('connect', function() {
-                    console.log(user_id);
+                    // console.log(user_id);
                     socket.emit('user_connected', user_id);
                 });
 
                 socket.on('updateUserStatus', (data) => {
                     onlineCtr = 0;
+                    // console.log(data);
                     $.each(data, function (key, val) {
                         if(val !== null && val !==0 ){
                             onlineCtr++;
                         }
                     });
-                    console.log("TEST 1 " + onlineCtr);
+                    // console.log("TEST 1 " + onlineCtr);
                     setOnlineCount(onlineCtr);
                 });
             }

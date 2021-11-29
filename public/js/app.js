@@ -15215,17 +15215,18 @@ var Party = function Party() {
         var socket_port = '8005';
         var socket = (0,_index__WEBPACK_IMPORTED_MODULE_0__.io)(ip_address + ':' + socket_port);
         socket.on('connect', function () {
-          console.log(user_id);
+          // console.log(user_id);
           socket.emit('user_connected', user_id);
         });
         socket.on('updateUserStatus', function (data) {
-          onlineCtr = 0;
+          onlineCtr = 0; // console.log(data);
+
           _index__WEBPACK_IMPORTED_MODULE_0__.$.each(data, function (key, val) {
             if (val !== null && val !== 0) {
               onlineCtr++;
             }
-          });
-          console.log("TEST 1 " + onlineCtr);
+          }); // console.log("TEST 1 " + onlineCtr);
+
           setOnlineCount(onlineCtr);
         });
       }

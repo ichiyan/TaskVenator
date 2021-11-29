@@ -12,10 +12,16 @@ http.listen(8005, function () {
 })
 
 io.on('connection', function (socket) {
-    // console.log("someone connected at socket id " + socket.id);
     socket.on("user_connected", function (user_id){
         users[user_id] = socket.id;
         io.emit('updateUserStatus', users);
         console.log("user connected " + user_id);
     });
+
+    socket.on('disconnect', function () {
+        var i = users.indexOf('socket.id');
+        users.splice(i,1, 0);
+        io.emit('updateUserStatus', users);
+    });
+
 });
