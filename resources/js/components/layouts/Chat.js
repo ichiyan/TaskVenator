@@ -5,6 +5,7 @@ const Chat = () => {
     const [message, setMessage] = useState('');
     const [onlineCount, setOnlineCount] = useState(0);
     const [receiverId, setReceiverId] = useState(0);
+    const [sentMessage, setSentMessage] = useState('');
 
     useEffect( () => {
 
@@ -35,16 +36,23 @@ const Chat = () => {
                     });
                     setOnlineCount(onlineCtr);
                 });
+
+                socket.on("private-channel:App\\Events\\PrivateMessageEvent", function(msg){
+                    console.log("test");
+                });
+
             }
         });
 
     });
+    //add socket
 
     const messageHandler = (e) => {
         e.persist();
         setMessage(e.target.value);
         if(e.key === "Enter"){
             sendMessageHandler();
+            e.target.value = '';
         }
     }
 
@@ -53,10 +61,21 @@ const Chat = () => {
             message: message,
             receiver_id: receiverId,
         }
-        axios.get('/sanctum/csrf-cookie').then(response => {
-            axios.post(`api/send_message`, data).then(res => {
+
+        axios.post(`api/send_message`, data).then(res => {
+            if(res.data.status === 200){
                 console.log(res.data.data);
-            });
+                var sentMessageRender = '<Fragment>' +
+                                            '<div className="user-chat">' +
+                                                '<div className="user-message text-right">' +
+                                                    'Test user' +
+                                                '</div>' +
+                                            '</div>' +
+                                            '<p className="user-time-elapsed text-left">5m ago</p>' +
+                                        '</Fragment>';
+                // setSentMessage(sentMessageRender);
+                $( ".chats" ).append(sentMessageRender);
+            }
         });
     }
 
@@ -74,19 +93,21 @@ const Chat = () => {
                     </div>
                 </div>
                 <div className="chats">
-                    <div className="client-chat">
+                    {/* <div className="client-chat">
                        <p className="client-username">username</p>
                        <div className="client-message">
                            Test party member
                        </div>
                        <p className="time-elapsed">5m ago</p>
-                    </div>
-                    <div className="user-chat">
+                    </div> */}
+                    {/* <div className="user-chat">
                         <div className="user-message text-right">
                             Test user
                         </div>
                     </div>
-                    <p className="user-time-elapsed text-left">5m ago</p>
+                    <p className="user-time-elapsed text-left">5m ago</p> */}
+
+                    {/* {sentMessage} */}
                 </div>
 
                 <div className="chat-input">

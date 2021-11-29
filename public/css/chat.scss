@@ -2,6 +2,31 @@
 # Chat Box
 --------------------------------------------------------------*/
 
+
+.chats::-webkit-scrollbar {
+    // display: none !important;
+    background-color:#fff;
+    width:7px;
+    padding-right: 2px;
+}
+
+.chats::-webkit-scrollbar-thumb {
+    background-color:#c5c5ce;
+    border-radius:16px;
+    border: 1px solid #fff;
+}
+
+.client-message{
+    // width: 60%;
+    word-wrap: break-word;
+    background-color: #2A2C37;
+    color: aliceblue;
+    font-weight: 300;
+    padding: 7px 12px;
+    border-radius: 10px 10px 10px 0;
+    display: inline-block;
+}
+
 .chat-box{
     width: 350px;
     height: 60%;
@@ -23,6 +48,7 @@
         padding: 15px;
 
         .client-info{
+
             .party-name{
                 color: black;
                 font-size: 1.5rem;
@@ -37,14 +63,18 @@
     }
 
     .chats{
+
         // width: 100%;
         padding: 0 15px;
         position: relative;
         font-size: 1rem;
+        margin-top: 12px;
+        height: 70%;
+        overflow: auto;
 
         .client-chat{
 
-            margin: 10px 0;
+            margin: 5px 0;
 
             .client-username{
                 margin: 0 0 1px 0;
@@ -75,6 +105,7 @@
 
             display: flex;
             justify-content: flex-end;
+            margin: 5px 0;
 
             .user-message{
                 // width: 60%;

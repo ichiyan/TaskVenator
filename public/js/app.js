@@ -14231,6 +14231,11 @@ var Chat = function Chat() {
       receiverId = _useState6[0],
       setReceiverId = _useState6[1];
 
+  var _useState7 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      sentMessage = _useState8[0],
+      setSentMessage = _useState8[1];
+
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/participants").then(function (res) {
       if (res.data.status === 200) {
@@ -14254,9 +14259,12 @@ var Chat = function Chat() {
           });
           setOnlineCount(onlineCtr);
         });
+        socket.on("private-channel:App\\Events\\PrivateMessageEvent", function (msg) {
+          console.log("test");
+        });
       }
     });
-  });
+  }); //add socket
 
   var messageHandler = function messageHandler(e) {
     e.persist();
@@ -14264,6 +14272,7 @@ var Chat = function Chat() {
 
     if (e.key === "Enter") {
       sendMessageHandler();
+      e.target.value = '';
     }
   };
 
@@ -14272,10 +14281,13 @@ var Chat = function Chat() {
       message: message,
       receiver_id: receiverId
     };
-    _index__WEBPACK_IMPORTED_MODULE_0__.axios.get('/sanctum/csrf-cookie').then(function (response) {
-      _index__WEBPACK_IMPORTED_MODULE_0__.axios.post("api/send_message", data).then(function (res) {
+    _index__WEBPACK_IMPORTED_MODULE_0__.axios.post("api/send_message", data).then(function (res) {
+      if (res.data.status === 200) {
         console.log(res.data.data);
-      });
+        var sentMessageRender = '<Fragment>' + '<div className="user-chat">' + '<div className="user-message text-right">' + 'Test user' + '</div>' + '</div>' + '<p className="user-time-elapsed text-left">5m ago</p>' + '</Fragment>'; // setSentMessage(sentMessageRender);
+
+        (0,_index__WEBPACK_IMPORTED_MODULE_0__.$)(".chats").append(sentMessageRender);
+      }
     });
   };
 
@@ -14299,30 +14311,8 @@ var Chat = function Chat() {
             children: [onlineCount, "/5 online"]
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "chats",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "client-chat",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-            className: "client-username",
-            children: "username"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "client-message",
-            children: "Test party member"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-            className: "time-elapsed",
-            children: "5m ago"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "user-chat",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "user-message text-right",
-            children: "Test user"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-          className: "user-time-elapsed text-left",
-          children: "5m ago"
-        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "chats"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "chat-input",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
@@ -25360,7 +25350,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# Chat Box\n--------------------------------------------------------------*/\n.chat-box {\n  width: 350px;\n  height: 60%;\n  background-color: aliceblue;\n  z-index: 9999;\n  position: fixed;\n  bottom: 11.5%;\n  right: 15px;\n  overflow: hidden;\n  border-radius: 10px;\n  display: none;\n}\n.chat-box .client {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  height: 15%;\n  background-color: #5fcf80;\n  padding: 15px;\n}\n.chat-box .client .client-info .party-name {\n  color: black;\n  font-size: 1.5rem;\n  margin: 0;\n  font-weight: 550;\n}\n.chat-box .client .client-info .sub-info {\n  margin: 0;\n  font-size: 0.9rem;\n}\n.chat-box .chats {\n  padding: 0 15px;\n  position: relative;\n  font-size: 1rem;\n}\n.chat-box .chats .client-chat {\n  margin: 10px 0;\n}\n.chat-box .chats .client-chat .client-username {\n  margin: 0 0 1px 0;\n  color: black;\n  font-weight: 300;\n}\n.chat-box .chats .client-chat .client-message {\n  word-wrap: break-word;\n  background-color: #2A2C37;\n  color: aliceblue;\n  font-weight: 300;\n  padding: 7px 12px;\n  border-radius: 10px 10px 10px 0;\n  display: inline-block;\n}\n.chat-box .chats .time-elapsed, .chat-box .chats .user-time-elapsed {\n  color: #727272;\n  font-weight: 300;\n  font-size: 0.87rem;\n  margin: 1px 0 0 0;\n}\n.chat-box .chats .user-chat {\n  display: flex;\n  justify-content: flex-end;\n}\n.chat-box .chats .user-chat .user-message {\n  word-wrap: break-word;\n  background-color: #45476b;\n  color: aliceblue;\n  font-weight: 300;\n  padding: 7px 12px;\n  border-radius: 10px 10px 0 10px;\n  display: inline-block;\n}\n.chat-box .chats .user-time-elapsed {\n  text-align: right;\n}\n.chat-box .chat-input {\n  display: flex;\n  align-items: center;\n  overflow: hidden;\n  width: 100%;\n  height: 15%;\n  position: absolute;\n  bottom: 0;\n  padding: 15px;\n}\n.chat-box .chat-input input {\n  width: calc(100% - 40px);\n  height: 100%;\n  border-radius: 50px;\n  padding: 0 15px;\n}\n.chat-box .chat-input input:focus {\n  outline: none;\n}\n.chat-box .send-icon-circle {\n  color: #5fcf80;\n}\n.chat-box .send-icon {\n  color: aliceblue;\n}\n.chat-box .send-btn {\n  position: relative;\n  margin-left: 5px;\n  cursor: pointer;\n  transition: 0.4s ease-in-out;\n}\n.chat-box .send-btn:active {\n  transform: scale(0.85);\n}\n\n/*--------------------------------------------------------------\n# Chat Pop Up Btn\n--------------------------------------------------------------*/\n.chat-btn {\n  z-index: 9999;\n  position: fixed;\n  bottom: 1%;\n  right: 15px;\n  cursor: pointer;\n}\n\n.chat-icon-circle {\n  color: #5fcf80;\n}\n\n.chat-icon {\n  color: aliceblue;\n  transition: 0.4s ease-in-out;\n}\n\n.chat-icon:hover {\n  transform: rotate(30deg);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# Chat Box\n--------------------------------------------------------------*/\n.chats::-webkit-scrollbar {\n  background-color: #fff;\n  width: 7px;\n  padding-right: 2px;\n}\n\n.chats::-webkit-scrollbar-thumb {\n  background-color: #c5c5ce;\n  border-radius: 16px;\n  border: 1px solid #fff;\n}\n\n.client-message {\n  word-wrap: break-word;\n  background-color: #2A2C37;\n  color: aliceblue;\n  font-weight: 300;\n  padding: 7px 12px;\n  border-radius: 10px 10px 10px 0;\n  display: inline-block;\n}\n\n.chat-box {\n  width: 350px;\n  height: 60%;\n  background-color: aliceblue;\n  z-index: 9999;\n  position: fixed;\n  bottom: 11.5%;\n  right: 15px;\n  overflow: hidden;\n  border-radius: 10px;\n  display: none;\n}\n.chat-box .client {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  height: 15%;\n  background-color: #5fcf80;\n  padding: 15px;\n}\n.chat-box .client .client-info .party-name {\n  color: black;\n  font-size: 1.5rem;\n  margin: 0;\n  font-weight: 550;\n}\n.chat-box .client .client-info .sub-info {\n  margin: 0;\n  font-size: 0.9rem;\n}\n.chat-box .chats {\n  padding: 0 15px;\n  position: relative;\n  font-size: 1rem;\n  margin-top: 12px;\n  height: 70%;\n  overflow: auto;\n}\n.chat-box .chats .client-chat {\n  margin: 5px 0;\n}\n.chat-box .chats .client-chat .client-username {\n  margin: 0 0 1px 0;\n  color: black;\n  font-weight: 300;\n}\n.chat-box .chats .client-chat .client-message {\n  word-wrap: break-word;\n  background-color: #2A2C37;\n  color: aliceblue;\n  font-weight: 300;\n  padding: 7px 12px;\n  border-radius: 10px 10px 10px 0;\n  display: inline-block;\n}\n.chat-box .chats .time-elapsed, .chat-box .chats .user-time-elapsed {\n  color: #727272;\n  font-weight: 300;\n  font-size: 0.87rem;\n  margin: 1px 0 0 0;\n}\n.chat-box .chats .user-chat {\n  display: flex;\n  justify-content: flex-end;\n  margin: 5px 0;\n}\n.chat-box .chats .user-chat .user-message {\n  word-wrap: break-word;\n  background-color: #45476b;\n  color: aliceblue;\n  font-weight: 300;\n  padding: 7px 12px;\n  border-radius: 10px 10px 0 10px;\n  display: inline-block;\n}\n.chat-box .chats .user-time-elapsed {\n  text-align: right;\n}\n.chat-box .chat-input {\n  display: flex;\n  align-items: center;\n  overflow: hidden;\n  width: 100%;\n  height: 15%;\n  position: absolute;\n  bottom: 0;\n  padding: 15px;\n}\n.chat-box .chat-input input {\n  width: calc(100% - 40px);\n  height: 100%;\n  border-radius: 50px;\n  padding: 0 15px;\n}\n.chat-box .chat-input input:focus {\n  outline: none;\n}\n.chat-box .send-icon-circle {\n  color: #5fcf80;\n}\n.chat-box .send-icon {\n  color: aliceblue;\n}\n.chat-box .send-btn {\n  position: relative;\n  margin-left: 5px;\n  cursor: pointer;\n  transition: 0.4s ease-in-out;\n}\n.chat-box .send-btn:active {\n  transform: scale(0.85);\n}\n\n/*--------------------------------------------------------------\n# Chat Pop Up Btn\n--------------------------------------------------------------*/\n.chat-btn {\n  z-index: 9999;\n  position: fixed;\n  bottom: 1%;\n  right: 15px;\n  cursor: pointer;\n}\n\n.chat-icon-circle {\n  color: #5fcf80;\n}\n\n.chat-icon {\n  color: aliceblue;\n  transition: 0.4s ease-in-out;\n}\n\n.chat-icon:hover {\n  transform: rotate(30deg);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
