@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\MessageController;
 use App\Http\Controllers\API\PotionController;
 use App\Http\Controllers\API\OutfitController;
+use App\Http\Controllers\API\PartyController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,6 +30,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
     Route::get('participants', [MessageController::class, 'getParticipants']);
     Route::post('send_message', [MessageController::class, 'sendMessage']);
+    Route::get('get_party_info', [PartyController::class, 'getPartyInfo']);
 });
 
 //storing and g potion

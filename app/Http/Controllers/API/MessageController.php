@@ -13,14 +13,12 @@ use App\Events\PrivateMessageEvent;
 class MessageController extends Controller
 {
     public function getParticipants(){
-        //change users to party members
+        //test private chat with any user
         $users = User::where('id', '!=', Auth::id())->get();
-        //testing
+        //test private with user hose id=2
         $chat_user_info = User::findOrFail(2);
         $auth_user_info = User::find(Auth::id());
 
-        // $this->data['users'] = $users;
-        // $this->data['authUserInfo'] = $authUserInfo;
 
         return response()->json([
             'status'=>200,

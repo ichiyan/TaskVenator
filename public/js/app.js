@@ -14218,20 +14218,30 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Chat = function Chat() {
   var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
-      message = _useState2[0],
-      setMessage = _useState2[1];
+      partyName = _useState2[0],
+      setPartyName = _useState2[1];
 
-  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState4 = _slicedToArray(_useState3, 2),
-      onlineCount = _useState4[0],
-      setOnlineCount = _useState4[1];
+      message = _useState4[0],
+      setMessage = _useState4[1];
 
   var _useState5 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState6 = _slicedToArray(_useState5, 2),
-      receiverId = _useState6[0],
-      setReceiverId = _useState6[1];
+      onlineCount = _useState6[0],
+      setOnlineCount = _useState6[1];
+
+  var _useState7 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState8 = _slicedToArray(_useState7, 2),
+      receiverId = _useState8[0],
+      setReceiverId = _useState8[1];
 
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/get_party_info").then(function (res) {
+      if (res.data.status === 200) {
+        setPartyName(res.data.data.party_name);
+      }
+    });
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/participants").then(function (res) {
       if (res.data.status === 200) {
         var user_id = res.data.auth_user_info.id;
@@ -14301,7 +14311,7 @@ var Chat = function Chat() {
           className: "client-info",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
             className: "party-name",
-            children: "Party Name"
+            children: partyName
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
             className: "sub-info",
             children: [onlineCount, "/5 online"]

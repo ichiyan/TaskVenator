@@ -2,11 +2,18 @@ import {React, Fragment, $, axios, io, useState, useEffect, FontAwesomeIcon, faP
 
 const Chat = () => {
 
+    const [partyName, setPartyName] = useState('');
     const [message, setMessage] = useState('');
     const [onlineCount, setOnlineCount] = useState(0);
     const [receiverId, setReceiverId] = useState(0);
 
     useEffect( () => {
+
+        axios.get(`api/get_party_info`).then(res => {
+            if(res.data.status === 200){
+                setPartyName(res.data.data.party_name);
+            }
+        });
 
         axios.get(`api/participants`).then( res => {
             if(res.data.status === 200){
@@ -88,7 +95,7 @@ const Chat = () => {
             <div className="chat-box">
                 <div className="client">
                     <div className="client-info">
-                        <h1 className="party-name">Party Name</h1>
+                        <h1 className="party-name">{partyName}</h1>
                         <p className="sub-info">{onlineCount}/5 online</p>
                     </div>
                 </div>

@@ -16,7 +16,7 @@ class PartyMember extends Model
     ];
 
     public function party(){
-        return $this->belingsTo(Party::class);
+        return $this->belongsTo(Party::class);
     }
 
 }
