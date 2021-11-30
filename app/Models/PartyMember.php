@@ -5,16 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserMessage extends Model
+class PartyMember extends Model
 {
     use HasFactory;
 
-    public function message() {
-        return $this->belongsTo(Message::class);
-    }
+    protected $fillable = [
+        'user_id',
+        'party_id',
+        'status'
+    ];
 
     public function party(){
-        return $this->belongsTo(Party::class);
+        return $this->belingsTo(Party::class);
     }
 
 }

@@ -14231,11 +14231,6 @@ var Chat = function Chat() {
       receiverId = _useState6[0],
       setReceiverId = _useState6[1];
 
-  var _useState7 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-      _useState8 = _slicedToArray(_useState7, 2),
-      sentMessage = _useState8[0],
-      setSentMessage = _useState8[1];
-
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/participants").then(function (res) {
       if (res.data.status === 200) {
@@ -14260,11 +14255,12 @@ var Chat = function Chat() {
           setOnlineCount(onlineCtr);
         });
         socket.on("private-channel:App\\Events\\PrivateMessageEvent", function (msg) {
+          //append message here from sender
           console.log("test");
         });
       }
     });
-  }); //add socket
+  }); //test socket
 
   var messageHandler = function messageHandler(e) {
     e.persist();

@@ -18,6 +18,7 @@ class CreateUserMessagesTable extends Migration
             $table->unsignedInteger('message_id');
             $table->unsignedInteger('sender_id');
             $table->unsignedInteger('receiver_id');
+            $table->unsignedInteger('party_id')->nullable();    //nullable for private messages
             $table->tinyInteger('type')->default(0)->comment('1: group msg, 0:personal msg');
             $table->tinyInteger('seen_status')->default(0)->comment('1:seen');
             $table->tinyInteger('deliver_status')->default(0)->comment('1:delivered');

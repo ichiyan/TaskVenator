@@ -5,7 +5,6 @@ const Chat = () => {
     const [message, setMessage] = useState('');
     const [onlineCount, setOnlineCount] = useState(0);
     const [receiverId, setReceiverId] = useState(0);
-    const [sentMessage, setSentMessage] = useState('');
 
     useEffect( () => {
 
@@ -38,6 +37,7 @@ const Chat = () => {
                 });
 
                 socket.on("private-channel:App\\Events\\PrivateMessageEvent", function(msg){
+                    //append message here from sender
                     console.log("test");
                 });
 
@@ -45,7 +45,7 @@ const Chat = () => {
         });
 
     });
-    //add socket
+    //test socket
 
     const messageHandler = (e) => {
         e.persist();
