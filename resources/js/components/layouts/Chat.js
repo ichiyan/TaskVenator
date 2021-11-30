@@ -2,57 +2,73 @@ import {React, Fragment, $, axios, io, useState, useEffect, FontAwesomeIcon, faP
 
 const Chat = () => {
 
-    const [partyName, setPartyName] = useState('');
-    const [message, setMessage] = useState('');
+    const [partyName, setPartyName] = useState();
+    const [partyId] = useState();
+    const [partyCount, setPartyCount] = useState();
+    const [partyMembersId, setPartyMembersId] = useState([]);  //separated for easy checking if elem exists; idk if this is safe
+    const [partyMembers, setPartyMembers] = useState(); //other info, contains username only for now
     const [onlineCount, setOnlineCount] = useState(0);
+    const [message, setMessage] = useState('');
     const [receiverId, setReceiverId] = useState(0);
 
     useEffect( () => {
 
+        var partyMemId = [];
+
         axios.get(`api/get_party_info`).then(res => {
             if(res.data.status === 200){
-                setPartyName(res.data.data.party_name);
+                var data = res.data.data;
+                setPartyMembersId(data.party.id);
+                setPartyName(data.party.party_name);
+                setPartyCount(data.party_members_count);
+                var members = data.party_members;
+                Object.keys(members).forEach( key => {
+                    var val = members[key];
+                    partyMemId.push(val.id);
+                });
+                setPartyMembersId(partyMemId);
             }
         });
+    }, []);
 
-        axios.get(`api/participants`).then( res => {
-            if(res.data.status === 200){
-                 var user_id = res.data.auth_user_info.id;
-                 var chat_user_id = res.data.chat_user_info.id;
+    useEffect( () => {
+        // TO REFACTOR
+        //  axios.get(`api/participants`).then( res => {
+        //     if(res.data.status === 200){
+        //          var user_id = res.data.auth_user_info.id;
+        //          var chat_user_id = res.data.chat_user_info.id;
 
-                 setReceiverId(chat_user_id);
+        //          setReceiverId(chat_user_id);
 
-                 var onlineCtr = 0;
+        //          var onlineCtr = 0;
 
-                 var ip_address = '127.0.0.1';
-                 var socket_port = '8005';
-                 var socket = io(ip_address + ':' + socket_port);
+        //          var ip_address = '127.0.0.1';
+        //          var socket_port = '8005';
+        //          var socket = io(ip_address + ':' + socket_port);
 
-                 socket.on('connect', function() {
-                    socket.emit('user_connected', user_id);
-                });
+        //          socket.on('connect', function() {
+        //             socket.emit('user_connected', user_id);
+        //         });
 
-                socket.on('updateUserStatus', (data) => {
-                    onlineCtr = 0;
-                    $.each(data, function (key, val) {
-                        //add condition to check if authUser status is not set to 'appear offline'
-                        if(val !== null && val !==0 ){
-                            onlineCtr++;
-                        }
-                    });
-                    setOnlineCount(onlineCtr);
-                });
+        //         socket.on('updateUserStatus', (data) => {
+        //             onlineCtr = 0;
+        //             $.each(data, function (key, val) {
+        //                 if(val !== null && val !==0 && partyMembersId.includes(key)){
+        //                     // console.log(key);
+        //                     onlineCtr++;
+        //                 }
+        //             });
+        //             setOnlineCount(onlineCtr);
+        //         });
 
-                socket.on("private-channel:App\\Events\\PrivateMessageEvent", function(msg){
-                    //append message here from sender
-                    console.log("test");
-                });
+        //         socket.on("private-channel:App\\Events\\PrivateMessageEvent", function(msg){
+        //             //append message here from sender
+        //             console.log("test");
+        //         });
 
-            }
-        });
-
+        //     }
+        // });
     });
-    //test socket
 
     const messageHandler = (e) => {
         e.persist();
@@ -72,16 +88,16 @@ const Chat = () => {
         axios.post(`api/send_message`, data).then(res => {
             if(res.data.status === 200){
                 console.log(res.data.data);
-                var sentMessageRender = '<Fragment>' +
-                                            '<div className="user-chat">' +
-                                                '<div className="user-message text-right">' +
-                                                    'Test user' +
-                                                '</div>' +
-                                            '</div>' +
-                                            '<p className="user-time-elapsed text-left">5m ago</p>' +
-                                        '</Fragment>';
-                // setSentMessage(sentMessageRender);
-                $( ".chats" ).append(sentMessageRender);
+                // var sentMessageRender = '<Fragment>' +
+                //                             '<div className="user-chat">' +
+                //                                 '<div className="user-message text-right">' +
+                //                                     'Test user' +
+                //                                 '</div>' +
+                //                             '</div>' +
+                //                             '<p className="user-time-elapsed text-left">5m ago</p>' +
+                //                         '</Fragment>';
+                // // setSentMessage(sentMessageRender);
+                // $( ".chats" ).append(sentMessageRender);
             }
         });
     }
@@ -96,7 +112,7 @@ const Chat = () => {
                 <div className="client">
                     <div className="client-info">
                         <h1 className="party-name">{partyName}</h1>
-                        <p className="sub-info">{onlineCount}/5 online</p>
+                        <p className="sub-info">{onlineCount}/{partyCount} online</p>
                     </div>
                 </div>
                 <div className="chats">
