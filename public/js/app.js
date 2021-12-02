@@ -14254,11 +14254,6 @@ var Chat = function Chat() {
       onlineCount = _useState14[0],
       setOnlineCount = _useState14[1];
 
-  var _useState15 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-      _useState16 = _slicedToArray(_useState15, 2),
-      message = _useState16[0],
-      setMessage = _useState16[1];
-
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/auth_user").then(function (res) {
       if (res.data.status === 200) {
@@ -14268,7 +14263,8 @@ var Chat = function Chat() {
         _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/get_party_info").then(function (res) {
           if (res.data.status === 200) {
             var data = res.data.data;
-            setPartyId(data.party.id);
+            var party_id = data.party.id;
+            setPartyId(party_id);
             setPartyName(data.party.party_name);
             setPartyCount(data.party_members_count);
             var members = data.party_members;
@@ -14281,11 +14277,17 @@ var Chat = function Chat() {
             var socket_port = '8005';
             var socket = (0,_index__WEBPACK_IMPORTED_MODULE_0__.io)(ip_address + ':' + socket_port);
             socket.on('connect', function () {
+              var chat_data = {
+                party_id: party_id,
+                user_id: user_id,
+                chat_room: "party" + party_id
+              };
               socket.emit('user_connected', user_id);
+              socket.emit('party_chat', chat_data);
             });
             socket.on('updateUserStatus', function (data) {
-              var onlineCtr = 0;
-              console.log(data);
+              var onlineCtr = 0; // console.log(data);
+
               _index__WEBPACK_IMPORTED_MODULE_0__.$.each(data, function (key, val) {
                 if (val !== null && val !== 0 && partyMemId.includes(key)) {
                   onlineCtr++;
@@ -14293,15 +14295,31 @@ var Chat = function Chat() {
               });
               setOnlineCount(onlineCtr);
             });
+            socket.on("partyMessage", function (msg) {
+              console.log(msg); // var sentMessageRender = '<Fragment>' +
+              //                 '<div className="user-chat">' +
+              //                     '<div className="user-message text-right">' +
+              //                         'Test user' +
+              //                     '</div>' +
+              //                 '</div>' +
+              //                 '<p className="user-time-elapsed text-left">5m ago</p>' +
+              //             '</Fragment>';
+              //     // setSentMessage(sentMessageRender);
+              //  $( ".chats" ).append(sentMessageRender);
+            });
           }
         });
       }
     });
+    return function () {
+      return socket.close();
+    };
   }, []);
+  var msg = '';
 
   var messageHandler = function messageHandler(e) {
     e.persist();
-    setMessage(e.target.value);
+    msg = e.target.value;
 
     if (e.key === "Enter") {
       sendMessageHandler();
@@ -14311,21 +14329,22 @@ var Chat = function Chat() {
 
   var sendMessageHandler = function sendMessageHandler() {
     var data = {
-      message: message,
+      message: msg,
       party_id: partyId
     };
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.post("api/send_party_message", data).then(function (res) {
-      if (res.data.status === 200) {
-        console.log(res.data.data); // var sentMessageRender = '<Fragment>' +
-        //                             '<div className="user-chat">' +
-        //                                 '<div className="user-message text-right">' +
-        //                                     'Test user' +
+      if (res.data.status === 200) {// console.log(res.data.data);
+        // var test = '<Fragment>' +
+        //                             '<div className="client-chat">' +
+        //                                 '<p className="client-username">username</p> ' +
+        //                                 '<div className="client-message">' +
+        //                                 'Test party member' +
         //                                 '</div>' +
-        //                             '</div>' +
-        //                             '<p className="user-time-elapsed text-left">5m ago</p>' +
+        //                                 '<p className="time-elapsed">5m ago</p>' +
+        //                                 '</div>' +
         //                         '</Fragment>';
         // // setSentMessage(sentMessageRender);
-        // $( ".chats" ).append(sentMessageRender);
+        // $( ".chats" ).append(test);
       }
     });
   };

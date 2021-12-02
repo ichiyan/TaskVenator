@@ -33,6 +33,6 @@ class PartyMessageEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PartyMessageEvent('party-message-channel');
+        return new Channel('party-message-channel');
     }
 }

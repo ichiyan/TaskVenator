@@ -35,11 +35,13 @@ class MessageController extends Controller
 
                 $data['sender_id'] = $sender_id;
                 $data['sender_name'] = $sender->name;
-                $data['type'] = 2;
+                $data['type'] = 2;                      //party message type
                 $data['party_id'] = $party_id;
                 $data['content'] = $message->message;
                 $data['created_at'] = $message->created_at;
                 $data['message_id'] = $message->id;
+
+                $data= json_decode( json_encode($data), true);
 
                 event(new PartyMessageEvent($data));
 

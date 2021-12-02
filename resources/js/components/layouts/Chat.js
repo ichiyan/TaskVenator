@@ -11,7 +11,6 @@ const Chat = () => {
 
     const [userId, setUserId] = useState();
     const [onlineCount, setOnlineCount] = useState(0);
-    const [message, setMessage] = useState('');
 
     useEffect( () => {
 
@@ -26,7 +25,8 @@ const Chat = () => {
                 axios.get(`api/get_party_info`).then(res => {
                     if(res.data.status === 200){
                         var data = res.data.data;
-                        setPartyId(data.party.id);
+                        var party_id = data.party.id;
+                        setPartyId(party_id);
                         setPartyName(data.party.party_name);
                         setPartyCount(data.party_members_count);
                         var members = data.party_members;
@@ -41,12 +41,18 @@ const Chat = () => {
                         var socket = io(ip_address + ':' + socket_port);
 
                         socket.on('connect', function() {
+                            let chat_data = {
+                                party_id: party_id,
+                                user_id: user_id,
+                                chat_room: "party" + party_id,
+                            }
                             socket.emit('user_connected', user_id);
+                            socket.emit('party_chat', chat_data);
                         });
 
                         socket.on('updateUserStatus', (data) => {
                             var onlineCtr = 0;
-                            console.log(data);
+                            // console.log(data);
                             $.each(data, function (key, val) {
                                 if(val !== null && val !==0 && partyMemId.includes(key)){
                                     onlineCtr++;
@@ -55,17 +61,33 @@ const Chat = () => {
                             setOnlineCount(onlineCtr);
                         });
 
+                        socket.on("partyMessage", function(msg){
+                            console.log(msg);
+                            // var sentMessageRender = '<Fragment>' +
+                            //                 '<div className="user-chat">' +
+                            //                     '<div className="user-message text-right">' +
+                            //                         'Test user' +
+                            //                     '</div>' +
+                            //                 '</div>' +
+                            //                 '<p className="user-time-elapsed text-left">5m ago</p>' +
+                            //             '</Fragment>';
+                            //     // setSentMessage(sentMessageRender);
+                            //  $( ".chats" ).append(sentMessageRender);
+                             });
+
                     }
                 });
             }
         });
 
+        return () => socket.close();
+
     }, []);
 
-
+    var msg = '';
     const messageHandler = (e) => {
         e.persist();
-        setMessage(e.target.value);
+        msg = e.target.value;
         if(e.key === "Enter"){
             sendMessageHandler();
             e.target.value = '';
@@ -74,23 +96,24 @@ const Chat = () => {
 
     const sendMessageHandler = () => {
         const data = {
-            message: message,
+            message: msg,
             party_id: partyId,
         }
 
         axios.post(`api/send_party_message`, data).then(res => {
             if(res.data.status === 200){
-                console.log(res.data.data);
-                // var sentMessageRender = '<Fragment>' +
-                //                             '<div className="user-chat">' +
-                //                                 '<div className="user-message text-right">' +
-                //                                     'Test user' +
+                // console.log(res.data.data);
+                // var test = '<Fragment>' +
+                //                             '<div className="client-chat">' +
+                //                                 '<p className="client-username">username</p> ' +
+                //                                 '<div className="client-message">' +
+                //                                 'Test party member' +
                 //                                 '</div>' +
-                //                             '</div>' +
-                //                             '<p className="user-time-elapsed text-left">5m ago</p>' +
+                //                                 '<p className="time-elapsed">5m ago</p>' +
+                //                                 '</div>' +
                 //                         '</Fragment>';
                 // // setSentMessage(sentMessageRender);
-                // $( ".chats" ).append(sentMessageRender);
+                // $( ".chats" ).append(test);
             }
         });
     }
