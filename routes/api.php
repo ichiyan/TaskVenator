@@ -29,8 +29,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('auth_user', [AuthController::class, 'getAuthenticatedUser']);
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::get('participants', [MessageController::class, 'getParticipants']);
-    Route::post('send_message', [MessageController::class, 'sendMessage']);
+    Route::post('send_party_message', [MessageController::class, 'sendPartyMessage']);
     Route::get('get_party_info', [PartyController::class, 'getPartyInfo']);
 });
 

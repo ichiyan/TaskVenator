@@ -14312,9 +14312,9 @@ var Chat = function Chat() {
   var sendMessageHandler = function sendMessageHandler() {
     var data = {
       message: message,
-      receiver_id: receiverId
+      party_id: partyId
     };
-    _index__WEBPACK_IMPORTED_MODULE_0__.axios.post("api/send_message", data).then(function (res) {
+    _index__WEBPACK_IMPORTED_MODULE_0__.axios.post("api/send_party_message", data).then(function (res) {
       if (res.data.status === 200) {
         console.log(res.data.data); // var sentMessageRender = '<Fragment>' +
         //                             '<div className="user-chat">' +

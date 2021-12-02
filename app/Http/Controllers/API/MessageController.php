@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\PartyMessageEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Models\User;
@@ -12,6 +13,51 @@ use App\Events\PrivateMessageEvent;
 
 class MessageController extends Controller
 {
+
+    public function sendPartyMessage(Request $request){
+        $request->validate([
+            'message' => 'required',
+            'party_id' => 'required',
+        ]);
+
+        $sender_id = Auth::id();
+        $party_id = $request->party_id;
+
+        $message = new Message();
+        $message->message = $request->message;
+
+        if ($message->save()) {
+            try {
+                $message->users()->attach($sender_id, ['party_id' => $party_id]);
+                $sender = User::where('id', '=', $sender_id)->first();
+
+                $data = [];
+
+                $data['sender_id'] = $sender_id;
+                $data['sender_name'] = $sender->name;
+                $data['type'] = 2;
+                $data['party_id'] = $party_id;
+                $data['content'] = $message->message;
+                $data['created_at'] = $message->created_at;
+                $data['message_id'] = $message->id;
+
+                event(new PartyMessageEvent($data));
+
+                return response()->json([
+                    'status' => 200,
+                    'data' => $data,
+                    'message' => 'Message sent successfully',
+                ]);
+
+            } catch (Exception $e){
+                $message->delete();
+            }
+
+        }
+    }
+
+
+
 
     //Test private chat function
     public function getParticipants(){

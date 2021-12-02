@@ -75,10 +75,10 @@ const Chat = () => {
     const sendMessageHandler = () => {
         const data = {
             message: message,
-            receiver_id: receiverId,
+            party_id: partyId,
         }
 
-        axios.post(`api/send_message`, data).then(res => {
+        axios.post(`api/send_party_message`, data).then(res => {
             if(res.data.status === 200){
                 console.log(res.data.data);
                 // var sentMessageRender = '<Fragment>' +
