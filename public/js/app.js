@@ -14216,14 +14216,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Chat = function Chat() {
+  //party name, party count should be broadcasted
   var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
       partyName = _useState2[0],
       setPartyName = _useState2[1];
 
   var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-      _useState4 = _slicedToArray(_useState3, 1),
-      partyId = _useState4[0];
+      _useState4 = _slicedToArray(_useState3, 2),
+      partyId = _useState4[0],
+      setPartyId = _useState4[1];
 
   var _useState5 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState6 = _slicedToArray(_useState5, 2),
@@ -14242,68 +14244,60 @@ var Chat = function Chat() {
       setPartyMembers = _useState10[1]; //other info, contains username only for now
 
 
-  var _useState11 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState11 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState12 = _slicedToArray(_useState11, 2),
-      onlineCount = _useState12[0],
-      setOnlineCount = _useState12[1];
+      userId = _useState12[0],
+      setUserId = _useState12[1];
 
-  var _useState13 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState13 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState14 = _slicedToArray(_useState13, 2),
-      message = _useState14[0],
-      setMessage = _useState14[1];
+      onlineCount = _useState14[0],
+      setOnlineCount = _useState14[1];
 
-  var _useState15 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState15 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState16 = _slicedToArray(_useState15, 2),
-      receiverId = _useState16[0],
-      setReceiverId = _useState16[1];
+      message = _useState16[0],
+      setMessage = _useState16[1];
 
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var partyMemId = [];
-    _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/get_party_info").then(function (res) {
+    _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/auth_user").then(function (res) {
       if (res.data.status === 200) {
-        var data = res.data.data;
-        setPartyMembersId(data.party.id);
-        setPartyName(data.party.party_name);
-        setPartyCount(data.party_members_count);
-        var members = data.party_members;
-        Object.keys(members).forEach(function (key) {
-          var val = members[key];
-          partyMemId.push(val.id);
+        var user_id = res.data.user_id;
+        setUserId(user_id);
+        var partyMemId = [];
+        _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/get_party_info").then(function (res) {
+          if (res.data.status === 200) {
+            var data = res.data.data;
+            setPartyId(data.party.id);
+            setPartyName(data.party.party_name);
+            setPartyCount(data.party_members_count);
+            var members = data.party_members;
+            Object.keys(members).forEach(function (key) {
+              var val = members[key];
+              partyMemId.push(val.id);
+            });
+            setPartyMembersId(partyMemId);
+            var ip_address = '127.0.0.1';
+            var socket_port = '8005';
+            var socket = (0,_index__WEBPACK_IMPORTED_MODULE_0__.io)(ip_address + ':' + socket_port);
+            socket.on('connect', function () {
+              socket.emit('user_connected', user_id);
+            });
+            socket.on('updateUserStatus', function (data) {
+              var onlineCtr = 0;
+              console.log(data);
+              _index__WEBPACK_IMPORTED_MODULE_0__.$.each(data, function (key, val) {
+                if (val !== null && val !== 0 && partyMemId.includes(key)) {
+                  onlineCtr++;
+                }
+              });
+              setOnlineCount(onlineCtr);
+            });
+          }
         });
-        setPartyMembersId(partyMemId);
       }
     });
   }, []);
-  (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {// TO REFACTOR
-    //  axios.get(`api/participants`).then( res => {
-    //     if(res.data.status === 200){
-    //          var user_id = res.data.auth_user_info.id;
-    //          var chat_user_id = res.data.chat_user_info.id;
-    //          setReceiverId(chat_user_id);
-    //          var onlineCtr = 0;
-    //          var ip_address = '127.0.0.1';
-    //          var socket_port = '8005';
-    //          var socket = io(ip_address + ':' + socket_port);
-    //          socket.on('connect', function() {
-    //             socket.emit('user_connected', user_id);
-    //         });
-    //         socket.on('updateUserStatus', (data) => {
-    //             onlineCtr = 0;
-    //             $.each(data, function (key, val) {
-    //                 if(val !== null && val !==0 && partyMembersId.includes(key)){
-    //                     // console.log(key);
-    //                     onlineCtr++;
-    //                 }
-    //             });
-    //             setOnlineCount(onlineCtr);
-    //         });
-    //         socket.on("private-channel:App\\Events\\PrivateMessageEvent", function(msg){
-    //             //append message here from sender
-    //             console.log("test");
-    //         });
-    //     }
-    // });
-  });
 
   var messageHandler = function messageHandler(e) {
     e.persist();

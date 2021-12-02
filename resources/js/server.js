@@ -35,14 +35,14 @@ io.on('connection', function (socket) {
     socket.on("user_connected", function (user_id){
         users[user_id] = socket.id;
         io.emit('updateUserStatus', users);
-        console.log("user connected " + user_id);
+        console.log("user " + user_id + " connected");
     });
 
     socket.on('disconnect', function () {
-        var i = users.indexOf('socket.id');
-        users.splice(i,1, 0);
+        var i = users.indexOf(socket.id);
+        users.splice(i, 1, 0);
         io.emit('updateUserStatus', users);
-        console.log(i + "disconnected");
+        console.log("user " + i + " disconnected");
     });
 
 });

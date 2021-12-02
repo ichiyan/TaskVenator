@@ -2,73 +2,66 @@ import {React, Fragment, $, axios, io, useState, useEffect, FontAwesomeIcon, faP
 
 const Chat = () => {
 
+    //party name, party count should be broadcasted
     const [partyName, setPartyName] = useState();
-    const [partyId] = useState();
+    const [partyId, setPartyId] = useState();
     const [partyCount, setPartyCount] = useState();
     const [partyMembersId, setPartyMembersId] = useState([]);  //separated for easy checking if elem exists; idk if this is safe
     const [partyMembers, setPartyMembers] = useState(); //other info, contains username only for now
+
+    const [userId, setUserId] = useState();
     const [onlineCount, setOnlineCount] = useState(0);
     const [message, setMessage] = useState('');
-    const [receiverId, setReceiverId] = useState(0);
 
     useEffect( () => {
 
-        var partyMemId = [];
-
-        axios.get(`api/get_party_info`).then(res => {
+        axios.get(`api/auth_user`).then( res => {
             if(res.data.status === 200){
-                var data = res.data.data;
-                setPartyMembersId(data.party.id);
-                setPartyName(data.party.party_name);
-                setPartyCount(data.party_members_count);
-                var members = data.party_members;
-                Object.keys(members).forEach( key => {
-                    var val = members[key];
-                    partyMemId.push(val.id);
+
+                var user_id = res.data.user_id;
+                setUserId(user_id);
+
+                var partyMemId = [];
+
+                axios.get(`api/get_party_info`).then(res => {
+                    if(res.data.status === 200){
+                        var data = res.data.data;
+                        setPartyId(data.party.id);
+                        setPartyName(data.party.party_name);
+                        setPartyCount(data.party_members_count);
+                        var members = data.party_members;
+                        Object.keys(members).forEach( key => {
+                            var val = members[key];
+                            partyMemId.push(val.id);
+                        });
+                        setPartyMembersId(partyMemId);
+
+                        var ip_address = '127.0.0.1';
+                        var socket_port = '8005';
+                        var socket = io(ip_address + ':' + socket_port);
+
+                        socket.on('connect', function() {
+                            socket.emit('user_connected', user_id);
+                        });
+
+                        socket.on('updateUserStatus', (data) => {
+                            var onlineCtr = 0;
+                            console.log(data);
+                            $.each(data, function (key, val) {
+                                if(val !== null && val !==0 && partyMemId.includes(key)){
+                                    onlineCtr++;
+                                }
+                            });
+                            setOnlineCount(onlineCtr);
+                        });
+
+                    }
                 });
-                setPartyMembersId(partyMemId);
             }
         });
+
     }, []);
 
-    useEffect( () => {
-        // TO REFACTOR
-        //  axios.get(`api/participants`).then( res => {
-        //     if(res.data.status === 200){
-        //          var user_id = res.data.auth_user_info.id;
-        //          var chat_user_id = res.data.chat_user_info.id;
-
-        //          setReceiverId(chat_user_id);
-
-        //          var onlineCtr = 0;
-
-        //          var ip_address = '127.0.0.1';
-        //          var socket_port = '8005';
-        //          var socket = io(ip_address + ':' + socket_port);
-
-        //          socket.on('connect', function() {
-        //             socket.emit('user_connected', user_id);
-        //         });
-
-        //         socket.on('updateUserStatus', (data) => {
-        //             onlineCtr = 0;
-        //             $.each(data, function (key, val) {
-        //                 if(val !== null && val !==0 && partyMembersId.includes(key)){
-        //                     // console.log(key);
-        //                     onlineCtr++;
-        //                 }
-        //             });
-        //             setOnlineCount(onlineCtr);
-        //         });
-
-        //         socket.on("private-channel:App\\Events\\PrivateMessageEvent", function(msg){
-        //             //append message here from sender
-        //             console.log("test");
-        //         });
-
-        //     }
-        // });
-    });
 
     const messageHandler = (e) => {
         e.persist();

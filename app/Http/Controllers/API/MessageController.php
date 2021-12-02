@@ -12,6 +12,8 @@ use App\Events\PrivateMessageEvent;
 
 class MessageController extends Controller
 {
+
+    //Test private chat function
     public function getParticipants(){
         //test private chat with any user
         $users = User::where('id', '!=', Auth::id())->get();
@@ -29,6 +31,7 @@ class MessageController extends Controller
 
     }
 
+    //Test private chat function
     public function sendMessage(Request $request){
         $request->validate([
             'message' => 'required',
@@ -69,5 +72,10 @@ class MessageController extends Controller
 
         }
     }
+
+    public function getChatInfo() {
+
+    }
+
 
 }
