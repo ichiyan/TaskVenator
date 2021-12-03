@@ -112,7 +112,7 @@ function AddOutfitForm (){
         </Modal.Header>
         <Modal.Body>
         <form onSubmit={outfitSubmitHandler} encType="multipart/form-data">
-        <div className="form-group">
+          <div className="form-group">
             <label>Outfit Type</label>
             <select name="outfitType" className="form-select" onChange={inputHandler} value={outfit.outfitType}>
               <option value="Weapon">Weapon</option>

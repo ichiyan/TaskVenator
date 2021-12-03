@@ -1,11 +1,7 @@
-
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState,
-      AddPotionForm, AddOutfitForm,
-      Swal, ReactTooltip,axios } from "../../../index";
-
-
-function Shop(){
+import {Link, React, useEffect, useState, 
+      AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
+function All(){
     var hpTotal = 50;
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
@@ -18,34 +14,65 @@ function Shop(){
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
     const[clicked, setClicked] =useState("");
 
-    const showItem =(event) =>{
-        setClicked(event.target.value);
-    }
-    useEffect(()=>{
-        setClicked(clicked);
-    },[clicked]);
+    const[display1,setDisplay1]=useState({
+        potions:[],
+  });
 
+  const[display2,setDisplay2]=useState({
+        outfit:[],
+  });
+  
+  useEffect(() =>{
+     axios.get(`/api/outfit`).then(res =>{
+           if(res.data.status===200){
+                
+                 setDisplay2({
+                       outfit:res.data.outfit
+                      
+                 })
+                 
+                 
+           }
+     })
+  },[])
+  useEffect(()=>{
+     axios.get(`/api/potions`).then(res =>{
+           if(res.data.status===200){
+                 setDisplay1({
+                       potions:res.data.potions
+                 });
+           }
+           
+     })
+  },[])
+  const showItem =(event) =>{
+    setClicked(event.target.value);
+}
+useEffect(()=>{
+    setClicked(clicked);
+},[clicked]);
 
+  const buttonHandler=(e)=>{
+     Swal.fire("You have successfully bought the item");
+  }
 
     return(
         <section className="container party-section">
-
-            <div className="shop-main_shop">
-              <div className="shop-weaponForm">
-                  <AddOutfitForm/>
+              <div className="shop-Form">
+                  <AddOutfitForm/> 
                   <AddPotionForm/>
-             </div>
-                   <div className="party-nav">
+                  <AddCardForm/>
+            </div>
+              <div className="party-nav">
                         <div className="party-nav-item party-active-nav"><Link to="/all">All</Link></div>
                         <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
                         <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
                         <div className="party-nav-item"><Link to="/cards">Cards</Link></div>
-                        <div className="party-nav-item "><Link to="/outfit">Outfit</Link></div>
-                  </div>
-              </div>
+                        <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
+             </div>
+           
               <div className="shop-filtShop">
-
-              <div className="shop-shop">
+              <div className="shop-shop"> 
                  <div className="shop-category">
                         <div className="shop-categoryName">
                               <p>Health Potions</p>
@@ -54,7 +81,7 @@ function Shop(){
                                if(p.type === "Hp Potion"){
                               return (
                                     <div key={index} className="shop-returnMap">
-                                          <div data-tip data-for={p.name} className="shop-items">
+                                          <div data-tip data-for={p.name} className="shop-items"> 
                                                 <div className="shop-itemsImage">
                                                 <img src={p.image}></img>
                                                 </div>
@@ -63,12 +90,12 @@ function Shop(){
                                                       <p>{p.size}</p>
                                                       <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
                                                 </div>
-                                          </div>
+                                          </div> 
                                           <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
                                                 <div className="shop-hide">
                                                       <div className="shop-itemsInfo">
                                                             <p>{p.description}</p>
-                                                      </div>
+                                                      </div> 
                                                 </div>
                                           </ReactTooltip>
                                     </div>
@@ -82,7 +109,7 @@ function Shop(){
                                if(p.type === "Powerup Potion"){
                               return (
                                     <div key={index} className="shop-returnMap">
-                                          <div data-tip data-for={p.name} className="shop-items">
+                                          <div data-tip data-for={p.name} className="shop-items"> 
                                                 <div className="shop-itemsImage">
                                                 <img src={p.image}></img>
                                                 </div>
@@ -91,12 +118,12 @@ function Shop(){
                                                       <p>{p.size}</p>
                                                       <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
                                                 </div>
-                                          </div>
+                                          </div> 
                                           <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
                                                 <div className="shop-hide">
                                                       <div className="shop-itemsInfo">
                                                             <p>{p.description}</p>
-                                                      </div>
+                                                      </div> 
                                                 </div>
                                           </ReactTooltip>
                                     </div>
@@ -110,7 +137,7 @@ function Shop(){
                              if(w.outfitType === "Weapon"){
                               return (
                                     <div data-tip data-for={w.name} key={index} className="shop-returnMap">
-                                          <div className="shop-items">
+                                          <div className="shop-items"> 
                                                 <div className="shop-itemsImage">
                                                 <img src={w.image}></img>
                                                 </div>
@@ -118,7 +145,7 @@ function Shop(){
                                                       <h6>{w.name}</h6>
                                                       <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
                                                 </div>
-                                          </div>
+                                          </div> 
                                           <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
                                                 <div className="shop-hide">
                                                       <div className="shop-itemsInfo">
@@ -133,15 +160,15 @@ function Shop(){
                                                                   <p>Critical: {w.crit}</p>
                                                                   <p>Critical Damage: {w.critDmg}</p>
                                                             </div>
-                                                      </div>
+                                                      </div> 
                                                 </div>
                                           </ReactTooltip>
-                                    </div>
+                                    </div>     
                                     )
                              }
-
+                          
                         })}
-
+                     
                         <div className="shop-categoryName">
                               <p>Costume</p>
                         </div>
@@ -149,7 +176,7 @@ function Shop(){
                              if(w.outfitType === "Costume"){
                               return (
                                     <div data-tip data-for={w.name} key={index} className="shop-returnMap">
-                                          <div className="shop-items">
+                                          <div className="shop-items"> 
                                                 <div className="shop-itemsImage">
                                                 <img src={w.image}></img>
                                                 </div>
@@ -158,7 +185,7 @@ function Shop(){
                                                       {/* <p>{p.size}</p> */}
                                                       <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
                                                 </div>
-                                          </div>
+                                          </div> 
                                           <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
                                                 <div className="shop-hide">
                                                       <div className="shop-itemsInfo">
@@ -173,22 +200,22 @@ function Shop(){
                                                                   <p>Critical: {w.crit}</p>
                                                                   <p>Critical Damage: {w.critDmg}</p>
                                                             </div>
-                                                      </div>
+                                                      </div> 
                                                 </div>
                                           </ReactTooltip>
-                                    </div>
+                                    </div> 
                               )
                              }
-
+                          
                         })}
                    </div>
-
-              </div>
+                
+              </div>  
 
          </div>
-    </section>
-
+      </section>
+   
     );
 }
 
-export default Shop;
+export default All;
