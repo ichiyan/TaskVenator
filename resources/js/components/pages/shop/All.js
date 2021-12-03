@@ -1,6 +1,6 @@
 import Button from "@restart/ui/esm/Button";
 import {Link, React, useEffect, useState, 
-      AddPotionForm, AddOutfitForm, Swal, ReactTooltip,axios } from "../../../index";
+      AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 function All(){
     var hpTotal = 50;
     var xpTotal = 50;
@@ -61,11 +61,13 @@ useEffect(()=>{
               <div className="shop-Form">
                   <AddOutfitForm/> 
                   <AddPotionForm/>
+                  <AddCardForm/>
             </div>
               <div className="party-nav">
                         <div className="party-nav-item party-active-nav"><Link to="/all">All</Link></div>
                         <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
                         <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
+                        <div className="party-nav-item"><Link to="/cards">Cards</Link></div>
                         <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
              </div>
            

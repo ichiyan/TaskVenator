@@ -6,11 +6,7 @@ import axios from 'axios';
 import Auth from "../pages/Auth";
 import Home from "../pages/Home";
 import Tasks from "../pages/Tasks";
-import All from "../pages/shop/All";
 
-import Potions from "../pages/shop/Potions";
-import Weapons from "../pages/shop/Weapons";
-import Outfit from "../pages/shop/Outfit";
 
 
 
@@ -41,6 +37,7 @@ const AppRouter = () => {
                     <Route path='/potions' element={<Tasks tab="potions"/>}></Route>
                     <Route path='/outfit' element={<Tasks tab="outfit"/>}></Route>
                     <Route path='/weapons' element={<Tasks tab="weapons"/>}></Route>
+                    <Route path='/cards' element={<Tasks tab="cards"/>}></Route>
                     
                     
     

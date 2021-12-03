@@ -26,8 +26,10 @@ export {default as All} from "./components/pages/shop/All";
 export {default as Outfit} from "./components/pages/shop/Outfit";
 export {default as Potions} from "./components/pages/shop/Potions";
 export {default as Weapons} from "./components/pages/shop/Weapons";
+export {default as Cards} from "./components/pages/shop/Cards";
 export {default as AddOutfitForm} from "./components/pages/shop/AddOutfitForm";
 export {default as AddPotionForm} from "./components/pages/shop/AddPotionForm";
+export {default as AddCardForm} from "./components/pages/shop/AddCardForm";
 
 export {default as GroupMemberPublicTasks} from "./components/pages/tasks/GroupMemberPublicTasks";
 export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks";

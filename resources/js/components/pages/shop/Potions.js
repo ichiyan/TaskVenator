@@ -54,6 +54,7 @@ function Potions(){
                         <div className="party-nav-item"><Link to="/all">All</Link></div>
                         <div className="party-nav-item party-active-nav"><Link to="/potions">Potions</Link></div>
                         <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
+                        <div className="party-nav-item"><Link to="/cards">Cards</Link></div>
                         <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
                   </div>
               <div className="shop-filtShop">

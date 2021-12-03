@@ -15810,6 +15810,8 @@ var Tasks = function Tasks(_ref) {
     renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Potions, {});
   } else if (tab === "shop") {
     renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Shop, {});
+  } else if (tab === "cards") {
+    renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Cards, {});
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -15986,6 +15988,248 @@ var Party = function Party() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Party);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/shop/AddCardForm.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/pages/shop/AddCardForm.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Modal.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+function AddCardForm() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      show = _useState2[0],
+      setShow = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      picture = _useState4[0],
+      setPicture = _useState4[1];
+
+  var handleClose = function handleClose() {
+    return setShow(false);
+  };
+
+  var handleShow = function handleShow() {
+    return setShow(true);
+  };
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    cardClass: 'Humanoid',
+    // humanoid, beast, elemental, undead
+    cardName: '',
+    cardEffectType: 'Normal',
+    //stun, slow, double damage 
+    cardEffectDamage: '',
+    //integer or float value
+    cardEffectDescription: '',
+    cardPrice: ''
+  }),
+      _useState6 = _slicedToArray(_useState5, 2),
+      card = _useState6[0],
+      setCard = _useState6[1];
+
+  var inputHandler = function inputHandler(e) {
+    console.log(e.target.value);
+    setCard(_objectSpread(_objectSpread({}, card), {}, _defineProperty({}, e.target.name, e.target.value)));
+  };
+
+  var handleImage = function handleImage(e) {
+    setPicture({
+      image: e.target.files[0]
+    });
+  };
+
+  var cardSubmitHandler = function cardSubmitHandler(e) {
+    e.preventDefault();
+    var formData = new FormData();
+    formData.append('image', picture.image);
+    formData.append('cardClass', card.cardClass);
+    formData.append('cardName', card.cardName);
+    formData.append('cardEffectType', card.cardEffectType);
+    formData.append('cardEffectDamage', card.cardEffectDamage);
+    formData.append('cardEffectDescription', card.cardEffectDescription);
+    formData.append('cardPrice', card.cardPrice);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        variant: "primary",
+        onClick: handleShow,
+        children: "Create Card"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        show: show,
+        onHide: handleClose,
+        size: "lg",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Header, {
+          closeButton: true,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Title, {
+            children: "Create Card"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Body, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+            onSubmit: cardSubmitHandler,
+            encType: "multipart/form-data",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Card Class"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+                name: "cardClass",
+                className: "form-select",
+                onChange: inputHandler,
+                value: card.cardClass,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                  value: "Humanoid",
+                  children: "Humanoid"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                  value: "Beast",
+                  children: "Beast"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                  value: "Elemental",
+                  children: "Elemental"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                  value: "Undead",
+                  children: "Undead"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {})]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                className: "form-label",
+                children: "Upload Image"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "file",
+                name: "image",
+                className: "form-control",
+                id: "customFile",
+                onChange: handleImage
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Card Name"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                className: "form-control",
+                name: "cardName",
+                type: "text",
+                onChange: inputHandler,
+                value: card.cardName
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Card Effect Type"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+                name: "cardEffectType",
+                className: "form-select",
+                onChange: inputHandler,
+                value: card.cardEffectType,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                  value: "Normal",
+                  children: "Normal"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                  value: "Stun",
+                  children: "Stun"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                  value: "Double Damage",
+                  children: "Double Damage"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {})]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Card Effect Damage"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                name: "cardEffectDamage",
+                className: "form-control",
+                type: "number",
+                onChange: inputHandler,
+                value: card.cardEffectDamage
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {})]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Description"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+                className: "form-control",
+                rows: "3",
+                name: "cardEffectDescription",
+                onChange: inputHandler,
+                value: card.cardEffectDescription
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Price"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                name: "cardPrice",
+                className: "form-control",
+                type: "number",
+                onChange: inputHandler,
+                value: card.cardPrice
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {})]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "modal-footer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                type: "button",
+                className: "btn btn-secondary mr-auto",
+                onClick: handleClose,
+                children: "Close"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                type: "submit",
+                className: "btn btn-primary",
+                "data-dismiss": "modal",
+                onClick: handleClose,
+                children: "Save"
+              })]
+            })]
+          })
+        })]
+      })]
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddCardForm);
 
 /***/ }),
 
@@ -16746,7 +16990,7 @@ function All() {
     className: "container party-section",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "shop-Form",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddOutfitForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddPotionForm, {})]
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddOutfitForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddPotionForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddCardForm, {})]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "party-nav",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -16766,6 +17010,12 @@ function All() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
           to: "/weapons",
           children: "Weapons"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/cards",
+          children: "Cards"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "party-nav-item",
@@ -17017,6 +17267,68 @@ function All() {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/shop/Cards.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/pages/shop/Cards.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function Cards() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
+    className: "container party-section",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "party-nav",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/all",
+          children: "All"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/potions",
+          children: "Potions"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/weapons",
+          children: "Weapons"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item party-active-nav",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/cards",
+          children: "Cards"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/outfit",
+          children: "Outfit"
+        })
+      })]
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Cards);
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/shop/Outfit.js":
 /*!******************************************************!*\
   !*** ./resources/js/components/pages/shop/Outfit.js ***!
@@ -17138,6 +17450,12 @@ function Outfit() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
           to: "/weapons",
           children: "Weapons"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/cards",
+          children: "Cards"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "party-nav-item party-active-nav",
@@ -18327,6 +18645,12 @@ function Potions() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "party-nav-item",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/cards",
+          children: "Cards"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
           to: "/outfit",
           children: "Outfit"
         })
@@ -19208,6 +19532,12 @@ function Weapons() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
           to: "/weapons",
           children: "Weapons"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/cards",
+          children: "Cards"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "party-nav-item",
@@ -20624,22 +20954,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Auth */ "./resources/js/components/pages/Auth.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/components/pages/Home.js");
 /* harmony import */ var _pages_Tasks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Tasks */ "./resources/js/components/pages/Tasks.js");
-/* harmony import */ var _pages_shop_All__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/shop/All */ "./resources/js/components/pages/shop/All.js");
-/* harmony import */ var _pages_shop_Potions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/shop/Potions */ "./resources/js/components/pages/shop/Potions.js");
-/* harmony import */ var _pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/shop/Weapons */ "./resources/js/components/pages/shop/Weapons.js");
-/* harmony import */ var _pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/shop/Outfit */ "./resources/js/components/pages/shop/Outfit.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -20660,62 +20982,67 @@ axios__WEBPACK_IMPORTED_MODULE_2___default().interceptors.request.use(function (
 });
 
 var AppRouter = function AppRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/",
           exact: true,
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
             page: "register"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
             page: "login"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/tasks",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
             tab: "tasks"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/party",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
             tab: "party"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/group_tasks",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
             tab: "group_tasks"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/shop",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
             tab: "shop"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/all",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
             tab: "all"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/potions",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
             tab: "potions"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/outfit",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
             tab: "outfit"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/weapons",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
             tab: "weapons"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          path: "/cards",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            tab: "cards"
           })
         })]
       })
@@ -20726,7 +21053,7 @@ var AppRouter = function AppRouter() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppRouter);
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(AppRouter, {}), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(AppRouter, {}), document.getElementById('app'));
 }
 
 /***/ }),
@@ -20763,16 +21090,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Outfit": () => (/* reexport safe */ _components_pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_17__["default"]),
 /* harmony export */   "Potions": () => (/* reexport safe */ _components_pages_shop_Potions__WEBPACK_IMPORTED_MODULE_18__["default"]),
 /* harmony export */   "Weapons": () => (/* reexport safe */ _components_pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_19__["default"]),
-/* harmony export */   "AddOutfitForm": () => (/* reexport safe */ _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_20__["default"]),
-/* harmony export */   "AddPotionForm": () => (/* reexport safe */ _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_21__["default"]),
-/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_22__["default"]),
-/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_23__["default"]),
-/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_24__["default"]),
-/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_25__["default"]),
-/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_26__["default"]),
-/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_27__["default"]),
-/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_28__["default"]),
-/* harmony export */   "TasksTab": () => (/* reexport safe */ _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_29__["default"])
+/* harmony export */   "Cards": () => (/* reexport safe */ _components_pages_shop_Cards__WEBPACK_IMPORTED_MODULE_20__["default"]),
+/* harmony export */   "AddOutfitForm": () => (/* reexport safe */ _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_21__["default"]),
+/* harmony export */   "AddPotionForm": () => (/* reexport safe */ _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_22__["default"]),
+/* harmony export */   "AddCardForm": () => (/* reexport safe */ _components_pages_shop_AddCardForm__WEBPACK_IMPORTED_MODULE_23__["default"]),
+/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_24__["default"]),
+/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_25__["default"]),
+/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_26__["default"]),
+/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_27__["default"]),
+/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_28__["default"]),
+/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_29__["default"]),
+/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_30__["default"]),
+/* harmony export */   "TasksTab": () => (/* reexport safe */ _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_31__["default"])
 /* harmony export */ });
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -20797,16 +21126,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/shop/Outfit */ "./resources/js/components/pages/shop/Outfit.js");
 /* harmony import */ var _components_pages_shop_Potions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/shop/Potions */ "./resources/js/components/pages/shop/Potions.js");
 /* harmony import */ var _components_pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/shop/Weapons */ "./resources/js/components/pages/shop/Weapons.js");
-/* harmony import */ var _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/shop/AddOutfitForm */ "./resources/js/components/pages/shop/AddOutfitForm.js");
-/* harmony import */ var _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/shop/AddPotionForm */ "./resources/js/components/pages/shop/AddPotionForm.js");
-/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
-/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
-/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
-/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
-/* harmony import */ var _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/pages/TasksTab */ "./resources/js/components/pages/TasksTab.js");
+/* harmony import */ var _components_pages_shop_Cards__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/shop/Cards */ "./resources/js/components/pages/shop/Cards.js");
+/* harmony import */ var _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/shop/AddOutfitForm */ "./resources/js/components/pages/shop/AddOutfitForm.js");
+/* harmony import */ var _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pages/shop/AddPotionForm */ "./resources/js/components/pages/shop/AddPotionForm.js");
+/* harmony import */ var _components_pages_shop_AddCardForm__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/pages/shop/AddCardForm */ "./resources/js/components/pages/shop/AddCardForm.js");
+/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
+/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
+/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
+/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
+/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+/* harmony import */ var _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/pages/TasksTab */ "./resources/js/components/pages/TasksTab.js");
+
+
 
 
 
