@@ -1,4 +1,4 @@
-import {React, Fragment, $, axios, io, useState, useEffect, useCallback, timeFormat, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
+import {React, Fragment, $, axios, io, useState, useEffect, useCallback, useRef, timeFormat, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
 
 const Chat = () => {
 
@@ -11,11 +11,15 @@ const Chat = () => {
     const [userId, setUserId] = useState();
     const [onlineCount, setOnlineCount] = useState(0);
     const [messages, setMessages] = useState([]);
+
+    const inputRef = useRef(null);
+
     const lastMessageRef = useCallback( node => {
         if(node){
             node.scrollIntoView({ smooth: true });
         }
     }, []);
+
 
     useEffect( () => {
 
@@ -45,9 +49,6 @@ const Chat = () => {
                         });
                     }
                 });
-
-                var chat = $(".chats");
-                chat.scrollTop = chat.scrollHeight;
 
                 axios.get(`api/get_party_info`).then(res => {
                     if(res.data.status === 200){
@@ -114,21 +115,21 @@ const Chat = () => {
 
     }, []);
 
-    var msg = '';
+
     const messageHandler = (e) => {
         e.persist();
-        msg = e.target.value;
         if(e.key === "Enter"){
             sendMessageHandler();
-            e.target.value = '';
         }
     }
 
     const sendMessageHandler = () => {
         const data = {
-            message: msg,
+            message: inputRef.current.value,
             party_id: partyId,
         }
+
+        inputRef.current.value = '';
 
         axios.post(`api/send_party_message`, data).then(res => {
             if(res.data.status === 200){
@@ -149,6 +150,8 @@ const Chat = () => {
                 );
             }
         });
+
+
     }
 
     const chatPopUpHandler = () => {
@@ -165,34 +168,36 @@ const Chat = () => {
                     </div>
                 </div>
                 <div className="chats">
-                    {
-                        messages.map( (message, index) => (
-                            message.sender_id == userId
-                            ?
-                                <ins key={message.message_id} ref={ messages.length - 1 === index ? lastMessageRef : null } >
-                                   <div className="user-chat">
-                                        <div className="user-message text-right">
-                                            {message.content}
+                    <ins>
+                        {
+                            messages.map( (message, index) => (
+                                message.sender_id == userId
+                                ?
+                                    <ins key={message.message_id} ref={ messages.length - 1 === index ? lastMessageRef : null } >
+                                    <div className="user-chat">
+                                            <div className="user-message text-right">
+                                                {message.content}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <p className="user-time-elapsed text-left">{ timeFormat(message.message_created) }</p>
-                                </ins>
-                            :
-                                <ins key={message.message_id} ref={ messages.length - 1 === index ? lastMessageRef : null }>
-                                    <div className="client-chat">
-                                        <p className="client-username">{message.sender_name}</p>
-                                        <div className="client-message">
-                                            {message.content}
+                                        <p className="user-time-elapsed text-left">{ timeFormat(message.message_created) }</p>
+                                    </ins>
+                                :
+                                    <ins key={message.message_id} ref={ messages.length - 1 === index ? lastMessageRef : null }>
+                                        <div className="client-chat">
+                                            <p className="client-username">{message.sender_name}</p>
+                                            <div className="client-message">
+                                                {message.content}
+                                            </div>
+                                            <p className="time-elapsed">{ timeFormat(message.message_created) }</p>
                                         </div>
-                                         <p className="time-elapsed">{ timeFormat(message.message_created) }</p>
-                                    </div>
-                                </ins>
-                        ))
-                    }
+                                    </ins>
+                            ))
+                        }
+                    </ins>
                 </div>
 
                 <div className="chat-input">
-                    <input onKeyPress={messageHandler} name="message" type="text" placeholder="Enter Message"/>
+                    <input onKeyPress={messageHandler} ref={inputRef} name="message" type="text" placeholder="Enter Message"/>
                     <span onClick={sendMessageHandler} className="send-btn fa-stack fa-1x">
                         <FontAwesomeIcon icon={faCircle} className="send-icon-circle fa-stack-2x"></FontAwesomeIcon>
                         <FontAwesomeIcon icon={faPaperPlane} className="send-icon fa-stack-1x"></FontAwesomeIcon>

@@ -74,6 +74,8 @@ ins{
         margin-top: 12px;
         height: 70%;
         overflow: auto;
+        display: flex;
+        flex-direction: column-reverse;
 
         .client-chat{
 
