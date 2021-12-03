@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt } from '../../index';
 import TasksNavbar from "./TasksNavbar";
 import HomeNavbar from "./HomeNavbar";
 

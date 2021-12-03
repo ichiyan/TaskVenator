@@ -1,21 +1,37 @@
-
 export {Link} from 'react-router-dom';
 export {default as React} from "react";
 export {default as ReactDOM} from 'react-dom';
 export {default as $} from "jquery";
-export { useEffect, useState } from "react";
+export { useEffect, useState, Fragment } from "react";
+export { default as axios } from "axios";
+export { default as io } from "socket.io-client";
+export { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+export { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt, faPaperPlane, faCircle} from '@fortawesome/free-solid-svg-icons'
 export {Swal} from 'sweetalert2';
 export {default as ReactTooltip} from 'react-tooltip';
-export {default as axios} from "axios";
+
+ /*--------------------------------------------------------------
+# Auth
+--------------------------------------------------------------*/
 
 export {default as Login} from "./components/auth/Login";
 export {default as Register} from "./components/auth/Register";
+
+ /*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
 
 export {default as AvatarHeader} from "./components/layouts/AvatarHeader";
 export {default as Header} from "./components/layouts/Header";
 export {default as HomeNavbar} from "./components/layouts/HomeNavbar";
 export {default as PartyMemberAvatar} from "./components/layouts/PartyMemberAvatar";
 export {default as TasksNavbar} from "./components/layouts/TasksNavbar";
+export {default as Chat} from './components/layouts/Chat';
+
+
+ /*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
 
 export {default as GroupTasks} from "./components/pages/party/GroupTasks";
 export {default as Party} from "./components/pages/party/Party";
@@ -40,3 +56,4 @@ export {default as Auth} from "./components/pages/Auth";
 export {default as Home} from "./components/pages/Home";
 export {default as Tasks} from "./components/pages/Tasks";
 export {default as TasksTab} from "./components/pages/TasksTab";
+

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -79,6 +80,17 @@ class AuthController extends Controller
             'status'=>200,
             'message'=>"Logged Out Successfully",
         ]);
+    }
+
+    public function getAuthenticatedUser() {
+        $user_id = Auth::id();
+
+        return response()->json([
+            'status' => 200,
+            'user_id' => $user_id,
+            'message' => 'Authenticated user information retrrived successfully.',
+        ]);
+
     }
 
 }
