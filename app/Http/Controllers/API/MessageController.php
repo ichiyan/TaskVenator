@@ -6,10 +6,14 @@ use App\Events\PartyMessageEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Models\User;
+use App\Models\Party;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Events\PrivateMessageEvent;
+use App\Models\PartyMember;
+use App\Models\UserMessage;
 
 class MessageController extends Controller
 {
@@ -56,7 +60,28 @@ class MessageController extends Controller
         }
     }
 
+    public function getPreviousMessages(){
 
+        //changes users table to user_info
+        $messages = DB::table('user_messages')
+                    ->join('messages', 'user_messages.message_id', '=', 'messages.id')
+                    ->join('users', 'user_messages.sender_id', '=', 'users.id')
+                    ->select('user_messages.sender_id', 'users.name', 'messages.id', 'messages.message', 'messages.created_at')
+                    ->latest('messages.created_at')
+                    ->take(100)
+                    ->get()
+                    ->reverse()
+                    ->values()
+                    ->all();
+
+
+        return response()->json([
+            'status' => 200,
+            'data' => $messages,
+            'message' => 'Message sent successfully',
+        ]);
+
+    }
 
 
     //Test private chat function

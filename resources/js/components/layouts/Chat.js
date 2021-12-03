@@ -1,4 +1,4 @@
-import {React, Fragment, $, axios, io, useState, useEffect, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
+import {React, Fragment, $, axios, io, useState, useEffect, timeFormat, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
 
 const Chat = () => {
 
@@ -21,6 +21,26 @@ const Chat = () => {
                 setUserId(user_id);
 
                 var partyMemId = [];
+
+                axios.get(`api/get_previous_messages`).then(res => {
+                    if(res.data.status === 200){
+                        res.data.data.forEach(item => {
+                            setMessages(
+                                messages => [
+                                    ...messages,
+                                    {
+                                        sender_id: item.sender_id,
+                                        sender_name: item.name,
+                                        content: item.message,
+                                        message_id: item.id,
+                                        message_created: item.created_at,
+                                    }
+                                ]
+                            );
+                        });
+                    }
+                });
+
 
                 axios.get(`api/get_party_info`).then(res => {
                     if(res.data.status === 200){
@@ -71,6 +91,7 @@ const Chat = () => {
                                             sender_name: msg.sender_name,
                                             content: msg.content,
                                             message_id: msg.message_id,
+                                            message_created: msg.created_at,
                                         }
                                     ]
                                 );
@@ -115,6 +136,7 @@ const Chat = () => {
                             sender_name: data.sender_name,
                             content: data.content,
                             message_id: data.message_id,
+                            message_created: data.created_at,
                         }
                     ]
                 );
@@ -146,7 +168,7 @@ const Chat = () => {
                                             {message.content}
                                         </div>
                                     </div>
-                                    <p className="user-time-elapsed text-left">5m ago</p>
+                                    <p className="user-time-elapsed text-left">{ timeFormat(message.message_created) }</p>
                                 </React.Fragment>
                             :
                                 <React.Fragment key={message.message_id}>
@@ -155,7 +177,7 @@ const Chat = () => {
                                         <div className="client-message">
                                             {message.content}
                                         </div>
-                                         <p className="time-elapsed">5m ago</p>
+                                         <p className="time-elapsed">{ timeFormat(message.message_created) }</p>
                                     </div>
                                 </React.Fragment>
                         ))

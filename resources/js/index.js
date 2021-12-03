@@ -57,3 +57,8 @@ export {default as Home} from "./components/pages/Home";
 export {default as Tasks} from "./components/pages/Tasks";
 export {default as TasksTab} from "./components/pages/TasksTab";
 
+ /*--------------------------------------------------------------
+# Helper Functions
+--------------------------------------------------------------*/
+export { default as moment } from 'moment-timezone';
+export { getCurrentTime, getCurrentDateTime, dateFormat,  timeFormat } from './helper';
