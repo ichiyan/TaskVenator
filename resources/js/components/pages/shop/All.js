@@ -1,11 +1,7 @@
-
 import Button from "@restart/ui/esm/Button";
 import {Link, React, useEffect, useState,
-      AddPotionForm, AddOutfitForm,
-      Swal, ReactTooltip,axios } from "../../../index";
-
-
-function Shop(){
+      AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
+function All(){
     var hpTotal = 50;
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
@@ -18,33 +14,64 @@ function Shop(){
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
     const[clicked, setClicked] =useState("");
 
-    const showItem =(event) =>{
-        setClicked(event.target.value);
-    }
-    useEffect(()=>{
-        setClicked(clicked);
-    },[clicked]);
+    const[display1,setDisplay1]=useState({
+        potions:[],
+  });
+
+  const[display2,setDisplay2]=useState({
+        outfit:[],
+  });
+
+  useEffect(() =>{
+     axios.get(`/api/outfit`).then(res =>{
+           if(res.data.status===200){
+
+                 setDisplay2({
+                       outfit:res.data.outfit
+
+                 })
 
 
+           }
+     })
+  },[])
+  useEffect(()=>{
+     axios.get(`/api/potions`).then(res =>{
+           if(res.data.status===200){
+                 setDisplay1({
+                       potions:res.data.potions
+                 });
+           }
+
+     })
+  },[])
+  const showItem =(event) =>{
+    setClicked(event.target.value);
+}
+useEffect(()=>{
+    setClicked(clicked);
+},[clicked]);
+
+  const buttonHandler=(e)=>{
+     Swal.fire("You have successfully bought the item");
+  }
 
     return(
         <section className="container party-section">
-
-            <div className="shop-main_shop">
-              <div className="shop-weaponForm">
+              <div className="shop-Form">
                   <AddOutfitForm/>
                   <AddPotionForm/>
-             </div>
-                   <div className="party-nav">
+                  <AddCardForm/>
+            </div>
+              <div className="party-nav">
                         <div className="party-nav-item party-active-nav"><Link to="/all">All</Link></div>
                         <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
                         <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
                         <div className="party-nav-item"><Link to="/cards">Cards</Link></div>
-                        <div className="party-nav-item "><Link to="/outfit">Outfit</Link></div>
-                  </div>
-              </div>
-              <div className="shop-filtShop">
+                        <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
+             </div>
 
+              <div className="shop-filtShop">
               <div className="shop-shop">
                  <div className="shop-category">
                         <div className="shop-categoryName">
@@ -186,9 +213,9 @@ function Shop(){
               </div>
 
          </div>
-    </section>
+      </section>
 
     );
 }
 
-export default Shop;
+export default All;

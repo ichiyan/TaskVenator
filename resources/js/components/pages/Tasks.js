@@ -1,6 +1,7 @@
 import {Header, React,
     useEffect, useState, GroupTasks,TasksTab,
-    AvatarHeader, Shop, Party} from "../../index";
+    AvatarHeader, Shop, Party, Outfit, All, 
+    Weapons, Potions, Cards} from "../../index";
 
 const Tasks = ({tab}) => {
 
@@ -85,10 +86,20 @@ const Tasks = ({tab}) => {
         renderTab =   <Party/>;
     }else if (tab === "group_tasks"){
         renderTab = <GroupTasks/>;
-    }else if (tab === "shop"){
-        renderTab = <Shop/>;
     }else if (tab === "tasks"){
         renderTab = <TasksTab/>;
+    }else if (tab === "all"){
+        renderTab = <All/>;
+    }else if (tab === "outfit"){
+        renderTab = <Outfit/>;
+    }else if (tab === "weapons"){
+        renderTab = <Weapons/>;
+    }else if (tab === "potions"){
+        renderTab = <Potions/>;
+    }else if (tab === "shop"){
+        renderTab = <Shop/>;
+    }else if(tab ==="cards"){
+        renderTab =<Cards/>;
     }
 
 
