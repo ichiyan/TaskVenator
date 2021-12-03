@@ -46,6 +46,12 @@ h1{
     color: #95c5ed;
 }
 
+.btn{
+    width: 20%;
+    color: #95c5ed;
+    background-color: #9580FF;
+}
+
 .tasks-group{
     width: 50%;
     border-radius: 0.5rem;
@@ -84,6 +90,14 @@ h1{
     background-color: #d6ddf3;
     padding: 1rem;
     border-radius: 0 0 0.5rem 0.5rem;
+}
+.task-item{
+    padding: 0.3rem;
+}
+
+.task-item span{
+    margin-left: 1rem;
+    font-size: 1rem;
 }
 
 .tasks-daily-group{

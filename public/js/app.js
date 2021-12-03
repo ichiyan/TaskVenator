@@ -14855,7 +14855,10 @@ var GroupTasks = function GroupTasks() {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "party-content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        className: "btn-sm btn",
+        children: "Add new"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
         children: "Group Tasks"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.GroupMemberPublicTasks, {
         name: name1
@@ -15401,6 +15404,7 @@ var GroupMemberPublicTasks = function GroupMemberPublicTasks(_ref) {
         className: "tasks-group-content accordion-content",
         children: tasks.map(function (task, index) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "task-item",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               value: task,
               type: "checkbox",
@@ -15564,6 +15568,7 @@ var HomeTasks = function HomeTasks(_ref) {
         className: "tasks-group-content accordion-content",
         children: tasks.map(function (task, index) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "task-item",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               value: task,
               type: "checkbox",
@@ -15813,6 +15818,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+8;
 
 /***/ }),
 
@@ -22929,7 +22935,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\n    display: flex;\n    flex-direction:column;\n}\n\n.party-content{\n    display: flex;\n    flex-direction:column;\n    padding:1rem;\n}\n\n.party-nav{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 3rem;\n    align-items: center;\n    justify-content: center;\n}\n\n.party-nav-item{\n    display: flex;\n    flex-direction: row;\n    width: 20%;\n    height: 100%;\n    align-items: center;\n    justify-content: center;\n    font-size: large;\n    border-radius: 1.5rem;\n}\n\n.party-nav-item a:hover{\n    color: #5FCF80;\n}\n\n.party-nav-item a{\n    color: whitesmoke;\n}\n\n.party-active-nav{\n    border-color: #5FCF80;\n    border-width: 0.2rem;\n}\n\nh1{\n    color: #95c5ed;\n}\n\n.tasks-group{\n    width: 50%;\n    border-radius: 0.5rem;\n    margin: 1rem;\n    background-color: #d6ddf3;\n}\n\n.tasks-group-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-around;\n}\n\n.tasks-group-title{\n    font-size: 1.2rem;\n    margin-right: 1.5rem;\n}\n\n.task-progress-bar{\n    background-color: #d6ddf3;\n    width: 40%;\n    border-radius: 0.8rem;\n}\n\n.task-progress-bar-colored{\n    background-color: #9580FF;\n    padding: 0.1rem 0.2rem 0.1rem 0.4rem;\n    border-radius: 0.8rem;\n}\n\n.tasks-group-content{\n    background-color: #d6ddf3;\n    padding: 1rem;\n    border-radius: 0 0 0.5rem 0.5rem;\n}\n\n.tasks-daily-group{\n    padding: 0.5rem;\n}\n\n.tasks-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n}\n\n.accordion-icon{\n    font-size: 1.7rem;\n    margin: 0 1rem 0 auto;\n}\n\n.checked-item {\n    text-decoration: line-through;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\n    display: flex;\n    flex-direction:column;\n}\n\n.party-content{\n    display: flex;\n    flex-direction:column;\n    padding:1rem;\n}\n\n.party-nav{\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n    height: 3rem;\n    align-items: center;\n    justify-content: center;\n}\n\n.party-nav-item{\n    display: flex;\n    flex-direction: row;\n    width: 20%;\n    height: 100%;\n    align-items: center;\n    justify-content: center;\n    font-size: large;\n    border-radius: 1.5rem;\n}\n\n.party-nav-item a:hover{\n    color: #5FCF80;\n}\n\n.party-nav-item a{\n    color: whitesmoke;\n}\n\n.party-active-nav{\n    border-color: #5FCF80;\n    border-width: 0.2rem;\n}\n\nh1{\n    color: #95c5ed;\n}\n\n.btn{\n    width: 20%;\n    color: #95c5ed;\n    background-color: #9580FF;\n}\n\n.tasks-group{\n    width: 50%;\n    border-radius: 0.5rem;\n    margin: 1rem;\n    background-color: #d6ddf3;\n}\n\n.tasks-group-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-around;\n}\n\n.tasks-group-title{\n    font-size: 1.2rem;\n    margin-right: 1.5rem;\n}\n\n.task-progress-bar{\n    background-color: #d6ddf3;\n    width: 40%;\n    border-radius: 0.8rem;\n}\n\n.task-progress-bar-colored{\n    background-color: #9580FF;\n    padding: 0.1rem 0.2rem 0.1rem 0.4rem;\n    border-radius: 0.8rem;\n}\n\n.tasks-group-content{\n    background-color: #d6ddf3;\n    padding: 1rem;\n    border-radius: 0 0 0.5rem 0.5rem;\n}\n.task-item{\n    padding: 0.3rem;\n}\n\n.task-item span{\n    margin-left: 1rem;\n    font-size: 1rem;\n}\n\n.tasks-daily-group{\n    padding: 0.5rem;\n}\n\n.tasks-header{\n    background-color: #95c5ed;\n    padding: 0.5rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n}\n\n.accordion-icon{\n    font-size: 1.7rem;\n    margin: 0 1rem 0 auto;\n}\n\n.checked-item {\n    text-decoration: line-through;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

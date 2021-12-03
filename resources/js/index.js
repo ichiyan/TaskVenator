@@ -30,3 +30,4 @@ export {default as Auth} from "./components/pages/Auth";
 export {default as Home} from "./components/pages/Home";
 export {default as Tasks} from "./components/pages/Tasks";
 export {default as TasksTab} from "./components/pages/TasksTab";
+8
