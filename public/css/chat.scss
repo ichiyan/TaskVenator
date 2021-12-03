@@ -2,7 +2,6 @@
 # Chat Box
 --------------------------------------------------------------*/
 
-
 .chats::-webkit-scrollbar {
     // display: none !important;
     background-color:#fff;
@@ -14,6 +13,10 @@
     background-color:#c5c5ce;
     border-radius:16px;
     border: 1px solid #fff;
+}
+
+ins{
+    text-decoration: none;
 }
 
 .client-message{

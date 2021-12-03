@@ -1,4 +1,4 @@
-import {React, Fragment, $, axios, io, useState, useEffect, timeFormat, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
+import {React, Fragment, $, axios, io, useState, useEffect, useCallback, timeFormat, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
 
 const Chat = () => {
 
@@ -11,6 +11,11 @@ const Chat = () => {
     const [userId, setUserId] = useState();
     const [onlineCount, setOnlineCount] = useState(0);
     const [messages, setMessages] = useState([]);
+    const lastMessageRef = useCallback( node => {
+        if(node){
+            node.scrollIntoView({ smooth: true });
+        }
+    }, []);
 
     useEffect( () => {
 
@@ -41,6 +46,8 @@ const Chat = () => {
                     }
                 });
 
+                var chat = $(".chats");
+                chat.scrollTop = chat.scrollHeight;
 
                 axios.get(`api/get_party_info`).then(res => {
                     if(res.data.status === 200){
@@ -159,19 +166,19 @@ const Chat = () => {
                 </div>
                 <div className="chats">
                     {
-                        messages.map(message => (
+                        messages.map( (message, index) => (
                             message.sender_id == userId
                             ?
-                                <React.Fragment key={message.message_id}>
+                                <ins key={message.message_id} ref={ messages.length - 1 === index ? lastMessageRef : null } >
                                    <div className="user-chat">
                                         <div className="user-message text-right">
                                             {message.content}
                                         </div>
                                     </div>
                                     <p className="user-time-elapsed text-left">{ timeFormat(message.message_created) }</p>
-                                </React.Fragment>
+                                </ins>
                             :
-                                <React.Fragment key={message.message_id}>
+                                <ins key={message.message_id} ref={ messages.length - 1 === index ? lastMessageRef : null }>
                                     <div className="client-chat">
                                         <p className="client-username">{message.sender_name}</p>
                                         <div className="client-message">
@@ -179,7 +186,7 @@ const Chat = () => {
                                         </div>
                                          <p className="time-elapsed">{ timeFormat(message.message_created) }</p>
                                     </div>
-                                </React.Fragment>
+                                </ins>
                         ))
                     }
                 </div>
