@@ -15252,6 +15252,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index */ "./resources/js/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -15293,19 +15301,18 @@ var Chat = function Chat() {
 
   var _useState9 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState10 = _slicedToArray(_useState9, 2),
-      partyMembers = _useState10[0],
-      setPartyMembers = _useState10[1]; //other info, contains username only for now
+      userId = _useState10[0],
+      setUserId = _useState10[1];
 
-
-  var _useState11 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState11 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState12 = _slicedToArray(_useState11, 2),
-      userId = _useState12[0],
-      setUserId = _useState12[1];
+      onlineCount = _useState12[0],
+      setOnlineCount = _useState12[1];
 
-  var _useState13 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState13 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState14 = _slicedToArray(_useState13, 2),
-      onlineCount = _useState14[0],
-      setOnlineCount = _useState14[1];
+      messages = _useState14[0],
+      setMessages = _useState14[1];
 
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/auth_user").then(function (res) {
@@ -15339,8 +15346,7 @@ var Chat = function Chat() {
               socket.emit('party_chat', chat_data);
             });
             socket.on('updateUserStatus', function (data) {
-              var onlineCtr = 0; // console.log(data);
-
+              var onlineCtr = 0;
               _index__WEBPACK_IMPORTED_MODULE_0__.$.each(data, function (key, val) {
                 if (val !== null && val !== 0 && partyMemId.includes(key)) {
                   onlineCtr++;
@@ -15349,16 +15355,18 @@ var Chat = function Chat() {
               setOnlineCount(onlineCtr);
             });
             socket.on("partyMessage", function (msg) {
-              console.log(msg); // var sentMessageRender = '<Fragment>' +
-              //                 '<div className="user-chat">' +
-              //                     '<div className="user-message text-right">' +
-              //                         'Test user' +
-              //                     '</div>' +
-              //                 '</div>' +
-              //                 '<p className="user-time-elapsed text-left">5m ago</p>' +
-              //             '</Fragment>';
-              //     // setSentMessage(sentMessageRender);
-              //  $( ".chats" ).append(sentMessageRender);
+              console.log(msg);
+
+              if (msg.sender_id !== user_id) {
+                setMessages(function (messages) {
+                  return [].concat(_toConsumableArray(messages), [{
+                    sender_id: msg.sender_id,
+                    sender_name: msg.sender_name,
+                    content: msg.content,
+                    message_id: msg.message_id
+                  }]);
+                });
+              }
             });
           }
         });
@@ -15386,18 +15394,18 @@ var Chat = function Chat() {
       party_id: partyId
     };
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.post("api/send_party_message", data).then(function (res) {
-      if (res.data.status === 200) {// console.log(res.data.data);
-        // var test = '<Fragment>' +
-        //                             '<div className="client-chat">' +
-        //                                 '<p className="client-username">username</p> ' +
-        //                                 '<div className="client-message">' +
-        //                                 'Test party member' +
-        //                                 '</div>' +
-        //                                 '<p className="time-elapsed">5m ago</p>' +
-        //                                 '</div>' +
-        //                         '</Fragment>';
-        // // setSentMessage(sentMessageRender);
-        // $( ".chats" ).append(test);
+      if (res.data.status === 200) {
+        console.log("data");
+        console.log(res.data.data);
+        var data = res.data.data;
+        setMessages(function (messages) {
+          return [].concat(_toConsumableArray(messages), [{
+            sender_id: data.sender_id,
+            sender_name: data.sender_name,
+            content: data.content,
+            message_id: data.message_id
+          }]);
+        });
       }
     });
   };
@@ -15423,7 +15431,35 @@ var Chat = function Chat() {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "chats"
+        className: "chats",
+        children: messages.map(function (message) {
+          return message.sender_id == userId ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_index__WEBPACK_IMPORTED_MODULE_0__.React.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "user-chat",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "user-message text-right",
+                children: message.content
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              className: "user-time-elapsed text-left",
+              children: "5m ago"
+            })]
+          }, message.message_id) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.React.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: "client-chat",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                className: "client-username",
+                children: message.sender_name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "client-message",
+                children: message.content
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                className: "time-elapsed",
+                children: "5m ago"
+              })]
+            })
+          }, message.message_id);
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "chat-input",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {

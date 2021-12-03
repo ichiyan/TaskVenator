@@ -41,8 +41,6 @@ class MessageController extends Controller
                 $data['created_at'] = $message->created_at;
                 $data['message_id'] = $message->id;
 
-                $data= json_decode( json_encode($data), true);
-
                 event(new PartyMessageEvent($data));
 
                 return response()->json([

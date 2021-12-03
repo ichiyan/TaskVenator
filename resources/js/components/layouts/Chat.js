@@ -7,10 +7,10 @@ const Chat = () => {
     const [partyId, setPartyId] = useState();
     const [partyCount, setPartyCount] = useState();
     const [partyMembersId, setPartyMembersId] = useState([]);  //separated for easy checking if elem exists; idk if this is safe
-    const [partyMembers, setPartyMembers] = useState(); //other info, contains username only for now
 
     const [userId, setUserId] = useState();
     const [onlineCount, setOnlineCount] = useState(0);
+    const [messages, setMessages] = useState([]);
 
     useEffect( () => {
 
@@ -52,7 +52,6 @@ const Chat = () => {
 
                         socket.on('updateUserStatus', (data) => {
                             var onlineCtr = 0;
-                            // console.log(data);
                             $.each(data, function (key, val) {
                                 if(val !== null && val !==0 && partyMemId.includes(key)){
                                     onlineCtr++;
@@ -63,17 +62,20 @@ const Chat = () => {
 
                         socket.on("partyMessage", function(msg){
                             console.log(msg);
-                            // var sentMessageRender = '<Fragment>' +
-                            //                 '<div className="user-chat">' +
-                            //                     '<div className="user-message text-right">' +
-                            //                         'Test user' +
-                            //                     '</div>' +
-                            //                 '</div>' +
-                            //                 '<p className="user-time-elapsed text-left">5m ago</p>' +
-                            //             '</Fragment>';
-                            //     // setSentMessage(sentMessageRender);
-                            //  $( ".chats" ).append(sentMessageRender);
-                             });
+                            if(msg.sender_id !== user_id){
+                                setMessages(
+                                    messages => [
+                                        ...messages,
+                                        {
+                                            sender_id: msg.sender_id,
+                                            sender_name: msg.sender_name,
+                                            content: msg.content,
+                                            message_id: msg.message_id,
+                                        }
+                                    ]
+                                );
+                            }
+                        });
 
                     }
                 });
@@ -102,18 +104,20 @@ const Chat = () => {
 
         axios.post(`api/send_party_message`, data).then(res => {
             if(res.data.status === 200){
-                // console.log(res.data.data);
-                // var test = '<Fragment>' +
-                //                             '<div className="client-chat">' +
-                //                                 '<p className="client-username">username</p> ' +
-                //                                 '<div className="client-message">' +
-                //                                 'Test party member' +
-                //                                 '</div>' +
-                //                                 '<p className="time-elapsed">5m ago</p>' +
-                //                                 '</div>' +
-                //                         '</Fragment>';
-                // // setSentMessage(sentMessageRender);
-                // $( ".chats" ).append(test);
+                console.log("data");
+                console.log(res.data.data);
+                var data = res.data.data;
+                setMessages(
+                    messages => [
+                        ...messages,
+                        {
+                            sender_id: data.sender_id,
+                            sender_name: data.sender_name,
+                            content: data.content,
+                            message_id: data.message_id,
+                        }
+                    ]
+                );
             }
         });
     }
@@ -132,21 +136,30 @@ const Chat = () => {
                     </div>
                 </div>
                 <div className="chats">
-                    {/* <div className="client-chat">
-                       <p className="client-username">username</p>
-                       <div className="client-message">
-                           Test party member
-                       </div>
-                       <p className="time-elapsed">5m ago</p>
-                    </div> */}
-                    {/* <div className="user-chat">
-                        <div className="user-message text-right">
-                            Test user
-                        </div>
-                    </div>
-                    <p className="user-time-elapsed text-left">5m ago</p> */}
-
-                    {/* {sentMessage} */}
+                    {
+                        messages.map(message => (
+                            message.sender_id == userId
+                            ?
+                                <React.Fragment key={message.message_id}>
+                                   <div className="user-chat">
+                                        <div className="user-message text-right">
+                                            {message.content}
+                                        </div>
+                                    </div>
+                                    <p className="user-time-elapsed text-left">5m ago</p>
+                                </React.Fragment>
+                            :
+                                <React.Fragment key={message.message_id}>
+                                    <div className="client-chat">
+                                        <p className="client-username">{message.sender_name}</p>
+                                        <div className="client-message">
+                                            {message.content}
+                                        </div>
+                                         <p className="time-elapsed">5m ago</p>
+                                    </div>
+                                </React.Fragment>
+                        ))
+                    }
                 </div>
 
                 <div className="chat-input">

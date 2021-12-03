@@ -16,16 +16,16 @@ function AddPotionForm (){
     effect:'',
     description: '',
     price: '',
- 
+
   });
 
-  
+
   const inputHandler =(e) =>{
     e.persist();
     setPotion({
       ...potion,[e.target.name]:  e.target.value
     });
-    
+
   }
 
   const handleImage =(e) =>{
@@ -34,7 +34,7 @@ function AddPotionForm (){
 
   const potionSubmitHandler = (e) =>{
     e.preventDefault();
-    
+
     const formData = new FormData();
     formData.append('image', picture.image);
     formData.append('name', potion.name);
@@ -51,7 +51,7 @@ function AddPotionForm (){
         // setPotion({...potion,error_list:res.data.errors});
       }
     });
-    
+
 
     // const data ={
     //   name: potion.name,
@@ -69,11 +69,11 @@ function AddPotionForm (){
     //     setPotion({...potion,error_list:res.data.errors});
     //   }
     // });
-    
-    
+
+
   }
 
-  return (  
+  return (
      <div>
          <div>
          <Button variant="primary" onClick={handleShow}>
@@ -129,7 +129,7 @@ function AddPotionForm (){
       </Modal>
          </div>
       </div>
-    
+
   );
 }
 export default AddPotionForm;
