@@ -3,6 +3,10 @@
 use App\Http\Controllers\API\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\MessageController;
+use App\Http\Controllers\API\PotionController;
+use App\Http\Controllers\API\OutfitController;
+use App\Http\Controllers\API\PartyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +27,16 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('auth_user', [AuthController::class, 'getAuthenticatedUser']);
     Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('send_party_message', [MessageController::class, 'sendPartyMessage']);
+    Route::get('get_party_info', [PartyController::class, 'getPartyInfo']);
 });
 
-
+//storing and g potion
+Route::post('addPotion', [PotionController::class, 'store']);
+Route::get('potions',[PotionController::class, 'index']);
+//storing and retrieving weapon
+Route::post('addOutfit', [OutfitController::class, 'store']);
+Route::get('outfit',[OutfitController::class, 'index']);
 
