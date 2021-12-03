@@ -16321,7 +16321,7 @@ function AddOutfitForm() {
   var handleImage = function handleImage(e) {
     setPicture({
       image: e.target.files[0]
-    });
+    }); // console.log(e.target.files[0].name);
   };
 
   var outfitSubmitHandler = function outfitSubmitHandler(e) {
@@ -16941,19 +16941,24 @@ function All() {
       clicked = _useState16[0],
       setClicked = _useState16[1];
 
-  var _useState17 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    potions: []
-  }),
+  var _useState17 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState18 = _slicedToArray(_useState17, 2),
-      display1 = _useState18[0],
-      setDisplay1 = _useState18[1];
+      preview = _useState18[0],
+      setPreview = _useState18[1];
 
   var _useState19 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    outfit: []
+    potions: []
   }),
       _useState20 = _slicedToArray(_useState19, 2),
-      display2 = _useState20[0],
-      setDisplay2 = _useState20[1];
+      display1 = _useState20[0],
+      setDisplay1 = _useState20[1];
+
+  var _useState21 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    outfit: []
+  }),
+      _useState22 = _slicedToArray(_useState21, 2),
+      display2 = _useState22[0],
+      setDisplay2 = _useState22[1];
 
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("/api/outfit").then(function (res) {
@@ -16986,11 +16991,19 @@ function All() {
     _index__WEBPACK_IMPORTED_MODULE_0__.Swal.fire("You have successfully bought the item");
   };
 
+  var previewImage = function previewImage(event) {
+    setPreview(event);
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
     className: "container party-section",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "shop-Form",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddOutfitForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddPotionForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddCardForm, {})]
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddOutfitForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddPotionForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AddCardForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          src: preview
+        })
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "party-nav",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -17046,6 +17059,9 @@ function All() {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: "shop-itemsImage",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                      onClick: function onClick() {
+                        previewImage(p.image);
+                      },
                       src: p.image
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {

@@ -13,6 +13,7 @@ function All(){
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
     const[clicked, setClicked] =useState("");
+    const[preview, setPreview]=useState("");
 
     const[display1,setDisplay1]=useState({
         potions:[],
@@ -55,14 +56,20 @@ useEffect(()=>{
   const buttonHandler=(e)=>{
      Swal.fire("You have successfully bought the item");
   }
-
+const previewImage =(event)=>{
+     setPreview(event)
+}
     return(
         <section className="container party-section">
               <div className="shop-Form">
                   <AddOutfitForm/> 
                   <AddPotionForm/>
                   <AddCardForm/>
+                  <div>
+                        <img src={preview}></img>
+                  </div>
             </div>
+            
               <div className="party-nav">
                         <div className="party-nav-item party-active-nav"><Link to="/all">All</Link></div>
                         <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
@@ -83,7 +90,7 @@ useEffect(()=>{
                                     <div key={index} className="shop-returnMap">
                                           <div data-tip data-for={p.name} className="shop-items"> 
                                                 <div className="shop-itemsImage">
-                                                <img src={p.image}></img>
+                                                <img onClick={() => {previewImage(p.image)}} src={p.image} ></img>
                                                 </div>
                                                 <div className="shop-itemsInfo">
                                                       <h6>{p.name}</h6>

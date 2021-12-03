@@ -37,6 +37,7 @@ function AddOutfitForm (){
     }
     const handleImage =(e) =>{
       setPicture({image: e.target.files[0]});
+      // console.log(e.target.files[0].name);
     }
 
     const outfitSubmitHandler = (e) =>{
