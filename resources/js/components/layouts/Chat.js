@@ -1,5 +1,10 @@
 import {React, Fragment, $, axios, io, useState, useEffect, useCallback, useRef, timeFormat, getCurrentDateTime, dateTimeWithSecondsFormat, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
 
+// TO DO: make messages[], unreadMessagesCount, and ReadMessagesCount accessible by header,
+//        before logout, set messages starting at ndx readMessagesCount until
+//        messages at ndx messages.length - unreadMessagesCount - 1 to seen
+
+
 const Chat = () => {
 
     //party name, party count should be broadcasted
@@ -22,8 +27,8 @@ const Chat = () => {
         }
     }, []);
 
-    // const [isChatOpen, setIsChatOpen] = useState();
     const [unreadMessagesCount, setUnreadMessagesCount ] = useState(0);
+    const [prevUnreadMessagesCount, setPrevMessagesCount] = useState(0);
 
     useEffect( () => {
 
@@ -38,6 +43,7 @@ const Chat = () => {
 
                 axios.get(`api/get_previous_messages`).then(res => {
                     if(res.data.status === 200){
+                        //remove last opened chat once is seen is implemented
                         var last_opened_chat = localStorage.getItem("last_opened_chat");
                         console.log("inside get prev msg")
                         console.log(last_opened_chat)
@@ -54,9 +60,11 @@ const Chat = () => {
                                     }
                                 ]
                             );
+                            //change condition to if message is not seen (db) => if using this implementation, no need to store last opened chat in db
                             if( item.sender_id != user_id && new Date(dateTimeWithSecondsFormat(item.created_at)) > new Date(last_opened_chat)){
                                 unread_count++;
                             }
+                            // else set number of read messages count
                         });
                         setUnreadMessagesCount(unread_count);
                     }
@@ -180,6 +188,7 @@ const Chat = () => {
         localStorage.setItem("last_opened_chat", getCurrentDateTime());
         if( $(".chat-box").is(":hidden") ){
             isChatOpen.current = true;
+            setPrevMessagesCount(unreadMessagesCount);
             setUnreadMessagesCount(0);
         }else{
             isChatOpen.current = false;
@@ -212,7 +221,7 @@ const Chat = () => {
                                         <p className="user-time-elapsed text-left">{ timeFormat(message.message_created) }</p>
                                     </ins>
                                 :
-                                    <ins key={message.message_id} ref={ messages.length - 1 === index ? lastMessageRef : null }>
+                                    <ins key={message.message_id} ref={ messages.length - prevUnreadMessagesCount === index ? lastMessageRef : null }>
                                         <div className="client-chat">
                                             <p className="client-username">{message.sender_name}</p>
                                             <div className="client-message">
