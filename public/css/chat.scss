@@ -195,3 +195,16 @@ ins{
 .chat-icon:hover{
     transform: rotate(30deg);
 }
+
+.send-btn{
+    position: relative;
+}
+
+.unread-messages{
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 8px;
+}

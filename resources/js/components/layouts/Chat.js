@@ -1,4 +1,4 @@
-import {React, Fragment, $, axios, io, useState, useEffect, useCallback, useRef, timeFormat, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
+import {React, Fragment, $, axios, io, useState, useEffect, useCallback, useRef, timeFormat, getCurrentDateTime, dateTimeWithSecondsFormat, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
 
 const Chat = () => {
 
@@ -20,6 +20,7 @@ const Chat = () => {
         }
     }, []);
 
+    const [unreadMessagesCount, setUnreadMessagesCount ] = useState(0);
 
     useEffect( () => {
 
@@ -30,9 +31,13 @@ const Chat = () => {
                 setUserId(user_id);
 
                 var partyMemId = [];
+                var unread_count = 0;
 
                 axios.get(`api/get_previous_messages`).then(res => {
                     if(res.data.status === 200){
+                        var last_opened_chat = localStorage.getItem("last_opened_chat");
+                        console.log("inside get prev msg")
+                        console.log(last_opened_chat)
                         res.data.data.forEach(item => {
                             setMessages(
                                 messages => [
@@ -46,7 +51,12 @@ const Chat = () => {
                                     }
                                 ]
                             );
+                            if( item.sender_id != user_id && new Date(dateTimeWithSecondsFormat(item.created_at)) > new Date(last_opened_chat)){
+                                unread_count++;
+                            }
+                            console.log(item.created_at)
                         });
+                        setUnreadMessagesCount(unread_count);
                     }
                 });
 
@@ -103,6 +113,13 @@ const Chat = () => {
                                         }
                                     ]
                                 );
+                                var last_opened = localStorage.getItem("last_opened_chat");
+                                var date = new Date(msg.created_at);
+
+                                if( new Date(dateTimeWithSecondsFormat(date)) > new Date(last_opened)){
+                                   unread_count++;
+                                   setUnreadMessagesCount(unread_count);
+                                }
                             }
                         });
 
@@ -148,13 +165,19 @@ const Chat = () => {
                         }
                     ]
                 );
+
             }
         });
 
 
     }
 
+
     const chatPopUpHandler = () => {
+        localStorage.setItem("last_opened_chat", getCurrentDateTime());
+        if( $(".chat-box").is(":hidden") ){
+            setUnreadMessagesCount(0);
+        }
         $(".chat-box").slideToggle("slow");
     }
 
@@ -208,6 +231,7 @@ const Chat = () => {
                 <span className="send-btn fa-stack fa-2x" onClick={chatPopUpHandler}>
                     <FontAwesomeIcon icon={faCircle} className="chat-icon-circle fa-stack-2x"></FontAwesomeIcon>
                     <FontAwesomeIcon icon={faCommentDots} className="chat-icon fa-stack-1x"></FontAwesomeIcon>
+                    <span className="badge translate-middle bg-danger unread-messages" style={{ display: unreadMessagesCount != 0 ? 'inline-block' : 'none' }} >{unreadMessagesCount}</span>
                 </span>
             </div>
         </div>

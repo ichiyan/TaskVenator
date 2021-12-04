@@ -61,4 +61,4 @@ export {default as TasksTab} from "./components/pages/TasksTab";
 # Helper Functions
 --------------------------------------------------------------*/
 export { default as moment } from 'moment-timezone';
-export { getCurrentTime, getCurrentDateTime, dateFormat,  timeFormat } from './helper';
+export { getCurrentTime, getCurrentDateTime,dateTimeWithSecondsFormat, dateTimeFormat,  timeFormat } from './helper';

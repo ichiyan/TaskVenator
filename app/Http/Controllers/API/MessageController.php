@@ -144,9 +144,4 @@ class MessageController extends Controller
         }
     }
 
-    public function getChatInfo() {
-
-    }
-
-
 }

@@ -5,10 +5,14 @@ export function getCurrentTime() {
 }
 
 export function getCurrentDateTime() {
-    return moment().tz("Asia/Manila").format('MM/DD/YY h:mm A');
+    return moment().tz("Asia/Manila").format('MM/DD/YY h:mm:ss');
 }
 
-export function dateFormat(datetime) {
+export function dateTimeWithSecondsFormat(datetime){
+    return moment(datetime, 'YYYY-MM-DD HH:mm:ss').tz("Asia/Manila").format('MM/DD/YY h:mm:ss');
+}
+
+export function dateTimeFormat(datetime) {
     return moment(datetime, 'YYYY-MM-DD HH:mm:ss').tz("Asia/Manila").format('MM/DD/YY h:mm A');
 }
 
