@@ -6,7 +6,7 @@ const Chat = () => {
     const [partyName, setPartyName] = useState();
     const [partyId, setPartyId] = useState();
     const [partyCount, setPartyCount] = useState();
-    const [partyMembersId, setPartyMembersId] = useState([]);  //separated for easy checking if elem exists; idk if this is safe
+    const [partyMembersId, setPartyMembersId] = useState([]);
 
     const [userId, setUserId] = useState();
     const [onlineCount, setOnlineCount] = useState(0);
@@ -14,12 +14,15 @@ const Chat = () => {
 
     const inputRef = useRef(null);
 
+    const isChatOpen = useRef(false);
+
     const lastMessageRef = useCallback( node => {
         if(node){
             node.scrollIntoView({ smooth: true });
         }
     }, []);
 
+    // const [isChatOpen, setIsChatOpen] = useState();
     const [unreadMessagesCount, setUnreadMessagesCount ] = useState(0);
 
     useEffect( () => {
@@ -54,7 +57,6 @@ const Chat = () => {
                             if( item.sender_id != user_id && new Date(dateTimeWithSecondsFormat(item.created_at)) > new Date(last_opened_chat)){
                                 unread_count++;
                             }
-                            console.log(item.created_at)
                         });
                         setUnreadMessagesCount(unread_count);
                     }
@@ -113,16 +115,19 @@ const Chat = () => {
                                         }
                                     ]
                                 );
-                                var last_opened = localStorage.getItem("last_opened_chat");
-                                var date = new Date(msg.created_at);
-
-                                if( new Date(dateTimeWithSecondsFormat(date)) > new Date(last_opened)){
-                                   unread_count++;
-                                   setUnreadMessagesCount(unread_count);
+                                if( isChatOpen.current === false ){
+                                    var last_opened = localStorage.getItem("last_opened_chat");
+                                    var date = new Date(msg.created_at);
+                                    if( new Date(dateTimeWithSecondsFormat(date)) > new Date(last_opened)){
+                                       unread_count++;
+                                       setUnreadMessagesCount(unread_count);
+                                    }
+                                }else{
+                                    unread_count = 0;
+                                    setUnreadMessagesCount(unread_count);
                                 }
                             }
                         });
-
                     }
                 });
             }
@@ -168,16 +173,18 @@ const Chat = () => {
 
             }
         });
-
-
     }
 
 
     const chatPopUpHandler = () => {
         localStorage.setItem("last_opened_chat", getCurrentDateTime());
         if( $(".chat-box").is(":hidden") ){
+            isChatOpen.current = true;
             setUnreadMessagesCount(0);
+        }else{
+            isChatOpen.current = false;
         }
+        console.log(isChatOpen.current);
         $(".chat-box").slideToggle("slow");
     }
 
