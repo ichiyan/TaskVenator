@@ -32,6 +32,7 @@ redis.on('message', function(channel, message){
 });
 
 io.on('connection', function (socket) {
+
     socket.on("user_connected", function (user_id){
         users[user_id] = socket.id;
         io.emit('updateUserStatus', users);

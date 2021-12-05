@@ -1,9 +1,7 @@
-import {React, Fragment, $, axios, io, useState, useEffect, useCallback, useRef, timeFormat, getCurrentDateTime, dateTimeWithSecondsFormat, FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
-
-// TO DO: make messages[], unreadMessagesCount, and ReadMessagesCount accessible by header,
-//        before logout, set messages starting at ndx readMessagesCount until
-//        messages at ndx messages.length - unreadMessagesCount - 1 to seen
-
+import {React, Fragment, $, axios, io, useSocket,
+        useState, useEffect, useCallback, useRef,
+        timeFormat, getCurrentDateTime, dateTimeWithSecondsFormat,
+        FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
 
 const Chat = () => {
 
@@ -18,8 +16,8 @@ const Chat = () => {
     const [messages, setMessages] = useState([]);
 
     const inputRef = useRef(null);
-
     const isChatOpen = useRef(false);
+    const unreadCount = useRef(0);
 
     const lastMessageRef = useCallback( node => {
         if(node){
@@ -32,6 +30,7 @@ const Chat = () => {
 
     useEffect( () => {
 
+
         axios.get(`api/auth_user`).then( res => {
             if(res.data.status === 200){
 
@@ -39,14 +38,11 @@ const Chat = () => {
                 setUserId(user_id);
 
                 var partyMemId = [];
-                var unread_count = 0;
 
                 axios.get(`api/get_previous_messages`).then(res => {
                     if(res.data.status === 200){
-                        //remove last opened chat once is seen is implemented
+                        //fetch last_opened_chat from db
                         var last_opened_chat = localStorage.getItem("last_opened_chat");
-                        console.log("inside get prev msg")
-                        console.log(last_opened_chat)
                         res.data.data.forEach(item => {
                             setMessages(
                                 messages => [
@@ -60,13 +56,11 @@ const Chat = () => {
                                     }
                                 ]
                             );
-                            //change condition to if message is not seen (db) => if using this implementation, no need to store last opened chat in db
                             if( item.sender_id != user_id && new Date(dateTimeWithSecondsFormat(item.created_at)) > new Date(last_opened_chat)){
-                                unread_count++;
+                                unreadCount.current++;
                             }
-                            // else set number of read messages count
                         });
-                        setUnreadMessagesCount(unread_count);
+                        setUnreadMessagesCount(unreadCount.current);
                     }
                 });
 
@@ -88,60 +82,70 @@ const Chat = () => {
                         var socket_port = '8005';
                         var socket = io(ip_address + ':' + socket_port);
 
-                        socket.on('connect', function() {
-                            let chat_data = {
-                                party_id: party_id,
-                                user_id: user_id,
-                                chat_room: "party" + party_id,
-                            }
-                            socket.emit('user_connected', user_id);
-                            socket.emit('party_chat', chat_data);
-                        });
+                        console.log("chat")
+                        console.log(socket)
 
-                        socket.on('updateUserStatus', (data) => {
-                            var onlineCtr = 0;
-                            $.each(data, function (key, val) {
-                                if(val !== null && val !==0 && partyMemId.includes(key)){
-                                    onlineCtr++;
+                        // if(socket){
+                        //     console.log("here")
+                            socket.on('connect', function() {
+                                let chat_data = {
+                                    party_id: party_id,
+                                    user_id: user_id,
+                                    chat_room: "party" + party_id,
+                                }
+                                socket.emit('user_connected', user_id);
+                                socket.emit('party_chat', chat_data);
+                            });
+
+                            socket.on('updateUserStatus', (data) => {
+                                var onlineCtr = 0;
+                                $.each(data, function (key, val) {
+                                    if(val !== null && val !==0 && partyMemId.includes(key)){
+                                        onlineCtr++;
+                                    }
+                                });
+                                setOnlineCount(onlineCtr);
+                            });
+
+                            socket.on("partyMessage", function(msg){
+                                console.log("in chat")
+                                console.log(msg);
+                                if(msg.sender_id !== user_id){
+                                    setMessages(
+                                        messages => [
+                                            ...messages,
+                                            {
+                                                sender_id: msg.sender_id,
+                                                sender_name: msg.sender_name,
+                                                content: msg.content,
+                                                message_id: msg.message_id,
+                                                message_created: msg.created_at,
+                                            }
+                                        ]
+                                    );
+                                    if( isChatOpen.current === false ){
+                                        var last_opened = localStorage.getItem("last_opened_chat");
+                                        var date = new Date(msg.created_at);
+                                        if( new Date(dateTimeWithSecondsFormat(date)) > new Date(last_opened)){
+                                        unreadCount.current++;
+                                        setUnreadMessagesCount(unreadCount.current);
+                                        }
+                                    }else{
+                                        unreadCount.current = 0;
+                                        setUnreadMessagesCount(unreadCount.current);
+                                    }
                                 }
                             });
-                            setOnlineCount(onlineCtr);
-                        });
 
-                        socket.on("partyMessage", function(msg){
-                            console.log(msg);
-                            if(msg.sender_id !== user_id){
-                                setMessages(
-                                    messages => [
-                                        ...messages,
-                                        {
-                                            sender_id: msg.sender_id,
-                                            sender_name: msg.sender_name,
-                                            content: msg.content,
-                                            message_id: msg.message_id,
-                                            message_created: msg.created_at,
-                                        }
-                                    ]
-                                );
-                                if( isChatOpen.current === false ){
-                                    var last_opened = localStorage.getItem("last_opened_chat");
-                                    var date = new Date(msg.created_at);
-                                    if( new Date(dateTimeWithSecondsFormat(date)) > new Date(last_opened)){
-                                       unread_count++;
-                                       setUnreadMessagesCount(unread_count);
-                                    }
-                                }else{
-                                    unread_count = 0;
-                                    setUnreadMessagesCount(unread_count);
-                                }
-                            }
-                        });
-                    }
+                        }
+
+                        //socket.on disconnect update last chat opened in db
+                    // }
                 });
             }
         });
 
-        return () => socket.close();
+        // return () => socket.close();
 
     }, []);
 
@@ -189,11 +193,13 @@ const Chat = () => {
         if( $(".chat-box").is(":hidden") ){
             isChatOpen.current = true;
             setPrevMessagesCount(unreadMessagesCount);
-            setUnreadMessagesCount(0);
         }else{
             isChatOpen.current = false;
+            setPrevMessagesCount(1);
         }
-        console.log(isChatOpen.current);
+        unreadCount.current = 0;
+        setUnreadMessagesCount(0);
+        console.log(isChatOpen.current)
         $(".chat-box").slideToggle("slow");
     }
 
