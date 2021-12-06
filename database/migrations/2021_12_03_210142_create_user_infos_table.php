@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePartyMembersTable extends Migration
+class CreateUserInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreatePartyMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('party_members', function (Blueprint $table) {
+        Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('party_id')->constrained('parties', 'id');
+            $table->integer('gems');
+            $table->integer('HP');
+            $table->integer('warning_days');
+            $table->foreignId('avatar')->constrained('avatars', 'id');
             $table->foreignId('user_id')->constrained('users', 'id');
-            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreatePartyMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('party_members');
+        Schema::dropIfExists('user_infos');
     }
 }

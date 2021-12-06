@@ -7,15 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Potion extends Model
+class MClass extends Model
 {
     use HasFactory;
-    protected $table='potion';
-    protected $fillable = ['image', 'name', 'type',
-                        'size', 'effect', 'description', 'price'];
+    protected $table = 'm_classes';
+    protected $fillable = ['name'];
 
-    public function featuredIn(): HasOne
+    public function classifiesMonsters(): HasMany
     {
-        return $this->hasOne(Product::class);
+        return $this->hasMany(Monster::class);
     }
 }

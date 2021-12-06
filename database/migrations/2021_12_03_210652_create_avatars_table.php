@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePartyMembersTable extends Migration
+class CreateAvatarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePartyMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('party_members', function (Blueprint $table) {
+        Schema::create('avatars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('party_id')->constrained('parties', 'id');
-            $table->foreignId('user_id')->constrained('users', 'id');
-            $table->integer('status');
+            $table->integer('level');
+            $table->string('sprite_image', 100);
+            $table->foreignId('class')->constrained('avatar_classes', 'id');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreatePartyMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('party_members');
+        Schema::dropIfExists('avatars');
     }
 }

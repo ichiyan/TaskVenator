@@ -14,11 +14,13 @@ class Party extends Model
         'name',
     ];
 
-    public function party_members(){
+    public function party_members(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany(PartyMember::class);
     }
 
-    public function user_messages(){
+    public function user_messages(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany(UserMessage::class);
     }
 

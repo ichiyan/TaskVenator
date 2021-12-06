@@ -9,11 +9,13 @@ class Message extends Model
 {
     use HasFactory;
 
-    public function user_messages() {
+    public function user_messages(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany(UserMessage::class);
     }
 
-    public function users() {
+    public function users(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
         return $this->belongsToMany(User::class, 'user_messages', 'message_id', 'sender_id')
             ->withTimestamps();
     }

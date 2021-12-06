@@ -15,14 +15,13 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('title');
+            $table->string('title', 100);
             $table->boolean('show_is_done');
             $table->boolean('is_in_progress');
             $table->integer('subtasks')->default(1);
             $table->boolean('show_is_done');
             $table->foreignId('owner')->constrained('users', 'id');
-
+            $table->timestamps();
         });
     }
 

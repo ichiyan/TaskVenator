@@ -11,7 +11,9 @@ class Tasks extends Model
     protected $table = 'tasks';
     protected $fillable = ['title', 'show_is_done', 'is_in_progress',
                             'subtasks', 'show_is_done', 'owner'];
-    public function tasked() {
+
+    public function tasked(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(TaskItem::class);
     }
 }

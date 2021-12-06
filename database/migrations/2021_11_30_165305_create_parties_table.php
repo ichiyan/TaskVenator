@@ -16,7 +16,11 @@ class CreatePartiesTable extends Migration
         Schema::create('parties', function (Blueprint $table) {
             $table->id();
             $table->string('party_name');
-            $table->unsignedInteger('user_id')->comment('party creator');
+            $table->date('founded_on');
+            $table->integer('total_members');
+            $table->integer('battles_won');
+            $table->integer('battles_lost');
+            $table->foreignId('party_creator')->constrained('users', 'id');
             $table->timestamps();
         });
     }
