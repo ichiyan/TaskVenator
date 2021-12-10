@@ -15981,33 +15981,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index */ "./resources/js/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
 
 var CharacterCustomization = function CharacterCustomization() {
-  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)("male"),
-      _useState2 = _slicedToArray(_useState, 2),
-      bodyType = _useState2[0],
-      setBodyType = _useState2[1];
-
-  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      checkedOptions = _useState4[0],
-      setCheckedOptions = _useState4[1];
-
   var canvas, ctx, CANVAS_WIDTH, CANVAS_HEIGHT, previewImage;
   var baseDir = 'assets/images/spritesheets/';
   var spriteWidth = 64; // 832px / 13 cols
@@ -16016,26 +15994,51 @@ var CharacterCustomization = function CharacterCustomization() {
 
   var frameY = 10; // walking animation starts at the 11th row
 
-  var frameX = 0; // var gameFrame = 0;
-  // const staggerFrames = 8;
+  var frameX = 0;
+  var isFemale = false;
+  var sex;
+  var baseBodyColorDir;
+  var classType;
+  var items = []; //warrior default items
 
+  var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesImg, shieldImg, slashWeaponImg;
+  var warriorDefItems = {
+    legArmor: legArmorImg,
+    chainmail: chainmailImg,
+    plate: plateImg,
+    arms: armsImg,
+    shoulderPlate: shoulderPlateImg,
+    gloves: glovesImg,
+    shoes: shoesImg,
+    shield: shieldImg,
+    slashWeapon: slashWeaponImg
+  };
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     canvas = (0,_index__WEBPACK_IMPORTED_MODULE_0__.$)("#previewAnimations").get(0);
     ctx = canvas.getContext('2d');
-    CANVAS_WIDTH = canvas.width = 250;
-    CANVAS_HEIGHT = canvas.height = 250;
+    CANVAS_WIDTH = canvas.width = 200;
+    CANVAS_HEIGHT = canvas.height = 200;
     previewImage = new Image();
+    console.log("prevImg");
+    console.log(previewImage);
     previewImage.src = baseDir + 'body/male/human/light.png';
     animate();
   }, []);
 
   var animate = function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); // if (gameFrame % staggerFrames === 0){
+    ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    items.forEach(function (item) {
+      if (classType === item["class"]) {
+        if (item.isSexBased === true) {
+          sex = isFemale ? "female" : "male";
+          item.image.src = item.base_src + sex + "/" + item.img_name;
+        }
 
-    if (frameX < 8) frameX++;else frameX = 0; // }
-    // gameFrame++;
-
+        ctx.drawImage(item.image, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      }
+    });
+    if (frameX < 8) frameX++;else frameX = 0;
     setTimeout(animate, 1000 / 8);
   };
 
@@ -16049,12 +16052,102 @@ var CharacterCustomization = function CharacterCustomization() {
   };
 
   var getBodyType = function getBodyType(e) {
+    var color, strArray;
+
+    if (baseBodyColorDir != null) {
+      strArray = baseBodyColorDir.split("/");
+      color = strArray[strArray.length - 1];
+    } else {
+      color = "light.png";
+    }
+
     if (e.target.id === "sex-female") {
-      console.log("female");
-      previewImage.src = baseDir + 'body/female/human/light.png';
+      isFemale = true;
+      previewImage.src = baseDir + 'body/female/human/' + color;
     } else if (e.target.id === "sex-male") {
-      console.log("male");
-      previewImage.src = baseDir + 'body/male/human/light.png';
+      isFemale = false;
+      previewImage.src = baseDir + 'body/male/human/' + color;
+    }
+  };
+
+  var getBodyColor = function getBodyColor(e) {
+    var baseBodyDir = isFemale === true ? baseDir + 'body/female/human/' : baseDir + 'body/male/human/';
+    baseBodyColorDir = previewImage.src = baseBodyDir + e.target.id + ".png";
+  };
+
+  var getClass = function getClass(e) {
+    if (e.target.id === "warrior") {
+      classType = "warrior";
+      Object.keys(warriorDefItems).forEach(function (key) {
+        warriorDefItems[key] = new Image();
+      }); // to do: add z-pos property and sort array
+
+      items.push({
+        "class": 'warrior',
+        name: 'legArmor',
+        isSexBased: true,
+        image: warriorDefItems.legArmor,
+        img_name: '7.png',
+        base_src: baseDir + 'legs/armour/'
+      }, {
+        "class": 'warrior',
+        name: 'chainmail',
+        isSexBased: true,
+        image: warriorDefItems.chainmail,
+        img_name: 'gray.png',
+        base_src: baseDir + 'torso/chainmail/'
+      }, {
+        "class": 'warrior',
+        name: 'plate',
+        isSexBased: true,
+        image: warriorDefItems.plate,
+        img_name: '11.png',
+        base_src: baseDir + 'torso/armour/plate/'
+      }, {
+        "class": 'warrior',
+        name: 'arms',
+        isSexBased: true,
+        image: warriorDefItems.arms,
+        img_name: '1.png',
+        base_src: baseDir + 'arms/'
+      }, {
+        "class": 'warrior',
+        name: 'shoulderPlate',
+        isSexBased: true,
+        image: warriorDefItems.shoulderPlate,
+        img_name: '7.png',
+        base_src: baseDir + 'shoulders/plate/'
+      }, {
+        "class": 'warrior',
+        name: 'gloves',
+        isSexBased: true,
+        image: warriorDefItems.gloves,
+        img_name: '1.png',
+        base_src: baseDir + 'gloves/'
+      }, {
+        "class": 'warrior',
+        name: 'shoes',
+        isSexBased: true,
+        image: warriorDefItems.shoes,
+        img_name: '4.png',
+        base_src: baseDir + 'feet/armor/'
+      }, {
+        "class": 'warrior',
+        name: 'shield',
+        isSexBased: true,
+        image: warriorDefItems.shield,
+        img_name: 'round_brown.png',
+        base_src: baseDir + 'shield/'
+      }, {
+        "class": 'warrior',
+        name: 'slashWeapon',
+        isSexBased: true,
+        image: warriorDefItems.slashWeapon,
+        img_name: 'dagger.png',
+        base_src: baseDir + 'weapon/slash/'
+      });
+    } else if (e.target.id === "mage") {
+      classType = "mage";
     }
   };
 
@@ -16075,8 +16168,8 @@ var CharacterCustomization = function CharacterCustomization() {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
         id: "chooser",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
             onClick: toggleDisplay,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
               className: "expanded",
@@ -16108,7 +16201,191 @@ var CharacterCustomization = function CharacterCustomization() {
                 })]
               })]
             })]
-          })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+            onClick: toggleDisplay,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "expanded",
+              children: "Body Color"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+              className: "ul-block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "white",
+                  name: "body-color",
+                  defaultChecked: true
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "White"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "black",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Black"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "olive",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Olive"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "brown",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Brown"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "peach",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Peach"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "light",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Light"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "dark",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Dark"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "dark_2",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Dark 2"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "tanned",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Tanned"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "tanned_2",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Tanned 2"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "darkelf",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Dark Elf"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "darkelf_2",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Dark Elf 2"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getBodyColor,
+                  type: "radio",
+                  id: "zombie",
+                  name: "body-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "color",
+                  children: "Zombie"
+                })]
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+            onClick: toggleDisplay,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "expanded",
+              children: "Class"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+              className: "ul-block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getClass,
+                  type: "radio",
+                  id: "warrior",
+                  name: "class"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "class-warrior",
+                  children: "Warrior"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getClass,
+                  type: "radio",
+                  id: "mage",
+                  name: "class"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "class-mage",
+                  children: "Mage"
+                })]
+              })]
+            })]
+          })]
         })
       })]
     })
@@ -30930,7 +31207,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: block;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 250px;\n  height: 250px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: block;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 200px;\n  height: 200px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
