@@ -15992,26 +15992,39 @@ var CharacterCustomization = function CharacterCustomization() {
 
   var spriteHeight = 64; // 1344px / 21 rows
 
-  var frameY = 10; // walking animation starts at the 11th row
+  var frameY = 10; // walking anim starts at the 11th row
 
-  var frameX = 0;
+  var frameX = 0; // starts at top left of frameY
+
+  var cycles = 8; // walking anim has 9 cycles
+
   var isFemale = false;
   var sex;
   var baseBodyColorDir;
   var classType;
   var items = []; //warrior default items
 
-  var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesImg, shieldImg, slashWeaponImg;
-  var warriorDefItems = {
+  var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesArmorImg, shieldImg, slashWeaponImg;
+  var warriorDefaultItems = {
     legArmor: legArmorImg,
     chainmail: chainmailImg,
     plate: plateImg,
     arms: armsImg,
     shoulderPlate: shoulderPlateImg,
     gloves: glovesImg,
-    shoes: shoesImg,
+    shoes: shoesArmorImg,
     shield: shieldImg,
     slashWeapon: slashWeaponImg
+  }; //mage default items
+
+  var legPantsImg, shoesImg, ivernessCloakImg, capeImg, scarfImg, weaponImg;
+  var mageDefaultItems = {
+    legPants: legPantsImg,
+    shoes: shoesImg,
+    cloak: ivernessCloakImg,
+    cape: capeImg,
+    scarf: scarfImg,
+    weapon: weaponImg
   };
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     canvas = (0,_index__WEBPACK_IMPORTED_MODULE_0__.$)("#previewAnimations").get(0);
@@ -16029,16 +16042,21 @@ var CharacterCustomization = function CharacterCustomization() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     items.forEach(function (item) {
-      if (classType === item["class"]) {
-        if (item.isSexBased === true) {
-          sex = isFemale ? "female" : "male";
-          item.image.src = item.base_src + sex + "/" + item.img_name;
-        }
-
-        ctx.drawImage(item.image, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      if (item.sex === "unisex") {
+        sex = isFemale ? "female" : "male";
+      } else {
+        sex = item.sex;
       }
+
+      if (sex === "none") {
+        item.image.src = item.base_src + item.img_name;
+      } else {
+        item.image.src = item.base_src + sex + "/" + item.img_name;
+      }
+
+      ctx.drawImage(item.image, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     });
-    if (frameX < 8) frameX++;else frameX = 0;
+    if (frameX < cycles) frameX++;else frameX = 0;
     setTimeout(animate, 1000 / 8);
   };
 
@@ -16077,77 +16095,129 @@ var CharacterCustomization = function CharacterCustomization() {
 
   var getClass = function getClass(e) {
     if (e.target.id === "warrior") {
+      items.length = 0;
       classType = "warrior";
-      Object.keys(warriorDefItems).forEach(function (key) {
-        warriorDefItems[key] = new Image();
+      frameY = 14;
+      cycles = 5;
+      Object.keys(warriorDefaultItems).forEach(function (key) {
+        warriorDefaultItems[key] = new Image();
       }); // to do: add z-pos property and sort array
 
       items.push({
         "class": 'warrior',
         name: 'legArmor',
-        isSexBased: true,
-        image: warriorDefItems.legArmor,
+        sex: "unisex",
+        image: warriorDefaultItems.legArmor,
         img_name: '7.png',
         base_src: baseDir + 'legs/armour/'
       }, {
         "class": 'warrior',
         name: 'chainmail',
-        isSexBased: true,
-        image: warriorDefItems.chainmail,
+        sex: "unisex",
+        image: warriorDefaultItems.chainmail,
         img_name: 'gray.png',
         base_src: baseDir + 'torso/chainmail/'
       }, {
         "class": 'warrior',
         name: 'plate',
-        isSexBased: true,
-        image: warriorDefItems.plate,
+        sex: "unisex",
+        image: warriorDefaultItems.plate,
         img_name: '11.png',
         base_src: baseDir + 'torso/armour/plate/'
       }, {
         "class": 'warrior',
         name: 'arms',
-        isSexBased: true,
-        image: warriorDefItems.arms,
+        sex: "unisex",
+        image: warriorDefaultItems.arms,
         img_name: '1.png',
         base_src: baseDir + 'arms/'
       }, {
         "class": 'warrior',
         name: 'shoulderPlate',
-        isSexBased: true,
-        image: warriorDefItems.shoulderPlate,
+        sex: "unisex",
+        image: warriorDefaultItems.shoulderPlate,
         img_name: '7.png',
         base_src: baseDir + 'shoulders/plate/'
       }, {
         "class": 'warrior',
         name: 'gloves',
-        isSexBased: true,
-        image: warriorDefItems.gloves,
+        sex: "unisex",
+        image: warriorDefaultItems.gloves,
         img_name: '1.png',
         base_src: baseDir + 'gloves/'
       }, {
         "class": 'warrior',
         name: 'shoes',
-        isSexBased: true,
-        image: warriorDefItems.shoes,
+        sex: "unisex",
+        image: warriorDefaultItems.shoes,
         img_name: '4.png',
         base_src: baseDir + 'feet/armor/'
       }, {
         "class": 'warrior',
         name: 'shield',
-        isSexBased: true,
-        image: warriorDefItems.shield,
+        sex: "unisex",
+        image: warriorDefaultItems.shield,
         img_name: 'round_brown.png',
         base_src: baseDir + 'shield/'
       }, {
         "class": 'warrior',
         name: 'slashWeapon',
-        isSexBased: true,
-        image: warriorDefItems.slashWeapon,
+        sex: "unisex",
+        image: warriorDefaultItems.slashWeapon,
         img_name: 'dagger.png',
         base_src: baseDir + 'weapon/slash/'
       });
     } else if (e.target.id === "mage") {
+      items.length = 0;
       classType = "mage";
+      frameY = 2;
+      cycles = 6;
+      Object.keys(mageDefaultItems).forEach(function (key) {
+        mageDefaultItems[key] = new Image();
+      });
+      items.push({
+        "class": 'mage',
+        name: 'legPants',
+        sex: "unisex",
+        image: mageDefaultItems.legPants,
+        img_name: 'navy.png',
+        base_src: baseDir + 'legs/pants/'
+      }, {
+        "class": 'mage',
+        name: 'shoes',
+        sex: "unisex",
+        image: mageDefaultItems.shoes,
+        img_name: 'black.png',
+        base_src: baseDir + 'feet/shoes/'
+      }, {
+        "class": 'mage',
+        name: 'cloak',
+        sex: "male",
+        image: mageDefaultItems.cloak,
+        img_name: 'black.png',
+        base_src: baseDir + 'torso/jacket/iverness/'
+      }, {
+        "class": 'mage',
+        name: 'cape',
+        sex: "unisex",
+        image: mageDefaultItems.cape,
+        img_name: 'black.png',
+        base_src: baseDir + 'cape/solid/'
+      }, {
+        "class": 'mage',
+        name: 'scarf',
+        sex: "none",
+        image: mageDefaultItems.scarf,
+        img_name: 'blue.png',
+        base_src: baseDir + 'neck/scarf/'
+      }, {
+        "class": 'mage',
+        name: 'weapon',
+        sex: "unisex",
+        image: mageDefaultItems.weapon,
+        img_name: 'simple_staff.png',
+        base_src: baseDir + 'weapon/thrust/'
+      });
     }
   };
 
