@@ -13,7 +13,6 @@ const CharacterCustomization = () => {
     var isFemale = false;
     var sex;
     var baseBodyColorDir;
-    var classType;
     var items = [];
 
     //warrior default items
@@ -130,8 +129,6 @@ const CharacterCustomization = () => {
         if (e.target.id === "warrior"){
 
             items.length = 0;
-
-            classType = "warrior";
             frameY = 14;
             cycles = 5;
 
@@ -225,8 +222,6 @@ const CharacterCustomization = () => {
         }else if (e.target.id === "mage" ){
 
             items.length = 0;
-
-            classType = "mage";
             frameY = 2;
             cycles = 6;
 
@@ -293,9 +288,8 @@ const CharacterCustomization = () => {
                 },
             );
         }else if (e.target.id === "marksman"){
-            items.length = 0;
 
-            classType = "marksman";
+            items.length = 0;
             frameY = 18;
             cycles = 12;
 
@@ -393,7 +387,7 @@ const CharacterCustomization = () => {
                     <ul>
                         <li onClick={toggleDisplay}>
                             {/* Sex */}
-                            <span className="expanded">Body Type</span>
+                            <span className="condensed">Body Type</span>
                             <ul className="ul-block">
                                 <li className="noPreview">
                                     <input onChange={getBodyType}  type="radio" id="sex-male" name="sex" defaultChecked/>
@@ -407,7 +401,7 @@ const CharacterCustomization = () => {
                         </li>
                         <li onClick={toggleDisplay}>
                             {/* Body Color */}
-                            <span className="expanded">Body Color</span>
+                            <span className="condensed">Body Color</span>
                             <ul className="ul-block">
                                 <li className="noPreview">
                                     <input onChange={getBodyColor}  type="radio" id="white" name="body-color" defaultChecked/>
@@ -465,7 +459,7 @@ const CharacterCustomization = () => {
                         </li>
                         <li onClick={toggleDisplay}>
                             {/* Class */}
-                            <span className="expanded">Class</span>
+                            <span className="condensed">Class</span>
                             <ul className="ul-block">
                                 <li className="noPreview">
                                     <input onChange={getClass}  type="radio" id="warrior" name="class"/>

@@ -16001,7 +16001,6 @@ var CharacterCustomization = function CharacterCustomization() {
   var isFemale = false;
   var sex;
   var baseBodyColorDir;
-  var classType;
   var items = []; //warrior default items
 
   var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesArmorImg, shieldImg, slashWeaponImg, helmetImg;
@@ -16109,7 +16108,6 @@ var CharacterCustomization = function CharacterCustomization() {
   var getClass = function getClass(e) {
     if (e.target.id === "warrior") {
       items.length = 0;
-      classType = "warrior";
       frameY = 14;
       cycles = 5;
       Object.keys(warriorDefaultItems).forEach(function (key) {
@@ -16189,7 +16187,6 @@ var CharacterCustomization = function CharacterCustomization() {
       });
     } else if (e.target.id === "mage") {
       items.length = 0;
-      classType = "mage";
       frameY = 2;
       cycles = 6;
       Object.keys(mageDefaultItems).forEach(function (key) {
@@ -16247,7 +16244,6 @@ var CharacterCustomization = function CharacterCustomization() {
       });
     } else if (e.target.id === "marksman") {
       items.length = 0;
-      classType = "marksman";
       frameY = 18;
       cycles = 12;
       Object.keys(marksmanDefaultItems).forEach(function (key) {
@@ -16341,7 +16337,7 @@ var CharacterCustomization = function CharacterCustomization() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
             onClick: toggleDisplay,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "expanded",
+              className: "condensed",
               children: "Body Type"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
               className: "ul-block",
@@ -16373,7 +16369,7 @@ var CharacterCustomization = function CharacterCustomization() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
             onClick: toggleDisplay,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "expanded",
+              className: "condensed",
               children: "Body Color"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
               className: "ul-block",
@@ -16526,7 +16522,7 @@ var CharacterCustomization = function CharacterCustomization() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
             onClick: toggleDisplay,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "expanded",
+              className: "condensed",
               children: "Class"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
               className: "ul-block",
@@ -31387,7 +31383,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: block;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 200px;\n  height: 200px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 200px;\n  height: 200px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
