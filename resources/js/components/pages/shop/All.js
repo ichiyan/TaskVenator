@@ -1,6 +1,7 @@
 import Button from "@restart/ui/esm/Button";
 import {Link, React, useEffect, useState, 
-      AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
+      AddPotionForm, AddOutfitForm, AddCardForm, ReactTooltip,axios } from "../../../index";
+import Swal from 'sweetalert2';
 function All(){
     var hpTotal = 50;
     var xpTotal = 50;

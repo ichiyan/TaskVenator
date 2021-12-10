@@ -1,8 +1,7 @@
 
 import Button from "@restart/ui/esm/Button";
 import {Link, React, useEffect, useState, 
-      AddPotionForm, AddOutfitForm, 
-      Swal, ReactTooltip,axios } from "../../../index";
+      AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 
 
 function Shop(){
