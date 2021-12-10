@@ -3,10 +3,6 @@
     background-color: #383A59;
     
   }
-  .shop-filtShop{
-    display: flex;
-    flex-direction: row;   
-  }
  
   .shop-Form{
     display: flex;
@@ -23,22 +19,24 @@
     flex-direction: row;
   }
 
-  
-  .shop-shop{
-    margin: auto;
-    display:flex;
-    flex-direction: row;
-    flex: 10.5;
- 
+  .shop-filtShop{
+    display: flex;
+    flex-direction: row;   
   }
   .shop-filter{
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    height:100px;
+    height:200px;
     flex: 1.5;
     color: white;
   }
+  .shop-shop{
+    display:flex;
+    flex-direction: row;
+    flex: 10.5;
+  }
+  
   
   .shop-weaponList{
     

@@ -14442,6 +14442,8 @@ __webpack_require__(/*! ../../public/css/tasks.scss */ "./public/css/tasks.scss"
 
 __webpack_require__(/*! ../../public/css/shop.css */ "./public/css/shop.css");
 
+__webpack_require__(/*! ../../public/css/inventory.css */ "./public/css/inventory.css");
+
 __webpack_require__(/*! ../../node_modules/bootstrap/dist/js/bootstrap.bundle.js */ "./node_modules/bootstrap/dist/js/bootstrap.bundle.js");
 
 __webpack_require__(/*! ../../node_modules/jquery/dist/jquery.min.js */ "./node_modules/jquery/dist/jquery.min.js");
@@ -15489,7 +15491,7 @@ var TasksNavbar = function TasksNavbar(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
           className: active === "inventory" ? "active" : "",
-          to: "",
+          to: "/inventory",
           children: "Inventory"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
@@ -15812,6 +15814,8 @@ var Tasks = function Tasks(_ref) {
     renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Shop, {});
   } else if (tab === "cards") {
     renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Cards, {});
+  } else if (tab === "inventory") {
+    renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Inventory, {});
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -15874,6 +15878,284 @@ var TasksTab = function TasksTab() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TasksTab);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/inventory/inventory.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/pages/inventory/inventory.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @restart/ui/esm/Button */ "./node_modules/@restart/ui/esm/Button.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function Inventory() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+    className: "container party-section",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "party-nav",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/all",
+          children: "All"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/potions",
+          children: "Potions"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/weapons",
+          children: "Weapons"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/cards",
+          children: "Cards"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "party-nav-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          to: "/outfit",
+          children: "Outfit"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "inventory-filtShop",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "inventory-filter",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          children: "Potion Type"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+          name: "class",
+          className: "form-select",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+            value: "All",
+            children: "All"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+            value: "Hp Potion",
+            children: "Hp Potion"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+            value: "Powerup Potion",
+            children: "Powerup Potion"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          children: "Size"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+          name: "class",
+          className: "form-select",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+            value: "All",
+            children: "All"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+            value: "Small",
+            children: "Small"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+            value: "Medium",
+            children: "Medium"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+            value: "Large",
+            children: "Large"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "inventory-shop",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "inventory-category",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "inventory-categoryName",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              children: "Health Potions"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "inventory-returnMap",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              "data-tip": true,
+              "data-for": "test",
+              className: "inventory-items",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "inventory-itemsImage",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {})
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "inventory-itemsInfo",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
+                  children: "asdasd"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                  children: "asdasd"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  children: "Equip"
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.ReactTooltip, {
+              id: "test",
+              place: "right",
+              "aria-haspopup": "true",
+              className: "inventory-toolTip",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "inventory-hide",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "inventory-itemsInfo",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                    children: "asdasdasd"
+                  })
+                })
+              })
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "inventory-category",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "inventory-categoryName",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              children: "Health Potions"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "inventory-returnMap",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              "data-tip": true,
+              "data-for": "test",
+              className: "inventory-items",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "inventory-itemsImage",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {})
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "inventory-itemsInfo",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
+                  children: "asdasd"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                  children: "asdasd"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  children: "Equip"
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.ReactTooltip, {
+              id: "test",
+              place: "right",
+              "aria-haspopup": "true",
+              className: "inventory-toolTip",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "inventory-hide",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "inventory-itemsInfo",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                    children: "asdasdasd"
+                  })
+                })
+              })
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "inventory-category",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "inventory-categoryName",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              children: "Health Potions"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "inventory-returnMap",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              "data-tip": true,
+              "data-for": "test",
+              className: "inventory-items",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "inventory-itemsImage",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {})
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "inventory-itemsInfo",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
+                  children: "asdasd"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                  children: "asdasd"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  children: "Equip"
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.ReactTooltip, {
+              id: "test",
+              place: "right",
+              "aria-haspopup": "true",
+              className: "inventory-toolTip",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "inventory-hide",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "inventory-itemsInfo",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                    children: "asdasdasd"
+                  })
+                })
+              })
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "inventory-category",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "inventory-categoryName",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              children: "Health Potions"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "inventory-returnMap",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              "data-tip": true,
+              "data-for": "test",
+              className: "inventory-items",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "inventory-itemsImage",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {})
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "inventory-itemsInfo",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
+                  children: "asdasd"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                  children: "asdasd"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_restart_ui_esm_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  children: "Equip"
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.ReactTooltip, {
+              id: "test",
+              place: "right",
+              "aria-haspopup": "true",
+              className: "inventory-toolTip",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "inventory-hide",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "inventory-itemsInfo",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                    children: "asdasdasd"
+                  })
+                })
+              })
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "inventory-preview",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: "asdasdasd"
+          })
+        })]
+      })]
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Inventory);
 
 /***/ }),
 
@@ -21060,6 +21342,11 @@ var AppRouter = function AppRouter() {
           element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
             tab: "cards"
           })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          path: "/inventory",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Tasks__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            tab: "inventory"
+          })
         })]
       })
     })
@@ -21110,14 +21397,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AddOutfitForm": () => (/* reexport safe */ _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_21__["default"]),
 /* harmony export */   "AddPotionForm": () => (/* reexport safe */ _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_22__["default"]),
 /* harmony export */   "AddCardForm": () => (/* reexport safe */ _components_pages_shop_AddCardForm__WEBPACK_IMPORTED_MODULE_23__["default"]),
-/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_24__["default"]),
-/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_25__["default"]),
-/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_26__["default"]),
-/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_27__["default"]),
-/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_28__["default"]),
-/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_29__["default"]),
-/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_30__["default"]),
-/* harmony export */   "TasksTab": () => (/* reexport safe */ _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_31__["default"])
+/* harmony export */   "Inventory": () => (/* reexport safe */ _components_pages_inventory_inventory__WEBPACK_IMPORTED_MODULE_24__["default"]),
+/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_25__["default"]),
+/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_26__["default"]),
+/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_27__["default"]),
+/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_28__["default"]),
+/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_29__["default"]),
+/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_30__["default"]),
+/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_31__["default"]),
+/* harmony export */   "TasksTab": () => (/* reexport safe */ _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_32__["default"])
 /* harmony export */ });
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -21146,14 +21434,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/shop/AddOutfitForm */ "./resources/js/components/pages/shop/AddOutfitForm.js");
 /* harmony import */ var _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pages/shop/AddPotionForm */ "./resources/js/components/pages/shop/AddPotionForm.js");
 /* harmony import */ var _components_pages_shop_AddCardForm__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/pages/shop/AddCardForm */ "./resources/js/components/pages/shop/AddCardForm.js");
-/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
-/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
-/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
-/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
-/* harmony import */ var _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/pages/TasksTab */ "./resources/js/components/pages/TasksTab.js");
+/* harmony import */ var _components_pages_inventory_inventory__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/pages/inventory/inventory */ "./resources/js/components/pages/inventory/inventory.js");
+/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
+/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
+/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
+/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
+/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+/* harmony import */ var _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/pages/TasksTab */ "./resources/js/components/pages/TasksTab.js");
+
 
 
 
@@ -28127,6 +28417,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/*------------------------------------
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/inventory.css":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/inventory.css ***!
+  \********************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "  \r\n    /* desinging shopp */\r\n.shop-parentOfAll{\r\n    background-color: #383A59;\r\n\r\n}\r\n\r\n.shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-content: center;\r\n    justify-content: center;\r\n}\r\n.shop-weaponForm{\r\n    display: flex;\r\n    flex-direction: row;\r\n    }\r\n.shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n\r\n.inventory-filtShop{\r\n    display: flex;\r\n    flex-direction: row;   \r\n}\r\n.inventory-filter{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n    height:200px;\r\n    flex: 1;\r\n    color: white;\r\n    background-color: brown;\r\n}\r\n.inventory-shop{\r\n    display:flex;\r\n    flex-direction: row;\r\n    flex: 9;\r\n    background-color: blue;\r\n}\r\n.inventory-preview{\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex:1;\r\n    background-color: yellow;\r\n}\r\n\r\n\r\n.inventory-weaponList{\r\n\r\n    display: flex;\r\n    gap: 2rem;\r\n\r\n}\r\n.inventory-category{\r\n    font: black;\r\n    margin-left: 20px;\r\n}\r\n\r\n/* displaying items in shop  */\r\n.inventory-returnMap{\r\n    display: inline-block;\r\n}\r\n.inventory-items{\r\n    display: inline-block;\r\n    color: black;\r\n    margin-left: 40px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    background-color: #8AFF80;\r\n    width: 150px;\r\n}\r\n.inventory-itemsImage img{\r\n    margin-top: 10px;\r\n    width: 70px;\r\n    height: 70px;\r\n}\r\n\r\n/* css for buttons in shop */\r\n.inventory-items Button{\r\n    background-color: #FFFF80;\r\n    width: 100px;\r\n    margin-bottom: 10px;\r\n}\r\n.inventory-items Button:hover{\r\n    background-color: #C0C034;\r\n}\r\n.inventory-itemsInfo img{\r\n    height:20px;\r\n    width:20px;\r\n}\r\n.inventoryp-empty{\r\n    background-color: black;\r\n    height:200px;\r\n}\r\n/* displaying the hide info in div  */\r\n.inventory-toolTip{\r\n    align-items: center;\r\n}\r\n.inventory-hide{\r\n    color: white;\r\n    width: 200px;\r\n    text-align: center;\r\n    text-justify: inter-word;\r\n\r\n}\r\n.inventory .inventory-weaponInfo{\r\n    -moz-text-align-last: left;\r\n         text-align-last: left;\r\n}\r\n.shop-Empty{\r\n    background-color: black;\r\n}\r\n\r\n\r\n*/\r\n\r\n\r\n/* test div */\r\n.shop-categoryName p{\r\n    margin: 10px;\r\n    color: white;\r\n}\r\n\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/party_tasks.css":
 /*!**********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/party_tasks.css ***!
@@ -28168,7 +28482,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "    /* desinging shopp */\r\n  .shop-parentOfAll{\r\n    background-color: #383A59;\r\n    \r\n  }\r\n  .shop-filtShop{\r\n    display: flex;\r\n    flex-direction: row;   \r\n  }\r\n \r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-content: center;\r\n    justify-content: center;\r\n  }\r\n  .shop-weaponForm{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n\r\n  \r\n  .shop-shop{\r\n    margin: auto;\r\n    display:flex;\r\n    flex-direction: row;\r\n    flex: 10.5;\r\n \r\n  }\r\n  .shop-filter{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n    height:100px;\r\n    flex: 1.5;\r\n    color: white;\r\n  }\r\n  \r\n  .shop-weaponList{\r\n    \r\n    display: flex;\r\n    gap: 2rem;\r\n    \r\n  }\r\n  .shop-category{\r\n    font: black;\r\n    margin-left: 20px;\r\n  }\r\n\r\n  /* displaying items in shop  */\r\n  .shop-returnMap{\r\n    display: inline-block;\r\n  }\r\n  .shop-items{\r\n    display: inline-block;\r\n    color: black;\r\n    margin-left: 40px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    background-color: #8AFF80;\r\n    width: 150px;\r\n  }\r\n  .shop-itemsImage img{\r\n    margin-top: 10px;\r\n    width: 100px;\r\n    height: 100px;\r\n  }\r\n  \r\n  /* css for buttons in shop */\r\n  .shop-items Button{\r\n    background-color: #FFFF80;\r\n    width: 100px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .shop-items Button:hover{\r\n    background-color: #C0C034;\r\n  }\r\n  .shop-itemsInfo img{\r\n    height:20px;\r\n    width:20px;\r\n  }\r\n  .shop-empty{\r\n    background-color: black;\r\n    height:200px;\r\n  }\r\n /* displaying the hide info in div  */\r\n .shop-toolTip{\r\n   align-items: center;\r\n }\r\n .shop-hide{\r\n  color: white;\r\n  width: 200px;\r\n  text-align: center;\r\n  text-justify: inter-word;\r\n  \r\n }\r\n .shop-hide .shop-weaponInfo{\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n }\r\n .shop-Empty{\r\n   background-color: black;\r\n }\r\n \r\n \r\n  */\r\n  /* button navigator */\r\n  .shop-main_shop .btn-group{\r\n    width:90%;\r\n\r\n  }\r\n  .shop-main_shop .btn-group .btn:hover,  .shop-main_shop .btn-group .btn:focus{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-displayButton:hover{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-weaponList{\r\n    display: flex;\r\n    \r\n  }\r\n  \r\n  /* test div */\r\n  .shop-categoryName p{\r\n    margin: 10px;\r\n    color: white;\r\n  \r\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "    /* desinging shopp */\r\n  .shop-parentOfAll{\r\n    background-color: #383A59;\r\n    \r\n  }\r\n \r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-content: center;\r\n    justify-content: center;\r\n  }\r\n  .shop-weaponForm{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n\r\n  .shop-filtShop{\r\n    display: flex;\r\n    flex-direction: row;   \r\n  }\r\n  .shop-filter{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n    height:200px;\r\n    flex: 1.5;\r\n    color: white;\r\n  }\r\n  .shop-shop{\r\n    display:flex;\r\n    flex-direction: row;\r\n    flex: 10.5;\r\n  }\r\n  \r\n  \r\n  .shop-weaponList{\r\n    \r\n    display: flex;\r\n    gap: 2rem;\r\n    \r\n  }\r\n  .shop-category{\r\n    font: black;\r\n    margin-left: 20px;\r\n  }\r\n\r\n  /* displaying items in shop  */\r\n  .shop-returnMap{\r\n    display: inline-block;\r\n  }\r\n  .shop-items{\r\n    display: inline-block;\r\n    color: black;\r\n    margin-left: 40px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    background-color: #8AFF80;\r\n    width: 150px;\r\n  }\r\n  .shop-itemsImage img{\r\n    margin-top: 10px;\r\n    width: 100px;\r\n    height: 100px;\r\n  }\r\n  \r\n  /* css for buttons in shop */\r\n  .shop-items Button{\r\n    background-color: #FFFF80;\r\n    width: 100px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .shop-items Button:hover{\r\n    background-color: #C0C034;\r\n  }\r\n  .shop-itemsInfo img{\r\n    height:20px;\r\n    width:20px;\r\n  }\r\n  .shop-empty{\r\n    background-color: black;\r\n    height:200px;\r\n  }\r\n /* displaying the hide info in div  */\r\n .shop-toolTip{\r\n   align-items: center;\r\n }\r\n .shop-hide{\r\n  color: white;\r\n  width: 200px;\r\n  text-align: center;\r\n  text-justify: inter-word;\r\n  \r\n }\r\n .shop-hide .shop-weaponInfo{\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n }\r\n .shop-Empty{\r\n   background-color: black;\r\n }\r\n \r\n \r\n  */\r\n  /* button navigator */\r\n  .shop-main_shop .btn-group{\r\n    width:90%;\r\n\r\n  }\r\n  .shop-main_shop .btn-group .btn:hover,  .shop-main_shop .btn-group .btn:focus{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-displayButton:hover{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-weaponList{\r\n    display: flex;\r\n    \r\n  }\r\n  \r\n  /* test div */\r\n  .shop-categoryName p{\r\n    margin: 10px;\r\n    color: white;\r\n  \r\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -81950,6 +82264,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_home_auth_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./public/css/inventory.css":
+/*!**********************************!*\
+  !*** ./public/css/inventory.css ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_inventory_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./inventory.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./public/css/inventory.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_inventory_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_inventory_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

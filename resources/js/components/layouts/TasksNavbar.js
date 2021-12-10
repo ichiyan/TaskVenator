@@ -5,7 +5,7 @@ const TasksNavbar = ({active}) => {
         <nav id="navbar" className="navbar order-last order-lg-0">
             <ul>
                 <li><Link className={active==="tasks"? "active":""} to="/tasks">Tasks</Link></li>
-                <li><Link className={active==="inventory"? "active":""} to="">Inventory</Link></li>
+                <li><Link className={active==="inventory"? "active":""} to="/inventory">Inventory</Link></li>
                 <li><Link className={active==="shop"? "active":""} to="/shop">Shop</Link></li>
                 <li><Link className={active==="party"? "active":""} to="/party">Party</Link></li>
             </ul>

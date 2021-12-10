@@ -1,0 +1,124 @@
+  
+    /* desinging shopp */
+.shop-parentOfAll{
+    background-color: #383A59;
+
+}
+
+.shop-Form{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+.shop-weaponForm{
+    display: flex;
+    flex-direction: row;
+    }
+.shop-Form{
+    display: flex;
+    flex-direction: row;
+}
+
+.inventory-filtShop{
+    display: flex;
+    flex-direction: row;   
+}
+.inventory-filter{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height:200px;
+    flex: 1;
+    color: white;
+    background-color: brown;
+}
+.inventory-shop{
+    display:flex;
+    flex-direction: row;
+    flex: 9;
+    background-color: blue;
+}
+.inventory-preview{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    background-color: yellow;
+}
+
+
+.inventory-weaponList{
+
+    display: flex;
+    gap: 2rem;
+
+}
+.inventory-category{
+    font: black;
+    margin-left: 20px;
+}
+
+/* displaying items in shop  */
+.inventory-returnMap{
+    display: inline-block;
+}
+.inventory-items{
+    display: inline-block;
+    color: black;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #8AFF80;
+    width: 150px;
+}
+.inventory-itemsImage img{
+    margin-top: 10px;
+    width: 70px;
+    height: 70px;
+}
+
+/* css for buttons in shop */
+.inventory-items Button{
+    background-color: #FFFF80;
+    width: 100px;
+    margin-bottom: 10px;
+}
+.inventory-items Button:hover{
+    background-color: #C0C034;
+}
+.inventory-itemsInfo img{
+    height:20px;
+    width:20px;
+}
+.inventoryp-empty{
+    background-color: black;
+    height:200px;
+}
+/* displaying the hide info in div  */
+.inventory-toolTip{
+    align-items: center;
+}
+.inventory-hide{
+    color: white;
+    width: 200px;
+    text-align: center;
+    text-justify: inter-word;
+
+}
+.inventory .inventory-weaponInfo{
+    text-align-last: left;
+}
+.shop-Empty{
+    background-color: black;
+}
+
+
+*/
+
+
+/* test div */
+.shop-categoryName p{
+    margin: 10px;
+    color: white;
+}
+

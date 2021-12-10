@@ -76,7 +76,7 @@ const previewImage =(event)=>{
                         <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
                         <div className="party-nav-item"><Link to="/cards">Cards</Link></div>
                         <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
-             </div>
+              </div>
            
               <div className="shop-filtShop">
               <div className="shop-shop"> 

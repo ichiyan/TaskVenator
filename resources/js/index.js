@@ -31,6 +31,8 @@ export {default as AddOutfitForm} from "./components/pages/shop/AddOutfitForm";
 export {default as AddPotionForm} from "./components/pages/shop/AddPotionForm";
 export {default as AddCardForm} from "./components/pages/shop/AddCardForm";
 
+export {default as Inventory} from "./components/pages/inventory/inventory";
+
 export {default as GroupMemberPublicTasks} from "./components/pages/tasks/GroupMemberPublicTasks";
 export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks";
 export {default as HomeTasks} from "./components/pages/tasks/HomeTasks";
