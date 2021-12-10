@@ -36,15 +36,54 @@
 .inventory-shop{
     display:flex;
     flex-direction: row;
-    flex: 9;
+    flex: 7;
     background-color: blue;
 }
+
+/* css for the preview/equippied items part */
 .inventory-preview{
     display: flex;
-    flex-direction: row;
-    flex:1;
+    flex-direction: column;
+    flex:3;
     background-color: yellow;
 }
+.inventory-equipped1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blueviolet;
+  
+}
+.inventory-equippedItemsInfo{
+    color: black;
+    text-align: center;
+    background-color: #8AFF80;
+    width: 150px;
+}
+/* lower part of the preview/equipped items part */
+.inventory-equipped2{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background-color:cadetblue;
+    justify-content: center;
+  
+}
+.inventory-equipped2Left{
+    display: flex;
+    flex-direction: column;
+    background-color: cyan;
+    text-align: center;
+
+}
+.inventory-equipped2Right{
+    display: flex;
+    flex-direction: column;
+    background-color: cyan;
+    text-align: center;
+
+}
+
 
 
 .inventory-weaponList{

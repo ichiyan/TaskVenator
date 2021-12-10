@@ -79,8 +79,8 @@ const previewImage =(event)=>{
               </div>
            
               <div className="shop-filtShop">
-              <div className="shop-shop"> 
-                 <div className="shop-category">
+                  <div className="shop-shop"> 
+                   <div className="shop-category">
                         <div className="shop-categoryName">
                               <p>Health Potions</p>
                         </div>
