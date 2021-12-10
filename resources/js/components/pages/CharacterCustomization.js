@@ -17,7 +17,7 @@ const CharacterCustomization = () => {
     var items = [];
 
     //warrior default items
-    var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesArmorImg, shieldImg, slashWeaponImg;
+    var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesArmorImg, shieldImg, slashWeaponImg, helmetImg;
     var warriorDefaultItems = {
         legArmor: legArmorImg,
         chainmail: chainmailImg,
@@ -28,10 +28,11 @@ const CharacterCustomization = () => {
         shoes: shoesArmorImg,
         shield: shieldImg,
         slashWeapon: slashWeaponImg,
+        helmet: helmetImg,
     }
 
     //mage default items
-    var legPantsImg, shoesImg, ivernessCloakImg, capeImg, scarfImg, weaponImg;
+    var legPantsImg, shoesImg, ivernessCloakImg, capeImg, scarfImg, weaponImg, hatImg;
     var mageDefaultItems = {
         legPants: legPantsImg,
         shoes: shoesImg,
@@ -39,6 +40,21 @@ const CharacterCustomization = () => {
         cape: capeImg,
         scarf: scarfImg,
         weapon: weaponImg,
+        hat: hatImg,
+    }
+
+    //marksman default items
+    var legPantsImg2, shoesImg2, shirtImg, armorImg, bauldronImg, hatLeatherImg, quiverImg, bowWeaponImg, ammoImg;
+    var marksmanDefaultItems = {
+        legPants: legPantsImg2,
+        shoes: shoesImg2,
+        shirt: shirtImg,
+        armor: armorImg,
+        bauldron: bauldronImg,
+        hat: hatLeatherImg,
+        quiver: quiverImg,
+        weapon: bowWeaponImg,
+        ammo: ammoImg,
     }
 
 
@@ -50,8 +66,6 @@ const CharacterCustomization = () => {
         CANVAS_HEIGHT = canvas.height = 200;
 
         previewImage = new Image();
-        console.log("prevImg")
-        console.log(previewImage)
         previewImage.src = baseDir + 'body/male/human/light.png';
 
         animate();
@@ -199,6 +213,14 @@ const CharacterCustomization = () => {
                     img_name: 'dagger.png',
                     base_src: baseDir + 'weapon/slash/',
                 },
+                {
+                    class: 'warrior',
+                    name: 'helmet',
+                    sex: "unisex",
+                    image: warriorDefaultItems.helmet,
+                    img_name: 'norman.png',
+                    base_src: baseDir + 'hat/helmet/',
+                },
             );
         }else if (e.target.id === "mage" ){
 
@@ -255,11 +277,104 @@ const CharacterCustomization = () => {
                 },
                 {
                     class: 'mage',
+                    name: 'hat',
+                    sex: "unisex",
+                    image: mageDefaultItems.hat,
+                    img_name: 'black.png',
+                    base_src: baseDir + 'hat/magic/',
+                },
+                {
+                    class: 'mage',
                     name: 'weapon',
                     sex: "unisex",
                     image: mageDefaultItems.weapon,
                     img_name: 'simple_staff.png',
                     base_src: baseDir + 'weapon/thrust/',
+                },
+            );
+        }else if (e.target.id === "marksman"){
+            items.length = 0;
+
+            classType = "marksman";
+            frameY = 18;
+            cycles = 12;
+
+            Object.keys(marksmanDefaultItems).forEach( key => {
+                marksmanDefaultItems[key] = new Image();
+            });
+
+            items.push(
+                {
+                    class: 'marksman',
+                    name: 'legPants',
+                    sex: "unisex",
+                    image: marksmanDefaultItems.legPants,
+                    img_name: 'green.png',
+                    base_src: baseDir + 'legs/pants/',
+                },
+                {
+                    class: 'marksman',
+                    name: 'shoes',
+                    sex: "unisex",
+                    image: marksmanDefaultItems.shoes,
+                    img_name: 'black.png',
+                    base_src: baseDir + 'feet/shoes/',
+                },
+                {
+                    class: 'marksman',
+                    name: 'shirt',
+                    sex: "unisex",
+                    image: marksmanDefaultItems.shirt,
+                    img_name: 'green.png',
+                    base_src: baseDir + 'torso/clothes/longsleeve/',
+                },
+                {
+                    class: 'marksman',
+                    name: 'armor',
+                    sex: "unisex",
+                    image: marksmanDefaultItems.armor,
+                    img_name: 'brown.png',
+                    base_src: baseDir + 'torso/armour/leather/',
+                },
+                 {
+                    class: 'marksman',
+                    name: 'bauldron',
+                    sex: "unisex",
+                    image: marksmanDefaultItems.bauldron,
+                    img_name: 'brown.png',
+                    base_src: baseDir + 'bauldron/',
+                },
+                {
+                    class: 'marksman',
+                    name: 'quiver',
+                    sex: "none",
+                    image: marksmanDefaultItems.quiver,
+                    img_name: 'quiver.png',
+                    base_src: baseDir + 'quiver/',
+                },
+                {
+                    class: 'marksman',
+                    name: 'hat',
+                    sex: "unisex",
+                    image: marksmanDefaultItems.hat,
+                    img_name: 'leather.png',
+                    base_src: baseDir + 'hat/cloth/',
+                },
+                {
+                    class: 'marksman',
+                    name: 'weapon',
+                    sex: "none",
+                    image: marksmanDefaultItems.weapon,
+                    img_name: 'normal.png',
+                    base_src: baseDir + 'weapon/bow/',
+                },
+                {
+                    class: 'marksman',
+                    name: 'ammo',
+                    sex: "none",
+                    image: marksmanDefaultItems.ammo,
+                    img_name: 'arrow.png',
+                    base_src: baseDir + 'ammo/',
                 },
             );
         }
@@ -359,6 +474,10 @@ const CharacterCustomization = () => {
                                 <li className="noPreview">
                                     <input onChange={getClass}  type="radio" id="mage" name="class"/>
                                     <label htmlFor="class-mage">Mage</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getClass}  type="radio" id="marksman" name="class"/>
+                                    <label htmlFor="class-marksman">Marksman</label>
                                 </li>
                             </ul>
                         </li>
