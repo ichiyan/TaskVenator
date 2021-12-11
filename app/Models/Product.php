@@ -4,25 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
     use HasFactory;
-    protected $table='product';
-    protected $fillable = [
+    protected $table='products';
+    protected $fillable = ['card', 'potion', 'outfit', 'price'];
 
-        'outfit_id',
-        'potion_id',
-        
-    ];
-
-    public function outfit(){
-        return $this->hasOne(Outfit::class, 'id');
+    public function featuresCard(): HasOne
+    {
+        return $this->hasOne(Card::class);
     }
-    public function potion(){
-        return $this->hasOne(Potion::class, 'id');
+    public function featuresPotion(): HasOne
+    {
+        return $this->hasOne(Potion::class);
     }
-    
-   
 
+    public function featuresOutfit(): HasOne
+    {
+        return $this->hasOne(Outfit::class);
+    }
 }

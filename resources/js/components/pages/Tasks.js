@@ -3,7 +3,8 @@ import {Header, React,
     AvatarHeader, Shop, Party, Outfit, All, 
     Weapons, Potions, Cards, Inventory} from "../../index";
 
-const Tasks = ({tab}) => {
+
+ const Tasks = ({tab}) => {
 
     var hpTotal = 50;
     var xpTotal = 50;
@@ -15,6 +16,7 @@ const Tasks = ({tab}) => {
 
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
+
 
     useEffect( () => {
         document.body.classList.add('internal-pages');
@@ -105,20 +107,21 @@ const Tasks = ({tab}) => {
     }
 
 
-
     return (
-        <div>
-            <Header page={tab}/>
-            <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
-            <div className="main-section">
-                {/* main-section class in tasks.scss already sets margin-top to 15% */}
-                 {/* <p style={{color: "white"}}>TEST</p>
-                <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
-                <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
-                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button> */}
-                 {renderTab}
+        <SocketProvider>
+            <div>
+                <Header page={tab}/>
+                <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
+                <div className="main-section">
+                    {/* main-section class in tasks.scss already sets margin-top to 15% */}
+                    {/* <p style={{color: "white"}}>TEST</p>
+                    <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
+                    <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
+                    <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button> */}
+                    {renderTab}
+                </div>
             </div>
-        </div>
+      </SocketProvider>
     );
 }
 

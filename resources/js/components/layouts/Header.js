@@ -1,16 +1,30 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt, SocketContext } from '../../index';
 import TasksNavbar from "./TasksNavbar";
 import HomeNavbar from "./HomeNavbar";
+import { useSocket } from "../contexts/SocketProvider";
 
 const Header = ({page}) => {
+
+    // const socket = useSocket()
 
     const navigate = useNavigate();
     const [isOpenDropdown, setIsOpenDropdown] = useState(false);
     const ref = useRef();
+
+    // useEffect( () => {
+    //     console.log("test from header")
+    //     console.log(socket)
+    //     if(socket){
+    //         socket.on('updateUserStatus', (data) => {
+    //           console.log("PLS")
+    //           console.log(data)
+    //         });
+    //     }
+    // }, [socket])
 
     useEffect( () => {
         const checkIfClickedOutside = (e) => {

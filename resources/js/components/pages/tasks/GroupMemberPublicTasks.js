@@ -12,14 +12,14 @@ const GroupMemberPublicTasks = ({name}) => {
     const isChecked = (item) =>
         checked.includes(item) ? "checked-item" : "not-checked-item";
 
-    var checkedItems = checked.length
+    let checkedItems = checked.length
         ? checked.reduce((total, item) => {
             return total + ", " + item;
         })
         : "";
 
     const handleCheck = (event) => {
-        var updatedList = [...checked];
+        let updatedList = [...checked];
         if (event.target.checked) {
             updatedList = [...checked, event.target.value];
         } else {
@@ -45,9 +45,12 @@ const GroupMemberPublicTasks = ({name}) => {
                 </div>
                 {isActive && <div className="tasks-group-content accordion-content">
                     {tasks.map((task, index) => (
-                        <div key={index}>
+                        <div key={index} className="task-item">
                             <input value={task} type="checkbox" onChange={handleCheck}/>
-                            <span className={isChecked(task)}>{task}</span>
+                            {/*<button className="complete-btn">  checked="checked" */}
+                            {/*    <i className="fas fa-check"> </i>*/}
+                            {/*</button>*/}
+                            <span className={isChecked(task)} >{task}</span>
                         </div>
                     ))}
                 </div> }

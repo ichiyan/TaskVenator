@@ -14440,6 +14440,8 @@ __webpack_require__(/*! ../../public/css/home_auth.css */ "./public/css/home_aut
 
 __webpack_require__(/*! ../../public/css/tasks.scss */ "./public/css/tasks.scss");
 
+__webpack_require__(/*! ../../public/css/chat.scss */ "./public/css/chat.scss");
+
 __webpack_require__(/*! ../../public/css/shop.css */ "./public/css/shop.css");
 
 __webpack_require__(/*! ../../public/css/inventory.css */ "./public/css/inventory.css");
@@ -14533,6 +14535,7 @@ var Login = function Login() {
       password: loginUser.password
     };
     axios__WEBPACK_IMPORTED_MODULE_0___default().get('/sanctum/csrf-cookie').then(function (response) {
+      console.log(response);
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("api/login", data).then(function (res) {
         if (res.data.status === 200) {
           localStorage.setItem('auth_token', res.data.token);
@@ -14859,6 +14862,65 @@ var Register = function Register() {
 
 /***/ }),
 
+/***/ "./resources/js/components/contexts/SocketProvider.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/contexts/SocketProvider.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useSocket": () => (/* binding */ useSocket),
+/* harmony export */   "SocketProvider": () => (/* binding */ SocketProvider)
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index */ "./resources/js/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var SocketContext = _index__WEBPACK_IMPORTED_MODULE_0__.React.createContext();
+function useSocket() {
+  return (0,_index__WEBPACK_IMPORTED_MODULE_0__.useContext)(SocketContext);
+}
+function SocketProvider(_ref) {
+  var children = _ref.children;
+
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      socket = _useState2[0],
+      setSocket = _useState2[1];
+
+  (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var ip_address = '127.0.0.1';
+    var socket_port = '8005';
+    var new_socket = (0,_index__WEBPACK_IMPORTED_MODULE_0__.io)(ip_address + ':' + socket_port);
+    setSocket(new_socket); // console.log("in provider")
+    // console.log(new_socket)
+
+    return function () {
+      return socket.close();
+    };
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SocketContext.Provider, {
+    value: socket,
+    children: children
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/layouts/AvatarHeader.js":
 /*!*********************************************************!*\
   !*** ./resources/js/components/layouts/AvatarHeader.js ***!
@@ -15052,6 +15114,350 @@ var AvatarHeader = function AvatarHeader(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/layouts/Chat.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/layouts/Chat.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index */ "./resources/js/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var Chat = function Chat() {
+  //party name, party count should be broadcasted
+  var _useState = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      partyName = _useState2[0],
+      setPartyName = _useState2[1];
+
+  var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      partyId = _useState4[0],
+      setPartyId = _useState4[1];
+
+  var _useState5 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      partyCount = _useState6[0],
+      setPartyCount = _useState6[1];
+
+  var _useState7 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      partyMembersId = _useState8[0],
+      setPartyMembersId = _useState8[1];
+
+  var _useState9 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState10 = _slicedToArray(_useState9, 2),
+      userId = _useState10[0],
+      setUserId = _useState10[1];
+
+  var _useState11 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState12 = _slicedToArray(_useState11, 2),
+      onlineCount = _useState12[0],
+      setOnlineCount = _useState12[1];
+
+  var _useState13 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      messages = _useState14[0],
+      setMessages = _useState14[1];
+
+  var inputRef = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var isChatOpen = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
+  var unreadCount = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
+  var lastMessageRef = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (node) {
+    if (node) {
+      node.scrollIntoView({
+        smooth: true
+      });
+    }
+  }, []);
+
+  var _useState15 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState16 = _slicedToArray(_useState15, 2),
+      unreadMessagesCount = _useState16[0],
+      setUnreadMessagesCount = _useState16[1];
+
+  var _useState17 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState18 = _slicedToArray(_useState17, 2),
+      prevUnreadMessagesCount = _useState18[0],
+      setPrevMessagesCount = _useState18[1];
+
+  (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/auth_user").then(function (res) {
+      if (res.data.status === 200) {
+        var user_id = res.data.user_id;
+        setUserId(user_id);
+        var partyMemId = [];
+        _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/get_previous_messages").then(function (res) {
+          if (res.data.status === 200) {
+            //fetch last_opened_chat from db
+            var last_opened_chat = localStorage.getItem("last_opened_chat");
+            res.data.data.forEach(function (item) {
+              setMessages(function (messages) {
+                return [].concat(_toConsumableArray(messages), [{
+                  sender_id: item.sender_id,
+                  sender_name: item.name,
+                  content: item.message,
+                  message_id: item.id,
+                  message_created: item.created_at
+                }]);
+              });
+
+              if (item.sender_id != user_id && new Date((0,_index__WEBPACK_IMPORTED_MODULE_0__.dateTimeWithSecondsFormat)(item.created_at)) > new Date(last_opened_chat)) {
+                unreadCount.current++;
+              }
+            });
+            setUnreadMessagesCount(unreadCount.current);
+          }
+        });
+        _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("api/get_party_info").then(function (res) {
+          if (res.data.status === 200) {
+            var data = res.data.data;
+            var party_id = data.party.id;
+            setPartyId(party_id);
+            setPartyName(data.party.party_name);
+            setPartyCount(data.party_members_count);
+            var members = data.party_members;
+            Object.keys(members).forEach(function (key) {
+              var val = members[key];
+              partyMemId.push(val.id);
+            });
+            setPartyMembersId(partyMemId);
+            var ip_address = '127.0.0.1';
+            var socket_port = '8005';
+            var socket = (0,_index__WEBPACK_IMPORTED_MODULE_0__.io)(ip_address + ':' + socket_port);
+            console.log("chat");
+            console.log(socket); // if(socket){
+            //     console.log("here")
+
+            socket.on('connect', function () {
+              var chat_data = {
+                party_id: party_id,
+                user_id: user_id,
+                chat_room: "party" + party_id
+              };
+              socket.emit('user_connected', user_id);
+              socket.emit('party_chat', chat_data);
+            });
+            socket.on('updateUserStatus', function (data) {
+              var onlineCtr = 0;
+              _index__WEBPACK_IMPORTED_MODULE_0__.$.each(data, function (key, val) {
+                if (val !== null && val !== 0 && partyMemId.includes(key)) {
+                  onlineCtr++;
+                }
+              });
+              setOnlineCount(onlineCtr);
+            });
+            socket.on("partyMessage", function (msg) {
+              console.log("in chat");
+              console.log(msg);
+
+              if (msg.sender_id !== user_id) {
+                setMessages(function (messages) {
+                  return [].concat(_toConsumableArray(messages), [{
+                    sender_id: msg.sender_id,
+                    sender_name: msg.sender_name,
+                    content: msg.content,
+                    message_id: msg.message_id,
+                    message_created: msg.created_at
+                  }]);
+                });
+
+                if (isChatOpen.current === false) {
+                  var last_opened = localStorage.getItem("last_opened_chat");
+                  var date = new Date(msg.created_at);
+
+                  if (new Date((0,_index__WEBPACK_IMPORTED_MODULE_0__.dateTimeWithSecondsFormat)(date)) > new Date(last_opened)) {
+                    unreadCount.current++;
+                    setUnreadMessagesCount(unreadCount.current);
+                  }
+                } else {
+                  unreadCount.current = 0;
+                  setUnreadMessagesCount(unreadCount.current);
+                }
+              }
+            });
+          } //socket.on disconnect update last chat opened in db
+          // }
+
+        });
+      }
+    }); // return () => socket.close();
+  }, []);
+
+  var messageHandler = function messageHandler(e) {
+    e.persist();
+
+    if (e.key === "Enter") {
+      sendMessageHandler();
+    }
+  };
+
+  var sendMessageHandler = function sendMessageHandler() {
+    var data = {
+      message: inputRef.current.value,
+      party_id: partyId
+    };
+    inputRef.current.value = '';
+    _index__WEBPACK_IMPORTED_MODULE_0__.axios.post("api/send_party_message", data).then(function (res) {
+      if (res.data.status === 200) {
+        console.log("data");
+        console.log(res.data.data);
+        var data = res.data.data;
+        setMessages(function (messages) {
+          return [].concat(_toConsumableArray(messages), [{
+            sender_id: data.sender_id,
+            sender_name: data.sender_name,
+            content: data.content,
+            message_id: data.message_id,
+            message_created: data.created_at
+          }]);
+        });
+      }
+    });
+  };
+
+  var chatPopUpHandler = function chatPopUpHandler() {
+    localStorage.setItem("last_opened_chat", (0,_index__WEBPACK_IMPORTED_MODULE_0__.getCurrentDateTime)());
+
+    if ((0,_index__WEBPACK_IMPORTED_MODULE_0__.$)(".chat-box").is(":hidden")) {
+      isChatOpen.current = true;
+      setPrevMessagesCount(unreadMessagesCount);
+    } else {
+      isChatOpen.current = false;
+      setPrevMessagesCount(1);
+    }
+
+    unreadCount.current = 0;
+    setUnreadMessagesCount(0);
+    console.log(isChatOpen.current);
+    (0,_index__WEBPACK_IMPORTED_MODULE_0__.$)(".chat-box").slideToggle("slow");
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "chat-popup",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "chat-box",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "client",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "client-info",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+            className: "party-name",
+            children: partyName
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+            className: "sub-info",
+            children: [onlineCount, "/", partyCount, " online"]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "chats",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ins", {
+          children: messages.map(function (message, index) {
+            return message.sender_id == userId ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ins", {
+              ref: messages.length - 1 === index ? lastMessageRef : null,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "user-chat",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "user-message text-right",
+                  children: message.content
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                className: "user-time-elapsed text-left",
+                children: (0,_index__WEBPACK_IMPORTED_MODULE_0__.timeFormat)(message.message_created)
+              })]
+            }, message.message_id) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ins", {
+              ref: messages.length - prevUnreadMessagesCount === index ? lastMessageRef : null,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "client-chat",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                  className: "client-username",
+                  children: message.sender_name
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "client-message",
+                  children: message.content
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                  className: "time-elapsed",
+                  children: (0,_index__WEBPACK_IMPORTED_MODULE_0__.timeFormat)(message.message_created)
+                })]
+              })
+            }, message.message_id);
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "chat-input",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          onKeyPress: messageHandler,
+          ref: inputRef,
+          name: "message",
+          type: "text",
+          placeholder: "Enter Message"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+          onClick: sendMessageHandler,
+          className: "send-btn fa-stack fa-1x",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+            icon: _index__WEBPACK_IMPORTED_MODULE_0__.faCircle,
+            className: "send-icon-circle fa-stack-2x"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+            icon: _index__WEBPACK_IMPORTED_MODULE_0__.faPaperPlane,
+            className: "send-icon fa-stack-1x"
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "chat-btn",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+        className: "send-btn fa-stack fa-2x",
+        onClick: chatPopUpHandler,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+          icon: _index__WEBPACK_IMPORTED_MODULE_0__.faCircle,
+          className: "chat-icon-circle fa-stack-2x"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+          icon: _index__WEBPACK_IMPORTED_MODULE_0__.faCommentDots,
+          className: "chat-icon fa-stack-1x"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "badge translate-middle bg-danger unread-messages",
+          style: {
+            display: unreadMessagesCount != 0 ? 'inline-block' : 'none'
+          },
+          children: unreadMessagesCount
+        })]
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Chat);
+
+/***/ }),
+
 /***/ "./resources/js/components/layouts/Header.js":
 /*!***************************************************!*\
   !*** ./resources/js/components/layouts/Header.js ***!
@@ -15066,13 +15472,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _TasksNavbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
-/* harmony import */ var _HomeNavbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../index */ "./resources/js/index.js");
+/* harmony import */ var _TasksNavbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
+/* harmony import */ var _HomeNavbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
+/* harmony import */ var _contexts_SocketProvider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../contexts/SocketProvider */ "./resources/js/components/contexts/SocketProvider.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -15095,16 +15502,28 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Header = function Header(_ref) {
   var page = _ref.page;
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
+  // const socket = useSocket()
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useNavigate)();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       isOpenDropdown = _useState2[0],
       setIsOpenDropdown = _useState2[1];
 
-  var ref = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
+  var ref = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(); // useEffect( () => {
+  //     console.log("test from header")
+  //     console.log(socket)
+  //     if(socket){
+  //         socket.on('updateUserStatus', (data) => {
+  //           console.log("PLS")
+  //           console.log(data)
+  //         });
+  //     }
+  // }, [socket])
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     var checkIfClickedOutside = function checkIfClickedOutside(e) {
       if (isOpenDropdown && ref.current && !ref.current.contains(e.target)) {
@@ -15131,16 +15550,16 @@ var Header = function Header(_ref) {
       return (
         /*#__PURE__*/
         // <Link to={text === "Logout" ? '' : link} onClick={text === "Logout" ? logoutHandler : ''} className="custom-menu-item">
-        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           onClick: text === "Logout" ? logoutHandler : null,
           className: "custom-menu-item",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
             className: "dropdown-icon-left",
             children: leftIcon
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
             className: "custom-dropdown-item",
             children: text
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
             className: "dropdown-icon-right",
             children: rightIcon
           })]
@@ -15148,23 +15567,23 @@ var Header = function Header(_ref) {
       );
     };
 
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "custom-dropdown",
       ref: ref,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(CustomDropDownItem, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(CustomDropDownItem, {
         text: "My Profile",
-        leftIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUserAlt
+        leftIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+          icon: _index__WEBPACK_IMPORTED_MODULE_3__.faUserAlt
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(CustomDropDownItem, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(CustomDropDownItem, {
         text: "Settings",
-        leftIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faCog
+        leftIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+          icon: _index__WEBPACK_IMPORTED_MODULE_3__.faCog
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(CustomDropDownItem, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(CustomDropDownItem, {
         text: "Logout",
-        leftIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faSignOutAlt
+        leftIcon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+          icon: _index__WEBPACK_IMPORTED_MODULE_3__.faSignOutAlt
         })
       })]
     });
@@ -15187,38 +15606,38 @@ var Header = function Header(_ref) {
   var isLoggedIn = "false";
 
   if (!localStorage.getItem('auth_token')) {
-    trailingButtons = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+    trailingButtons = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
       to: "/register",
       className: "get-started-btn",
       children: "Get Started"
     });
   } else {
     isLoggedIn = "true";
-    trailingButtons = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("nav", {
+    trailingButtons = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("nav", {
         id: "navbar",
         className: "navbar order-last order-lg-0",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("ul", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
             className: "custom-nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
               to: "",
               className: "nav-icon-btn",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
                 className: "navIcon",
-                icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faBell
+                icon: _index__WEBPACK_IMPORTED_MODULE_3__.faBell
               })
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
             className: "custom-nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
               to: "",
               className: "nav-icon-btn",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
                 className: "navIcon",
-                icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUser,
+                icon: _index__WEBPACK_IMPORTED_MODULE_3__.faUser,
                 onClick: dropdownHandler
-              }), isOpenDropdown === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(CustomDropDownMenu, {}) : null]
+              }), isOpenDropdown === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(CustomDropDownMenu, {}) : null]
             })
           })]
         })
@@ -15226,20 +15645,20 @@ var Header = function Header(_ref) {
     });
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("header", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("header", {
     id: "header",
     className: "fixed-top",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "container d-flex justify-content-between align-items-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
         className: "logo",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
           to: "/",
           children: "TaskVenator"
         })
-      }), page === "home" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_HomeNavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), page === "home" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_HomeNavbar__WEBPACK_IMPORTED_MODULE_5__["default"], {
         isLoggedIn: isLoggedIn
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_TasksNavbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_TasksNavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {
         active: page
       }), trailingButtons]
     })
@@ -15818,24 +16237,26 @@ var Tasks = function Tasks(_ref) {
     renderTab = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Inventory, {});
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Header, {
-      page: tab
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AvatarHeader, {
-      hasParty: "true",
-      hp: hp,
-      hpTotal: hpTotal,
-      hpBarWidth: hpBarWidth,
-      hpHitWidth: hpHitWidth,
-      HpIncreaseWidth: HpIncreaseWidth,
-      xp: xp,
-      xpTotal: xpTotal,
-      xpBarWidth: xpBarWidth,
-      xpIncreaseWidth: xpIncreaseWidth
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "main-section",
-      children: renderTab
-    })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SocketProvider, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Header, {
+        page: tab
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.AvatarHeader, {
+        hasParty: "true",
+        hp: hp,
+        hpTotal: hpTotal,
+        hpBarWidth: hpBarWidth,
+        hpHitWidth: hpHitWidth,
+        HpIncreaseWidth: HpIncreaseWidth,
+        xp: xp,
+        xpTotal: xpTotal,
+        xpBarWidth: xpBarWidth,
+        xpIncreaseWidth: xpIncreaseWidth
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "main-section",
+        children: renderTab
+      })]
+    })
   });
 };
 
@@ -16401,7 +16822,10 @@ var GroupTasks = function GroupTasks() {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "party-content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        className: "btn-sm btn",
+        children: "Add new"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
         children: "Group Tasks"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.GroupMemberPublicTasks, {
         name: name1
@@ -16444,29 +16868,47 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Party = function Party() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-    className: "container party-section",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "party-nav",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "party-nav-item party-active-nav",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
-          to: "/party",
-          children: "Party"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "party-nav-item",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
-          to: "/group_tasks",
-          children: "Group Tasks"
-        })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_index__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+      className: "container party-section",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "party-nav",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "party-nav-item party-active-nav",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+            to: "/party",
+            children: "Party"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "party-nav-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Link, {
+            to: "/group_tasks",
+            children: "Group Tasks"
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "party-content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "PARTY LANDING PAGE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "PARTY LANDING PAGE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "PARTY LANDING PAGE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "PARTY LANDING PAGE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "PARTY LANDING PAGE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "PARTY LANDING PAGE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "PARTY LANDING PAGE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "PARTY LANDING PAGE"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "PARTY LANDING PAGE"
+        })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "party-content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-        children: "PARTY LANDING PAGE"
-      })
-    })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Chat, {})]
   });
 };
 
@@ -21222,6 +21664,7 @@ var GroupMemberPublicTasks = function GroupMemberPublicTasks(_ref) {
         className: "tasks-group-content accordion-content",
         children: tasks.map(function (task, index) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "task-item",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               value: task,
               type: "checkbox",
@@ -21385,6 +21828,7 @@ var HomeTasks = function HomeTasks(_ref) {
         className: "tasks-group-content accordion-content",
         children: tasks.map(function (task, index) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "task-item",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               value: task,
               type: "checkbox",
@@ -21578,6 +22022,41 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
+/***/ "./resources/js/helper.js":
+/*!********************************!*\
+  !*** ./resources/js/helper.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getCurrentTime": () => (/* binding */ getCurrentTime),
+/* harmony export */   "getCurrentDateTime": () => (/* binding */ getCurrentDateTime),
+/* harmony export */   "dateTimeWithSecondsFormat": () => (/* binding */ dateTimeWithSecondsFormat),
+/* harmony export */   "dateTimeFormat": () => (/* binding */ dateTimeFormat),
+/* harmony export */   "timeFormat": () => (/* binding */ timeFormat)
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./resources/js/index.js");
+
+function getCurrentTime() {
+  return (0,_index__WEBPACK_IMPORTED_MODULE_0__.moment)().tz("Asia/Manila").format('h:mm A');
+}
+function getCurrentDateTime() {
+  return (0,_index__WEBPACK_IMPORTED_MODULE_0__.moment)().tz("Asia/Manila").format('MM/DD/YY h:mm:ss');
+}
+function dateTimeWithSecondsFormat(datetime) {
+  return (0,_index__WEBPACK_IMPORTED_MODULE_0__.moment)(datetime, 'YYYY-MM-DD HH:mm:ss').tz("Asia/Manila").format('MM/DD/YY h:mm:ss');
+}
+function dateTimeFormat(datetime) {
+  return (0,_index__WEBPACK_IMPORTED_MODULE_0__.moment)(datetime, 'YYYY-MM-DD HH:mm:ss').tz("Asia/Manila").format('MM/DD/YY h:mm A');
+}
+function timeFormat(datetime) {
+  return (0,_index__WEBPACK_IMPORTED_MODULE_0__.moment)(datetime, 'YYYY-MM-DD HH:mm:ss').tz("Asia/Manila").format('h:mm A');
+}
+
+/***/ }),
+
 /***/ "./resources/js/index.js":
 /*!*******************************!*\
   !*** ./resources/js/index.js ***!
@@ -21593,73 +22072,134 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "$": () => (/* reexport default from dynamic */ jquery__WEBPACK_IMPORTED_MODULE_3___default.a),
 /* harmony export */   "useEffect": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useEffect),
 /* harmony export */   "useState": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useState),
-/* harmony export */   "Swal": () => (/* reexport safe */ sweetalert2__WEBPACK_IMPORTED_MODULE_4__.Swal),
-/* harmony export */   "ReactTooltip": () => (/* reexport safe */ react_tooltip__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   "axios": () => (/* reexport default from dynamic */ axios__WEBPACK_IMPORTED_MODULE_6___default.a),
-/* harmony export */   "Login": () => (/* reexport safe */ _components_auth_Login__WEBPACK_IMPORTED_MODULE_7__["default"]),
-/* harmony export */   "Register": () => (/* reexport safe */ _components_auth_Register__WEBPACK_IMPORTED_MODULE_8__["default"]),
-/* harmony export */   "AvatarHeader": () => (/* reexport safe */ _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_9__["default"]),
-/* harmony export */   "Header": () => (/* reexport safe */ _components_layouts_Header__WEBPACK_IMPORTED_MODULE_10__["default"]),
-/* harmony export */   "HomeNavbar": () => (/* reexport safe */ _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_11__["default"]),
-/* harmony export */   "PartyMemberAvatar": () => (/* reexport safe */ _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_12__["default"]),
-/* harmony export */   "TasksNavbar": () => (/* reexport safe */ _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_13__["default"]),
-/* harmony export */   "GroupTasks": () => (/* reexport safe */ _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_14__["default"]),
-/* harmony export */   "Party": () => (/* reexport safe */ _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_15__["default"]),
-/* harmony export */   "Shop": () => (/* reexport safe */ _components_pages_shop_All__WEBPACK_IMPORTED_MODULE_16__["default"]),
-/* harmony export */   "All": () => (/* reexport safe */ _components_pages_shop_All__WEBPACK_IMPORTED_MODULE_16__["default"]),
-/* harmony export */   "Outfit": () => (/* reexport safe */ _components_pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_17__["default"]),
-/* harmony export */   "Potions": () => (/* reexport safe */ _components_pages_shop_Potions__WEBPACK_IMPORTED_MODULE_18__["default"]),
-/* harmony export */   "Weapons": () => (/* reexport safe */ _components_pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_19__["default"]),
-/* harmony export */   "Cards": () => (/* reexport safe */ _components_pages_shop_Cards__WEBPACK_IMPORTED_MODULE_20__["default"]),
-/* harmony export */   "AddOutfitForm": () => (/* reexport safe */ _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_21__["default"]),
-/* harmony export */   "AddPotionForm": () => (/* reexport safe */ _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_22__["default"]),
-/* harmony export */   "AddCardForm": () => (/* reexport safe */ _components_pages_shop_AddCardForm__WEBPACK_IMPORTED_MODULE_23__["default"]),
-/* harmony export */   "Inventory": () => (/* reexport safe */ _components_pages_inventory_inventory__WEBPACK_IMPORTED_MODULE_24__["default"]),
-/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_25__["default"]),
-/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_26__["default"]),
-/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_27__["default"]),
-/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_28__["default"]),
-/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_29__["default"]),
-/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_30__["default"]),
-/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_31__["default"]),
-/* harmony export */   "TasksTab": () => (/* reexport safe */ _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_32__["default"])
+/* harmony export */   "useRef": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useRef),
+/* harmony export */   "useCallback": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useCallback),
+/* harmony export */   "useContext": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.useContext),
+/* harmony export */   "Fragment": () => (/* reexport safe */ react__WEBPACK_IMPORTED_MODULE_1__.Fragment),
+/* harmony export */   "axios": () => (/* reexport default from dynamic */ axios__WEBPACK_IMPORTED_MODULE_4___default.a),
+/* harmony export */   "FontAwesomeIcon": () => (/* reexport safe */ _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__.FontAwesomeIcon),
+/* harmony export */   "faBell": () => (/* reexport safe */ _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faBell),
+/* harmony export */   "faCog": () => (/* reexport safe */ _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faCog),
+/* harmony export */   "faCommentDots": () => (/* reexport safe */ _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faCommentDots),
+/* harmony export */   "faSignOutAlt": () => (/* reexport safe */ _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faSignOutAlt),
+/* harmony export */   "faUser": () => (/* reexport safe */ _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUser),
+/* harmony export */   "faUserAlt": () => (/* reexport safe */ _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUserAlt),
+/* harmony export */   "faPaperPlane": () => (/* reexport safe */ _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faPaperPlane),
+/* harmony export */   "faCircle": () => (/* reexport safe */ _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faCircle),
+/* harmony export */   "Swal": () => (/* reexport safe */ sweetalert2__WEBPACK_IMPORTED_MODULE_8__.Swal),
+/* harmony export */   "ReactTooltip": () => (/* reexport safe */ react_tooltip__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   "Login": () => (/* reexport safe */ _components_auth_Login__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   "Register": () => (/* reexport safe */ _components_auth_Register__WEBPACK_IMPORTED_MODULE_11__["default"]),
+/* harmony export */   "AvatarHeader": () => (/* reexport safe */ _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   "Header": () => (/* reexport safe */ _components_layouts_Header__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   "HomeNavbar": () => (/* reexport safe */ _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   "PartyMemberAvatar": () => (/* reexport safe */ _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   "TasksNavbar": () => (/* reexport safe */ _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_16__["default"]),
+/* harmony export */   "Chat": () => (/* reexport safe */ _components_layouts_Chat__WEBPACK_IMPORTED_MODULE_17__["default"]),
+/* harmony export */   "GroupTasks": () => (/* reexport safe */ _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_18__["default"]),
+/* harmony export */   "Party": () => (/* reexport safe */ _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_19__["default"]),
+/* harmony export */   "Shop": () => (/* reexport safe */ _components_pages_shop_All__WEBPACK_IMPORTED_MODULE_20__["default"]),
+/* harmony export */   "All": () => (/* reexport safe */ _components_pages_shop_All__WEBPACK_IMPORTED_MODULE_20__["default"]),
+/* harmony export */   "Outfit": () => (/* reexport safe */ _components_pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_21__["default"]),
+/* harmony export */   "Potions": () => (/* reexport safe */ _components_pages_shop_Potions__WEBPACK_IMPORTED_MODULE_22__["default"]),
+/* harmony export */   "Weapons": () => (/* reexport safe */ _components_pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_23__["default"]),
+/* harmony export */   "Cards": () => (/* reexport safe */ _components_pages_shop_Cards__WEBPACK_IMPORTED_MODULE_24__["default"]),
+/* harmony export */   "AddOutfitForm": () => (/* reexport safe */ _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_25__["default"]),
+/* harmony export */   "AddPotionForm": () => (/* reexport safe */ _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_26__["default"]),
+/* harmony export */   "AddCardForm": () => (/* reexport safe */ _components_pages_shop_AddCardForm__WEBPACK_IMPORTED_MODULE_27__["default"]),
+/* harmony export */   "Inventory": () => (/* reexport safe */ _components_pages_inventory_inventory__WEBPACK_IMPORTED_MODULE_28__["default"]),
+/* harmony export */   "GroupMemberPublicTasks": () => (/* reexport safe */ _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_29__["default"]),
+/* harmony export */   "HomeDailyTasks": () => (/* reexport safe */ _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_30__["default"]),
+/* harmony export */   "HomeTasks": () => (/* reexport safe */ _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_31__["default"]),
+/* harmony export */   "TaskItem": () => (/* reexport safe */ _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_32__["default"]),
+/* harmony export */   "Auth": () => (/* reexport safe */ _components_pages_Auth__WEBPACK_IMPORTED_MODULE_33__["default"]),
+/* harmony export */   "Home": () => (/* reexport safe */ _components_pages_Home__WEBPACK_IMPORTED_MODULE_34__["default"]),
+/* harmony export */   "Tasks": () => (/* reexport safe */ _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_35__["default"]),
+/* harmony export */   "TasksTab": () => (/* reexport safe */ _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_36__["default"]),
+/* harmony export */   "SocketProvider": () => (/* reexport safe */ _components_contexts_SocketProvider__WEBPACK_IMPORTED_MODULE_37__.SocketProvider),
+/* harmony export */   "useSocket": () => (/* reexport safe */ _components_contexts_SocketProvider__WEBPACK_IMPORTED_MODULE_37__.useSocket),
+/* harmony export */   "getCurrentTime": () => (/* reexport safe */ _helper__WEBPACK_IMPORTED_MODULE_38__.getCurrentTime),
+/* harmony export */   "getCurrentDateTime": () => (/* reexport safe */ _helper__WEBPACK_IMPORTED_MODULE_38__.getCurrentDateTime),
+/* harmony export */   "dateTimeWithSecondsFormat": () => (/* reexport safe */ _helper__WEBPACK_IMPORTED_MODULE_38__.dateTimeWithSecondsFormat),
+/* harmony export */   "dateTimeFormat": () => (/* reexport safe */ _helper__WEBPACK_IMPORTED_MODULE_38__.dateTimeFormat),
+/* harmony export */   "timeFormat": () => (/* reexport safe */ _helper__WEBPACK_IMPORTED_MODULE_38__.timeFormat)
 /* harmony export */ });
+/* empty/unused harmony star reexport */
+/* empty/unused harmony star reexport */
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_tooltip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-tooltip */ "./node_modules/react-tooltip/dist/index.es.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/auth/Login */ "./resources/js/components/auth/Login.js");
-/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.js");
-/* harmony import */ var _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
-/* harmony import */ var _components_layouts_Header__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/layouts/Header */ "./resources/js/components/layouts/Header.js");
-/* harmony import */ var _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/layouts/HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
-/* harmony import */ var _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/layouts/PartyMemberAvatar */ "./resources/js/components/layouts/PartyMemberAvatar.js");
-/* harmony import */ var _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/layouts/TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
-/* harmony import */ var _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
-/* harmony import */ var _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/party/Party */ "./resources/js/components/pages/party/Party.js");
-/* harmony import */ var _components_pages_shop_All__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/shop/All */ "./resources/js/components/pages/shop/All.js");
-/* harmony import */ var _components_pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/shop/Outfit */ "./resources/js/components/pages/shop/Outfit.js");
-/* harmony import */ var _components_pages_shop_Potions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/shop/Potions */ "./resources/js/components/pages/shop/Potions.js");
-/* harmony import */ var _components_pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/shop/Weapons */ "./resources/js/components/pages/shop/Weapons.js");
-/* harmony import */ var _components_pages_shop_Cards__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/shop/Cards */ "./resources/js/components/pages/shop/Cards.js");
-/* harmony import */ var _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/shop/AddOutfitForm */ "./resources/js/components/pages/shop/AddOutfitForm.js");
-/* harmony import */ var _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pages/shop/AddPotionForm */ "./resources/js/components/pages/shop/AddPotionForm.js");
-/* harmony import */ var _components_pages_shop_AddCardForm__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/pages/shop/AddCardForm */ "./resources/js/components/pages/shop/AddCardForm.js");
-/* harmony import */ var _components_pages_inventory_inventory__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/pages/inventory/inventory */ "./resources/js/components/pages/inventory/inventory.js");
-/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
-/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
-/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
-/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
-/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
-/* harmony import */ var _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/pages/TasksTab */ "./resources/js/components/pages/TasksTab.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'socket.io-client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_tooltip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-tooltip */ "./node_modules/react-tooltip/dist/index.es.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'moment-timezone'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/auth/Login */ "./resources/js/components/auth/Login.js");
+/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.js");
+/* harmony import */ var _components_layouts_AvatarHeader__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/layouts/AvatarHeader */ "./resources/js/components/layouts/AvatarHeader.js");
+/* harmony import */ var _components_layouts_Header__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/layouts/Header */ "./resources/js/components/layouts/Header.js");
+/* harmony import */ var _components_layouts_HomeNavbar__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/layouts/HomeNavbar */ "./resources/js/components/layouts/HomeNavbar.js");
+/* harmony import */ var _components_layouts_PartyMemberAvatar__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/layouts/PartyMemberAvatar */ "./resources/js/components/layouts/PartyMemberAvatar.js");
+/* harmony import */ var _components_layouts_TasksNavbar__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/layouts/TasksNavbar */ "./resources/js/components/layouts/TasksNavbar.js");
+/* harmony import */ var _components_layouts_Chat__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/layouts/Chat */ "./resources/js/components/layouts/Chat.js");
+/* harmony import */ var _components_pages_party_GroupTasks__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/party/GroupTasks */ "./resources/js/components/pages/party/GroupTasks.js");
+/* harmony import */ var _components_pages_party_Party__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/party/Party */ "./resources/js/components/pages/party/Party.js");
+/* harmony import */ var _components_pages_shop_All__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/shop/All */ "./resources/js/components/pages/shop/All.js");
+/* harmony import */ var _components_pages_shop_Outfit__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/shop/Outfit */ "./resources/js/components/pages/shop/Outfit.js");
+/* harmony import */ var _components_pages_shop_Potions__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pages/shop/Potions */ "./resources/js/components/pages/shop/Potions.js");
+/* harmony import */ var _components_pages_shop_Weapons__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/pages/shop/Weapons */ "./resources/js/components/pages/shop/Weapons.js");
+/* harmony import */ var _components_pages_shop_Cards__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/pages/shop/Cards */ "./resources/js/components/pages/shop/Cards.js");
+/* harmony import */ var _components_pages_shop_AddOutfitForm__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/pages/shop/AddOutfitForm */ "./resources/js/components/pages/shop/AddOutfitForm.js");
+/* harmony import */ var _components_pages_shop_AddPotionForm__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/pages/shop/AddPotionForm */ "./resources/js/components/pages/shop/AddPotionForm.js");
+/* harmony import */ var _components_pages_shop_AddCardForm__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/pages/shop/AddCardForm */ "./resources/js/components/pages/shop/AddCardForm.js");
+/* harmony import */ var _components_pages_inventory_inventory__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/pages/inventory/inventory */ "./resources/js/components/pages/inventory/inventory.js");
+/* harmony import */ var _components_pages_tasks_GroupMemberPublicTasks__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/pages/tasks/GroupMemberPublicTasks */ "./resources/js/components/pages/tasks/GroupMemberPublicTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeDailyTasks__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/pages/tasks/HomeDailyTasks */ "./resources/js/components/pages/tasks/HomeDailyTasks.js");
+/* harmony import */ var _components_pages_tasks_HomeTasks__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/pages/tasks/HomeTasks */ "./resources/js/components/pages/tasks/HomeTasks.js");
+/* harmony import */ var _components_pages_tasks_TaskItem__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/pages/tasks/TaskItem */ "./resources/js/components/pages/tasks/TaskItem.js");
+/* harmony import */ var _components_pages_Auth__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/pages/Auth */ "./resources/js/components/pages/Auth.js");
+/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.js");
+/* harmony import */ var _components_pages_Tasks__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/pages/Tasks */ "./resources/js/components/pages/Tasks.js");
+/* harmony import */ var _components_pages_TasksTab__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/pages/TasksTab */ "./resources/js/components/pages/TasksTab.js");
+/* harmony import */ var _components_contexts_SocketProvider__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/contexts/SocketProvider */ "./resources/js/components/contexts/SocketProvider.js");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./helper */ "./resources/js/helper.js");
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Auth
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
 
 
 
@@ -21681,18 +22221,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/*--------------------------------------------------------------
+# Contexts
+--------------------------------------------------------------*/
 
 
 
-
-
-
-
-
-
-
-
-
+/*--------------------------------------------------------------
+# Helper Functions
+--------------------------------------------------------------*/
 
 
 
@@ -28675,7 +29212,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\r\n    display: flex;\r\n    flex-direction:column;\r\n}\r\n\r\n.party-content{\r\n    display: flex;\r\n    flex-direction:column;\r\n    padding:1rem;\r\n}\r\n\r\n.party-nav{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    height: 3rem;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.party-nav-item{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 20%;\r\n    height: 100%;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: large;\r\n    border-radius: 1.5rem;\r\n}\r\n\r\n.party-nav-item a:hover{\r\n    color: #5FCF80;\r\n}\r\n\r\n.party-nav-item a{\r\n    color: whitesmoke;\r\n}\r\n\r\n.party-active-nav{\r\n    border-color: #5FCF80;\r\n    border-width: 0.2rem;\r\n}\r\n\r\nh1{\r\n    color: #95c5ed;\r\n}\r\n\r\n.tasks-group{\r\n    width: 50%;\r\n    border-radius: 0.5rem;\r\n    margin: 1rem;\r\n    background-color: #d6ddf3;\r\n}\r\n\r\n.tasks-group-header{\r\n    background-color: #95c5ed;\r\n    padding: 0.5rem;\r\n    border-radius: 0.5rem;\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: space-around;\r\n}\r\n\r\n.tasks-group-title{\r\n    font-size: 1.2rem;\r\n    margin-right: 1.5rem;\r\n}\r\n\r\n.task-progress-bar{\r\n    background-color: #d6ddf3;\r\n    width: 40%;\r\n    border-radius: 0.8rem;\r\n}\r\n\r\n.task-progress-bar-colored{\r\n    background-color: #9580FF;\r\n    padding: 0.1rem 0.2rem 0.1rem 0.4rem;\r\n    border-radius: 0.8rem;\r\n}\r\n\r\n.tasks-group-content{\r\n    background-color: #d6ddf3;\r\n    padding: 1rem;\r\n    border-radius: 0 0 0.5rem 0.5rem;\r\n}\r\n\r\n.tasks-daily-group{\r\n    padding: 0.5rem;\r\n}\r\n\r\n.tasks-header{\r\n    background-color: #95c5ed;\r\n    padding: 0.5rem;\r\n    border-radius: 0.5rem;\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n}\r\n\r\n.accordion-icon{\r\n    font-size: 1.7rem;\r\n    margin: 0 1rem 0 auto;\r\n}\r\n\r\n.checked-item {\r\n    text-decoration: line-through;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".party-section{\r\n    display: flex;\r\n    flex-direction:column;\r\n}\r\n\r\n.party-content{\r\n    display: flex;\r\n    flex-direction:column;\r\n    padding:1rem;\r\n}\r\n\r\n.party-nav{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    height: 3rem;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.party-nav-item{\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 15%;\r\n    height: 100%;\r\n    align-items: center;\r\n    justify-content: center;\r\n    font-size: large;\r\n    border-radius: 1.5rem;\r\n    margin: 1rem;\r\n}\r\n\r\n.party-nav-item a:hover{\r\n    color: #5FCF80;\r\n}\r\n\r\n.party-nav-item a{\r\n    color: whitesmoke;\r\n}\r\n\r\n.party-active-nav{\r\n    border-color: #5FCF80;\r\n    border-width: 0.07rem;\r\n}\r\n\r\nh1{\r\n    color: #95c5ed;\r\n}\r\n\r\n.btn{\r\n    width: 20%;\r\n    color: #95c5ed;\r\n    background-color: #9580FF;\r\n}\r\n\r\n.tasks-group{\r\n    width: 50%;\r\n    border-radius: 0.5rem;\r\n    margin: 1rem;\r\n    background-color: #d6ddf3;\r\n}\r\n\r\n.tasks-group-header{\r\n    background-color: #95c5ed;\r\n    padding: 0.5rem;\r\n    border-radius: 0.5rem;\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: space-around;\r\n}\r\n\r\n.tasks-group-title{\r\n    font-size: 1.2rem;\r\n    margin-right: 1.5rem;\r\n}\r\n\r\n.task-progress-bar{\r\n    background-color: #d6ddf3;\r\n    width: 40%;\r\n    border-radius: 0.8rem;\r\n}\r\n\r\n.task-progress-bar-colored{\r\n    background-color: #9580FF;\r\n    padding: 0.1rem 0.2rem 0.1rem 0.4rem;\r\n    border-radius: 0.8rem;\r\n}\r\n\r\n.tasks-group-content{\r\n    background-color: #d6ddf3;\r\n    padding: 1rem;\r\n    border-radius: 0 0 0.5rem 0.5rem;\r\n}\r\n.task-item{\r\n    padding: 0.3rem;\r\n}\r\n\r\n.task-item span{\r\n    margin-left: 1rem;\r\n    font-size: 1rem;\r\n}\r\n\r\n.tasks-daily-group{\r\n    padding: 0.5rem;\r\n}\r\n\r\n.tasks-header{\r\n    background-color: #95c5ed;\r\n    padding: 0.5rem;\r\n    border-radius: 0.5rem;\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n}\r\n\r\n.accordion-icon{\r\n    font-size: 1.7rem;\r\n    margin: 0 1rem 0 auto;\r\n}\r\n\r\n.checked-item {\r\n    text-decoration: line-through;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28700,6 +29237,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "    /* desinging shopp */\r\n  .shop-parentOfAll{\r\n    background-color: #383A59;\r\n    \r\n  }\r\n \r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-content: center;\r\n    justify-content: center;\r\n  }\r\n  .shop-weaponForm{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n  .shop-Form{\r\n    display: flex;\r\n    flex-direction: row;\r\n  }\r\n\r\n  .shop-filtShop{\r\n    display: flex;\r\n    flex-direction: row;   \r\n  }\r\n  .shop-filter{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 50px;\r\n    height:200px;\r\n    flex: 1.5;\r\n    color: white;\r\n  }\r\n  .shop-shop{\r\n    display:flex;\r\n    flex-direction: row;\r\n    flex: 10.5;\r\n  }\r\n  \r\n  \r\n  .shop-weaponList{\r\n    \r\n    display: flex;\r\n    gap: 2rem;\r\n    \r\n  }\r\n  .shop-category{\r\n    font: black;\r\n    margin-left: 20px;\r\n  }\r\n\r\n  /* displaying items in shop  */\r\n  .shop-returnMap{\r\n    display: inline-block;\r\n  }\r\n  .shop-items{\r\n    display: inline-block;\r\n    color: black;\r\n    margin-left: 40px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n    background-color: #8AFF80;\r\n    width: 150px;\r\n  }\r\n  .shop-itemsImage img{\r\n    margin-top: 10px;\r\n    width: 100px;\r\n    height: 100px;\r\n  }\r\n  \r\n  /* css for buttons in shop */\r\n  .shop-items Button{\r\n    background-color: #FFFF80;\r\n    width: 100px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .shop-items Button:hover{\r\n    background-color: #C0C034;\r\n  }\r\n  .shop-itemsInfo img{\r\n    height:20px;\r\n    width:20px;\r\n  }\r\n  .shop-empty{\r\n    background-color: black;\r\n    height:200px;\r\n  }\r\n /* displaying the hide info in div  */\r\n .shop-toolTip{\r\n   align-items: center;\r\n }\r\n .shop-hide{\r\n  color: white;\r\n  width: 200px;\r\n  text-align: center;\r\n  text-justify: inter-word;\r\n  \r\n }\r\n .shop-hide .shop-weaponInfo{\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n }\r\n .shop-Empty{\r\n   background-color: black;\r\n }\r\n \r\n \r\n  */\r\n  /* button navigator */\r\n  .shop-main_shop .btn-group{\r\n    width:90%;\r\n\r\n  }\r\n  .shop-main_shop .btn-group .btn:hover,  .shop-main_shop .btn-group .btn:focus{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-displayButton:hover{\r\n    background-color: #FF9580;\r\n  }\r\n  .shop-weaponList{\r\n    display: flex;\r\n    \r\n  }\r\n  \r\n  /* test div */\r\n  .shop-categoryName p{\r\n    margin: 10px;\r\n    color: white;\r\n  \r\n  }", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./public/css/chat.scss":
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./public/css/chat.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/*--------------------------------------------------------------\n# Chat Box\n--------------------------------------------------------------*/\n.chats::-webkit-scrollbar {\n  background-color: #fff;\n  width: 7px;\n  padding-right: 2px;\n}\n\n.chats::-webkit-scrollbar-thumb {\n  background-color: #c5c5ce;\n  border-radius: 16px;\n  border: 1px solid #fff;\n}\n\nins {\n  text-decoration: none;\n}\n\n.client-message {\n  word-wrap: break-word;\n  background-color: #2A2C37;\n  color: aliceblue;\n  font-weight: 300;\n  padding: 7px 12px;\n  border-radius: 10px 10px 10px 0;\n  display: inline-block;\n}\n\n.chat-box {\n  width: 350px;\n  height: 60%;\n  background-color: aliceblue;\n  z-index: 9999;\n  position: fixed;\n  bottom: 11.5%;\n  right: 15px;\n  overflow: hidden;\n  border-radius: 10px;\n  display: none;\n}\n.chat-box .client {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  height: 15%;\n  background-color: #5fcf80;\n  padding: 15px;\n}\n.chat-box .client .client-info .party-name {\n  color: black;\n  font-size: 1.5rem;\n  margin: 0;\n  font-weight: 550;\n}\n.chat-box .client .client-info .sub-info {\n  margin: 0;\n  font-size: 0.9rem;\n}\n.chat-box .chats {\n  padding: 0 15px;\n  position: relative;\n  font-size: 1rem;\n  margin-top: 12px;\n  height: 70%;\n  overflow: auto;\n  display: flex;\n  flex-direction: column-reverse;\n}\n.chat-box .chats .client-chat {\n  margin: 5px 0;\n}\n.chat-box .chats .client-chat .client-username {\n  margin: 0 0 1px 0;\n  color: black;\n  font-weight: 300;\n}\n.chat-box .chats .client-chat .client-message {\n  word-wrap: break-word;\n  background-color: #2A2C37;\n  color: aliceblue;\n  font-weight: 300;\n  padding: 7px 12px;\n  border-radius: 10px 10px 10px 0;\n  display: inline-block;\n}\n.chat-box .chats .time-elapsed, .chat-box .chats .user-time-elapsed {\n  color: #727272;\n  font-weight: 300;\n  font-size: 0.87rem;\n  margin: 1px 0 0 0;\n}\n.chat-box .chats .user-chat {\n  display: flex;\n  justify-content: flex-end;\n  margin: 5px 0;\n}\n.chat-box .chats .user-chat .user-message {\n  word-wrap: break-word;\n  background-color: #45476b;\n  color: aliceblue;\n  font-weight: 300;\n  padding: 7px 12px;\n  border-radius: 10px 10px 0 10px;\n  display: inline-block;\n}\n.chat-box .chats .user-time-elapsed {\n  text-align: right;\n}\n.chat-box .chat-input {\n  display: flex;\n  align-items: center;\n  overflow: hidden;\n  width: 100%;\n  height: 15%;\n  position: absolute;\n  bottom: 0;\n  padding: 15px;\n}\n.chat-box .chat-input input {\n  width: calc(100% - 40px);\n  height: 100%;\n  border-radius: 50px;\n  padding: 0 15px;\n}\n.chat-box .chat-input input:focus {\n  outline: none;\n}\n.chat-box .send-icon-circle {\n  color: #5fcf80;\n}\n.chat-box .send-icon {\n  color: aliceblue;\n}\n.chat-box .send-btn {\n  position: relative;\n  margin-left: 5px;\n  cursor: pointer;\n  transition: 0.4s ease-in-out;\n}\n.chat-box .send-btn:active {\n  transform: scale(0.85);\n}\n\n/*--------------------------------------------------------------\n# Chat Pop Up Btn\n--------------------------------------------------------------*/\n.chat-btn {\n  z-index: 9999;\n  position: fixed;\n  bottom: 1%;\n  right: 15px;\n  cursor: pointer;\n}\n\n.chat-icon-circle {\n  color: #5fcf80;\n}\n\n.chat-icon {\n  color: aliceblue;\n  transition: 0.4s ease-in-out;\n}\n\n.chat-icon:hover {\n  transform: rotate(30deg);\n}\n\n.send-btn {\n  position: relative;\n}\n\n.unread-messages {\n  position: absolute;\n  top: 7px;\n  left: 12px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  border-radius: 8px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -82571,6 +83132,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_shop_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./public/css/chat.scss":
+/*!******************************!*\
+  !*** ./public/css/chat.scss ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_chat_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./chat.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./public/css/chat.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_chat_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_chat_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
