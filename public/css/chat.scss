@@ -2,7 +2,6 @@
 # Chat Box
 --------------------------------------------------------------*/
 
-
 .chats::-webkit-scrollbar {
     // display: none !important;
     background-color:#fff;
@@ -14,6 +13,10 @@
     background-color:#c5c5ce;
     border-radius:16px;
     border: 1px solid #fff;
+}
+
+ins{
+    text-decoration: none;
 }
 
 .client-message{
@@ -71,6 +74,8 @@
         margin-top: 12px;
         height: 70%;
         overflow: auto;
+        display: flex;
+        flex-direction: column-reverse;
 
         .client-chat{
 
@@ -189,4 +194,17 @@
 
 .chat-icon:hover{
     transform: rotate(30deg);
+}
+
+.send-btn{
+    position: relative;
+}
+
+.unread-messages{
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 8px;
 }
