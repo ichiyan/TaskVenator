@@ -26,4 +26,7 @@ class Outfit extends Model
         'critDmg',
         'price',
     ];
+    public function product(){
+        return $this->belongsTo(Product::class);
+    }
 }

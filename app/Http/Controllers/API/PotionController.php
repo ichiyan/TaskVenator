@@ -5,15 +5,17 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Potion;
+use App\Models\Product;
 
 class PotionController extends Controller
 {
     public function index(Request $request){
             $potion= Potion::all();
-
+            $product= Product::with('potion')->where('potion_id', '!=', '0')->get();
             return response()->json([
                 'status' => 200,
                 'potions' => $potion,
+                'product' =>$product,
             ]);
 
     }
@@ -36,6 +38,10 @@ class PotionController extends Controller
                 $potion->description= $request->input('description');
                 $potion->price= $request->input('price');
                 $potion->save();
+
+                $product= new Product;
+                $product->potion_id=$potion->id;
+                $product->save();
 
                 return response()->json([
                     'status' => 200,

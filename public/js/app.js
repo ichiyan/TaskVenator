@@ -17923,6 +17923,9 @@ function Outfit() {
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("/api/outfit").then(function (res) {
       if (res.data.status === 200) {
+        //      console.log(res.data);
+        console.log(res.data.outfit);
+        console.log(res.data.product);
         setDisplay2({
           outfit: res.data.outfit
         });
@@ -19117,6 +19120,7 @@ function Potions() {
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     _index__WEBPACK_IMPORTED_MODULE_0__.axios.get("/api/potions").then(function (res) {
       if (res.data.status === 200) {
+        console.log(res.data.product);
         setDisplay1({
           potions: res.data.potions
         });

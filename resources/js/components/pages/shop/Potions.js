@@ -35,6 +35,7 @@ function Potions(){
   useEffect(()=>{
      axios.get(`/api/potions`).then(res =>{
            if(res.data.status===200){
+            console.log(res.data.product);
                  setDisplay1({
                        potions:res.data.potions
                  });

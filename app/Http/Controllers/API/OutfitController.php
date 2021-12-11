@@ -5,15 +5,17 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Outfit;
+use App\Models\Product;
 
 class OutfitController extends Controller
 {
     public function index(Request $request){
         $outfit= Outfit::all();
-
+        $product= Product::with('outfit')->where('outfit_id', '!=', '0')->get();
         return response()->json([
             'status' => 200,
             'outfit' => $outfit,
+            'product' =>$product,
         ]);
 }
     public function store(Request $request){
@@ -42,6 +44,9 @@ class OutfitController extends Controller
         $weapon->price= $request->input('price');
         $weapon->save();
 
+        $product= new Product;
+        $product->outfit_id=$weapon->id;
+        $product->save();
         return response()->json([
             'status' => 200,
             'message' => 'Outfit Added Successfully',

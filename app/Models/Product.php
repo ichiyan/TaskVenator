@@ -16,6 +16,13 @@ class Product extends Model
         
     ];
 
+    public function outfit(){
+        return $this->hasOne(Outfit::class, 'id');
+    }
+    public function potion(){
+        return $this->hasOne(Potion::class, 'id');
+    }
+    
    
 
 }
