@@ -15,11 +15,13 @@ class PartyMember extends Model
         'status'
     ];
 
-    public function party(){
+    public function party(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(Party::class);
     }
 
-    public function user(){
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 

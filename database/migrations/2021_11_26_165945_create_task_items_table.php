@@ -15,6 +15,13 @@ class CreateTaskItemsTable extends Migration
     {
         Schema::create('task_items', function (Blueprint $table) {
             $table->id();
+            $table->string('content', 1000);
+            $table->boolean('is_complete');
+            $table->integer('frequency');
+            $table->date('deadline');
+            $table->boolean('is_public');
+            $table->integer('reminder');
+            $table->foreignId('tasks')->constrained('tasks', 'id');
             $table->timestamps();
         });
     }

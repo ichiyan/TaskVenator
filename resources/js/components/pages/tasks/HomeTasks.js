@@ -38,7 +38,7 @@ const HomeTasks = ({name}) => {
             </div>
             {isActive && <div className="tasks-group-content accordion-content">
                 {tasks.map((task, index) => (
-                    <div key={index}>
+                    <div key={index} className="task-item">
                         <input value={task} type="checkbox" onClick={handleCheck}/>
                         <span className={isChecked(task)}>{task}</span>
                     </div>
