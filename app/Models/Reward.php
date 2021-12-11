@@ -12,4 +12,9 @@ class Reward extends Model
     use HasFactory;
     protected $table='rewards';
     protected $fillable = ['image', 'name'];
+
+    public function bestowedIn(): HasMany
+    {
+        return $this->hasMany(BattleReward::class);
+    }
 }

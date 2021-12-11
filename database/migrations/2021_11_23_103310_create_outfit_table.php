@@ -41,6 +41,6 @@ class CreateOutfitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('weapon');
+        Schema::dropIfExists('outfit');
     }
 }

@@ -19,7 +19,6 @@ class CreateTasksTable extends Migration
             $table->boolean('show_is_done');
             $table->boolean('is_in_progress');
             $table->integer('subtasks')->default(1);
-            $table->boolean('show_is_done');
             $table->foreignId('owner')->constrained('users', 'id');
             $table->timestamps();
         });

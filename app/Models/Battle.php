@@ -27,4 +27,9 @@ class Battle extends Model
     {
         return $this->hasOne(Party::class);
     }
+
+    public function rewarded(): HasMany
+    {
+        return $this->hasMany(BattleReward::class);
+    }
 }

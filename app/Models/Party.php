@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Party extends Model
 {
@@ -24,4 +26,8 @@ class Party extends Model
         return $this->hasMany(UserMessage::class);
     }
 
+    public function battledIn(): HasMany
+    {
+        return $this->hasMany(Battle::class);
+    }
 }
