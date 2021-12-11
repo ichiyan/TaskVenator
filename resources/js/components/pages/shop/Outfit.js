@@ -35,7 +35,7 @@ function Outfit(){
            if(res.data.status===200){
             //      console.log(res.data);
                  console.log(res.data.outfit);
-                 console.log(res.data.product);
+            //      console.log(res.data.product);
                  setDisplay2({
                        outfit:res.data.outfit
                       

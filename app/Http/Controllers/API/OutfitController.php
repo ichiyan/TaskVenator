@@ -45,7 +45,9 @@ class OutfitController extends Controller
         $weapon->save();
 
         $product= new Product;
-        $product->outfit_id=$weapon->id;
+
+        $product->outfit_id= $weapon->id;
+        $product->potion_id= NULL;
         $product->save();
         return response()->json([
             'status' => 200,

@@ -15,8 +15,8 @@ class CreateProductTable extends Migration
     {
         Schema::create('product', function (Blueprint $table) {
             $table->id();
-            $table->integer('outfit_id')->default('0');
-            $table->integer('potion_id')->default('0');
+            $table->foreignId('outfit_id')->constrained('outfit', 'id')->nullable();
+            $table->foreignId('potion_id')->constrained('potion','id')->nullable();
             $table->timestamps();
         });
     }
