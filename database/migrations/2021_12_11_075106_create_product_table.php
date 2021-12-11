@@ -15,6 +15,8 @@ class CreateProductTable extends Migration
     {
         Schema::create('product', function (Blueprint $table) {
             $table->id();
+            $table->integer('outfit_id')->default('0');
+            $table->integer('weapon_id')->defualt('0');
             $table->timestamps();
         });
     }

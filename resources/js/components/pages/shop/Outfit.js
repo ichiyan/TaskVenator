@@ -33,7 +33,7 @@ function Outfit(){
   useEffect(() =>{
      axios.get(`/api/outfit`).then(res =>{
            if(res.data.status===200){
-                
+                 
                  setDisplay2({
                        outfit:res.data.outfit
                       
