@@ -67,6 +67,9 @@
     width: 100px;
     height: 100px;
   }
+  .shop-outfitFilter{
+    display: inline-block;
+  }
   
   /* css for buttons in shop */
   .shop-items Button{

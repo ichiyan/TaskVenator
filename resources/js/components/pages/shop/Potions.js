@@ -2,6 +2,7 @@ import Button from "@restart/ui/esm/Button";
 import {Link, React, useEffect, useState, AddPotionForm, 
       AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
+import PotionFilter from "./PotionFilter";
 
 function Potions(){
     var hpTotal = 50;
@@ -37,7 +38,7 @@ function Potions(){
            if(res.data.status===200){
             console.log(res.data.product);
                  setDisplay1({
-                       potions:res.data.potions
+                       potions:res.data.product
                  });
            }
            
@@ -82,195 +83,67 @@ function Potions(){
                               </div>
                               {display1.potions.map((p,index)=>{
                                     if(potionType === "All" && size==="All"){
-                                          if(p.type==="Hp Potion"){
+                                          if(p.features_potion.type==="Hp Potion"){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "All" && size==="Small"){
-                                          if(p.type==="Hp Potion" && p.size=== size){
+                                          if(p.features_potion.type==="Hp Potion" && p.features_potion.size=== size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "All" && size==="Medium"){
-                                          if(p.type==="Hp Potion" && p.size=== size){
+                                          if(p.features_potion.type==="Hp Potion" && p.features_potion.size=== size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "All" && size==="Large"){
-                                          if(p.type==="Hp Potion" && p.size=== size){
+                                          if(p.features_potion.type==="Hp Potion" && p.features_potion.size=== size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "Hp Potion" && size==="All"){
-                                          if(p.type==="Hp Potion"){
+                                          if(p.features_potion.type==="Hp Potion"){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "Hp Potion" && size==="Small"){
-                                          if(p.type==="Hp Potion" && p.size===size){
+                                          if(p.features_potion.type==="Hp Potion" && p.features_potion.size===size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "Hp Potion" && size==="Medium"){
-                                          if(p.type==="Hp Potion" && p.size===size){
+                                          if(p.features_potion.type==="Hp Potion" && p.features_potion.size===size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "Hp Potion" && size==="Large"){
-                                          if(p.type==="Hp Potion" && p.size===size){
+                                          if(p.features_potion.type==="Hp Potion" && p.features_potion.size===size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }
@@ -280,195 +153,67 @@ function Potions(){
                               </div>
                               {display1.potions.map((p,index)=>{
                                     if(potionType === "All" && size==="All"){
-                                          if(p.type==="Powerup Potion"){
+                                          if(p.features_potion.type==="Powerup Potion"){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "All" && size==="Small"){
-                                          if(p.type==="Powerup Potion" && p.size=== size){
+                                          if(p.features_potion.type==="Powerup Potion" && p.features_potion.size=== size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "All" && size==="Medium"){
-                                          if(p.type==="Powerup Potion" && p.size=== size){
+                                          if(p.features_potion.type==="Powerup Potion" && p.features_potion.size=== size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "All" && size==="Large"){
-                                          if(p.type==="Powerup Potion" && p.size=== size){
+                                          if(p.features_potion.type==="Powerup Potion" && p.features_potion.size=== size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "Powerup Potion" && size==="All"){
-                                          if(p.type==="Powerup Potion"){
+                                          if(p.features_potion.type==="Powerup Potion"){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "Powerup Potion" && size==="Small"){
-                                          if(p.type==="Powerup Potion" && p.size===size){
+                                          if(p.features_potion.type==="Powerup Potion" && p.features_potion.size===size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "Powerup Potion" && size==="Medium"){
-                                          if(p.type==="Powerup Potion" && p.size===size){
+                                          if(p.features_potion.type==="Powerup Potion" && p.features_potion.size===size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }else if(potionType === "Powerup Potion" && size==="Large"){
-                                          if(p.type==="Powerup Potion" && p.size===size){
+                                          if(p.features_potion.type==="Powerup Potion" && p.features_potion.size===size){
                                                 return (
-                                                      <div key={index} className="shop-returnMap">
-                                                            <div data-tip data-for={p.name} className="shop-items"> 
-                                                                  <div className="shop-itemsImage">
-                                                                  <img src={p.image}></img>
-                                                                  </div>
-                                                                  <div className="shop-itemsInfo">
-                                                                        <h6>{p.name}</h6>
-                                                                        <p>{p.size}</p>
-                                                                        <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
-                                                                  </div>
-                                                            </div> 
-                                                            <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                                  <div className="shop-hide">
-                                                                        <div className="shop-itemsInfo">
-                                                                              <p>{p.description}</p>
-                                                                        </div> 
-                                                                  </div>
-                                                            </ReactTooltip>
-                                                      </div>
+                                                      <div key={index} className="shop-outfitFilter">
+                                                      <PotionFilter data= {p.features_potion} value={p.id}/>
+                                                      </div> 
                                                 )
                                           }
                                     }

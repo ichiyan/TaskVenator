@@ -11,7 +11,7 @@ class OutfitController extends Controller
 {
     public function index(Request $request){
         $outfit= Outfit::all();
-        $product= Product::with('outfit')->where('outfit_id', '!=', '0')->get();
+        $product= Product::with('featuresOutfit')->where('outfit', '!=', 'NULL')->get();
         return response()->json([
             'status' => 200,
             'outfit' => $outfit,
@@ -24,8 +24,8 @@ class OutfitController extends Controller
             $file= $request->file('image');
             $extension= $file->getClientOriginalExtension();
             $filename= time() .'.'.$extension;
-            $file->move('assets/images/', $filename);
-            $weapon->image = 'assets/images/' .$filename;
+            $file->move('assets/images/outfit', $filename);
+            $weapon->image = 'assets/images/outfit/' .$filename;
 
         }
         $weapon->outfitType= $request->input('outfitType');
@@ -46,8 +46,8 @@ class OutfitController extends Controller
 
         $product= new Product;
 
-        $product->outfit_id= $weapon->id;
-        $product->potion_id= NULL;
+        $product->outfit= $weapon->id;
+        $product->potion= NULL;
         $product->save();
         return response()->json([
             'status' => 200,

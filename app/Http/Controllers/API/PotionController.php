@@ -11,7 +11,7 @@ class PotionController extends Controller
 {
     public function index(Request $request){
             $potion= Potion::all();
-            $product= Product::with('potion')->where('potion_id', '!=', '0')->get();
+            $product= Product::with('featuresPotion')->where('potion', '!=', 'NULL')->get();
             return response()->json([
                 'status' => 200,
                 'potions' => $potion,
@@ -27,8 +27,8 @@ class PotionController extends Controller
                     $file= $request->file('image');
                     $extension= $file->getClientOriginalExtension();
                     $filename= time() .'.'.$extension;
-                    $file->move('assets/images/', $filename);
-                    $potion->image = 'assets/images/' .$filename;
+                    $file->move('assets/images/potion', $filename);
+                    $potion->image = 'assets/images/potion/' .$filename;
 
                 }
                 $potion->name= $request->input('name');
@@ -40,7 +40,9 @@ class PotionController extends Controller
                 $potion->save();
 
                 $product= new Product;
-                $product->potion_id=$potion->id;
+                $product->outfit= NULL;
+                $product->potion= $potion->id;
+
                 $product->save();
 
                 return response()->json([
