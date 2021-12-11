@@ -16001,7 +16001,9 @@ var CharacterCustomization = function CharacterCustomization() {
   var isFemale = false;
   var sex;
   var baseBodyColorDir;
-  var items = []; //warrior default items
+  var eyeColorImg; // var items = [];
+
+  var selections = []; //warrior default items
 
   var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesArmorImg, shieldImg, slashWeaponImg, helmetImg;
   var warriorDefaultItems = {
@@ -16053,20 +16055,20 @@ var CharacterCustomization = function CharacterCustomization() {
   var animate = function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    items.forEach(function (item) {
-      if (item.sex === "unisex") {
+    selections.forEach(function (selection) {
+      if (selection.sex === "unisex") {
         sex = isFemale ? "female" : "male";
       } else {
-        sex = item.sex;
+        sex = selection.sex;
       }
 
       if (sex === "none") {
-        item.image.src = item.base_src + item.img_name;
+        selection.image.src = selection.base_src + selection.img_name;
       } else {
-        item.image.src = item.base_src + sex + "/" + item.img_name;
+        selection.image.src = selection.base_src + sex + "/" + selection.img_name;
       }
 
-      ctx.drawImage(item.image, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      ctx.drawImage(selection.image, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     });
     if (frameX < cycles) frameX++;else frameX = 0;
     setTimeout(animate, 1000 / 8);
@@ -16105,16 +16107,45 @@ var CharacterCustomization = function CharacterCustomization() {
     baseBodyColorDir = previewImage.src = baseBodyDir + e.target.id + ".png";
   };
 
+  var getEyeColor = function getEyeColor(e) {
+    var eyeColor = e.target.id.slice(4);
+    eyeColorImg = new Image();
+    var ndx = selections.map(function (selection) {
+      return selection.name;
+    }).indexOf("eye color");
+
+    if (ndx > -1) {
+      selections.splice(ndx, 1);
+    }
+
+    selections.push({
+      name: 'eye color',
+      sex: "unisex",
+      image: eyeColorImg,
+      img_name: eyeColor + '.png',
+      base_src: baseDir + 'eyes/'
+    });
+    console.log(selections);
+  };
+
+  var getHairStyle = function getHairStyle(e) {};
+
   var getClass = function getClass(e) {
     if (e.target.id === "warrior") {
-      items.length = 0;
       frameY = 14;
       cycles = 5;
+
+      for (var ndx = selections.length - 1; ndx >= 0; ndx--) {
+        if (selections[ndx].hasOwnProperty('class') && selections[ndx]["class"] != "warrior") {
+          selections.splice(ndx, 1);
+        }
+      }
+
       Object.keys(warriorDefaultItems).forEach(function (key) {
         warriorDefaultItems[key] = new Image();
       }); // to do: add z-pos property and sort array
 
-      items.push({
+      selections.push({
         "class": 'warrior',
         name: 'legArmor',
         sex: "unisex",
@@ -16186,13 +16217,19 @@ var CharacterCustomization = function CharacterCustomization() {
         base_src: baseDir + 'hat/helmet/'
       });
     } else if (e.target.id === "mage") {
-      items.length = 0;
       frameY = 2;
       cycles = 6;
+
+      for (var ndx = selections.length - 1; ndx >= 0; ndx--) {
+        if (selections[ndx].hasOwnProperty('class') && selections[ndx]["class"] != "mage") {
+          selections.splice(ndx, 1);
+        }
+      }
+
       Object.keys(mageDefaultItems).forEach(function (key) {
         mageDefaultItems[key] = new Image();
       });
-      items.push({
+      selections.push({
         "class": 'mage',
         name: 'legPants',
         sex: "unisex",
@@ -16243,13 +16280,19 @@ var CharacterCustomization = function CharacterCustomization() {
         base_src: baseDir + 'weapon/thrust/'
       });
     } else if (e.target.id === "marksman") {
-      items.length = 0;
       frameY = 18;
       cycles = 12;
+
+      for (var ndx = selections.length - 1; ndx >= 0; ndx--) {
+        if (selections[ndx].hasOwnProperty('class') && selections[ndx]["class"] != "marksman") {
+          selections.splice(ndx, 1);
+        }
+      }
+
       Object.keys(marksmanDefaultItems).forEach(function (key) {
         marksmanDefaultItems[key] = new Image();
       });
-      items.push({
+      selections.push({
         "class": 'marksman',
         name: 'legPants',
         sex: "unisex",
@@ -16314,6 +16357,8 @@ var CharacterCustomization = function CharacterCustomization() {
         base_src: baseDir + 'ammo/'
       });
     }
+
+    console.log(selections);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -16335,6 +16380,48 @@ var CharacterCustomization = function CharacterCustomization() {
         id: "chooser",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+            onClick: toggleDisplay,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "condensed",
+              children: "Class"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+              className: "ul-block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getClass,
+                  type: "radio",
+                  id: "warrior",
+                  name: "class"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "class-warrior",
+                  children: "Warrior"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getClass,
+                  type: "radio",
+                  id: "mage",
+                  name: "class"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "class-mage",
+                  children: "Mage"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getClass,
+                  type: "radio",
+                  id: "marksman",
+                  name: "class"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "class-marksman",
+                  children: "Marksman"
+                })]
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
             onClick: toggleDisplay,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
               className: "condensed",
@@ -16523,41 +16610,75 @@ var CharacterCustomization = function CharacterCustomization() {
             onClick: toggleDisplay,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
               className: "condensed",
-              children: "Class"
+              children: "Eye Color"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
               className: "ul-block",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
                 className: "noPreview",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getClass,
+                  onChange: getEyeColor,
                   type: "radio",
-                  id: "warrior",
-                  name: "class"
+                  id: "eye-blue",
+                  name: "eye-color",
+                  defaultChecked: true
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "class-warrior",
-                  children: "Warrior"
+                  htmlFor: "eye-color",
+                  children: "Blue"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
                 className: "noPreview",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getClass,
+                  onChange: getEyeColor,
                   type: "radio",
-                  id: "mage",
-                  name: "class"
+                  id: "eye-brown",
+                  name: "eye-color"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "class-mage",
-                  children: "Mage"
+                  htmlFor: "eye-color",
+                  children: "Brown"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
                 className: "noPreview",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getClass,
+                  onChange: getEyeColor,
                   type: "radio",
-                  id: "marksman",
-                  name: "class"
+                  id: "eye-gray",
+                  name: "eye-color"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "class-marksman",
-                  children: "Marksman"
+                  htmlFor: "eye-color",
+                  children: "Gray"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getEyeColor,
+                  type: "radio",
+                  id: "eye-green",
+                  name: "eye-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "eye-color",
+                  children: "Green"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getEyeColor,
+                  type: "radio",
+                  id: "eye-purple",
+                  name: "eye-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "eye-color",
+                  children: "Purple"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getEyeColor,
+                  type: "radio",
+                  id: "eye-red",
+                  name: "eye-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "eye-color",
+                  children: "Red"
                 })]
               })]
             })]

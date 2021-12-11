@@ -13,7 +13,9 @@ const CharacterCustomization = () => {
     var isFemale = false;
     var sex;
     var baseBodyColorDir;
-    var items = [];
+    var eyeColorImg;
+    // var items = [];
+    var selections = [];
 
     //warrior default items
     var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesArmorImg, shieldImg, slashWeaponImg, helmetImg;
@@ -74,18 +76,18 @@ const CharacterCustomization = () => {
     const animate = () => {
         ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        items.forEach(item => {
-            if ( item.sex === "unisex" ){
+        selections.forEach(selection => {
+            if ( selection.sex === "unisex" ){
                 sex = isFemale ? "female" : "male";
             }else{
-                sex = item.sex;
+                sex = selection.sex;
             }
             if (sex === "none"){
-                item.image.src = item.base_src + item.img_name;
+                selection.image.src = selection.base_src + selection.img_name;
             }else{
-                item.image.src = item.base_src + sex + "/" + item.img_name;
+                selection.image.src = selection.base_src + sex + "/" + selection.img_name;
             }
-            ctx.drawImage(item.image, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            ctx.drawImage(selection.image, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         });
         if (frameX < cycles) frameX++;
         else frameX = 0;
@@ -124,20 +126,48 @@ const CharacterCustomization = () => {
        baseBodyColorDir = previewImage.src = baseBodyDir + e.target.id + ".png";
     }
 
+    const getEyeColor = (e) => {
+        var eyeColor = e.target.id.slice(4);
+        eyeColorImg = new Image();
+        var ndx = selections.map( selection => selection.name).indexOf("eye color");
+        if (ndx > -1){
+            selections.splice(ndx, 1);
+        }
+        selections.push(
+            {
+                name: 'eye color',
+                sex: "unisex",
+                image: eyeColorImg,
+                img_name: eyeColor + '.png',
+                base_src: baseDir + 'eyes/',
+            }
+        );
+        console.log(selections)
+    }
+
+    const getHairStyle = (e) => {
+
+    }
+
     const getClass = (e) => {
 
         if (e.target.id === "warrior"){
 
-            items.length = 0;
             frameY = 14;
             cycles = 5;
+
+            for (var ndx = selections.length - 1; ndx >= 0; ndx--){
+                if (selections[ndx].hasOwnProperty('class') && selections[ndx].class != "warrior"){
+                    selections.splice(ndx, 1);
+                }
+            }
 
             Object.keys(warriorDefaultItems).forEach( key => {
                 warriorDefaultItems[key] = new Image();
             });
 
             // to do: add z-pos property and sort array
-            items.push(
+            selections.push(
                 {
                     class: 'warrior',
                     name: 'legArmor',
@@ -221,15 +251,20 @@ const CharacterCustomization = () => {
             );
         }else if (e.target.id === "mage" ){
 
-            items.length = 0;
             frameY = 2;
             cycles = 6;
+
+            for (var ndx = selections.length - 1; ndx >= 0; ndx--){
+                if (selections[ndx].hasOwnProperty('class') && selections[ndx].class != "mage"){
+                    selections.splice(ndx, 1);
+                }
+            }
 
             Object.keys(mageDefaultItems).forEach( key => {
                 mageDefaultItems[key] = new Image();
             });
 
-            items.push(
+            selections.push(
                 {
                     class: 'mage',
                     name: 'legPants',
@@ -289,15 +324,20 @@ const CharacterCustomization = () => {
             );
         }else if (e.target.id === "marksman"){
 
-            items.length = 0;
             frameY = 18;
             cycles = 12;
+
+            for (var ndx = selections.length - 1; ndx >= 0; ndx--){
+                if (selections[ndx].hasOwnProperty('class') && selections[ndx].class != "marksman"){
+                    selections.splice(ndx, 1);
+                }
+            }
 
             Object.keys(marksmanDefaultItems).forEach( key => {
                 marksmanDefaultItems[key] = new Image();
             });
 
-            items.push(
+            selections.push(
                 {
                     class: 'marksman',
                     name: 'legPants',
@@ -372,6 +412,8 @@ const CharacterCustomization = () => {
                 },
             );
         }
+
+        console.log(selections)
     }
 
     return (
@@ -385,6 +427,24 @@ const CharacterCustomization = () => {
                 </section>
                 <section id="chooser">
                     <ul>
+                        <li onClick={toggleDisplay}>
+                            {/* Class */}
+                            <span className="condensed">Class</span>
+                            <ul className="ul-block">
+                                <li className="noPreview">
+                                    <input onChange={getClass}  type="radio" id="warrior" name="class"/>
+                                    <label htmlFor="class-warrior">Warrior</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getClass}  type="radio" id="mage" name="class"/>
+                                    <label htmlFor="class-mage">Mage</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getClass}  type="radio" id="marksman" name="class"/>
+                                    <label htmlFor="class-marksman">Marksman</label>
+                                </li>
+                            </ul>
+                        </li>
                         <li onClick={toggleDisplay}>
                             {/* Sex */}
                             <span className="condensed">Body Type</span>
@@ -458,24 +518,35 @@ const CharacterCustomization = () => {
                             </ul>
                         </li>
                         <li onClick={toggleDisplay}>
-                            {/* Class */}
-                            <span className="condensed">Class</span>
+                            {/* Eye Color */}
+                            <span className="condensed">Eye Color</span>
                             <ul className="ul-block">
                                 <li className="noPreview">
-                                    <input onChange={getClass}  type="radio" id="warrior" name="class"/>
-                                    <label htmlFor="class-warrior">Warrior</label>
+                                    <input onChange={getEyeColor}  type="radio" id="eye-blue" name="eye-color" defaultChecked/>
+                                    <label htmlFor="eye-color">Blue</label>
                                 </li>
                                 <li className="noPreview">
-                                    <input onChange={getClass}  type="radio" id="mage" name="class"/>
-                                    <label htmlFor="class-mage">Mage</label>
+                                    <input onChange={getEyeColor} type="radio" id="eye-brown" name="eye-color"/>
+                                    <label htmlFor="eye-color">Brown</label>
                                 </li>
                                 <li className="noPreview">
-                                    <input onChange={getClass}  type="radio" id="marksman" name="class"/>
-                                    <label htmlFor="class-marksman">Marksman</label>
+                                    <input onChange={getEyeColor} type="radio" id="eye-gray" name="eye-color"/>
+                                    <label htmlFor="eye-color">Gray</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getEyeColor} type="radio" id="eye-green" name="eye-color"/>
+                                    <label htmlFor="eye-color">Green</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getEyeColor} type="radio" id="eye-purple" name="eye-color"/>
+                                    <label htmlFor="eye-color">Purple</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getEyeColor} type="radio" id="eye-red" name="eye-color"/>
+                                    <label htmlFor="eye-color">Red</label>
                                 </li>
                             </ul>
                         </li>
-
                     </ul>
                 </section>
             </div>
