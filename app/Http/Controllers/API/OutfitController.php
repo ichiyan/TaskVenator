@@ -6,16 +6,23 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Outfit;
 use App\Models\Product;
+use App\Models\Inventory;
+use Illuminate\Support\Facades\Auth;
 
 class OutfitController extends Controller
 {
     public function index(Request $request){
         $outfit= Outfit::all();
+        $user_id = Auth::id();
         $product= Product::with('featuresOutfit')->where('outfit', '!=', 'NULL')->get();
+        // $items=Inventory::with('contains')->where('user_id', '==', '$user_id')->get();
         return response()->json([
             'status' => 200,
             'outfit' => $outfit,
             'product' =>$product,
+            'user_id' => $user_id,
+            // 'items' => $items,
+            
         ]);
 }
     public function store(Request $request){

@@ -41,8 +41,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('outfit',[OutfitController::class, 'index']);
 
     //storing items in inventory
+    Route::post('addBought', [InventoryController::class, 'store']);
+    Route::get('inventory', [InventoryController::class, 'index']);
    
 });
 
-Route::post('addBought', [InventoryController::class, 'store']);
+
 

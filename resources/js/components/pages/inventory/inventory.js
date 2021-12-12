@@ -3,6 +3,20 @@ import {Link, React, useEffect, useState,
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 
 function Inventory(){
+    const[display2,setDisplay2]=useState({
+        outfit:[],
+  });
+    useEffect(() =>{
+        axios.get(`/api/inventory`).then(res =>{
+              if(res.data.status===200){
+    
+                    console.log(res.data);
+
+                  
+                    
+              }
+        })
+     },[])
     return(
         <section className="container party-section">
               <div className="shop-Form">

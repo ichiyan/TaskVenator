@@ -4,32 +4,41 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 
 function OutfitFilter({data, value}){
-    const [id, setId]= useState({
-        id: ''
+    const [passProductId, setPassProductId]= useState({
+          product: '',
+          amount :'',
     });
-    const buttonHandler=(e)=>{
-        setId(e.target.value);
-        Swal.fire("You have successfully bought the item" + id);
+    const[Id, setId]=useState("");
+    
+     const submitToHandler=(e)=>{
+           e.preventDefault();
+           setId(e.target.value);
+        Swal.fire("You have successfully bought the item" + Id);
+          setPassProductId({
+                  product:e.target.product.value,
+                  amount: e.target.amount.value,
+          });
+        
       
-        axios.post(`/api/addBought`, id).then(res =>{
+         
+
+     }
+     useEffect(() => {
+      const data={
+            product: passProductId.product,
+            amount: passProductId.amount,
+      }
+      axios.post(`/api/addBought`, data).then(res =>{
             if(res.data.status === 200){
                console.log(res.data.message);
             }else {
               // setPotion({...potion,error_list:res.data.errors});
             }
           });
-  
-     }
-     const submitHandler=(e)=>{
-        // axios.post(`/api/addBought`, id).then(res =>{
-        //     if(res.data.status === 200){
-        //        console.log(res.data.message);
-        //     }else {
-        //       // setPotion({...potion,error_list:res.data.errors});
-        //     }
-        //   });
-       
-     }
+      
+     }, [passProductId])
+ 
+    
     return(
         <div data-tip data-for={data.name}  className="shop-returnMap">
         <div className="shop-items"> 
@@ -39,12 +48,13 @@ function OutfitFilter({data, value}){
               <div className="shop-itemsInfo">
                     <h6>{data.name}</h6>
                     <div>
-                        <form onSubmit={submitHandler}>
-                            <input type="hidden" value={value}></input>
-                            <button type="submit">Submit</button>
+                        <form onSubmit={submitToHandler}>
+                              <input name="product" type="hidden" value={value}/>
+                              <input name="amount" type="hidden" value="0"/>
+                              <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Submit</Button>
                         </form>
                     </div>
-                    <Button value={value} onClick={buttonHandler}><img src="assets/images/currency.png"></img>{data.price}<br></br> BUY</Button>
+                    
               </div>
         </div> 
         <ReactTooltip id={data.name} place="right" aria-haspopup='true' className="shop-toolTip">
