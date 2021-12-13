@@ -19,15 +19,19 @@ class InventoryController extends Controller
         // $items=User::with('getItems')->where('id','=', $user_id)->get();
         // $items= Inventory::with('contains')->where('user_id', '=', $user_id)->get();
         $items= DB::table('inventories')
-                
+                ->join('users', 'users.id', '=', 'inventories.user_id')
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('outfit','outfit.id','=','products.outfit')
+                
                 ->get();
         
         return response()->json([
-            'text' => "inventory success",
+            'message' => "inventory success",
+            'status'=>200,
             'items' => $items,
-            'user_id'=> $user_id,
+            'user'=> $user_id,
+            
+           
             
             
       

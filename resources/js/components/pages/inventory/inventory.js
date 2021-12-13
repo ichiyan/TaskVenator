@@ -3,18 +3,21 @@ import {Link, React, useEffect, useState,
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 
 function Inventory(){
-    const[display2,setDisplay2]=useState({
-        outfit:[],
+    const[inventory,setInventory]=useState({
+        items:[],
   });
     useEffect(() =>{
         axios.get(`/api/inventory`).then(res =>{
-              if(res.data.status===200){
-    
-                    console.log(res.data);
-
-                  
-                    
-              }
+            if(res.data.status===200){
+                console.log(res.data)
+                console.log(res.data.items)
+                console.log(res.data.items[0].user_id)
+                console.log(res.data.items[0].name)
+                console.log(res.data.user)
+               
+              
+                
+          }
         })
      },[])
     return(
