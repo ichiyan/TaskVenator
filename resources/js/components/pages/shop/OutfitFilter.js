@@ -8,18 +8,17 @@ function OutfitFilter({data, value}){
           product: '',
           amount :'',
     });
-    const[Id, setId]=useState("");
     
      const submitToHandler=(e)=>{
            e.preventDefault();
-           setId(e.target.value);
-        Swal.fire("You have successfully bought the item" + Id);
+        Swal.fire("You have successfully bought the item");
           setPassProductId({
                   product:e.target.product.value,
                   amount: e.target.amount.value,
           });
         
-      
+          console.log(passProductId);
+          
          
 
      }
@@ -28,13 +27,18 @@ function OutfitFilter({data, value}){
             product: passProductId.product,
             amount: passProductId.amount,
       }
-      axios.post(`/api/addBought`, data).then(res =>{
-            if(res.data.status === 200){
-               console.log(res.data.message);
-            }else {
-              // setPotion({...potion,error_list:res.data.errors});
-            }
-          });
+      if(data.product === "" && data.amount===""){
+            console.log("empty")
+      }else{
+            axios.post(`/api/addBought`, data).then(res =>{
+                  if(res.data.status === 200){
+                     console.log(res.data.message);
+                  }else {
+                    // setPotion({...potion,error_list:res.data.errors});
+                  }
+                });
+      }
+     
       
      }, [passProductId])
  

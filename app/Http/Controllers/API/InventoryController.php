@@ -22,14 +22,21 @@ class InventoryController extends Controller
                 ->join('users', 'users.id', '=', 'inventories.user_id')
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('outfit','outfit.id','=','products.outfit')
-                
+                ->select('outfit.*', 'inventories.user_id AS inventUserId' )
                 ->get();
-        
+
+        $potions= DB::table('inventories')
+                ->join('users', 'users.id', '=', 'inventories.user_id')
+                ->join('products', 'products.id', '=', 'inventories.product')
+                ->join('potion','potion.id','=','products.potion')
+                ->select('potion.*', 'inventories.user_id AS inventUserId' )
+                ->get();
         return response()->json([
             'message' => "inventory success",
             'status'=>200,
             'items' => $items,
-            'user'=> $user_id,
+            'potions' => $potions,
+            'auth_id'=> $user_id,
             
            
             
@@ -37,6 +44,7 @@ class InventoryController extends Controller
       
         ]);
     }
+   
     public function store(Request $request){
         
         $inventory= new Inventory;

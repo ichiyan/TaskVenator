@@ -132,7 +132,7 @@ function AddOutfitForm (){
             <label>Class</label>
             <select name="class" className="form-select" onChange={inputHandler} value={outfit.class}>
               <option value="Warrior">Warrior</option>
-              <option value="Assassin">Assassin</option>
+              <option value="Marksman">Marksman</option>
               <option valu="Mage">Mage</option>
             </select><br></br>
             </div>

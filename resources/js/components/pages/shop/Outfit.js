@@ -34,19 +34,25 @@ function Outfit(){
   useEffect(() =>{
      axios.get(`/api/outfit`).then(res =>{
            if(res.data.status===200){
-                 console.log(res.data.outfit);
-                 console.log(res.data.product);
-                 console.log(res.data.user_id);
-                 console.log(res.data.items);
+            //      console.log(res.data.outfit);
+            //      console.log(res.data.product);
+            //      console.log(res.data.user_id);
+            //      console.log(res.data.items);
                  setDisplay2({
                        outfit:res.data.product
                       
                  })
+             
                
-                 
+                
            }
+        
      })
   },[])
+  useEffect(()=>{
+    setDisplay2(display2);
+    console.log(display2.outfit);
+  },[display2])
   
 
 
@@ -58,7 +64,7 @@ function Outfit(){
         <section className="container party-section">
           
                   <div className="party-nav">
-                        <div className="party-nav-item"><Link to="/all">All</Link></div>
+                        <div className="party-nav-item "><Link to="/all">All</Link></div>
                         <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
                         <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
                         <div className="party-nav-item"><Link to="/cards">Cards</Link></div>
@@ -71,7 +77,7 @@ function Outfit(){
                                     <select name="class" className="form-select" onChange={classHandler}>
                                           <option value="All">All</option>
                                           <option value="Warrior">Warrior</option>
-                                          <option value="Assassin">Assassin</option>
+                                          <option value="Marksman">Marksman</option>
                                           <option value="Mage">Mage</option>
                                     </select><br></br>
                                     <p>Rarity</p>
@@ -153,7 +159,7 @@ function Outfit(){
                                                                         </div> 
                                                                   )
                                                             }
-                                                      }else if(charClass==="Assassin" && rarity==="All"){
+                                                      }else if(charClass==="Marksman" && rarity==="All"){
                                                             if(w.features_outfit.outfitType === "Costume" && w.features_outfit.class===charClass){
                                                                   return (
                                                                         <div key={index} className="shop-outfitFilter">
@@ -161,7 +167,7 @@ function Outfit(){
                                                                         </div> 
                                                                   )
                                                             }
-                                                      }else if(charClass==="Assassin" && rarity==="Common"){
+                                                      }else if(charClass==="Marksman" && rarity==="Common"){
                                                             if(w.features_outfit.outfitType === "Costume" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
                                                                   return (
                                                                         <div key={index} className="shop-outfitFilter">
@@ -169,7 +175,7 @@ function Outfit(){
                                                                         </div> 
                                                                   )
                                                             }
-                                                      }else if(charClass==="Assassin" && rarity==="Uncommon"){
+                                                      }else if(charClass==="Marksman" && rarity==="Uncommon"){
                                                             if(w.features_outfit.outfitType === "Costume" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
                                                                   return (
                                                                         <div key={index} className="shop-outfitFilter">
@@ -177,7 +183,7 @@ function Outfit(){
                                                                         </div>   
                                                                   )
                                                             }
-                                                      }else if(charClass==="Assassin" && rarity==="Rare"){
+                                                      }else if(charClass==="Marksman" && rarity==="Rare"){
                                                             if(w.features_outfit.outfitType === "Costume" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
                                                                   return (
                                                                         <div key={index} className="shop-outfitFilter">

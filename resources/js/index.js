@@ -49,6 +49,9 @@ export {default as AddPotionForm} from "./components/pages/shop/AddPotionForm";
 export {default as AddCardForm} from "./components/pages/shop/AddCardForm";
 
 export {default as Inventory} from "./components/pages/inventory/inventory";
+export {default as InventoryOutfit} from "./components/pages/inventory/InventoryOutfit";
+export {default as InventoryPotions} from "./components/pages/inventory/InventoryPotions";
+export {default as InventoryWeapons} from "./components/pages/inventory/InventoryWeapons";
 
 export {default as GroupMemberPublicTasks} from "./components/pages/tasks/GroupMemberPublicTasks";
 export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks";

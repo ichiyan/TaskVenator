@@ -43,6 +43,7 @@ function All(){
                  setDisplay1({
                        potions:res.data.potions
                  });
+                 console.log(display1);
            }
 
      })

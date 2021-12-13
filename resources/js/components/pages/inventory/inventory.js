@@ -9,11 +9,16 @@ function Inventory(){
     useEffect(() =>{
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-                console.log(res.data)
-                console.log(res.data.items)
-                console.log(res.data.items[0].user_id)
-                console.log(res.data.items[0].name)
-                console.log(res.data.user)
+                // console.log(res.data)
+                // console.log(res.data.items)
+                // console.log(res.data.items[0].user_id)
+                // console.log(res.data.items[0].name)
+                // console.log(res.data.auth_id)
+
+                setInventory({
+                    items:res.data.outfit
+                   
+              })
                
               
                 
@@ -22,18 +27,12 @@ function Inventory(){
      },[])
     return(
         <section className="container party-section">
-              <div className="shop-Form">
-                  <AddOutfitForm/> 
-                  <AddPotionForm/>
-                  <AddCardForm/>
-              </div>
             
               <div className="party-nav">
-                        <div className="party-nav-item party-active-nav"><Link to="/all">All</Link></div>
-                        <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
-                        <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
-                        <div className="party-nav-item"><Link to="/cards">Cards</Link></div>
-                        <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
+                <div className="party-nav-item party-active-nav"><Link to="/inventory">All</Link></div>
+                <div className="party-nav-item"><Link to="/inventoryPotions">Potions</Link></div>
+                <div className="party-nav-item"><Link to="/inventoryWeapons">Weapons</Link></div>   
+                <div className="party-nav-item"><Link to="/inventoryOutfit">Outfit</Link></div>
               </div>
            
               <div className="inventory-filtShop">

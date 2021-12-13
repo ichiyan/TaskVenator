@@ -35,16 +35,22 @@ function Weapons(){
   useEffect(() =>{
      axios.get(`/api/outfit`).then(res =>{
            if(res.data.status===200){
-                
+                 
+                 
                  setDisplay2({
                        outfit:res.data.product
                       
                  })
+                
                  
                  
            }
+         
      })
   },[])
+  useEffect(()=>{
+      console.log(display2)
+  },[display2])
 
 
 
@@ -67,7 +73,7 @@ function Weapons(){
                             <select name="class" className="form-select" onChange={classHandler}>
                                   <option value="All">All</option>
                                   <option value="Warrior">Warrior</option>
-                                  <option value="Assassin">Assassin</option>
+                                  <option value="Marksman">Marksman</option>
                                   <option value="Mage">Mage</option>
                             </select><br></br>
                             <p>Rarity</p>
@@ -149,7 +155,7 @@ function Weapons(){
                                                             </div>    
                                                           )
                                                     }
-                                              }else if(charClass==="Assassin" && rarity==="All"){
+                                              }else if(charClass==="Marksman" && rarity==="All"){
                                                     if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.class===charClass){
                                                           return (
                                                             <div key={index} className="shop-outfitFilter">
@@ -157,7 +163,7 @@ function Weapons(){
                                                             </div>      
                                                           )
                                                     }
-                                              }else if(charClass==="Assassin" && rarity==="Common"){
+                                              }else if(charClass==="Marksman" && rarity==="Common"){
                                                     if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
                                                           return (
                                                             <div key={index} className="shop-outfitFilter">
@@ -165,7 +171,7 @@ function Weapons(){
                                                             </div>    
                                                           )
                                                     }
-                                              }else if(charClass==="Assassin" && rarity==="Uncommon"){
+                                              }else if(charClass==="Marksman" && rarity==="Uncommon"){
                                                     if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
                                                           return (
                                                             <div key={index} className="shop-outfitFilter">
@@ -173,7 +179,7 @@ function Weapons(){
                                                             </div>   
                                                           )
                                                     }
-                                              }else if(charClass==="Assassin" && rarity==="Rare"){
+                                              }else if(charClass==="Marksman" && rarity==="Rare"){
                                                     if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
                                                           return (
                                                             <div key={index} className="shop-outfitFilter">
