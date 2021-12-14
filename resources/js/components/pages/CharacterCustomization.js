@@ -14,6 +14,10 @@ const CharacterCustomization = () => {
     var sex;
     var baseBodyColorDir;
     var eyeColorImg;
+    var hairStyleImg;
+    var hairStyle = "pixie";
+    var hairColor = "ash";
+
     // var items = [];
     var selections = [];
 
@@ -70,6 +74,19 @@ const CharacterCustomization = () => {
         previewImage.src = baseDir + 'body/male/human/light.png';
 
         animate();
+
+        var SEL_CANVAS_SIZE = 64;
+
+        var selectionPreviews = document.querySelectorAll(".selection-preview");
+        selectionPreviews.forEach( preview => {
+            preview.width = preview.height = SEL_CANVAS_SIZE;
+            var selectionCtx = preview.getContext('2d');
+            var selectionPrevImg = new Image();
+            selectionPrevImg.src = baseDir + preview.dataset.image;
+            selectionPrevImg.onload = () => {
+                selectionCtx.drawImage(selectionPrevImg, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, -15, 0, SEL_CANVAS_SIZE * 1.5, SEL_CANVAS_SIZE * 1.5);
+            }
+        });
 
     }, []);
 
@@ -142,11 +159,29 @@ const CharacterCustomization = () => {
                 base_src: baseDir + 'eyes/',
             }
         );
-        console.log(selections)
     }
 
     const getHairStyle = (e) => {
-
+        var id = e.target.id;
+        if(id.startsWith("hair-color")){
+            hairColor = id.slice(11);
+        }else{
+            hairStyle = id;
+        }
+        hairStyleImg = new Image();
+        var ndx = selections.map( selection => selection.name).indexOf("hair style");
+        if (ndx > -1){
+            selections.splice(ndx, 1);
+        }
+        selections.push(
+            {
+                name: 'hair style',
+                sex: "unisex",
+                image: hairStyleImg,
+                img_name: hairColor + '.png',
+                base_src: baseDir + 'hair/' + hairStyle + '/',
+            }
+        );
     }
 
     const getClass = (e) => {
@@ -464,7 +499,7 @@ const CharacterCustomization = () => {
                             <span className="condensed">Body Color</span>
                             <ul className="ul-block">
                                 <li className="noPreview">
-                                    <input onChange={getBodyColor}  type="radio" id="white" name="body-color" defaultChecked/>
+                                    <input onChange={getBodyColor}  type="radio" id="white" name="body-color"/>
                                     <label htmlFor="color">White</label>
                                 </li>
                                 <li className="noPreview">
@@ -522,7 +557,7 @@ const CharacterCustomization = () => {
                             <span className="condensed">Eye Color</span>
                             <ul className="ul-block">
                                 <li className="noPreview">
-                                    <input onChange={getEyeColor}  type="radio" id="eye-blue" name="eye-color" defaultChecked/>
+                                    <input onChange={getEyeColor}  type="radio" id="eye-blue" name="eye-color"/>
                                     <label htmlFor="eye-color">Blue</label>
                                 </li>
                                 <li className="noPreview">
@@ -544,6 +579,146 @@ const CharacterCustomization = () => {
                                 <li className="noPreview">
                                     <input onChange={getEyeColor} type="radio" id="eye-red" name="eye-color"/>
                                     <label htmlFor="eye-color">Red</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li onClick={toggleDisplay}>
+                            {/* Hair Style */}
+                            <span className="condensed">Hair Style</span>
+                            <ul className="ul-block">
+                                <div className="selections">
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/dreadlocks_short/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle}  type="radio" id="dreadlocks_short" name="hair-style"/>
+                                        <label htmlFor="hair-style">Dreadlocks</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/shorthawk/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="shorthawk" name="hair-style"/>
+                                        <label htmlFor="hair-style">Shorthawk</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/curtains/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="curtains" name="hair-style"/>
+                                        <label htmlFor="hair-style">Curtains</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/idol/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="idol" name="hair-style"/>
+                                        <label htmlFor="hair-style">Idol</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/pixie/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="pixie" name="hair-style"/>
+                                        <label htmlFor="hair-style">Pixie</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/cowlick/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="cowlick" name="hair-style"/>
+                                        <label htmlFor="hair-style">Cowlick</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/spiked_liberty/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="spiked_liberty" name="hair-style"/>
+                                        <label htmlFor="hair-style">Spiked Liberty</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/spiked_beehive/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="spiked_beehive" name="hair-style"/>
+                                        <label htmlFor="hair-style">Spiked Beehive</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/halfmessy/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="halfmessy" name="hair-style"/>
+                                        <label htmlFor="hair-style">Half Messy</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/pigtails/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="pigtails" name="hair-style"/>
+                                        <label htmlFor="hair-style">Pigtails</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/ponytail2/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="ponytail2" name="hair-style"/>
+                                        <label htmlFor="hair-style">Ponytail</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/braid/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="braid" name="hair-style"/>
+                                        <label htmlFor="hair-style">Braid</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/bangslong2/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="bangslong2" name="hair-style"/>
+                                        <label htmlFor="hair-style">Long with Bangs</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/long_messy2/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="long_messy2" name="hair-style"/>
+                                        <label htmlFor="hair-style">Long Messy</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/princess/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="princess" name="hair-style"/>
+                                        <label htmlFor="hair-style">Princess</label>
+                                    </li>
+                                    <li className="hasPreview">
+                                        <center>
+                                            <canvas className='selection-preview' data-image='hair/xlong/male/ash.png'></canvas>
+                                        </center>
+                                        <input onChange={getHairStyle} type="radio" id="xlong" name="hair-style"/>
+                                        <label htmlFor="hair-style">Extra Long</label>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li onClick={toggleDisplay}>
+                            {/* Hair Color */}
+                            <span className="condensed">Hair Color</span>
+                            <ul className="ul-block">
+                                <li className="hasPreview">
+                                    {/* <center>
+                                        <canvas className='selection-preview' data-image='hair/dreadlocks_short/male/ash.png'></canvas>
+                                    </center> */}
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-blonde" name="hair-color"/>
+                                    <label htmlFor="hair-color">Blonde</label>
+                                </li>
+                                <li className="hasPreview">
+                                    {/* <center>
+                                        <canvas className='selection-preview' data-image='hair/shorthawk/male/ash.png'></canvas>
+                                    </center> */}
+                                    <input onChange={getHairStyle} type="radio" id="hair-color-redhead" name="hair-color"/>
+                                    <label htmlFor="hair-color">Redhead</label>
                                 </li>
                             </ul>
                         </li>
