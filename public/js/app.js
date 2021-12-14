@@ -16070,6 +16070,9 @@ var CharacterCustomization = function CharacterCustomization() {
   var animate = function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    selections.sort(function (a, b) {
+      return a.zPos > b.zPos ? 1 : -1;
+    });
     selections.forEach(function (selection) {
       if (selection.sex === "unisex") {
         sex = isFemale ? "female" : "male";
@@ -16138,7 +16141,8 @@ var CharacterCustomization = function CharacterCustomization() {
       sex: "unisex",
       image: eyeColorImg,
       img_name: eyeColor + '.png',
-      base_src: baseDir + 'eyes/'
+      base_src: baseDir + 'eyes/',
+      zPos: 20
     });
   };
 
@@ -16165,7 +16169,8 @@ var CharacterCustomization = function CharacterCustomization() {
       sex: "unisex",
       image: hairStyleImg,
       img_name: hairColor + '.png',
-      base_src: baseDir + 'hair/' + hairStyle + '/'
+      base_src: baseDir + 'hair/' + hairStyle + '/',
+      zPos: 120
     });
   };
 
@@ -16190,70 +16195,80 @@ var CharacterCustomization = function CharacterCustomization() {
         sex: "unisex",
         image: warriorDefaultItems.legArmor,
         img_name: '7.png',
-        base_src: baseDir + 'legs/armour/'
+        base_src: baseDir + 'legs/armour/',
+        zPos: 20
       }, {
         "class": 'warrior',
         name: 'chainmail',
         sex: "unisex",
         image: warriorDefaultItems.chainmail,
         img_name: 'gray.png',
-        base_src: baseDir + 'torso/chainmail/'
+        base_src: baseDir + 'torso/chainmail/',
+        zPos: 50
       }, {
         "class": 'warrior',
         name: 'plate',
         sex: "unisex",
         image: warriorDefaultItems.plate,
         img_name: '11.png',
-        base_src: baseDir + 'torso/armour/plate/'
+        base_src: baseDir + 'torso/armour/plate/',
+        zPos: 60
       }, {
         "class": 'warrior',
         name: 'arms',
         sex: "unisex",
         image: warriorDefaultItems.arms,
         img_name: '1.png',
-        base_src: baseDir + 'arms/'
+        base_src: baseDir + 'arms/',
+        zPos: 60
       }, {
         "class": 'warrior',
         name: 'shoulderPlate',
         sex: "unisex",
         image: warriorDefaultItems.shoulderPlate,
         img_name: '7.png',
-        base_src: baseDir + 'shoulders/plate/'
+        base_src: baseDir + 'shoulders/plate/',
+        zPos: 60
       }, {
         "class": 'warrior',
         name: 'gloves',
         sex: "unisex",
         image: warriorDefaultItems.gloves,
         img_name: '1.png',
-        base_src: baseDir + 'gloves/'
+        base_src: baseDir + 'gloves/',
+        zPos: 70
       }, {
         "class": 'warrior',
         name: 'shoes',
         sex: "unisex",
         image: warriorDefaultItems.shoes,
         img_name: '4.png',
-        base_src: baseDir + 'feet/armor/'
+        base_src: baseDir + 'feet/armor/',
+        zPos: 15
       }, {
         "class": 'warrior',
         name: 'shield',
         sex: "unisex",
         image: warriorDefaultItems.shield,
         img_name: 'round_brown.png',
-        base_src: baseDir + 'shield/'
+        base_src: baseDir + 'shield/',
+        zPos: 110
       }, {
         "class": 'warrior',
         name: 'slashWeapon',
         sex: "unisex",
         image: warriorDefaultItems.slashWeapon,
         img_name: 'dagger.png',
-        base_src: baseDir + 'weapon/slash/'
+        base_src: baseDir + 'weapon/slash/',
+        zPos: 140
       }, {
         "class": 'warrior',
         name: 'helmet',
         sex: "unisex",
         image: warriorDefaultItems.helmet,
         img_name: 'norman.png',
-        base_src: baseDir + 'hat/helmet/'
+        base_src: baseDir + 'hat/helmet/',
+        zPos: 130
       });
     } else if (e.target.id === "mage") {
       frameY = 2;
@@ -16274,49 +16289,56 @@ var CharacterCustomization = function CharacterCustomization() {
         sex: "unisex",
         image: mageDefaultItems.legPants,
         img_name: 'navy.png',
-        base_src: baseDir + 'legs/pants/'
+        base_src: baseDir + 'legs/pants/',
+        zPos: 20
       }, {
         "class": 'mage',
         name: 'shoes',
         sex: "unisex",
         image: mageDefaultItems.shoes,
         img_name: 'black.png',
-        base_src: baseDir + 'feet/shoes/'
+        base_src: baseDir + 'feet/shoes/',
+        zPos: 15
       }, {
         "class": 'mage',
         name: 'cloak',
         sex: "male",
         image: mageDefaultItems.cloak,
         img_name: 'black.png',
-        base_src: baseDir + 'torso/jacket/iverness/'
+        base_src: baseDir + 'torso/jacket/iverness/',
+        zPos: 55
       }, {
         "class": 'mage',
         name: 'cape',
         sex: "unisex",
         image: mageDefaultItems.cape,
         img_name: 'black.png',
-        base_src: baseDir + 'cape/solid/'
+        base_src: baseDir + 'cape/solid/',
+        zPos: 85
       }, {
         "class": 'mage',
         name: 'scarf',
         sex: "none",
         image: mageDefaultItems.scarf,
         img_name: 'blue.png',
-        base_src: baseDir + 'neck/scarf/'
+        base_src: baseDir + 'neck/scarf/',
+        zPos: 90
       }, {
         "class": 'mage',
         name: 'hat',
         sex: "unisex",
         image: mageDefaultItems.hat,
         img_name: 'black.png',
-        base_src: baseDir + 'hat/magic/'
+        base_src: baseDir + 'hat/magic/',
+        zPos: 130
       }, {
         "class": 'mage',
         name: 'weapon',
         sex: "unisex",
         image: mageDefaultItems.weapon,
         img_name: 'simple_staff.png',
-        base_src: baseDir + 'weapon/thrust/'
+        base_src: baseDir + 'weapon/thrust/',
+        zPos: 140
       });
     } else if (e.target.id === "marksman") {
       frameY = 18;
@@ -16337,63 +16359,72 @@ var CharacterCustomization = function CharacterCustomization() {
         sex: "unisex",
         image: marksmanDefaultItems.legPants,
         img_name: 'green.png',
-        base_src: baseDir + 'legs/pants/'
+        base_src: baseDir + 'legs/pants/',
+        zPos: 20
       }, {
         "class": 'marksman',
         name: 'shoes',
         sex: "unisex",
         image: marksmanDefaultItems.shoes,
         img_name: 'black.png',
-        base_src: baseDir + 'feet/shoes/'
+        base_src: baseDir + 'feet/shoes/',
+        zPos: 15
       }, {
         "class": 'marksman',
         name: 'shirt',
         sex: "unisex",
         image: marksmanDefaultItems.shirt,
         img_name: 'green.png',
-        base_src: baseDir + 'torso/clothes/longsleeve/'
+        base_src: baseDir + 'torso/clothes/longsleeve/',
+        zPos: 35
       }, {
         "class": 'marksman',
         name: 'armor',
         sex: "unisex",
         image: marksmanDefaultItems.armor,
         img_name: 'brown.png',
-        base_src: baseDir + 'torso/armour/leather/'
+        base_src: baseDir + 'torso/armour/leather/',
+        zPos: 60
       }, {
         "class": 'marksman',
         name: 'bauldron',
         sex: "unisex",
         image: marksmanDefaultItems.bauldron,
         img_name: 'brown.png',
-        base_src: baseDir + 'bauldron/'
+        base_src: baseDir + 'bauldron/',
+        zPos: 65
       }, {
         "class": 'marksman',
         name: 'quiver',
         sex: "none",
         image: marksmanDefaultItems.quiver,
         img_name: 'quiver.png',
-        base_src: baseDir + 'quiver/'
+        base_src: baseDir + 'quiver/',
+        zPos: 100
       }, {
         "class": 'marksman',
         name: 'hat',
         sex: "unisex",
         image: marksmanDefaultItems.hat,
         img_name: 'leather.png',
-        base_src: baseDir + 'hat/cloth/'
+        base_src: baseDir + 'hat/cloth/',
+        zPos: 130
       }, {
         "class": 'marksman',
         name: 'weapon',
         sex: "none",
         image: marksmanDefaultItems.weapon,
         img_name: 'normal.png',
-        base_src: baseDir + 'weapon/bow/'
+        base_src: baseDir + 'weapon/bow/',
+        zPos: 140
       }, {
         "class": 'marksman',
         name: 'ammo',
         sex: "none",
         image: marksmanDefaultItems.ammo,
         img_name: 'arrow.png',
-        base_src: baseDir + 'ammo/'
+        base_src: baseDir + 'ammo/',
+        zPos: 150
       });
     }
 
@@ -16725,7 +16756,7 @@ var CharacterCustomization = function CharacterCustomization() {
               className: "condensed",
               children: "Hair Style"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
-              className: "ul-block",
+              className: "ul-block ul-hasPreview",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
                 className: "selections",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
@@ -16995,26 +17026,244 @@ var CharacterCustomization = function CharacterCustomization() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
               className: "ul-block",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "hasPreview",
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-ash",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#c18f8a'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Ash"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
                   onChange: getHairStyle,
                   type: "radio",
                   id: "hair-color-blonde",
                   name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#f5c34b'
+                  }
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
                   htmlFor: "hair-color",
                   children: "Blonde"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "hasPreview",
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-platinum",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#d9c88c'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Platinum"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-strawberry",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#f89b0e'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Strawberry"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
                   onChange: getHairStyle,
                   type: "radio",
                   id: "hair-color-redhead",
                   name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#9e1f1f'
+                  }
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
                   htmlFor: "hair-color",
                   children: "Redhead"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-carrot",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#ec673e'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Carrot"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-chestnut",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#511b03'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Chestnut"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-raven",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#0b3244'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Raven"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-gray",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#777777'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Gray"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-white",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#e2e5e5'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "White"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-blue",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#0041b4'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Blue"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-purple",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#7141b2'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Purple"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-green",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#006900'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Green"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-pink",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#e941aa'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Pink"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                className: "noPreview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                  onChange: getHairStyle,
+                  type: "radio",
+                  id: "hair-color-rose",
+                  name: "hair-color"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "color-preview",
+                  style: {
+                    backgroundColor: '#cc789d'
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                  htmlFor: "hair-color",
+                  children: "Rose"
                 })]
               })]
             })]
@@ -31840,7 +32089,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 200px;\n  height: 200px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser .ul-block:not(.ul-hasPreview) {\n  -moz-column-count: 4;\n       column-count: 4;\n  -moz-column-gap: 20px;\n       column-gap: 20px;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 200px;\n  height: 200px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}\n\n.color-preview {\n  width: 1rem;\n  height: 1rem;\n  background-color: black;\n  display: inline-block;\n  margin: 0 1rem;\n}\n\n#chooser ul {\n  margin: 1rem 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

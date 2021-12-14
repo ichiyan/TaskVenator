@@ -93,6 +93,7 @@ const CharacterCustomization = () => {
     const animate = () => {
         ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        selections.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
         selections.forEach(selection => {
             if ( selection.sex === "unisex" ){
                 sex = isFemale ? "female" : "male";
@@ -157,6 +158,7 @@ const CharacterCustomization = () => {
                 image: eyeColorImg,
                 img_name: eyeColor + '.png',
                 base_src: baseDir + 'eyes/',
+                zPos: 20,
             }
         );
     }
@@ -180,6 +182,7 @@ const CharacterCustomization = () => {
                 image: hairStyleImg,
                 img_name: hairColor + '.png',
                 base_src: baseDir + 'hair/' + hairStyle + '/',
+                zPos: 120,
             }
         );
     }
@@ -210,6 +213,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.legArmor,
                     img_name: '7.png',
                     base_src: baseDir + 'legs/armour/',
+                    zPos: 20,
                 },
                 {
                     class: 'warrior',
@@ -218,6 +222,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.chainmail,
                     img_name: 'gray.png',
                     base_src: baseDir + 'torso/chainmail/',
+                    zPos: 50,
                 },
                 {
                     class: 'warrior',
@@ -226,6 +231,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.plate,
                     img_name: '11.png',
                     base_src: baseDir + 'torso/armour/plate/',
+                    zPos: 60,
                 },
                 {
                     class: 'warrior',
@@ -234,6 +240,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.arms,
                     img_name: '1.png',
                     base_src: baseDir + 'arms/',
+                    zPos: 60,
                 },
                 {
                     class: 'warrior',
@@ -242,6 +249,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.shoulderPlate,
                     img_name: '7.png',
                     base_src: baseDir + 'shoulders/plate/',
+                    zPos: 60,
                 },
                 {
                     class: 'warrior',
@@ -250,6 +258,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.gloves,
                     img_name: '1.png',
                     base_src: baseDir + 'gloves/',
+                    zPos: 70,
                 },
                 {
                     class: 'warrior',
@@ -258,6 +267,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.shoes,
                     img_name: '4.png',
                     base_src: baseDir + 'feet/armor/',
+                    zPos: 15,
                 },
                 {
                     class: 'warrior',
@@ -266,6 +276,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.shield,
                     img_name: 'round_brown.png',
                     base_src: baseDir + 'shield/',
+                    zPos: 110,
                 },
                 {
                     class: 'warrior',
@@ -274,6 +285,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.slashWeapon,
                     img_name: 'dagger.png',
                     base_src: baseDir + 'weapon/slash/',
+                    zPos: 140,
                 },
                 {
                     class: 'warrior',
@@ -282,6 +294,7 @@ const CharacterCustomization = () => {
                     image: warriorDefaultItems.helmet,
                     img_name: 'norman.png',
                     base_src: baseDir + 'hat/helmet/',
+                    zPos: 130,
                 },
             );
         }else if (e.target.id === "mage" ){
@@ -307,6 +320,7 @@ const CharacterCustomization = () => {
                     image: mageDefaultItems.legPants,
                     img_name: 'navy.png',
                     base_src: baseDir + 'legs/pants/',
+                    zPos: 20,
                 },
                 {
                     class: 'mage',
@@ -315,6 +329,7 @@ const CharacterCustomization = () => {
                     image: mageDefaultItems.shoes,
                     img_name: 'black.png',
                     base_src: baseDir + 'feet/shoes/',
+                    zPos: 15,
                 },
                 {
                     class: 'mage',
@@ -323,6 +338,7 @@ const CharacterCustomization = () => {
                     image: mageDefaultItems.cloak,
                     img_name: 'black.png',
                     base_src: baseDir + 'torso/jacket/iverness/',
+                    zPos: 55,
                 },
                 {
                     class: 'mage',
@@ -331,6 +347,7 @@ const CharacterCustomization = () => {
                     image: mageDefaultItems.cape,
                     img_name: 'black.png',
                     base_src: baseDir + 'cape/solid/',
+                    zPos: 85,
                 },
                 {
                     class: 'mage',
@@ -339,6 +356,7 @@ const CharacterCustomization = () => {
                     image: mageDefaultItems.scarf,
                     img_name: 'blue.png',
                     base_src: baseDir + 'neck/scarf/',
+                    zPos: 90,
                 },
                 {
                     class: 'mage',
@@ -347,6 +365,7 @@ const CharacterCustomization = () => {
                     image: mageDefaultItems.hat,
                     img_name: 'black.png',
                     base_src: baseDir + 'hat/magic/',
+                    zPos: 130,
                 },
                 {
                     class: 'mage',
@@ -355,6 +374,7 @@ const CharacterCustomization = () => {
                     image: mageDefaultItems.weapon,
                     img_name: 'simple_staff.png',
                     base_src: baseDir + 'weapon/thrust/',
+                    zPos: 140,
                 },
             );
         }else if (e.target.id === "marksman"){
@@ -380,6 +400,7 @@ const CharacterCustomization = () => {
                     image: marksmanDefaultItems.legPants,
                     img_name: 'green.png',
                     base_src: baseDir + 'legs/pants/',
+                    zPos: 20,
                 },
                 {
                     class: 'marksman',
@@ -388,6 +409,7 @@ const CharacterCustomization = () => {
                     image: marksmanDefaultItems.shoes,
                     img_name: 'black.png',
                     base_src: baseDir + 'feet/shoes/',
+                    zPos: 15,
                 },
                 {
                     class: 'marksman',
@@ -396,6 +418,7 @@ const CharacterCustomization = () => {
                     image: marksmanDefaultItems.shirt,
                     img_name: 'green.png',
                     base_src: baseDir + 'torso/clothes/longsleeve/',
+                    zPos: 35,
                 },
                 {
                     class: 'marksman',
@@ -404,6 +427,7 @@ const CharacterCustomization = () => {
                     image: marksmanDefaultItems.armor,
                     img_name: 'brown.png',
                     base_src: baseDir + 'torso/armour/leather/',
+                    zPos: 60,
                 },
                  {
                     class: 'marksman',
@@ -412,6 +436,7 @@ const CharacterCustomization = () => {
                     image: marksmanDefaultItems.bauldron,
                     img_name: 'brown.png',
                     base_src: baseDir + 'bauldron/',
+                    zPos: 65,
                 },
                 {
                     class: 'marksman',
@@ -420,6 +445,7 @@ const CharacterCustomization = () => {
                     image: marksmanDefaultItems.quiver,
                     img_name: 'quiver.png',
                     base_src: baseDir + 'quiver/',
+                    zPos: 100,
                 },
                 {
                     class: 'marksman',
@@ -428,6 +454,7 @@ const CharacterCustomization = () => {
                     image: marksmanDefaultItems.hat,
                     img_name: 'leather.png',
                     base_src: baseDir + 'hat/cloth/',
+                    zPos: 130,
                 },
                 {
                     class: 'marksman',
@@ -436,6 +463,7 @@ const CharacterCustomization = () => {
                     image: marksmanDefaultItems.weapon,
                     img_name: 'normal.png',
                     base_src: baseDir + 'weapon/bow/',
+                    zPos: 140,
                 },
                 {
                     class: 'marksman',
@@ -444,6 +472,7 @@ const CharacterCustomization = () => {
                     image: marksmanDefaultItems.ammo,
                     img_name: 'arrow.png',
                     base_src: baseDir + 'ammo/',
+                    zPos: 150,
                 },
             );
         }
@@ -585,7 +614,7 @@ const CharacterCustomization = () => {
                         <li onClick={toggleDisplay}>
                             {/* Hair Style */}
                             <span className="condensed">Hair Style</span>
-                            <ul className="ul-block">
+                            <ul className="ul-block ul-hasPreview">
                                 <div className="selections">
                                     <li className="hasPreview">
                                         <center>
@@ -706,19 +735,80 @@ const CharacterCustomization = () => {
                             {/* Hair Color */}
                             <span className="condensed">Hair Color</span>
                             <ul className="ul-block">
-                                <li className="hasPreview">
-                                    {/* <center>
-                                        <canvas className='selection-preview' data-image='hair/dreadlocks_short/male/ash.png'></canvas>
-                                    </center> */}
-                                    <input onChange={getHairStyle}  type="radio" id="hair-color-blonde" name="hair-color"/>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-ash" name="hair-color"/>
+                                    <div className='color-preview'style={{ backgroundColor: '#c18f8a'}}></div>
+                                    <label htmlFor="hair-color">Ash</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle} type="radio" id="hair-color-blonde" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#f5c34b'}}></div>
                                     <label htmlFor="hair-color">Blonde</label>
                                 </li>
-                                <li className="hasPreview">
-                                    {/* <center>
-                                        <canvas className='selection-preview' data-image='hair/shorthawk/male/ash.png'></canvas>
-                                    </center> */}
-                                    <input onChange={getHairStyle} type="radio" id="hair-color-redhead" name="hair-color"/>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-platinum" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#d9c88c'}}></div>
+                                    <label htmlFor="hair-color">Platinum</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-strawberry" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#f89b0e'}}></div>
+                                    <label htmlFor="hair-color">Strawberry</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-redhead" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#9e1f1f'}}></div>
                                     <label htmlFor="hair-color">Redhead</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-carrot" name="hair-color"/>
+                                    <div className='color-preview'style={{ backgroundColor: '#ec673e'}}></div>
+                                    <label htmlFor="hair-color">Carrot</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-chestnut" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#511b03'}}></div>
+                                    <label htmlFor="hair-color">Chestnut</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-raven" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#0b3244'}}></div>
+                                    <label htmlFor="hair-color">Raven</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-gray" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#777777'}}></div>
+                                    <label htmlFor="hair-color">Gray</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-white" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#e2e5e5'}}></div>
+                                    <label htmlFor="hair-color">White</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-blue" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#0041b4'}}></div>
+                                    <label htmlFor="hair-color">Blue</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-purple" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#7141b2'}}></div>
+                                    <label htmlFor="hair-color">Purple</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-green" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#006900'}}></div>
+                                    <label htmlFor="hair-color">Green</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-pink" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#e941aa'}}></div>
+                                    <label htmlFor="hair-color">Pink</label>
+                                </li>
+                                <li className="noPreview">
+                                    <input onChange={getHairStyle}  type="radio" id="hair-color-rose" name="hair-color"/>
+                                    <div className='color-preview' style={{ backgroundColor: '#cc789d'}}></div>
+                                    <label htmlFor="hair-color">Rose</label>
                                 </li>
                             </ul>
                         </li>

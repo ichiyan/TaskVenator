@@ -27,6 +27,11 @@
     display: none;
 }
 
+#chooser .ul-block:not(.ul-hasPreview){
+    column-count: 4;
+    column-gap: 20px;
+}
+
 #chooser ul>li>.condensed:after {
     padding-left: 10px;
     content: '\25B6';
@@ -85,3 +90,15 @@
     width: 64px;
     height: 64px;
   }
+
+ .color-preview{
+      width: 1rem;
+      height: 1rem;
+      background-color: black;
+      display: inline-block;
+      margin: 0 1rem;
+  }
+
+#chooser ul{
+    margin: 1rem 0;
+}
