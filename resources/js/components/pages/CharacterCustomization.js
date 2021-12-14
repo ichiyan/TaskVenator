@@ -483,12 +483,14 @@ const CharacterCustomization = () => {
     return (
        <div className="container char-customization">
             <div className="card char-cust-card">
-                <h3 className="text-center">Character Customization</h3>
-                <section id="preview">
-                    <div id="previewAnimationsBox">
-                        <canvas id="previewAnimations"></canvas>
-                    </div>
-                </section>
+                <div id='char-cust-header'>
+                    <h3 className="text-center">Character Customization</h3>
+                    <section id="preview">
+                        <div id="previewAnimationsBox">
+                            <canvas id="previewAnimations"></canvas>
+                        </div>
+                    </section>
+                </div>
                 <section id="chooser">
                     <ul>
                         <li onClick={toggleDisplay}>

@@ -16435,17 +16435,20 @@ var CharacterCustomization = function CharacterCustomization() {
     className: "container char-customization",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "card char-cust-card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-        className: "text-center",
-        children: "Character Customization"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
-        id: "preview",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          id: "previewAnimationsBox",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-            id: "previewAnimations"
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        id: "char-cust-header",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+          className: "text-center",
+          children: "Character Customization"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
+          id: "preview",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            id: "previewAnimationsBox",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+              id: "previewAnimations"
+            })
           })
-        })
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
         id: "chooser",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
@@ -32089,7 +32092,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser .ul-block:not(.ul-hasPreview) {\n  -moz-column-count: 4;\n       column-count: 4;\n  -moz-column-gap: 20px;\n       column-gap: 20px;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 200px;\n  height: 200px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}\n\n.color-preview {\n  width: 1rem;\n  height: 1rem;\n  background-color: black;\n  display: inline-block;\n  margin: 0 1rem;\n}\n\n#chooser ul {\n  margin: 1rem 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser .ul-block:not(.ul-hasPreview) {\n  -moz-column-count: 4;\n       column-count: 4;\n  -moz-column-gap: 20px;\n       column-gap: 20px;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 200px;\n  height: 200px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}\n\n.color-preview {\n  width: 1rem;\n  height: 1rem;\n  background-color: black;\n  display: inline-block;\n  margin: 0 1rem;\n}\n\n#chooser ul {\n  margin: 1rem 0;\n}\n\n#char-cust-header {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  background: #ffffff;\n  margin-bottom: 1rem;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
