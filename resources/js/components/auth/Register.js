@@ -1,10 +1,5 @@
-import React, { useEffect, useState} from "react";
-import {Link, useNavigate} from 'react-router-dom';
-import axios from "axios";
-import Swal from 'sweetalert2'
-
-import Header from "../layouts/Header";
-
+import { React, useEffect, useState, Link, useNavigate, axios} from "../../index";
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
@@ -41,7 +36,7 @@ const Register = () => {
                     localStorage.setItem('auth_token', res.data.token);
                     localStorage.setItem('auth_name', res.data.username);
                     Swal.fire({text: res.data.message, icon: "success"});
-                    navigate('/tasks');
+                    navigate('/character_customization');
                 }else{
                     setRegisterUser({
                         ...registerUser,

@@ -6,8 +6,7 @@ import axios from 'axios';
 import Auth from "../pages/Auth";
 import Home from "../pages/Home";
 import Tasks from "../pages/Tasks";
-
-
+import { CharacterCustomization } from "../..";
 
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
@@ -28,6 +27,7 @@ const AppRouter = () => {
                 <Routes>
                     <Route path='/' exact element={<Home/>}></Route>
                     <Route path='/register' element={<Auth page="register"/>}></Route>
+                    <Route path='/character_customization' element={<Auth page="character_customization"/>}></Route>
                     <Route path='/login' element={<Auth page="login"/>}></Route>
                     <Route path='/tasks' element={<Tasks tab="tasks"/>}></Route>
                     <Route path='/party' element={<Tasks tab="party"/>}></Route>

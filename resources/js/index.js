@@ -1,8 +1,8 @@
-export {Link} from 'react-router-dom';
+export {Link, useNavigate} from 'react-router-dom';
 export {default as React} from "react";
 export {default as ReactDOM} from 'react-dom';
 export {default as $} from "jquery";
-export { useEffect, useState, useRef, useCallback, useContext, Fragment } from "react";
+export { useEffect, useState, useRef, Fragment } from "react";
 export { default as axios } from "axios";
 export { default as io } from "socket.io-client";
 export { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -47,6 +47,7 @@ export {default as Cards} from "./components/pages/shop/Cards";
 export {default as AddOutfitForm} from "./components/pages/shop/AddOutfitForm";
 export {default as AddPotionForm} from "./components/pages/shop/AddPotionForm";
 export {default as AddCardForm} from "./components/pages/shop/AddCardForm";
+export {default as CharacterCustomization} from "./components/pages/CharacterCustomization";
 
 export {default as Inventory} from "./components/pages/inventory/inventory";
 export {default as InventoryOutfit} from "./components/pages/inventory/InventoryOutfit";
