@@ -1,20 +1,22 @@
 import Button from "@restart/ui/esm/Button";
 import {Link, React, useEffect, useState, 
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
-
+import InventoryPotionFilter from "./InventoryPotionFilter";
 function InventoryPotions(){
     const[inventory,setInventory]=useState({
-        products:[],
+        potions:[],
   });
     const[authId, setAuthId]=useState("");
     const[preview, setPreview]=useState("");
+    const[potionType,setPotionType]=useState("All");
+    const[size, setSize]=useState("All");
     useEffect(() =>{
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-                console.log(res.data.potions)
+                
                 
                 setInventory({
-                    products:res.data.potions
+                    potions:res.data.potion
                    
               })
               
@@ -26,13 +28,21 @@ function InventoryPotions(){
         })
      },[])
      useEffect(()=>{
-            setInventory(inventory);
-            console.log(inventory.products);
+            
+            console.log(inventory.potions);
      },[inventory])
 
      const previewImage =(event)=>{
         setPreview(event)
    }
+   const potionHandler=(e)=>{
+        
+    setPotionType(e.target.value);
+    
+    }
+    const sizeHandler=(e)=>{
+      setSize(e.target.value);
+    }
     return(
         <section className="container party-section">
                 <div className="party-nav">
@@ -44,54 +54,378 @@ function InventoryPotions(){
             
               <div className="inventory-filtShop">
                   <div className="inventory-filter">
-                              <p>Class</p>
-                                    <select name="class" className="form-select">
-                                          <option value="All">All</option>
-                                          <option value="Warrior">Warrior</option>
-                                          <option value="Assassin">Assassin</option>
-                                          <option value="Mage">Mage</option>
-                                    </select><br></br>
-                                    <p>Rarity</p>
-                                    <select name="class" className="form-select" >
-                                          <option value="All">All</option>
-                                          <option value="Common">Common</option>
-                                          <option value="Uncommon">Uncommon</option>
-                                          <option value="Rare">Rare</option>
-                                    </select><br></br>
+                                      <p>Potion Type</p>
+                                          <select name="class" className="form-select" onChange={potionHandler}>
+                                                <option value="All">All</option>
+                                                <option value="Hp Potion">Hp Potion</option>
+                                                <option value="Powerup Potion">Powerup Potion</option>
+                                          </select><br></br>
+                                          <p>Size</p>
+                                          <select name="class" className="form-select" onChange={sizeHandler}>
+                                                <option value="All">All</option>
+                                                <option value="Small">Small</option>
+                                                <option value="Medium">Medium</option>
+                                                <option value="Large">Large</option>
+                                          </select><br></br>
                   </div>
                 <div className="inventory-shop">      
                  <div className="inventory-category">
-                            <div className="shop-categoryName">
-                                <p>Outfit</p>
-                            </div>
-                            {inventory.products.map((w,index)=>{
-                                if(w.inventUserId === authId){
-                                  if(w.type === "Hp Potion"){
-                                        return (
-                                            <div className="inventory-returnMap">
-                                                <div data-tip data-for={w.name} className="inventory-items"> 
-                                                    <div className="inventory-itemsImage">
-                                                    <img src={w.image}></img>
-                                                    </div>
-                                                    <div className="inventory-itemsInfo">
-                                                        <h6>{w.name}</h6>
-                                                        <p>{w.size}</p>
-                                                    </div>
-                                                </div> 
-                                                <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="inventory-toolTip">
-                                                    <div className="inventory-hide">
-                                                        <div className="inventory-itemsInfo">
-                                                            <p>{w.description}</p>
-                                                        </div> 
-                                                    </div>
-                                                </ReactTooltip>
-                                          </div>
-                                     )
+                            
+                     {/* POTIONTYPE:ALL SIZE: ALL (DISPLAY ALL POTIONS) */}
+                    { (potionType === "All" && size==="All")?
+                              <div className="shop-categoryName">
+                                    <p>Health Potions</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                    if(potionType === "All" && size==="All"){
+                                          if(p.type==="Hp Potion"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                          }
                                     }
-                                }
-                            })}
+                              })}
+                        { (potionType === "All" && size==="All")?
+                              <div className="shop-categoryName">
+                                    <p>Powerup Potions</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                    if(potionType === "All" && size==="All"){
+                                          if(p.type==="Powerup Potion"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                          }
+                                    }
+                              })}
+                        {/* POTIONTYPE:ALL SIZE: SMALL TO LARGE */}
+                    { (potionType === "All" && size==="Small")?
+                              <div className="shop-categoryName">
+                                    <p>Health Potions</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if (potionType === "All" && size==="Small"){
+                                          if(p.type==="Hp Potion" && p.size===size){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                                }
+                                    }
+                              })}
+                   { (potionType === "All" && size==="Small")?
+                              <div className="shop-categoryName">
+                                    <p>Powerup Potions</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "All" && size==="Small"){
+                                          if(p.type==="Powerup Potion" && p.size===size){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                        {/* POTIONTYPE:ALL SIZE: Medium */}
+                    { (potionType === "All" && size==="Medium")?
+                              <div className="shop-categoryName">
+                                    <p>Health Potions</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if (potionType === "All" && size==="Medium"){
+                                          if(p.type==="Hp Potion" && p.size===size){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                                }
+                                    }
+                              })}
+                   { (potionType === "All" && size==="Medium")?
+                              <div className="shop-categoryName">
+                                    <p>Powerup Potions</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "All" && size==="Medium"){
+                                          if(p.type==="Powerup Potion" && p.size===size){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                         {/* POTIONTYPE:ALL SIZE: LARGE*/}
+                    { (potionType === "All" && size==="Large")?
+                              <div className="shop-categoryName">
+                                    <p>Health Potions</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if (potionType === "All" && size==="Large"){
+                                          if(p.type==="Hp Potion" && p.size===size){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                                }
+                                    }
+                              })}
+                   { (potionType === "All" && size==="Large")?
+                              <div className="shop-categoryName">
+                                    <p>Powerup Potions</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "All" && size==="Large"){
+                                          if(p.type==="Powerup Potion" && p.size===size){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                         {/* POTIONTYPE:ALL SIZE: LARGE*/}
+                    { (potionType === "All" && size==="Large")?
+                              <div className="shop-categoryName">
+                                    <p>Health Potions</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if (potionType === "All" && size==="Large"){
+                                          if(p.type==="Hp Potion" && p.size===size){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                                }
+                                    }
+                              })}
+                              {/* POTIONTYPE::HPPOTION SIZE:ALL */}
+                   { (potionType === "Hp Potion" && size==="All")?
+                              <div className="shop-categoryName">
+                                    <p>Small</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Hp Potion" && size==="All"){
+                                          if(p.type==="Hp Potion" && p.size==="Small"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                               { (potionType === "Hp Potion" && size==="All")?
+                              <div className="shop-categoryName">
+                                    <p>Medium</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Hp Potion" && size==="All"){
+                                          if(p.type==="Hp Potion" && p.size==="Medium"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                                { (potionType === "Hp Potion" && size==="All")?
+                              <div className="shop-categoryName">
+                                    <p>Large</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Hp Potion" && size==="All"){
+                                          if(p.type==="Hp Potion" && p.size==="Large"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                            
+                                {/* POTIONTYPE::HPPOTION SIZE:Small down to large */}
+                   { (potionType === "Hp Potion" && size==="Small")?
+                              <div className="shop-categoryName">
+                                    <p>Small</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Hp Potion" && size==="Small"){
+                                          if(p.type==="Hp Potion" && p.size==="Small"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                               { (potionType === "Hp Potion" && size==="Medium")?
+                              <div className="shop-categoryName">
+                                    <p>Medium</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Hp Potion" && size==="Medium"){
+                                          if(p.type==="Hp Potion" && p.size==="Medium"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                                { (potionType === "Hp Potion" && size==="Large")?
+                              <div className="shop-categoryName">
+                                    <p>Large</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Hp Potion" && size==="Large"){
+                                          if(p.type==="Hp Potion" && p.size==="Large"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+
+                        {/* POTIONTYPE::POWERUP POTION SIZE:ALL */}
+                   { (potionType === "Powerup Potion" && size==="All")?
+                              <div className="shop-categoryName">
+                                    <p>Small</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Powerup Potion" && size==="All"){
+                                          if(p.type==="Powerup Potion" && p.size==="Small"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                               { (potionType === "Powerup Potion" && size==="All")?
+                              <div className="shop-categoryName">
+                                    <p>Medium</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Powerup Potion" && size==="All"){
+                                          if(p.type==="Powerup Potion" && p.size==="Medium"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                                { (potionType === "Powerup Potion" && size==="All")?
+                              <div className="shop-categoryName">
+                                    <p>Large</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Powerup Potion" && size==="All"){
+                                          if(p.type==="Powerup Potion" && p.size==="Large"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+
+                              {/* POTIONTYPE::POWERUP POTION SIZE:Small down to large */}
+                   { (potionType === "Powerup Potion" && size==="Small")?
+                              <div className="shop-categoryName">
+                                    <p>Small</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Powerup Potion" && size==="Small"){
+                                          if(p.type==="Powerup Potion" && p.size==="Small"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                               { (potionType === "Powerup Potion" && size==="Medium")?
+                              <div className="shop-categoryName">
+                                    <p>Medium</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Powerup Potion" && size==="Medium"){
+                                          if(p.type==="Powerup Potion" && p.size==="Medium"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                                { (potionType === "Powerup Potion" && size==="Large")?
+                              <div className="shop-categoryName">
+                                    <p>Large</p>
+                              </div>:""
+                              }
+                              {inventory.potions.map((p,index)=>{
+                                   if(potionType === "Powerup Potion" && size==="Large"){
+                                          if(p.type==="Powerup Potion" && p.size==="Large"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                            }
+                                    }
+                              })}
+                              
+                    
+                    
                         </div> 
                  </div>  
+
+
                  <div className="inventory-preview">
                      <div className="inventory-equipped1">
                             <div className="inventory-categoryName">

@@ -4,11 +4,24 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 import InventoryOutfit from "./InventoryOutfit";
 function InventoryOutfitFilter({setPreview,data}){
-//     const[preview, setPreview]=useState("");
-//     const previewImage =(event)=>{
-//         setPreview(event)
+    const [passProductId, setPassProductId]= useState({
+        directory: '',
+        spriteName:'',
+  });
+    const submitToHandler=(e)=>{
+        e.preventDefault();
+ //     Swal.fire("You have successfully bought the item");
+        setPassProductId({
+            directory: e.target.directory.value,
+            spriteName:e.target.spriteName.value,
+        })
         
-//    }
+      
+
+  }
+  useEffect(() => {
+    console.log(passProductId);
+  },[passProductId])
     return(
         <div data-tip data-for={data.name}  className="inventory-returnMap">
                     <div className="inventory-items"> 
@@ -24,7 +37,11 @@ function InventoryOutfitFilter({setPreview,data}){
                             </div>
                             <div className="inventory-itemsInfo">
                                 <h6>{data.name}</h6>
-                                
+                                <form onSubmit={submitToHandler}>
+                              <input name="directory" type="hidden" value={data.directory}/>
+                              <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
+                              <Button type="submit">Equip</Button>
+                        </form>
                             </div>
                     </div> 
                     <ReactTooltip id={data.name} place="right" aria-haspopup='true' className="inventory-toolTip">

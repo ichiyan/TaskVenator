@@ -25,6 +25,13 @@ class InventoryController extends Controller
                 ->where('outfit.outfit_type','=', "Armor")
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*','outfit_info.*' ,'inventories.user_id AS inventUserId']);
+        $weapon= DB::table('inventories')
+                ->join('users', 'users.id', '=', 'inventories.user_id')
+                ->join('products', 'products.id', '=', 'inventories.product')
+                ->join('outfit','outfit.id','=','products.outfit')
+                ->where('outfit.outfit_type','=', "Weapon")
+                ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
+                ->get(['outfit.*','outfit_info.*' ,'inventories.user_id AS inventUserId']);
          
 
         $potion= DB::table('inventories')
@@ -48,8 +55,7 @@ class InventoryController extends Controller
         return response()->json([
             'message' => "inventory success",
             'status'=>200,
-            // 'weapon' => $weapon,
-            // 'armor' => $armor,
+            'weapon' => $weapon,
             'item' => $item,
             'potion' => $potion,
             'auth_id'=> $user_id,

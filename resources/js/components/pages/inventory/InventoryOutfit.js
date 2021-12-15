@@ -40,8 +40,6 @@ function InventoryOutfit(){
    }
    const rarityHandler=(e)=>{
     setRarity(e.target.value);
-   
-    
 }
 const classHandler=(e)=>{
       setCharClass(e.target.value);

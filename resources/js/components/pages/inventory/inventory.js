@@ -1,30 +1,52 @@
 import Button from "@restart/ui/esm/Button";
 import {Link, React, useEffect, useState, 
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
-
+import InventoryPotionFilter from "./InventoryPotionFilter";
+import InventoryWeaponFilter from "./InventoryWeaponFilter";
+import InventoryOutfitFilter from "./InventoryOutfitFilter";
 function Inventory(){
-    const[inventory,setInventory]=useState({
-        items:[],
-  });
+  
+    const[inventoryPotion,setInventoryPotion]=useState({
+        potions:[],
+    });
+    const[inventoryWeapon,setInventoryWeapon]=useState({
+        weapons:[],
+    });
+    const[inventoryArmor,setInventoryArmor]=useState({
+        armors:[],
+    });
     useEffect(() =>{
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-                // console.log(res.data)
+                console.log(res.data)
                 // console.log(res.data.items)
                 // console.log(res.data.items[0].user_id)
                 // console.log(res.data.items[0].name)
                 // console.log(res.data.auth_id)
 
-                setInventory({
-                    items:res.data.outfit
+                setInventoryPotion({
+                    potions:res.data.potion
                    
               })
+              setInventoryWeapon({
+                weapons:res.data.weapon
+               
+             })
+              setInventoryArmor({
+             armors:res.data.item
+           
+             })
                
               
                 
           }
         })
      },[])
+     useEffect(()=>{
+        console.log(inventoryArmor);
+        console.log(inventoryPotion);
+        console.log(inventoryWeapon);
+     },[inventoryArmor,inventoryPotion,inventoryWeapon]);
     return(
         <section className="container party-section">
             
@@ -36,7 +58,7 @@ function Inventory(){
               </div>
            
               <div className="inventory-filtShop">
-                  <div className="inventory-filter">
+                  {/* <div className="inventory-filter">
                               <p>Class</p>
                                     <select name="class" className="form-select">
                                           <option value="All">All</option>
@@ -51,145 +73,39 @@ function Inventory(){
                                           <option value="Uncommon">Uncommon</option>
                                           <option value="Rare">Rare</option>
                                     </select><br></br>
-                  </div>
+                  </div> */}
                 <div className="inventory-shop">      
                  <div className="inventory-category">
-                            <div className="shop-categoryName">
-                                <p>Health Potions</p>
-                            </div>
-                            <div className="inventory-returnMap">
-                                <div data-tip data-for="test" className="shop-items"> 
-                                        <div className="inventory-itemsImage">
-                                        <img></img>
-                                        </div>
-                                        <div className="inventory-itemsInfo">
-                                            <h6>asdasd</h6>
-                                            <p>asdasd</p>
-                                            <Button>Equip</Button>
-                                        </div>
-                                </div> 
-                                <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                        <div className="inventory-hide">
-                                            <div className="inventory-itemsInfo">
-                                                    <p>asdasdasd</p>
-                                            </div> 
-                                        </div>
-                                </ReactTooltip>
-                            </div>
-                            <div className="inventory-returnMap">
-                                <div data-tip data-for="test" className="inventory-items"> 
-                                        <div className="inventory-itemsImage">
-                                        <img></img>
-                                        </div>
-                                        <div className="inventory-itemsInfo">
-                                            <h6>asdasd</h6>
-                                            <p>asdasd</p>
-                                            <Button>Equip</Button>
-                                        </div>
-                                </div> 
-                                <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                        <div className="inventory-hide">
-                                            <div className="inventory-itemsInfo">
-                                                    <p>asdasdasd</p>
-                                            </div> 
-                                        </div>
-                                </ReactTooltip>
-                            </div>
-                            <div className="inventory-returnMap">
-                                <div data-tip data-for="test" className="inventory-items"> 
-                                        <div className="inventory-itemsImage">
-                                        <img></img>
-                                        </div>
-                                        <div className="inventory-itemsInfo">
-                                            <h6>asdasd</h6>
-                                            <p>asdasd</p>
-                                            <Button>Equip</Button>
-                                        </div>
-                                </div> 
-                                <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                        <div className="inventory-hide">
-                                            <div className="inventory-itemsInfo">
-                                                    <p>asdasdasd</p>
-                                            </div> 
-                                        </div>
-                                </ReactTooltip>
-                            </div>
-                            <div className="inventory-returnMap">
-                                <div data-tip data-for="test" className="inventory-items"> 
-                                        <div className="inventory-itemsImage">
-                                        <img></img>
-                                        </div>
-                                        <div className="inventory-itemsInfo">
-                                            <h6>asdasd</h6>
-                                            <p>asdasd</p>
-                                            <Button>Equip</Button>
-                                        </div>
-                                </div> 
-                                <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                        <div className="inventory-hide">
-                                            <div className="inventory-itemsInfo">
-                                                    <p>asdasdasd</p>
-                                            </div> 
-                                        </div>
-                                </ReactTooltip>
-                            </div>
-                            <div className="inventory-returnMap">
-                                <div data-tip data-for="test" className="inventory-items"> 
-                                        <div className="inventory-itemsImage">
-                                        <img></img>
-                                        </div>
-                                        <div className="inventory-itemsInfo">
-                                            <h6>asdasd</h6>
-                                            <p>asdasd</p>
-                                            <Button>Equip</Button>
-                                        </div>
-                                </div> 
-                                <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                        <div className="inventory-hide">
-                                            <div className="inventory-itemsInfo">
-                                                    <p>asdasdasd</p>
-                                            </div> 
-                                        </div>
-                                </ReactTooltip>
-                            </div>
-                            <div className="inventory-returnMap">
-                                <div data-tip data-for="test" className="inventory-items"> 
-                                        <div className="inventory-itemsImage">
-                                        <img></img>
-                                        </div>
-                                        <div className="inventory-itemsInfo">
-                                            <h6>asdasd</h6>
-                                            <p>asdasd</p>
-                                            <Button>Equip</Button>
-                                        </div>
-                                </div> 
-                                <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                        <div className="inventory-hide">
-                                            <div className="inventory-itemsInfo">
-                                                    <p>asdasdasd</p>
-                                            </div> 
-                                        </div>
-                                </ReactTooltip>
-                            </div>
-                            <div className="inventory-returnMap">
-                                <div data-tip data-for="test" className="inventory-items"> 
-                                        <div className="inventory-itemsImage">
-                                        <img></img>
-                                        </div>
-                                        <div className="inventory-itemsInfo">
-                                            <h6>asdasd</h6>
-                                            <p>asdasd</p>
-                                            <Button>Equip</Button>
-                                        </div>
-                                </div> 
-                                <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                        <div className="inventory-hide">
-                                            <div className="inventory-itemsInfo">
-                                                    <p>asdasdasd</p>
-                                            </div> 
-                                        </div>
-                                </ReactTooltip>
-                            </div>
+                            
+          
+                              <div className="shop-categoryName">
+                                    <p>Health Potions</p>
+                              </div>
+                              {inventoryPotion.potions.map((p,index)=>{
+                                          if(p.type==="Hp Potion"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                        }
+                                  })}
+                       
+                              <div className="shop-categoryName">
+                                    <p>Powerup Potions</p>
+                              </div>
+                              
+                              {inventoryPotion.potions.map((p,index)=>{
+                                  
+                                          if(p.type==="Powerup Potion"){
+                                                return (
+                                                      <div key={index} className="shop-outfitFilter">
+                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                      </div> 
+                                                )
+                                          }
+                                    
+                              })}
                         </div> 
                  </div>  
                  <div className="inventory-preview">
