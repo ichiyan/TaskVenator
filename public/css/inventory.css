@@ -24,6 +24,10 @@
     display: flex;
     flex-direction: row;   
 }
+.inventory-outfitFilter{
+    display: inline-block;
+  }
+  
 .inventory-filter{
     display: flex;
     flex-direction: column;
@@ -31,13 +35,13 @@
     height:200px;
     flex: 1;
     color: white;
-    background-color: brown;
+    /* background-color: brown; */
 }
 .inventory-shop{
     display:flex;
     flex-direction: row;
     flex: 7;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 /* css for the preview/equippied items part */

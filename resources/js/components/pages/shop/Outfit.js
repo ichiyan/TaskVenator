@@ -71,13 +71,13 @@ function Outfit(){
                         <div className="party-nav-item "><Link to="/all">All</Link></div>
                         <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
                         <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
-                        <div className="party-nav-item"><Link to="/cards">Cards</Link></div>
+                        {/* <div className="party-nav-item"><Link to="/cards">Cards</Link></div> */}
                         <div className="party-nav-item party-active-nav"><Link to="/outfit">Outfit</Link></div>
                   </div>
             
               <div className="shop-filtShop">
                   <div className="shop-filter">
-                              <p>Class</p>
+                                    <p>Class</p>
                                     <select name="class" className="form-select" onChange={classHandler}>
                                           <option value="All">All</option>
                                           <option value="Warrior">Warrior</option>
@@ -2128,7 +2128,7 @@ function Outfit(){
                                     <h5>Marksman</h5>
                               </div>:""
                               }  
-                              {(charClass==="Marksman" && bodyPart==="Head" )?<div>
+                              {(charClass==="Marksman" && bodyPart==="Head" && rarity==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
                               </div>

@@ -10,12 +10,12 @@ use App\Models\Product;
 class PotionController extends Controller
 {
     public function index(Request $request){
-            $potion= Potion::all();
-            $product= Product::with('featuresPotion')->where('potion', '!=', 'NULL')->get();
+            // $potion= Potion::all();
+            $potion= Product::with('featuresPotion')->where('potion', '!=', 'NULL')->get();
             return response()->json([
                 'status' => 200,
-                'potions' => $potion,
-                'product' =>$product,
+                'potion' => $potion,
+                // 'product' =>$product,
             ]);
 
     }

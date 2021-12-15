@@ -3,21 +3,25 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
-function OutfitFilter({data, value}){
+function OutfitFilter({data, value, avatarClass}){
     const [passProductId, setPassProductId]= useState({
           product: '',
           amount :'',
     });
     
      const submitToHandler=(e)=>{
-           e.preventDefault();
-        Swal.fire("You have successfully bought the item");
-          setPassProductId({
-                  product:e.target.product.value,
-                  amount: e.target.amount.value,
-          });
-        
-          console.log(passProductId);
+      e.preventDefault();
+      //     Swal.fire("You have successfully bought the item");
+          if(e.target.class.value===avatarClass){
+            Swal.fire("You have successfully bought the item");
+            setPassProductId({
+                    product:e.target.product.value,
+                    amount: e.target.amount.value,
+            });
+      }else{
+            Swal.fire("Failed to buy Item - Class Restriction");
+      }
+          
           
          
 
@@ -46,8 +50,10 @@ function OutfitFilter({data, value}){
     return(
         <div data-tip data-for={data.name}  className="shop-returnMap">
         <div className="shop-items"> 
-              <div className="shop-itemsImage">
-              <img src=""></img>
+            <div className="shop-itemsImage">
+              {
+              (data.sex==="None" || data.sex==="Male")? <img src={data.male_image}></img>:<img src={data.female_image}></img>
+             }
               </div>
               <div className="shop-itemsInfo">
                     <h6>{data.name}</h6>
@@ -55,6 +61,7 @@ function OutfitFilter({data, value}){
                         <form onSubmit={submitToHandler}>
                               <input name="product" type="hidden" value={value}/>
                               <input name="amount" type="hidden" value="0"/>
+                              <input name="class" type="hidden" value={data.class}/>
                               <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Submit</Button>
                         </form>
                     </div>

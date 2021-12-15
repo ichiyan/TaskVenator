@@ -18,24 +18,40 @@ class InventoryController extends Controller
         $user_id= Auth::id();
         // $items=User::with('getItems')->where('id','=', $user_id)->get();
         // $items= Inventory::with('contains')->where('user_id', '=', $user_id)->get();
-        $items= DB::table('inventories')
+        $item= DB::table('inventories')
                 ->join('users', 'users.id', '=', 'inventories.user_id')
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('outfit','outfit.id','=','products.outfit')
-                ->select('outfit.*', 'inventories.user_id AS inventUserId' )
-                ->get();
+                ->where('outfit.outfit_type','=', "Armor")
+                ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
+                ->get(['outfit.*','outfit_info.*' ,'inventories.user_id AS inventUserId']);
+         
 
-        $potions= DB::table('inventories')
+        $potion= DB::table('inventories')
                 ->join('users', 'users.id', '=', 'inventories.user_id')
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('potion','potion.id','=','products.potion')
                 ->select('potion.*', 'inventories.user_id AS inventUserId' )
                 ->get();
+        
+    //     $weapon= DB::table('products')
+    //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
+    //             ->where('outfit.outfit_type','=', "Weapon")
+    //             ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
+    //             ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
+
+    //    $armor= DB::table('products')
+    //            ->join('outfit', 'outfit.id', '=', 'products.outfit')
+    //            ->where('outfit.outfit_type','=', "Armor")
+    //            ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
+    //            ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
         return response()->json([
             'message' => "inventory success",
             'status'=>200,
-            'items' => $items,
-            'potions' => $potions,
+            // 'weapon' => $weapon,
+            // 'armor' => $armor,
+            'item' => $item,
+            'potion' => $potion,
             'auth_id'=> $user_id,
             
            
