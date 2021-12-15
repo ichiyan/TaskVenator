@@ -24,30 +24,30 @@ function All(){
         outfit:[],
   });
 
-  useEffect(() =>{
-     axios.get(`/api/outfit`).then(res =>{
-           if(res.data.status===200){
+//   useEffect(() =>{
+//      axios.get(`/api/outfit`).then(res =>{
+//            if(res.data.status===200){
 
-                 setDisplay2({
-                       outfit:res.data.outfit
+//                  setDisplay2({
+//                        outfit:res.data.outfit
 
-                 })
+//                  })
 
 
-           }
-     })
-  },[])
-  useEffect(()=>{
-     axios.get(`/api/potions`).then(res =>{
-           if(res.data.status===200){
-                 setDisplay1({
-                       potions:res.data.potions
-                 });
-                 console.log(display1);
-           }
+//            }
+//      })
+//   },[])
+//   useEffect(()=>{
+//      axios.get(`/api/potions`).then(res =>{
+//            if(res.data.status===200){
+//                  setDisplay1({
+//                        potions:res.data.potions
+//                  });
+//                  console.log(display1);
+//            }
 
-     })
-  },[])
+//      })
+//   },[])
   const showItem =(event) =>{
     setClicked(event.target.value);
 }

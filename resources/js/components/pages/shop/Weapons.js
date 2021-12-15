@@ -9,6 +9,9 @@ function Weapons(){
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
     const [xp, setXp] = useState(0);
+    var avatarClass= "Warrior";
+   
+    
     const [hpBarWidth, sethpBarWidth] = useState("100");
     const [hpHitWidth, sethpHitWidth] = useState("0");
     const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
@@ -20,7 +23,7 @@ function Weapons(){
   
 
   const[display2,setDisplay2]=useState({
-        outfit:[],
+        weapons:[],
   });
   
   const rarityHandler=(e)=>{
@@ -38,18 +41,29 @@ function Weapons(){
                  
                  
                  setDisplay2({
-                       outfit:res.data.product
+                       weapons:res.data.weapon
                       
                  })
                 
-                 
+            //     countType();
+            // console.log(display2);
                  
            }
          
      })
   },[])
+//   const countType=()=>{
+// //      for(let i=0; i<e.weapons.length;i++){
+// //            if(e.weapons[i].sex=="None"){
+// //                  count++;
+// //            }
+// //      }
+// //      console.log(display2.weapons);
+//   }
   useEffect(()=>{
       console.log(display2)
+      console.log(Object.keys(display2.weapons).length);
+      // console.log(count);
   },[display2])
 
 
@@ -87,141 +101,377 @@ function Weapons(){
 
           <div className="shop-shop"> 
              <div className="shop-category">
-                      <div className="shop-categoryName">
-                            <p>Weapon</p>
-                      </div>
-                      {display2.outfit.map((w,index)=>{
-                            if(charClass==="All" && rarity==="All"){
-                                  if(w.features_outfit.outfitType === "Weapon"){
-                                        return (
-                                          <div key={index} className="shop-outfitFilter">
-                                          <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                          </div>    
-                                              )
-                                              }
-                                        }else if(charClass==="All" && rarity==="Common"){
-                                              if(w.features_outfit.outfitType === "Weapon" && rarity===w.features_outfit.type){
-                                                    return (
-                                                      <div key={index} className="shop-outfitFilter">
-                                                      <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                      </div>  
-                                                          )
-                                                    }
-                                        }else if(charClass==="All" && rarity==="Rare"){
-                                        if(w.features_outfit.outfitType === "Weapon" && rarity===w.features_outfit.type){
-                                              return (
-                                                <div key={index} className="shop-outfitFilter">
-                                                <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                </div>  
-                                                    )
-                                                    }
-                                              }else if(charClass==="All" && rarity==="Uncommon"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && rarity===w.features_outfit.type){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>  
-                                                          )
-                                                    }
-                                              }else if(charClass==="Warrior" && rarity==="All"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>  
-                                                          )
-                                                    }
-                                              }else if(charClass==="Warrior" && rarity==="Common"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>    
-                                                          )
-                                                    }
-                                              }else if(charClass==="Warrior" && rarity==="Uncommon"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>   
-                                                          )
-                                                    }
-                                              }else if(charClass==="Warrior" && rarity==="Rare"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>    
-                                                          )
-                                                    }
-                                              }else if(charClass==="Marksman" && rarity==="All"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>      
-                                                          )
-                                                    }
-                                              }else if(charClass==="Marksman" && rarity==="Common"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>    
-                                                          )
-                                                    }
-                                              }else if(charClass==="Marksman" && rarity==="Uncommon"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>   
-                                                          )
-                                                    }
-                                              }else if(charClass==="Marksman" && rarity==="Rare"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>  
-                                                          )
-                                                    }
-                                              }else if(charClass==="Mage" && rarity==="All"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>     
-                                                          )
-                                                    }
-                                              }else if(charClass==="Mage" && rarity==="Common"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>  
-                                                          )
-                                                    }
-                                              }else if(charClass==="Mage" && rarity==="Uncommon"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>  
-                                                          )
-                                                    }
-                                              }else if(charClass==="Mage" && rarity==="Rare"){
-                                                    if(w.features_outfit.outfitType === "Weapon" && w.features_outfit.type===rarity && w.features_outfit.class===charClass){
-                                                          return (
-                                                            <div key={index} className="shop-outfitFilter">
-                                                            <WeaponFilter data= {w.features_outfit} value={w.id}/>
-                                                            </div>  
-                                                          )
-                                                    }
-                                              }
-                                        })}
-                            </div>
+                   {/* { (Object.keys(display2.weapons).length != 0)? 
+                        <div className="shop-categoryName">
+                        <p>Weapons</p>
+                       </div>:""
+                        
+                   } */}
+                  
+                   {(charClass==="All" && rarity==="All")?<div>
+                   <div className="shop-categoryName">
+                        <p>Warrior</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Warrior"){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                   {(charClass==="All" && rarity==="All")?<div>
+                   <div className="shop-categoryName">
+                        <p>Marksman</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Marksman"){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                   <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                    }
+                     {(charClass==="All" && rarity==="All")?<div>
+                     <div className="shop-categoryName">
+                     <p>Mage</p>
+                     </div>
+                      {display2.weapons.map((w,index)=>{
+                            
+                                  if(w.class==="Mage"){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                                }    
+                             
+                        })}
+                      </div>:""
+                    }
+                  {(charClass==="All" && rarity==="Common")?<div>
+                   <div className="shop-categoryName">
+                        <p>Warrior</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Warrior" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="All" && rarity==="Common")?<div>
+                   <div className="shop-categoryName">
+                        <p>Marksman</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Marksman" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                     {(charClass==="All" && rarity==="Common")?<div>
+                   <div className="shop-categoryName">
+                        <p>Mage</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Mage" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="All" && rarity==="Uncommon")?<div>
+                   <div className="shop-categoryName">
+                        <p>Warrior</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Warrior" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="All" && rarity==="Uncommon")?<div>
+                   <div className="shop-categoryName">
+                        <p>Marksman</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Marksman" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                     {(charClass==="All" && rarity==="Uncommon")?<div>
+                   <div className="shop-categoryName">
+                        <p>Mage</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Mage" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="All" && rarity==="Rare")?<div>
+                   <div className="shop-categoryName">
+                        <p>Warrior</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Warrior" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="All" && rarity==="Rare")?<div>
+                   <div className="shop-categoryName">
+                        <p>Marksman</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Marksman" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                     {(charClass==="All" && rarity==="Rare")?<div>
+                   <div className="shop-categoryName">
+                        <p>Mage</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Mage" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="Warrior" && rarity==="All")?<div>
+                   <div className="shop-categoryName">
+                        <p>Warrior</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Warrior"){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="Marksman" && rarity==="All")?<div>
+                   <div className="shop-categoryName">
+                        <p>Marksman</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Marksman"){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                     {(charClass==="Mage" && rarity==="All")?<div>
+                   <div className="shop-categoryName">
+                        <p>Mage</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Mage"){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                  {(charClass==="Warrior" && rarity==="Common")?<div>
+                   <div className="shop-categoryName">
+                        <p>Warrior</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Warrior" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="Marksman" && rarity==="Common")?<div>
+                   <div className="shop-categoryName">
+                        <p>Marksman</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Marksman" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                     {(charClass==="Mage" && rarity==="Common")?<div>
+                   <div className="shop-categoryName">
+                        <p>Mage</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Mage" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                   {(charClass==="Warrior" && rarity==="Uncommon")?<div>
+                   <div className="shop-categoryName">
+                        <p>Warrior</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Warrior" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="Marksman" && rarity==="Uncommon")?<div>
+                   <div className="shop-categoryName">
+                        <p>Marksman</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Marksman" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                     {(charClass==="Mage" && rarity==="Uncommon")?<div>
+                   <div className="shop-categoryName">
+                        <p>Mage</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Mage" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                   {(charClass==="Warrior" && rarity==="Rare")?<div>
+                   <div className="shop-categoryName">
+                        <p>Warrior</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Warrior" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                    {(charClass==="Marksman" && rarity==="Rare")?<div>
+                   <div className="shop-categoryName">
+                        <p>Marksman</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Marksman" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                     {(charClass==="Mage" && rarity==="Rare")?<div>
+                   <div className="shop-categoryName">
+                        <p>Mage</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Mage" && w.rarity_type===rarity){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
+                        })}
+                        </div>:""
+                  }
+                  
+                        </div>
                 </div>
           </div>  
 

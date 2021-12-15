@@ -10,12 +10,28 @@ class Outfit extends Model
 {
     use HasFactory;
     protected $table='outfit';
-    protected $fillable =['outfitType', 'image', 'name', 'class',
-                        'type', 'pAttack', 'mAttack', 'pDef', 'mDef',
-                        'str', 'int', 'agi', 'crit', 'critDmg', 'price'];
+    protected $fillable =[
+        'outfit_type', 
+        'sex', 
+        'male_image', 
+        'female_image',
+        'name',
+        'class',
+        'rarity_type',
+        'body_part',
+        'spritesheet_img_name', 
+        'directory',
+        'outfit_infos',
+       
+    ];
 
     public function featuredIn(): HasOne
     {
         return $this->hasOne(Product::class);
+    }
+
+    public function featuresOutfitInfo(): HasOne
+    {
+        return $this->hasOne(OutfitInfo::class,'id', 'outfit_infos');
     }
 }

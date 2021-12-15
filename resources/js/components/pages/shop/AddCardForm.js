@@ -5,7 +5,10 @@ import axios from 'axios';
 
 function AddCardForm (){
   const [show, setShow] = useState(false);
-  const [picture, setPicture]= useState([]);
+  const [picture, setPicture]= useState({
+    male_image:'',
+    female_image:'',
+  });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -29,20 +32,24 @@ function AddCardForm (){
     }
 
     const handleImage =(e) =>{
-      setPicture({image: e.target.files[0]});
-    }
+      setPicture({
+        // {image: e.target.files[0]});
+        ...picture,[e.target.name]: e.target.files[0]
+    });
+  }
 
     const cardSubmitHandler = (e) =>{
       e.preventDefault();
       
-      const formData = new FormData();
-      formData.append('image', picture.image);
-      formData.append('cardClass', card.cardClass);
-      formData.append('cardName', card.cardName);
-      formData.append('cardEffectType', card.cardEffectType);
-      formData.append('cardEffectDamage', card.cardEffectDamage);
-      formData.append('cardEffectDescription', card.cardEffectDescription);
-      formData.append('cardPrice', card.cardPrice);
+      // const formData = new FormData();
+      // formData.append('image', picture.image);
+      // formData.append('cardClass', card.cardClass);
+      // formData.append('cardName', card.cardName);
+      // formData.append('cardEffectType', card.cardEffectType);
+      // formData.append('cardEffectDamage', card.cardEffectDamage);
+      // formData.append('cardEffectDescription', card.cardEffectDescription);
+      // formData.append('cardPrice', card.cardPrice);
+      console.log(picture);
      
 }
 
@@ -67,10 +74,23 @@ function AddCardForm (){
               <option value="Undead">Undead</option>
             </select><br></br>
           </div>
+          {
+          (card.cardClass==="Humanoid")? 
           <div className="form-group">
-            <label className="form-label">Upload Image</label>
-            <input type="file" name="image" className="form-control" id="customFile" onChange={handleImage} />
-          </div>
+              <label className="form-label">Upload Image</label>
+              <input type="file" name="image" className="form-control" id="customFile" onChange={handleImage}/>
+    
+          </div> : ""
+          }
+           {
+          (card.cardClass==="Beast")? 
+          <div className="form-group">
+              <label className="form-label">Upload Image</label>
+              <input type="file" name="male_image" className="form-control" id="customFile" onChange={handleImage}/>
+              <input type="file" name="female_image" className="form-control" id="customFile" onChange={handleImage}/>
+    
+          </div> : ""
+          }
           <div className="form-group">
             <label>Card Name</label>
             <input className="form-control" name="cardName" type="text" onChange={inputHandler} value={card.cardName}/>
