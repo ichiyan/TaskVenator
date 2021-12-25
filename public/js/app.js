@@ -16004,7 +16004,8 @@ var CharacterCustomization = function CharacterCustomization() {
   var eyeColorImg;
   var hairStyleImg;
   var hairStyle = "pixie";
-  var hairColor = "ash"; // var items = [];
+  var hairColor = "ash";
+  var bgColor = "white"; // var items = [];
 
   var selections = []; //warrior default items
 
@@ -16069,6 +16070,8 @@ var CharacterCustomization = function CharacterCustomization() {
 
   var animate = function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     selections.sort(function (a, b) {
       return a.zPos > b.zPos ? 1 : -1;
@@ -16431,6 +16434,12 @@ var CharacterCustomization = function CharacterCustomization() {
     console.log(selections);
   };
 
+  var getBakcgroundColor = function getBakcgroundColor(e) {
+    bgColor = e.target.id.slice(9);
+  };
+
+  var submitHandler = function submitHandler() {};
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "container char-customization",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -16451,825 +16460,1036 @@ var CharacterCustomization = function CharacterCustomization() {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
         id: "chooser",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-            onClick: toggleDisplay,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "condensed",
-              children: "Class"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-              className: "ul-block",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getClass,
-                  type: "radio",
-                  id: "warrior",
-                  name: "class"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "class-warrior",
-                  children: "Warrior"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getClass,
-                  type: "radio",
-                  id: "mage",
-                  name: "class"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "class-mage",
-                  children: "Mage"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getClass,
-                  type: "radio",
-                  id: "marksman",
-                  name: "class"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "class-marksman",
-                  children: "Marksman"
-                })]
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-            onClick: toggleDisplay,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "condensed",
-              children: "Body Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-              className: "ul-block",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyType,
-                  type: "radio",
-                  id: "sex-male",
-                  name: "sex",
-                  defaultChecked: true
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "sex-male",
-                  children: "Male"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyType,
-                  type: "radio",
-                  id: "sex-female",
-                  name: "sex"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "sex-female",
-                  children: "Female"
-                })]
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-            onClick: toggleDisplay,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "condensed",
-              children: "Body Color"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-              className: "ul-block",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "white",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "White"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "black",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Black"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "olive",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Olive"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "brown",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Brown"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "peach",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Peach"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "light",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Light"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "dark",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Dark"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "dark_2",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Dark 2"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "tanned",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Tanned"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "tanned_2",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Tanned 2"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "darkelf",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Dark Elf"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "darkelf_2",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Dark Elf 2"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getBodyColor,
-                  type: "radio",
-                  id: "zombie",
-                  name: "body-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "color",
-                  children: "Zombie"
-                })]
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-            onClick: toggleDisplay,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "condensed",
-              children: "Eye Color"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-              className: "ul-block",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getEyeColor,
-                  type: "radio",
-                  id: "eye-blue",
-                  name: "eye-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "eye-color",
-                  children: "Blue"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getEyeColor,
-                  type: "radio",
-                  id: "eye-brown",
-                  name: "eye-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "eye-color",
-                  children: "Brown"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getEyeColor,
-                  type: "radio",
-                  id: "eye-gray",
-                  name: "eye-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "eye-color",
-                  children: "Gray"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getEyeColor,
-                  type: "radio",
-                  id: "eye-green",
-                  name: "eye-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "eye-color",
-                  children: "Green"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getEyeColor,
-                  type: "radio",
-                  id: "eye-purple",
-                  name: "eye-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "eye-color",
-                  children: "Purple"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getEyeColor,
-                  type: "radio",
-                  id: "eye-red",
-                  name: "eye-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "eye-color",
-                  children: "Red"
-                })]
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-            onClick: toggleDisplay,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "condensed",
-              children: "Hair Style"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
-              className: "ul-block ul-hasPreview",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "selections",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+          onSubmit: submitHandler,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+              onClick: toggleDisplay,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "condensed",
+                children: "Class"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+                className: "ul-block",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/dreadlocks_short/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getClass,
                     type: "radio",
-                    id: "dreadlocks_short",
-                    name: "hair-style"
+                    id: "warrior",
+                    name: "class"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Dreadlocks"
+                    htmlFor: "class-warrior",
+                    children: "Warrior"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/shorthawk/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getClass,
                     type: "radio",
-                    id: "shorthawk",
-                    name: "hair-style"
+                    id: "mage",
+                    name: "class"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Shorthawk"
+                    htmlFor: "class-mage",
+                    children: "Mage"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/curtains/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getClass,
                     type: "radio",
-                    id: "curtains",
-                    name: "hair-style"
+                    id: "marksman",
+                    name: "class"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Curtains"
+                    htmlFor: "class-marksman",
+                    children: "Marksman"
+                  })]
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+              onClick: toggleDisplay,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "condensed",
+                children: "Body Type"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+                className: "ul-block",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyType,
+                    type: "radio",
+                    id: "sex-male",
+                    name: "sex",
+                    defaultChecked: true
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "sex-male",
+                    children: "Male"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/idol/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyType,
                     type: "radio",
-                    id: "idol",
-                    name: "hair-style"
+                    id: "sex-female",
+                    name: "sex"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Idol"
+                    htmlFor: "sex-female",
+                    children: "Female"
+                  })]
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+              onClick: toggleDisplay,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "condensed",
+                children: "Body Color"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+                className: "ul-block",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
+                    type: "radio",
+                    id: "white",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#f9d5ba'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "color",
+                    children: "White"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/pixie/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "pixie",
-                    name: "hair-style"
+                    id: "black",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#61382d'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Pixie"
+                    htmlFor: "color",
+                    children: "Black"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/cowlick/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "cowlick",
-                    name: "hair-style"
+                    id: "olive",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#d98e60'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Cowlick"
+                    htmlFor: "color",
+                    children: "Olive"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/spiked_liberty/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "spiked_liberty",
-                    name: "hair-style"
+                    id: "brown",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#a86431'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Spiked Liberty"
+                    htmlFor: "color",
+                    children: "Brown"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/spiked_beehive/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "spiked_beehive",
-                    name: "hair-style"
+                    id: "peach",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#fdd082'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Spiked Beehive"
+                    htmlFor: "color",
+                    children: "Peach"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/halfmessy/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "halfmessy",
-                    name: "hair-style"
+                    id: "light",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#fdd5b7'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Half Messy"
+                    htmlFor: "color",
+                    children: "Light"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/pigtails/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "pigtails",
-                    name: "hair-style"
+                    id: "dark",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#ba8454'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Pigtails"
+                    htmlFor: "color",
+                    children: "Dark"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/ponytail2/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "ponytail2",
-                    name: "hair-style"
+                    id: "dark_2",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#9c663e'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Ponytail"
+                    htmlFor: "color",
+                    children: "Dark 2"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/braid/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "braid",
-                    name: "hair-style"
+                    id: "tanned",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#fdd082'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Braid"
+                    htmlFor: "color",
+                    children: "Tanned"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/bangslong2/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "bangslong2",
-                    name: "hair-style"
+                    id: "tanned_2",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#ecc479'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Long with Bangs"
+                    htmlFor: "color",
+                    children: "Tanned 2"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/long_messy2/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "long_messy2",
-                    name: "hair-style"
+                    id: "darkelf",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#aeb3ca'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Long Messy"
+                    htmlFor: "color",
+                    children: "Dark Elf"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/princess/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "princess",
-                    name: "hair-style"
+                    id: "darkelf_2",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#c9d0ee'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Princess"
+                    htmlFor: "color",
+                    children: "Dark Elf 2"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                  className: "hasPreview",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
-                      className: "selection-preview",
-                      "data-image": "hair/xlong/male/ash.png"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    onChange: getHairStyle,
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBodyColor,
                     type: "radio",
-                    id: "xlong",
-                    name: "hair-style"
+                    id: "zombie",
+                    name: "body-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#8eab89'
+                    }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                    htmlFor: "hair-style",
-                    children: "Extra Long"
+                    htmlFor: "color",
+                    children: "Zombie"
                   })]
                 })]
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-            onClick: toggleDisplay,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-              className: "condensed",
-              children: "Hair Color"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-              className: "ul-block",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-ash",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#c18f8a'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Ash"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+              onClick: toggleDisplay,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "condensed",
+                children: "Eye Color"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+                className: "ul-block",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getEyeColor,
+                    type: "radio",
+                    id: "eye-blue",
+                    name: "eye-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#50d4ec'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "eye-color",
+                    children: "Blue"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getEyeColor,
+                    type: "radio",
+                    id: "eye-brown",
+                    name: "eye-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#7e4e20'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "eye-color",
+                    children: "Brown"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getEyeColor,
+                    type: "radio",
+                    id: "eye-gray",
+                    name: "eye-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#ada18f'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "eye-color",
+                    children: "Gray"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getEyeColor,
+                    type: "radio",
+                    id: "eye-green",
+                    name: "eye-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#84ec50'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "eye-color",
+                    children: "Green"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getEyeColor,
+                    type: "radio",
+                    id: "eye-purple",
+                    name: "eye-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#9d0b88'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "eye-color",
+                    children: "Purple"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getEyeColor,
+                    type: "radio",
+                    id: "eye-red",
+                    name: "eye-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#ff3d62'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "eye-color",
+                    children: "Red"
+                  })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-blonde",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#f5c34b'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Blonde"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+              onClick: toggleDisplay,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "condensed",
+                children: "Hair Style"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
+                className: "ul-block ul-hasPreview",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                  className: "selections",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/dreadlocks_short/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "dreadlocks_short",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Dreadlocks"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/shorthawk/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "shorthawk",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Shorthawk"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/curtains/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "curtains",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Curtains"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/idol/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "idol",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Idol"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/pixie/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "pixie",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Pixie"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/cowlick/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "cowlick",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Cowlick"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/spiked_liberty/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "spiked_liberty",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Spiked Liberty"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/spiked_beehive/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "spiked_beehive",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Spiked Beehive"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/halfmessy/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "halfmessy",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Half Messy"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/pigtails/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "pigtails",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Pigtails"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/ponytail2/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "ponytail2",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Ponytail"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/braid/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "braid",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Braid"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/bangslong2/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "bangslong2",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Long with Bangs"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/long_messy2/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "long_messy2",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Long Messy"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/princess/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "princess",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Princess"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                    className: "hasPreview",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
+                        className: "selection-preview",
+                        "data-image": "hair/xlong/male/ash.png"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                      onChange: getHairStyle,
+                      type: "radio",
+                      id: "xlong",
+                      name: "hair-style"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                      htmlFor: "hair-style",
+                      children: "Extra Long"
+                    })]
+                  })]
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+              onClick: toggleDisplay,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "condensed",
+                children: "Hair Color"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+                className: "ul-block",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-ash",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#c18f8a'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Ash"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-blonde",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#f5c34b'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Blonde"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-platinum",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#d9c88c'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Platinum"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-strawberry",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#f89b0e'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Strawberry"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-redhead",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#9e1f1f'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Redhead"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-carrot",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#ec673e'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Carrot"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-chestnut",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#511b03'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Chestnut"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-raven",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#0b3244'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Raven"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-gray",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#777777'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Gray"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-white",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#e2e5e5'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "White"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-blue",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#0041b4'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Blue"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-purple",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#7141b2'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Purple"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-green",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#006900'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Green"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-pink",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#e941aa'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Pink"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getHairStyle,
+                    type: "radio",
+                    id: "hair-color-rose",
+                    name: "hair-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#cc789d'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "hair-color",
+                    children: "Rose"
+                  })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-platinum",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#d9c88c'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Platinum"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-strawberry",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#f89b0e'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Strawberry"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-redhead",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#9e1f1f'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Redhead"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-carrot",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#ec673e'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Carrot"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-chestnut",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#511b03'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Chestnut"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-raven",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#0b3244'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Raven"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-gray",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#777777'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Gray"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-white",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#e2e5e5'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "White"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-blue",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#0041b4'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Blue"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-purple",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#7141b2'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Purple"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-green",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#006900'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Green"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-pink",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#e941aa'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Pink"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-                className: "noPreview",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                  onChange: getHairStyle,
-                  type: "radio",
-                  id: "hair-color-rose",
-                  name: "hair-color"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "color-preview",
-                  style: {
-                    backgroundColor: '#cc789d'
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-                  htmlFor: "hair-color",
-                  children: "Rose"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+              onClick: toggleDisplay,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "condensed",
+                children: "Background Color"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+                className: "ul-block",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBakcgroundColor,
+                    type: "radio",
+                    id: "bg-color-#9580FF",
+                    name: "bg-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#9580FF'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "bg-color",
+                    children: "Purple"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBakcgroundColor,
+                    type: "radio",
+                    id: "bg-color-#8AFF80",
+                    name: "bg-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#8AFF80'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "bg-color",
+                    children: "Green"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBakcgroundColor,
+                    type: "radio",
+                    id: "bg-color-#FF80BF",
+                    name: "bg-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#FF80BF'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "bg-color",
+                    children: "Pink"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBakcgroundColor,
+                    type: "radio",
+                    id: "bg-color-#FFFF80",
+                    name: "bg-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#FFFF80'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "bg-color",
+                    children: "Yellow"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBakcgroundColor,
+                    type: "radio",
+                    id: "bg-color-#FF9580",
+                    name: "bg-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#FF9580'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "bg-color",
+                    children: "Orange"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                  className: "noPreview",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    onChange: getBakcgroundColor,
+                    type: "radio",
+                    id: "bg-color-#80FFEA",
+                    name: "bg-color"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                    className: "color-preview",
+                    style: {
+                      backgroundColor: '#80FFEA'
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+                    htmlFor: "bg-color",
+                    children: "Cyan"
+                  })]
                 })]
               })]
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              type: "submit",
+              name: "submit",
+              id: "submit",
+              className: "btn-custom-primary",
+              value: "Create Character"
+            })
           })]
         })
       })]
@@ -32092,7 +32312,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser .ul-block:not(.ul-hasPreview) {\n  -moz-column-count: 4;\n       column-count: 4;\n  -moz-column-gap: 20px;\n       column-gap: 20px;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 200px;\n  height: 200px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}\n\n.color-preview {\n  width: 1rem;\n  height: 1rem;\n  background-color: black;\n  display: inline-block;\n  margin: 0 1rem;\n}\n\n#chooser ul {\n  margin: 1rem 0;\n}\n\n#char-cust-header {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  background: #ffffff;\n  margin-bottom: 1rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.container.char-customization {\n  padding-top: 7%;\n  width: 60%;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n.container.char-customization .btn-custom-primary {\n  border-radius: 50px;\n  width: auto;\n  display: inline-block;\n  border: none;\n  background: #5FCF80;\n  color: #fff;\n  padding: 10px;\n  height: 50px;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  margin-top: 5%;\n}\n.container.char-customization .btn-custom-primary:hover {\n  background-color: #3ac162;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser .ul-block:not(.ul-hasPreview) {\n  -moz-column-count: 4;\n       column-count: 4;\n  -moz-column-gap: 20px;\n       column-gap: 20px;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  display: flex;\n  justify-content: center;\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 200px;\n  height: 200px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}\n\n.color-preview {\n  width: 1rem;\n  height: 1rem;\n  background-color: black;\n  display: inline-block;\n  margin: 0 1rem;\n}\n\n#chooser ul {\n  margin: 1rem 0;\n}\n\n#char-cust-header {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 20px;\n  background: #ffffff;\n  margin-bottom: 1rem;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
