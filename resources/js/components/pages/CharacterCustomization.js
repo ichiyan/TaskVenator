@@ -1,4 +1,4 @@
-import { React, $, useEffect, useState, useRef } from '../../index';
+import { React, $, useEffect, Fragment, FontAwesomeIcon, faMars, faVenus } from '../../index';
 
 const CharacterCustomization = () => {
 
@@ -126,6 +126,10 @@ const CharacterCustomization = () => {
 
     const getBodyType = (e) => {
         var color, strArray;
+
+        document.querySelector('.sex-option.selected').classList.remove('selected');
+        document.getElementById(e.target.id).classList.add('selected');
+
         if (baseBodyColorDir != null){
             strArray = baseBodyColorDir.split("/");
             color = strArray[strArray.length - 1];
@@ -143,6 +147,10 @@ const CharacterCustomization = () => {
     }
 
     const getBodyColor = (e) => {
+
+    document.querySelector('.color-preview-box.selected').classList.remove('selected');
+    document.getElementById(e.target.id).parentNode.classList.add('selected');
+
        var baseBodyDir = (isFemale === true) ? baseDir + 'body/female/human/' : baseDir + 'body/male/human/';
        baseBodyColorDir = previewImage.src = baseBodyDir + e.target.id + ".png";
     }
@@ -192,6 +200,12 @@ const CharacterCustomization = () => {
 
     const getClass = (e) => {
 
+        var role = document.querySelector('.class-preview.selected');
+        if(role != null){
+            role.classList.remove('selected');
+        }
+        document.getElementById(e.target.id).classList.add('selected');
+
         if (e.target.id === "warrior"){
 
             frameY = 14;
@@ -207,7 +221,6 @@ const CharacterCustomization = () => {
                 warriorDefaultItems[key] = new Image();
             });
 
-            // to do: add z-pos property and sort array
             selections.push(
                 {
                     class: 'warrior',
@@ -479,8 +492,6 @@ const CharacterCustomization = () => {
                 },
             );
         }
-
-        console.log(selections)
     }
 
     const getBakcgroundColor = (e) => {
@@ -492,403 +503,464 @@ const CharacterCustomization = () => {
     }
 
     return (
-       <div className="container char-customization">
-            <div className="card char-cust-card">
-                <div id='char-cust-header'>
-                    <h3 className="text-center">Character Customization</h3>
-                    <section id="preview">
-                        <div id="previewAnimationsBox">
-                            <canvas id="previewAnimations"></canvas>
-                        </div>
-                    </section>
-                </div>
-                <section id="chooser">
-                    <form onSubmit={submitHandler}>
-                        <ul>
-                            <li onClick={toggleDisplay}>
-                                {/* Class */}
-                                <span className="condensed">Class</span>
-                                <ul className="ul-block">
-                                    <li className="noPreview">
-                                        <input onChange={getClass}  type="radio" id="warrior" name="class"/>
-                                        <label htmlFor="class-warrior">Warrior</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getClass}  type="radio" id="mage" name="class"/>
-                                        <label htmlFor="class-mage">Mage</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getClass}  type="radio" id="marksman" name="class"/>
-                                        <label htmlFor="class-marksman">Marksman</label>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li onClick={toggleDisplay}>
-                                {/* Sex */}
-                                <span className="condensed">Body Type</span>
-                                <ul className="ul-block">
-                                    <li className="noPreview">
-                                        <input onChange={getBodyType}  type="radio" id="sex-male" name="sex" defaultChecked/>
-                                        <label htmlFor="sex-male">Male</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyType} type="radio" id="sex-female" name="sex"/>
-                                        <label htmlFor="sex-female">Female</label>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li onClick={toggleDisplay}>
-                                {/* Body Color */}
-                                <span className="condensed">Body Color</span>
-                                <ul className="ul-block">
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor}  type="radio" id="white" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#f9d5ba'}}></div>
-                                    <label htmlFor="color">White</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="black" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#61382d'}}></div>
-                                        <label htmlFor="color">Black</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="olive" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#d98e60'}}></div>
-                                        <label htmlFor="color">Olive</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="brown" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#a86431'}}></div>
-                                        <label htmlFor="color">Brown</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="peach" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#fdd082'}}></div>
-                                        <label htmlFor="color">Peach</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="light" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#fdd5b7'}}></div>
-                                        <label htmlFor="color">Light</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="dark" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#ba8454'}}></div>
-                                        <label htmlFor="color">Dark</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="dark_2" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#9c663e'}}></div>
-                                        <label htmlFor="color">Dark 2</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="tanned" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#fdd082'}}></div>
-                                        <label htmlFor="color">Tanned</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="tanned_2" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#ecc479'}}></div>
-                                        <label htmlFor="color">Tanned 2</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="darkelf" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#aeb3ca'}}></div>
-                                        <label htmlFor="color">Dark Elf</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="darkelf_2" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#c9d0ee'}}></div>
-                                        <label htmlFor="color">Dark Elf 2</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBodyColor} type="radio" id="zombie" name="body-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#8eab89'}}></div>
-                                        <label htmlFor="color">Zombie</label>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li onClick={toggleDisplay}>
-                                {/* Eye Color */}
-                                <span className="condensed">Eye Color</span>
-                                <ul className="ul-block">
-                                    <li className="noPreview">
-                                        <input onChange={getEyeColor}  type="radio" id="eye-blue" name="eye-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#50d4ec'}}></div>
-                                        <label htmlFor="eye-color">Blue</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getEyeColor} type="radio" id="eye-brown" name="eye-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#7e4e20'}}></div>
-                                        <label htmlFor="eye-color">Brown</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getEyeColor} type="radio" id="eye-gray" name="eye-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#ada18f'}}></div>
-                                        <label htmlFor="eye-color">Gray</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getEyeColor} type="radio" id="eye-green" name="eye-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#84ec50'}}></div>
-                                        <label htmlFor="eye-color">Green</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getEyeColor} type="radio" id="eye-purple" name="eye-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#9d0b88'}}></div>
-                                        <label htmlFor="eye-color">Purple</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getEyeColor} type="radio" id="eye-red" name="eye-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#ff3d62'}}></div>
-                                        <label htmlFor="eye-color">Red</label>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li onClick={toggleDisplay}>
-                                {/* Hair Style */}
-                                <span className="condensed">Hair Style</span>
-                                <ul className="ul-block ul-hasPreview">
-                                    <div className="selections">
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/dreadlocks_short/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle}  type="radio" id="dreadlocks_short" name="hair-style"/>
-                                            <label htmlFor="hair-style">Dreadlocks</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/shorthawk/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="shorthawk" name="hair-style"/>
-                                            <label htmlFor="hair-style">Shorthawk</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/curtains/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="curtains" name="hair-style"/>
-                                            <label htmlFor="hair-style">Curtains</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/idol/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="idol" name="hair-style"/>
-                                            <label htmlFor="hair-style">Idol</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/pixie/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="pixie" name="hair-style"/>
-                                            <label htmlFor="hair-style">Pixie</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/cowlick/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="cowlick" name="hair-style"/>
-                                            <label htmlFor="hair-style">Cowlick</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/spiked_liberty/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="spiked_liberty" name="hair-style"/>
-                                            <label htmlFor="hair-style">Spiked Liberty</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/spiked_beehive/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="spiked_beehive" name="hair-style"/>
-                                            <label htmlFor="hair-style">Spiked Beehive</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/halfmessy/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="halfmessy" name="hair-style"/>
-                                            <label htmlFor="hair-style">Half Messy</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/pigtails/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="pigtails" name="hair-style"/>
-                                            <label htmlFor="hair-style">Pigtails</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/ponytail2/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="ponytail2" name="hair-style"/>
-                                            <label htmlFor="hair-style">Ponytail</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/braid/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="braid" name="hair-style"/>
-                                            <label htmlFor="hair-style">Braid</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/bangslong2/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="bangslong2" name="hair-style"/>
-                                            <label htmlFor="hair-style">Long with Bangs</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/long_messy2/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="long_messy2" name="hair-style"/>
-                                            <label htmlFor="hair-style">Long Messy</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/princess/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="princess" name="hair-style"/>
-                                            <label htmlFor="hair-style">Princess</label>
-                                        </li>
-                                        <li className="hasPreview">
-                                            <center>
-                                                <canvas className='selection-preview' data-image='hair/xlong/male/ash.png'></canvas>
-                                            </center>
-                                            <input onChange={getHairStyle} type="radio" id="xlong" name="hair-style"/>
-                                            <label htmlFor="hair-style">Extra Long</label>
-                                        </li>
-                                    </div>
-                                </ul>
-                            </li>
-                            <li onClick={toggleDisplay}>
-                                {/* Hair Color */}
-                                <span className="condensed">Hair Color</span>
-                                <ul className="ul-block">
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-ash" name="hair-color"/>
-                                        <div className='color-preview'style={{ backgroundColor: '#c18f8a'}}></div>
-                                        <label htmlFor="hair-color">Ash</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle} type="radio" id="hair-color-blonde" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#f5c34b'}}></div>
-                                        <label htmlFor="hair-color">Blonde</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-platinum" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#d9c88c'}}></div>
-                                        <label htmlFor="hair-color">Platinum</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-strawberry" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#f89b0e'}}></div>
-                                        <label htmlFor="hair-color">Strawberry</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-redhead" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#9e1f1f'}}></div>
-                                        <label htmlFor="hair-color">Redhead</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-carrot" name="hair-color"/>
-                                        <div className='color-preview'style={{ backgroundColor: '#ec673e'}}></div>
-                                        <label htmlFor="hair-color">Carrot</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-chestnut" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#511b03'}}></div>
-                                        <label htmlFor="hair-color">Chestnut</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-raven" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#0b3244'}}></div>
-                                        <label htmlFor="hair-color">Raven</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-gray" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#777777'}}></div>
-                                        <label htmlFor="hair-color">Gray</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-white" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#e2e5e5'}}></div>
-                                        <label htmlFor="hair-color">White</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-blue" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#0041b4'}}></div>
-                                        <label htmlFor="hair-color">Blue</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-purple" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#7141b2'}}></div>
-                                        <label htmlFor="hair-color">Purple</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-green" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#006900'}}></div>
-                                        <label htmlFor="hair-color">Green</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-pink" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#e941aa'}}></div>
-                                        <label htmlFor="hair-color">Pink</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getHairStyle}  type="radio" id="hair-color-rose" name="hair-color"/>
-                                        <div className='color-preview' style={{ backgroundColor: '#cc789d'}}></div>
-                                        <label htmlFor="hair-color">Rose</label>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li onClick={toggleDisplay}>
-                                {/* Background Color */}
-                                <span className="condensed">Background Color</span>
-                                <ul className="ul-block">
-                                    <li className="noPreview">
-                                        <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#9580FF" name="bg-color"/>
-                                        <div className='color-preview'style={{ backgroundColor: '#9580FF'}}></div>
-                                        <label htmlFor="bg-color">Purple</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#8AFF80" name="bg-color"/>
-                                        <div className='color-preview'style={{ backgroundColor: '#8AFF80'}}></div>
-                                        <label htmlFor="bg-color">Green</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#FF80BF" name="bg-color"/>
-                                        <div className='color-preview'style={{ backgroundColor: '#FF80BF'}}></div>
-                                        <label htmlFor="bg-color">Pink</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#FFFF80" name="bg-color"/>
-                                        <div className='color-preview'style={{ backgroundColor: '#FFFF80'}}></div>
-                                        <label htmlFor="bg-color">Yellow</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#FF9580" name="bg-color"/>
-                                        <div className='color-preview'style={{ backgroundColor: '#FF9580'}}></div>
-                                        <label htmlFor="bg-color">Orange</label>
-                                    </li>
-                                    <li className="noPreview">
-                                        <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#80FFEA" name="bg-color"/>
-                                        <div className='color-preview'style={{ backgroundColor: '#80FFEA'}}></div>
-                                        <label htmlFor="bg-color">Cyan</label>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <center>
-                            <input type="submit" name="submit" id="submit" className="btn-custom-primary" value="Create Character"/>
-                        </center>
-                    </form>
+        <Fragment>
+             <form onSubmit={submitHandler}>
+            <div className='container wrapper'>
+                <section id="preview">
+                    <div id="previewAnimationsBox">
+                        <canvas id="previewAnimations"></canvas>
+                    </div>
+                    <center>
+                        <input type="submit" name="submit" id="submit" className="btn-custom-primary" value="Create Character"/>
+                    </center>
                 </section>
+                <div className="container char-customization">
+                    <div>
+                        <div id='char-cust-header'>
+                            <h3 className="text-center">Character Creation</h3>
+                        </div>
+                        <div className='selections-label'>Class</div>
+                        <div className='char-class'>
+                            <div className='class-preview' onClick={getClass} id="warrior" name="class">
+                                <img src='assets/images/warrior-class.png'/>
+                                <div className='class-name'>Warrior</div>
+                            </div>
+                            <div className='class-preview' onClick={getClass} id="mage" name="class">
+                                <img src='assets/images/mage-class.png'/>
+                                <div className='class-name'>Mage</div>
+                            </div>
+                            <div className='class-preview' onClick={getClass} id="marksman" name="class">
+                                <img src='assets/images/marksman-class.png'/>
+                                <div className='class-name'>Marksman</div>
+                            </div>
+                        </div>
+                        <div className='selections-label'>Sex</div>
+                        <div className='sex-options-box'>
+                            <center>
+                                <FontAwesomeIcon icon={faMars} onClick={getBodyType} size='5x' id="sex-male" className='sex-option selected'  name="sex"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faVenus} onClick={getBodyType} size='5x' id="sex-female" className='sex-option' name="sex"></FontAwesomeIcon>
+                            </center>
+                        </div>
+                        <div className='selections-label'>Skin Tone</div>
+                        <div className='skin-tone-box'>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='white' className='color-preview' style={{ backgroundColor: '#f9d5ba'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='black' className='color-preview' style={{ backgroundColor: '#61382d'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='olive' className='color-preview' style={{ backgroundColor: '#d98e60'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div  onClick={getBodyColor} id='brown' className='color-preview' style={{ backgroundColor: '#a86431'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='peach' className='color-preview' style={{ backgroundColor: '#fdd082'}}></div>
+                            </div>
+                            <div className='color-preview-box selected'>
+                                <div onClick={getBodyColor} id='light' className='color-preview' style={{ backgroundColor: '#fdd5b7'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor}  id='dark' className='color-preview' style={{ backgroundColor: '#ba8454'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='dark_2' className='color-preview' style={{ backgroundColor: '#9c663e'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='tanned' className='color-preview' style={{ backgroundColor: '#fdd082'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='tanned_2' className='color-preview' style={{ backgroundColor: '#ecc479'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='darkelf' className='color-preview' style={{ backgroundColor: '#aeb3ca'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='darkelf_2' className='color-preview' style={{ backgroundColor: '#c9d0ee'}}></div>
+                            </div>
+                            <div className='color-preview-box'>
+                                <div onClick={getBodyColor} id='zombie' className='color-preview' style={{ backgroundColor: '#8eab89'}}></div>
+                            </div>
+                        </div>
+                        {/* <section id="chooser">
+                                <ul>
+                                    <li onClick={toggleDisplay}>
+                                        <span className="condensed">Class</span>
+                                        <ul className="ul-block">
+                                            <li className="noPreview">
+                                                <input onChange={getClass}  type="radio" id="warrior" name="class"/>
+                                                <label htmlFor="class-warrior">Warrior</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getClass}  type="radio" id="mage" name="class"/>
+                                                <label htmlFor="class-mage">Mage</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getClass}  type="radio" id="marksman" name="class"/>
+                                                <label htmlFor="class-marksman">Marksman</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li onClick={toggleDisplay}>
+                                        <span className="condensed">Body Type</span>
+                                        <ul className="ul-block">
+                                            <li className="noPreview">
+                                                <input onChange={getBodyType}  type="radio" id="sex-male" name="sex" defaultChecked/>
+                                                <label htmlFor="sex-male">Male</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyType} type="radio" id="sex-female" name="sex"/>
+                                                <label htmlFor="sex-female">Female</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li onClick={toggleDisplay}>
+                                        <span className="condensed">Body Color</span>
+                                        <ul className="ul-block">
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor}  type="radio" id="white" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#f9d5ba'}}></div>
+                                            <label htmlFor="color">White</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="black" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#61382d'}}></div>
+                                                <label htmlFor="color">Black</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="olive" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#d98e60'}}></div>
+                                                <label htmlFor="color">Olive</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="brown" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#a86431'}}></div>
+                                                <label htmlFor="color">Brown</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="peach" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#fdd082'}}></div>
+                                                <label htmlFor="color">Peach</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="light" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#fdd5b7'}}></div>
+                                                <label htmlFor="color">Light</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="dark" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#ba8454'}}></div>
+                                                <label htmlFor="color">Dark</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="dark_2" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#9c663e'}}></div>
+                                                <label htmlFor="color">Dark 2</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="tanned" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#fdd082'}}></div>
+                                                <label htmlFor="color">Tanned</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="tanned_2" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#ecc479'}}></div>
+                                                <label htmlFor="color">Tanned 2</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="darkelf" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#aeb3ca'}}></div>
+                                                <label htmlFor="color">Dark Elf</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="darkelf_2" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#c9d0ee'}}></div>
+                                                <label htmlFor="color">Dark Elf 2</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBodyColor} type="radio" id="zombie" name="body-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#8eab89'}}></div>
+                                                <label htmlFor="color">Zombie</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li onClick={toggleDisplay}>
+                                        <span className="condensed">Eye Color</span>
+                                        <ul className="ul-block">
+                                            <li className="noPreview">
+                                                <input onChange={getEyeColor}  type="radio" id="eye-blue" name="eye-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#50d4ec'}}></div>
+                                                <label htmlFor="eye-color">Blue</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getEyeColor} type="radio" id="eye-brown" name="eye-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#7e4e20'}}></div>
+                                                <label htmlFor="eye-color">Brown</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getEyeColor} type="radio" id="eye-gray" name="eye-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#ada18f'}}></div>
+                                                <label htmlFor="eye-color">Gray</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getEyeColor} type="radio" id="eye-green" name="eye-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#84ec50'}}></div>
+                                                <label htmlFor="eye-color">Green</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getEyeColor} type="radio" id="eye-purple" name="eye-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#9d0b88'}}></div>
+                                                <label htmlFor="eye-color">Purple</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getEyeColor} type="radio" id="eye-red" name="eye-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#ff3d62'}}></div>
+                                                <label htmlFor="eye-color">Red</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li onClick={toggleDisplay}>
+                                        <span className="condensed">Hair Style</span>
+                                        <ul className="ul-block ul-hasPreview">
+                                            <div className="selections">
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/dreadlocks_short/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle}  type="radio" id="dreadlocks_short" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Dreadlocks</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/shorthawk/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="shorthawk" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Shorthawk</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/curtains/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="curtains" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Curtains</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/idol/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="idol" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Idol</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/pixie/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="pixie" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Pixie</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/cowlick/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="cowlick" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Cowlick</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/spiked_liberty/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="spiked_liberty" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Spiked Liberty</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/spiked_beehive/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="spiked_beehive" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Spiked Beehive</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/halfmessy/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="halfmessy" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Half Messy</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/pigtails/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="pigtails" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Pigtails</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/ponytail2/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="ponytail2" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Ponytail</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/braid/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="braid" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Braid</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/bangslong2/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="bangslong2" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Long with Bangs</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/long_messy2/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="long_messy2" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Long Messy</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/princess/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="princess" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Princess</label>
+                                                </li>
+                                                <li className="hasPreview">
+                                                    <center>
+                                                        <canvas className='selection-preview' data-image='hair/xlong/male/ash.png'></canvas>
+                                                    </center>
+                                                    <input onChange={getHairStyle} type="radio" id="xlong" name="hair-style"/>
+                                                    <label htmlFor="hair-style">Extra Long</label>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li onClick={toggleDisplay}>
+                                        <span className="condensed">Hair Color</span>
+                                        <ul className="ul-block">
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-ash" name="hair-color"/>
+                                                <div className='color-preview'style={{ backgroundColor: '#c18f8a'}}></div>
+                                                <label htmlFor="hair-color">Ash</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle} type="radio" id="hair-color-blonde" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#f5c34b'}}></div>
+                                                <label htmlFor="hair-color">Blonde</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-platinum" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#d9c88c'}}></div>
+                                                <label htmlFor="hair-color">Platinum</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-strawberry" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#f89b0e'}}></div>
+                                                <label htmlFor="hair-color">Strawberry</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-redhead" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#9e1f1f'}}></div>
+                                                <label htmlFor="hair-color">Redhead</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-carrot" name="hair-color"/>
+                                                <div className='color-preview'style={{ backgroundColor: '#ec673e'}}></div>
+                                                <label htmlFor="hair-color">Carrot</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-chestnut" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#511b03'}}></div>
+                                                <label htmlFor="hair-color">Chestnut</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-raven" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#0b3244'}}></div>
+                                                <label htmlFor="hair-color">Raven</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-gray" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#777777'}}></div>
+                                                <label htmlFor="hair-color">Gray</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-white" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#e2e5e5'}}></div>
+                                                <label htmlFor="hair-color">White</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-blue" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#0041b4'}}></div>
+                                                <label htmlFor="hair-color">Blue</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-purple" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#7141b2'}}></div>
+                                                <label htmlFor="hair-color">Purple</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-green" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#006900'}}></div>
+                                                <label htmlFor="hair-color">Green</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-pink" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#e941aa'}}></div>
+                                                <label htmlFor="hair-color">Pink</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getHairStyle}  type="radio" id="hair-color-rose" name="hair-color"/>
+                                                <div className='color-preview' style={{ backgroundColor: '#cc789d'}}></div>
+                                                <label htmlFor="hair-color">Rose</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li onClick={toggleDisplay}>
+                                        <span className="condensed">Background Color</span>
+                                        <ul className="ul-block">
+                                            <li className="noPreview">
+                                                <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#9580FF" name="bg-color"/>
+                                                <div className='color-preview'style={{ backgroundColor: '#9580FF'}}></div>
+                                                <label htmlFor="bg-color">Purple</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#8AFF80" name="bg-color"/>
+                                                <div className='color-preview'style={{ backgroundColor: '#8AFF80'}}></div>
+                                                <label htmlFor="bg-color">Green</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#FF80BF" name="bg-color"/>
+                                                <div className='color-preview'style={{ backgroundColor: '#FF80BF'}}></div>
+                                                <label htmlFor="bg-color">Pink</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#FFFF80" name="bg-color"/>
+                                                <div className='color-preview'style={{ backgroundColor: '#FFFF80'}}></div>
+                                                <label htmlFor="bg-color">Yellow</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#FF9580" name="bg-color"/>
+                                                <div className='color-preview'style={{ backgroundColor: '#FF9580'}}></div>
+                                                <label htmlFor="bg-color">Orange</label>
+                                            </li>
+                                            <li className="noPreview">
+                                                <input onChange={getBakcgroundColor}  type="radio" id="bg-color-#80FFEA" name="bg-color"/>
+                                                <div className='color-preview'style={{ backgroundColor: '#80FFEA'}}></div>
+                                                <label htmlFor="bg-color">Cyan</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </section> */}
+                    </div>
+                </div>
             </div>
-       </div>
+            </form>
+       </Fragment>
     );
 }
 

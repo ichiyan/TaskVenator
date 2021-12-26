@@ -6,9 +6,10 @@ export { useEffect, useState, useRef, Fragment } from "react";
 export { default as axios } from "axios";
 export { default as io } from "socket.io-client";
 export { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt, faPaperPlane, faCircle} from '@fortawesome/free-solid-svg-icons'
+export { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt, faPaperPlane, faCircle, faMars, faVenus} from '@fortawesome/free-solid-svg-icons'
 export {Swal} from 'sweetalert2';
 export {default as ReactTooltip} from 'react-tooltip';
+export {default as Carousel} from 'react-elastic-carousel';
 
  /*--------------------------------------------------------------
 # Auth
