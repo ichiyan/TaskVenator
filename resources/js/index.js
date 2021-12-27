@@ -6,7 +6,7 @@ export { useEffect, useState, useRef, Fragment } from "react";
 export { default as axios } from "axios";
 export { default as io } from "socket.io-client";
 export { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt, faPaperPlane, faCircle, faMars, faVenus} from '@fortawesome/free-solid-svg-icons'
+export { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt, faPaperPlane, faCircle, faSquareFull, faMars, faVenus, faEye, faCut, faMale} from '@fortawesome/free-solid-svg-icons'
 export {Swal} from 'sweetalert2';
 export {default as ReactTooltip} from 'react-tooltip';
 export {default as Carousel} from 'react-elastic-carousel';
@@ -47,7 +47,8 @@ export {default as Cards} from "./components/pages/shop/Cards";
 export {default as AddOutfitForm} from "./components/pages/shop/AddOutfitForm";
 export {default as AddPotionForm} from "./components/pages/shop/AddPotionForm";
 export {default as AddCardForm} from "./components/pages/shop/AddCardForm";
-export {default as CharacterCustomization} from "./components/pages/CharacterCustomization";
+export {default as CharacterCustomization} from "./components/pages/customization/CharacterCustomization";
+export {default as SelectionTab} from "./components/pages/customization/SelectionTab";
 
 export {default as GroupMemberPublicTasks} from "./components/pages/tasks/GroupMemberPublicTasks";
 export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks";

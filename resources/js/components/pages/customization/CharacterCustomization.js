@@ -1,6 +1,10 @@
-import { React, $, useEffect, Fragment, FontAwesomeIcon, faMars, faVenus } from '../../index';
+import { React, $, useEffect, useState, Fragment, SelectionTab,
+         FontAwesomeIcon, faSquareFull, faEye, faMale, faCut } from '../../../index';
 
 const CharacterCustomization = () => {
+
+    const [username, setUsername] = useState();
+    const [tab, setTab] = useState('general');
 
     var canvas, ctx, CANVAS_WIDTH, CANVAS_HEIGHT, previewImage;
     const baseDir = 'assets/images/spritesheets/';
@@ -19,7 +23,6 @@ const CharacterCustomization = () => {
     var hairColor = "ash";
     var bgColor = "white";
 
-    // var items = [];
     var selections = [];
 
     //warrior default items
@@ -63,6 +66,10 @@ const CharacterCustomization = () => {
         ammo: ammoImg,
     }
 
+    useEffect( () => {
+        document.querySelector('.tab-icon.selected').classList.remove('selected');
+        document.getElementById(tab).classList.add('selected');
+    }, [tab]);
 
     useEffect(() => {
 
@@ -115,13 +122,10 @@ const CharacterCustomization = () => {
         setTimeout(animate, 1000 / 8);
     }
 
-    const toggleDisplay = (e) => {
-        if(e.target.nodeName === "SPAN"){
-            $(e.target).toggleClass("condensed").toggleClass("expanded");
-            var $ul = $(e.target).siblings("ul");
-            $ul.toggle('slow').promise().done();
-            e.stopPropagation();
-        }
+
+    const inputHandler = (e) => {
+        e.persist();
+        setUsername(e.target.vallue);
     }
 
     const getBodyType = (e) => {
@@ -148,8 +152,8 @@ const CharacterCustomization = () => {
 
     const getBodyColor = (e) => {
 
-    document.querySelector('.color-preview-box.selected').classList.remove('selected');
-    document.getElementById(e.target.id).parentNode.classList.add('selected');
+        document.querySelector('.color-preview-box.selected').classList.remove('selected');
+        document.getElementById(e.target.id).parentNode.classList.add('selected');
 
        var baseBodyDir = (isFemale === true) ? baseDir + 'body/female/human/' : baseDir + 'body/male/human/';
        baseBodyColorDir = previewImage.src = baseBodyDir + e.target.id + ".png";
@@ -498,6 +502,8 @@ const CharacterCustomization = () => {
         bgColor = e.target.id.slice(9);
     }
 
+
+
     const submitHandler = () => {
 
     }
@@ -507,6 +513,9 @@ const CharacterCustomization = () => {
              <form onSubmit={submitHandler}>
             <div className='container wrapper'>
                 <section id="preview">
+                    <div id='char-cust-header'>
+                        <div className="text-center">Character Creation</div>
+                    </div>
                     <div id="previewAnimationsBox">
                         <canvas id="previewAnimations"></canvas>
                     </div>
@@ -516,73 +525,27 @@ const CharacterCustomization = () => {
                 </section>
                 <div className="container char-customization">
                     <div>
-                        <div id='char-cust-header'>
-                            <h3 className="text-center">Character Creation</h3>
+                        <div className='tabs-wrapper'>
+                           <center>
+                               <div className='tabs'>
+                                    <span onClick={() => setTab('general')} className='fa-stack icon-stack'>
+                                            <FontAwesomeIcon icon={faSquareFull}  className='fa-stack-2x tab-square'></FontAwesomeIcon>
+                                            <FontAwesomeIcon icon={faMale} id='general' className='fa-stack-1x selected tab-icon'></FontAwesomeIcon>
+                                    </span>
+                                    <span onClick={() => setTab('eye')} className='fa-stack icon-stack'>
+                                            <FontAwesomeIcon icon={faSquareFull}  className='fa-stack-2x tab-square'></FontAwesomeIcon>
+                                            <FontAwesomeIcon icon={faEye} id='eye' className='fa-stack-1x tab-icon'></FontAwesomeIcon>
+                                    </span>
+                                    <span onClick={() => setTab('hair')} className='fa-stack icon-stack'>
+                                            <FontAwesomeIcon icon={faSquareFull}  className='fa-stack-2x tab-square'></FontAwesomeIcon>
+                                            <FontAwesomeIcon icon={faCut} id='hair' className='fa-stack-1x tab-icon'></FontAwesomeIcon>
+                                    </span>
+                               </div>
+                           </center>
                         </div>
-                        <div className='selections-label'>Class</div>
-                        <div className='char-class'>
-                            <div className='class-preview' onClick={getClass} id="warrior" name="class">
-                                <img src='assets/images/warrior-class.png'/>
-                                <div className='class-name'>Warrior</div>
-                            </div>
-                            <div className='class-preview' onClick={getClass} id="mage" name="class">
-                                <img src='assets/images/mage-class.png'/>
-                                <div className='class-name'>Mage</div>
-                            </div>
-                            <div className='class-preview' onClick={getClass} id="marksman" name="class">
-                                <img src='assets/images/marksman-class.png'/>
-                                <div className='class-name'>Marksman</div>
-                            </div>
-                        </div>
-                        <div className='selections-label'>Sex</div>
-                        <div className='sex-options-box'>
-                            <center>
-                                <FontAwesomeIcon icon={faMars} onClick={getBodyType} size='5x' id="sex-male" className='sex-option selected'  name="sex"></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faVenus} onClick={getBodyType} size='5x' id="sex-female" className='sex-option' name="sex"></FontAwesomeIcon>
-                            </center>
-                        </div>
-                        <div className='selections-label'>Skin Tone</div>
-                        <div className='skin-tone-box'>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='white' className='color-preview' style={{ backgroundColor: '#f9d5ba'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='black' className='color-preview' style={{ backgroundColor: '#61382d'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='olive' className='color-preview' style={{ backgroundColor: '#d98e60'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div  onClick={getBodyColor} id='brown' className='color-preview' style={{ backgroundColor: '#a86431'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='peach' className='color-preview' style={{ backgroundColor: '#fdd082'}}></div>
-                            </div>
-                            <div className='color-preview-box selected'>
-                                <div onClick={getBodyColor} id='light' className='color-preview' style={{ backgroundColor: '#fdd5b7'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor}  id='dark' className='color-preview' style={{ backgroundColor: '#ba8454'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='dark_2' className='color-preview' style={{ backgroundColor: '#9c663e'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='tanned' className='color-preview' style={{ backgroundColor: '#fdd082'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='tanned_2' className='color-preview' style={{ backgroundColor: '#ecc479'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='darkelf' className='color-preview' style={{ backgroundColor: '#aeb3ca'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='darkelf_2' className='color-preview' style={{ backgroundColor: '#c9d0ee'}}></div>
-                            </div>
-                            <div className='color-preview-box'>
-                                <div onClick={getBodyColor} id='zombie' className='color-preview' style={{ backgroundColor: '#8eab89'}}></div>
-                            </div>
-                        </div>
+
+                        <SelectionTab tab={tab} username={username} inputHandler={inputHandler} getClass={getClass} getBodyType={getBodyType} getBodyColor={getBodyColor}></SelectionTab>
+
                         {/* <section id="chooser">
                                 <ul>
                                     <li onClick={toggleDisplay}>
