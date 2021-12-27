@@ -26,8 +26,12 @@ const SelectionTab = ({tab, getClass, getBodyType, getBodyColor, inputHandler, u
                     <div className='selections-label'>Sex</div>
                     <div className='sex-options-box'>
                         <center>
-                            <FontAwesomeIcon icon={faMars} onClick={getBodyType} size='5x' id="sex-male" className='sex-option selected'  name="sex"></FontAwesomeIcon>
-                            <FontAwesomeIcon icon={faVenus} onClick={getBodyType} size='5x' id="sex-female" className='sex-option' name="sex"></FontAwesomeIcon>
+                            <button onClick={getBodyType} id="sex-male" className='selection-btn'>
+                                <FontAwesomeIcon icon={faMars} size='5x' className='sex-option selected'  name="sex"></FontAwesomeIcon>
+                            </button>
+                            <button onClick={getBodyType} id="sex-female" className='selection-btn'>
+                                <FontAwesomeIcon icon={faVenus} size='5x' className='sex-option' name="sex"></FontAwesomeIcon>
+                            </button>
                         </center>
                     </div>
 

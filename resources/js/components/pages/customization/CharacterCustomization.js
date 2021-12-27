@@ -5,6 +5,7 @@ const CharacterCustomization = () => {
 
     const [username, setUsername] = useState();
     const [tab, setTab] = useState('general');
+    // const [sex, setSex] = useState('male');
 
     var canvas, ctx, CANVAS_WIDTH, CANVAS_HEIGHT, previewImage;
     const baseDir = 'assets/images/spritesheets/';
@@ -71,6 +72,11 @@ const CharacterCustomization = () => {
         document.getElementById(tab).classList.add('selected');
     }, [tab]);
 
+    // useEffect( () => {
+    //     document.querySelector('.tab-icon.selected').classList.remove('selected');
+    //     document.getElementById(tab).classList.add('selected');
+    // }, [sex]);
+
     useEffect(() => {
 
         canvas = $("#previewAnimations").get(0);
@@ -129,10 +135,12 @@ const CharacterCustomization = () => {
     }
 
     const getBodyType = (e) => {
+        e.preventDefault();
         var color, strArray;
+        var id = e.currentTarget.id
 
         document.querySelector('.sex-option.selected').classList.remove('selected');
-        document.getElementById(e.target.id).classList.add('selected');
+        document.getElementById(id).firstChild.classList.add('selected');
 
         if (baseBodyColorDir != null){
             strArray = baseBodyColorDir.split("/");
@@ -140,10 +148,10 @@ const CharacterCustomization = () => {
         }else{
             color = "light.png";
         }
-        if(e.target.id === "sex-female"){
+        if(id === "sex-female"){
             isFemale = true;
             previewImage.src = baseDir + 'body/female/human/' + color;
-        }else if (e.target.id === "sex-male"){
+        }else if (id === "sex-male"){
             isFemale = false;
             previewImage.src = baseDir + 'body/male/human/' + color;
         }
