@@ -5,7 +5,6 @@ const CharacterCustomization = () => {
 
     const [username, setUsername] = useState();
     const [tab, setTab] = useState('general');
-    // const [sex, setSex] = useState('male');
 
     var canvas, ctx, CANVAS_WIDTH, CANVAS_HEIGHT, previewImage;
     const baseDir = 'assets/images/spritesheets/';
@@ -72,13 +71,8 @@ const CharacterCustomization = () => {
         document.getElementById(tab).classList.add('selected');
     }, [tab]);
 
-    // useEffect( () => {
-    //     document.querySelector('.tab-icon.selected').classList.remove('selected');
-    //     document.getElementById(tab).classList.add('selected');
-    // }, [sex]);
-
     useEffect(() => {
-
+        console.log("test")
         canvas = $("#previewAnimations").get(0);
         ctx = canvas.getContext('2d');
         CANVAS_WIDTH = canvas.width = 200;
@@ -105,11 +99,13 @@ const CharacterCustomization = () => {
     }, []);
 
     const animate = () => {
+        // console.log("test")
         ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         ctx.fillStyle = bgColor;
         ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         selections.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
+        // console.log(selections)
         selections.forEach(selection => {
             if ( selection.sex === "unisex" ){
                 sex = isFemale ? "female" : "male";
@@ -139,6 +135,9 @@ const CharacterCustomization = () => {
         var color, strArray;
         var id = e.currentTarget.id
 
+        console.log(previewImage)
+
+
         document.querySelector('.sex-option.selected').classList.remove('selected');
         document.getElementById(id).firstChild.classList.add('selected');
 
@@ -155,7 +154,7 @@ const CharacterCustomization = () => {
             isFemale = false;
             previewImage.src = baseDir + 'body/male/human/' + color;
         }
-
+        console.log(selections)
     }
 
     const getBodyColor = (e) => {
@@ -211,6 +210,8 @@ const CharacterCustomization = () => {
     }
 
     const getClass = (e) => {
+
+        console.log(e.target.id)
 
         var role = document.querySelector('.class-preview.selected');
         if(role != null){
@@ -504,21 +505,21 @@ const CharacterCustomization = () => {
                 },
             );
         }
+        console.log(selections)
     }
 
     const getBakcgroundColor = (e) => {
         bgColor = e.target.id.slice(9);
     }
 
-
-
     const submitHandler = () => {
-
+        e.preventDefault();
+        console.log(selections)
     }
 
     return (
         <Fragment>
-             <form onSubmit={submitHandler}>
+             <form>
             <div className='container wrapper'>
                 <section id="preview">
                     <div id='char-cust-header'>
@@ -528,7 +529,8 @@ const CharacterCustomization = () => {
                         <canvas id="previewAnimations"></canvas>
                     </div>
                     <center>
-                        <input type="submit" name="submit" id="submit" className="btn-custom-primary" value="Create Character"/>
+                        {/* <input type="submit" name="submit" id="submit" className="btn-custom-primary" value="Create Character"/> */}
+                        <input onClick={submitHandler} name="submit" id="submit" className="btn-custom-primary" value="Create Character"/>
                     </center>
                 </section>
                 <div className="container char-customization">
@@ -552,7 +554,7 @@ const CharacterCustomization = () => {
                            </center>
                         </div>
 
-                        <SelectionTab tab={tab} username={username} inputHandler={inputHandler} getClass={getClass} getBodyType={getBodyType} getBodyColor={getBodyColor}></SelectionTab>
+                        <SelectionTab tab={tab} username={username} inputHandler={inputHandler} getClass={getClass} getBodyType={getBodyType} getBodyColor={getBodyColor} ></SelectionTab>
 
                         {/* <section id="chooser">
                                 <ul>

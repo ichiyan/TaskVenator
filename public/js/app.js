@@ -16341,8 +16341,7 @@ var CharacterCustomization = function CharacterCustomization() {
   var _useState3 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)('general'),
       _useState4 = _slicedToArray(_useState3, 2),
       tab = _useState4[0],
-      setTab = _useState4[1]; // const [sex, setSex] = useState('male');
-
+      setTab = _useState4[1];
 
   var canvas, ctx, CANVAS_WIDTH, CANVAS_HEIGHT, previewImage;
   var baseDir = 'assets/images/spritesheets/';
@@ -16406,12 +16405,9 @@ var CharacterCustomization = function CharacterCustomization() {
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     document.querySelector('.tab-icon.selected').classList.remove('selected');
     document.getElementById(tab).classList.add('selected');
-  }, [tab]); // useEffect( () => {
-  //     document.querySelector('.tab-icon.selected').classList.remove('selected');
-  //     document.getElementById(tab).classList.add('selected');
-  // }, [sex]);
-
+  }, [tab]);
   (0,_index__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log("test");
     canvas = (0,_index__WEBPACK_IMPORTED_MODULE_0__.$)("#previewAnimations").get(0);
     ctx = canvas.getContext('2d');
     CANVAS_WIDTH = canvas.width = 200;
@@ -16434,13 +16430,15 @@ var CharacterCustomization = function CharacterCustomization() {
   }, []);
 
   var animate = function animate() {
+    // console.log("test")
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.drawImage(previewImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     selections.sort(function (a, b) {
       return a.zPos > b.zPos ? 1 : -1;
-    });
+    }); // console.log(selections)
+
     selections.forEach(function (selection) {
       if (selection.sex === "unisex") {
         sex = isFemale ? "female" : "male";
@@ -16469,6 +16467,7 @@ var CharacterCustomization = function CharacterCustomization() {
     e.preventDefault();
     var color, strArray;
     var id = e.currentTarget.id;
+    console.log(previewImage);
     document.querySelector('.sex-option.selected').classList.remove('selected');
     document.getElementById(id).firstChild.classList.add('selected');
 
@@ -16486,6 +16485,8 @@ var CharacterCustomization = function CharacterCustomization() {
       isFemale = false;
       previewImage.src = baseDir + 'body/male/human/' + color;
     }
+
+    console.log(selections);
   };
 
   var getBodyColor = function getBodyColor(e) {
@@ -16545,6 +16546,7 @@ var CharacterCustomization = function CharacterCustomization() {
   };
 
   var getClass = function getClass(e) {
+    console.log(e.target.id);
     var role = document.querySelector('.class-preview.selected');
 
     if (role != null) {
@@ -16804,17 +16806,21 @@ var CharacterCustomization = function CharacterCustomization() {
         zPos: 150
       });
     }
+
+    console.log(selections);
   };
 
   var getBakcgroundColor = function getBakcgroundColor(e) {
     bgColor = e.target.id.slice(9);
   };
 
-  var submitHandler = function submitHandler() {};
+  var submitHandler = function submitHandler() {
+    e.preventDefault();
+    console.log(selections);
+  };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
-      onSubmit: submitHandler,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "container wrapper",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
@@ -16832,7 +16838,7 @@ var CharacterCustomization = function CharacterCustomization() {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-              type: "submit",
+              onClick: submitHandler,
               name: "submit",
               id: "submit",
               className: "btn-custom-primary",
