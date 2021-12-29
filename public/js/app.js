@@ -17255,6 +17255,9 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "selections-label",
+        children: "Accessories"
       })]
     });
   } else if (tab === 'hair') {
