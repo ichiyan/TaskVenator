@@ -109,8 +109,6 @@
 }
 
 #preview{
-    // display: flex;
-    // justify-content: center;
     margin: 3%;
 
     #previewAnimations {
@@ -231,7 +229,7 @@
     background: black;
 }
 
-.sex-options-box, .skin-tone-box, .username-field{
+.selections-box, .username-field{
     background: #282A36;
     box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
@@ -251,19 +249,29 @@
     margin: 2% 0;
 }
 
-.skin-tone-box{
+.selections-box{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    height: 65px;
     padding: 1%;
     margin: 2% 0;
 }
 
+.skin-tone-box, .eye-color-box{
+    height: 65px;
+}
+
+.skin-tone-box, .hair-style-box{
+    width: 100%;
+}
+
+.eye-color-box{
+    width: 40%;
+}
+
 .sex-option{
     padding: 0 13px;
-    margin-top: -30%;
+    margin-top: 0;
     color: #383A59;
 }
 
@@ -281,7 +289,7 @@
     border: #4c4f64 1px solid;
 }
 
-.color-preview-box:hover, .color-preview-box.selected{
+.color-preview-box:hover, .color-preview-box.selected, .selection-preview:hover{
     border-color: antiquewhite;
 }
 
@@ -293,4 +301,20 @@
     cursor: pointer;
 }
 
+.hair-style-box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+}
 
+.img-preview-container{
+    flex: 1 0 10%;
+}
+
+.selection-preview{
+    border: #4c4f64 1px solid;
+    display: block;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
