@@ -25,10 +25,10 @@ const CharacterCustomization = () => {
 
     const isFemale = useRef(false);
     const sex = useRef();
+    const bgColor = useRef("white");
     var baseBodyColorDir;
     var hairStyle = "pixie";
     var hairColor = "ash";
-    var bgColor = "white";
 
     const [selected, setSelected] = useState([]);
     var selections = selected;
@@ -112,7 +112,7 @@ const CharacterCustomization = () => {
 
     const animate = () => {
         ctx.current.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        ctx.current.fillStyle = bgColor;
+        ctx.current.fillStyle = bgColor.current;
         ctx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         ctx.current.drawImage(previewImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         selections.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
@@ -512,8 +512,8 @@ const CharacterCustomization = () => {
         console.log(selections)
     }
 
-    const getBakcgroundColor = (e) => {
-        bgColor = e.target.id.slice(9);
+    const getBackgroundColor = (e) => {
+        bgColor.current = e.target.id.slice(9);
     }
 
     const submitHandler = () => {
@@ -563,7 +563,7 @@ const CharacterCustomization = () => {
                            </center>
                         </div>
 
-                        <SelectionTab tab={tab} username={username} inputHandler={inputHandler} getClass={getClass} getBodyType={getBodyType} getBodyColor={getBodyColor} getEyeColor={getEyeColor} getHairStyle={getHairStyle}></SelectionTab>
+                        <SelectionTab tab={tab} username={username} inputHandler={inputHandler} getClass={getClass} getBodyType={getBodyType} getBodyColor={getBodyColor} getEyeColor={getEyeColor} getHairStyle={getHairStyle} getBackgroundColor={getBackgroundColor}></SelectionTab>
 
                     </div>
                 </div>

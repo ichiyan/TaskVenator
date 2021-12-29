@@ -1,6 +1,6 @@
 import { React, FontAwesomeIcon, faVenus, faMars } from '../../../index';
 
-const SelectionTab = ({tab, getClass, getBodyType, getBodyColor, getEyeColor, getHairStyle, inputHandler, username}) => {
+const SelectionTab = ({tab, getClass, getBodyType, getBodyColor, getEyeColor, getHairStyle, getBackgroundColor, inputHandler, username}) => {
     if(tab === 'general'){
         return  <section>
                     <div className='selections-label'>Username</div>
@@ -22,16 +22,44 @@ const SelectionTab = ({tab, getClass, getBodyType, getBodyColor, getEyeColor, ge
                         </div>
                     </div>
 
-                    <div className='selections-label'>Sex</div>
-                    <div className='selections-box sex-options-box'>
-                        <center>
-                            <button onClick={getBodyType} id="sex-male" className='selection-btn'>
-                                <FontAwesomeIcon icon={faMars} size='5x' className='sex-option selected'  name="sex"></FontAwesomeIcon>
-                            </button>
-                            <button onClick={getBodyType} id="sex-female" className='selection-btn'>
-                                <FontAwesomeIcon icon={faVenus} size='5x' className='sex-option' name="sex"></FontAwesomeIcon>
-                            </button>
-                        </center>
+                    <div className="selections-row">
+                        <div className='sex-options-section'>
+                            <div className='selections-label'>Sex</div>
+                            <div className='selections-box sex-options-box'>
+                                <div className='sex-btns'>
+                                    <button onClick={getBodyType} id="sex-male" className='sex-selection-btn'>
+                                        <FontAwesomeIcon icon={faMars} size='5x' className='sex-option selected'  name="sex"></FontAwesomeIcon>
+                                    </button>
+                                    <button onClick={getBodyType} id="sex-female" className='sex-selection-btn'>
+                                        <FontAwesomeIcon icon={faVenus} size='5x' className='sex-option' name="sex"></FontAwesomeIcon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='background-color-section'>
+                            <div className='selections-label'>Background Color</div>
+                            <div className='selections-box background-color-box'>
+                                <div className='color-preview-box'>
+                                    <div onClick={getBackgroundColor} id="bg-color-#9580FF" className='color-preview' style={{ backgroundColor: '#9580FF'}}></div>
+                                </div>
+                                <div className='color-preview-box'>
+                                    <div onClick={getBackgroundColor}  id="bg-color-#8AFF80" className='color-preview' style={{ backgroundColor: '#8AFF80'}}></div>
+                                </div>
+                                <div className='color-preview-box'>
+                                    <div onClick={getBackgroundColor}  id="bg-color-#FF80BF" className='color-preview' style={{ backgroundColor: '#FF80BF'}}></div>
+                                </div>
+                                <div className='color-preview-box'>
+                                    <div onClick={getBackgroundColor} id="bg-color-#FFFF80"  className='color-preview' style={{ backgroundColor: '#FFFF80'}}></div>
+                                </div>
+                                <div className='color-preview-box'>
+                                    <div onClick={getBackgroundColor} id="bg-color-#FF9580"  className='color-preview' style={{ backgroundColor: '#FF9580'}}></div>
+                                </div>
+                                <div className='color-preview-box'>
+                                    <div onClick={getBackgroundColor} id="bg-color-#80FFEA"  className='color-preview' style={{ backgroundColor: '#80FFEA'}}></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div className='selections-label'>Skin Tone</div>
@@ -101,7 +129,7 @@ const SelectionTab = ({tab, getClass, getBodyType, getBodyColor, getEyeColor, ge
                         </div>
                     </div>
                     <div className='selections-label'>Accessories</div>
-                    
+
                 </section>
     }else if(tab === 'hair'){
         return  <section>

@@ -16373,10 +16373,10 @@ var CharacterCustomization = function CharacterCustomization() {
   var SEL_CANVAS_SIZE = 64;
   var isFemale = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
   var sex = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  var bgColor = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)("white");
   var baseBodyColorDir;
   var hairStyle = "pixie";
   var hairColor = "ash";
-  var bgColor = "white";
 
   var _useState9 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState10 = _slicedToArray(_useState9, 2),
@@ -16457,7 +16457,7 @@ var CharacterCustomization = function CharacterCustomization() {
 
   var animate = function animate() {
     ctx.current.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ctx.current.fillStyle = bgColor;
+    ctx.current.fillStyle = bgColor.current;
     ctx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.current.drawImage(previewImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     selections.sort(function (a, b) {
@@ -16829,8 +16829,8 @@ var CharacterCustomization = function CharacterCustomization() {
     console.log(selections);
   };
 
-  var getBakcgroundColor = function getBakcgroundColor(e) {
-    bgColor = e.target.id.slice(9);
+  var getBackgroundColor = function getBackgroundColor(e) {
+    bgColor.current = e.target.id.slice(9);
   };
 
   var submitHandler = function submitHandler() {};
@@ -16929,7 +16929,8 @@ var CharacterCustomization = function CharacterCustomization() {
               getBodyType: getBodyType,
               getBodyColor: getBodyColor,
               getEyeColor: getEyeColor,
-              getHairStyle: getHairStyle
+              getHairStyle: getHairStyle,
+              getBackgroundColor: getBackgroundColor
             })]
           })
         })]
@@ -16966,6 +16967,7 @@ var SelectionTab = function SelectionTab(_ref) {
       getBodyColor = _ref.getBodyColor,
       getEyeColor = _ref.getEyeColor,
       getHairStyle = _ref.getHairStyle,
+      getBackgroundColor = _ref.getBackgroundColor,
       inputHandler = _ref.inputHandler,
       username = _ref.username;
 
@@ -17021,34 +17023,110 @@ var SelectionTab = function SelectionTab(_ref) {
             children: "Marksman"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "selections-label",
-        children: "Sex"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "selections-box sex-options-box",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("center", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-            onClick: getBodyType,
-            id: "sex-male",
-            className: "selection-btn",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-              icon: _index__WEBPACK_IMPORTED_MODULE_0__.faMars,
-              size: "5x",
-              className: "sex-option selected",
-              name: "sex"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-            onClick: getBodyType,
-            id: "sex-female",
-            className: "selection-btn",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-              icon: _index__WEBPACK_IMPORTED_MODULE_0__.faVenus,
-              size: "5x",
-              className: "sex-option",
-              name: "sex"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "selections-row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "sex-options-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "selections-label",
+            children: "Sex"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "selections-box sex-options-box",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: "sex-btns",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                onClick: getBodyType,
+                id: "sex-male",
+                className: "sex-selection-btn",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+                  icon: _index__WEBPACK_IMPORTED_MODULE_0__.faMars,
+                  size: "5x",
+                  className: "sex-option selected",
+                  name: "sex"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                onClick: getBodyType,
+                id: "sex-female",
+                className: "sex-selection-btn",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+                  icon: _index__WEBPACK_IMPORTED_MODULE_0__.faVenus,
+                  size: "5x",
+                  className: "sex-option",
+                  name: "sex"
+                })
+              })]
             })
           })]
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "background-color-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "selections-label",
+            children: "Background Color"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "selections-box background-color-box",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "color-preview-box",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                onClick: getBackgroundColor,
+                id: "bg-color-#9580FF",
+                className: "color-preview",
+                style: {
+                  backgroundColor: '#9580FF'
+                }
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "color-preview-box",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                onClick: getBackgroundColor,
+                id: "bg-color-#8AFF80",
+                className: "color-preview",
+                style: {
+                  backgroundColor: '#8AFF80'
+                }
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "color-preview-box",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                onClick: getBackgroundColor,
+                id: "bg-color-#FF80BF",
+                className: "color-preview",
+                style: {
+                  backgroundColor: '#FF80BF'
+                }
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "color-preview-box",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                onClick: getBackgroundColor,
+                id: "bg-color-#FFFF80",
+                className: "color-preview",
+                style: {
+                  backgroundColor: '#FFFF80'
+                }
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "color-preview-box",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                onClick: getBackgroundColor,
+                id: "bg-color-#FF9580",
+                className: "color-preview",
+                style: {
+                  backgroundColor: '#FF9580'
+                }
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "color-preview-box",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                onClick: getBackgroundColor,
+                id: "bg-color-#80FFEA",
+                className: "color-preview",
+                style: {
+                  backgroundColor: '#80FFEA'
+                }
+              })
+            })]
+          })]
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "selections-label",
         children: "Skin Tone"
@@ -32089,7 +32167,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.wrapper {\n  display: flex;\n  align-items: center;\n}\n\n.btn-custom-primary {\n  border-radius: 50px;\n  width: auto;\n  display: inline-block;\n  border: none;\n  background: #5FCF80;\n  color: #fff;\n  padding: 10px;\n  height: 50px;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  margin-top: 5%;\n}\n\n.btn-custom-primary:hover {\n  background-color: #3ac162;\n}\n\n.container.char-customization {\n  width: 60%;\n  align-self: flex-start;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n.container.char-customization .tabs-wrapper {\n  margin: 4% 0;\n}\n.container.char-customization .tabs {\n  display: inline-block;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n}\n.container.char-customization .tab-icon {\n  margin: 0;\n  font-size: 2.2rem;\n  text-align: center;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  color: #383A59;\n  cursor: pointer;\n}\n.container.char-customization .icon-stack {\n  margin: 0 -7px;\n  font-size: 1.8rem;\n}\n.container.char-customization .tab-square path {\n  stroke: #4c4f64;\n  stroke-width: 10px;\n}\n.container.char-customization .tab-icon:hover, .container.char-customization .tab-icon.selected {\n  color: aliceblue;\n}\n.container.char-customization .hidden {\n  display: none;\n}\n.container.char-customization .selection-btn {\n  all: unset;\n  cursor: pointer;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser .ul-block:not(.ul-hasPreview) {\n  -moz-column-count: 4;\n       column-count: 4;\n  -moz-column-gap: 20px;\n       column-gap: 20px;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 350px;\n  height: 350px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}\n\n#chooser ul {\n  margin: 1rem 0;\n}\n\n#char-cust-header {\n  font-size: 1.5rem;\n  color: aliceblue;\n  text-transform: uppercase;\n  font-weight: 500;\n  margin-bottom: 2%;\n}\n\n.char-class {\n  display: flex;\n}\n\n.selections-label {\n  color: aliceblue;\n  text-transform: uppercase;\n}\n\n.class-preview {\n  position: relative;\n  width: 18%;\n  text-align: center;\n  margin: 2% 6% 2% 0;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  cursor: pointer;\n}\n\n.class-preview img {\n  width: 100%;\n  vertical-align: top;\n  border: antiquewhite 1px solid;\n}\n\n.class-preview:after, .class-preview:before {\n  position: absolute;\n  opacity: 1;\n  transition: all 0.5s;\n}\n\n.class-preview:after {\n  content: \"\";\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background: rgba(0, 0, 0, 0.6);\n}\n\n.class-preview:hover:after {\n  opacity: 0;\n}\n\n.class-preview.selected:after {\n  opacity: 0;\n}\n\n.class-name {\n  position: absolute;\n  width: 98%;\n  bottom: 1px;\n  left: 50%;\n  transform: translate(-50%);\n  text-transform: uppercase;\n  color: aliceblue;\n  background: black;\n}\n\n.selections-box, .username-field {\n  background: #282A36;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  border-radius: 5px;\n  border: #4c4f64 2px solid;\n}\n\n.username-field {\n  width: 43%;\n  height: 40px;\n  margin: 2% 0;\n  color: aliceblue;\n}\n\n.sex-options-box {\n  width: 18%;\n  height: 55px;\n  margin: 2% 0;\n}\n\n.selections-box {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1%;\n  margin: 2% 0;\n}\n\n.skin-tone-box, .eye-color-box {\n  height: 65px;\n}\n\n.skin-tone-box, .hair-style-box {\n  width: 100%;\n}\n\n.eye-color-box {\n  width: 40%;\n}\n\n.sex-option {\n  padding: 0 13px;\n  margin-top: 0;\n  color: #383A59;\n}\n\n.sex-option:hover, .sex-option.selected {\n  color: aliceblue;\n}\n\n.color-preview-box {\n  display: inline-block;\n  position: relative;\n  width: 2.5rem;\n  height: 2.5rem;\n  margin: 0.5%;\n  padding: 4px 4px 0 4px;\n  border: #4c4f64 1px solid;\n}\n\n.color-preview-box:hover, .color-preview-box.selected, .selection-preview:hover {\n  border-color: antiquewhite;\n}\n\n.color-preview {\n  display: inline-block;\n  position: absolute;\n  width: 80%;\n  height: 80%;\n  cursor: pointer;\n}\n\n.hair-style-box {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px 10px;\n}\n\n.img-preview-container {\n  flex: 1 0 10%;\n}\n\n.selection-preview {\n  border: #4c4f64 1px solid;\n  display: block;\n  width: 70px;\n  height: 70px;\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.wrapper {\n  display: flex;\n  align-items: center;\n}\n\n.btn-custom-primary {\n  border-radius: 50px;\n  width: auto;\n  display: inline-block;\n  border: none;\n  background: #5FCF80;\n  color: #fff;\n  padding: 10px;\n  height: 50px;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  margin-top: 5%;\n}\n\n.btn-custom-primary:hover {\n  background-color: #3ac162;\n}\n\n.container.char-customization {\n  width: 60%;\n  align-self: flex-start;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n.container.char-customization .tabs-wrapper {\n  margin: 4% 0;\n}\n.container.char-customization .tabs {\n  display: inline-block;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n}\n.container.char-customization .tab-icon {\n  margin: 0;\n  font-size: 2.2rem;\n  text-align: center;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  color: #383A59;\n  cursor: pointer;\n}\n.container.char-customization .icon-stack {\n  margin: 0 -7px;\n  font-size: 1.8rem;\n}\n.container.char-customization .tab-square path {\n  stroke: #4c4f64;\n  stroke-width: 10px;\n}\n.container.char-customization .tab-icon:hover, .container.char-customization .tab-icon.selected {\n  color: aliceblue;\n}\n.container.char-customization .hidden {\n  display: none;\n}\n.container.char-customization .sex-selection-btn {\n  all: unset;\n  cursor: pointer;\n  height: 62.5px;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser .ul-block:not(.ul-hasPreview) {\n  -moz-column-count: 4;\n       column-count: 4;\n  -moz-column-gap: 20px;\n       column-gap: 20px;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 350px;\n  height: 350px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}\n\n#chooser ul {\n  margin: 1rem 0;\n}\n\n#char-cust-header {\n  font-size: 1.5rem;\n  color: aliceblue;\n  text-transform: uppercase;\n  font-weight: 500;\n  margin-bottom: 2%;\n}\n\n.char-class {\n  display: flex;\n}\n\n.selections-label {\n  color: aliceblue;\n  text-transform: uppercase;\n}\n\n.class-preview {\n  position: relative;\n  width: 18%;\n  text-align: center;\n  margin: 2% 6% 2% 0;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  cursor: pointer;\n}\n\n.class-preview img {\n  width: 100%;\n  vertical-align: top;\n  border: antiquewhite 1px solid;\n}\n\n.class-preview:after, .class-preview:before {\n  position: absolute;\n  opacity: 1;\n  transition: all 0.5s;\n}\n\n.class-preview:after {\n  content: \"\";\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background: rgba(0, 0, 0, 0.6);\n}\n\n.class-preview:hover:after {\n  opacity: 0;\n}\n\n.class-preview.selected:after {\n  opacity: 0;\n}\n\n.class-name {\n  position: absolute;\n  width: 98%;\n  bottom: 1px;\n  left: 50%;\n  transform: translate(-50%);\n  text-transform: uppercase;\n  color: aliceblue;\n  background: black;\n}\n\n.selections-box, .username-field {\n  background: #282A36;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  border-radius: 5px;\n  border: #4c4f64 2px solid;\n}\n\n.username-field {\n  width: 43%;\n  height: 40px;\n  margin: 2% 0;\n  color: aliceblue;\n}\n\n.sex-options-section {\n  width: 18%;\n}\n\n.sex-options-box {\n  height: 62.5px;\n  margin: 12% 0 !important;\n  justify-content: center !important;\n  align-items: center !important;\n}\n\n.background-color-box {\n  margin: 5% 0 !important;\n  padding: 2.5% !important;\n}\n\n.selections-box {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1%;\n  margin: 2% 0;\n}\n\n.skin-tone-box, .hair-style-box {\n  width: 100%;\n}\n\n.eye-color-box {\n  width: 40%;\n}\n\n.background-color-section {\n  width: 43%;\n}\n\n.selections-row {\n  width: 100%;\n  display: flex;\n  -moz-column-gap: 6%;\n       column-gap: 6%;\n}\n\n.sex-option {\n  padding: 0 13px;\n  margin-top: -8%;\n  color: #383A59;\n  height: 62.5px;\n}\n\n.sex-option:hover, .sex-option.selected {\n  color: aliceblue;\n}\n\n.color-preview-box {\n  display: inline-block;\n  position: relative;\n  width: 2.5rem;\n  height: 2.5rem;\n  margin: 0.5%;\n  padding: 4px 4px 0 4px;\n  border: #4c4f64 1px solid;\n}\n\n.color-preview-box:hover, .color-preview-box.selected, .selection-preview:hover {\n  border-color: antiquewhite;\n}\n\n.color-preview {\n  display: inline-block;\n  position: absolute;\n  width: 80%;\n  height: 80%;\n  cursor: pointer;\n}\n\n.hair-style-box {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px 10px;\n}\n\n.img-preview-container {\n  flex: 1 0 10%;\n}\n\n.selection-preview {\n  border: #4c4f64 1px solid;\n  display: block;\n  width: 70px;\n  height: 70px;\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
