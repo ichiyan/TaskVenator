@@ -26,12 +26,37 @@ const CharacterCustomization = () => {
     const isFemale = useRef(false);
     const sex = useRef();
     const bgColor = useRef("white");
-    var baseBodyColorDir;
-    var hairStyle = "pixie";
-    var hairColor = "ash";
+    const baseBodyColorDir = useRef();
+    const hairStyle = useRef("pixie");
+    const hairColor = useRef("ash");
 
     const [selected, setSelected] = useState([]);
     var selections = selected;
+
+    const [generalSelected, setGeneralSelected] = useState([
+        {
+            selection_name: "sex",
+            element_id: "sex-male",
+        },
+        {
+            selection_name: "skin tone",
+            element_id: "light",
+        }
+    ]);
+
+    const [eyeSelected, setEyeSelected] = useState([
+        {
+            selection_name: "eye color",
+            element_id: "eye-blue",
+        },
+    ]);
+
+    const [hairSelected, setHairSelected] = useState([
+        {
+            selection_name: "hair color",
+            element_id: "hair-color-ash",
+        },
+    ]);
 
     //warrior default items
     var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesArmorImg, shieldImg, slashWeaponImg, helmetImg;
@@ -78,16 +103,38 @@ const CharacterCustomization = () => {
         document.querySelector('.tab-icon.selected').classList.remove('selected');
         document.getElementById(tab).classList.add('selected');
         setSelected(selections);
-        if(tab === "hair"){
+        if (tab === "general"){
+            generalSelected.map( selection => {
+                if(selection.selection_name === "sex"){
+                    document.getElementById(selection.element_id).firstChild.classList.add('selected');
+                }else if(selection.selection_name === "skin tone" || selection.selection_name === "background color"){
+                    document.getElementById(selection.element_id).parentNode.classList.add('selected');
+                }else if(selection.selection_name === "class"){
+                    document.getElementById(selection.element_id).classList.add('selected');
+                }
+            });
+        }else if(tab === "eye"){
+            eyeSelected.map( selection => {
+                if(selection.selection_name === "eye color"){
+                    document.getElementById(selection.element_id).parentNode.classList.add('selected');
+                }
+            });
+        }else if(tab === "hair"){
             var selectionPreviews = document.querySelectorAll(".selection-preview");
             selectionPreviews.forEach( preview => {
                 preview.width = preview.height = SEL_CANVAS_SIZE;
                 var selectionCtx = preview.getContext('2d');
                 var selectionPrevImg = new Image();
                 selectionPrevImg.src = baseDir + preview.dataset.image;
-                console.log(selectionPrevImg)
                 selectionPrevImg.onload = () => {
                     selectionCtx.drawImage(selectionPrevImg, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, -15, 0, SEL_CANVAS_SIZE * 1.5, SEL_CANVAS_SIZE * 1.5);
+                }
+            });
+            hairSelected.map( selection => {
+                if(selection.selection_name === "hair style"){
+                    document.getElementById(selection.element_id).classList.add('selected');
+                }else if(selection.selection_name === "hair color"){
+                    document.getElementById(selection.element_id).parentNode.classList.add('selected');
                 }
             });
         }
@@ -148,8 +195,18 @@ const CharacterCustomization = () => {
         document.querySelector('.sex-option.selected').classList.remove('selected');
         document.getElementById(id).firstChild.classList.add('selected');
 
-        if (baseBodyColorDir != null){
-            strArray = baseBodyColorDir.split("/");
+        setGeneralSelected(generalSelected.map( (selection) => {
+            if(selection.selection_name === "sex"){
+                return{
+                    ...selection, element_id: id,
+                }
+            }else{
+                return selection;
+            }
+        }));
+
+        if (baseBodyColorDir.current != null){
+            strArray = baseBodyColorDir.current.split("/");
             color = strArray[strArray.length - 1];
         }else{
             color = "light.png";
@@ -165,15 +222,42 @@ const CharacterCustomization = () => {
 
     const getBodyColor = (e) => {
 
-        document.querySelector('.color-preview-box.selected').classList.remove('selected');
+        document.querySelector('.skin-tone-preview-box.selected').classList.remove('selected');
         document.getElementById(e.target.id).parentNode.classList.add('selected');
 
-       var baseBodyDir = (isFemale.current === true) ? baseDir + 'body/female/human/' : baseDir + 'body/male/human/';
-       baseBodyColorDir = previewImage.current.src = baseBodyDir + e.target.id + ".png";
+        setGeneralSelected(generalSelected.map( selection => {
+            if(selection.selection_name === "skin tone"){
+                return{
+                    ...selection, element_id: e.target.id,
+                }
+            }else{
+                return selection;
+            }
+        }));
+
+        var baseBodyDir = (isFemale.current === true) ? baseDir + 'body/female/human/' : baseDir + 'body/male/human/';
+        baseBodyColorDir.current = previewImage.current.src = baseBodyDir + e.target.id + ".png";
     }
 
     const getEyeColor = (e) => {
-        var eyeColor = e.target.id.slice(4);
+        var id = e.target.id;
+        var eyeColor = id.slice(4);
+        var selected_element = document.querySelector('.eye-color-preview-box.selected');
+        if(selected_element != null){
+            selected_element.classList.remove('selected');
+        }
+        document.getElementById(id).parentNode.classList.add('selected');
+
+        setEyeSelected(eyeSelected.map( selection => {
+            if(selection.selection_name === "eye color"){
+                return{
+                    ...selection, element_id: id,
+                }
+            }else{
+                return selection;
+            }
+        }));
+
         var ndx = selections.map( selection => selection.name).indexOf("eye color");
         if (ndx > -1){
             selections.splice(ndx, 1);
@@ -192,11 +276,42 @@ const CharacterCustomization = () => {
 
     const getHairStyle = (e) => {
         var id = e.target.id;
+        var selected_element;
+
         if(id.startsWith("hair-color")){
-            hairColor = id.slice(11);
+            hairColor.current = id.slice(11);
+            selected_element = document.querySelector('.hair-color-preview-box.selected');
+            if(selected_element != null){
+                selected_element.classList.remove('selected');
+            }
+            document.getElementById(id).parentNode.classList.add('selected');
+            setHairSelected(hairSelected.map( selection => {
+                if(selection.selection_name === "hair color"){
+                    return{
+                        ...selection, element_id: id,
+                    }
+                }else{
+                    return selection;
+                }
+            }));
         }else{
-            hairStyle = id;
+            hairStyle.current = id;
+            selected_element = document.querySelector('.selection-preview.selected');
+            if(selected_element != null){
+                selected_element.classList.remove('selected');
+            }
+            document.getElementById(id).classList.add('selected');
+            setHairSelected( prevState => prevState.filter( selection => selection.selection_name !== "hair style"));
+            setHairSelected( prevState => ([
+                ...prevState,
+                {
+                    selection_name: "hair style",
+                    element_id: id,
+                }
+            ]));
+
         }
+
         var ndx = selections.map( selection => selection.name).indexOf("hair style");
         if (ndx > -1){
             selections.splice(ndx, 1);
@@ -206,24 +321,31 @@ const CharacterCustomization = () => {
                 name: 'hair style',
                 sex: "unisex",
                 image: hairStyleImg.current,
-                img_name: hairColor + '.png',
-                base_src: baseDir + 'hair/' + hairStyle + '/',
+                img_name: hairColor.current + '.png',
+                base_src: baseDir + 'hair/' + hairStyle.current + '/',
                 zPos: 120,
             }
         );
     }
 
     const getClass = (e) => {
-
-        console.log(e.target.id)
-
+        var id = e.target.id;
         var role = document.querySelector('.class-preview.selected');
         if(role != null){
             role.classList.remove('selected');
         }
-        document.getElementById(e.target.id).classList.add('selected');
+        document.getElementById(id).classList.add('selected');
 
-        if (e.target.id === "warrior"){
+        setGeneralSelected( prevState => prevState.filter( selection => selection.selection_name !== "class"));
+        setGeneralSelected( prevState => ([
+            ...prevState,
+            {
+                selection_name: "class",
+                element_id: id,
+            }
+        ]));
+
+        if (id === "warrior"){
 
             frameY.current = 14;
             cycles.current = 5;
@@ -330,7 +452,7 @@ const CharacterCustomization = () => {
                     zPos: 130,
                 },
             );
-        }else if (e.target.id === "mage" ){
+        }else if (id === "mage" ){
 
             frameY.current = 2;
             cycles.current = 6;
@@ -410,7 +532,7 @@ const CharacterCustomization = () => {
                     zPos: 140,
                 },
             );
-        }else if (e.target.id === "marksman"){
+        }else if (id === "marksman"){
 
             frameY.current = 18;
             cycles.current = 12;
@@ -513,7 +635,22 @@ const CharacterCustomization = () => {
     }
 
     const getBackgroundColor = (e) => {
-        bgColor.current = e.target.id.slice(9);
+        var id = e.target.id;
+        bgColor.current = id.slice(9);
+        var selected_element = document.querySelector('.bg-color-preview-box.selected');
+        if(selected_element != null){
+            selected_element.classList.remove('selected');
+        }
+        document.getElementById(id).parentNode.classList.add('selected');
+
+        setGeneralSelected(prevState => prevState.filter( selection => selection.selection_name !== "background color"));
+        setGeneralSelected( prevState => ([
+            ...prevState,
+            {
+                selection_name: "background color",
+                element_id: id,
+            }
+        ]));
     }
 
     const submitHandler = () => {

@@ -308,7 +308,8 @@
     border: #4c4f64 1px solid;
 }
 
-.color-preview-box:hover, .color-preview-box.selected, .selection-preview:hover{
+.color-preview-box:hover, .color-preview-box.selected,
+.selection-preview:hover, .selection-preview.selected{
     border-color: antiquewhite;
 }
 
@@ -326,7 +327,7 @@
     gap: 10px 10px;
 }
 
-.img-preview-container{
+.img-preview-box{
     flex: 1 0 10%;
 }
 

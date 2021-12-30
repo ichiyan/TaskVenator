@@ -16316,6 +16316,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../index */ "./resources/js/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -16374,16 +16388,44 @@ var CharacterCustomization = function CharacterCustomization() {
   var isFemale = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
   var sex = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   var bgColor = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)("white");
-  var baseBodyColorDir;
-  var hairStyle = "pixie";
-  var hairColor = "ash";
+  var baseBodyColorDir = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  var hairStyle = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)("pixie");
+  var hairColor = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useRef)("ash");
 
   var _useState9 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState10 = _slicedToArray(_useState9, 2),
       selected = _useState10[0],
       setSelected = _useState10[1];
 
-  var selections = selected; //warrior default items
+  var selections = selected;
+
+  var _useState11 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+    selection_name: "sex",
+    element_id: "sex-male"
+  }, {
+    selection_name: "skin tone",
+    element_id: "light"
+  }]),
+      _useState12 = _slicedToArray(_useState11, 2),
+      generalSelected = _useState12[0],
+      setGeneralSelected = _useState12[1];
+
+  var _useState13 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+    selection_name: "eye color",
+    element_id: "eye-blue"
+  }]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      eyeSelected = _useState14[0],
+      setEyeSelected = _useState14[1];
+
+  var _useState15 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+    selection_name: "hair color",
+    element_id: "hair-color-ash"
+  }]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      hairSelected = _useState16[0],
+      setHairSelected = _useState16[1]; //warrior default items
+
 
   var legArmorImg, chainmailImg, plateImg, armsImg, shoulderPlateImg, glovesImg, shoesArmorImg, shieldImg, slashWeaponImg, helmetImg;
   var warriorDefaultItems = {
@@ -16427,18 +16469,40 @@ var CharacterCustomization = function CharacterCustomization() {
     document.getElementById(tab).classList.add('selected');
     setSelected(selections);
 
-    if (tab === "hair") {
+    if (tab === "general") {
+      generalSelected.map(function (selection) {
+        if (selection.selection_name === "sex") {
+          document.getElementById(selection.element_id).firstChild.classList.add('selected');
+        } else if (selection.selection_name === "skin tone" || selection.selection_name === "background color") {
+          document.getElementById(selection.element_id).parentNode.classList.add('selected');
+        } else if (selection.selection_name === "class") {
+          document.getElementById(selection.element_id).classList.add('selected');
+        }
+      });
+    } else if (tab === "eye") {
+      eyeSelected.map(function (selection) {
+        if (selection.selection_name === "eye color") {
+          document.getElementById(selection.element_id).parentNode.classList.add('selected');
+        }
+      });
+    } else if (tab === "hair") {
       var selectionPreviews = document.querySelectorAll(".selection-preview");
       selectionPreviews.forEach(function (preview) {
         preview.width = preview.height = SEL_CANVAS_SIZE;
         var selectionCtx = preview.getContext('2d');
         var selectionPrevImg = new Image();
         selectionPrevImg.src = baseDir + preview.dataset.image;
-        console.log(selectionPrevImg);
 
         selectionPrevImg.onload = function () {
           selectionCtx.drawImage(selectionPrevImg, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, -15, 0, SEL_CANVAS_SIZE * 1.5, SEL_CANVAS_SIZE * 1.5);
         };
+      });
+      hairSelected.map(function (selection) {
+        if (selection.selection_name === "hair style") {
+          document.getElementById(selection.element_id).classList.add('selected');
+        } else if (selection.selection_name === "hair color") {
+          document.getElementById(selection.element_id).parentNode.classList.add('selected');
+        }
       });
     }
   }, [tab]);
@@ -16493,9 +16557,18 @@ var CharacterCustomization = function CharacterCustomization() {
     var id = e.currentTarget.id;
     document.querySelector('.sex-option.selected').classList.remove('selected');
     document.getElementById(id).firstChild.classList.add('selected');
+    setGeneralSelected(generalSelected.map(function (selection) {
+      if (selection.selection_name === "sex") {
+        return _objectSpread(_objectSpread({}, selection), {}, {
+          element_id: id
+        });
+      } else {
+        return selection;
+      }
+    }));
 
-    if (baseBodyColorDir != null) {
-      strArray = baseBodyColorDir.split("/");
+    if (baseBodyColorDir.current != null) {
+      strArray = baseBodyColorDir.current.split("/");
       color = strArray[strArray.length - 1];
     } else {
       color = "light.png";
@@ -16511,14 +16584,40 @@ var CharacterCustomization = function CharacterCustomization() {
   };
 
   var getBodyColor = function getBodyColor(e) {
-    document.querySelector('.color-preview-box.selected').classList.remove('selected');
+    document.querySelector('.skin-tone-preview-box.selected').classList.remove('selected');
     document.getElementById(e.target.id).parentNode.classList.add('selected');
+    setGeneralSelected(generalSelected.map(function (selection) {
+      if (selection.selection_name === "skin tone") {
+        return _objectSpread(_objectSpread({}, selection), {}, {
+          element_id: e.target.id
+        });
+      } else {
+        return selection;
+      }
+    }));
     var baseBodyDir = isFemale.current === true ? baseDir + 'body/female/human/' : baseDir + 'body/male/human/';
-    baseBodyColorDir = previewImage.current.src = baseBodyDir + e.target.id + ".png";
+    baseBodyColorDir.current = previewImage.current.src = baseBodyDir + e.target.id + ".png";
   };
 
   var getEyeColor = function getEyeColor(e) {
-    var eyeColor = e.target.id.slice(4);
+    var id = e.target.id;
+    var eyeColor = id.slice(4);
+    var selected_element = document.querySelector('.eye-color-preview-box.selected');
+
+    if (selected_element != null) {
+      selected_element.classList.remove('selected');
+    }
+
+    document.getElementById(id).parentNode.classList.add('selected');
+    setEyeSelected(eyeSelected.map(function (selection) {
+      if (selection.selection_name === "eye color") {
+        return _objectSpread(_objectSpread({}, selection), {}, {
+          element_id: id
+        });
+      } else {
+        return selection;
+      }
+    }));
     var ndx = selections.map(function (selection) {
       return selection.name;
     }).indexOf("eye color");
@@ -16539,11 +16638,46 @@ var CharacterCustomization = function CharacterCustomization() {
 
   var getHairStyle = function getHairStyle(e) {
     var id = e.target.id;
+    var selected_element;
 
     if (id.startsWith("hair-color")) {
-      hairColor = id.slice(11);
+      hairColor.current = id.slice(11);
+      selected_element = document.querySelector('.hair-color-preview-box.selected');
+
+      if (selected_element != null) {
+        selected_element.classList.remove('selected');
+      }
+
+      document.getElementById(id).parentNode.classList.add('selected');
+      setHairSelected(hairSelected.map(function (selection) {
+        if (selection.selection_name === "hair color") {
+          return _objectSpread(_objectSpread({}, selection), {}, {
+            element_id: id
+          });
+        } else {
+          return selection;
+        }
+      }));
     } else {
-      hairStyle = id;
+      hairStyle.current = id;
+      selected_element = document.querySelector('.selection-preview.selected');
+
+      if (selected_element != null) {
+        selected_element.classList.remove('selected');
+      }
+
+      document.getElementById(id).classList.add('selected');
+      setHairSelected(function (prevState) {
+        return prevState.filter(function (selection) {
+          return selection.selection_name !== "hair style";
+        });
+      });
+      setHairSelected(function (prevState) {
+        return [].concat(_toConsumableArray(prevState), [{
+          selection_name: "hair style",
+          element_id: id
+        }]);
+      });
     }
 
     var ndx = selections.map(function (selection) {
@@ -16558,23 +16692,34 @@ var CharacterCustomization = function CharacterCustomization() {
       name: 'hair style',
       sex: "unisex",
       image: hairStyleImg.current,
-      img_name: hairColor + '.png',
-      base_src: baseDir + 'hair/' + hairStyle + '/',
+      img_name: hairColor.current + '.png',
+      base_src: baseDir + 'hair/' + hairStyle.current + '/',
       zPos: 120
     });
   };
 
   var getClass = function getClass(e) {
-    console.log(e.target.id);
+    var id = e.target.id;
     var role = document.querySelector('.class-preview.selected');
 
     if (role != null) {
       role.classList.remove('selected');
     }
 
-    document.getElementById(e.target.id).classList.add('selected');
+    document.getElementById(id).classList.add('selected');
+    setGeneralSelected(function (prevState) {
+      return prevState.filter(function (selection) {
+        return selection.selection_name !== "class";
+      });
+    });
+    setGeneralSelected(function (prevState) {
+      return [].concat(_toConsumableArray(prevState), [{
+        selection_name: "class",
+        element_id: id
+      }]);
+    });
 
-    if (e.target.id === "warrior") {
+    if (id === "warrior") {
       frameY.current = 14;
       cycles.current = 5;
 
@@ -16668,7 +16813,7 @@ var CharacterCustomization = function CharacterCustomization() {
         base_src: baseDir + 'hat/helmet/',
         zPos: 130
       });
-    } else if (e.target.id === "mage") {
+    } else if (id === "mage") {
       frameY.current = 2;
       cycles.current = 6;
 
@@ -16738,7 +16883,7 @@ var CharacterCustomization = function CharacterCustomization() {
         base_src: baseDir + 'weapon/thrust/',
         zPos: 140
       });
-    } else if (e.target.id === "marksman") {
+    } else if (id === "marksman") {
       frameY.current = 18;
       cycles.current = 12;
 
@@ -16830,7 +16975,26 @@ var CharacterCustomization = function CharacterCustomization() {
   };
 
   var getBackgroundColor = function getBackgroundColor(e) {
-    bgColor.current = e.target.id.slice(9);
+    var id = e.target.id;
+    bgColor.current = id.slice(9);
+    var selected_element = document.querySelector('.bg-color-preview-box.selected');
+
+    if (selected_element != null) {
+      selected_element.classList.remove('selected');
+    }
+
+    document.getElementById(id).parentNode.classList.add('selected');
+    setGeneralSelected(function (prevState) {
+      return prevState.filter(function (selection) {
+        return selection.selection_name !== "background color";
+      });
+    });
+    setGeneralSelected(function (prevState) {
+      return [].concat(_toConsumableArray(prevState), [{
+        selection_name: "background color",
+        element_id: id
+      }]);
+    });
   };
 
   var submitHandler = function submitHandler() {};
@@ -17030,32 +17194,29 @@ var SelectionTab = function SelectionTab(_ref) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: "selections-label",
             children: "Sex"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "selections-box sex-options-box",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "sex-btns",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                onClick: getBodyType,
-                id: "sex-male",
-                className: "sex-selection-btn",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-                  icon: _index__WEBPACK_IMPORTED_MODULE_0__.faMars,
-                  size: "5x",
-                  className: "sex-option selected",
-                  name: "sex"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                onClick: getBodyType,
-                id: "sex-female",
-                className: "sex-selection-btn",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-                  icon: _index__WEBPACK_IMPORTED_MODULE_0__.faVenus,
-                  size: "5x",
-                  className: "sex-option",
-                  name: "sex"
-                })
-              })]
-            })
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              onClick: getBodyType,
+              id: "sex-male",
+              className: "sex-selection-btn",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+                icon: _index__WEBPACK_IMPORTED_MODULE_0__.faMars,
+                size: "5x",
+                className: "sex-option",
+                name: "sex"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              onClick: getBodyType,
+              id: "sex-female",
+              className: "sex-selection-btn",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_index__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+                icon: _index__WEBPACK_IMPORTED_MODULE_0__.faVenus,
+                size: "5x",
+                className: "sex-option",
+                name: "sex"
+              })
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "background-color-section",
@@ -17065,7 +17226,7 @@ var SelectionTab = function SelectionTab(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "selections-box background-color-box",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "color-preview-box",
+              className: "color-preview-box bg-color-preview-box",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                 onClick: getBackgroundColor,
                 id: "bg-color-#9580FF",
@@ -17075,7 +17236,7 @@ var SelectionTab = function SelectionTab(_ref) {
                 }
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "color-preview-box",
+              className: "color-preview-box bg-color-preview-box",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                 onClick: getBackgroundColor,
                 id: "bg-color-#8AFF80",
@@ -17085,7 +17246,7 @@ var SelectionTab = function SelectionTab(_ref) {
                 }
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "color-preview-box",
+              className: "color-preview-box bg-color-preview-box",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                 onClick: getBackgroundColor,
                 id: "bg-color-#FF80BF",
@@ -17095,7 +17256,7 @@ var SelectionTab = function SelectionTab(_ref) {
                 }
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "color-preview-box",
+              className: "color-preview-box bg-color-preview-box",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                 onClick: getBackgroundColor,
                 id: "bg-color-#FFFF80",
@@ -17105,7 +17266,7 @@ var SelectionTab = function SelectionTab(_ref) {
                 }
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "color-preview-box",
+              className: "color-preview-box bg-color-preview-box",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                 onClick: getBackgroundColor,
                 id: "bg-color-#FF9580",
@@ -17115,7 +17276,7 @@ var SelectionTab = function SelectionTab(_ref) {
                 }
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "color-preview-box",
+              className: "color-preview-box bg-color-preview-box",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                 onClick: getBackgroundColor,
                 id: "bg-color-#80FFEA",
@@ -17133,7 +17294,7 @@ var SelectionTab = function SelectionTab(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "selections-box skin-tone-box",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "white",
@@ -17143,7 +17304,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "black",
@@ -17153,7 +17314,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "olive",
@@ -17163,7 +17324,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "brown",
@@ -17173,7 +17334,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "peach",
@@ -17183,7 +17344,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box selected",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "light",
@@ -17193,7 +17354,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "dark",
@@ -17203,7 +17364,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "dark_2",
@@ -17213,7 +17374,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "tanned",
@@ -17223,7 +17384,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "tanned_2",
@@ -17233,7 +17394,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "darkelf",
@@ -17243,7 +17404,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "darkelf_2",
@@ -17253,7 +17414,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box skin-tone-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getBodyColor,
             id: "zombie",
@@ -17273,7 +17434,7 @@ var SelectionTab = function SelectionTab(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "selections-box eye-color-box",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box selected",
+          className: "color-preview-box eye-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getEyeColor,
             id: "eye-blue",
@@ -17283,7 +17444,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box eye-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getEyeColor,
             id: "eye-brown",
@@ -17293,7 +17454,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box eye-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getEyeColor,
             id: "eye-gray",
@@ -17303,7 +17464,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box eye-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getEyeColor,
             id: "eye-green",
@@ -17313,7 +17474,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box eye-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getEyeColor,
             id: "eye-purple",
@@ -17323,7 +17484,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box eye-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getEyeColor,
             id: "eye-red",
@@ -17346,7 +17507,7 @@ var SelectionTab = function SelectionTab(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "selections-box hair-style-box",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17356,7 +17517,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17366,7 +17527,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17376,7 +17537,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17386,7 +17547,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17396,7 +17557,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17406,7 +17567,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17416,7 +17577,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17426,7 +17587,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17436,7 +17597,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17446,7 +17607,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17456,7 +17617,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17466,7 +17627,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17476,7 +17637,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17486,7 +17647,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17496,7 +17657,7 @@ var SelectionTab = function SelectionTab(_ref) {
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "img-preview-container",
+          className: "img-preview-box hair-style-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("center", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("canvas", {
               onClick: getHairStyle,
@@ -17512,7 +17673,7 @@ var SelectionTab = function SelectionTab(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "selections-box hair-color-box",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-ash",
@@ -17522,7 +17683,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-blonde",
@@ -17532,7 +17693,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-platinum",
@@ -17542,7 +17703,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-strawberry",
@@ -17552,7 +17713,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-redhead",
@@ -17562,7 +17723,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-carrot",
@@ -17572,7 +17733,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-chestnut",
@@ -17582,7 +17743,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-raven",
@@ -17592,7 +17753,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-gray",
@@ -17602,7 +17763,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-white",
@@ -17612,7 +17773,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-blue",
@@ -17622,7 +17783,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-purple",
@@ -17632,7 +17793,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-green",
@@ -17642,7 +17803,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-pink",
@@ -17652,7 +17813,7 @@ var SelectionTab = function SelectionTab(_ref) {
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "color-preview-box",
+          className: "color-preview-box hair-color-preview-box",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             onClick: getHairStyle,
             id: "hair-color-rose",
@@ -32167,7 +32328,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.wrapper {\n  display: flex;\n  align-items: center;\n}\n\n.btn-custom-primary {\n  border-radius: 50px;\n  width: auto;\n  display: inline-block;\n  border: none;\n  background: #5FCF80;\n  color: #fff;\n  padding: 10px;\n  height: 50px;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  margin-top: 5%;\n}\n\n.btn-custom-primary:hover {\n  background-color: #3ac162;\n}\n\n.container.char-customization {\n  width: 60%;\n  align-self: flex-start;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n.container.char-customization .tabs-wrapper {\n  margin: 4% 0;\n}\n.container.char-customization .tabs {\n  display: inline-block;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n}\n.container.char-customization .tab-icon {\n  margin: 0;\n  font-size: 2.2rem;\n  text-align: center;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  color: #383A59;\n  cursor: pointer;\n}\n.container.char-customization .icon-stack {\n  margin: 0 -7px;\n  font-size: 1.8rem;\n}\n.container.char-customization .tab-square path {\n  stroke: #4c4f64;\n  stroke-width: 10px;\n}\n.container.char-customization .tab-icon:hover, .container.char-customization .tab-icon.selected {\n  color: aliceblue;\n}\n.container.char-customization .hidden {\n  display: none;\n}\n.container.char-customization .sex-selection-btn {\n  all: unset;\n  cursor: pointer;\n  height: 62.5px;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser .ul-block:not(.ul-hasPreview) {\n  -moz-column-count: 4;\n       column-count: 4;\n  -moz-column-gap: 20px;\n       column-gap: 20px;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 350px;\n  height: 350px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}\n\n#chooser ul {\n  margin: 1rem 0;\n}\n\n#char-cust-header {\n  font-size: 1.5rem;\n  color: aliceblue;\n  text-transform: uppercase;\n  font-weight: 500;\n  margin-bottom: 2%;\n}\n\n.char-class {\n  display: flex;\n}\n\n.selections-label {\n  color: aliceblue;\n  text-transform: uppercase;\n}\n\n.class-preview {\n  position: relative;\n  width: 18%;\n  text-align: center;\n  margin: 2% 6% 2% 0;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  cursor: pointer;\n}\n\n.class-preview img {\n  width: 100%;\n  vertical-align: top;\n  border: antiquewhite 1px solid;\n}\n\n.class-preview:after, .class-preview:before {\n  position: absolute;\n  opacity: 1;\n  transition: all 0.5s;\n}\n\n.class-preview:after {\n  content: \"\";\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background: rgba(0, 0, 0, 0.6);\n}\n\n.class-preview:hover:after {\n  opacity: 0;\n}\n\n.class-preview.selected:after {\n  opacity: 0;\n}\n\n.class-name {\n  position: absolute;\n  width: 98%;\n  bottom: 1px;\n  left: 50%;\n  transform: translate(-50%);\n  text-transform: uppercase;\n  color: aliceblue;\n  background: black;\n}\n\n.selections-box, .username-field {\n  background: #282A36;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  border-radius: 5px;\n  border: #4c4f64 2px solid;\n}\n\n.username-field {\n  width: 43%;\n  height: 40px;\n  margin: 2% 0;\n  color: aliceblue;\n}\n\n.sex-options-section {\n  width: 18%;\n}\n\n.sex-options-box {\n  height: 62.5px;\n  margin: 12% 0 !important;\n  justify-content: center !important;\n  align-items: center !important;\n}\n\n.background-color-box {\n  margin: 5% 0 !important;\n  padding: 2.5% !important;\n}\n\n.selections-box {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1%;\n  margin: 2% 0;\n}\n\n.skin-tone-box, .hair-style-box {\n  width: 100%;\n}\n\n.eye-color-box {\n  width: 40%;\n}\n\n.background-color-section {\n  width: 43%;\n}\n\n.selections-row {\n  width: 100%;\n  display: flex;\n  -moz-column-gap: 6%;\n       column-gap: 6%;\n}\n\n.sex-option {\n  padding: 0 13px;\n  margin-top: -8%;\n  color: #383A59;\n  height: 62.5px;\n}\n\n.sex-option:hover, .sex-option.selected {\n  color: aliceblue;\n}\n\n.color-preview-box {\n  display: inline-block;\n  position: relative;\n  width: 2.5rem;\n  height: 2.5rem;\n  margin: 0.5%;\n  padding: 4px 4px 0 4px;\n  border: #4c4f64 1px solid;\n}\n\n.color-preview-box:hover, .color-preview-box.selected, .selection-preview:hover {\n  border-color: antiquewhite;\n}\n\n.color-preview {\n  display: inline-block;\n  position: absolute;\n  width: 80%;\n  height: 80%;\n  cursor: pointer;\n}\n\n.hair-style-box {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px 10px;\n}\n\n.img-preview-container {\n  flex: 1 0 10%;\n}\n\n.selection-preview {\n  border: #4c4f64 1px solid;\n  display: block;\n  width: 70px;\n  height: 70px;\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.wrapper {\n  display: flex;\n  align-items: center;\n}\n\n.btn-custom-primary {\n  border-radius: 50px;\n  width: auto;\n  display: inline-block;\n  border: none;\n  background: #5FCF80;\n  color: #fff;\n  padding: 10px;\n  height: 50px;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  margin-top: 5%;\n}\n\n.btn-custom-primary:hover {\n  background-color: #3ac162;\n}\n\n.container.char-customization {\n  width: 60%;\n  align-self: flex-start;\n}\n.container.char-customization .char-cust-card {\n  border: 0 !important;\n  border-radius: 10px !important;\n  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43) !important;\n  padding: 5%;\n}\n.container.char-customization h3 {\n  font-weight: bold;\n}\n.container.char-customization .tabs-wrapper {\n  margin: 4% 0;\n}\n.container.char-customization .tabs {\n  display: inline-block;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n}\n.container.char-customization .tab-icon {\n  margin: 0;\n  font-size: 2.2rem;\n  text-align: center;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  color: #383A59;\n  cursor: pointer;\n}\n.container.char-customization .icon-stack {\n  margin: 0 -7px;\n  font-size: 1.8rem;\n}\n.container.char-customization .tab-square path {\n  stroke: #4c4f64;\n  stroke-width: 10px;\n}\n.container.char-customization .tab-icon:hover, .container.char-customization .tab-icon.selected {\n  color: aliceblue;\n}\n.container.char-customization .hidden {\n  display: none;\n}\n.container.char-customization .sex-selection-btn {\n  all: unset;\n  cursor: pointer;\n  height: 62.5px;\n}\n\n#chooser > ul, li {\n  list-style-type: none;\n}\n\n#chooser ul > li > span {\n  cursor: pointer;\n}\n\n#chooser .ul-block {\n  display: none;\n}\n\n#chooser .ul-block:not(.ul-hasPreview) {\n  -moz-column-count: 4;\n       column-count: 4;\n  -moz-column-gap: 20px;\n       column-gap: 20px;\n}\n\n#chooser ul > li > .condensed:after {\n  padding-left: 10px;\n  content: \"▶\";\n}\n\n#chooser ul > li > .expanded:after, #chooser .condensed:hover:after {\n  padding-left: 10px;\n  content: \"▼\";\n}\n\n#preview {\n  margin: 3%;\n}\n#preview #previewAnimations {\n  border: 2px solid black;\n  width: 350px;\n  height: 350px;\n  -ms-interpolation-mode: nearest-neighbor;\n      image-rendering: -moz-crisp-edges;\n      image-rendering: pixelated;\n}\n\n#chooser ul.hasPreview {\n  text-indent: 0;\n}\n\n#chooser .selections {\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n}\n\n#chooser li.hasPreview {\n  display: inline-block;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 3px;\n  margin-left: 0;\n  margin-right: 0;\n  text-indent: 0;\n  border: solid 1px transparent;\n  border-radius: 3px;\n  text-align: center;\n}\n\n#chooser li.hasPreview label {\n  padding: 0.3rem;\n}\n\n#chooser li.hasPreview:hover {\n  border-color: silver;\n}\n\nli.hasPreview canvas {\n  display: block;\n  width: 64px;\n  height: 64px;\n}\n\n#chooser ul {\n  margin: 1rem 0;\n}\n\n#char-cust-header {\n  font-size: 1.5rem;\n  color: aliceblue;\n  text-transform: uppercase;\n  font-weight: 500;\n  margin-bottom: 2%;\n}\n\n.char-class {\n  display: flex;\n}\n\n.selections-label {\n  color: aliceblue;\n  text-transform: uppercase;\n}\n\n.class-preview {\n  position: relative;\n  width: 18%;\n  text-align: center;\n  margin: 2% 6% 2% 0;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  cursor: pointer;\n}\n\n.class-preview img {\n  width: 100%;\n  vertical-align: top;\n  border: antiquewhite 1px solid;\n}\n\n.class-preview:after, .class-preview:before {\n  position: absolute;\n  opacity: 1;\n  transition: all 0.5s;\n}\n\n.class-preview:after {\n  content: \"\";\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background: rgba(0, 0, 0, 0.6);\n}\n\n.class-preview:hover:after {\n  opacity: 0;\n}\n\n.class-preview.selected:after {\n  opacity: 0;\n}\n\n.class-name {\n  position: absolute;\n  width: 98%;\n  bottom: 1px;\n  left: 50%;\n  transform: translate(-50%);\n  text-transform: uppercase;\n  color: aliceblue;\n  background: black;\n}\n\n.selections-box, .username-field {\n  background: #282A36;\n  box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);\n  border-radius: 5px;\n  border: #4c4f64 2px solid;\n}\n\n.username-field {\n  width: 43%;\n  height: 40px;\n  margin: 2% 0;\n  color: aliceblue;\n}\n\n.sex-options-section {\n  width: 18%;\n}\n\n.sex-options-box {\n  height: 62.5px;\n  margin: 12% 0 !important;\n  justify-content: center !important;\n  align-items: center !important;\n}\n\n.background-color-box {\n  margin: 5% 0 !important;\n  padding: 2.5% !important;\n}\n\n.selections-box {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1%;\n  margin: 2% 0;\n}\n\n.skin-tone-box, .hair-style-box {\n  width: 100%;\n}\n\n.eye-color-box {\n  width: 40%;\n}\n\n.background-color-section {\n  width: 43%;\n}\n\n.selections-row {\n  width: 100%;\n  display: flex;\n  -moz-column-gap: 6%;\n       column-gap: 6%;\n}\n\n.sex-option {\n  padding: 0 13px;\n  margin-top: -8%;\n  color: #383A59;\n  height: 62.5px;\n}\n\n.sex-option:hover, .sex-option.selected {\n  color: aliceblue;\n}\n\n.color-preview-box {\n  display: inline-block;\n  position: relative;\n  width: 2.5rem;\n  height: 2.5rem;\n  margin: 0.5%;\n  padding: 4px 4px 0 4px;\n  border: #4c4f64 1px solid;\n}\n\n.color-preview-box:hover, .color-preview-box.selected,\n.selection-preview:hover, .selection-preview.selected {\n  border-color: antiquewhite;\n}\n\n.color-preview {\n  display: inline-block;\n  position: absolute;\n  width: 80%;\n  height: 80%;\n  cursor: pointer;\n}\n\n.hair-style-box {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px 10px;\n}\n\n.img-preview-box {\n  flex: 1 0 10%;\n}\n\n.selection-preview {\n  border: #4c4f64 1px solid;\n  display: block;\n  width: 70px;\n  height: 70px;\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
