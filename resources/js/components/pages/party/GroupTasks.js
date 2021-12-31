@@ -16,6 +16,7 @@ const GroupTasks = () => {
                 <div className="party-nav-item party-active-nav"><Link to="/group_tasks">Group Tasks</Link></div>
             </div>
             <div className="party-content" >
+                <button className="btn-sm btn">Add new</button>
                 <h1>Group Tasks</h1>
                 <GroupMemberPublicTasks
                     name = {name1}

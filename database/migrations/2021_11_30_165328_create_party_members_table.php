@@ -15,8 +15,8 @@ class CreatePartyMembersTable extends Migration
     {
         Schema::create('party_members', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('party_id');
-            $table->unsignedInteger('user_id');
+            $table->foreignId('party_id')->constrained('parties', 'id');
+            $table->foreignId('user_id')->constrained('users', 'id');
             $table->integer('status');
             $table->timestamps();
         });
