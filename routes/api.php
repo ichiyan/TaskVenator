@@ -34,6 +34,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('get_previous_messages', [MessageController::class, 'getPreviousMessages']);
     Route::get('get_party_info', [PartyController::class, 'getPartyInfo']);
     Route::post('create_avatar', [UserInfoController::class, 'store']);
+    Route::get('get_user_info', [UserInfoController::class, 'show']);
 });
 
 //storing and g potion

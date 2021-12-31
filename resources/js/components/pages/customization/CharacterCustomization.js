@@ -1,7 +1,9 @@
-import { React, $, axios, useEffect, useState, useRef, Fragment, SelectionTab,
+import { React, $, axios, useEffect, useState, useRef, useNavigate, Fragment, SelectionTab,
          FontAwesomeIcon, faSquareFull, faEye, faMale, faCut } from '../../../index';
 
 const CharacterCustomization = () => {
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [tab, setTab] = useState('general');
@@ -674,13 +676,11 @@ const CharacterCustomization = () => {
 
         axios.post(`/api/create_avatar`, data).then(res => {
             if(res.data.status === 200){
-                console.log("success");
+                navigate('/tasks');
             }else{
-                console.log("fail");
+                console.log("Character Creation Unsuccessful");
             }
         });
-
-
 
     }
 

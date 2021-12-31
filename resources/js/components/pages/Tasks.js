@@ -18,10 +18,9 @@ import {Header, React, io, SocketContext,
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
 
-
     useEffect( () => {
         document.body.classList.add('internal-pages');
-    });
+    }, []);
 
     const hitHandler = () => {
         let updatedHp;

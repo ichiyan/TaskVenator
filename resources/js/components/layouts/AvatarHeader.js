@@ -1,8 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import React, { Fragment, useRef, useState } from "react";
-import Carousel from 'react-elastic-carousel';
-import PartyMemberAvatar from "./PartyMemberAvatar";
+import { React, Fragment, axios, useRef, useState, useEffect,
+         FontAwesomeIcon, faInfoCircle,
+         Carousel, PartyMemberAvatar } from '../../index';
 
 const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
                        xp, xpTotal, xpBarWidth, xpIncreaseWidth, hasParty}) => {
@@ -15,19 +13,38 @@ const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
         { width: 500, itemsToShow: 4},
     ];
 
+    const [username, setUsername] = useState('');
+    const [level, setLevel] = useState('');
+    const [avatarClass, setAvatarClass] = useState('');
+
+    const avatarCanvasRef = useRef();
+    const avatarCtx = useRef();
+    const [CANVAS_WIDTH, setCanvasWidth] = useState(120);
+    const [CANVAS_HEIGHT, setCanvasHeight] = useState(120);
+
+    useEffect(() => {
+        axios.get(`api/get_user_info`).then(res => {
+            var data = res.data;
+            setUsername(data.username);
+            setLevel(data.level);
+            setAvatarClass(data.class);
+        });
+    }, [])
+
     return (
         <div className="avatar-header d-flex">
             <div className="container avatar d-flex">
                 <div className="row align-self-center justify-content-between align-items-center">
                     <div className="col-1 avatar-img-space d-flex">
-                        <img className="avatar-img align-self-center" src="assets/images/avatar-male-warrior.png"/>
+                        {/* <img className="avatar-img align-self-center" src="assets/images/avatar-male-warrior.png"/> */}
+                        <canvas ref={avatarCanvasRef}></canvas>
                     </div>
                     <div className="col avatar-header-info align-self-start">
                         <div className="first-row">
                             <span className="circle-icon">
                                 <img className="class-icon" src="assets/images/warrior-class-icon.png"></img>
                             </span>
-                            <span className="username">username<p className="class">lvl 1 warrior</p></span>
+                            <span className="username">{username}<p className="class">lvl {level} {avatarClass}</p></span>
                         </div>
                          <div className="health-section">
                             <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>

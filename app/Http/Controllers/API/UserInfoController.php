@@ -72,9 +72,19 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $user_id = Auth::id();
+        $user_info = User::find($user_id)->user_info;
+        $avatar = UserInfo::find($user_info->id)->avatar->with('class')->first();
+
+        return response()->json([
+            'status' => 200,
+            'username' => $user_info->username,
+            'level' => $avatar->level,
+            'class' => $avatar->class->name,
+            'items' => $avatar->items,
+        ]);
     }
 
     /**
