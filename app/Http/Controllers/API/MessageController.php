@@ -88,7 +88,7 @@ class MessageController extends Controller
     public function getParticipants(){
         //test private chat with any user
         $users = User::where('id', '!=', Auth::id())->get();
-        //test private with user hose id=2
+        //test private with user whose id=2
         $chat_user_info = User::findOrFail(2);
         $auth_user_info = User::find(Auth::id());
 

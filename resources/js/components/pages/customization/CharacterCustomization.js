@@ -1,4 +1,4 @@
-import { React, $, useEffect, useState, useRef, Fragment, SelectionTab,
+import { React, $, axios, useEffect, useState, useRef, Fragment, SelectionTab,
          FontAwesomeIcon, faSquareFull, faEye, faMale, faCut } from '../../../index';
 
 const CharacterCustomization = () => {
@@ -26,6 +26,8 @@ const CharacterCustomization = () => {
     const isFemale = useRef(false);
     const sex = useRef();
     const bgColor = useRef("white");
+    const skinTone = useRef("light");
+    const avatarClass = useRef();
     const baseBodyColorDir = useRef();
     const hairStyle = useRef("pixie");
     const hairColor = useRef("ash");
@@ -141,6 +143,8 @@ const CharacterCustomization = () => {
     }, [tab]);
 
     useEffect(() => {
+        document.body.classList.add('internal-pages');
+
         var canvas = canvasRef.current;
         ctx.current = canvas.getContext('2d');
         canvas.width = canvas.height = 200;
@@ -222,13 +226,15 @@ const CharacterCustomization = () => {
 
     const getBodyColor = (e) => {
 
+        skinTone.current = e.target.id;
+
         document.querySelector('.skin-tone-preview-box.selected').classList.remove('selected');
-        document.getElementById(e.target.id).parentNode.classList.add('selected');
+        document.getElementById(skinTone.current).parentNode.classList.add('selected');
 
         setGeneralSelected(generalSelected.map( selection => {
             if(selection.selection_name === "skin tone"){
                 return{
-                    ...selection, element_id: e.target.id,
+                    ...selection, element_id: skinTone.current,
                 }
             }else{
                 return selection;
@@ -236,7 +242,7 @@ const CharacterCustomization = () => {
         }));
 
         var baseBodyDir = (isFemale.current === true) ? baseDir + 'body/female/human/' : baseDir + 'body/male/human/';
-        baseBodyColorDir.current = previewImage.current.src = baseBodyDir + e.target.id + ".png";
+        baseBodyColorDir.current = previewImage.current.src = baseBodyDir + skinTone.current + ".png";
     }
 
     const getEyeColor = (e) => {
@@ -330,6 +336,7 @@ const CharacterCustomization = () => {
 
     const getClass = (e) => {
         var id = e.target.id;
+        avatarClass.current = id;
         var role = document.querySelector('.class-preview.selected');
         if(role != null){
             role.classList.remove('selected');
@@ -653,7 +660,27 @@ const CharacterCustomization = () => {
         ]));
     }
 
-    const submitHandler = () => {
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const data = {
+            username: username,
+            sex: isFemale.current,
+            skin_tone: skinTone.current,
+            background_color: bgColor.current,
+            items: selections,
+            class: avatarClass.current,
+        }
+
+        axios.post(`/api/create_avatar`, data).then(res => {
+            if(res.data.status === 200){
+                console.log("success");
+            }else{
+                console.log("fail");
+            }
+        });
+
+
 
     }
 
@@ -665,7 +692,7 @@ const CharacterCustomization = () => {
 
     return (
         <Fragment>
-             <form>
+            <form onSubmit={submitHandler}>
             <div className='container wrapper'>
                 <section id="preview">
                     <div id='char-cust-header'>

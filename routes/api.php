@@ -7,6 +7,7 @@ use App\Http\Controllers\API\MessageController;
 use App\Http\Controllers\API\PotionController;
 use App\Http\Controllers\API\OutfitController;
 use App\Http\Controllers\API\PartyController;
+use App\Http\Controllers\API\UserInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('send_party_message', [MessageController::class, 'sendPartyMessage']);
     Route::get('get_previous_messages', [MessageController::class, 'getPreviousMessages']);
     Route::get('get_party_info', [PartyController::class, 'getPartyInfo']);
+    Route::post('create_avatar', [UserInfoController::class, 'store']);
 });
 
 //storing and g potion
