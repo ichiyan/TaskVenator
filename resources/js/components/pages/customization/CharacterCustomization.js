@@ -702,7 +702,7 @@ const CharacterCustomization = () => {
                         <canvas ref={canvasRef} id="previewAnimations"></canvas>
                     </div>
                     <center>
-                        <input type="submit" name="submit" id="submit" className="btn-custom-primary" value="Create Character"/>
+                        <input type="submit" name="submit" id="submit" className="btn-custom-primary create-character-btn" value="Create Character"/>
                         <button onClick={test}>test</button>
                     </center>
                 </section>
