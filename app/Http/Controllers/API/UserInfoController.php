@@ -83,6 +83,9 @@ class UserInfoController extends Controller
             'username' => $user_info->username,
             'level' => $avatar->level,
             'class' => $avatar->class->name,
+            'sex' => $avatar->sex,
+            'skin_tone' => $avatar->skin_tone,
+            'background_color' => $avatar->background_color,
             'items' => $avatar->items,
         ]);
     }

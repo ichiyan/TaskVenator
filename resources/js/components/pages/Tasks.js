@@ -106,7 +106,7 @@ import {Header, React, io, SocketContext,
 
 
     return (
-        <SocketProvider>
+        // <SocketProvider>
             <div>
                 <Header page={tab}/>
                 <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
@@ -119,7 +119,7 @@ import {Header, React, io, SocketContext,
                     {renderTab}
                 </div>
             </div>
-      </SocketProvider>
+    //   </SocketProvider>
     );
 }
 
