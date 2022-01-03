@@ -22,7 +22,8 @@
 
 .inventory-filtShop{
     display: flex;
-    flex-direction: row;   
+    flex-direction: row;
+    gap:1rem;   
 }
 .inventory-outfitFilter{
     display: inline-block;
@@ -35,7 +36,7 @@
     height:200px;
     flex: 1;
     color: white;
-    /* background-color: brown; */
+    background-color: brown;
 }
 .inventory-shop{
     display:flex;

@@ -58,28 +58,13 @@ function Inventory(){
               </div>
            
               <div className="inventory-filtShop">
-                  {/* <div className="inventory-filter">
-                              <p>Class</p>
-                                    <select name="class" className="form-select">
-                                          <option value="All">All</option>
-                                          <option value="Warrior">Warrior</option>
-                                          <option value="Assassin">Assassin</option>
-                                          <option value="Mage">Mage</option>
-                                    </select><br></br>
-                                    <p>Rarity</p>
-                                    <select name="class" className="form-select" >
-                                          <option value="All">All</option>
-                                          <option value="Common">Common</option>
-                                          <option value="Uncommon">Uncommon</option>
-                                          <option value="Rare">Rare</option>
-                                    </select><br></br>
-                  </div> */}
+    
                 <div className="inventory-shop">      
-                 <div className="inventory-category">
+                 <div className="inventory-category1">
                             
           
                               <div className="shop-categoryName">
-                                    <p>Health Potions</p>
+                                    <h5>Health Potions</h5>
                               </div>
                               {inventoryPotion.potions.map((p,index)=>{
                                           if(p.type==="Hp Potion"){
@@ -92,7 +77,7 @@ function Inventory(){
                                   })}
                        
                               <div className="shop-categoryName">
-                                    <p>Powerup Potions</p>
+                                    <h5>Powerup Potions</h5>
                               </div>
                               
                               {inventoryPotion.potions.map((p,index)=>{
@@ -106,9 +91,118 @@ function Inventory(){
                                           }
                                     
                               })}
+                               <div className="shop-categoryName">
+                                    <h5>Weapons</h5>
+                              </div>
+                              <div className="shop-categoryName">
+                                 <p>Common</p>
+                              </div>
+                              {inventoryWeapon.weapons.map((w,index)=>{
+                           
+                                    if(w.rarity_type==="Common"){
+                                            return (
+                                                <div key={index} className="inventory-outfitFilter">
+                                                    <InventoryWeaponFilter data= {w}/>
+                                                </div>   
+                                            ) 
+                                    
+                                }
+                        })}
+                         <div className="shop-categoryName">
+                                 <p>Uncommon</p>
+                              </div>
+                              {inventoryWeapon.weapons.map((w,index)=>{
+                           
+                                    if(w.rarity_type==="Uncommon"){
+                                            return (
+                                                <div key={index} className="inventory-outfitFilter">
+                                                    <InventoryWeaponFilter data= {w}/>
+                                                </div>   
+                                            ) 
+                                    
+                                }
+                        })}
+                            <div className="shop-categoryName">
+                                 <p>Rare</p>
+                              </div>
+                              {inventoryWeapon.weapons.map((w,index)=>{
+                           
+                                    if(w.rarity_type==="Rare"){
+                                            return (
+                                                <div key={index} className="inventory-outfitFilter">
+                                                    <InventoryWeaponFilter data= {w}/>
+                                                </div>   
+                                            ) 
+                                    
+                                }
+                        })}
+                            <div className="shop-categoryName">
+                                 <h5>Armors</h5>
+                              </div>    
+                              <div className="shop-categoryName">
+                            <p>Head</p>
+                        </div>
+                        {inventoryArmor.armors.map((w,index)=>{
+                                    if(w.body_part==="Head"){
+                                            return (
+                                                <div key={index} className="inventory-outfitFilter">
+                                                    <InventoryOutfitFilter data= {w} />
+                                                </div>   
+                                            ) 
+                                    }       
+                        })}
+                        <div className="shop-categoryName">
+                            <p>Arms</p>
+                        </div>
+                        {inventoryArmor.armors.map((w,index)=>{
+                                    if(w.body_part==="Arms"){
+                                            return (
+                                                <div key={index} className="inventory-outfitFilter">
+                                                    <InventoryOutfitFilter data= {w} />
+                                                </div>   
+                                            ) 
+                                    }       
+                        })}
+                        <div className="shop-categoryName">
+                            <p>Torso</p>
+                        </div>
+                        {inventoryArmor.armors.map((w,index)=>{
+                                    if(w.body_part==="Torso"){
+                                            return (
+                                                <div key={index} className="inventory-outfitFilter">
+                                                    <InventoryOutfitFilter data= {w} />
+                                                </div>   
+                                            ) 
+                                    }       
+                        })}
+                        <div className="shop-categoryName">
+                            <p>Legs</p>
+                        </div>
+                        {inventoryArmor.armors.map((w,index)=>{
+                                    if(w.body_part==="Legs"){
+                                            return (
+                                                <div key={index} className="inventory-outfitFilter">
+                                                    <InventoryOutfitFilter data= {w} />
+                                                </div>   
+                                            ) 
+                                    }       
+                        })}
+                        <div className="shop-categoryName">
+                            <p>Footwear</p>
+                        </div>
+                        {inventoryArmor.armors.map((w,index)=>{
+                                    if(w.body_part==="Footwear"){
+                                            return (
+                                                <div key={index} className="inventory-outfitFilter">
+                                                    <InventoryOutfitFilter data= {w} />
+                                                </div>   
+                                            ) 
+                                    }       
+                        })}
                         </div> 
+                      
                  </div>  
-                 <div className="inventory-preview">
+                 <div className="inventory-preview2">
                      <div className="inventory-equipped1">
                             <div className="inventory-categoryName">
                                 <h3>Equipped Items</h3>
