@@ -17,9 +17,9 @@ class PartyController extends Controller
                     ->first()
                     ->party;
 
-        $members = $party->party_members;
+        $members = $party->party_members->where('id', '!=', $user_id);
         $members_info = [];
-        foreach ($party->party_members as $member) {
+        foreach ($members as $member) {
            $member->user->user_info->avatar;
            array_push($members_info, $member['user']['user_info']);
         }

@@ -61,8 +61,6 @@ useEffect(() => {
        if(data.has_party == 1){
             axios.get(`api/get_party_info`).then(res => {
                 if(res.data.status == 200){
-                    // partyMembers.current = res.data.members;
-                    // console.log(partyMembers.current);
                     setPartyMembers(res.data.members);
                 }
             });

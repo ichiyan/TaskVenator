@@ -74,7 +74,6 @@ const CharacterCustomization = () => {
         shoes: shoesArmorImg,
         shield: shieldImg,
         slashWeapon: slashWeaponImg,
-        helmet: helmetImg,
     }
 
     //mage default items
@@ -86,7 +85,6 @@ const CharacterCustomization = () => {
         cape: capeImg,
         scarf: scarfImg,
         weapon: weaponImg,
-        hat: hatImg,
     }
 
     //marksman default items
@@ -97,7 +95,6 @@ const CharacterCustomization = () => {
         shirt: shirtImg,
         armor: armorImg,
         bauldron: bauldronImg,
-        hat: hatLeatherImg,
         quiver: quiverImg,
         weapon: bowWeaponImg,
         ammo: ammoImg,
@@ -451,15 +448,6 @@ const CharacterCustomization = () => {
                     base_src: baseDir + 'weapon/slash/',
                     zPos: 140,
                 },
-                {
-                    class: 'warrior',
-                    name: 'helmet',
-                    sex: "unisex",
-                    image: warriorDefaultItems.helmet,
-                    img_name: 'norman.png',
-                    base_src: baseDir + 'hat/helmet/',
-                    zPos: 130,
-                },
             );
         }else if (id === "mage" ){
 
@@ -521,15 +509,6 @@ const CharacterCustomization = () => {
                     img_name: 'blue.png',
                     base_src: baseDir + 'neck/scarf/',
                     zPos: 90,
-                },
-                {
-                    class: 'mage',
-                    name: 'hat',
-                    sex: "unisex",
-                    image: mageDefaultItems.hat,
-                    img_name: 'black.png',
-                    base_src: baseDir + 'hat/magic/',
-                    zPos: 130,
                 },
                 {
                     class: 'mage',
@@ -610,15 +589,6 @@ const CharacterCustomization = () => {
                     img_name: 'quiver.png',
                     base_src: baseDir + 'quiver/',
                     zPos: 100,
-                },
-                {
-                    class: 'marksman',
-                    name: 'hat',
-                    sex: "unisex",
-                    image: marksmanDefaultItems.hat,
-                    img_name: 'leather.png',
-                    base_src: baseDir + 'hat/cloth/',
-                    zPos: 130,
                 },
                 {
                     class: 'marksman',

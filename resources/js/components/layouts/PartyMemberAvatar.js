@@ -96,7 +96,7 @@ const PartyMemberAvatar = ({member}) => {
                 <div className="col avatar-header-info align-self-center">
                     <div className="first-row">
                         <span className="circle-icon">
-                            <img className="class-icon" src="assets/images/warrior-class-icon.png"></img>
+                            <img className="class-icon" src={'assets/images/' + avatarClass.current  +'-class-icon.png'}></img>
                         </span>
                         <span className="username">{member.username}<p className="class">lvl {member.avatar.level} {avatarClass.current}</p></span>
                     </div>
