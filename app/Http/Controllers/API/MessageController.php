@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Events\PrivateMessageEvent;
 use App\Models\PartyMember;
+use App\Models\UserInfo;
 use App\Models\UserMessage;
 
 class MessageController extends Controller
@@ -33,12 +34,12 @@ class MessageController extends Controller
         if ($message->save()) {
             try {
                 $message->users()->attach($sender_id, ['party_id' => $party_id]);
-                $sender = User::where('id', '=', $sender_id)->first();
+                $sender = UserInfo::where('id', '=', $sender_id)->first();
 
                 $data = [];
 
                 $data['sender_id'] = $sender_id;
-                $data['sender_name'] = $sender->name;
+                $data['sender_name'] = $sender->username;
                 $data['type'] = 2;                      //party message type
                 $data['party_id'] = $party_id;
                 $data['content'] = $message->message;
@@ -62,7 +63,6 @@ class MessageController extends Controller
 
     public function getPreviousMessages(){
 
-        //changes users table to user_info
         $messages = DB::table('user_messages')
                     ->join('messages', 'user_messages.message_id', '=', 'messages.id')
                     ->join('users', 'user_messages.sender_id', '=', 'users.id')
@@ -74,10 +74,13 @@ class MessageController extends Controller
                     ->values()
                     ->all();
 
+        $last_opened_chat = UserInfo::where('id', '=', Auth::id())->first()->pluck('last_opened_chat');
+
 
         return response()->json([
             'status' => 200,
             'data' => $messages,
+            'last_opened_chat' =>  $last_opened_chat,
             'message' => 'Message sent successfully',
         ]);
 

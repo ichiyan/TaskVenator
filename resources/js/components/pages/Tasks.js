@@ -118,11 +118,18 @@ import {Header, React,
                 <Header page={tab}/>
                 <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
                 <div className="main-section">
-                    {/* main-section class in tasks.scss already sets margin-top to 15% */}
-                    {/* <p style={{color: "white"}}>TEST</p>
-                    <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
-                    <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
-                    <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button> */}
+                    {
+                        tab == "tasks"
+                        ?
+                            <div className="container">
+                                <p style={{color: "white"}}>TEST</p>
+                                <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
+                                <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
+                                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
+                            </div>
+                        : null
+                    }
+
                     {renderTab}
                 </div>
             </div>

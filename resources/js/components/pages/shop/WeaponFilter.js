@@ -1,5 +1,5 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
+import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
@@ -10,7 +10,7 @@ function WeaponFilter({data, value, avatarClass}){
             amount :'',
       });
 
-      
+
        const submitToHandler=(e)=>{
              e.preventDefault();
       //     Swal.fire("You have successfully bought the item");
@@ -23,10 +23,10 @@ function WeaponFilter({data, value, avatarClass}){
       }else{
             Swal.fire("Failed to buy Item - Class Restriction");
       }
-          
-        
-           
-  
+
+
+
+
        }
        useEffect(() => {
             const data={
@@ -44,13 +44,13 @@ function WeaponFilter({data, value, avatarClass}){
                         }
                       });
             }
-        
+
        }, [passProductId])
     return(
-          
+
         <div data-tip data-for={data.name}  className="shop-returnMap">
-        <div className="shop-items"> 
-      
+        <div className="shop-items">
+
               <div className="shop-itemsImage">
               {
               (data.sex==="None" || data.sex==="Male")? <img src={data.male_image}></img>:<img src={data.female_image}></img>
@@ -62,12 +62,12 @@ function WeaponFilter({data, value, avatarClass}){
                         <form onSubmit={submitToHandler}>
                               <input name="product" type="hidden" value={value}/>
                               <input name="amount" type="hidden" value="0"/>
-                              <input name="class" type="hidden" value={data.class}/> 
-                              <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Submit</Button>
+                              <input name="class" type="hidden" value={data.class}/>
+                              <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>BUY</Button>
                         </form>
                     </div>
               </div>
-        </div> 
+        </div>
         <ReactTooltip id={data.name} place="right" aria-haspopup='true' className="shop-toolTip">
               <div className="shop-hide">
                     <div className="shop-itemsInfo">
@@ -83,10 +83,10 @@ function WeaponFilter({data, value, avatarClass}){
                                 <p>Critical: {data.crit}</p>
                                 <p>Critical Damage: {data.crit_dmg}</p>
                           </div>
-                    </div> 
+                    </div>
               </div>
         </ReactTooltip>
-  </div>  
+  </div>
     );
 }
 

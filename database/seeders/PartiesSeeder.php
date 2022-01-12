@@ -19,7 +19,7 @@ class PartiesSeeder extends Seeder
                [
                     'party_name' => 'TaskVenator',
                     'founded_on' => '2022-01-12 21:47:22',
-                    'total_members' => 3,
+                    'total_members' => 7,
                     'battles_won' => 0,
                     'battles_lost' => 0,
                     'party_creator' => 1,

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class UsersSeeder extends Seeder
 {
@@ -59,36 +60,43 @@ class UsersSeeder extends Seeder
                 [
                     'username' => 'gab_01',
                     'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
                     'user_id' => 1
                 ],
                 [
                     'username' => 'anne_02',
                     'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
                     'user_id' => 2
                 ],
                 [
                     'username' => 'daves_03',
                     'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
                     'user_id' => 3
                 ],
                 [
                     'username' => 'luffy_04',
                     'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
                     'user_id' => 4
                 ],
                 [
                     'username' => 'zoro_05',
                     'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
                     'user_id' => 5
                 ],
                 [
                     'username' => 'robin_06',
                     'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
                     'user_id' => 6
                 ],
                 [
                     'username' => 'sanji_07',
                     'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
                     'user_id' => 7
                 ],
             )

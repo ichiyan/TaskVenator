@@ -26,7 +26,7 @@ class PartyController extends Controller
 
         return response()->json([
             'status' => 200,
-            'test' => $members,
+            'party_id' => $party->id,
             'party_name' => $party->party_name,
             'total_members' => $party->total_members,
             'members' => $members_info,
