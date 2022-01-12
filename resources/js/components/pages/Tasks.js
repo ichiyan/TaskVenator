@@ -1,8 +1,7 @@
-import {Header, React, io, SocketContext,
-    useEffect, useState,
-    GroupTasks,TasksTab,
-    AvatarHeader, Shop, Party, Outfit, All,
-    Weapons, Potions, Cards, SocketProvider} from "../../index";
+import {Header, React,
+    useEffect, useState, GroupTasks,TasksTab,
+    AvatarHeader, Shop, Party, Outfit, All, 
+    Weapons, Potions, Cards, Inventory, InventoryOutfit, InventoryWeapons, InventoryPotions} from "../../index";
 
 
  const Tasks = ({tab}) => {
@@ -103,11 +102,19 @@ import {Header, React, io, SocketContext,
         renderTab = <Shop/>;
     }else if(tab ==="cards"){
         renderTab =<Cards/>;
+    }else if(tab ==="inventory"){
+        renderTab =<Inventory/>;
+    }else if(tab ==="inventoryOutfit"){
+        renderTab =<InventoryOutfit/>;
+    }else if(tab ==="inventoryPotions"){
+        renderTab =<InventoryPotions/>;
+    }else if(tab ==="inventoryWeapons"){
+        renderTab =<InventoryWeapons/>;
     }
 
 
     return (
-        <SocketProvider>
+        // <SocketProvider>
             <div>
                 <Header page={tab}/>
                 <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
@@ -120,7 +127,7 @@ import {Header, React, io, SocketContext,
                     {renderTab}
                 </div>
             </div>
-      </SocketProvider>
+    //   </SocketProvider>
     );
 }
 

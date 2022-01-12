@@ -1,6 +1,7 @@
-import {Header, Link, React,Login,
-    useEffect, useState,Register
+import {Header, Link, React, useEffect, useState,
+        Login, Register, CharacterCustomization,
     } from "../../index";
+
 
 const Auth = ({page}) =>{
 
@@ -8,11 +9,20 @@ const Auth = ({page}) =>{
         particlesJS.load('particles-js', 'particles.json');
     }, []);
 
+    var renderPage = ''
+    if(page === "login"){
+        renderPage = <Login/>;
+    }else if(page === "register"){
+        renderPage = <Register/>;
+    }else if (page === "character_customization"){
+        renderPage = <CharacterCustomization/>;
+    }
+
     return (
         <div>
            <Header page="home"/>
            <div id="particles-js"></div>
-            {page === "login" ? <Login/> : <Register/>}
+            {renderPage}
         </div>
     );
 }

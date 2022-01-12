@@ -63,5 +63,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Battle::class);
     }
+    public function getItems(): HasMany
+    {
+        return $this->hasMany(Inventory::class, 'user_id', 'id');
+    }
+  
+    
 
 }
