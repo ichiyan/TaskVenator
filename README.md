@@ -1,5 +1,5 @@
 # TaskVenator
-- A gamified productivity application built using ReactJS and Laravel.
+- a gamified productivity application built using ReactJS and Laravel
 - Note: This project is still unfinished. Workable (and partially workable) features include:
     - Registration, Login, Logout
     - Avatar Customization (upon registration)
