@@ -8,6 +8,7 @@ use App\Http\Controllers\API\PotionController;
 use App\Http\Controllers\API\OutfitController;
 use App\Http\Controllers\API\PartyController;
 use App\Http\Controllers\API\InventoryController;
+use App\Http\Controllers\API\UserInfoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes

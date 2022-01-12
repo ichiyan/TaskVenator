@@ -76,7 +76,7 @@ class UserInfoController extends Controller
     {
         $user_id = Auth::id();
         $user_info = User::find($user_id)->user_info;
-        $avatar = UserInfo::find($user_info->id)->avatar->with('class')->first();
+        $avatar = UserInfo::find($user_info->id)->avatar->with('class')->where('user_info_id', '=', $user_id)->first();
 
         return response()->json([
             'status' => 200,

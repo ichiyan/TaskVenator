@@ -684,12 +684,6 @@ const CharacterCustomization = () => {
 
     }
 
-    const test = (e) => {
-        e.preventDefault()
-        console.log("selected")
-        console.log(selected)
-    }
-
     return (
         <Fragment>
             <form onSubmit={submitHandler}>
@@ -703,7 +697,6 @@ const CharacterCustomization = () => {
                     </div>
                     <center>
                         <input type="submit" name="submit" id="submit" className="btn-custom-primary create-character-btn" value="Create Character"/>
-                        <button onClick={test}>test</button>
                     </center>
                 </section>
                 <div className="container char-customization">
