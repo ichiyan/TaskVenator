@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PartyMember extends Model
 {
@@ -15,12 +16,12 @@ class PartyMember extends Model
         'status'
     ];
 
-    public function party(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function party(): BelongsTo
     {
         return $this->belongsTo(Party::class);
     }
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

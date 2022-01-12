@@ -43,6 +43,26 @@ class PartiesSeeder extends Seeder
                     'user_id' => 3,
                     'status' => 1,
                 ],
+                [
+                    'party_id' => 1,
+                    'user_id' => 4,
+                    'status' => 1,
+                ],
+                [
+                    'party_id' => 1,
+                    'user_id' => 5,
+                    'status' => 1,
+                ],
+                [
+                    'party_id' => 1,
+                    'user_id' => 6,
+                    'status' => 1,
+                ],
+                [
+                    'party_id' => 1,
+                    'user_id' => 7,
+                    'status' => 1,
+                ],
             )
         );
     }

@@ -19,6 +19,7 @@ class CreateUserInfosTable extends Migration
             $table->integer('gems')->default('0');
             //TBD: default warning days
             $table->integer('warning_days')->default('3');
+            $table->integer('has_party')->default('0')->comment('0: no party, 1: has party');
             $table->foreignId('user_id')->constrained('users', 'id')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

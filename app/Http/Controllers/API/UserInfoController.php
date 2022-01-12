@@ -81,6 +81,7 @@ class UserInfoController extends Controller
         return response()->json([
             'status' => 200,
             'username' => $user_info->username,
+            'has_party' => $user_info->has_party,
             'level' => $avatar->level,
             'class' => $avatar->class->name,
             'sex' => $avatar->sex,

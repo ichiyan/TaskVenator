@@ -3,7 +3,7 @@ import { React, Fragment, axios, useRef, useState, useEffect,
     Carousel, PartyMemberAvatar } from '../../index';
 
 const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
-                  xp, xpTotal, xpBarWidth, xpIncreaseWidth, hasParty}) => {
+                  xp, xpTotal, xpBarWidth, xpIncreaseWidth}) => {
 
 
 const breakPoints = [
@@ -37,10 +37,14 @@ const spriteHeight = 64;
 const [items, setItems] = useState();
 const selections = useRef([]);
 
+const hasParty = useRef(0);
+const [partyMembers, setPartyMembers] = useState([]);
+
 useEffect(() => {
 
    axios.get(`api/get_user_info`).then(res => {
        var data = res.data;
+       hasParty.current = data.has_party;
        setUsername(data.username);
        setLevel(data.level);
        setAvatarClass(data.class);
@@ -54,6 +58,15 @@ useEffect(() => {
 
        animate();
 
+       if(data.has_party == 1){
+            axios.get(`api/get_party_info`).then(res => {
+                if(res.data.status == 200){
+                    // partyMembers.current = res.data.members;
+                    // console.log(partyMembers.current);
+                    setPartyMembers(res.data.members);
+                }
+            });
+       }
    });
 
 }, []);
@@ -81,24 +94,24 @@ const animate = () => {
    avatarCtx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
    avatarImage.current.onload = () => {
        avatarCtx.current.drawImage(avatarImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-   }
-   selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
-   selections.current.forEach(selection => {
-       var selectionImg = new Image();
-       if ( selection.sex === "unisex" ){
-           sex.current = isFemale.current ? "female" : "male";
-       }else{
-           sex.current = selection.sex;
-       }
-       if (sex.current === "none"){
-           selectionImg.src = selection.base_src + selection.img_name;
-       }else{
-           selectionImg.src = selection.base_src + sex.current + "/" + selection.img_name;
-       }
-       selectionImg.onload = () => {
-           avatarCtx.current.drawImage(selectionImg, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-       }
-   });
+       selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
+       selections.current.forEach(selection => {
+           var selectionImg = new Image();
+           if ( selection.sex === "unisex" ){
+               sex.current = isFemale.current ? "female" : "male";
+           }else{
+               sex.current = selection.sex;
+           }
+           if (sex.current === "none"){
+               selectionImg.src = selection.base_src + selection.img_name;
+           }else{
+               selectionImg.src = selection.base_src + sex.current + "/" + selection.img_name;
+           }
+           selectionImg.onload = () => {
+               avatarCtx.current.drawImage(selectionImg, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            }
+       });
+    }
 }
 
 return (
@@ -135,16 +148,15 @@ return (
                        <span className="xp-txt">{xp}/{xpTotal}</span>
                    </div>
                </div>
-               { hasParty === "true"
+               { hasParty.current === 1
                    ?   <Fragment>
                            <div className="col-7 party-carousel">
                                <Carousel itemsToShow={4} pagination={false} breakPoints={breakPoints}>
-                                   {/* pass props */}
-                                   <PartyMemberAvatar username="username"/>
-                                   <PartyMemberAvatar username="asdfeeeeeeeeeeeeeeeeeeeeeeeee"/>
-                                   <PartyMemberAvatar username="zxcvby"/>
-                                   <PartyMemberAvatar username="qwerty"/>
-                                   <PartyMemberAvatar username="lkjhgf"/>
+                                   {
+                                       partyMembers.map( member => (
+                                            <PartyMemberAvatar key={member.id} member={member}/>
+                                       ))
+                                   }
                                </Carousel>
                            </div>
                            <div className="col-1">
@@ -154,9 +166,9 @@ return (
                    :   <Fragment>
                            <div className="col-7 text-center">
                                <p className="prompt">Tired of completing tasks and battling monsters alone?</p>
-                               <button className="btn btn-primary btn-custom-primary">Form a Party</button>
+                               <button className="btn btn-primary btn-custom-primary avatar-header-btn">Form a Party</button>
                                <span>
-                                   <button className="btn btn-outline-primary btn-custom-outline-primary">Join a Party</button>
+                                   <button className="btn btn-outline-primary btn-custom-outline-primary avatar-header-btn">Join a Party</button>
                                </span>
                            </div>
                        </Fragment>

@@ -19,17 +19,37 @@ class UsersSeeder extends Seeder
                 [
                     'name' => 'Gab',
                     'email' => 'gab@gmail.com',
-                    'password' => bcrypt('p@ssword'),
+                    'password' => bcrypt('p@ssw0rd'),
                 ],
                 [
                     'name' => 'Anne',
                     'email' => 'anne@gmail.com',
-                    'password' => bcrypt('p@ssword'),
+                    'password' => bcrypt('p@ssw0rd'),
                 ],
                 [
                     'name' => 'Daves',
                     'email' => 'daves@gmail.com',
-                    'password' => bcrypt('p@ssword'),
+                    'password' => bcrypt('p@ssw0rd'),
+                ],
+                [
+                    'name' => 'Luffy',
+                    'email' => 'luffy@gmail.com',
+                    'password' => bcrypt('p@ssw0rd'),
+                ],
+                [
+                    'name' => 'Zoro',
+                    'email' => 'zoro@gmail.com',
+                    'password' => bcrypt('p@ssw0rd'),
+                ],
+                [
+                    'name' => 'Robin',
+                    'email' => 'robin@gmail.com',
+                    'password' => bcrypt('p@ssw0rd'),
+                ],
+                [
+                    'name' => 'Sanji',
+                    'email' => 'sanji@gmail.com',
+                    'password' => bcrypt('p@ssw0rd'),
                 ],
             )
         );
@@ -38,14 +58,17 @@ class UsersSeeder extends Seeder
             array(
                 [
                     'username' => 'gab_01',
+                    'has_party' => 1,
                     'user_id' => 1
                 ],
                 [
                     'username' => 'anne_02',
+                    'has_party' => 1,
                     'user_id' => 2
                 ],
                 [
                     'username' => 'daves_03',
+                    'has_party' => 1,
                     'user_id' => 3
                 ],
             )
