@@ -5,15 +5,17 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Potion;
+use App\Models\Product;
 
 class PotionController extends Controller
 {
     public function index(Request $request){
-            $potion= Potion::all();
-
+            // $potion= Potion::all();
+            $potion= Product::with('featuresPotion')->where('potion', '!=', 'NULL')->get();
             return response()->json([
                 'status' => 200,
-                'potions' => $potion,
+                'potion' => $potion,
+                // 'product' =>$product,
             ]);
 
     }
@@ -25,8 +27,8 @@ class PotionController extends Controller
                     $file= $request->file('image');
                     $extension= $file->getClientOriginalExtension();
                     $filename= time() .'.'.$extension;
-                    $file->move('assets/images/', $filename);
-                    $potion->image = 'assets/images/' .$filename;
+                    $file->move('assets/images/potion', $filename);
+                    $potion->image = 'assets/images/potion/' .$filename;
 
                 }
                 $potion->name= $request->input('name');
@@ -36,6 +38,12 @@ class PotionController extends Controller
                 $potion->description= $request->input('description');
                 $potion->price= $request->input('price');
                 $potion->save();
+
+                $product= new Product;
+                $product->outfit= NULL;
+                $product->potion= $potion->id;
+
+                $product->save();
 
                 return response()->json([
                     'status' => 200,

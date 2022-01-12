@@ -38,6 +38,13 @@ const AppRouter = () => {
                     <Route path='/outfit' element={<Tasks tab="outfit"/>}></Route>
                     <Route path='/weapons' element={<Tasks tab="weapons"/>}></Route>
                     <Route path='/cards' element={<Tasks tab="cards"/>}></Route>
+                    <Route path='/inventory' element={<Tasks tab="inventory"/>}></Route>
+                    <Route path='/inventoryOutfit' element={<Tasks tab="inventoryOutfit"/>}></Route>
+                    <Route path='/inventoryPotions' element={<Tasks tab="inventoryPotions"/>}></Route>
+                    <Route path='/inventoryWeapons' element={<Tasks tab="inventoryWeapons"/>}></Route>
+                    
+                    
+    
                 </Routes>
             </Router>
         </div>

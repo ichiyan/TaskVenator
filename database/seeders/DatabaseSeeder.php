@@ -40,5 +40,6 @@ class DatabaseSeeder extends Seeder
                 ],
             )
         );
+        $this->call([OutfitInfoTableSeeder::class, OutfitTableSeeder::class, PotionTableSeeder::class, ProductsTableSeeder::class]);
     }
 }

@@ -51,6 +51,11 @@ export {default as AddCardForm} from "./components/pages/shop/AddCardForm";
 export {default as CharacterCustomization} from "./components/pages/customization/CharacterCustomization";
 export {default as SelectionTab} from "./components/pages/customization/SelectionTab";
 
+export {default as Inventory} from "./components/pages/inventory/inventory";
+export {default as InventoryOutfit} from "./components/pages/inventory/InventoryOutfit";
+export {default as InventoryPotions} from "./components/pages/inventory/InventoryPotions";
+export {default as InventoryWeapons} from "./components/pages/inventory/InventoryWeapons";
+
 export {default as GroupMemberPublicTasks} from "./components/pages/tasks/GroupMemberPublicTasks";
 export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks";
 export {default as HomeTasks} from "./components/pages/tasks/HomeTasks";

@@ -1,6 +1,9 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState,
-      AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
+import {Link, React, useEffect, useState, 
+      AddPotionForm, AddOutfitForm, AddCardForm, ReactTooltip,axios } from "../../../index";
+import Swal from 'sweetalert2';
+import WeaponFilter from "./WeaponFilter";
+import OutfitFilter from "./OutfitFilter";
 function All(){
     var hpTotal = 50;
     var xpTotal = 50;
@@ -13,21 +16,39 @@ function All(){
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
     const[clicked, setClicked] =useState("");
+    const[preview, setPreview]=useState("");
 
     const[display1,setDisplay1]=useState({
         potions:[],
   });
 
   const[display2,setDisplay2]=useState({
-        outfit:[],
+        weapons:[],
   });
+  const[display3,setDisplay3]=useState({
+      armors:[],
+});
+var avatarClass= "Warrior";
 
-  useEffect(() =>{
+  useEffect(()=>{
+     axios.get(`/api/potions`).then(res =>{
+           if(res.data.status===200){
+                 console.log(res.data.potion)
+                 setDisplay1({
+                       potions:res.data.potion
+                 });
+                 
+           }
+
+     })
+  },[])
+
+    useEffect(() =>{
      axios.get(`/api/outfit`).then(res =>{
            if(res.data.status===200){
-
+            console.log(res.data.weapon)
                  setDisplay2({
-                       outfit:res.data.outfit
+                       weapons:res.data.weapon
 
                  })
 
@@ -35,16 +56,19 @@ function All(){
            }
      })
   },[])
-  useEffect(()=>{
-     axios.get(`/api/potions`).then(res =>{
-           if(res.data.status===200){
-                 setDisplay1({
-                       potions:res.data.potions
-                 });
-           }
-
-     })
-  },[])
+  useEffect(() =>{
+      axios.get(`/api/outfit`).then(res =>{
+            if(res.data.status===200){
+            
+                  setDisplay3({
+                        armors:res.data.armor
+ 
+                  })
+ 
+ 
+            }
+      })
+   },[])
   const showItem =(event) =>{
     setClicked(event.target.value);
 }
@@ -55,46 +79,65 @@ useEffect(()=>{
   const buttonHandler=(e)=>{
      Swal.fire("You have successfully bought the item");
   }
-
+const previewImage =(event)=>{
+     setPreview(event)
+}
+const submitToHandler=(e)=>{
+      e.preventDefault();
+      //     Swal.fire("You have successfully bought the item");
+          if(e.target.class.value===avatarClass){
+            Swal.fire("You have successfully bought the item");
+            setPassProductId({
+                    product:e.target.product.value,
+                    amount: e.target.amount.value,
+            });
+      }else{
+            Swal.fire("Failed to buy Item - Class Restriction");
+      }
+}
     return(
         <section className="container party-section">
               <div className="shop-Form">
                   <AddOutfitForm/>
                   <AddPotionForm/>
                   <AddCardForm/>
+                  <div>
+                        <img src={preview}></img>
+                  </div>
             </div>
+            
               <div className="party-nav">
                         <div className="party-nav-item party-active-nav"><Link to="/all">All</Link></div>
                         <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
                         <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
-                        <div className="party-nav-item"><Link to="/cards">Cards</Link></div>
+                        {/* <div className="party-nav-item"><Link to="/cards">Cards</Link></div> */}
                         <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
-             </div>
-
+              </div>
+           
               <div className="shop-filtShop">
-              <div className="shop-shop">
-                 <div className="shop-category">
+                  <div className="shop-shop"> 
+                   <div className="shop-category">
                         <div className="shop-categoryName">
-                              <p>Health Potions</p>
+                              <h5>Health Potions</h5>
                         </div>
                         {display1.potions.map((p,index)=>{
-                               if(p.type === "Hp Potion"){
+                               if(p.features_potion.type === "Hp Potion"){
                               return (
                                     <div key={index} className="shop-returnMap">
-                                          <div data-tip data-for={p.name} className="shop-items">
+                                          <div data-tip data-for={p.features_potion.name} className="shop-items">
                                                 <div className="shop-itemsImage">
-                                                <img src={p.image}></img>
+                                                <img onClick={() => {previewImage(p.image)}} src={p.features_potion.image} ></img>
                                                 </div>
                                                 <div className="shop-itemsInfo">
-                                                      <h6>{p.name}</h6>
-                                                      <p>{p.size}</p>
-                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                      <h6>{p.features_potion.name}</h6>
+                                                      <p>{p.features_potion.size}</p>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br> BUY</Button>
                                                 </div>
                                           </div>
-                                          <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                          <ReactTooltip id={p.features_potion.name} place="right" aria-haspopup='true' className="shop-toolTip">
                                                 <div className="shop-hide">
                                                       <div className="shop-itemsInfo">
-                                                            <p>{p.description}</p>
+                                                            <p>{p.features_potion.description}</p>
                                                       </div>
                                                 </div>
                                           </ReactTooltip>
@@ -106,23 +149,23 @@ useEffect(()=>{
                               <p>Powerup Potions</p>
                         </div>
                         {display1.potions.map((p,index)=>{
-                               if(p.type === "Powerup Potion"){
+                               if(p.features_potion.type === "Powerup Potion"){
                               return (
                                     <div key={index} className="shop-returnMap">
-                                          <div data-tip data-for={p.name} className="shop-items">
+                                          <div data-tip data-for={p.features_potion.name} className="shop-items">
                                                 <div className="shop-itemsImage">
-                                                <img src={p.image}></img>
+                                                <img src={p.features_potion.image}></img>
                                                 </div>
                                                 <div className="shop-itemsInfo">
-                                                      <h6>{p.name}</h6>
-                                                      <p>{p.size}</p>
-                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.price}<br></br> BUY</Button>
+                                                      <h6>{p.features_potion.name}</h6>
+                                                      <p>{p.features_potion.size}</p>
+                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br> BUY</Button>
                                                 </div>
                                           </div>
-                                          <ReactTooltip id={p.name} place="right" aria-haspopup='true' className="shop-toolTip">
+                                          <ReactTooltip id={p.features_potion.name} place="right" aria-haspopup='true' className="shop-toolTip">
                                                 <div className="shop-hide">
                                                       <div className="shop-itemsInfo">
-                                                            <p>{p.description}</p>
+                                                            <p>{p.features_potion.description}</p>
                                                       </div>
                                                 </div>
                                           </ReactTooltip>
@@ -130,86 +173,243 @@ useEffect(()=>{
                                )
                             }
                         })}
-                         <div className="shop-categoryName">
-                              <p>Weapons</p>
-                        </div>
-                        {display2.outfit.map((w,index)=>{
-                             if(w.outfitType === "Weapon"){
-                              return (
-                                    <div data-tip data-for={w.name} key={index} className="shop-returnMap">
-                                          <div className="shop-items">
-                                                <div className="shop-itemsImage">
-                                                <img src={w.image}></img>
-                                                </div>
-                                                <div className="shop-itemsInfo">
-                                                      <h6>{w.name}</h6>
-                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
-                                                </div>
-                                          </div>
-                                          <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                <div className="shop-hide">
-                                                      <div className="shop-itemsInfo">
-                                                            <div className="shop-weaponInfo">
-                                                                  <h5>Attributes</h5>
-                                                                  <p>Physical Attack: {w.pAttack}</p>
-                                                                  <p>Magical Attack: {w.mAttack}</p>
-                                                                  <p>Physical Defense: {w.pDef}</p>
-                                                                  <p>Magical Defense: {w.mDef}</p>
-                                                                  <p>Strength: {w.str}</p>
-                                                                  <p>Agility: {w.agi}</p>
-                                                                  <p>Critical: {w.crit}</p>
-                                                                  <p>Critical Damage: {w.critDmg}</p>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                          </ReactTooltip>
-                                    </div>
-                                    )
-                             }
-
+                  <div className="shop-categoryName">
+                  <h5>Weapons</h5>
+                  </div>
+                  <div className="shop-categoryName">
+                        <p>Warrior</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Warrior"){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
                         })}
-
+                        
                         <div className="shop-categoryName">
-                              <p>Costume</p>
-                        </div>
-                        {display2.outfit.map((w,index)=>{
-                             if(w.outfitType === "Costume"){
-                              return (
-                                    <div data-tip data-for={w.name} key={index} className="shop-returnMap">
-                                          <div className="shop-items">
-                                                <div className="shop-itemsImage">
-                                                <img src={w.image}></img>
-                                                </div>
-                                                <div className="shop-itemsInfo">
-                                                      <h6>{w.name}</h6>
-                                                      {/* <p>{p.size}</p> */}
-                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{w.price}<br></br> BUY</Button>
-                                                </div>
-                                          </div>
-                                          <ReactTooltip id={w.name} place="right" aria-haspopup='true' className="shop-toolTip">
-                                                <div className="shop-hide">
-                                                      <div className="shop-itemsInfo">
-                                                            <div className="shop-weaponInfo">
-                                                                  <h5>Attributes</h5>
-                                                                  <p>Physical Attack: {w.pAttack}</p>
-                                                                  <p>Magical Attack: {w.mAttack}</p>
-                                                                  <p>Physical Defense: {w.pDef}</p>
-                                                                  <p>Magical Defense: {w.mDef}</p>
-                                                                  <p>Strength: {w.str}</p>
-                                                                  <p>Agility: {w.agi}</p>
-                                                                  <p>Critical: {w.crit}</p>
-                                                                  <p>Critical Damage: {w.critDmg}</p>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                          </ReactTooltip>
-                                    </div>
-                              )
-                             }
-
+                        <p>Marksman</p>
+                  </div>
+                      {display2.weapons.map((w,index)=>{
+                                  if(w.class==="Marksman"){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                   <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                          }
                         })}
+                        <div className="shop-categoryName">
+                          <p>Mage</p>
+                          </div>
+                      {display2.weapons.map((w,index)=>{
+                            
+                                  if(w.class==="Mage"){
+                                    return (
+                                    <div key={index} className="shop-outfitFilter">
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    </div>    
+                                  ) 
+                                }    
+                             
+                        })}
+                  <div className="shop-categoryName">
+                         <h5>Outfit</h5>
+                  </div>
+                  <div className="shop-categoryName">
+                         <p>Warrior</p>
+                  </div>
+                        <div className="shop-categoryName">
+                              <p>Head</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Warrior" && w.body_part==="Head"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                        <div className="shop-categoryName">
+                              <p>Arms</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Warrior" && w.body_part==="Arms"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                        <div className="shop-categoryName">
+                              <p>Torso</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Warrior" && w.body_part==="Torso"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                          <div className="shop-categoryName">
+                              <p>Legs</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Warrior" && w.body_part==="Legs"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                         <div className="shop-categoryName">
+                              <p>Footwear</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Warrior" && w.body_part==="Footwear"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                        <div className="shop-categoryName">
+                         <p>Marksman</p>
+                        </div>
+                        <div className="shop-categoryName">
+                              <p>Head</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Marksman" && w.body_part==="Head"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                        <div className="shop-categoryName">
+                              <p>Arms</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Marksman" && w.body_part==="Arms"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                        <div className="shop-categoryName">
+                              <p>Torso</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Marksman" && w.body_part==="Torso"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                          <div className="shop-categoryName">
+                              <p>Legs</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Marksman" && w.body_part==="Legs"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                         <div className="shop-categoryName">
+                              <p>Footwear</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Marksman" && w.body_part==="Footwear"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                          <div className="shop-categoryName">
+                         <p>Mage</p>
+                         </div>
+                        <div className="shop-categoryName">
+                              <p>Head</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Mage" && w.body_part==="Head"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                        <div className="shop-categoryName">
+                              <p>Arms</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Mage" && w.body_part==="Arms"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                        <div className="shop-categoryName">
+                              <p>Torso</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Mage" && w.body_part==="Torso"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                          <div className="shop-categoryName">
+                              <p>Legs</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Mage" && w.body_part==="Legs"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                         <div className="shop-categoryName">
+                              <p>Footwear</p>
+                        </div>
+                              {display3.armors.map((w,index)=>{
+                                    if(w.class==="Mage" && w.body_part==="Footwear"){
+                                          return (
+                                          <div key={index} className="shop-outfitFilter">
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          </div>    
+                                          ) 
+                                    }
+                              })}
+                      
+                    
                    </div>
-
               </div>
 
          </div>

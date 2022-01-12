@@ -7,8 +7,7 @@ use App\Http\Controllers\API\MessageController;
 use App\Http\Controllers\API\PotionController;
 use App\Http\Controllers\API\OutfitController;
 use App\Http\Controllers\API\PartyController;
-use App\Http\Controllers\API\UserInfoController;
-
+use App\Http\Controllers\API\InventoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,12 +34,21 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('get_party_info', [PartyController::class, 'getPartyInfo']);
     Route::post('create_avatar', [UserInfoController::class, 'store']);
     Route::get('get_user_info', [UserInfoController::class, 'show']);
+
+    //storing and g potion
+    Route::post('addPotion', [PotionController::class, 'store']);
+    Route::get('potions',[PotionController::class, 'index']);
+    //storing and retrieving weapon
+    Route::post('addOutfit', [OutfitController::class, 'store']);
+    Route::get('outfit',[OutfitController::class, 'index']);
+
+    //storing items in inventory
+    Route::post('addBought', [InventoryController::class, 'store']);
+    Route::get('inventory', [InventoryController::class, 'index']);
+
+    Route::get('getPotions', [InventoryController::class, 'getPotions']);
+
 });
 
-//storing and g potion
-Route::post('addPotion', [PotionController::class, 'store']);
-Route::get('potions',[PotionController::class, 'index']);
-//storing and retrieving weapon
-Route::post('addOutfit', [OutfitController::class, 'store']);
-Route::get('outfit',[OutfitController::class, 'index']);
+
 

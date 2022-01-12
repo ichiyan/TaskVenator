@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Inventory extends Model
 {
@@ -19,6 +20,7 @@ class Inventory extends Model
 
     public function contains(): HasOne
     {
-        return $this->hasOne(Product::class);
+        return $this->hasOne(Product::class, 'id', 'product');
     }
+   
 }

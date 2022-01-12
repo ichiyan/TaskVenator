@@ -12,6 +12,7 @@
  require('../../public/css/tasks.scss');
  require('../../public/css/chat.scss');
  require('../../public/css/shop.css');
+ require('../../public/css/inventory.css');
  require('../../node_modules/bootstrap/dist/js/bootstrap.bundle.js');
  require('../../node_modules/jquery/dist/jquery.min.js');
  require('../../public/js/particles.js');
