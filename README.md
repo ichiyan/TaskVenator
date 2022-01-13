@@ -7,8 +7,8 @@
     - Inventory
     - Party Tasks
     - Party Chat (in party tab)
-        - To test this feature, log in to at least two accounts using these credentials: 
-            - emails: gab@gmail.com, anne@gmail.com, or daves@gmail.com 
+        - To test this feature, log into at least two accounts using these credentials: 
+            - email: gab@gmail.com, anne@gmail.com, or daves@gmail.com 
         	- password: p@ssw0rd
   
 
@@ -16,6 +16,7 @@
 1. [Clone and setup Laravel project](#setup-laravel-project)
 2. [Install and setup Redis](#install-and-setup-redis)
 3. [Run Node Server](#run-node-server)
+4. [Start executing jobs](#start-executing-jobs)
 
 
 ## Setup Laravel Project
@@ -75,16 +76,23 @@
    https://redis.io/download
 
 2. Extract the zip file.
-3. Run redis-server.exe by either directly clicking the file or via command prompt.
-4. Run redis-cli.exe after successfully running the redis-server by either directly clicking the file or via command prompt. Entering the `` PING `` command should return `` PONG `` if a connection is established and is still alive.
+3. Run redis-server.exe by directly clicking the file or via command prompt.
+4. Run redis-cli.exe after successfully running the redis-server by directly clicking the file or via command prompt. Entering the `` PING `` command should return `` PONG `` if a connection is established and is still alive.
+
 
 ## Run Node Server
 
 1. Copy the address/path of the server.js file located at `` root > resources > js `` .
-2. Run the following commands in the terminal:
+2. Run server.
 
    ```
    node [insert path]\server.js
-   php artisan queue:restart
+   ```
+
+## Start Executing Jobs
+
+1. Instruct Laravel to create an instance of the application and start executing jobs.
+
+   ```
    php artisan queue:work
    ```
