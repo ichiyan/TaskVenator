@@ -4,12 +4,11 @@ import Swal from 'sweetalert2';
 const Register = () => {
 
     const navigate = useNavigate();
-
     const [registerUser, setRegisterUser] = useState({
         name: '',
         email: '',
         password: '',
-        confirm_password: '',
+        password_confirmation: '',
         error_list: [],
     });
 
@@ -28,15 +27,14 @@ const Register = () => {
             name: registerUser.name,
             email: registerUser.email,
             password: registerUser.password,
+            password_confirmation: registerUser.password_confirmation
         }
 
         axios.get('/sanctum/csrf-cookie').then(response => {
             axios.post(`/api/register`, data).then(res => {
+
                 if(res.data.status === 200){
-                    localStorage.setItem('auth_token', res.data.token);
-                    localStorage.setItem('auth_name', res.data.username);
                     Swal.fire({text: res.data.message, icon: "success"});
-                    navigate('/character_customization');
                 }else{
                     setRegisterUser({
                         ...registerUser,
@@ -60,20 +58,20 @@ const Register = () => {
                             <p className="signup-signin-card-description">Sign up</p>
                             <form onSubmit={registerSubmitHandler}>
                                 <div className="form-group signup-signin-form-group">
-                                    <input type="text" className="form-input" name="name" id="name" placeholder="Your Name" onChange={inputHandler} value={registerUser.name}/>
+                                    <input type="text" className="form-input" name="name" id="name" placeholder="Your Name" onChange={inputHandler} value={registerUser.name} required/>
                                     <span className="error-msg">{registerUser.error_list.name}</span>
                                 </div>
                                 <div className="form-group signup-signin-form-group">
-                                    <input type="email" className="form-input" name="email" id="email" placeholder="Email" onChange={inputHandler} value={registerUser.email}/>
+                                    <input type="email" className="form-input" name="email" id="email" placeholder="Email" onChange={inputHandler} value={registerUser.email} required/>
                                     <span className="error-msg">{registerUser.error_list.email}</span>
                                 </div>
                                 <div className="form-group signup-signin-form-group">
-                                    <input type="text" className="form-input" name="password" id="password" placeholder="Password" onChange={inputHandler} value={registerUser.password}/>
+                                    <input type="password" className="form-input" name="password" id="password" placeholder="Password" onChange={inputHandler} value={registerUser.password} required/>
                                     <span toggle="#password" className="zmdi zmdi-eye field-icon toggle-password"></span>
                                     <span className="error-msg">{registerUser.error_list.password}</span>
                                 </div>
                                 <div className="form-group signup-signin-form-group">
-                                    <input type="text" className="form-input" name="confirm_password" id="password" placeholder="Confirm Password" onChange={inputHandler} value={registerUser.confirm_password}/>
+                                    <input type="password" className="form-input" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" onChange={inputHandler} value={registerUser.confirm_password} required/>
                                     <span toggle="#password" className="zmdi zmdi-eye field-icon toggle-password"></span>
                                 </div>
                                 <div className="form-group signup-signin-form-group">
