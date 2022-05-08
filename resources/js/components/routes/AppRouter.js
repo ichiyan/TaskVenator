@@ -6,7 +6,7 @@ import axios from 'axios';
 import Auth from "../pages/Auth";
 import Home from "../pages/Home";
 import Tasks from "../pages/Tasks";
-import { CharacterCustomization } from "../..";
+import VerificationMessage from "../auth/VerificationMessage"
 
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
@@ -42,6 +42,7 @@ const AppRouter = () => {
                     <Route path='/inventoryOutfit' element={<Tasks tab="inventoryOutfit"/>}></Route>
                     <Route path='/inventoryPotions' element={<Tasks tab="inventoryPotions"/>}></Route>
                     <Route path='/inventoryWeapons' element={<Tasks tab="inventoryWeapons"/>}></Route>
+                    <Route path='/auth' exact element={ <VerificationMessage/> }></Route>
                     
                     
     

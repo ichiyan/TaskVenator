@@ -47,23 +47,49 @@
     ```
     php artisan key:generate
     ```
+7. Inside `.env` file, set the following:
+    
+    ```
+    MAIL_MAILER=smtp
+    MAIL_HOST=smtp.gmail.com
+    MAIL_PORT=465
+    MAIL_USERNAME=[your email address]
+    MAIL_PASSWORD=[password]
+    MAIL_ENCRYPTION=ssl
+    MAIL_FROM_ADDRESS=[your email address]
+    MAIL_FROM_NAME="${APP_NAME}"
+    ```
+    If wondering why `MAIL_PORT` is set to 465, read [this.](https://support.google.com/mail/answer/7126229?hl=en#zippy=%2Cstep-change-smtp-other-settings-in-your-email-client)
 
-7. Create an empty database for the application
+8. This step is very IMPORTANT. Make sure you follow.
+    - Using the email address you provided above, go to [https://myaccount.google.com/security](https://myaccount.google.com/security)
+    - You can either do the following:
+        - If 2-step verification is off, then you should see "Less Secure Apps Access" below.
+            - Turn this feature ON. 
+            - Allowing less secure app access will grant this project access to your email account. This is to let the project know which email account to use when sending an email verification, i.e., taskvenator@businessmail.co.ph.
+            - However, this feature will no longer be included after May 30, 2022. If you want to continue allowing access, then do the other step.
+        - Using 2-step verification. This feature should be ON.
+            - If this feature is OFF, then turn this ON. 
+            - Follow the step and add an "App Password" at the end
+            - When finished, set `MAIL_PASSWORD` using the app password
+            - Read more about [this.](https://support.google.com/accounts/answer/185833?authuser=1#zippy=)
 
-8. In the .env file, add database information. Fill in the ```DB_HOST```, ```DB_PORT```, ```DB_DATABASE```, ```DB_USERNAME```, and ```DB_PASSWORD``` options to match the credentials of the database you    just created.
+9. Create an empty database for the application
 
-9. Migrate the database
+10. In the .env file, add database information. Fill in the ```DB_HOST```, ```DB_PORT```, ```DB_DATABASE```, ```DB_USERNAME```, and ```DB_PASSWORD``` options to match the credentials of the database you    just created.
+
+11. Migrate the database
 
     ```
     php artisan migrate
     ```
-9. Seed the database
+12. Seed the database
 
     ```
     php artisan db:seed
     ```
     
-11. Run the application 
+13. Run the application 
   
     ```
     php artisan serve
