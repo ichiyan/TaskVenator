@@ -56,7 +56,7 @@ function PotionFilter({data, value}){
                         <form onSubmit={submitToHandler}>
                               <input name="product" type="hidden" value={value}/>
                               <input name="amount" type="hidden" value="0"/>
-                              <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Submit</Button>
+                              <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Buy</Button>
                         </form>
                     </div>
               </div>

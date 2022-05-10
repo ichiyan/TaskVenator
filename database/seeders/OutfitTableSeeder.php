@@ -15,7 +15,7 @@ class OutfitTableSeeder extends Seeder
     {
         DB::table('outfit')->insert([
         [
-            //warrior common weapon 
+            //warrior common weapon -done
             'id'=> '1',
             'outfit_type'=> 'Weapon',
             'sex'=> 'Unisex',
@@ -55,7 +55,7 @@ class OutfitTableSeeder extends Seeder
             'directory'=> 'weapon/thrust/female/pickaxe.png',
             'outfit_infos'=>'3'
         ],[
-            //uncommon type warrior weapon
+            //uncommon type warrior weapon -done
             'id'=> '4',
             'outfit_type'=> 'Weapon',
             'sex'=> 'Unisex',
@@ -83,7 +83,7 @@ class OutfitTableSeeder extends Seeder
             'directory'=> 'weapon/slash_oversize/female/female_halberd.png', 
             'outfit_infos'=>'5'
         ],[
-            //rare warrior weap
+            //rare warrior weap - done
             'id'=> '6',
             'outfit_type'=> 'Weapon',
             'sex'=> 'None',
@@ -116,7 +116,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/10.png',
             'female_image'=> '',
-            'name'=> 'Common Bow1',
+            'name'=> 'Black Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> '',
@@ -130,7 +130,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/recurve.png',
             'female_image'=> '',
-            'name'=> 'Common Bow2',
+            'name'=> 'Wooden Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> '',
@@ -143,7 +143,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/great.png',
             'female_image'=> '',
-            'name'=> 'Common Bow3',
+            'name'=> 'Normal Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> '',
@@ -157,7 +157,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/6.png',
             'female_image'=> '',
-            'name'=> 'Uncommon Bow1',
+            'name'=> 'Blue Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
@@ -170,7 +170,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/7.png',
             'female_image'=> '',
-            'name'=> 'Uncommon Bow2',
+            'name'=> 'Orange Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
@@ -183,7 +183,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/9.png',
             'female_image'=> '',
-            'name'=> 'Uncommon Bow2',
+            'name'=> 'Green Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
@@ -197,7 +197,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/8.png',
             'female_image'=> '',
-            'name'=> 'Rare Bow',
+            'name'=> 'Golden Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> '',
@@ -211,7 +211,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/weapons/male_cane.png',
             'female_image'=> 'assets/images/weapons/female_cane.png',
-            'name'=> 'Common Cane',
+            'name'=> 'Cane',
             'class'=> 'Mage',
             'rarity_type'=> 'Common',
             'body_part'=> '',
@@ -225,7 +225,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/saber.png',
             'female_image'=> '',
-            'name'=> 'Uncommon MageWeap',
+            'name'=> 'Magic Dagger',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
@@ -239,7 +239,7 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/scythe.png',
             'female_image'=> '',
-            'name'=> 'Rare MageWeap',
+            'name'=> 'Reaper Scythe',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> '',

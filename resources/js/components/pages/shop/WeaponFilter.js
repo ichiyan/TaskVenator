@@ -63,7 +63,7 @@ function WeaponFilter({data, value, avatarClass}){
                               <input name="product" type="hidden" value={value}/>
                               <input name="amount" type="hidden" value="0"/>
                               <input name="class" type="hidden" value={data.class}/> 
-                              <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Submit</Button>
+                              <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Buy</Button>
                         </form>
                     </div>
               </div>
