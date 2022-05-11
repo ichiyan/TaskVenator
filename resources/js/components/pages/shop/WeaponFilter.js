@@ -8,6 +8,7 @@ function WeaponFilter({data, value, avatarClass}){
       const [passProductId, setPassProductId]= useState({
             product: '',
             amount :'',
+            weapon :'',
       });
 
       
@@ -19,6 +20,7 @@ function WeaponFilter({data, value, avatarClass}){
             setPassProductId({
                     product:e.target.product.value,
                     amount: e.target.amount.value,
+                    type: e.target.type.value,
             });
       }else{
             Swal.fire("Failed to buy Item - Class Restriction");
@@ -32,8 +34,9 @@ function WeaponFilter({data, value, avatarClass}){
             const data={
                   product: passProductId.product,
                   amount: passProductId.amount,
+                  type: passProductId.type,
             }
-            if(data.product === "" && data.amount===""){
+            if(data.product === "" && data.amount==="" && data.type==="" ){
                   console.log("empty")
             }else{
                   axios.post(`/api/addBought`, data).then(res =>{
@@ -61,7 +64,8 @@ function WeaponFilter({data, value, avatarClass}){
                     <div>
                         <form onSubmit={submitToHandler}>
                               <input name="product" type="hidden" value={value}/>
-                              <input name="amount" type="hidden" value="0"/>
+                              <input name="amount" type="hidden" value={data.price}/>
+                              <input name="type" type="hidden" value="weapon"/>
                               <input name="class" type="hidden" value={data.class}/> 
                               <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Buy</Button>
                         </form>

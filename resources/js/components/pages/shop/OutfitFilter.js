@@ -60,7 +60,7 @@ function OutfitFilter({data, value, avatarClass}){
                     <div>
                         <form onSubmit={submitToHandler}>
                               <input name="product" type="hidden" value={value}/>
-                              <input name="amount" type="hidden" value="0"/>
+                              <input name="amount" type="hidden" value={data.price}/>
                               <input name="class" type="hidden" value={data.class}/>
                               <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Buy</Button>
                         </form>

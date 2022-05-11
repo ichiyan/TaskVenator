@@ -14,6 +14,7 @@ const Header = ({page}) => {
     const navigate = useNavigate();
     const [isOpenDropdown, setIsOpenDropdown] = useState(false);
     const ref = useRef();
+    
 
     // useEffect( () => {
     //     console.log("test from header")
@@ -87,6 +88,9 @@ const Header = ({page}) => {
            <div>
                 <nav id="navbar" className="navbar order-last order-lg-0">
                     <ul>
+                        <li className="custom-nav-item">
+                            <p className="text-light m-0">1000</p>
+                        </li>
                         <li className="custom-nav-item">
                             <Link to="" className="nav-icon-btn">
                                 <FontAwesomeIcon className="navIcon" icon={faBell}/>

@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Inventory;
 use App\Models\User;
+use App\Models\UserInfo;
+use App\Models\Potion;
+use App\Models\Outfit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -76,6 +79,12 @@ class InventoryController extends Controller
         $inventory->amount=$request->input('amount');
 
         $inventory->save();
+
+        $user_info= UserInfo::find($user_id);
+        $user_info->gems = $user_info->gems - $request->input('amount');
+        $user_info->save(); 
+
+        
 
         
 

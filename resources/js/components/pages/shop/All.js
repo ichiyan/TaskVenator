@@ -76,25 +76,47 @@ useEffect(()=>{
     setClicked(clicked);
 },[clicked]);
 
-  const buttonHandler=(e)=>{
-     Swal.fire("You have successfully bought the item");
-  }
+const buttonHandler=(e)=>{
+      Swal.fire("You have successfully bought the item");
+}
+
 const previewImage =(event)=>{
      setPreview(event)
 }
-const submitToHandler=(e)=>{
+
+const [passProductId, setPassProductId]= useState({
+      product: '',
+      amount :'',
+});
+
+ const submitToHandler=(e)=>{
       e.preventDefault();
-      //     Swal.fire("You have successfully bought the item");
-          if(e.target.class.value===avatarClass){
-            Swal.fire("You have successfully bought the item");
-            setPassProductId({
-                    product:e.target.product.value,
-                    amount: e.target.amount.value,
-            });
-      }else{
-            Swal.fire("Failed to buy Item - Class Restriction");
+      Swal.fire("You have successfully bought the item");
+      setPassProductId({
+              product:e.target.product.value,
+              amount: e.target.amount.value,
+      });
+ }
+
+ useEffect(() => {
+      const data={
+            product: passProductId.product,
+            amount: passProductId.amount,
       }
-}
+      if(data.product === "" && data.amount===""){
+            console.log("empty")
+      }else{
+            axios.post(`/api/addBought`, data).then(res =>{
+                  if(res.data.status === 200){
+                     console.log(res.data.message);
+                  }else {
+                    // setPotion({...potion,error_list:res.data.errors});
+                  }
+                });
+      }
+  
+ }, [passProductId])
+
     return(
         <section className="container party-section">
               <div className="shop-Form">
@@ -131,7 +153,11 @@ const submitToHandler=(e)=>{
                                                 <div className="shop-itemsInfo">
                                                       <h6>{p.features_potion.name}</h6>
                                                       <p>{p.features_potion.size}</p>
-                                                      <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br> BUY</Button>
+                                                      <form onSubmit={submitToHandler}>
+                                                            <input name="product" type="hidden" value={p.features_potion.id}/>
+                                                            <input name="amount" type="hidden" value={p.features_potion.price}/> 
+                                                            <Button type="submit"><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br>Buy</Button>
+                                                      </form>
                                                 </div>
                                           </div>
                                           <ReactTooltip id={p.features_potion.name} place="right" aria-haspopup='true' className="shop-toolTip">
