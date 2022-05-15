@@ -39,7 +39,7 @@ var avatarClass= "Warrior";
                  });
                  
            }
-
+           console.log(display1.potions);
      })
   },[])
 
@@ -96,6 +96,7 @@ const [passProductId, setPassProductId]= useState({
               product:e.target.product.value,
               amount: e.target.amount.value,
       });
+ 
  }
 
  useEffect(() => {
@@ -103,7 +104,7 @@ const [passProductId, setPassProductId]= useState({
             product: passProductId.product,
             amount: passProductId.amount,
       }
-      if(data.product === "" && data.amount===""){
+      if(data.product === "" || data.amount===""){
             console.log("empty")
       }else{
             axios.post(`/api/addBought`, data).then(res =>{
@@ -114,7 +115,6 @@ const [passProductId, setPassProductId]= useState({
                   }
                 });
       }
-  
  }, [passProductId])
 
     return(
@@ -182,11 +182,22 @@ const [passProductId, setPassProductId]= useState({
                                                 <div className="shop-itemsImage">
                                                 <img src={p.features_potion.image}></img>
                                                 </div>
-                                                <div className="shop-itemsInfo">
+                                                {/* <div className="shop-itemsInfo">
                                                       <h6>{p.features_potion.name}</h6>
                                                       <p>{p.features_potion.size}</p>
                                                       <Button onClick={buttonHandler}><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br> BUY</Button>
+                                                </div> */}
+                                          <div className="shop-itemsInfo">
+                                                <h6>{p.features_potion.name}</h6>
+                                                <p>{p.features_potion.size}</p>
+                                                <div>
+                                                      <form onSubmit={submitToHandler}>
+                                                            <input name="product" type="hidden" value={p.features_potion.product_id}/>
+                                                            <input name="amount" type="hidden" value={p.features_potion.price}/> 
+                                                            <Button type="submit"><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br>Buy</Button>
+                                                      </form>
                                                 </div>
+                                          </div>
                                           </div>
                                           <ReactTooltip id={p.features_potion.name} place="right" aria-haspopup='true' className="shop-toolTip">
                                                 <div className="shop-hide">

@@ -21,17 +21,14 @@ function OutfitFilter({data, value, avatarClass}){
       }else{
             Swal.fire("Failed to buy Item - Class Restriction");
       }
-          
-          
-         
-
      }
+     
      useEffect(() => {
       const data={
             product: passProductId.product,
             amount: passProductId.amount,
       }
-      if(data.product === "" && data.amount===""){
+      if(data.product === "" || data.amount===""){
             console.log("empty")
       }else{
             axios.post(`/api/addBought`, data).then(res =>{

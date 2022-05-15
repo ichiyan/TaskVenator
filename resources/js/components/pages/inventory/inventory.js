@@ -15,10 +15,11 @@ function Inventory(){
     const[inventoryArmor,setInventoryArmor]=useState({
         armors:[],
     });
+    const[authId, setAuthId]=useState("");
     useEffect(() =>{
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-                console.log(res.data)
+                // console.log(res.data)
                 // console.log(res.data.items)
                 // console.log(res.data.items[0].user_id)
                 // console.log(res.data.items[0].name)
@@ -27,26 +28,24 @@ function Inventory(){
                 setInventoryPotion({
                     potions:res.data.potion
                    
-              })
-              setInventoryWeapon({
-                weapons:res.data.weapon
+                })
+                setInventoryWeapon({
+                     weapons:res.data.weapon
                
-             })
-              setInventoryArmor({
-             armors:res.data.item
+                })
+                setInventoryArmor({
+                    armors:res.data.item
            
-             })
-               
-              
-                
+                })
+                setAuthId(res.data.auth_id);
           }
         })
      },[])
-     useEffect(()=>{
-        console.log(inventoryArmor);
-        console.log(inventoryPotion);
-        console.log(inventoryWeapon);
-     },[inventoryArmor,inventoryPotion,inventoryWeapon]);
+    //  useEffect(()=>{
+    //     console.log(inventoryArmor);
+    //     console.log(inventoryPotion);
+    //     console.log(inventoryWeapon);
+    //  },[inventoryArmor,inventoryPotion,inventoryWeapon]);
     return(
         <section className="container party-section">
             
@@ -67,12 +66,14 @@ function Inventory(){
                                     <h5>Health Potions</h5>
                               </div>
                               {inventoryPotion.potions.map((p,index)=>{
+                                     if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
                                                       </div> 
                                                 )
+                                          }
                                         }
                                   })}
                        
@@ -81,7 +82,7 @@ function Inventory(){
                               </div>
                               
                               {inventoryPotion.potions.map((p,index)=>{
-                                  
+                                     if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -89,7 +90,7 @@ function Inventory(){
                                                       </div> 
                                                 )
                                           }
-                                    
+                                        }
                               })}
                                <div className="shop-categoryName">
                                     <h5>Weapons</h5>
@@ -98,42 +99,42 @@ function Inventory(){
                                  <p>Common</p>
                               </div>
                               {inventoryWeapon.weapons.map((w,index)=>{
-                           
+                             if(w.inventUserId === authId){
                                     if(w.rarity_type==="Common"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryWeaponFilter data= {w}/>
                                                 </div>   
                                             ) 
-                                    
+                                            }
                                 }
                         })}
                          <div className="shop-categoryName">
                                  <p>Uncommon</p>
                               </div>
                               {inventoryWeapon.weapons.map((w,index)=>{
-                           
+                              if(w.inventUserId === authId){
                                     if(w.rarity_type==="Uncommon"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryWeaponFilter data= {w}/>
                                                 </div>   
                                             ) 
-                                    
+                                            }
                                 }
                         })}
                             <div className="shop-categoryName">
                                  <p>Rare</p>
                               </div>
                               {inventoryWeapon.weapons.map((w,index)=>{
-                           
+                              if(w.inventUserId === authId){
                                     if(w.rarity_type==="Rare"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryWeaponFilter data= {w}/>
                                                 </div>   
                                             ) 
-                                    
+                                            }
                                 }
                         })}
                             <div className="shop-categoryName">
@@ -143,61 +144,71 @@ function Inventory(){
                             <p>Head</p>
                         </div>
                         {inventoryArmor.armors.map((w,index)=>{
+                               if(w.inventUserId === authId){
                                     if(w.body_part==="Head"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryOutfitFilter data= {w} />
                                                 </div>   
                                             ) 
+                                    }
                                     }       
                         })}
                         <div className="shop-categoryName">
                             <p>Arms</p>
                         </div>
                         {inventoryArmor.armors.map((w,index)=>{
+                               if(w.inventUserId === authId){
                                     if(w.body_part==="Arms"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryOutfitFilter data= {w} />
                                                 </div>   
                                             ) 
-                                    }       
+                                    }
+                                 }       
                         })}
                         <div className="shop-categoryName">
                             <p>Torso</p>
                         </div>
                         {inventoryArmor.armors.map((w,index)=>{
+                               if(w.inventUserId === authId){
                                     if(w.body_part==="Torso"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryOutfitFilter data= {w} />
                                                 </div>   
                                             ) 
-                                    }       
+                                    }
+                                }       
                         })}
                         <div className="shop-categoryName">
                             <p>Legs</p>
                         </div>
                         {inventoryArmor.armors.map((w,index)=>{
+                               if(w.inventUserId === authId){
                                     if(w.body_part==="Legs"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryOutfitFilter data= {w} />
                                                 </div>   
                                             ) 
-                                    }       
+                                    }
+                                }       
                         })}
                         <div className="shop-categoryName">
                             <p>Footwear</p>
                         </div>
                         {inventoryArmor.armors.map((w,index)=>{
+                               if(w.inventUserId === authId){
                                     if(w.body_part==="Footwear"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryOutfitFilter data= {w} />
                                                 </div>   
-                                            ) 
-                                    }       
+                                            )
+                                    } 
+                                 }       
                         })}
                         </div> 
                       

@@ -14,7 +14,7 @@ function WeaponFilter({data, value, avatarClass}){
       
        const submitToHandler=(e)=>{
              e.preventDefault();
-      //     Swal.fire("You have successfully bought the item");
+
           if(e.target.class.value===avatarClass){
             Swal.fire("You have successfully bought the item");
             setPassProductId({
@@ -22,28 +22,23 @@ function WeaponFilter({data, value, avatarClass}){
                     amount: e.target.amount.value,
                     type: e.target.type.value,
             });
-      }else{
-            Swal.fire("Failed to buy Item - Class Restriction");
-      }
-          
-        
-           
-  
+            }else{
+                  Swal.fire("Failed to buy Item - Class Restriction");
+            }
        }
+       
        useEffect(() => {
             const data={
                   product: passProductId.product,
                   amount: passProductId.amount,
                   type: passProductId.type,
             }
-            if(data.product === "" && data.amount==="" && data.type==="" ){
+            if(data.product === "" || data.amount==="" || data.type==="" ){
                   console.log("empty")
             }else{
                   axios.post(`/api/addBought`, data).then(res =>{
                         if(res.data.status === 200){
                            console.log(res.data.message);
-                        }else {
-                          // setPotion({...potion,error_list:res.data.errors});
                         }
                       });
             }

@@ -61,8 +61,8 @@ function Weapons(){
 // //      console.log(display2.weapons);
 //   }
   useEffect(()=>{
-      console.log(display2)
-      console.log(Object.keys(display2.weapons).length);
+      console.log(display2.weapons)
+      // console.log(Object.keys(display2.weapons).length);
       // console.log(count);
   },[display2])
 
