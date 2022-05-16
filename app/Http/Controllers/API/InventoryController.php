@@ -84,10 +84,6 @@ class InventoryController extends Controller
         $user_info->gems = $user_info->gems - $request->input('amount');
         $user_info->save(); 
 
-        
-
-        
-
         return response()->json([
             'text' => "testing success",
           
@@ -96,6 +92,14 @@ class InventoryController extends Controller
             'product' => $request->input(),
  
       
+        ]);
+    }
+
+    public function getGems(Request $request){
+        $gems = $user_info= UserInfo::find(Auth::id());;
+        return response()->json([
+            'status' => 200,
+            'gems' =>$gems->gems
         ]);
     }
 }
