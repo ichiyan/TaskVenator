@@ -597,6 +597,11 @@ class ProductsTableSeeder extends Seeder
             'card'=> NULL,
             'potion'=> '6',
             'outfit'=> NULL,
+        ],[
+            'id'=> '106',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '100',
         ]
     ]);
   }

@@ -1258,6 +1258,19 @@ class OutfitInfoTableSeeder extends Seeder
             'crit'=> '0',
             'crit_dmg'=> '0',
             'price'=> '100',
+        ],[
+            //DEFAULT WARRIOR HEAD
+            'id'=> '100',
+            'p_attack'=> '0',
+            'm_attack'=> '0',
+            'p_def'=> '0',
+            'm_def'=> '0',
+            'str'=> '0',
+            'int'=> '0',
+            'agi'=> '0',
+            'crit'=> '0',
+            'crit_dmg'=> '0',
+            'price'=> '0',
         ]
     ]);
     }

@@ -1357,6 +1357,20 @@ class OutfitTableSeeder extends Seeder
             'spritesheet_img_name'=> '6.png',
             'directory'=> 'feet/armor/male/6.png', 
             'outfit_infos'=>'99'
+        ],[
+            //DEFAULT WARRIOR HEAD
+            'id'=> '100',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorHead.png',
+            'female_image'=> 'assets/images/armors/warriorHead.png',
+            'name'=> 'Default Head',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Head',
+            'spritesheet_img_name'=> 'norman.png',
+            'directory'=> 'feet/armor/male/norman.png', 
+            'outfit_infos'=>'100'
         ]
     ]);
    }
