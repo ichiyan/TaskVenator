@@ -49,11 +49,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('getPotions', [InventoryController::class, 'getPotions']);
 
-<<<<<<< Updated upstream
-=======
     //fetching remaining gems
     Route::get('gems', [InventoryController::class, 'getGems']);
->>>>>>> Stashed changes
 });
 
 
