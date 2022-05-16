@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -13,4 +14,17 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .react()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .webpackConfig({
+        resolve: {
+            fallback:{
+                zlib: require.resolve("browserify-zlib"),
+                path: require.resolve("path-browserify"),
+                crypto: require.resolve("crypto-browserify"),
+                stream: require.resolve("stream-browserify"),
+                http: require.resolve("stream-http"),
+                fs: false,
+                net: false
+            }
+        },
+    });

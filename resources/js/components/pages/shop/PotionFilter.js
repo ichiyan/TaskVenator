@@ -1,5 +1,5 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
+import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
@@ -8,7 +8,7 @@ function PotionFilter({data, value}){
             product: '',
             amount :'',
       });
-      
+
        const submitToHandler=(e)=>{
              e.preventDefault();
           Swal.fire("You have successfully bought the item");
@@ -16,10 +16,10 @@ function PotionFilter({data, value}){
                     product:e.target.product.value,
                     amount: e.target.amount.value,
             });
-          
-        
-           
-  
+
+
+
+
        }
        useEffect(() => {
             const data={
@@ -37,15 +37,15 @@ function PotionFilter({data, value}){
                         }
                       });
             }
-        
+
        }, [passProductId])
 
-      
-    
+
+
 
     return(
         <div className="shop-returnMap">
-        <div data-tip data-for={data.name} className="shop-items"> 
+        <div data-tip data-for={data.name} className="shop-items">
               <div className="shop-itemsImage">
               <img src={data.image}></img>
               </div>
@@ -60,12 +60,12 @@ function PotionFilter({data, value}){
                         </form>
                     </div>
               </div>
-        </div> 
+        </div>
         <ReactTooltip id={data.name} place="right" aria-haspopup='true' className="shop-toolTip">
               <div className="shop-hide">
                     <div className="shop-itemsInfo">
                           <p>{data.description}</p>
-                    </div> 
+                    </div>
               </div>
         </ReactTooltip>
   </div>

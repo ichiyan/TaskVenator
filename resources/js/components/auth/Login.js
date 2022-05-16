@@ -68,7 +68,7 @@ const Login = () => {
                                     <span className="error-msg">{loginUser.error_list.email}</span>
                                 </div>
                                 <div className="form-group signup-signin-form-group">
-                                    <input type="text" className="form-input" name="password" id="password" placeholder="Password" onChange={inputHandler} value={loginUser.password}/>
+                                    <input type="password" className="form-input" name="password" id="password" placeholder="Password" onChange={inputHandler} value={loginUser.password}/>
                                     <span toggle="#password" className="zmdi zmdi-eye field-icon toggle-password"></span>
                                     <span className="error-msg">{loginUser.error_list.password}</span>
                                 </div>
