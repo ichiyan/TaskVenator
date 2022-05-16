@@ -49,6 +49,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('getPotions', [InventoryController::class, 'getPotions']);
 
+    //fetching remaining gems
+    Route::get('gems', [InventoryController::class, 'getGems']);
 });
 
 

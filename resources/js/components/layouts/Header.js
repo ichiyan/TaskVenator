@@ -27,6 +27,16 @@ const Header = ({page}) => {
     //     }
     // }, [socket])
 
+    const [gems, setGems]= useState(0);
+  
+    useEffect(()=>{
+        axios.get(`/api/gems`).then(res =>{
+              if(res.data.status===200){
+                setGems(res.data.gems);
+              }
+        });
+     },[])
+
     useEffect( () => {
         const checkIfClickedOutside = (e) => {
             if(isOpenDropdown && ref.current && !ref.current.contains(e.target)){
@@ -89,7 +99,7 @@ const Header = ({page}) => {
                 <nav id="navbar" className="navbar order-last order-lg-0">
                     <ul>
                         <li className="custom-nav-item">
-                            <p className="text-light m-0">1000</p>
+                            <p className="text-light m-0">{gems}</p>
                         </li>
                         <li className="custom-nav-item">
                             <Link to="" className="nav-icon-btn">
