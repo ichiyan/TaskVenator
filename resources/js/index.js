@@ -2,13 +2,14 @@ export {Link, useNavigate} from 'react-router-dom';
 export {default as React} from "react";
 export {default as ReactDOM} from 'react-dom';
 export {default as $} from "jquery";
-export { useEffect, useState, useRef, Fragment , useContext, useCallback} from "react";
+export { useEffect, useState, useRef, useCallback, useContext, Fragment } from "react";
 export { default as axios } from "axios";
 export { default as io } from "socket.io-client";
 export { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt, faPaperPlane, faCircle} from '@fortawesome/free-solid-svg-icons'
+export { faBell, faCog, faCommentDots, faSignOutAlt, faUser, faUserAlt, faPaperPlane, faInfoCircle, faCircle, faSquareFull, faMars, faVenus, faEye, faCut, faMale} from '@fortawesome/free-solid-svg-icons'
 export {Swal} from 'sweetalert2';
 export {default as ReactTooltip} from 'react-tooltip';
+export {default as Carousel} from 'react-elastic-carousel';
 export { default as moment } from 'moment-timezone';
 
  /*--------------------------------------------------------------
@@ -47,7 +48,8 @@ export {default as Cards} from "./components/pages/shop/Cards";
 export {default as AddOutfitForm} from "./components/pages/shop/AddOutfitForm";
 export {default as AddPotionForm} from "./components/pages/shop/AddPotionForm";
 export {default as AddCardForm} from "./components/pages/shop/AddCardForm";
-export {default as CharacterCustomization} from "./components/pages/CharacterCustomization";
+export {default as CharacterCustomization} from "./components/pages/customization/CharacterCustomization";
+export {default as SelectionTab} from "./components/pages/customization/SelectionTab";
 
 export {default as Inventory} from "./components/pages/inventory/inventory";
 export {default as InventoryOutfit} from "./components/pages/inventory/InventoryOutfit";

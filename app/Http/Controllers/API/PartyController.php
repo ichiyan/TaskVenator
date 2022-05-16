@@ -12,30 +12,24 @@ class PartyController extends Controller
 {
     public function getPartyInfo(){
 
-        $party = PartyMember::where('user_id', '=', Auth::id())
+        $user_id = Auth::id();
+        $party = PartyMember::where('user_id', '=', $user_id)
                     ->first()
                     ->party;
 
-        $party_members = $party->party_members;
-
-        $ctr = 0;
-        $party_members_info = [];
-
-        foreach ($party_members as $member) {
-            //$member->user refers to users table for now (should refer to users_info w/c contains username, avatar, etc)
-            $party_members_info[++$ctr] = $member->user;
+        $members = $party->party_members->where('id', '!=', $user_id);
+        $members_info = [];
+        foreach ($members as $member) {
+           $member->user->user_info->avatar;
+           array_push($members_info, $member['user']['user_info']);
         }
-
-        $data = [];
-
-        $data['party'] = $party;
-        //should number of members also be stored in party table?
-        $data['party_members_count'] = $ctr;
-        $data['party_members'] = $party_members_info;
 
         return response()->json([
             'status' => 200,
-            'data' => $data,
+            'party_id' => $party->id,
+            'party_name' => $party->party_name,
+            'total_members' => $party->total_members,
+            'members' => $members_info,
             'message' => 'Party information retrieved successfully'
         ]);
 

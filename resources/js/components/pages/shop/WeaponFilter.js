@@ -1,5 +1,5 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
+import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
@@ -11,7 +11,7 @@ function WeaponFilter({data, value, avatarClass}){
             weapon :'',
       });
 
-      
+
        const submitToHandler=(e)=>{
              e.preventDefault();
 
@@ -42,13 +42,13 @@ function WeaponFilter({data, value, avatarClass}){
                         }
                       });
             }
-        
+
        }, [passProductId])
     return(
-          
+
         <div data-tip data-for={data.name}  className="shop-returnMap">
-        <div className="shop-items"> 
-      
+        <div className="shop-items">
+
               <div className="shop-itemsImage">
               {
               (data.sex==="None" || data.sex==="Male")? <img src={data.male_image}></img>:<img src={data.female_image}></img>
@@ -66,7 +66,7 @@ function WeaponFilter({data, value, avatarClass}){
                         </form>
                     </div>
               </div>
-        </div> 
+        </div>
         <ReactTooltip id={data.name} place="right" aria-haspopup='true' className="shop-toolTip">
               <div className="shop-hide">
                     <div className="shop-itemsInfo">
@@ -82,10 +82,10 @@ function WeaponFilter({data, value, avatarClass}){
                                 <p>Critical: {data.crit}</p>
                                 <p>Critical Damage: {data.crit_dmg}</p>
                           </div>
-                    </div> 
+                    </div>
               </div>
         </ReactTooltip>
-  </div>  
+  </div>
     );
 }
 
