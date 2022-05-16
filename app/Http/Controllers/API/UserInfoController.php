@@ -8,6 +8,8 @@ use App\Models\AvatarClass;
 use App\Models\UserInfo;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Inventory;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -60,9 +62,45 @@ class UserInfoController extends Controller
         $avatar->class()->associate($avatar_class);
         $avatar->save();
 
+   
+        if($request->class === "warrior"){
+            for($start=106; $start<112; $start++){
+                $inventory= new Inventory;
+                $user_id = Auth::id();
+                $inventory->user_id= $user_id;
+                $inventory->product= $start;
+                $inventory->amount='0';
+                $inventory->save();
+            }
+  
+        }else if($request->class === "marksman"){
+            for($start=112; $start<117; $start++){
+                $inventory= new Inventory;
+                $user_id = Auth::id();
+                $inventory->user_id= $user_id;
+                $inventory->product= $start;
+                $inventory->amount='0';
+                $inventory->save();
+            }
+        }else{
+            for($start=117; $start<122; $start++){
+                $inventory= new Inventory;
+                $user_id = Auth::id();
+                $inventory->user_id= $user_id;
+                $inventory->product= $start;
+                $inventory->amount='0';
+                $inventory->save();
+            }
+        }
+    
+
+        
+ 
+
         return response()->json([
             'status' => 200,
             'message' => 'User and Avatar Info Added Successfully',
+            'avatar' => $avatar_class
         ]);
     }
 

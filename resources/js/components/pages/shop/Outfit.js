@@ -17,8 +17,8 @@ function Outfit(){
     const[charClass,setCharClass]=useState("All");
     const[rarity, setRarity]=useState("All");
     const[bodyPart, setBodyPart]=useState("All");
-
-    var avatarClass= "Warrior";
+    const[avatarClass, setAvatarClass]=useState("");
+//     var avatarClass= "Warrior";
  
 
   const[display2,setDisplay2]=useState({
@@ -41,11 +41,19 @@ function Outfit(){
   useEffect(() =>{
      axios.get(`/api/outfit`).then(res =>{
            if(res.data.status===200){
-          
+                 console.log(res.data.avatar)
                  setDisplay2({
                        armors:res.data.armor
                       
                  })
+                 if(res.data.avatar[0].name === "warrior"){
+                       setAvatarClass("Warrior");
+                 }else if(res.data.avatar[0].name === "marksman"){
+                       setAvatarClass("Marksman");
+                 }else{
+                       setAvatarClass("Mage")
+                 }
+               
       
                
                 
@@ -54,9 +62,10 @@ function Outfit(){
      })
   },[])
   useEffect(()=>{
-      console.log(display2.armors)
+      // console.log(avatarClass);
+      // console.log(avatarClass);
       // console.log(Object.keys(display2.armors).length);
-  },[display2])
+  },[display2],[avatarClass])
   
 
 

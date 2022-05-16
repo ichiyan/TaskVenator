@@ -598,10 +598,101 @@ class ProductsTableSeeder extends Seeder
             'potion'=> '6',
             'outfit'=> NULL,
         ],[
+            //DEFAULT WARRIOR HEAD
             'id'=> '106',
             'card'=> NULL,
             'potion'=> NULL,
             'outfit'=> '100',
+        ],[
+            //DEFAULT WARRIOR ARMS
+            'id'=> '107',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '101',
+        ],[
+            //DEFAULT WARRIOR TORSO
+            'id'=> '108',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '102',
+        ],[
+            //DEFAULT WARRIOR LEGS
+            'id'=> '109',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '103',
+        ],[
+            //DEFAULT WARRIOR FOOTWEAR
+            'id'=> '110',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '104',
+        ],[
+            //DEFAULT WARRIOR WEAPON
+            'id'=> '111',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '105',
+        ],[
+            //DEFAULT MARKSMAN HEAD
+            'id'=> '112',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '106',
+        ],[
+            //DEFAULT MARKSMAN TORSO
+            'id'=> '113',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '107',
+        ],[
+            //DEFAULT MARKSMAN LEGS
+            'id'=> '114',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '108',
+        ],[
+            //DEFAULT MARKSMAN FOOTWEAR
+            'id'=> '115',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '109',
+        ],[
+            //DEFAULT MARKSMAN WEAPON
+            'id'=> '116',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '110',
+        ],[
+            //DEFAULT MAGE HEAD
+            'id'=> '117',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '111',
+        ],[
+            //DEFAULT MAGE TORSO
+            'id'=> '118',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '112',
+        ],[
+            //DEFAULT MAGE LEGS
+            'id'=> '119',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '113',
+        ],[
+            //DEFAULT MAGE FOOTWEAR
+            'id'=> '120',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '114',
+        ],[
+            //DEFAULT MAGE WEAPON
+            'id'=> '121',
+            'card'=> NULL,
+            'potion'=> NULL,
+            'outfit'=> '115',
         ]
     ]);
   }

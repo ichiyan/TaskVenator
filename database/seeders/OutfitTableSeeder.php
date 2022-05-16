@@ -1371,6 +1371,216 @@ class OutfitTableSeeder extends Seeder
             'spritesheet_img_name'=> 'norman.png',
             'directory'=> 'feet/armor/male/norman.png', 
             'outfit_infos'=>'100'
+        ],[
+            //DEFAULT WARRIOR ARMS
+            'id'=> '101',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorArms.png',
+            'female_image'=> 'assets/images/armors/warriorArms.png',
+            'name'=> 'Default Arms',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Arms',
+            'spritesheet_img_name'=> '1.png',
+            'directory'=> 'arms/1.png', 
+            'outfit_infos'=>'101'
+        ],[
+            //DEFAULT WARRIOR TORSO
+            'id'=> '102',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorTorso.png',
+            'female_image'=> 'assets/images/armors/warriorTorso.png',
+            'name'=> 'Default Torso',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Torso',
+            'spritesheet_img_name'=> 'gray.png',
+            'directory'=> 'torso/chainmail/gray.png', 
+            'outfit_infos'=>'102'
+        ],[
+            //DEFAULT WARRIOR LEGS
+            'id'=> '103',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorLegs.png',
+            'female_image'=> 'assets/images/armors/warriorLegs.png',
+            'name'=> 'Default Legs',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Legs',
+            'spritesheet_img_name'=> '7.png',
+            'directory'=> 'legs/armour/7.png', 
+            'outfit_infos'=>'103'
+        ],[
+            //DEFAULT WARRIOR FOOTWEAR
+            'id'=> '104',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorFeet.png',
+            'female_image'=> 'assets/images/armors/warriorFeet.png',
+            'name'=> 'Default Footwear',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Footwear',
+            'spritesheet_img_name'=> '4.png',
+            'directory'=> 'feet/armor/4.png', 
+            'outfit_infos'=>'104'
+        ],[
+            //DEFAULT WARRIOR WEAPON
+            'id'=> '105',
+            'outfit_type'=> 'Weapon',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/weapons/warriorWeapon.png',
+            'female_image'=> 'assets/images/weapons/warriorWeapon.png',
+            'name'=> 'Default Weapon',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> '',
+            'spritesheet_img_name'=> 'dagger.png',
+            'directory'=> 'weapon/slash/dagger.png',
+            'outfit_infos'=>'105',
+        ],[
+            //DEFAULT MARKSMAN HEAD
+            'id'=> '106',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/marksmanHead.png',
+            'female_image'=> 'assets/images/armors/marksmanHead.png',
+            'name'=> 'Default Head',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Head',
+            'spritesheet_img_name'=> 'leather.png',
+            'directory'=> 'hat/cloth/leather.png', 
+            'outfit_infos'=>'106'
+        ],[
+            //DEFAULT MARKSMAN TORSO
+            'id'=> '107',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/marksmanTorso.png',
+            'female_image'=> 'assets/images/armors/marksmanTorso.png',
+            'name'=> 'Default Torso',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Torso',
+            'spritesheet_img_name'=> 'green.png',
+            'directory'=> 'torso/clothes/longsleeve/green.png', 
+            'outfit_infos'=>'107'
+        ],[
+            //DEFAULT MARKSMAN LEGS
+            'id'=> '108',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/marksmanLegs.png',
+            'female_image'=> 'assets/images/armors/marksmanLegs.png',
+            'name'=> 'Default Legs',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Legs',
+            'spritesheet_img_name'=> 'green.png',
+            'directory'=> 'legs/pants/green.png', 
+            'outfit_infos'=>'108'
+        ],[
+            //DEFAULT MARKSMAN FOOTWEAR
+            'id'=> '109',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/marksmanFeet.png',
+            'female_image'=> 'assets/images/armors/marksmanFeet.png',
+            'name'=> 'Default Legs',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Footwear',
+            'spritesheet_img_name'=> 'black.png',
+            'directory'=> 'feet/shoes/black.png', 
+            'outfit_infos'=>'109'
+        ],[
+            //DEFAULT MARKSMAN WEAPON
+            'id'=> '110',
+            'outfit_type'=> 'Weapon',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/weapons/marksmanWeapon.png',
+            'female_image'=> 'assets/images/weapons/marksmanWeapon.png',
+            'name'=> 'Default Weapon',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> '',
+            'spritesheet_img_name'=> 'normal.png',
+            'directory'=> 'weapon/bow/normal.png', 
+            'outfit_infos'=>'110'
+        ],[
+            //DEFAULT MAGE HEAD
+            'id'=> '111',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/mageHead.png',
+            'female_image'=> 'assets/images/armors/mageHead.png',
+            'name'=> 'Default Head',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Head',
+            'spritesheet_img_name'=> 'black.png',
+            'directory'=> 'hat/magic/black.png', 
+            'outfit_infos'=>'111'
+        ],[
+            //DEFAULT MAGE TORSO
+            'id'=> '112',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Male',
+            'male_image'=> 'assets/images/armors/mageTorso.png',
+            'female_image'=> '',
+            'name'=> 'Default Torso',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Torso',
+            'spritesheet_img_name'=> 'black.png',
+            'directory'=> 'torso/jacket/iverness/black.png', 
+            'outfit_infos'=>'112'
+        ],[
+            //DEFAULT MAGE LEGS
+            'id'=> '113',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/mageLegs.png',
+            'female_image'=> 'assets/images/armors/mageLegs.png',
+            'name'=> 'Default Legs',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Legs',
+            'spritesheet_img_name'=> 'navy.png',
+            'directory'=> 'legs/pants/navy.png', 
+            'outfit_infos'=>'113'
+        ],[
+            //DEFAULT MAGE FOOTWEAR
+            'id'=> '114',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/mageFeet.png',
+            'female_image'=> 'assets/images/armors/mageFeet.png',
+            'name'=> 'Default Feet',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Footwear',
+            'spritesheet_img_name'=> 'black.png',
+            'directory'=> 'feet/shoes/black.png', 
+            'outfit_infos'=>'114'
+        ],[
+            //DEFAULT MAGE FOOTWEAR
+            'id'=> '115',
+            'outfit_type'=> 'Weapon',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/weapons/mageWeapon.png',
+            'female_image'=> 'assets/images/weapons/mageWeapon.png',
+            'name'=> 'Default Weapon',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> '',
+            'spritesheet_img_name'=> 'simple_staff.png',
+            'directory'=> 'weapon/thrust/simple_staff.png', 
+            'outfit_infos'=>'115'
         ]
     ]);
    }

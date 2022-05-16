@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Models\UserInfo;
 use App\Models\Potion;
 use App\Models\Outfit;
+use App\Models\Avatar;
+use App\Models\AvatarClass;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -28,6 +30,7 @@ class InventoryController extends Controller
                 ->where('outfit.outfit_type','=', "Armor")
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*','outfit_info.*' ,'inventories.user_id AS inventUserId']);
+
         $weapon= DB::table('inventories')
                 ->join('users', 'users.id', '=', 'inventories.user_id')
                 ->join('products', 'products.id', '=', 'inventories.product')
@@ -35,14 +38,15 @@ class InventoryController extends Controller
                 ->where('outfit.outfit_type','=', "Weapon")
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*','outfit_info.*' ,'inventories.user_id AS inventUserId']);
-         
-
+        
         $potion= DB::table('inventories')
                 ->join('users', 'users.id', '=', 'inventories.user_id')
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('potion','potion.id','=','products.potion')
                 ->select('potion.*', 'inventories.user_id AS inventUserId' )
                 ->get();
+
+
         
     //     $weapon= DB::table('products')
     //             ->join('outfit', 'outfit.id', '=', 'products.outfit')

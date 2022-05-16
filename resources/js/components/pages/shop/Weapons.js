@@ -9,7 +9,7 @@ function Weapons(){
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
     const [xp, setXp] = useState(0);
-    var avatarClass= "Warrior";
+
    
     
     const [hpBarWidth, sethpBarWidth] = useState("100");
@@ -18,7 +18,7 @@ function Weapons(){
 
     const[charClass,setCharClass]=useState("All");
     const[rarity, setRarity]=useState("All");
-    
+    const[avatarClass, setAvatarClass]=useState("");
 
   
 
@@ -44,9 +44,16 @@ function Weapons(){
                        weapons:res.data.weapon
                       
                  })
+
+                 if(res.data.avatar[0].name === "warrior"){
+                  setAvatarClass("Warrior");
+                }else if(res.data.avatar[0].name === "marksman"){
+                      setAvatarClass("Marksman");
+                }else{
+                      setAvatarClass("Mage")
+                }
                 
-            //     countType();
-            // console.log(display2);
+
                  
            }
          

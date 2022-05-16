@@ -8,7 +8,10 @@ use App\Models\Outfit;
 use App\Models\Product;
 use App\Models\Inventory;
 use App\Models\OutfitInfo;
-
+use App\Models\UserInfo;
+use App\Models\User;
+use App\Models\Avatar;
+use App\Models\AvatarClass;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +19,7 @@ class OutfitController extends Controller
 {
     public function index(Request $request){
         // $outfit= Outfit::all();
-        // $user_id = Auth::id();
+        $user_id = Auth::id();
         // $product= Product::with('featuresOutfit')->where('outfit', '!=', 'NULL')->get();
         // $items=Inventory::with('contains')->where('user_id', '==', '$user_id')->get();
         $weapon= DB::table('products')
@@ -30,10 +33,19 @@ class OutfitController extends Controller
                 ->where('outfit.outfit_type','=', "Armor")
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
+        
+        $class= DB::table('users')
+                ->where('avatars.user_info_id', '=', $user_id)
+                ->join('avatars', 'avatars.user_info_id', '=', 'users.id')
+                ->join('avatar_classes', 'avatar_classes.id', '=', 'avatars.class_id')
+                ->get('avatar_classes.name');
+
         return response()->json([
             'status' => 200,
             'weapon' => $weapon,
             'armor' =>$armor,
+            'avatar' =>$class,
+
             // 'user_id' => $user_id,
             // 'items' => $items,
             
