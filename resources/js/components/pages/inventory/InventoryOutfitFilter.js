@@ -7,49 +7,20 @@ function InventoryOutfitFilter({setPreview,data}){
     const [passProductId, setPassProductId]= useState({
         directory: '',
         spriteName:'',
-        inventoryId:''
   });
-    const[style, setStyle]=useState({
-        backgroundColor: "yellow"
-    })
-//   const [inventoryItem, setInventoryItem]= useState({
-//     inventoryId: '',
-//     });
     const submitToHandler=(e)=>{
         e.preventDefault();
  //     Swal.fire("You have successfully bought the item");
         setPassProductId({
             directory: e.target.directory.value,
             spriteName:e.target.spriteName.value,
-            inventoryId: e.target.inventoryId.value
         })
-
-
         
       
 
   }
   useEffect(() => {
-    const data={
-        directory: passProductId.directory,
-        spriteName: passProductId.spriteName,
-        inventoryId: passProductId.inventoryId
-  }
-  if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
-        console.log("empty")
-  }else{
-        axios.post(`/api/update`, data).then(res =>{
-              if(res.data.status === 200){
-                console.log(res.data.message);
-              }else {
-                // setPotion({...potion,error_list:res.data.errors});
-              }
-              setStyle({
-                  backgroundColor: "#C0C034"
-              })
-            });
-  }
-
+    console.log(passProductId);
   },[passProductId])
     return(
         <div data-tip data-for={data.name}  className="inventory-returnMap">
@@ -67,15 +38,9 @@ function InventoryOutfitFilter({setPreview,data}){
                             <div className="inventory-itemsInfo">
                                 <h6>{data.name}</h6>
                                 <form onSubmit={submitToHandler}>
-                              <input name="inventoryId" type="hidden" value={data.id}/>
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
-                              {
-                                  (data.status === 1)? 
-                                  <Button type="submit" style={{backgroundColor: "#C0C034"}}>Equip</Button>
-                                  :<Button type="submit"style={{backgroundColor: style.backgroundColor}}>Equip</Button>
-                              }
-                              
+                              <Button type="submit">Equip</Button>
                         </form>
                             </div>
                     </div> 

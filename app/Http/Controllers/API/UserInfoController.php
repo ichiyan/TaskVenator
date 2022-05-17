@@ -70,7 +70,6 @@ class UserInfoController extends Controller
                 $inventory->user_id= $user_id;
                 $inventory->product= $start;
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
   
@@ -81,7 +80,6 @@ class UserInfoController extends Controller
                 $inventory->user_id= $user_id;
                 $inventory->product= $start;
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
         }else{
@@ -91,7 +89,6 @@ class UserInfoController extends Controller
                 $inventory->user_id= $user_id;
                 $inventory->product= $start;
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
         }

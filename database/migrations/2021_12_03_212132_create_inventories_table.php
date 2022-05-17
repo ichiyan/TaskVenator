@@ -18,7 +18,6 @@ class CreateInventoriesTable extends Migration
             $table->foreignId('user_id')->constrained('users', 'id');
             $table->foreignId('product')->constrained('products', 'id');
             $table->integer('amount');
-            $table->boolean('status')->default(0);  //1 if equipped otherwise 0
             $table->timestamps();
         });
     }
