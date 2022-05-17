@@ -7,7 +7,8 @@ function InventoryWeaponFilter({setPreview,data}){
     const [passProductId, setPassProductId]= useState({
         directory: '',
         spriteName:'',
-        inventoryId:''
+        inventoryId:'',
+        status: ''
   });
     const[style, setStyle]=useState({
         backgroundColor: "yellow"
@@ -21,7 +22,8 @@ function InventoryWeaponFilter({setPreview,data}){
         setPassProductId({
             directory: e.target.directory.value,
             spriteName:e.target.spriteName.value,
-            inventoryId: e.target.inventoryId.value
+            inventoryId: e.target.inventoryId.value,
+            status: e.target.status.value
         })
 
 
@@ -33,7 +35,8 @@ function InventoryWeaponFilter({setPreview,data}){
     const data={
         directory: passProductId.directory,
         spriteName: passProductId.spriteName,
-        inventoryId: passProductId.inventoryId
+        inventoryId: passProductId.inventoryId,
+        status: passProductId.status
   }
   if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
         console.log("empty")
@@ -44,6 +47,7 @@ function InventoryWeaponFilter({setPreview,data}){
               }else {
                 // setPotion({...potion,error_list:res.data.errors});
               }
+              
               setStyle({
                   backgroundColor: "#C0C034"
               })
@@ -71,10 +75,12 @@ function InventoryWeaponFilter({setPreview,data}){
                               <input name="inventoryId" type="hidden" value={data.id}/>
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
+                              <input name="status" type="hidden" value={data.status}/>
+                              
                               {
                                   (data.status === 1)? 
-                                  <Button type="submit" style={{backgroundColor: "#C0C034"}}>Equip</Button>
-                                  :<Button type="submit"style={{backgroundColor: style.backgroundColor}}>Equip</Button>
+                                  <Button type="submit" style={{backgroundColor: "#C0C034"}}>Equipped</Button>
+                                  :<Button type="submit"style={{backgroundColor: style.backgroundColor}}>Unequip</Button>
                               }
                         </form>
                 </div>

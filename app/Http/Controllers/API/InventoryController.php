@@ -112,8 +112,12 @@ class InventoryController extends Controller
 
         $id= $request->input('inventoryId');
         $inventory = Inventory::find($id);
-        DB::update('update inventories set status = ? where id = ?', [1, $id]);
 
+        if($request->input('status') === '0'){
+            DB::update('update inventories set status = ? where id = ?', [1, $id]);
+        }else if($request->input('status') === '1'){
+            DB::update('update inventories set status = ? where id = ?', [0, $id]);
+        }
         return response()->json([
             'message' => "inventory success",
         ]);
