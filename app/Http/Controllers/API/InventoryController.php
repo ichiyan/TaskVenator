@@ -29,7 +29,7 @@ class InventoryController extends Controller
                 ->join('outfit','outfit.id','=','products.outfit')
                 ->where('outfit.outfit_type','=', "Armor")
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
-                ->get(['outfit.*','outfit_info.*' ,'inventories.user_id AS inventUserId']);
+                ->get(['outfit.*','outfit_info.*','inventories.*'  ,'inventories.user_id AS inventUserId']);
 
         $weapon= DB::table('inventories')
                 ->join('users', 'users.id', '=', 'inventories.user_id')
@@ -37,7 +37,7 @@ class InventoryController extends Controller
                 ->join('outfit','outfit.id','=','products.outfit')
                 ->where('outfit.outfit_type','=', "Weapon")
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
-                ->get(['outfit.*','outfit_info.*' ,'inventories.user_id AS inventUserId']);
+                ->get(['outfit.*','outfit_info.*','inventories.*','inventories.user_id AS inventUserId']);
         
         $potion= DB::table('inventories')
                 ->join('users', 'users.id', '=', 'inventories.user_id')
@@ -104,6 +104,18 @@ class InventoryController extends Controller
         return response()->json([
             'status' => 200,
             'gems' =>$gems->gems
+        ]);
+    }
+
+    public function update(Request $request){
+        
+
+        $id= $request->input('inventoryId');
+        $inventory = Inventory::find($id);
+        DB::update('update inventories set status = ? where id = ?', [1, $id]);
+
+        return response()->json([
+            'message' => "inventory success",
         ]);
     }
 }
