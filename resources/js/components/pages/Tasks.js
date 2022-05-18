@@ -100,15 +100,15 @@ import {Header, React,
     }else if (tab === "tasks"){
         renderTab = <TasksTab/>;
     }else if (tab === "all"){
-        renderTab = <All/>;
+        renderTab = <All setGems={setGems}/>;
     }else if (tab === "outfit"){
-        renderTab = <Outfit/>;
+        renderTab = <Outfit setGems={setGems}/>;
     }else if (tab === "weapons"){
-        renderTab = <Weapons/>;
+        renderTab = <Weapons setGems={setGems}/>;
     }else if (tab === "potions"){
         renderTab = <Potions setGems={setGems}/>;
     }else if (tab === "shop"){
-        renderTab = <Shop/>;
+        renderTab = <Shop setGems={setGems}/>;
     }else if(tab ==="cards"){
         renderTab =<Cards/>;
     }else if(tab ==="inventory"){
