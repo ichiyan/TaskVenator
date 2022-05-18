@@ -166,3 +166,13 @@
     color: white;
 }
 
+/*Header - Gem Icon*/
+.header-gem{
+    display: flex;
+    align-items: center;
+}
+
+.header-gem-icon{
+    width: 25px;
+    margin-right: 10px;
+}

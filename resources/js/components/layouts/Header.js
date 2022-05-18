@@ -88,7 +88,8 @@ const Header = ({page,gems}) => {
            <div>
                 <nav id="navbar" className="navbar order-last order-lg-0">
                     <ul>
-                        <li className="custom-nav-item">
+                        <li className="custom-nav-item header-gem">
+                            <img className="header-gem-icon" src="assets/images/currency.png"/>
                             <p className="text-light m-0">{gems}</p>
                         </li>
                         <li className="custom-nav-item">
