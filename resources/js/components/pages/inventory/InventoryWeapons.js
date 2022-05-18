@@ -6,6 +6,7 @@ function InventoryWeapons(){
     const[inventory,setInventory]=useState({
         weapons:[],
   });
+  
   const[authId, setAuthId]=useState("");
   const[preview, setPreview]=useState("");
   const[charClass,setCharClass]=useState("All");

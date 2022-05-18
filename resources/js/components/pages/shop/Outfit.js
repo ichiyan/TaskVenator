@@ -63,7 +63,7 @@ function Outfit(){
   },[])
   useEffect(()=>{
       // console.log(avatarClass);
-      // console.log(avatarClass);
+      console.log(display2.armors);
       // console.log(Object.keys(display2.armors).length);
   },[display2],[avatarClass])
   

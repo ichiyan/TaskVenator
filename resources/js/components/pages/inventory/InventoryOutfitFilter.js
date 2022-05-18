@@ -8,10 +8,13 @@ function InventoryOutfitFilter({setPreview,data}){
         directory: '',
         spriteName:'',
         inventoryId:'',
-        status: ''
+        status: '',
+        outfit_type: '',
+        body_part: ''
   });
     const[style, setStyle]=useState({
-        backgroundColor: "yellow"
+        backgroundColor: "yellow",
+        text: "Equip"
     })
 //   const [inventoryItem, setInventoryItem]= useState({
 //     inventoryId: '',
@@ -23,7 +26,9 @@ function InventoryOutfitFilter({setPreview,data}){
             directory: e.target.directory.value,
             spriteName:e.target.spriteName.value,
             inventoryId: e.target.inventoryId.value,
-            status: e.target.status.value
+            status: e.target.status.value,
+            outfit_type: e.target.outfit_type.value,
+            body_part: e.target.body_part.value
         })
 
 
@@ -36,7 +41,9 @@ function InventoryOutfitFilter({setPreview,data}){
         directory: passProductId.directory,
         spriteName: passProductId.spriteName,
         inventoryId: passProductId.inventoryId,
-        status: passProductId.status
+        status: passProductId.status,
+        outfit_type: passProductId.outfit_type,
+        body_part: passProductId.body_part
   }
   if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
         console.log("empty")
@@ -49,7 +56,8 @@ function InventoryOutfitFilter({setPreview,data}){
               }
               
               setStyle({
-                  backgroundColor: "#C0C034"
+                  backgroundColor: "#C0C034",
+                  text: "Unequip"
               })
             });
   }
@@ -72,13 +80,15 @@ function InventoryOutfitFilter({setPreview,data}){
                                 <h6>{data.name}</h6>
                                 <form onSubmit={submitToHandler}>
                               <input name="inventoryId" type="hidden" value={data.id}/>
+                              <input name="outfit_type" type="hidden" value={data.outfit_type}/>
+                              <input name="body_part" type="hidden" value={data.body_part}/>
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
                               <input name="status" type="hidden" value={data.status}/>
                               {
                                   (data.status === 1)? 
-                                  <Button type="submit" style={{backgroundColor: "#C0C034"}}>Equip</Button>
-                                  :<Button type="submit"style={{backgroundColor: style.backgroundColor}}>Equip</Button>
+                                  <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
+                                  :<Button type="submit"style={{backgroundColor: style.backgroundColor}}>{style.text}</Button>
                               }
                               
                         </form>

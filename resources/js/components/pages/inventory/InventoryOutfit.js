@@ -7,6 +7,9 @@ function InventoryOutfit(){
     const[inventory,setInventory]=useState({
         items:[],
   });
+    const[head, setHead]=useState({
+        head:[],
+    })
     const[authId, setAuthId]=useState("");
     const[preview, setPreview]=useState("");
     const[charClass,setCharClass]=useState("All");
@@ -15,8 +18,7 @@ function InventoryOutfit(){
     useEffect(() =>{
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-             
-                
+     
                 setInventory({
                    items:res.data.item
                    
@@ -24,7 +26,13 @@ function InventoryOutfit(){
               
               setAuthId(res.data.auth_id);
               
-               
+               for(let i; i<inventory.items.length; i++){
+                   if(inventory.items[i].body_part === "Head"){
+                     
+                            console.log(inventory.items)
+                       
+                   }
+               }
                  
           }
         })
@@ -32,6 +40,7 @@ function InventoryOutfit(){
 
      useEffect(()=>{
         console.log(inventory.items)
+        // console.log(head)
          
      },[inventory])
 

@@ -7,6 +7,8 @@ function OutfitFilter({data, value, avatarClass}){
     const [passProductId, setPassProductId]= useState({
           product: '',
           amount :'',
+          outfit_type: '',
+          body_part: ''
     });
 
      const submitToHandler=(e)=>{
@@ -17,6 +19,8 @@ function OutfitFilter({data, value, avatarClass}){
             setPassProductId({
                     product:e.target.product.value,
                     amount: e.target.amount.value,
+                    outfit_type: e.target.outfit_type.value,
+                    body_part: e.target.body_part.value,
             });
       }else{
             Swal.fire("Failed to buy Item - Class Restriction");
@@ -31,6 +35,8 @@ function OutfitFilter({data, value, avatarClass}){
       const data={
             product: passProductId.product,
             amount: passProductId.amount,
+            outfit_type: passProductId.outfit_type,
+            body_part: passProductId.body_part,
       }
       if(data.product === "" || data.amount===""){
             console.log("empty")
@@ -63,6 +69,8 @@ function OutfitFilter({data, value, avatarClass}){
                               <input name="product" type="hidden" value={value}/>
                               <input name="amount" type="hidden" value={data.price}/>
                               <input name="class" type="hidden" value={data.class}/>
+                              <input name="outfit_type" type="hidden" value={data.outfit_type}/>
+                              <input name="body_part" type="hidden" value={data.body_part}/>
                               <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Buy</Button>
                         </form>
                     </div>

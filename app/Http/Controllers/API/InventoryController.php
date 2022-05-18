@@ -80,6 +80,8 @@ class InventoryController extends Controller
         $user_id = Auth::id();
         $inventory->user_id= $user_id;
         $inventory->product= $request->input('product');
+        $inventory->outfit_type= $request->input('outfit_type');
+        $inventory->body_part=$request->input('body_part');
         $inventory->amount=$request->input('amount');
 
         $inventory->save();
@@ -109,17 +111,26 @@ class InventoryController extends Controller
 
     public function update(Request $request){
         
-
+        $user_id = Auth::id();
         $id= $request->input('inventoryId');
+        $body_part = $request->input('body_part');
+        $outfit_type = $request->input('outfit_type');
         $inventory = Inventory::find($id);
+        $type= "Weapon";
+ 
 
-        if($request->input('status') === '0'){
-            DB::update('update inventories set status = ? where id = ?', [1, $id]);
-        }else if($request->input('status') === '1'){
-            DB::update('update inventories set status = ? where id = ?', [0, $id]);
+        if($outfit_type === 'Armor'){
+            DB::update('update inventories set status = ? where status = ? && outfit_type = ? && body_part = ? && user_id = ?', [0, 1 , 'Armor', $body_part, $user_id]);
+            DB::update('update inventories set status = ? where id = ? && user_id = ?', [1, $id, $user_id]);
+        }else {
+            DB::update('update inventories set status = ? where status = ? && outfit_type = ? && user_id = ?', [0, 1 , 'Weapon', $user_id]);
+            DB::update('update inventories set status = ? where id = ?  && user_id = ?', [1, $id, $user_id]);
         }
+
         return response()->json([
+            'status' => 200,
             'message' => "inventory success",
+            'id' => $id
         ]);
     }
 }

@@ -25,6 +25,7 @@ class Product extends Model
     {
         return $this->hasOne(Outfit::class, 'id', 'outfit');
     }
+    
   
     
 }

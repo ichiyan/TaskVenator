@@ -3,56 +3,68 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 import InventoryOutfit from "./InventoryOutfit";
-function InventoryWeaponFilter({setPreview,data}){
+function InventoryWeaponFilter({setPreview, data}){
     const [passProductId, setPassProductId]= useState({
         directory: '',
         spriteName:'',
         inventoryId:'',
-        status: ''
+        status: '',
+        outfit_type: ''
+
   });
-    const[style, setStyle]=useState({
-        backgroundColor: "yellow"
-    })
+  const[style, setStyle]=useState({
+    backgroundColor: "yellow",
+    text: "Equip"
+})
 //   const [inventoryItem, setInventoryItem]= useState({
 //     inventoryId: '',
 //     });
-    const submitToHandler=(e)=>{
+const submitToHandler=(e)=>{
         e.preventDefault();
  //     Swal.fire("You have successfully bought the item");
         setPassProductId({
             directory: e.target.directory.value,
             spriteName:e.target.spriteName.value,
             inventoryId: e.target.inventoryId.value,
-            status: e.target.status.value
+            status: e.target.status.value,
+            outfit_type: e.target.outfit_type.value,
+
         })
 
+        // if(passProductId.status === 1){
 
-        
-      
+        // }
 
   }
+
+//   function handleClick() {
+//     setButton({backgroundColor: "red", text: "easdasd"});
+//   }
   useEffect(() => {
     const data={
         directory: passProductId.directory,
         spriteName: passProductId.spriteName,
         inventoryId: passProductId.inventoryId,
-        status: passProductId.status
+        status: passProductId.status,
+        outfit_type: passProductId.outfit_type,
   }
   if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
         console.log("empty")
   }else{
         axios.post(`/api/update`, data).then(res =>{
               if(res.data.status === 200){
-                console.log(res.data.message);
+                console.log(res.data.id);
               }else {
                 // setPotion({...potion,error_list:res.data.errors});
               }
-              
               setStyle({
-                  backgroundColor: "#C0C034"
-              })
-            });
+                backgroundColor: "#C0C034",
+                text: "Unequip"
+            })
+          });
   }
+
+  console.log(passProductId);
 
   },[passProductId])
  
@@ -73,14 +85,14 @@ function InventoryWeaponFilter({setPreview,data}){
                     <h6>{data.name}</h6>
                      <form onSubmit={submitToHandler}>
                               <input name="inventoryId" type="hidden" value={data.id}/>
+                              <input name="outfit_type" type="hidden" value={data.outfit_type}/>
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
                               <input name="status" type="hidden" value={data.status}/>
-                              
                               {
                                   (data.status === 1)? 
-                                  <Button type="submit" style={{backgroundColor: "#C0C034"}}>Equipped</Button>
-                                  :<Button type="submit"style={{backgroundColor: style.backgroundColor}}>Unequip</Button>
+                                  <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
+                                  :<Button type="submit"style={{backgroundColor: style.backgroundColor}}>{style.text}</Button>
                               }
                         </form>
                 </div>

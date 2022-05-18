@@ -8,7 +8,8 @@ function WeaponFilter({data, value, avatarClass}){
       const [passProductId, setPassProductId]= useState({
             product: '',
             amount :'',
-            weapon :'',
+            outfit_type: '',
+            body_part: ''
       });
 
 
@@ -18,9 +19,10 @@ function WeaponFilter({data, value, avatarClass}){
           if(e.target.class.value===avatarClass){
             Swal.fire("You have successfully bought the item");
             setPassProductId({
-                    product:e.target.product.value,
-                    amount: e.target.amount.value,
-                    type: e.target.type.value,
+                  product:e.target.product.value,
+                  amount: e.target.amount.value,
+                  outfit_type: e.target.outfit_type.value,
+                  body_part: e.target.body_part.value,
             });
             }else{
                   Swal.fire("Failed to buy Item - Class Restriction");
@@ -31,7 +33,8 @@ function WeaponFilter({data, value, avatarClass}){
             const data={
                   product: passProductId.product,
                   amount: passProductId.amount,
-                  type: passProductId.type,
+                  outfit_type: passProductId.outfit_type,
+                  body_part: passProductId.body_part,
             }
             if(data.product === "" || data.amount==="" || data.type==="" ){
                   console.log("empty")
@@ -60,8 +63,9 @@ function WeaponFilter({data, value, avatarClass}){
                         <form onSubmit={submitToHandler}>
                               <input name="product" type="hidden" value={value}/>
                               <input name="amount" type="hidden" value={data.price}/>
-                              <input name="type" type="hidden" value="weapon"/>
-                              <input name="class" type="hidden" value={data.class}/> 
+                              <input name="class" type="hidden" value={data.class}/>
+                              <input name="outfit_type" type="hidden" value={data.outfit_type}/>
+                              <input name="body_part" type="hidden" value={data.body_part}/>
                               <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Buy</Button>
                         </form>
                     </div>
