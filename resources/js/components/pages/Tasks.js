@@ -1,3 +1,4 @@
+import axios from "axios";
 import {Header, React,
     useEffect, useState, GroupTasks,TasksTab,
     AvatarHeader, Shop, Party, Outfit, All,
@@ -16,6 +17,15 @@ import {Header, React,
 
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
+    const [gems, setGems]= useState();
+  
+    useEffect(()=>{ 
+        axios.get(`/api/gems`).then(res =>{
+              if(res.data.status===200){
+                setGems(res.data.gems);
+              }
+        });
+     },[])
 
     useEffect( () => {
         document.body.classList.add('internal-pages');
@@ -96,7 +106,7 @@ import {Header, React,
     }else if (tab === "weapons"){
         renderTab = <Weapons/>;
     }else if (tab === "potions"){
-        renderTab = <Potions/>;
+        renderTab = <Potions setGems={setGems}/>;
     }else if (tab === "shop"){
         renderTab = <Shop/>;
     }else if(tab ==="cards"){
@@ -111,11 +121,13 @@ import {Header, React,
         renderTab =<InventoryWeapons/>;
     }
 
+    
+
 
     return (
         // <SocketProvider>
             <div>
-                <Header page={tab}/>
+                <Header page={tab} gems={gems}/>
                 <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
                 <div className="main-section">
                     {
