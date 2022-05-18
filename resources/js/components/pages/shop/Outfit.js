@@ -5,7 +5,7 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 import OutfitFilter from "./OutfitFilter";
 
-function Outfit(){
+function Outfit({setGems}){
     var hpTotal = 50;
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
@@ -126,7 +126,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -141,7 +141,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -156,7 +156,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -171,7 +171,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -186,7 +186,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -206,7 +206,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -221,7 +221,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -236,7 +236,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -251,7 +251,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -266,7 +266,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -286,7 +286,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -301,7 +301,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -316,7 +316,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -331,7 +331,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -346,7 +346,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -367,7 +367,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -382,7 +382,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -397,7 +397,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -412,7 +412,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -427,7 +427,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -447,7 +447,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -462,7 +462,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -477,7 +477,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -492,7 +492,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -507,7 +507,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -527,7 +527,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -542,7 +542,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -557,7 +557,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -572,7 +572,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -587,7 +587,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -607,7 +607,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -622,7 +622,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -637,7 +637,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -652,7 +652,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -667,7 +667,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -687,7 +687,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -702,7 +702,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -717,7 +717,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -732,7 +732,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -747,7 +747,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -767,7 +767,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -782,7 +782,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -797,7 +797,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -812,7 +812,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -827,7 +827,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -848,7 +848,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -863,7 +863,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -878,7 +878,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -893,7 +893,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -908,7 +908,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -929,7 +929,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -944,7 +944,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -959,7 +959,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -974,7 +974,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -989,7 +989,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1010,7 +1010,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1025,7 +1025,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1040,7 +1040,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1055,7 +1055,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1070,7 +1070,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1092,7 +1092,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1107,7 +1107,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1122,7 +1122,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1137,7 +1137,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1152,7 +1152,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1173,7 +1173,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1188,7 +1188,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1203,7 +1203,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1218,7 +1218,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1233,7 +1233,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1254,7 +1254,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1269,7 +1269,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1284,7 +1284,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1299,7 +1299,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1314,7 +1314,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1335,7 +1335,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1350,7 +1350,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1365,7 +1365,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1380,7 +1380,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1395,7 +1395,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1416,7 +1416,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1431,7 +1431,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1446,7 +1446,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1461,7 +1461,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1476,7 +1476,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1497,7 +1497,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1512,7 +1512,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1527,7 +1527,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1542,7 +1542,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1557,7 +1557,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1578,7 +1578,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1593,7 +1593,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1608,7 +1608,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1623,7 +1623,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1638,7 +1638,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1659,7 +1659,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1674,7 +1674,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1689,7 +1689,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1704,7 +1704,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1719,7 +1719,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1740,7 +1740,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1755,7 +1755,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1770,7 +1770,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1785,7 +1785,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1800,7 +1800,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1821,7 +1821,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1836,7 +1836,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1851,7 +1851,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1866,7 +1866,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1881,7 +1881,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1902,7 +1902,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1917,7 +1917,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1932,7 +1932,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1947,7 +1947,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1962,7 +1962,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1983,7 +1983,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -1998,7 +1998,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2013,7 +2013,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2028,7 +2028,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2043,7 +2043,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2064,7 +2064,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2079,7 +2079,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2094,7 +2094,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" ){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2109,7 +2109,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" ){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2124,7 +2124,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2145,7 +2145,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" ){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2160,7 +2160,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2175,7 +2175,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2190,7 +2190,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2205,7 +2205,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2226,7 +2226,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2241,7 +2241,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2256,7 +2256,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2271,7 +2271,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2286,7 +2286,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2307,7 +2307,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2327,7 +2327,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2348,7 +2348,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2368,7 +2368,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2388,7 +2388,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2409,7 +2409,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2429,7 +2429,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2449,7 +2449,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2469,7 +2469,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2489,7 +2489,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2510,7 +2510,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Head" ){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2530,7 +2530,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2550,7 +2550,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Torso" ){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2570,7 +2570,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Legs" ){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2590,7 +2590,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Footwear" ){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2611,7 +2611,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2631,7 +2631,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Arms" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2652,7 +2652,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2672,7 +2672,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2692,7 +2692,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2713,7 +2713,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2733,7 +2733,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Arms" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2753,7 +2753,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2773,7 +2773,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2793,7 +2793,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2814,7 +2814,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Head" && w.rarity_type==="Common"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2834,7 +2834,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Arms" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2854,7 +2854,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2874,7 +2874,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2894,7 +2894,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2915,7 +2915,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2935,7 +2935,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Arms" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2956,7 +2956,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2976,7 +2976,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -2996,7 +2996,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3017,7 +3017,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3037,7 +3037,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Arms" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3057,7 +3057,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3077,7 +3077,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3097,7 +3097,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3118,7 +3118,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3138,7 +3138,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Arms" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3158,7 +3158,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3178,7 +3178,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3198,7 +3198,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3219,7 +3219,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3239,7 +3239,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Arms" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3260,7 +3260,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3280,7 +3280,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3300,7 +3300,7 @@ function Outfit(){
                                           if(w.class==="Warrior" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3321,7 +3321,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3341,7 +3341,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Arms" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3361,7 +3361,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3381,7 +3381,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3401,7 +3401,7 @@ function Outfit(){
                                           if(w.class==="Marksman" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3422,7 +3422,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3442,7 +3442,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Arms" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3462,7 +3462,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3482,7 +3482,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3502,7 +3502,7 @@ function Outfit(){
                                           if(w.class==="Mage" && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3524,7 +3524,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3539,7 +3539,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3554,7 +3554,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3569,7 +3569,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3584,7 +3584,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3606,7 +3606,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3621,7 +3621,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3636,7 +3636,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3651,7 +3651,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3666,7 +3666,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3687,7 +3687,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3702,7 +3702,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3717,7 +3717,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3733,7 +3733,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3754,7 +3754,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3770,7 +3770,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3785,7 +3785,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3800,7 +3800,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3815,7 +3815,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3831,7 +3831,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3847,7 +3847,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3862,7 +3862,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3877,7 +3877,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3892,7 +3892,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3908,7 +3908,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3924,7 +3924,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3939,7 +3939,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3954,7 +3954,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3969,7 +3969,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -3990,7 +3990,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4005,7 +4005,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4020,7 +4020,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4035,7 +4035,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4050,7 +4050,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4065,7 +4065,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4080,7 +4080,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4095,7 +4095,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4110,7 +4110,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4125,7 +4125,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4141,7 +4141,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4166,7 +4166,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4181,7 +4181,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4196,7 +4196,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4211,7 +4211,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4226,7 +4226,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4248,7 +4248,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4263,7 +4263,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4278,7 +4278,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4293,7 +4293,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4308,7 +4308,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4329,7 +4329,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4344,7 +4344,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4359,7 +4359,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4374,7 +4374,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4389,7 +4389,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4410,7 +4410,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4425,7 +4425,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4440,7 +4440,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4455,7 +4455,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }
@@ -4470,7 +4470,7 @@ function Outfit(){
                                           if(w.class===charClass && w.body_part===bodyPart && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
-                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                                <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                                 </div>    
                                           ) 
                                     }

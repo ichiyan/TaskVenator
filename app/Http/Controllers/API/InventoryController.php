@@ -91,12 +91,12 @@ class InventoryController extends Controller
         $user_info->save(); 
 
         return response()->json([
-            'text' => "testing success",
-          
+            'text' => "Success",
+            'gems' => $user_info->gems,
             'user' =>$user_id,
             'amount' => $request->input('amount'),
             'product' => $request->input(),
- 
+            'status' => 200
       
         ]);
     }

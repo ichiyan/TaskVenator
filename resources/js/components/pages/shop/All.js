@@ -4,7 +4,7 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 import WeaponFilter from "./WeaponFilter";
 import OutfitFilter from "./OutfitFilter";
-function All(){
+function All({setGems}){
     var hpTotal = 50;
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
@@ -109,7 +109,8 @@ const [passProductId, setPassProductId]= useState({
       }else{
             axios.post(`/api/addBought`, data).then(res =>{
                   if(res.data.status === 200){
-                     console.log(res.data.message);
+                        setGems(res.data.gems);
+                        console.log(res.data.message);
                   }else {
                     // setPotion({...potion,error_list:res.data.errors});
                   }
@@ -192,7 +193,7 @@ const [passProductId, setPassProductId]= useState({
                                                 <p>{p.features_potion.size}</p>
                                                 <div>
                                                       <form onSubmit={submitToHandler}>
-                                                            <input name="product" type="hidden" value={p.features_potion.product_id}/>
+                                                            <input name="product" type="hidden" value={p.features_potion.id}/>
                                                             <input name="amount" type="hidden" value={p.features_potion.price}/> 
                                                             <Button type="submit"><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br>Buy</Button>
                                                       </form>
@@ -220,7 +221,7 @@ const [passProductId, setPassProductId]= useState({
                                   if(w.class==="Warrior"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                     </div>    
                                   ) 
                           }
@@ -233,7 +234,7 @@ const [passProductId, setPassProductId]= useState({
                                   if(w.class==="Marksman"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                   <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                   <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                     </div>    
                                   ) 
                           }
@@ -246,7 +247,7 @@ const [passProductId, setPassProductId]= useState({
                                   if(w.class==="Mage"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                     </div>    
                                   ) 
                                 }    
@@ -265,7 +266,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Warrior" && w.body_part==="Head"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -277,7 +278,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Warrior" && w.body_part==="Arms"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -289,7 +290,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Warrior" && w.body_part==="Torso"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -301,7 +302,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Warrior" && w.body_part==="Legs"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -313,7 +314,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Warrior" && w.body_part==="Footwear"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -328,7 +329,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Marksman" && w.body_part==="Head"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -340,7 +341,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Marksman" && w.body_part==="Arms"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -352,7 +353,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Marksman" && w.body_part==="Torso"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -364,7 +365,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Marksman" && w.body_part==="Legs"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -376,7 +377,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Marksman" && w.body_part==="Footwear"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -391,7 +392,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Mage" && w.body_part==="Head"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -403,7 +404,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Mage" && w.body_part==="Arms"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -415,7 +416,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Mage" && w.body_part==="Torso"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -427,7 +428,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Mage" && w.body_part==="Legs"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }
@@ -439,7 +440,7 @@ const [passProductId, setPassProductId]= useState({
                                     if(w.class==="Mage" && w.body_part==="Footwear"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
-                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass}/>
+                                          <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
                                           </div>    
                                           ) 
                                     }

@@ -52,6 +52,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //fetching remaining gems
     Route::get('gems', [InventoryController::class, 'getGems']);
+    Route::post('updategems', [InventoryController::class, 'updateGems']);
 });
 
 

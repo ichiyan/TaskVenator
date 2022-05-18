@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
-function OutfitFilter({data, value, avatarClass}){
+function OutfitFilter({data, value, avatarClass,setGems}){
     const [passProductId, setPassProductId]= useState({
           product: '',
           amount :'',
@@ -43,6 +43,7 @@ function OutfitFilter({data, value, avatarClass}){
       }else{
             axios.post(`/api/addBought`, data).then(res =>{
                   if(res.data.status === 200){
+                     setGems(res.data.gems)   
                      console.log(res.data.message);
                   }else {
                     // setPotion({...potion,error_list:res.data.errors});

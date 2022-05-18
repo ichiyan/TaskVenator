@@ -7,7 +7,7 @@ import TasksNavbar from "./TasksNavbar";
 import HomeNavbar from "./HomeNavbar";
 import { useSocket } from "../contexts/SocketProvider";
 
-const Header = ({page}) => {
+const Header = ({page,gems}) => {
 
     // const socket = useSocket()
 
@@ -25,17 +25,7 @@ const Header = ({page}) => {
     //           console.log(data)
     //         });
     //     }
-    // }, [socket])
-
-    const [gems, setGems]= useState(0);
-  
-    useEffect(()=>{
-        axios.get(`/api/gems`).then(res =>{
-              if(res.data.status===200){
-                setGems(res.data.gems);
-              }
-        });
-     },[])
+    // }, [socket]) 
 
     useEffect( () => {
         const checkIfClickedOutside = (e) => {
@@ -98,7 +88,8 @@ const Header = ({page}) => {
            <div>
                 <nav id="navbar" className="navbar order-last order-lg-0">
                     <ul>
-                        <li className="custom-nav-item">
+                        <li className="custom-nav-item header-gem">
+                            <img className="header-gem-icon" src="assets/images/currency.png"/>
                             <p className="text-light m-0">{gems}</p>
                         </li>
                         <li className="custom-nav-item">
@@ -119,7 +110,7 @@ const Header = ({page}) => {
     }
 
     return (
-        <header id="header" className="fixed-top">
+        <header key={gems} id="header" className="fixed-top">
             <div className="container d-flex justify-content-between align-items-center">
                  <h1 className="logo"><Link to="/">TaskVenator</Link></h1>
                  {page === "home" ? <HomeNavbar isLoggedIn={isLoggedIn}/> : <TasksNavbar active={page}/>}

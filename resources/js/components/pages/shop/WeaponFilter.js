@@ -4,7 +4,7 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 
 
-function WeaponFilter({data, value, avatarClass}){
+function WeaponFilter({data, value, avatarClass,setGems}){
       const [passProductId, setPassProductId]= useState({
             product: '',
             amount :'',
@@ -41,6 +41,7 @@ function WeaponFilter({data, value, avatarClass}){
             }else{
                   axios.post(`/api/addBought`, data).then(res =>{
                         if(res.data.status === 200){
+                           setGems(res.data.gems);
                            console.log(res.data.message);
                         }
                       });
