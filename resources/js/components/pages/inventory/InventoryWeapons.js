@@ -16,7 +16,7 @@ function InventoryWeapons(){
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
              
-                console.log(res.data.weapon)
+                // console.log(res.data.weapon)
                 setInventory({
                     weapons:res.data.weapon
                    
@@ -72,7 +72,7 @@ function InventoryWeapons(){
                                     if(w.rarity_type==="Common"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>   
                                             ) 
                                     }

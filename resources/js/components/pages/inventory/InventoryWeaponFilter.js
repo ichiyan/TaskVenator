@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 import InventoryOutfit from "./InventoryOutfit";
-function InventoryWeaponFilter({setPreview, data}){
+function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
     const [passProductId, setPassProductId]= useState({
         directory: '',
         spriteName:'',
@@ -53,7 +53,23 @@ const submitToHandler=(e)=>{
   }else{
         axios.post(`/api/update`, data).then(res =>{
               if(res.data.status === 200){
-                console.log(res.data.id);
+                // console.log(res.data.id);
+                // console.log(res.data);
+                console.log(inventory);
+                // if(res.data.id !== 0){
+                //   setInventory(inventory.weapons.map(item => {
+                //     if(item.id === res.data.id || item.id === data.inventoryId){
+                //         return {
+                //             ...item, status: 0 ? 1: 0,
+                //         }
+                //      }
+                //      return item;   
+                // }));
+                // }else{
+                  
+                // }
+
+                console.log(inventory);
               }else {
                 // setPotion({...potion,error_list:res.data.errors});
               }
