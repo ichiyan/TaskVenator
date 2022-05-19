@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Battle;
 use Illuminate\Http\Request;
 
 class BattleController extends Controller
@@ -9,11 +10,18 @@ class BattleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        //
+        //for individual battle
+        $id = Auth::user()->id;
+        $battle= Battle::all(); //waiting for battle table to be restructured
+
+        return response()->json([
+            'status' => 200,
+            'battle' => $battle,
+        ]);
     }
 
     /**

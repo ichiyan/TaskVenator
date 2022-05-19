@@ -13,9 +13,12 @@ const JoinBattle = () => {
 
     return (
         <div>
-            <Button variant="primary" onClick={handleShow} className="tasks-join-button">
-                {buttonText}
-            </Button>
+            <div className="">
+                <Button variant="primary" onClick={handleShow} className="tasks-join-button">
+                    {buttonText}
+                </Button>
+            </div>
+
             <Modal show={show} onHide={handleClose} size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Join Battle</Modal.Title>

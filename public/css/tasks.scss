@@ -226,6 +226,10 @@
         background-color: #5fcf80;
     }
 
+    .btn-close{
+        background-color: red;
+    }
+
     .party-info-btn{
         margin: 0 !important;
     }
@@ -247,19 +251,33 @@
 .main-section {
     margin-top: 15%;
 }
+.tasks-section{
+    display: flex;
+    flex-direction:column;
+}
+
+.tasks-content{
+    display: flex;
+    flex-direction:column;
+    padding:1rem;
+}
+
+.tasks-join-button-cont{
+    text-align: right;
+}
 
 .tasks-join-button{
-    margin-right: 1rem;
-    margin-left: auto;
+    border-color: #9580FF;
+    color: white;
 }
 
 .tasks-col-container{
-    background-color: #2fa360;
+    //background-color: #2fa360;
     height: 80rem;
 }
 
 .tasks-col{
-    background-color: aliceblue;
+    //background-color: aliceblue;
     margin: 1rem;
     display: inline-block;
 }
@@ -268,6 +286,7 @@
     height: 20rem;
     position: fixed;
     width: 30%;
+    background-color: aliceblue;
 }
 
 .col-t{

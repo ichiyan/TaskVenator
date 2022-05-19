@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\BattleController;
 use App\Http\Controllers\TasksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,3 +46,6 @@ Route::get('outfit',[OutfitController::class, 'index']);
 //new task
 Route::post('newTask', [TasksController::class, 'create']);
 Route::get('tasks',[TasksController::class, 'index']);
+
+//ongoing battle
+Route::get('battle',[BattleController::class, 'index']);
