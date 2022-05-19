@@ -11,7 +11,7 @@ class Tasks extends Model
     use HasFactory;
     protected $table = 'tasks';
     protected $fillable = ['title', 'show_is_done', 'is_in_progress',
-                            'subtasks', 'show_is_done', 'owner'];
+                            'subtasks', 'owner'];
 
     public function tasked(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

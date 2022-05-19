@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tasks;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller
@@ -14,6 +15,8 @@ class TasksController extends Controller
     public function index()
     {
         //
+        $tasks = Tasks::all();
+        return response()->json($tasks);
     }
 
     /**
@@ -24,39 +27,57 @@ class TasksController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
         //
+        $tasks = new Tasks([
+            'title' => $request->get('title'),
+            'content' => $request->get('content')
+        ]);
+        $tasks->save();
+        return response()->json('Successfully added');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
         //
+        $tasks = Tasks::find($id);
+        return response()->json($tasks);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function edit($id)
+    public function edit(Request $request, int $id): \Illuminate\Http\JsonResponse
     {
         //
+        $task = Tasks::find($id);
+        $task->title  = $request->get('title');
+        $task->show_is_done  = $request->get('show_is_done');
+        $task->is_in_progress  = $request->get('is_in_progress');
+        $task->subtasks  = $request->get('subtasks');
+        $task->owner  = $request->get('owner');
+        $task->save();
+
+        return response()->json('Successfully Updated');
     }
 
     /**
@@ -75,10 +96,13 @@ class TasksController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
         //
+        $task = Tasks::find($id);
+        $task->delete();
+        return response()->json('Successfully Deleted');
     }
 }

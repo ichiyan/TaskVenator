@@ -1,14 +1,15 @@
 import {React, useEffect, useState,} from "../../../index";
 import '../../../../../public/css/party_tasks.css';
 
-const TaskItem = () => {
-
-    const [checked, setChecked] = useState([]);
+const TaskItem = ({task, className, whenChecked}) => {
 
     return(
-        <div>
-            <input value={"item"} type="checkbox"/>
-            <div className="task-item-content"> one time</div>
+        <div className={"task-item"}>
+            {/*<input value={"item"} type="checkbox"/>*/}
+            {/*<label className="task-item-content"> {task}</label>*/}
+
+            <input value={task} type="checkbox" onChange={whenChecked}/>
+            <span className={className} >{task}</span>
         </div>
     )
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\TasksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\MessageController;
@@ -41,3 +42,6 @@ Route::get('potions',[PotionController::class, 'index']);
 Route::post('addOutfit', [OutfitController::class, 'store']);
 Route::get('outfit',[OutfitController::class, 'index']);
 
+//new task
+Route::post('newTask', [TasksController::class, 'create']);
+Route::get('tasks',[TasksController::class, 'index']);

@@ -1,13 +1,26 @@
-import {Header, Link, React,
-        useEffect, useState,
-        GroupMemberPublicTasks, HomeTasks, HomeDailyTasks,
-        AvatarHeader} from "../../../index";
+import {
+    Header, Link, React,
+    useEffect, useState,
+    GroupMemberPublicTasks, HomeTasks, HomeDailyTasks, NewTaskForm,
+    AvatarHeader, axios
+} from "../../../index";
 import '../../../../../public/css/party_tasks.css';
 
 const GroupTasks = () => {
 
     var name1 = "Mhady"
     var name2 = "Lisette"
+    //const [taskList, setTaskList] = useState(data);
+
+    // useEffect(() =>{
+    //     axios.get(`/api/tasks`).then(res =>{
+    //         if(res.data.status===200){
+    //             setDisplay2({
+    //                 outfit:res.data.outfit
+    //             })
+    //         }
+    //     })
+    // },[])
 
     return(
         <section className="container party-section">
@@ -16,7 +29,7 @@ const GroupTasks = () => {
                 <div className="party-nav-item party-active-nav"><Link to="/group_tasks">Group Tasks</Link></div>
             </div>
             <div className="party-content" >
-                <button className="btn-sm btn">Add new</button>
+                <NewTaskForm/>
                 <h1>Group Tasks</h1>
                 <GroupMemberPublicTasks
                     name = {name1}

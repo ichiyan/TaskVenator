@@ -15,10 +15,10 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('card')->constrained('cards', 'id')->nullable();
-            $table->foreignId('weapon')->constrained('weapons', 'id')->nullable();
-            $table->foreignId('potion')->constrained('potion', 'id')->nullable();
-            $table->foreignId('outfit')->constrained('outfit', 'id')->nullable();
+            $table->foreignId('card')->nullable()->constrained('cards', 'id');
+            $table->foreignId('weapon')->nullable()->constrained('weapons', 'id');
+            $table->foreignId('potion')->nullable()->constrained('potion', 'id');
+            $table->foreignId('outfit')->nullable()->constrained('outfit', 'id');
             $table->integer('price');
             $table->timestamps();
         });

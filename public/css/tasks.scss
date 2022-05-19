@@ -247,3 +247,31 @@
 .main-section {
     margin-top: 15%;
 }
+
+.tasks-join-button{
+    margin-right: 1rem;
+    margin-left: auto;
+}
+
+.tasks-col-container{
+    background-color: #2fa360;
+    height: 80rem;
+}
+
+.tasks-col{
+    background-color: aliceblue;
+    margin: 1rem;
+    display: inline-block;
+}
+
+.col-battle{
+    height: 20rem;
+    position: fixed;
+    width: 30%;
+}
+
+.col-t{
+    position: relative;
+    height: 50rem;
+    vertical-align: top;
+}

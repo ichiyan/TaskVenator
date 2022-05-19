@@ -43,6 +43,10 @@
     border-width: 0.07rem;
 }
 
+.form-select{
+    margin-left: 1rem;
+}
+
 h1{
     color: #95c5ed;
 }
@@ -54,7 +58,7 @@ h1{
 }
 
 .tasks-group{
-    width: 50%;
+    width: 90%;
     border-radius: 0.5rem;
     margin: 1rem;
     background-color: #d6ddf3;
@@ -99,6 +103,10 @@ h1{
 .task-item span{
     margin-left: 1rem;
     font-size: 1rem;
+}
+
+.task-item-content{
+    margin-left: 1rem;
 }
 
 .tasks-daily-group{
