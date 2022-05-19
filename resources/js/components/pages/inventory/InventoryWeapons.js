@@ -1,51 +1,48 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
+import {Link, React, useEffect, useState,
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 import InventoryWeaponFilter from "./InventoryWeaponFilter";
+
 function InventoryWeapons(){
+
     const[inventory,setInventory]=useState({
         weapons:[],
-  });
-  
-  const[authId, setAuthId]=useState("");
-  const[preview, setPreview]=useState("");
-  const[charClass,setCharClass]=useState("All");
-  const[rarity, setRarity]=useState("All");
-  const[bodyPart, setBodyPart]=useState("All");
+    });
+
+    const[authId, setAuthId]=useState("");
+    const[preview, setPreview]=useState("");
+    const[charClass,setCharClass]=useState("All");
+    const[rarity, setRarity]=useState("All");
+    const[bodyPart, setBodyPart]=useState("All");
+
     useEffect(() =>{
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-             
-                // console.log(res.data.weapon)
                 setInventory({
                     weapons:res.data.weapon
-                   
-              })
-              
-              setAuthId(res.data.auth_id);
-              
-               
-                 
-          }
+                })
+                setAuthId(res.data.auth_id);
+            }
         })
      },[])
+
      useEffect(()=>{
-           
-            
+
      },[inventory])
 
-     const previewImage =(event)=>{
+    const previewImage =(event)=>{
         setPreview(event)
-   }
-   const rarityHandler=(e)=>{
-    setRarity(e.target.value);
+    }
+
+    const rarityHandler=(e)=>{
+            setRarity(e.target.value);
 }
     return(
         <section className="container party-section">
                 <div className="party-nav">
                 <div className="party-nav-item"><Link to="/inventory">All</Link></div>
                 <div className="party-nav-item"><Link to="/inventoryPotions">Potions</Link></div>
-                <div className="party-nav-item party-active-nav"><Link to="/inventoryWeapons">Weapons</Link></div>   
+                <div className="party-nav-item party-active-nav"><Link to="/inventoryWeapons">Weapons</Link></div>
                 <div className="party-nav-item"><Link to="/inventoryOutfit">Outfit</Link></div>
               </div>
 
@@ -59,7 +56,7 @@ function InventoryWeapons(){
                                           <option value="Rare">Rare</option>
                                     </select><br></br>
                   </div>
-                <div className="inventory-shop">      
+                <div className="inventory-shop">
                  <div className="inventory-category">
 
                      {/* RARITY:ALL common to rare DISPLAY ALL WEAPONS */}
@@ -73,8 +70,8 @@ function InventoryWeapons(){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
@@ -90,8 +87,8 @@ function InventoryWeapons(){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
@@ -107,8 +104,8 @@ function InventoryWeapons(){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
@@ -125,8 +122,8 @@ function InventoryWeapons(){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
@@ -142,8 +139,8 @@ function InventoryWeapons(){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
@@ -159,15 +156,15 @@ function InventoryWeapons(){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
                                                     <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
                             </div>:""
                         }
-                        </div> 
-                 </div>  
+                        </div>
+                 </div>
 
 
 
@@ -176,7 +173,7 @@ function InventoryWeapons(){
                             <div className="inventory-categoryName">
                                 <h3>Equipped Items</h3>
                             </div>
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
+                            <div data-tip data-for="test" className="inventory-equippedItemsInfo">
                                 <div className="inventory-itemsImage">
                                 <img src={preview}></img>
                                 </div>
@@ -184,12 +181,12 @@ function InventoryWeapons(){
                                     <h6>asdasd</h6>
                                     <p>asdasd</p>
                                 </div>
-                            </div> 
+                            </div>
                             <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
                                     <div className="inventory-hide">
                                         <div className="inventory-itemsInfo">
                                                 <p>asdasdasd</p>
-                                        </div> 
+                                        </div>
                                     </div>
                             </ReactTooltip>
                             <div className="inventory-categoryName">
@@ -198,7 +195,7 @@ function InventoryWeapons(){
                      </div>
                      <div className="inventory-equipped2">
                          <div className="inventory-equipped2Left">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
+                            <div data-tip data-for="test" className="inventory-equippedItemsInfo">
                                 <div className="inventory-itemsImage">
                                 <img ></img>
                                 </div>
@@ -206,12 +203,12 @@ function InventoryWeapons(){
                                     <h6>asdasd</h6>
                                     <p>asdasd</p>
                                 </div>
-                            </div> 
+                            </div>
                             <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
                                     <div className="inventory-hide">
                                         <div className="inventory-itemsInfo">
                                                 <p>asdasdasd</p>
-                                        </div> 
+                                        </div>
                                     </div>
                             </ReactTooltip>
                             <div className="inventory-categoryName">
@@ -219,7 +216,7 @@ function InventoryWeapons(){
                             </div>
                         </div>
                         <div className="inventory-equipped2Right">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
+                            <div data-tip data-for="test" className="inventory-equippedItemsInfo">
                                 <div className="inventory-itemsImage">
                                 <img></img>
                                 </div>
@@ -227,12 +224,12 @@ function InventoryWeapons(){
                                     <h6>asdasd</h6>
                                     <p>asdasd</p>
                                 </div>
-                            </div> 
+                            </div>
                             <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
                                     <div className="inventory-hide">
                                         <div className="inventory-itemsInfo">
                                                 <p>asdasdasd</p>
-                                        </div> 
+                                        </div>
                                     </div>
                             </ReactTooltip>
                             <div className="inventory-categoryName">

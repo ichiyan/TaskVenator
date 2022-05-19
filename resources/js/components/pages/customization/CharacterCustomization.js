@@ -610,7 +610,7 @@ const CharacterCustomization = () => {
                 },
             );
         }
-        console.log(selections)
+        // console.log(selections)
     }
 
     const getBackgroundColor = (e) => {

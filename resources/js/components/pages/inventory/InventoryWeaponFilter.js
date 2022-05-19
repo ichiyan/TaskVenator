@@ -1,98 +1,91 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
+import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 import InventoryOutfit from "./InventoryOutfit";
+
 function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
+
     const [passProductId, setPassProductId]= useState({
-        directory: '',
-        spriteName:'',
-        inventoryId:'',
-        status: '',
-        outfit_type: ''
+            directory: '',
+            spriteName:'',
+            inventoryId:'',
+            status: '',
+            outfit_type: ''
+    });
 
-  });
-  const[style, setStyle]=useState({
-    backgroundColor: "yellow",
-    text: "Equip"
-})
-//   const [inventoryItem, setInventoryItem]= useState({
-//     inventoryId: '',
-//     });
-const submitToHandler=(e)=>{
-        e.preventDefault();
- //     Swal.fire("You have successfully bought the item");
-        setPassProductId({
-            directory: e.target.directory.value,
-            spriteName:e.target.spriteName.value,
-            inventoryId: e.target.inventoryId.value,
-            status: e.target.status.value,
-            outfit_type: e.target.outfit_type.value,
+    const[style, setStyle]=useState({
+        backgroundColor: "yellow",
+        text: "Equip"
+    })
 
-        })
 
-        // if(passProductId.status === 1){
-
-        // }
-
-  }
-
-//   function handleClick() {
-//     setButton({backgroundColor: "red", text: "easdasd"});
-//   }
-  useEffect(() => {
-    const data={
-        directory: passProductId.directory,
-        spriteName: passProductId.spriteName,
-        inventoryId: passProductId.inventoryId,
-        status: passProductId.status,
-        outfit_type: passProductId.outfit_type,
-  }
-  if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
-        console.log("empty")
-  }else{
-        axios.post(`/api/update`, data).then(res =>{
-              if(res.data.status === 200){
-                // console.log(res.data.id);
-                // console.log(res.data);
-                console.log(inventory);
-                // if(res.data.id !== 0){
-                //   setInventory(inventory.weapons.map(item => {
-                //     if(item.id === res.data.id || item.id === data.inventoryId){
-                //         return {
-                //             ...item, status: 0 ? 1: 0,
-                //         }
-                //      }
-                //      return item;   
-                // }));
-                // }else{
-                  
-                // }
-
-                console.log(inventory);
-              }else {
-                // setPotion({...potion,error_list:res.data.errors});
-              }
-              setStyle({
-                backgroundColor: "#C0C034",
-                text: "Unequip"
+    const submitToHandler=(e)=>{
+            e.preventDefault();
+    //     Swal.fire("You have successfully bought the item");
+            setPassProductId({
+                directory: e.target.directory.value,
+                spriteName:e.target.spriteName.value,
+                inventoryId: e.target.inventoryId.value,
+                status: e.target.status.value,
+                outfit_type: e.target.outfit_type.value,
             })
-          });
-  }
 
-  console.log(passProductId);
+            // if(passProductId.status === 1){
 
-  },[passProductId])
- 
+            // }
+    }
+
+
+    useEffect(() => {
+        const data={
+            directory: passProductId.directory,
+            spriteName: passProductId.spriteName,
+            inventoryId: passProductId.inventoryId,
+            status: passProductId.status,
+            outfit_type: passProductId.outfit_type,
+        }
+        if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
+                // console.log("empty")
+        }else{
+            axios.post(`/api/update`, data).then(res =>{
+                if(res.data.status === 200){
+                    if(res.data.id !== 0){
+                        console.log("test");
+                        console.log(inventory);
+                        if(inventory !== undefined){
+                            // console.log(inventory);
+                            setInventory(inventory.weapons.map(item => {
+                                if(item.id === res.data.id || item.id === data.inventoryId){
+                                    return {
+                                        ...item, status: 0 ? 1: 0,
+                                    }
+                                }
+                                return item;
+                            }));
+                        }
+                    }else {
+                        console.log("err")
+                    // setPotion({...potion,error_list:res.data.errors});
+                    }
+                }
+                // setStyle({
+                //     backgroundColor: "#C0C034",
+                //     text: "Unequip"
+                // })
+            });
+        }
+    },[passProductId])
+
     return(
         <div data-tip data-for={data.name}  className="inventory-returnMap">
-        <div className="inventory-items"> 
+        <div className="inventory-items">
                 {/* <div className="inventory-itemsImage">
                 <img onClick={() => {previewImage(w.image)}} src={data.image}></img>
                 </div> */}
                 <div className="shop-itemsImage">
                  {
-                     (data.sex==="None" || data.sex==="Male")? 
+                     (data.sex==="None" || data.sex==="Male")?
                                         <img onClick={() => {setPreview(data.male_image)}} src={data.male_image}></img>
                                         :<img onClick={() => {setPreview(data.female_image)}} src={data.female_image}></img>
                  }
@@ -106,13 +99,13 @@ const submitToHandler=(e)=>{
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
                               <input name="status" type="hidden" value={data.status}/>
                               {
-                                  (data.status === 1)? 
-                                  <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
-                                  :<Button type="submit"style={{backgroundColor: style.backgroundColor}}>{style.text}</Button>
+                                  (data.status === 1)?
+                                   <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
+                                  :<Button type="submit"style={{backgroundColor: "yellow"}}>Equip</Button>
                               }
                         </form>
                 </div>
-        </div> 
+        </div>
         <ReactTooltip id={data.name} place="right" aria-haspopup='true' className="inventory-toolTip">
                 <div className="inventory-hide">
                     <div className="inventory-itemsInfo">
@@ -128,10 +121,10 @@ const submitToHandler=(e)=>{
                                 <p>Critical: {data.crit}</p>
                                 <p>Critical Damage: {data.crit_dmg}</p>
                             </div>
-                    </div> 
+                    </div>
                 </div>
         </ReactTooltip>
-    </div>   
+    </div>
     );
 }
 
