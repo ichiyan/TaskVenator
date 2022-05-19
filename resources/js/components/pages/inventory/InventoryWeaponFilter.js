@@ -14,12 +14,6 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
             outfit_type: ''
     });
 
-    const[style, setStyle]=useState({
-        backgroundColor: "yellow",
-        text: "Equip"
-    })
-
-
     const submitToHandler=(e)=>{
             e.preventDefault();
     //     Swal.fire("You have successfully bought the item");
@@ -36,7 +30,6 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
             // }
     }
 
-
     useEffect(() => {
         const data={
             directory: passProductId.directory,
@@ -50,32 +43,37 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
         }else{
             axios.post(`/api/update`, data).then(res =>{
                 if(res.data.status === 200){
+                     //if there is a currently equipped item that needs to be unequipped
                     if(res.data.id !== 0){
-                        console.log("test");
-                        console.log(inventory);
-                        if(inventory !== undefined){
-                            // console.log(inventory);
-                            setInventory(inventory.weapons.map(item => {
-                                if(item.id === res.data.id || item.id === data.inventoryId){
+                        if(inventory != undefined){
+                            setInventory({
+                                weapons: inventory.weapons.map(item => {
+                                    if(item.id == res.data.id || item.id == data.inventoryId){
+                                        return {
+                                            ...item, status: item.status == 0? 1: 0,
+                                        }
+                                    }
+                                    return item;
+                                })
+                            })
+                        }
+                    }else{
+                        setInventory({
+                            weapons: inventory.weapons.map(item => {
+                                if(item.id == data.inventoryId){
                                     return {
-                                        ...item, status: 0 ? 1: 0,
+                                        ...item, status: item.status == 0? 1: 0,
                                     }
                                 }
                                 return item;
-                            }));
-                        }
-                    }else {
-                        console.log("err")
-                    // setPotion({...potion,error_list:res.data.errors});
+                            })
+                        })
                     }
                 }
-                // setStyle({
-                //     backgroundColor: "#C0C034",
-                //     text: "Unequip"
-                // })
             });
         }
     },[passProductId])
+
 
     return(
         <div data-tip data-for={data.name}  className="inventory-returnMap">
@@ -98,6 +96,7 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
                               <input name="status" type="hidden" value={data.status}/>
+                              <h1>{data.status}</h1>
                               {
                                   (data.status === 1)?
                                    <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>

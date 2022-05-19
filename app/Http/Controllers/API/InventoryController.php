@@ -116,22 +116,29 @@ class InventoryController extends Controller
         $returnID = 0;
 
         if($status == 1){
+            //unequip clicked item
             DB::update('update inventories set status = ? where id = ?  && user_id = ?',
                         [0, $id, $user_id]);
         }else{
             if($outfit_type === "Weapon"){
-                $returnID = DB::table('inventories')
+
+                //check if there is an item of the same type that is currently equipped
+                $to_unequip = DB::table('inventories')
                         ->where('outfit_type', '=', $outfit_type)
                         ->where('body_part', '=', $body_part)
                         ->where('status', '=', 1)
-                        ->select('id')
                         ->get();
 
-                //MATCH
-                DB::update('update inventories set status = ? where status = ? && outfit_type = ? && user_id = ?',
-                          [0, 1 , 'Weapon', $user_id]);
+                if(count($to_unequip) != 0){
+                    //if there is such item, unequip
+                    $returnID = $to_unequip->pluck('id')[0];
+                    DB::update('update inventories set status = ? where status = ? && outfit_type = ? && user_id = ?',
+                                [0, 1 , 'Weapon', $user_id]);
+                }else{
+                    $returnID = 0;
+                }
 
-                //CLICKED
+                //equip clicked item
                 DB::update('update inventories set status = ? where id = ?  && user_id = ?',
                           [1, $id, $user_id]);
             }
