@@ -67,7 +67,7 @@ function WeaponFilter({data, value, avatarClass,setGems}){
                               <input name="class" type="hidden" value={data.class}/>
                               <input name="outfit_type" type="hidden" value={data.outfit_type}/>
                               <input name="body_part" type="hidden" value={data.body_part}/>
-                              <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br>Buy</Button>
+                              <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br></Button>
                         </form>
                     </div>
               </div>

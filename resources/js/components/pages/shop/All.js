@@ -120,14 +120,14 @@ const [passProductId, setPassProductId]= useState({
 
     return(
         <section className="container party-section">
-              <div className="shop-Form">
+              {/* <div className="shop-Form">
                   <AddOutfitForm/>
                   <AddPotionForm/>
                   <AddCardForm/>
                   <div>
                         <img src={preview}></img>
                   </div>
-            </div>
+            </div> */}
             
               <div className="party-nav">
                         <div className="party-nav-item party-active-nav"><Link to="/all">All</Link></div>
@@ -153,17 +153,18 @@ const [passProductId, setPassProductId]= useState({
                                                 </div>
                                                 <div className="shop-itemsInfo">
                                                       <h6>{p.features_potion.name}</h6>
-                                                      <p>{p.features_potion.size}</p>
+                                                      
                                                       <form onSubmit={submitToHandler}>
                                                             <input name="product" type="hidden" value={p.features_potion.id}/>
                                                             <input name="amount" type="hidden" value={p.features_potion.price}/> 
-                                                            <Button type="submit"><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br>Buy</Button>
+                                                            <Button type="submit"><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br></Button>
                                                       </form>
                                                 </div>
                                           </div>
                                           <ReactTooltip id={p.features_potion.name} place="right" aria-haspopup='true' className="shop-toolTip">
                                                 <div className="shop-hide">
                                                       <div className="shop-itemsInfo">
+                                                            <p>{p.features_potion.size}</p>
                                                             <p>{p.features_potion.description}</p>
                                                       </div>
                                                 </div>
@@ -190,12 +191,11 @@ const [passProductId, setPassProductId]= useState({
                                                 </div> */}
                                           <div className="shop-itemsInfo">
                                                 <h6>{p.features_potion.name}</h6>
-                                                <p>{p.features_potion.size}</p>
                                                 <div>
                                                       <form onSubmit={submitToHandler}>
                                                             <input name="product" type="hidden" value={p.features_potion.id}/>
                                                             <input name="amount" type="hidden" value={p.features_potion.price}/> 
-                                                            <Button type="submit"><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br>Buy</Button>
+                                                            <Button type="submit"><img src="assets/images/currency.png"></img>{p.features_potion.price}<br></br></Button>
                                                       </form>
                                                 </div>
                                           </div>
@@ -203,6 +203,7 @@ const [passProductId, setPassProductId]= useState({
                                           <ReactTooltip id={p.features_potion.name} place="right" aria-haspopup='true' className="shop-toolTip">
                                                 <div className="shop-hide">
                                                       <div className="shop-itemsInfo">
+                                                            <p>{p.features_potion.size}</p>
                                                             <p>{p.features_potion.description}</p>
                                                       </div>
                                                 </div>

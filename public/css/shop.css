@@ -61,6 +61,10 @@
     text-align: center;
     background-color: #8AFF80;
     width: 150px;
+    height:180px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 10px;
+    /* box-shadow: #33992a 0px 20px 30px -10px; */
   }
   .shop-itemsImage img{
     margin-top: 10px;
@@ -76,6 +80,7 @@
     background-color: #FFFF80;
     width: 100px;
     margin-bottom: 10px;
+    border-radius: 10px;
   }
   .shop-items Button:hover{
     background-color: #C0C034;
@@ -83,6 +88,8 @@
   .shop-itemsInfo img{
     height:20px;
     width:20px;
+    margin-bottom: 2px;
+    margin-right: 6px;
   }
   .shop-empty{
     background-color: black;

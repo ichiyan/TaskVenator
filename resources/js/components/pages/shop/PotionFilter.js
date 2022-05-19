@@ -58,12 +58,11 @@ function PotionFilter({data, value, setGems}){
               </div>
               <div className="shop-itemsInfo">
                     <h6>{data.name}</h6>
-                    <p>{data.size}</p>
                     <div>
                         <form onSubmit={submitToHandler}>
                               <input name="product" type="hidden" value={value}/>
                               <input name="amount" type="hidden" value={data.price}/> 
-                              <Button type="submit" onClick={getGems(data.price)}><img src="assets/images/currency.png"></img>{data.price}<br></br>Buy</Button>
+                              <Button type="submit" onClick={getGems(data.price)}><img src="assets/images/currency.png"></img>{data.price}<br></br></Button>
                         </form>
                     </div>
               </div>
@@ -71,6 +70,7 @@ function PotionFilter({data, value, setGems}){
         <ReactTooltip id={data.name} place="right" aria-haspopup='true' className="shop-toolTip">
               <div className="shop-hide">
                     <div className="shop-itemsInfo">
+                          <p>{data.size}</p>
                           <p>{data.description}</p>
                     </div>
               </div>
