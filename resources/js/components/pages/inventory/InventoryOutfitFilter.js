@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 import InventoryOutfit from "./InventoryOutfit";
-function InventoryOutfitFilter({setPreview,data}){
+function InventoryOutfitFilter({setPreview,inventory, setInventory, data}){
     const [passProductId, setPassProductId]= useState({
         directory: '',
         spriteName:'',
@@ -12,10 +12,10 @@ function InventoryOutfitFilter({setPreview,data}){
         outfit_type: '',
         body_part: ''
   });
-    const[style, setStyle]=useState({
-        backgroundColor: "yellow",
-        text: "Equip"
-    })
+    // const[style, setStyle]=useState({
+    //     backgroundColor: "yellow",
+    //     text: "Equip"
+    // })
 //   const [inventoryItem, setInventoryItem]= useState({
 //     inventoryId: '',
 //     });
@@ -48,19 +48,37 @@ function InventoryOutfitFilter({setPreview,data}){
   if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
         console.log("empty")
   }else{
-        axios.post(`/api/update`, data).then(res =>{
-              if(res.data.status === 200){
-                console.log(res.data.message);
-              }else {
-                // setPotion({...potion,error_list:res.data.errors});
-              }
-              
-              setStyle({
-                  backgroundColor: "#C0C034",
-                  text: "Unequip"
-              })
-            });
-  }
+    axios.post(`/api/update`, data).then(res =>{
+        if(res.data.status === 200){
+             //if there is a currently equipped item that needs to be unequipped
+            if(res.data.id !== 0){
+                if(inventory != undefined){
+                    setInventory({
+                        armors: inventory.armors.map(item => {
+                            if(item.id == res.data.id || item.id == data.inventoryId){
+                                return {
+                                    ...item, status: item.status == 0? 1: 0,
+                                }
+                            }
+                            return item;
+                        })
+                    })
+                }
+            }else{
+                setInventory({
+                    armors: inventory.armors.map(item => {
+                        if(item.id == data.inventoryId){
+                            return {
+                                ...item, status: item.status == 0? 1: 0,
+                            }
+                        }
+                        return item;
+                    })
+                })
+            }
+        }
+    });
+}
 
   },[passProductId])
     return(
@@ -85,10 +103,11 @@ function InventoryOutfitFilter({setPreview,data}){
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
                               <input name="status" type="hidden" value={data.status}/>
+                              {/* <h1>{data.status}</h1> */}
                               {
-                                  (data.status === 1)? 
-                                  <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
-                                  :<Button type="submit"style={{backgroundColor: style.backgroundColor}}>{style.text}</Button>
+                                  (data.status === 1)?
+                                   <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
+                                  :<Button type="submit"style={{backgroundColor: "yellow"}}>Equip</Button>
                               }
                               
                         </form>

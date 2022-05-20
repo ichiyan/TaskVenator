@@ -9,22 +9,59 @@ function InventoryWeapons(){
         weapons:[],
     });
 
+    const[countWeaponCommon, setCountWeaponCommon]=useState(0);
+    const[countWeaponUncommon, setCountWeaponUncommon]=useState(0);
+    const[countWeaponRare, setCountWeaponRare]=useState(0);
     const[authId, setAuthId]=useState("");
+    const[avatarClass, setAvatarClass]= useState("");
     const[preview, setPreview]=useState("");
     const[charClass,setCharClass]=useState("All");
     const[rarity, setRarity]=useState("All");
     const[bodyPart, setBodyPart]=useState("All");
 
     useEffect(() =>{
+        let common =0;
+        let uncommon =0;
+        let rare=0;
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
+                // console.log(res.data.class[0].name)
+                console.log(res.data.weapon)
                 setInventory({
                     weapons:res.data.weapon
                 })
                 setAuthId(res.data.auth_id);
+                setAvatarClass(res.data.class[0].name);
+                // res.data.weapon.map(item=>{
+                //     if(item.class === avatarClass && item.inventUserId === authId ){
+                //         setInventory({
+                //             weapons:item
+                //         })
+                //     }
+                // })
+
+                res.data.weapon.map(item=>{
+                    if(item.rarity_type === "Common"){
+                          common++;
+                    }else if (item.rarity_type === "Uncommon"){
+                        uncommon++;
+                    }else{
+                        rare++;
+                    }
+              })
+              setCountWeaponCommon(common);
+              setCountWeaponUncommon(uncommon);
+              setCountWeaponRare(rare);
+
             }
+            // console.log(inventory);
         })
      },[])
+
+     useEffect(()=>{
+        console.log(inventory);
+        // console.log(Object.keys(display2.armors).length);
+    },[inventory])
 
     const previewImage =(event)=>{
         setPreview(event)
@@ -78,7 +115,7 @@ function InventoryWeapons(){
                         }
 
 
-                          {(rarity==="All")?<div>
+                          {(rarity==="All" && countWeaponUncommon !==0)?<div>
                         <div className="shop-categoryName">
                             <h5>Uncommon</h5>
                         </div>
@@ -95,7 +132,7 @@ function InventoryWeapons(){
                         })}
                             </div>:""
                         }
-                          {(rarity==="All")?<div>
+                          {(rarity==="All" &&countWeaponRare!==0)?<div>
                         <div className="shop-categoryName">
                             <h5>Rare</h5>
                         </div>

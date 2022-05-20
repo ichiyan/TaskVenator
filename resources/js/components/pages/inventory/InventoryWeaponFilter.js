@@ -96,7 +96,7 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
                               <input name="status" type="hidden" value={data.status}/>
-                              <h1>{data.status}</h1>
+                              {/* <h1>{data.status}</h1> */}
                               {
                                   (data.status === 1)?
                                    <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
