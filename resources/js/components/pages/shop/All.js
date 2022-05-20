@@ -105,7 +105,7 @@ const [passProductId, setPassProductId]= useState({
             amount: passProductId.amount,
       }
       if(data.product === "" || data.amount===""){
-            console.log("empty")
+            // console.log("empty")
       }else{
             axios.post(`/api/addBought`, data).then(res =>{
                   if(res.data.status === 200){
