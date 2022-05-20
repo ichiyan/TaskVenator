@@ -4,7 +4,7 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 
 
-function WeaponFilter({data, value, avatarClass,setGems}){
+function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
       const [passProductId, setPassProductId]= useState({
             product: '',
             amount :'',
@@ -28,7 +28,7 @@ function WeaponFilter({data, value, avatarClass,setGems}){
                   Swal.fire("Failed to buy Item - Class Restriction");
             }
        }
-       
+
        useEffect(() => {
             const data={
                   product: passProductId.product,
@@ -48,15 +48,26 @@ function WeaponFilter({data, value, avatarClass,setGems}){
             }
 
        }, [passProductId])
+
+       const showItemOnAvatar = () => {
+           console.log("ITEM CLICKED")
+           updatePreview({
+               body_part: data.body_part,
+               female_image: data.female_image,
+               male_image: data.male_image,
+           });
+       }
+
+
     return(
 
         <div data-tip data-for={data.name}  className="shop-returnMap">
         <div className="shop-items">
 
-              <div className="shop-itemsImage">
-              {
-              (data.sex==="None" || data.sex==="Male")? <img src={data.male_image}></img>:<img src={data.female_image}></img>
-             }
+              <div className="shop-itemsImage" onClick={showItemOnAvatar}>
+                {
+                    (data.sex==="None" || data.sex==="Male")? <img src={data.male_image}></img>:<img src={data.female_image}></img>
+                }
               </div>
               <div className="shop-itemsInfo">
                     <h6>{data.name}</h6>

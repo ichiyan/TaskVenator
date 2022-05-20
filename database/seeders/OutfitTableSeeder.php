@@ -26,7 +26,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'shovel.png',
-            'directory'=> 'weapon/thrust/female/shovel.png',
+            'directory'=> 'weapon/thrust/',
             'outfit_infos'=>'1',
         ],[
             'id'=> '2',
@@ -39,7 +39,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'spear_black.png',
-            'directory'=> 'weapon/thrust/female/spear_black.png',
+            'directory'=> 'weapon/thrust/',
             'outfit_infos'=>'2'
         ],[
             'id'=> '3',
@@ -52,7 +52,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'pickaxe.png',
-            'directory'=> 'weapon/thrust/female/pickaxe.png',
+            'directory'=> 'weapon/thrust/',
             'outfit_infos'=>'3'
         ],[
             //uncommon type warrior weapon -done
@@ -66,10 +66,10 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> 'waraxe.png',
-            'directory'=> 'weapon/thrust/male/waraxe.png', 
+            'directory'=> 'weapon/thrust/',
             'outfit_infos'=>'4'
         ],[
-          
+
             'id'=> '5',
             'outfit_type'=> 'Weapon',
             'sex'=> 'Unisex',
@@ -80,7 +80,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> 'halberd.png',
-            'directory'=> 'weapon/slash_oversize/female/female_halberd.png', 
+            'directory'=> 'weapon/slash_oversize/',
             'outfit_infos'=>'5'
         ],[
             //rare warrior weap - done
@@ -94,7 +94,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> 'glowsword_blue.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/glowsword_blue.png', 
+            'directory'=> 'weapon/slash_oversize_layered/all/',
             'outfit_infos'=>'6'
         ],[
             'id'=> '7',
@@ -103,11 +103,11 @@ class OutfitTableSeeder extends Seeder
             'male_image'=> 'assets/images/weapons/glowsword_red.png',
             'female_image'=> '',
             'name'=> 'Glowing Red Sword',
-            'class'=> 'Warrior',   
+            'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> 'glowsword_red.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/glowsword_red.png', 
+            'directory'=> 'weapon/slash_oversize_layered/all/',
             'outfit_infos'=>'7'
         ],[
             //COMMON MARKSMAN WEAPS
@@ -121,9 +121,9 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> '10.png',
-            'directory'=> 'weapon/bow/10.png', //d
+            'directory'=> 'weapon/bow/', //d
             'outfit_infos'=>'8'
-          
+
         ],[
             'id'=> '9',
             'outfit_type'=> 'Weapon',
@@ -135,7 +135,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'recurve.png',
-            'directory'=> 'weapon/bow/recurve.png', //d
+            'directory'=> 'weapon/bow/', //d
             'outfit_infos'=>'9'
         ],[
             'id'=> '10',
@@ -148,7 +148,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'great.png',
-            'directory'=> 'weapon/bow/great.png', //d
+            'directory'=> 'weapon/bow/', //d
             'outfit_infos'=>'10'
         ],[
             //UNCOMMON MARKSMAN WEAP
@@ -162,7 +162,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'weapon/bow/6.png', //d
+            'directory'=> 'weapon/bow/', //d
             'outfit_infos'=>'11'
         ],[
             'id'=> '12',
@@ -175,7 +175,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> '7.png',
-            'directory'=> 'weapon/bow/7.png', //d
+            'directory'=> 'weapon/bow/', //d
             'outfit_infos'=>'12'
         ],[
             'id'=> '13',
@@ -188,7 +188,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> '9.png',
-            'directory'=> 'weapon/bow/9.png', //d
+            'directory'=> 'weapon/bow/', //d
             'outfit_infos'=>'13'
         ],[
             //RARE MARSKMAN WEAP
@@ -202,7 +202,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> '8.png',
-            'directory'=> 'weapon/bow/8.png', //d
+            'directory'=> 'weapon/bow/', //d
             'outfit_infos'=>'14'
         ],[
             //COMMON MAGE WEAP
@@ -216,7 +216,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'cane.png',
-            'directory'=> 'weapon/thrust/male/cane.png', 
+            'directory'=> 'weapon/thrust/',
             'outfit_infos'=>'15'
         ],[
             //UNCOMMON MAGE WEAP
@@ -230,7 +230,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> 'saber.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/saber.png', //d
+            'directory'=> 'weapon/slash_oversize_layered/all/', //d
             'outfit_infos'=>'16'
         ],[
         //RARE MAGE WEAP
@@ -244,7 +244,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> 'scythe.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/scythe.png', //d
+            'directory'=> 'weapon/slash_oversize_layered/all/', //d
             'outfit_infos'=>'17'
         ],[
             //COMMON WARRIOR HEAD
@@ -258,7 +258,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'steel_1.png',
-            'directory'=> 'hat/legion/male/steel_1.png', 
+            'directory'=> 'hat/legion/',
             'outfit_infos'=>'18'
         ],[
             'id'=> '19',
@@ -271,7 +271,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'round.png',
-            'directory'=> 'hat/horned/round.png', 
+            'directory'=> 'hat/horned/',
             'outfit_infos'=>'19'
         ],[
             //UNCOMMON WARRIOR HEAD
@@ -285,7 +285,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'morion_faceplate_plumage.png',
-            'directory'=> 'hat/helmet/male/morion_faceplate_plumage.png', 
+            'directory'=> 'hat/helmet/',
             'outfit_infos'=>'20'
         ],[
             'id'=> '21',
@@ -298,7 +298,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'male.png',
-            'directory'=> 'hat/pirate/bonnie_feather/male.png', 
+            'directory'=> 'hat/pirate/bonnie_feather/',
             'outfit_infos'=>'21'
         ],[
             //RARE WARRIOR HEAD
@@ -312,7 +312,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'hat/horned/4.png', 
+            'directory'=> 'hat/horned/',
             'outfit_infos'=>'22'
         ],[
             'id'=> '23',
@@ -325,7 +325,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'male.png',
-            'directory'=> 'hat/pirate/tricorne_captain_pirate_skull/male.png', 
+            'directory'=> 'hat/pirate/tricorne_captain_pirate_skull/',
             'outfit_infos'=>'23'
         ],[
             'id'=> '24',
@@ -338,10 +338,10 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'hat/crown/4.png', 
+            'directory'=> 'hat/crown/',
             'outfit_infos'=>'24'
         ],[
-            //COMMON WARRIOR ARMS  
+            //COMMON WARRIOR ARMS
             'id'=> '25',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
@@ -352,7 +352,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '2.png',
-            'directory'=> 'arms/male/2.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'25'
         ],[
             //UNCOMMON WARRIOR ARMS
@@ -366,7 +366,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '5.png',
-            'directory'=> 'arms/male/5.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'26'
         ],[
             'id'=> '27',
@@ -379,7 +379,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'arms/male/6.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'27'
         ],[
             //RARE WARRIOR ARMS
@@ -393,7 +393,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '3.png',
-            'directory'=> 'arms/male/3.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'28'
         ],[
             'id'=> '29',
@@ -406,7 +406,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'arms/male/4.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'29'
         ],[
             //COMMON WARRIOR TORSO
@@ -420,7 +420,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'steel.png',
-            'directory'=> 'torso/armour/legion/male/steel.png', 
+            'directory'=> 'torso/armour/legion/',
             'outfit_infos'=>'30'
         ],[
             //UNCOMMON WARRIOR TORSO
@@ -434,7 +434,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> '15.png',
-            'directory'=> 'torso/armour/plate/male/15.png', 
+            'directory'=> 'torso/armour/plate/',
             'outfit_infos'=>'31'
         ],[
             'id'=> '32',
@@ -443,11 +443,11 @@ class OutfitTableSeeder extends Seeder
             'male_image'=> 'assets/images/armors/male_brown.png',
             'female_image'=> '',
             'name'=> 'WAR-UC-2 Torso',
-            'class'=> 'Warrior',    
+            'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'torso/clothes/longsleeve/male/brown.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
             'outfit_infos'=>'32'
         ],[
             //RARE WARRIOR TORSO
@@ -461,7 +461,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'torso/clothes/longsleeve/male/yellow.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
             'outfit_infos'=>'33'
         ],[
             'id'=> '34',
@@ -474,7 +474,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> '13.png',
-            'directory'=> 'torso/armour/plate/male/13.png', 
+            'directory'=> 'torso/armour/plate/',
             'outfit_infos'=>'34'
         ],[
             'id'=> '35',
@@ -487,7 +487,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'gold.png',
-            'directory'=> 'torso/armour/legion/male/gold.png', 
+            'directory'=> 'torso/armour/legion/',
             'outfit_infos'=>'35'
         ],[
             //COMMON WARRIOR LEGS
@@ -501,7 +501,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '11.png',
-            'directory'=> 'legs/armour/male/11.png', 
+            'directory'=> 'legs/armour/',
             'outfit_infos'=>'36'
         ],[
             //UNCOMMON WARRIOR LEGS
@@ -515,7 +515,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '12.png',
-            'directory'=> 'legs/armour/male/12.png', 
+            'directory'=> 'legs/armour/',
             'outfit_infos'=>'37'
         ],[
             'id'=> '38',
@@ -528,7 +528,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'legs/armour/male/brown.png', 
+            'directory'=> 'legs/armour/',
             'outfit_infos'=>'38'
         ],[
             'id'=> '39',
@@ -541,7 +541,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'legs/armour/male/brown.png', 
+            'directory'=> 'legs/armour/',
             'outfit_infos'=>'39'
         ],[
             //RARE WARRIOR LEGS
@@ -555,7 +555,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '9.jpg',
-            'directory'=> 'legs/armour/male/9.jpg', 
+            'directory'=> 'legs/armour/',
             'outfit_infos'=>'40'
         ],[
             'id'=> '41',
@@ -568,7 +568,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '10.png',
-            'directory'=> 'legs/armour/male/10.png', 
+            'directory'=> 'legs/armour/',
             'outfit_infos'=>'41'
         ],[
             //COMMON WARRIOR FOOTWEAR
@@ -582,7 +582,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '5.png',
-            'directory'=> 'feet/armor/male/5.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'42'
         ],[
             //UNCOMMON WARRIOR FOOTWEAR
@@ -596,7 +596,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '7.png',
-            'directory'=> 'feet/armor/male/7.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'43'
         ],[
             'id'=> '44',
@@ -609,7 +609,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '9.png',
-            'directory'=> 'feet/armor/male/9.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'44'
         ],[
             //RARE WARRIOR FOOTWEAR
@@ -623,7 +623,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'feet/armor/male/6.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'45'
         ],[
             //COMMON MARKSMAN HEAD
@@ -637,7 +637,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'bandana_gray.png',
-            'directory'=> 'hat/cloth/male/bandana_gray.png', 
+            'directory'=> 'hat/cloth/',
             'outfit_infos'=>'46'
         ],[
             //UNCOMMON MARKSMAN HEAD
@@ -651,7 +651,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'hood_black.png',
-            'directory'=> 'hat/cloth/male/hood_black.png', 
+            'directory'=> 'hat/cloth/',
             'outfit_infos'=>'47'
         ],[
             'id'=> '48',
@@ -664,7 +664,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'hijab.jpg',
-            'directory'=> 'hat/cloth/male/hijab.png', 
+            'directory'=> 'hat/cloth/',
             'outfit_infos'=>'48'
         ],[
             //RARE MARKSMAN HEAD
@@ -678,7 +678,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'hood_white.png',
-            'directory'=> 'hat/cloth/male/hood_white.png', 
+            'directory'=> 'hat/cloth/',
             'outfit_infos'=>'49'
         ],[
             'id'=> '50',
@@ -691,10 +691,10 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'gold_2.png',
-            'directory'=> 'hat/legion/male/gold_2.png', 
+            'directory'=> 'hat/legion/',
             'outfit_infos'=>'50'
         ],[
-            //COMMON MARKSMAN ARMS  
+            //COMMON MARKSMAN ARMS
             'id'=> '51',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
@@ -705,7 +705,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '2.png',
-            'directory'=> 'arms/male/2.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'51'
         ],[
             //UNCOMMON MARKSMAN ARMS
@@ -719,7 +719,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '5.png',
-            'directory'=> 'arms/male/5.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'52'
         ],[
             'id'=> '53',
@@ -732,7 +732,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'arms/male/6.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'53'
         ],[
             //RARE MARKSMAN ARMS
@@ -746,7 +746,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '3.png',
-            'directory'=> 'arms/male/3.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'54'
         ],[
             'id'=> '55',
@@ -759,7 +759,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'arms/male/4.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'55'
         ],[
             //COMMON MARKSMAN TORSO
@@ -773,7 +773,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'torso/armour/leather/male/blue.png', 
+            'directory'=> 'torso/armour/leather/',
             'outfit_infos'=>'56'
         ],[
             //UNCOMMON MARKSMAN TORSO
@@ -787,7 +787,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'torso/clothes/longsleeve/male/blue.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
             'outfit_infos'=>'57'
         ],[
             'id'=> '58',
@@ -800,7 +800,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'maroon.png',
-            'directory'=> 'torso/clothes/longsleeve/male/maroon.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
             'outfit_infos'=>'58'
         ],[
             'id'=> '59',
@@ -813,7 +813,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'torso/clothes/longsleeve/male/black.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
             'outfit_infos'=>'59'
         ],[
             //RARE MARKSMAN TORSO
@@ -827,7 +827,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'white.png',
-            'directory'=> 'torso/clothes/longsleeve/male/white.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
             'outfit_infos'=>'60'
         ],[
             'id'=> '61',
@@ -840,7 +840,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'torso/clothes/longsleeve/male/teal.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
             'outfit_infos'=>'61'
         ],[
             //COMMON MARKSMAN LEGS
@@ -854,7 +854,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '8.jpg',
-            'directory'=> 'legs/armour/male/8.png', 
+            'directory'=> 'legs/armour/',
             'outfit_infos'=>'62'
         ],[
             //UNCOMMON MARKSMAN LEGS
@@ -868,7 +868,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'legs/pants/male/blue.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'63'
         ],[
             'id'=> '64',
@@ -881,7 +881,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'legs/pants/male/black.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'64'
         ],[
             //RARE MARKSMAN LEGS
@@ -895,7 +895,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'legs/pants/male/teal.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'65'
         ],[
             'id'=> '66',
@@ -908,7 +908,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'white.png',
-            'directory'=> 'legs/pants/male/white.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'66'
         ],[
             'id'=> '67',
@@ -921,7 +921,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'legs/pants/male/yellow.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'67'
         ],[
             //COMMON MARKSMAN FOOTWEAR
@@ -935,7 +935,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'feet/shoes/male/brown.png', 
+            'directory'=> 'feet/shoes/',
             'outfit_infos'=>'68'
         ],[
             //UNCOMMON MARKSMAN FOOTWEAR
@@ -949,7 +949,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'maroon.png',
-            'directory'=> 'feet/shoes/male/maroon.png', 
+            'directory'=> 'feet/shoes/',
             'outfit_infos'=>'69'
         ],[
             'id'=> '70',
@@ -962,7 +962,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '7.png',
-            'directory'=> 'feet/armor/male/7.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'70'
         ],[
             'id'=> '71',
@@ -975,7 +975,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '9.png',
-            'directory'=> 'feet/armor/male/9.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'71'
         ],[
             //RARE MARKSMAN FOOTWEAR
@@ -989,7 +989,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'feet/armor/male/6.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'72'
         ],[
             //COMMON MAGE HEAD
@@ -1003,7 +1003,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'brown_2.png',
-            'directory'=> 'hat/magic/male/brown_2.png', 
+            'directory'=> 'hat/magic/',
             'outfit_infos'=>'73'
         ],[
             //UNCOMMON MAGE HEAD
@@ -1017,7 +1017,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'no_moon.png',
-            'directory'=> 'hat/magic/male/no_moon.png', 
+            'directory'=> 'hat/magic/',
             'outfit_infos'=>'74'
         ],[
             'id'=> '75',
@@ -1030,7 +1030,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'red.png',
-            'directory'=> 'hat/magic/male/red.png', 
+            'directory'=> 'hat/magic/',
             'outfit_infos'=>'75'
         ],[
             //RARE MAGE HEAD
@@ -1044,7 +1044,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'hat/magic/male/teal.png', 
+            'directory'=> 'hat/magic/',
             'outfit_infos'=>'76'
         ],[
             'id'=> '77',
@@ -1057,7 +1057,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'hat/magic/male/yellow.png', 
+            'directory'=> 'hat/magic/',
             'outfit_infos'=>'77'
         ],[
             'id'=> '78',
@@ -1070,10 +1070,10 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'moon.png',
-            'directory'=> 'hat/magic/male/moon.png', 
+            'directory'=> 'hat/magic/',
             'outfit_infos'=>'78'
         ],[
-            //COMMON MAGE ARMS  
+            //COMMON MAGE ARMS
             'id'=> '79',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
@@ -1084,7 +1084,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '2.png',
-            'directory'=> 'arms/male/2.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'79'
         ],[
             //UNCOMMON MAGE ARMS
@@ -1098,7 +1098,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '5.png',
-            'directory'=> 'arms/male/5.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'80'
         ],[
             'id'=> '81',
@@ -1111,7 +1111,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'arms/male/6.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'81'
         ],[
             //RARE MAGE ARMS
@@ -1125,7 +1125,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '3.png',
-            'directory'=> 'arms/male/3.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'82'
         ],[
             'id'=> '83',
@@ -1138,7 +1138,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'arms/male/4.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'83'
         ],[
             //COMMON MAGE TORSO
@@ -1152,7 +1152,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'dark_gray.png',
-            'directory'=> 'torso/jacket/trench/male/dark_gray.png', 
+            'directory'=> 'torso/jacket/trench/',
             'outfit_infos'=>'84'
         ],[
             //UNCOMMON MAGE TORSO
@@ -1166,7 +1166,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'torso/jacket/collared/male/blue.png', 
+            'directory'=> 'torso/jacket/collared/',
             'outfit_infos'=>'85'
         ],[
             'id'=> '86',
@@ -1179,7 +1179,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'maroon.png',
-            'directory'=> 'torso/jacket/collared/male/maroon.png', 
+            'directory'=> 'torso/jacket/collared/',
             'outfit_infos'=>'86'
         ],[
             //RARE MAGE TORSO
@@ -1193,7 +1193,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'torso/jacket/collared/male/teal.png', 
+            'directory'=> 'torso/jacket/collared/',
             'outfit_infos'=>'87'
         ],[
             'id'=> '88',
@@ -1206,7 +1206,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'torso/jacket/collared/male/yellow.png', 
+            'directory'=> 'torso/jacket/collared/',
             'outfit_infos'=>'88'
         ],[
             //COMMON MAGE LEGS
@@ -1220,7 +1220,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '8.jpg',
-            'directory'=> 'legs/armour/male/8.png', 
+            'directory'=> 'legs/armour/',
             'outfit_infos'=>'89'
         ],[
             //UNCOMMON MAGE LEGS
@@ -1234,7 +1234,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'legs/pants/male/blue.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'90'
         ],[
             'id'=> '91',
@@ -1247,7 +1247,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'legs/pants/male/black.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'91'
         ],[
             //RARE MAGE LEGS
@@ -1261,7 +1261,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'legs/pants/male/teal.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'92'
         ],[
             'id'=> '93',
@@ -1274,7 +1274,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'white.png',
-            'directory'=> 'legs/pants/male/white.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'93'
         ],[
             'id'=> '94',
@@ -1287,7 +1287,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'legs/pants/male/yellow.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'94'
         ],[
             //COMMON MAGE FOOTWEAR
@@ -1301,7 +1301,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'feet/shoes/male/brown.png', 
+            'directory'=> 'feet/shoes/',
             'outfit_infos'=>'95'
         ],[
             //UNCOMMON MARKSMAN FOOTWEAR
@@ -1315,7 +1315,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'maroon.png',
-            'directory'=> 'feet/shoes/male/maroon.png', 
+            'directory'=> 'feet/shoes/',
             'outfit_infos'=>'96'
         ],[
             'id'=> '97',
@@ -1328,7 +1328,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '7.png',
-            'directory'=> 'feet/armor/male/7.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'97'
         ],[
             'id'=> '98',
@@ -1341,7 +1341,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '9.png',
-            'directory'=> 'feet/armor/male/9.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'98'
         ],[
             //RARE MARKSMAN FOOTWEAR
@@ -1355,7 +1355,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'feet/armor/male/6.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'99'
         ],[
             //DEFAULT WARRIOR HEAD
@@ -1369,7 +1369,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'norman.png',
-            'directory'=> 'feet/armor/male/norman.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'100'
         ],[
             //DEFAULT WARRIOR ARMS
@@ -1383,7 +1383,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '1.png',
-            'directory'=> 'arms/1.png', 
+            'directory'=> 'arms/',
             'outfit_infos'=>'101'
         ],[
             //DEFAULT WARRIOR TORSO
@@ -1397,7 +1397,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'gray.png',
-            'directory'=> 'torso/chainmail/gray.png', 
+            'directory'=> 'torso/chainmail/',
             'outfit_infos'=>'102'
         ],[
             //DEFAULT WARRIOR LEGS
@@ -1411,7 +1411,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '7.png',
-            'directory'=> 'legs/armour/7.png', 
+            'directory'=> 'legs/armour/',
             'outfit_infos'=>'103'
         ],[
             //DEFAULT WARRIOR FOOTWEAR
@@ -1425,7 +1425,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'feet/armor/4.png', 
+            'directory'=> 'feet/armor/',
             'outfit_infos'=>'104'
         ],[
             //DEFAULT WARRIOR WEAPON
@@ -1439,7 +1439,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'dagger.png',
-            'directory'=> 'weapon/slash/dagger.png',
+            'directory'=> 'weapon/slash/',
             'outfit_infos'=>'105',
         ],[
             //DEFAULT MARKSMAN HEAD
@@ -1453,7 +1453,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'leather.png',
-            'directory'=> 'hat/cloth/leather.png', 
+            'directory'=> 'hat/cloth/',
             'outfit_infos'=>'106'
         ],[
             //DEFAULT MARKSMAN TORSO
@@ -1467,7 +1467,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'green.png',
-            'directory'=> 'torso/clothes/longsleeve/green.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
             'outfit_infos'=>'107'
         ],[
             //DEFAULT MARKSMAN LEGS
@@ -1481,7 +1481,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'green.png',
-            'directory'=> 'legs/pants/green.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'108'
         ],[
             //DEFAULT MARKSMAN FOOTWEAR
@@ -1495,7 +1495,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'feet/shoes/black.png', 
+            'directory'=> 'feet/shoes/',
             'outfit_infos'=>'109'
         ],[
             //DEFAULT MARKSMAN WEAPON
@@ -1509,7 +1509,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'normal.png',
-            'directory'=> 'weapon/bow/normal.png', 
+            'directory'=> 'weapon/bow/',
             'outfit_infos'=>'110'
         ],[
             //DEFAULT MAGE HEAD
@@ -1523,7 +1523,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'hat/magic/black.png', 
+            'directory'=> 'hat/magic/',
             'outfit_infos'=>'111'
         ],[
             //DEFAULT MAGE TORSO
@@ -1537,7 +1537,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'torso/jacket/iverness/black.png', 
+            'directory'=> 'torso/jacket/iverness/',
             'outfit_infos'=>'112'
         ],[
             //DEFAULT MAGE LEGS
@@ -1551,7 +1551,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'navy.png',
-            'directory'=> 'legs/pants/navy.png', 
+            'directory'=> 'legs/pants/',
             'outfit_infos'=>'113'
         ],[
             //DEFAULT MAGE FOOTWEAR
@@ -1565,7 +1565,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'feet/shoes/black.png', 
+            'directory'=> 'feet/shoes/',
             'outfit_infos'=>'114'
         ],[
             //DEFAULT MAGE FOOTWEAR
@@ -1579,7 +1579,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'simple_staff.png',
-            'directory'=> 'weapon/thrust/simple_staff.png', 
+            'directory'=> 'weapon/thrust/',
             'outfit_infos'=>'115'
         ]
     ]);
