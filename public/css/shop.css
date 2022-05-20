@@ -1,9 +1,19 @@
-    /* desinging shopp */
+    /* designing shop */
   .shop-parentOfAll{
     background-color: #383A59;
-    
   }
- 
+
+  .shop-wrapper{
+      display: flex !important;
+      flex-direction: row !important;
+  }
+
+  .shop-left{
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+  }
+
   .shop-Form{
     display: flex;
     flex-direction: row;
@@ -21,7 +31,7 @@
 
   .shop-filtShop{
     display: flex;
-    flex-direction: row;   
+    flex-direction: row;
   }
   .shop-filter{
     display: flex;
@@ -36,13 +46,13 @@
     flex-direction: row;
     flex: 10.5;
   }
-  
-  
+
+
   .shop-weaponList{
-    
+
     display: flex;
     gap: 2rem;
-    
+
   }
   .shop-category{
     font: black;
@@ -74,7 +84,7 @@
   .shop-outfitFilter{
     display: inline-block;
   }
-  
+
   /* css for buttons in shop */
   .shop-items Button{
     background-color: #FFFF80;
@@ -104,7 +114,7 @@
   width: 200px;
   text-align: center;
   text-justify: inter-word;
-  
+
  }
  .shop-hide .shop-weaponInfo{
   text-align-last: left;
@@ -112,8 +122,8 @@
  .shop-Empty{
    background-color: black;
  }
- 
- 
+
+
   */
   /* button navigator */
   .shop-main_shop .btn-group{
@@ -128,17 +138,17 @@
   }
   .shop-weaponList{
     display: flex;
-    
+
   }
-  
+
   /* test div */
   .shop-categoryName p{
     margin: 10px;
     color: white;
-  
+
   }
   .shop-categoryName h5{
     margin: 10px;
     color: white;
-  
+
   }

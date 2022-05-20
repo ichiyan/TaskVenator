@@ -1,5 +1,5 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, AddPotionForm, 
+import {Link, React, useEffect, useState, AddPotionForm,
       AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 import PotionFilter from "./PotionFilter";
@@ -13,22 +13,22 @@ function Potions({setGems}){
     const [hpHitWidth, sethpHitWidth] = useState("0");
     const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
 
-  
+
     const[potionType,setPotionType]=useState("All");
     const[size, setSize]=useState("All");
     const[display1,setDisplay1]=useState({
         potions:[],
   });
 
- 
-  
+
+
   const potionHandler=(e)=>{
-        
+
       setPotionType(e.target.value);
-     
-  
-     
-      
+
+
+
+
   }
   const sizeHandler=(e)=>{
         setSize(e.target.value);
@@ -36,19 +36,19 @@ function Potions({setGems}){
   useEffect(()=>{
      axios.get(`/api/potions`).then(res =>{
            if(res.data.status===200){
-            
+
                  setDisplay1({
                        potions:res.data.potion
                  });
            }
-           
+
      })
   },[])
   useEffect(()=>{
       //console.log(display1.potions)
       // console.log(Object.keys(display2.armors).length);
   },[display1])
-  
+
 
 
   const buttonHandler=(e)=>{
@@ -56,14 +56,7 @@ function Potions({setGems}){
   }
 
     return(
-        <section className="container party-section">
-                  <div className="party-nav">
-                        <div className="party-nav-item"><Link to="/all">All</Link></div>
-                        <div className="party-nav-item party-active-nav"><Link to="/potions">Potions</Link></div>
-                        <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
-                        {/* <div className="party-nav-item"><Link to="/cards">Cards</Link></div> */}
-                        <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
-                  </div>
+
               <div className="shop-filtShop">
                         <div className="shop-filter">
                                     <p>Potion Type</p>
@@ -80,9 +73,9 @@ function Potions({setGems}){
                                                 <option value="Large">Large</option>
                                           </select><br></br>
                         </div>
-            <div className="shop-shop"> 
+            <div className="shop-shop">
                   <div className="shop-category">
-                               
+
                                    { (potionType === "All" && size==="All")?
                               <div className="shop-categoryName">
                                     <p>Health Potions</p>
@@ -94,12 +87,12 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
                               })}
-                                    
+
                                     { (potionType === "All" && size==="Small")?
                                     <div className="shop-categoryName">
                                           <p>Health Potions</p>
@@ -111,7 +104,7 @@ function Potions({setGems}){
                                                       return (
                                                             <div key={index} className="shop-outfitFilter">
                                                                   <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                            </div> 
+                                                            </div>
                                                       )
                                                 }
                                           }
@@ -127,7 +120,7 @@ function Potions({setGems}){
                                                       return (
                                                             <div key={index} className="shop-outfitFilter">
                                                                   <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                            </div> 
+                                                            </div>
                                                       )
                                                 }
                                           }
@@ -143,7 +136,7 @@ function Potions({setGems}){
                                                       return (
                                                             <div key={index} className="shop-outfitFilter">
                                                                   <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                            </div> 
+                                                            </div>
                                                       )
                                                 }
                                           }
@@ -160,12 +153,12 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
                               })}
-                                    
+
                                     { (potionType === "All" && size==="Small")?
                                     <div className="shop-categoryName">
                                           <p>Powerup Potion</p>
@@ -177,7 +170,7 @@ function Potions({setGems}){
                                                       return (
                                                             <div key={index} className="shop-outfitFilter">
                                                                   <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                            </div> 
+                                                            </div>
                                                       )
                                                 }
                                           }
@@ -193,7 +186,7 @@ function Potions({setGems}){
                                                       return (
                                                             <div key={index} className="shop-outfitFilter">
                                                                   <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                            </div> 
+                                                            </div>
                                                       )
                                                 }
                                           }
@@ -209,7 +202,7 @@ function Potions({setGems}){
                                                       return (
                                                             <div key={index} className="shop-outfitFilter">
                                                                   <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                            </div> 
+                                                            </div>
                                                       )
                                                 }
                                           }
@@ -227,11 +220,11 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
-                              })}      
+                              })}
 
                         { (potionType === "Hp Potion" && size==="Small")?
                               <div className="shop-categoryName">
@@ -244,11 +237,11 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
-                              })} 
+                              })}
 
                         { (potionType === "Hp Potion" && size==="Medium")?
                               <div className="shop-categoryName">
@@ -261,11 +254,11 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
-                              })}  
+                              })}
 
                   { (potionType === "Hp Potion" && size==="Large")?
                               <div className="shop-categoryName">
@@ -278,14 +271,14 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
-                              })}  
-                        
+                              })}
+
                                {/* Powerup Potion - ALL DOWN TO LARGE SIZE FILTER */}
-                        
+
                                { (potionType === "Powerup Potion" && size==="All")?
                               <div className="shop-categoryName">
                                     <p>Powerup Potion</p>
@@ -297,11 +290,11 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
-                              })}      
+                              })}
 
                         { (potionType === "Powerup Potion" && size==="Small")?
                               <div className="shop-categoryName">
@@ -314,11 +307,11 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
-                              })} 
+                              })}
 
                         { (potionType === "Powerup Potion" && size==="Medium")?
                               <div className="shop-categoryName">
@@ -331,11 +324,11 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
-                              })}  
+                              })}
 
                   { (potionType === "Powerup Potion" && size==="Large")?
                               <div className="shop-categoryName">
@@ -348,22 +341,22 @@ function Potions({setGems}){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <PotionFilter data= {p.features_potion} value={p.id} setGems={setGems}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                     }
-                              })}    
-                             
-                       
-                            
-                         
+                              })}
+
+
+
+
                         </div>
                   </div>
             </div>
-      </section>  
 
-       
-   
+
+
+
     );
 }
 

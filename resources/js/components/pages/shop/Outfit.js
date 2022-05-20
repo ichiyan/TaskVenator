@@ -1,6 +1,6 @@
 
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
+import {Link, React, useEffect, useState,
       AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 import OutfitFilter from "./OutfitFilter";
@@ -19,23 +19,23 @@ function Outfit({setGems}){
     const[bodyPart, setBodyPart]=useState("All");
     const[avatarClass, setAvatarClass]=useState("");
 //     var avatarClass= "Warrior";
- 
+
 
   const[display2,setDisplay2]=useState({
         armors:[],
   });
   const rarityHandler=(e)=>{
       setRarity(e.target.value);
-     
-      
+
+
   }
   const classHandler=(e)=>{
         setCharClass(e.target.value);
-        
+
   }
   const bodyPartHandler=(e)=>{
         setBodyPart(e.target.value);
-        
+
   }
 
   useEffect(() =>{
@@ -44,7 +44,7 @@ function Outfit({setGems}){
                  console.log(res.data.avatar)
                  setDisplay2({
                        armors:res.data.armor
-                      
+
                  })
                  if(res.data.avatar[0].name === "warrior"){
                        setAvatarClass("Warrior");
@@ -53,12 +53,12 @@ function Outfit({setGems}){
                  }else{
                        setAvatarClass("Mage")
                  }
-               
-      
-               
-                
+
+
+
+
            }
-        
+
      })
   },[])
   useEffect(()=>{
@@ -66,7 +66,7 @@ function Outfit({setGems}){
       console.log(display2.armors);
       // console.log(Object.keys(display2.armors).length);
   },[display2],[avatarClass])
-  
+
 
 
   const buttonHandler=(e)=>{
@@ -74,16 +74,7 @@ function Outfit({setGems}){
   }
 
     return(
-        <section className="container party-section">
-          
-                  <div className="party-nav">
-                        <div className="party-nav-item "><Link to="/all">All</Link></div>
-                        <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
-                        <div className="party-nav-item"><Link to="/weapons">Weapons</Link></div>
-                        {/* <div className="party-nav-item"><Link to="/cards">Cards</Link></div> */}
-                        <div className="party-nav-item party-active-nav"><Link to="/outfit">Outfit</Link></div>
-                  </div>
-            
+
               <div className="shop-filtShop">
                   <div className="shop-filter">
                                     <p>Class</p>
@@ -110,14 +101,14 @@ function Outfit({setGems}){
                                           <option value="Footwear">Footwear</option>
                                     </select><br></br>
                   </div>
-              
-                  <div className="shop-shop"> 
+
+                  <div className="shop-shop">
                          <div className="shop-category">
                                {(charClass==="All" && rarity==="All" && bodyPart==="All" )?
                               <div className="shop-categoryName">
                                      <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -127,8 +118,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -142,8 +133,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -157,8 +148,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -172,8 +163,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -187,8 +178,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -197,7 +188,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                      <h5>Marksman</h5>
                               </div>:""
-                              }     
+                              }
                               {(charClass==="All" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -207,8 +198,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -222,8 +213,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -237,8 +228,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -252,8 +243,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -267,8 +258,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -277,7 +268,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                      <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -287,8 +278,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -302,8 +293,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -317,8 +308,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -332,8 +323,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -347,8 +338,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -358,7 +349,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                      <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Warrior" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -368,8 +359,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -383,8 +374,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -398,8 +389,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -413,8 +404,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -428,8 +419,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -438,7 +429,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                      <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Marksman" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -448,8 +439,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -463,8 +454,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -478,8 +469,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -493,8 +484,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -508,8 +499,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -518,7 +509,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                      <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -528,8 +519,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -543,8 +534,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -558,8 +549,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -573,8 +564,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -588,8 +579,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -598,7 +589,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                      <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -608,8 +599,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -623,8 +614,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -638,8 +629,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -653,8 +644,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -668,8 +659,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -678,7 +669,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                      <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -688,8 +679,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -703,8 +694,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -718,8 +709,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -733,8 +724,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -748,8 +739,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -758,7 +749,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -768,8 +759,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -783,8 +774,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -798,8 +789,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -813,8 +804,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -828,8 +819,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -839,7 +830,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -849,8 +840,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -864,8 +855,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -879,8 +870,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -894,8 +885,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -909,8 +900,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -920,7 +911,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -930,8 +921,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -945,8 +936,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -960,8 +951,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -975,8 +966,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -990,8 +981,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1001,7 +992,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1011,8 +1002,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1026,8 +1017,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1041,8 +1032,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1056,8 +1047,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1071,8 +1062,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1083,7 +1074,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1093,8 +1084,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1108,8 +1099,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1123,8 +1114,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1138,8 +1129,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1153,8 +1144,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1164,7 +1155,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1174,8 +1165,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1189,8 +1180,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1204,8 +1195,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1219,8 +1210,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1234,8 +1225,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1245,7 +1236,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1255,8 +1246,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1270,8 +1261,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1285,8 +1276,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1300,8 +1291,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1315,8 +1306,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1326,7 +1317,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Warrior" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1336,8 +1327,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1351,8 +1342,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1366,8 +1357,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1381,8 +1372,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1396,8 +1387,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1407,7 +1398,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Marksman" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1417,8 +1408,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1432,8 +1423,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1447,8 +1438,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1462,8 +1453,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1477,8 +1468,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1488,7 +1479,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1498,8 +1489,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1513,8 +1504,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1528,8 +1519,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1543,8 +1534,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1558,8 +1549,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1569,7 +1560,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Warrior" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1579,8 +1570,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1594,8 +1585,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1609,8 +1600,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1624,8 +1615,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1639,8 +1630,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1650,7 +1641,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Marksman" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1660,8 +1651,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1675,8 +1666,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1690,8 +1681,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1705,8 +1696,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1720,8 +1711,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1731,7 +1722,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1741,8 +1732,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1756,8 +1747,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1771,8 +1762,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1786,8 +1777,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1801,18 +1792,18 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
                               {/* Warrior-Warrior-Rare-All */}
-                              {(charClass==="Warrior" && rarity==="Rare" && bodyPart==="All" )?
+                              {/* {(charClass==="Warrior" && rarity==="Rare" && bodyPart==="All" )?
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Warrior" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1822,8 +1813,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1837,8 +1828,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1852,8 +1843,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1867,8 +1858,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1882,18 +1873,18 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
-                              }
+                              } */}
                               {/* Marksman-Marksman-Rare-All */}
                               {(charClass==="Marksman" && rarity==="Rare" && bodyPart==="All" )?
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Marksman" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1903,8 +1894,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1918,8 +1909,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1933,8 +1924,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1948,8 +1939,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1963,8 +1954,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1974,7 +1965,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -1984,8 +1975,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -1999,8 +1990,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2014,8 +2005,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2029,8 +2020,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2044,8 +2035,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2055,7 +2046,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Warrior" && rarity==="All" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2065,8 +2056,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2080,8 +2071,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2095,8 +2086,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2110,8 +2101,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2125,8 +2116,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2136,7 +2127,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Marksman" && bodyPart==="Head" && rarity==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2146,8 +2137,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2161,8 +2152,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2176,8 +2167,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2191,8 +2182,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2206,8 +2197,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2217,7 +2208,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="All" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2227,8 +2218,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2242,8 +2233,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2257,8 +2248,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2272,8 +2263,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2287,8 +2278,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2298,7 +2289,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="All" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2308,8 +2299,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2318,7 +2309,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                               {(charClass==="All" && rarity==="All" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -2328,8 +2319,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2338,19 +2329,19 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Torso" )?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              
+
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2359,7 +2350,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -2369,8 +2360,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2379,7 +2370,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -2389,8 +2380,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2400,7 +2391,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="All" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2410,8 +2401,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2420,7 +2411,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              } 
+                              }
                               {(charClass==="All" && rarity==="All" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -2430,8 +2421,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2440,7 +2431,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Torso")?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
@@ -2450,8 +2441,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2460,7 +2451,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -2470,8 +2461,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2480,7 +2471,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -2490,8 +2481,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2501,7 +2492,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="All" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2511,8 +2502,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2521,7 +2512,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="All" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -2531,8 +2522,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2541,7 +2532,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Torso" )?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
@@ -2551,8 +2542,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2561,7 +2552,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -2571,8 +2562,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2581,7 +2572,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -2591,8 +2582,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2602,7 +2593,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Common" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2612,8 +2603,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2622,7 +2613,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                               {(charClass==="All" && rarity==="Common" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -2632,8 +2623,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2642,19 +2633,19 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Torso" )?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              
+
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2663,7 +2654,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -2673,8 +2664,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2683,7 +2674,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -2693,8 +2684,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2704,7 +2695,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Common" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2714,8 +2705,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2724,7 +2715,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              } 
+                              }
                               {(charClass==="All" && rarity==="Common" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -2734,8 +2725,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2744,7 +2735,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Torso")?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
@@ -2754,8 +2745,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2764,7 +2755,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -2774,8 +2765,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2784,7 +2775,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -2794,8 +2785,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2805,7 +2796,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Common" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2815,8 +2806,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2825,7 +2816,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Common" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -2835,8 +2826,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2845,7 +2836,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Torso" )?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
@@ -2855,8 +2846,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2865,7 +2856,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -2875,8 +2866,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2885,7 +2876,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -2895,8 +2886,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2906,7 +2897,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -2916,8 +2907,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2926,7 +2917,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -2936,8 +2927,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2946,19 +2937,19 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Torso" )?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              
+
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2967,7 +2958,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -2977,8 +2968,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -2987,7 +2978,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -2997,8 +2988,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3008,7 +2999,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3018,8 +3009,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3028,7 +3019,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              } 
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -3038,8 +3029,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3048,7 +3039,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Torso")?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
@@ -3058,8 +3049,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3068,7 +3059,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -3078,8 +3069,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3088,7 +3079,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -3098,8 +3089,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3109,7 +3100,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3119,8 +3110,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3129,7 +3120,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -3139,8 +3130,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3149,7 +3140,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Torso" )?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
@@ -3159,8 +3150,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3169,7 +3160,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -3179,8 +3170,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3189,7 +3180,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -3199,8 +3190,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3210,7 +3201,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Rare" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3220,8 +3211,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3230,7 +3221,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                               {(charClass==="All" && rarity==="Rare" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -3240,8 +3231,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3250,19 +3241,19 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Torso" )?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              
+
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.body_part==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3271,7 +3262,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -3281,8 +3272,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3291,7 +3282,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -3301,8 +3292,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3312,7 +3303,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Rare" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3322,8 +3313,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3332,7 +3323,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              } 
+                              }
                               {(charClass==="All" && rarity==="Rare" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -3342,8 +3333,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3352,7 +3343,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              } 
+                              }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Torso")?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
@@ -3362,8 +3353,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3372,7 +3363,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -3382,8 +3373,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3392,7 +3383,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -3402,8 +3393,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3413,7 +3404,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Rare" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3423,8 +3414,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3433,7 +3424,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="All" && rarity==="Rare" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -3443,8 +3434,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3453,7 +3444,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Torso" )?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
@@ -3463,8 +3454,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3473,7 +3464,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -3483,8 +3474,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3493,7 +3484,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -3503,19 +3494,19 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
-                              
+
                               {/* Warrior-Warrior-Rare-All */}
                               {(charClass==="Warrior" && rarity==="Rare" && bodyPart==="All" )?
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Warrior" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3525,8 +3516,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3540,8 +3531,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3555,8 +3546,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3570,8 +3561,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3585,19 +3576,19 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
-                           
+
                                {/* Mage-Mage-Rare-All */}
                                {(charClass==="Mage" && rarity==="Rare" && bodyPart==="All" )?
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3607,8 +3598,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3622,8 +3613,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3637,8 +3628,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3652,8 +3643,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3667,8 +3658,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3678,7 +3669,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Warrior" && rarity==="Common" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3688,8 +3679,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3703,8 +3694,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3718,13 +3709,13 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
-                                
+
                                  {(charClass==="Warrior" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
@@ -3734,8 +3725,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3745,7 +3736,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Marksman</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Marksman" && rarity==="Common" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3755,13 +3746,13 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
-                            
+
                               {(charClass==="Marksman" && rarity==="Common" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -3771,8 +3762,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3786,8 +3777,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3801,8 +3792,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3816,8 +3807,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3832,13 +3823,13 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
-                            
+
                               {(charClass==="Marksman" && rarity==="Uncommon" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -3848,8 +3839,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3863,8 +3854,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3878,8 +3869,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3893,8 +3884,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3909,13 +3900,13 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
-                            
+
                               {(charClass==="Marksman" && rarity==="Rare" && bodyPart==="Arms" )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
@@ -3925,8 +3916,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3940,8 +3931,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3955,8 +3946,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3970,8 +3961,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -3981,7 +3972,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Warrior</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Warrior" && rarity==="Uncommon" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -3991,8 +3982,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4006,8 +3997,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4021,8 +4012,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4036,8 +4027,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4051,8 +4042,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4066,8 +4057,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4081,8 +4072,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4096,8 +4087,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4111,8 +4102,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4126,13 +4117,13 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
-                                 
+
                                  {(charClass==="Warrior" && rarity==="Common" && bodyPart==="Legs" )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
@@ -4142,22 +4133,22 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
-                           
-                              
-                                
-                              
+
+
+
+
                                {/* Mage-Mage-Rare-All */}
                                {(charClass==="Mage" && rarity==="Rare" && bodyPart==="All" )?
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -4167,8 +4158,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4182,8 +4173,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4197,8 +4188,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4212,8 +4203,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4227,8 +4218,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4239,7 +4230,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="Common" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -4249,8 +4240,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4264,8 +4255,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4279,8 +4270,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4294,8 +4285,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4309,8 +4300,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4320,7 +4311,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="Uncommon" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -4330,8 +4321,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4345,8 +4336,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4360,8 +4351,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4375,8 +4366,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4390,8 +4381,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4401,7 +4392,7 @@ function Outfit({setGems}){
                               <div className="shop-categoryName">
                                     <h5>Mage</h5>
                               </div>:""
-                              }  
+                              }
                               {(charClass==="Mage" && rarity==="Rare" && bodyPart==="Head" )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
@@ -4411,8 +4402,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4426,8 +4417,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4441,8 +4432,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4456,8 +4447,8 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
@@ -4471,20 +4462,17 @@ function Outfit({setGems}){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                                </div>    
-                                          ) 
+                                                </div>
+                                          )
                                     }
                                     })}
                                     </div>:""
                               }
-                              
-                           
+
+
                          </div>
                    </div>
-            </div>  
-
-         </section>
-   
+            </div>
     );
 }
 
