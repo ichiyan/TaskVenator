@@ -54,7 +54,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'pickaxe.png',
-            'directory'=> 'weapon/thrust/',
+            'directory'=> 'weapon/slash/',
             'zPos' => '140',
             'outfit_infos'=>'3'
         ],[
