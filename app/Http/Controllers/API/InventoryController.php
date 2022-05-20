@@ -23,28 +23,45 @@ class InventoryController extends Controller
         $user_id= Auth::id();
         // $items=User::with('getItems')->where('id','=', $user_id)->get();
         // $items= Inventory::with('contains')->where('user_id', '=', $user_id)->get();
+        $class= DB::table('users')
+            ->where('avatars.user_info_id', '=', $user_id)
+            ->join('avatars', 'avatars.user_info_id', '=', 'users.id')
+            ->join('avatar_classes', 'avatar_classes.id', '=', 'avatars.class_id')
+            ->get('avatar_classes.name');
+        $avatarClass=$class->pluck('name')[0];
         $item= DB::table('inventories')
                 ->join('users', 'users.id', '=', 'inventories.user_id')
+                ->where('inventories.user_id','=',$user_id)
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('outfit','outfit.id','=','products.outfit')
                 ->where('outfit.outfit_type','=', "Armor")
+                ->where('outfit.class', '=', $avatarClass)
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*','outfit_info.*','inventories.*'  ,'inventories.user_id AS inventUserId']);
 
         $weapon= DB::table('inventories')
                 ->join('users', 'users.id', '=', 'inventories.user_id')
+                ->where('inventories.user_id','=',$user_id)
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('outfit','outfit.id','=','products.outfit')
                 ->where('outfit.outfit_type','=', "Weapon")
+                ->where('outfit.class', '=', $avatarClass)
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*','outfit_info.*','inventories.*','inventories.user_id AS inventUserId']);
 
         $potion= DB::table('inventories')
                 ->join('users', 'users.id', '=', 'inventories.user_id')
+                ->where('inventories.user_id','=',$user_id)
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('potion','potion.id','=','products.potion')
                 ->select('potion.*', 'inventories.user_id AS inventUserId' )
                 ->get();
+
+        // $class= DB::table('users')
+        //         ->where('avatars.user_info_id', '=', $user_id)
+        //         ->join('avatars', 'avatars.user_info_id', '=', 'users.id')
+        //         ->join('avatar_classes', 'avatar_classes.id', '=', 'avatars.class_id')
+        //         ->get('avatar_classes.name');
 
 
 
@@ -66,6 +83,7 @@ class InventoryController extends Controller
             'item' => $item,
             'potion' => $potion,
             'auth_id'=> $user_id,
+            'class'  => $avatarClass
         ]);
     }
 
@@ -141,7 +159,25 @@ class InventoryController extends Controller
                 //equip clicked item
                 DB::update('update inventories set status = ? where id = ?  && user_id = ?',
                           [1, $id, $user_id]);
-            }
+            }else{
+                $to_unequip = DB::table('inventories')
+                        ->where('outfit_type', '=', $outfit_type)
+                        ->where('body_part', '=', $body_part)
+                        ->where('status', '=', 1)
+                        ->get();
+
+                if(count($to_unequip) != 0){
+                    //if there is such item, unequip
+                    $returnID = $to_unequip->pluck('id')[0];
+                    DB::update('update inventories set status = ? where status = ? && outfit_type = ? && body_part = ? && user_id = ?',
+                                [0, 1 , 'Armor',$body_part, $user_id]);
+                 }else{
+                    $returnID = 0;
+                 }
+
+                 DB::update('update inventories set status = ? where id = ?  && user_id = ?',
+                          [1, $id, $user_id]);
+          }
         }
 
         return response()->json([

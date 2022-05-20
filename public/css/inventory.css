@@ -114,11 +114,14 @@
     text-align: center;
     background-color: #8AFF80;
     width: 150px;
+    height:180px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 10px;
 }
 .inventory-itemsImage img{
     margin-top: 10px;
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
 }
 
 /* css for buttons in shop */
@@ -126,7 +129,9 @@
     background-color: #FFFF80;
     width: 100px;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
+
 .inventory-items Button:hover{
     background-color: #C0C034;
 }

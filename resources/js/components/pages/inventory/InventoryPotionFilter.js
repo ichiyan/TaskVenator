@@ -10,9 +10,10 @@ function InventoryPotionFilter({data}){
               <div className="inventory-itemsImage">
               <img src={data.image}></img>
               </div>
-              <div className="inventory-itemsInfo">
+              <div className="inventory-potionsInfo">
                     <h6>{data.name}</h6>
-                    <p>{data.size}</p>
+                    {/* <p>{data.size}</p> */}
+                    <Button type="submit"style={{backgroundColor: "yellow"}}>Use</Button>
                     <div>
                         
                     </div>
