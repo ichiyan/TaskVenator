@@ -21,6 +21,7 @@ class Outfit extends Model
         'body_part',
         'spritesheet_img_name', 
         'directory',
+        'zPos',
         'outfit_infos',
        
     ];

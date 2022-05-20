@@ -25,6 +25,7 @@ class CreateOutfitTable extends Migration
             $table->string('body_part')->nullable();
             $table->string('spritesheet_img_name');
             $table->string('directory');
+            $table->integer('zPos');
             $table->foreignId('outfit_infos')->constrained('outfit_info', 'id');
             $table->timestamps();
         });
