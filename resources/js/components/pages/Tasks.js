@@ -18,8 +18,8 @@ import {Header, React,
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
     const [gems, setGems]= useState();
-  
-    useEffect(()=>{ 
+
+    useEffect(()=>{
         axios.get(`/api/gems`).then(res =>{
               if(res.data.status===200){
                 setGems(res.data.gems);
@@ -99,18 +99,16 @@ import {Header, React,
         renderTab = <GroupTasks/>;
     }else if (tab === "tasks"){
         renderTab = <TasksTab/>;
-    }else if (tab === "all"){
-        renderTab = <All setGems={setGems}/>;
-    }else if (tab === "outfit"){
-        renderTab = <Outfit setGems={setGems}/>;
-    }else if (tab === "weapons"){
-        renderTab = <Weapons setGems={setGems}/>;
-    }else if (tab === "potions"){
-        renderTab = <Potions setGems={setGems}/>;
+    // }else if (tab === "all"){
+    //     renderTab = <All setGems={setGems}/>;
+    // }else if (tab === "outfit"){
+    //     renderTab = <Outfit setGems={setGems}/>;
+    // }else if (tab === "weapons"){
+    //     renderTab = <Weapons setGems={setGems}/>;
+    // }else if (tab === "potions"){
+    //     renderTab = <Potions setGems={setGems}/>;
     }else if (tab === "shop"){
         renderTab = <Shop setGems={setGems}/>;
-    }else if(tab ==="cards"){
-        renderTab =<Cards/>;
     }else if(tab ==="inventory"){
         renderTab =<Inventory/>;
     }else if(tab ==="inventoryOutfit"){
@@ -121,7 +119,7 @@ import {Header, React,
         renderTab =<InventoryWeapons/>;
     }
 
-    
+
 
 
     return (

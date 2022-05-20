@@ -10,8 +10,8 @@ function Weapons({setGems}){
     const [hp, setHp] = useState(50);
     const [xp, setXp] = useState(0);
 
-   
-    
+
+
     const [hpBarWidth, sethpBarWidth] = useState("100");
     const [hpHitWidth, sethpHitWidth] = useState("0");
     const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
@@ -20,29 +20,29 @@ function Weapons({setGems}){
     const[rarity, setRarity]=useState("All");
     const[avatarClass, setAvatarClass]=useState("");
 
-  
+
 
   const[display2,setDisplay2]=useState({
         weapons:[],
   });
-  
+
   const rarityHandler=(e)=>{
       setRarity(e.target.value);
-   
-      
+
+
   }
   const classHandler=(e)=>{
         setCharClass(e.target.value);
-        
+
   }
   useEffect(() =>{
      axios.get(`/api/outfit`).then(res =>{
            if(res.data.status===200){
-                 
-                 
+
+
                  setDisplay2({
                        weapons:res.data.weapon
-                      
+
                  })
 
                  if(res.data.avatar[0].name === "warrior"){
@@ -52,11 +52,11 @@ function Weapons({setGems}){
                 }else{
                       setAvatarClass("Mage")
                 }
-                
 
-                 
+
+
            }
-         
+
      })
   },[])
 //   const countType=()=>{
@@ -80,14 +80,6 @@ function Weapons({setGems}){
   }
 
     return(
-      <section className="container party-section">
-            <div className="party-nav">
-                        <div className="party-nav-item"><Link to="/all">All</Link></div>
-                        <div className="party-nav-item"><Link to="/potions">Potions</Link></div>
-                        <div className="party-nav-item party-active-nav"><Link to="/weapons">Weapons</Link></div>
-                        {/* <div className="party-nav-item"><Link to="/cards">Cards</Link></div> */}
-                        <div className="party-nav-item"><Link to="/outfit">Outfit</Link></div>
-            </div>
       <div className="shop-filtShop">
           <div className="shop-filter">
                       <p>Class</p>
@@ -106,15 +98,15 @@ function Weapons({setGems}){
                             </select><br></br>
           </div>
 
-          <div className="shop-shop"> 
+          <div className="shop-shop">
              <div className="shop-category">
-                   {/* { (Object.keys(display2.weapons).length != 0)? 
+                   {/* { (Object.keys(display2.weapons).length != 0)?
                         <div className="shop-categoryName">
                         <p>Weapons</p>
                        </div>:""
-                        
+
                    } */}
-                  
+
                    {(charClass==="All" && rarity==="All")?<div>
                    <div className="shop-categoryName">
                         <p>Warrior</p>
@@ -124,8 +116,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -139,8 +131,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -150,15 +142,15 @@ function Weapons({setGems}){
                      <p>Mage</p>
                      </div>
                       {display2.weapons.map((w,index)=>{
-                            
+
                                   if(w.class==="Mage"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
-                                }    
-                             
+                                    </div>
+                                  )
+                                }
+
                         })}
                       </div>:""
                     }
@@ -171,8 +163,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -186,8 +178,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -201,8 +193,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -216,8 +208,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -231,8 +223,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -246,8 +238,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -261,8 +253,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -276,8 +268,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -291,8 +283,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -306,8 +298,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -321,8 +313,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -336,8 +328,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -351,8 +343,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -366,8 +358,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -381,8 +373,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -396,8 +388,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -411,8 +403,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -426,8 +418,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -441,8 +433,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -456,8 +448,8 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
@@ -471,19 +463,18 @@ function Weapons({setGems}){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
                                     <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
-                                    </div>    
-                                  ) 
+                                    </div>
+                                  )
                           }
                         })}
                         </div>:""
                   }
-                  
+
                         </div>
                 </div>
-          </div>  
+          </div>
 
- </section>
-   
+
     );
 }
 
