@@ -15,14 +15,10 @@ class CreateOutfitInfoTable extends Migration
     {
         Schema::create('outfit_info', function (Blueprint $table) {
             $table->id();
-            $table->integer('p_attack');
-            $table->integer('m_attack');
-            $table->integer('p_def');
-            $table->integer('m_def');
             $table->integer('str');
             $table->integer('int');
             $table->integer('agi');
-            $table->integer('crit');
+            $table->integer('crit_chance');
             $table->integer('crit_dmg');
             $table->integer('price');
             $table->timestamps();

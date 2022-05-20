@@ -54,14 +54,14 @@ class OutfitController extends Controller
     public function store(Request $request){
 
         $outfit_info= new OutfitInfo;
-        $outfit_info->p_attack= $request->input('p_attack');
-        $outfit_info->m_attack= $request->input('m_attack');
-        $outfit_info->p_def= $request->input('p_def');
-        $outfit_info->m_def= $request->input('m_def');
+        // $outfit_info->p_attack= $request->input('p_attack');
+        // $outfit_info->m_attack= $request->input('m_attack');
+        // $outfit_info->p_def= $request->input('p_def');
+        // $outfit_info->m_def= $request->input('m_def');
         $outfit_info->str= $request->input('str');
         $outfit_info->int= $request->input('int');
         $outfit_info->agi= $request->input('agi');
-        $outfit_info->crit= $request->input('crit');
+        $outfit_info->crit= $request->input('crit_chance');
         $outfit_info->crit_dmg= $request->input('crit_dmg');
         $outfit_info->price= $request->input('price');
         $outfit_info->save();
