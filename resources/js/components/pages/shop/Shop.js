@@ -32,6 +32,7 @@ function Shop({setGems}){
     const [items, setItems] = useState();
 
     const selections = useRef([]);
+    const actual_selections = useRef([]);
 
 
     useEffect(()=>{
@@ -51,6 +52,7 @@ function Shop({setGems}){
             isFemale.current = data.sex;
             skinTone.current = data.skin_tone;
             selections.current = data.items;
+            actual_selections.current = data.items;
 
             var chClass = charClass.current;
             if(chClass === "warrior"){
@@ -61,7 +63,6 @@ function Shop({setGems}){
                 cycles.current = 6;
             }else if(chClass === "marksman"){
                 frameY.current = 18;
-                frameX.current = 2;
                 cycles.current = 10;
             }
 
@@ -94,6 +95,10 @@ function Shop({setGems}){
                     }else if(selection.base_src.indexOf("slash_oversize") != -1){
                         frameY.current = 10;
                         cycles.current = 8;
+                    }else if(selection.base_src.indexOf("bow") != -1){
+                        frameY.current = 18;
+                        frameX.current = 2;
+                        cycles.current = 10;
                     }else{
                         frameY.current = 14;
                         cycles.current = 8;
@@ -101,18 +106,26 @@ function Shop({setGems}){
             })
         }else if(charClass.current == "mage"){
             selections.current.forEach(selection => {
-                if(selection.base_src.indexOf("thrust") != -1){
-                    frameY.current = 6;
-                    cycles.current = 7;
-                }else if(selection.base_src.indexOf("slash/") != -1){
-                    frameY.current = 14;
-                    cycles.current = 5;
-                }else if(selection.base_src.indexOf("slash_oversize") != -1){
-                    frameY.current = 10;
-                    cycles.current = 8;
+                if(selection.img_name != "simple_staff.png") {
+                    if(selection.base_src.indexOf("thrust") != -1){
+                        frameY.current = 6;
+                        cycles.current = 7;
+                    }else if(selection.base_src.indexOf("slash/") != -1){
+                        frameY.current = 14;
+                        cycles.current = 5;
+                    }else if(selection.base_src.indexOf("slash_oversize") != -1){
+                        frameY.current = 10;
+                        cycles.current = 8;
+                    }else if(selection.base_src.indexOf("bow") != -1){
+                        frameY.current = 18;
+                        cycles.current = 10;
+                    }else{
+                        frameY.current = 14;
+                        cycles.current = 8;
+                    }
                 }else{
-                    frameY.current = 14;
-                    cycles.current = 8;
+                    frameY.current = 2;
+                    cycles.current = 6;
                 }
             })
         }
@@ -144,7 +157,6 @@ function Shop({setGems}){
     const updatePreview = (item) => {
         console.log("IN SHOP")
         console.log(item)
-
         if(item.item_type == "weapon"){
             selections.current = selections.current.filter(selection => selection.base_src.indexOf("weapon") == -1);
         }else{
@@ -155,6 +167,9 @@ function Shop({setGems}){
         console.log(selections.current)
     }
 
+    const resetAvatarPreview = () => {
+        selections.current = actual_selections.current;
+    }
 
     return(
         <section className="container shop-wrapper">
@@ -177,7 +192,7 @@ function Shop({setGems}){
                 <div id="shop-preview-animations-box">
                     <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
                     <center>
-                        <button className="btn-custom-primary reset-shop-preview-btn">Reset</button>
+                        <button onClick={resetAvatarPreview} className="btn-custom-primary reset-shop-preview-btn">Reset</button>
                     </center>
                 </div>
             </section>

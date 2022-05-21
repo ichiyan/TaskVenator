@@ -710,7 +710,7 @@ class OutfitTableSeeder extends Seeder
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
-            'spritesheet_img_name'=> 'hijab.jpg',
+            'spritesheet_img_name'=> 'hijab.png',
             'directory'=> 'hat/cloth/',
             'zPos' => '130',
             'outfit_infos'=>'48'
@@ -1610,7 +1610,7 @@ class OutfitTableSeeder extends Seeder
             //DEFAULT MARKSMAN WEAPON
             'id'=> '110',
             'outfit_type'=> 'Weapon',
-            'sex'=> 'Unisex',
+            'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/marksmanWeapon.png',
             'female_image'=> 'assets/images/weapons/marksmanWeapon.png',
             'name'=> 'MRK-Default Weapon',
