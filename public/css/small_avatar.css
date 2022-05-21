@@ -1,0 +1,48 @@
+.b-avatar {
+    text-align: center;
+    font-size: 0.857rem;
+    font-weight: 600;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: inherit;
+    font-weight: 400;
+    line-height: 1;
+    max-width: 100%;
+    max-height: auto;
+    overflow: visible;
+    position: relative;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.avatar-circle {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.custom-border-left {
+    border-left: 2px solid red;
+}
+
+.bg-gradient {
+    background: linear-gradient(180deg,
+                rgba(0,0,0,0.2805497198879552) 0%, 
+                rgba(61,61,61,0.26094187675070024) 31%, 
+                rgba(111,111,111,0.2497373949579832) 61%,
+                rgba(144,144,144,0.2189250700280112) 100%
+            )
+}
+
