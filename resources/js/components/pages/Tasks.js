@@ -108,7 +108,7 @@ import {Header, React,
     // }else if (tab === "potions"){
     //     renderTab = <Potions setGems={setGems}/>;
     }else if (tab === "shop"){
-        renderTab = <Shop setGems={setGems}/>;
+        renderTab = <Shop setGems={setGems} gems={gems}/>;
     }else if(tab ==="inventory"){
         renderTab =<Inventory/>;
     }else if(tab ==="inventoryOutfit"){

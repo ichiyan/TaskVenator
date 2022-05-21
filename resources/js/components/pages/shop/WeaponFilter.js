@@ -4,7 +4,7 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 
 
-function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
+function WeaponFilter({data, value, avatarClass,setGems,gems, updatePreview}){
       const [passProductId, setPassProductId]= useState({
             product: '',
             amount :'',
@@ -17,7 +17,7 @@ function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
              e.preventDefault();
 
           if(e.target.class.value===avatarClass){
-            Swal.fire("You have successfully bought the item");
+            
             setPassProductId({
                   product:e.target.product.value,
                   amount: e.target.amount.value,
@@ -38,13 +38,16 @@ function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
             }
             if(data.product === "" || data.amount==="" || data.type==="" ){
                   console.log("empty")
-            }else{
+            }else if((gems-data.amount)>=0){
                   axios.post(`/api/addBought`, data).then(res =>{
                         if(res.data.status === 200){
+                        Swal.fire("You have successfully bought the item");
                            setGems(res.data.gems);
                            console.log(res.data.message);
                         }
                       });
+            }else{
+                  Swal.fire("Not Enough Gems :(");
             }
 
        }, [passProductId])

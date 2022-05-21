@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
-function OutfitFilter({data, value, avatarClass,setGems, updatePreview}){
+function OutfitFilter({data, value, avatarClass,setGems,gems, updatePreview}){
     const [passProductId, setPassProductId]= useState({
           product: '',
           amount :'',
@@ -15,7 +15,6 @@ function OutfitFilter({data, value, avatarClass,setGems, updatePreview}){
       e.preventDefault();
       //     Swal.fire("You have successfully bought the item");
           if(e.target.class.value===avatarClass){
-            Swal.fire("You have successfully bought the item");
             setPassProductId({
                     product:e.target.product.value,
                     amount: e.target.amount.value,
@@ -40,15 +39,18 @@ function OutfitFilter({data, value, avatarClass,setGems, updatePreview}){
       }
       if(data.product === "" || data.amount===""){
             console.log("empty")
-      }else{
+      }else if((gems-data.amount)>=0){
             axios.post(`/api/addBought`, data).then(res =>{
                   if(res.data.status === 200){
-                     setGems(res.data.gems)
+                  Swal.fire("You have successfully bought the item");
+                     setGems(res.data.gems);
                      console.log(res.data.message);
                   }else {
                     // setPotion({...potion,error_list:res.data.errors});
                   }
                 });
+      }else{
+            Swal.fire("Not Enough Gems :(");
       }
 
 
