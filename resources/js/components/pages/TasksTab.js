@@ -98,29 +98,29 @@ const TasksTab = () => {
                             <div className="party-avatar-info">
                                 <div  className="col avatar-header-info align-self-center"> 
                                         {/* <h1>ongoing battle here sdasd</h1> */}
-                                    <div className="monster-header">
                                         <p style={{color: "white"}}>MONSTER NAME</p>
-                                        <img className="class-icon" src="assets/images/monster.gif"></img>
+                                    <div className="monster-header">
+                                        <img className="class-icon" src="assets/images/monster4.gif"></img>
                                     </div>
                                     <div className="col monster-header-info align-self-start">
-                                        <div className="health-section">
-                                            <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>
-                                            <span className="health-bar" data-total={hpTotal} data-value={hp}>
-                                                <div className="hp bar" style={{width: hpBarWidth + "%"}}>
-                                                    <div className="transition decrease" style={{width: hpHitWidth + "%"}}></div>
-                                                </div>
-                                                <div className="transition increase" style={{width: HpIncreaseWidth + "%"}}></div>
-                                            </span>
-                                            <span className="hp-txt">{hp}/{hpTotal}</span>
-                                        </div>
-                                        <div className="xp-section">
-                                            <span> <img className="health-icon" src="assets/images/xp-icon.png"></img></span>
-                                            <span className="xp-bar" data-total={xpTotal} data-value={xp}>
-                                                <div className="xp bar"style={{width: xpBarWidth + "%"}}> </div>
-                                                <div className="transition increase" style={{width: xpIncreaseWidth + "%"}}></div>
-                                            </span>
-                                            <span className="xp-txt">{xp}/{xpTotal}</span>
-                                        </div>
+                                            <div className="health-section">
+                                                <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>
+                                                <span className="health-bar" data-total={hpTotal} data-value={hp}>
+                                                    <div className="hp bar" style={{width: hpBarWidth + "%"}}>
+                                                        <div className="transition decrease" style={{width: hpHitWidth + "%"}}></div>
+                                                    </div>
+                                                    <div className="transition increase" style={{width: HpIncreaseWidth + "%"}}></div>
+                                                </span>
+                                                <span className="hp-txt">{hp}/{hpTotal}</span>
+                                            </div>
+                                            <div className="xp-section">
+                                                <span> <img className="health-icon" src="assets/images/xp-icon.png"></img></span>
+                                                <span className="xp-bar" data-total={xpTotal} data-value={xp}>
+                                                    <div className="xp bar"style={{width: xpBarWidth + "%"}}> </div>
+                                                    <div className="transition increase" style={{width: xpIncreaseWidth + "%"}}></div>
+                                                </span>
+                                                <span className="xp-txt">{xp}/{xpTotal}</span>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

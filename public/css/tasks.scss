@@ -303,36 +303,53 @@
     position: fixed;
     width: 30%;
     background-color:#343646;
+    // border: 10px solid blue;
     .party-avatar-info{
-        // display: flex;
-        // flex-direction: column;
+        display: flex;
+        flex-direction: column;
         // border: 10px solid green;
         // gap: 5rem;
+        // border: 10px solid red;
+        height: 95%;
         .avatar-header-info {
-            height: 100%;
+            height: 95%;
+            width: 95%;
             margin-top: 20px;
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
-            // flex-direction: column;
-            // gap: 2rem;
-
-            .monster-header-info{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                background-color: #2F3144;
-                margin-left: 20px;
-                margin-right: 20px;
-                border-radius: 5px;
-            }
-            
+            display: flex;
+            // flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            // gap: 1rem;
+            // border: 10px solid yellow;
             .monster-header{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                flex: 8;
+                //    border: 10px solid green;
+            }
+            .monster-header-info{
+                display: flex;
+                flex: 4;
+                flex-direction: column;
+                // align-items: center;
+                // justify-content: center;
+                background-color: #2F3144;
+                margin-left: 20px;
+                margin-right: 20px;
+                // margin: center;
+                border-radius: 5px;
+                // margin-top: 20px;
+                width: 90%;
+                height: 10px;
+                //    border: 10px solid black;
+            }
+            
+            .monster-header img{
+                height: auto;
+                width: 130px;
             }
             .first-row{
                 display: inline-block;
@@ -376,21 +393,26 @@
             }
 
             .xp-section{
-                padding-bottom: 5px;
+                // padding-bottom: 5px;
                 // background-color: #3ac162;
                 width: 90%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                margin-left: 18px;
+                // border: 10px solid yellow;
             }
             .health-section{
+                // padding-top: 5px;
                 padding-bottom: 5px;
                 // background-color: #3ac162;
                 width: 90%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-top: 30px;
+                // margin-top: 30px;
+                margin-left: 18px;
+                // border: 10px solid blue;
             }
 
             .health-icon, .xp-icon{
