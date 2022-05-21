@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\BattleController;
+use App\Http\Controllers\API\BattleController;
+use App\Http\Controllers\API\MessageController;
+use App\Http\Controllers\API\OutfitController;
+use App\Http\Controllers\API\PartyController;
+use App\Http\Controllers\API\PotionController;
 use App\Http\Controllers\TasksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\MessageController;
-use App\Http\Controllers\API\PotionController;
-use App\Http\Controllers\API\OutfitController;
-use App\Http\Controllers\API\PartyController;
 
 /*
 |--------------------------------------------------------------------------

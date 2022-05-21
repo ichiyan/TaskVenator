@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Models\Battle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BattleController extends Controller
 {
@@ -12,15 +14,15 @@ class BattleController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
         //for individual battle
-        $id = Auth::user()->id;
-        $battle= Battle::all(); //waiting for battle table to be restructured
-
+        $id = Auth::id();
+        $battle= Battle::find(1); //waiting for battle table to be restructured
         return response()->json([
             'status' => 200,
             'battle' => $battle,
+            'id'=> $id
         ]);
     }
 

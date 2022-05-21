@@ -9,10 +9,9 @@ import axios from "axios";
 const TasksTab = () => {
     var colWidth = "30%";
     const [show, setShow] = useState(false);
-    // const [items, setItems] = useState({
-    //     items:[],
-    // });
-    // const [DataisLoaded, setDataisLoaded] = useState(false);
+    const [battle, setBattle] = useState({
+        battle:[], id_user:null
+    });
     const handleShow = () =>setShow(!show);
 
     if(show){
@@ -23,26 +22,16 @@ const TasksTab = () => {
 
     var name1 = "SE Project"
 
-    // function componentDidMount() {
-    //     fetch(
-    //         "https://jsonplaceholder.typicode.com/users")
-    //         .then((res) => res.json())
-    //         .then((json) => {
-    //             setItems(json);
-    //             setDataisLoaded(true)
-    //             });
-    // }
-    // useEffect(() =>{
-    //     axios.get(`/api/battle`).then(res =>{
-    //         if(res.data.status===200){
-    //             setItems({
-    //                 items:res.data
-    //             })
-    //         }
-    //     })
-    // },[])
-
-    // if(!DataisLoaded) return <div><h1> Please wait some time.... </h1></div>;
+    useEffect(() =>{
+        axios.get(`/api/battle`).then(res =>{
+            if(res.data.status===200){
+                setBattle({
+                    battle:res.data.battle,
+                    id_user:res.data.id
+                })
+            }
+        })
+    },[])
 
     return( //will change class names
         <section className="container tasks-section">
@@ -86,6 +75,7 @@ const TasksTab = () => {
                     {show && <div className="tasks-col col-battle">
                         <Button>Forfeit battle</Button>
                         <div> ongoing battle here </div>
+                        {/*<div> {battle} </div>*/}
                     </div> }
 
                 </div>
