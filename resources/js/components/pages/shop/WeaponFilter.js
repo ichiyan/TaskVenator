@@ -53,8 +53,10 @@ function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
            console.log("ITEM CLICKED")
            updatePreview({
                body_part: data.body_part,
-               female_image: data.female_image,
-               male_image: data.male_image,
+               sex: data.sex.toLowerCase(),
+               base_src: 'assets/images/spritesheets/' + data.directory,
+               img_name: data.spritesheet_img_name,
+               zPos: data.zPos,
            });
        }
 

@@ -15,8 +15,6 @@ function Shop({setGems}){
     const sex = useRef();
     const isFemale = useRef();
     const skinTone = useRef();
-    const frameX = useRef(4);
-    const frameY = useRef();
 
     const avatarCanvasRef = useRef();
     const avatarCtx = useRef();
@@ -25,10 +23,14 @@ function Shop({setGems}){
     const avatarImage = useRef();
 
     const baseDir = 'assets/images/spritesheets/';
-    const spriteWidth = 64;
-    const spriteHeight = 64;
+    const spriteWidth = 64;         // 832px / 13 cols
+    const spriteHeight = 64;        // 1344px / 21 rows
+    const frameY = useRef(10);      // walking anim starts at the 11th row
+    const frameX = useRef(0);       // starts at top left of frameY
+    const cycles = useRef(8);       // walking anim has 9 cycles
 
     const [items, setItems] = useState();
+
     const selections = useRef([]);
 
 
@@ -50,82 +52,85 @@ function Shop({setGems}){
             skinTone.current = data.skin_tone;
             selections.current = data.items;
 
-            console.log("SELECTIONS")
-            console.log(selections.current)
-            animate();
-        });
+            var chClass = charClass.current;
+            if(chClass === "warrior"){
+                frameY.current = 14;
+                cycles.current = 5;
+            }else if(chClass === "mage"){
+                frameY.current = 2;
+                cycles.current = 6;
+            }else if(chClass === "marksman"){
+                frameY.current = 18;
+                frameX.current = 2;
+                cycles.current = 10;
+            }
 
+            var canvas = avatarCanvasRef.current;
+            avatarCtx.current = canvas.getContext('2d');
+            canvas.width = canvas.height = 120;
+
+            avatarImage.current = new Image();
+            avatarImage.current.src = isFemale.current ? baseDir + 'body/female/human/' + skinTone.current + '.png' : baseDir + 'body/male/human/' + skinTone.current + '.png';
+
+            animate()
+        });
      }, []);
 
-    // const animate = () => {
-    //     avatarCtx.current.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    //     avatarCtx.current.fillStyle = bgColor.current;
-    //     avatarCtx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    //     avatarCtx.current.drawImage(previewImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    //     selections.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
-    //     selections.forEach(selection => {
-    //         if ( selection.sex === "unisex" ){
-    //             sex.current = isFemale.current ? "female" : "male";
-    //         }else{
-    //             sex.current = selection.sex;
-    //         }
-    //         if (sex.current === "none"){
-    //             selection.image.src = selection.base_src + selection.img_name;
-    //         }else{
-    //             selection.image.src = selection.base_src + sex.current + "/" + selection.img_name;
-    //         }
-    //         avatarCtx.current.drawImage(selection.image, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    //     });
-    //     if (frameX.current < cycles.current) frameX.current += 1;
-    //     else frameX.current = 0 ;
-    //     setTimeout(animate, 1000 / 8);
-    // }
-
      const animate = () => {
-        var canvas = avatarCanvasRef.current;
-        avatarCtx.current = canvas.getContext('2d');
-        canvas.width = canvas.height = 120;
-
-        avatarImage.current = new Image();
-        avatarImage.current.src = isFemale.current ? baseDir + 'body/female/human/' + skinTone.current + '.png' : baseDir + 'body/male/human/' + skinTone.current + '.png';
-
-        var chClass = charClass.current;
-        if(chClass === "warrior"){
-            frameY.current = 14;
-        }else if(chClass === "mage"){
-            frameY.current = 2;
-        }else if(chClass === "marksman"){
-            frameY.current = 18;
-            frameX.current = 2;
-        }
-
         avatarCtx.current.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         avatarCtx.current.fillStyle = bgColor.current;
         avatarCtx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        avatarImage.current.onload = () => {
-            avatarCtx.current.drawImage(avatarImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-            selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
+        avatarCtx.current.drawImage(avatarImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
+        if(charClass.current == "warrior"){
             selections.current.forEach(selection => {
-                var selectionImg = new Image();
-                if ( selection.sex === "unisex" ){
-                    sex.current = isFemale.current ? "female" : "male";
-                }else{
-                    sex.current = selection.sex;
-                }
-                if (sex.current === "none"){
-                    selectionImg.src = selection.base_src + selection.img_name;
+                    if(selection.base_src.indexOf("thrust") != -1){
+                        frameY.current = 6;
+                        cycles.current = 7;
+                    }else if(selection.base_src.indexOf("slash/") != -1){
+                        frameY.current = 14;
+                        cycles.current = 5;
+                    }else if(selection.base_src.indexOf("slash_oversize") != -1){
+                        frameY.current = 10;
+                        cycles.current = 8;
+                    }else{
+                        frameY.current = 14;
+                        cycles.current = 8;
+                    }
+            })
+        }
+
+        selections.current.forEach(selection => {
+            var selectionImg = new Image();
+            if ( selection.sex === "unisex"){
+                sex.current = isFemale.current ? "female" : "male";
+            }else{
+                sex.current = selection.sex;
+            }
+            if (sex.current === "none"){
+                selectionImg.src = selection.base_src + selection.img_name;
+            }else{
+                if(selection.base_src.indexOf("slash_oversize/") != -1){
+                    selectionImg.src = selection.base_src + sex.current + "/universal/" + selection.img_name;
                 }else{
                     selectionImg.src = selection.base_src + sex.current + "/" + selection.img_name;
                 }
-                selectionImg.onload = () => {
-                    avatarCtx.current.drawImage(selectionImg, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-                 }
-            });
-         }
+            }
+            avatarCtx.current.drawImage(selectionImg, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+        });
+        if (frameX.current < cycles.current) frameX.current += 1;
+        else frameX.current = 0 ;
+        setTimeout(animate, 1000 / 8);
      }
 
     const updatePreview = (item) => {
-
+        console.log("IN SHOP")
+        console.log(item)
+        selections.current = selections.current.filter(selection => selection.base_src.indexOf("weapon") == -1);
+        selections.current.push(item)
+        console.log(selections.current)
+        // animate()
     }
 
 

@@ -54,7 +54,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'pickaxe.png',
-            'directory'=> 'weapon/thrust/',
+            'directory'=> 'weapon/slash/',
             'zPos' => '140',
             'outfit_infos'=>'3'
         ],[
@@ -99,7 +99,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> 'glowsword_blue.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/',
+            'directory'=> 'weapon/slash_oversize_layered/all/universal/',
             'zPos' => '150',
             'outfit_infos'=>'6'
         ],[
@@ -113,7 +113,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> 'glowsword_red.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/',
+            'directory'=> 'weapon/slash_oversize_layered/all/universal/',
             'zPos' => '150',
             'outfit_infos'=>'7'
         ],[
