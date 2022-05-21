@@ -8,7 +8,11 @@ use App\Models\AvatarClass;
 use App\Models\UserInfo;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Inventory;
+use App\Models\Outfit;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class UserInfoController extends Controller
@@ -60,9 +64,111 @@ class UserInfoController extends Controller
         $avatar->class()->associate($avatar_class);
         $avatar->save();
 
+   
+        if($request->class === "warrior"){
+            for($start=106; $start<112; $start++){
+                $inventory= new Inventory;
+                $user_id = Auth::id();
+                // $outfit= DB::table('products')
+                //             ->where('products.outfit', '=', $start)
+                //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
+                //             ->select('outfit.outfit_type', 'outfit.body_part')
+                //             ->get();
+                $inventory->user_id= $user_id;
+                $inventory->product= $start;
+                    if($start<111){
+                        $inventory->outfit_type= "Armor";
+                    }else{
+                        $inventory->outfit_type= "Weapon";
+                    }
+                // $inventory->outfit_type= $outfit->outfit_type;
+                    if($start===106){
+                        $inventory->body_part= "Head";
+                    }else if($start === 107){
+                        $inventory->body_part= "Arms";
+                    }else if($start === 108){
+                        $inventory->body_part= "Torso";
+                    }else if($start === 109){
+                        $inventory->body_part= "Legs";
+                    }else if($start === 110){
+                        $inventory->body_part= "Footwear";
+                    }
+                // $inventory->body_part= $outfit->body_part;
+                $inventory->amount='0';
+                $inventory->status='1';
+                $inventory->save();
+            }
+  
+        }else if($request->class === "marksman"){
+            for($start=112; $start<117; $start++){
+                $inventory= new Inventory;
+                $user_id = Auth::id();
+                // $outfit= DB::table('products')
+                //             ->where('products.outfit', '=', $start)
+                //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
+                //             ->select('outfit.outfit_type', 'outfit.body_part')
+                //             ->get();
+                $inventory->user_id= $user_id;
+                $inventory->product= $start;
+                    if($start<116){
+                        $inventory->outfit_type= "Armor";
+                    }else{
+                        $inventory->outfit_type= "Weapon";
+                    }
+                // $inventory->outfit_type= $outfit->outfit_type;
+                    if($start===112){
+                        $inventory->body_part= "Head";
+                    }else if($start === 113){
+                        $inventory->body_part= "Torso";
+                    }else if($start === 114){
+                        $inventory->body_part= "Legs";
+                    }else if($start === 115){
+                        $inventory->body_part= "Footwear";
+                    }
+                $inventory->amount='0';
+                $inventory->status='1';
+                $inventory->save();
+            }
+        }else{
+            for($start=117; $start<122; $start++){
+                $inventory= new Inventory;
+                $user_id = Auth::id();
+                // $outfit= DB::table('products')
+                //             ->where('products.outfit', '=', $start)
+                //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
+                //             ->select('outfit.outfit_type', 'outfit.body_part')
+                //             ->get();
+                $inventory->user_id= $user_id;
+                $inventory->product= $start;
+                    if($start<121){
+                        $inventory->outfit_type= "Armor";
+                    }else{
+                        $inventory->outfit_type= "Weapon";
+                    }
+                // $inventory->outfit_type= $outfit->outfit_type;
+                    if($start===117){
+                        $inventory->body_part= "Head";
+                    }else if($start === 118){
+                        $inventory->body_part= "Torso";
+                    }else if($start === 119){
+                        $inventory->body_part= "Legs";
+                    }else if($start === 120){
+                        $inventory->body_part= "Footwear";
+                    }
+                $inventory->amount='0';
+                $inventory->status='1';
+                $inventory->save();
+            }
+        }
+    
+
+        
+ 
+
         return response()->json([
             'status' => 200,
             'message' => 'User and Avatar Info Added Successfully',
+            'avatar' => $avatar_class
         ]);
     }
 

@@ -6,31 +6,90 @@ function InventoryPotions(){
     const[inventory,setInventory]=useState({
         potions:[],
   });
+   const[countHealth, setCountHealth]=useState(0);
+   const[countPower, setCountPower]=useState(0);
+   const[countHealSmall, setCountHealSmall]=useState(0);
+   const[countHealMedium, setCountHealMedium]=useState(0);
+   const[countHealLarge, setCountHealLarge]=useState(0);
+   const[countPowerSmall, setCountPowerSmall]=useState(0);
+   const[countPowerMedium, setCountPowerMedium]=useState(0);
+   const[countPowerLarge, setCountPowerLarge]=useState(0);
     const[authId, setAuthId]=useState("");
     const[preview, setPreview]=useState("");
     const[potionType,setPotionType]=useState("All");
     const[size, setSize]=useState("All");
     useEffect(() =>{
+          let healPotion =0;
+          let powerPotion =0;
+
+          let p_small=0;
+          let p_medium=0;
+          let p_large=0;
+
+          let h_small=0;
+          let h_medium=0;
+          let h_large=0;
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
                 
-                
+            //     console.log(res.data.potion[0].type)
                 setInventory({
                     potions:res.data.potion
                    
               })
-              
+            //   console.log(inventory.potions.length)
+          
               setAuthId(res.data.auth_id);
               
-               
+            //    for(var i; i<res.data.potion.length; i++){
+            //          if(res.data.potion[0].type === "Hp Potion"){
+            //               console.log("yes")
+            //          }
+            //    }
+              res.data.potion.map(item=>{
+                    if(item.type === "Hp Potion"){
+                          healPotion++;
+                        if(item.size === "Small"){
+                              h_small++
+                        }else if(item.size === "Medium"){
+                              h_medium++;
+                        }else{
+                              h_large++;
+                        }
+                    }else{
+                        powerPotion++;
+                        if(item.size === "Small"){
+                              p_small++
+                        }else if(item.size === "Medium"){
+                              p_medium++;
+                        }else{
+                              p_large++;
+                        }
                  
+                    }
+              })
+              
+            //   console.log(count);
+
+              setCountHealth(healPotion);
+              setCountHealSmall(h_small);
+              setCountHealMedium(h_medium);
+              setCountHealLarge(h_large);
+
+              setCountPower(powerPotion);
+              setCountPowerSmall(p_small);
+              setCountPowerMedium(p_medium);
+              setCountPowerLarge(p_large);
+            //   console.log(countHealth);
           }
         })
      },[])
      useEffect(()=>{
-            
-            console.log(inventory.potions);
-     },[inventory])
+      // console.log(inventory.potions.length)
+            // console.log(inventory.potions[0]);
+            console.log(countHealth);
+            console.log(countPower);
+     },[countHealth, countPower, inventory])
 
      const previewImage =(event)=>{
         setPreview(event)
@@ -68,17 +127,18 @@ function InventoryPotions(){
                                                 <option value="Large">Large</option>
                                           </select><br></br>
                   </div>
-                <div className="inventory-shop">      
-                 <div className="inventory-category">
-                            
+                <div className="inventory-shop">
+                {(inventory.potions.length!==0)?      
+                 <div className="inventory-category">    
                      {/* POTIONTYPE:ALL SIZE: ALL (DISPLAY ALL POTIONS) */}
-                    { (potionType === "All" && size==="All")?
+                    { (potionType === "All" && size==="All" && countHealth!==0)?
                               <div className="shop-categoryName">
                                     <p>Health Potions</p>
                               </div>:""
                               }
                               {inventory.potions.map((p,index)=>{
                                     if(potionType === "All" && size==="All"){
+                                      if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -86,15 +146,17 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                           }
+                                      }
                                     }
                               })}
-                        { (potionType === "All" && size==="All")?
+                        { (potionType === "All" && size==="All" && countPower!==0)?
                               <div className="shop-categoryName">
                                     <p>Powerup Potions</p>
                               </div>:""
                               }
                               {inventory.potions.map((p,index)=>{
                                     if(potionType === "All" && size==="All"){
+                                      if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -102,6 +164,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                           }
+                                      }
                                     }
                               })}
                         {/* POTIONTYPE:ALL SIZE: SMALL TO LARGE */}
@@ -112,13 +175,15 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if (potionType === "All" && size==="Small"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
                                                       </div> 
                                                 )
-                                                }
+                                          }
+                                      }
                                     }
                               })}
                    { (potionType === "All" && size==="Small")?
@@ -128,6 +193,7 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "All" && size==="Small"){
+                                     if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -135,6 +201,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                      }
                                     }
                               })}
                         {/* POTIONTYPE:ALL SIZE: Medium */}
@@ -145,13 +212,15 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if (potionType === "All" && size==="Medium"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
                                                       </div> 
                                                 )
-                                                }
+                                           }
+                                       }
                                     }
                               })}
                    { (potionType === "All" && size==="Medium")?
@@ -161,6 +230,7 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "All" && size==="Medium"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -168,6 +238,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                          }
                                     }
                               })}
                          {/* POTIONTYPE:ALL SIZE: LARGE*/}
@@ -178,13 +249,15 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if (potionType === "All" && size==="Large"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
                                                       </div> 
                                                 )
-                                                }
+                                           }
+                                      }
                                     }
                               })}
                    { (potionType === "All" && size==="Large")?
@@ -194,6 +267,7 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "All" && size==="Large"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -201,6 +275,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                      }
                                     }
                               })}
                          {/* POTIONTYPE:ALL SIZE: LARGE*/}
@@ -211,23 +286,26 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if (potionType === "All" && size==="Large"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
                                                       </div> 
                                                 )
-                                                }
+                                          }
+                                      }
                                     }
                               })}
                               {/* POTIONTYPE::HPPOTION SIZE:ALL */}
-                   { (potionType === "Hp Potion" && size==="All")?
+                   { (potionType === "Hp Potion" && size==="All" && countHealSmall!==0)?
                               <div className="shop-categoryName">
                                     <p>Small</p>
                               </div>:""
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Hp Potion" && size==="All"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size==="Small"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -235,15 +313,17 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                          }
                                     }
                               })}
-                               { (potionType === "Hp Potion" && size==="All")?
+                               { (potionType === "Hp Potion" && size==="All" && countHealMedium!=0)?
                               <div className="shop-categoryName">
                                     <p>Medium</p>
                               </div>:""
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Hp Potion" && size==="All"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size==="Medium"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -251,15 +331,17 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                      }
                                     }
                               })}
-                                { (potionType === "Hp Potion" && size==="All")?
+                                { (potionType === "Hp Potion" && size==="All" && countHealLarge!=0)?
                               <div className="shop-categoryName">
                                     <p>Large</p>
                               </div>:""
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Hp Potion" && size==="All"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size==="Large"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -267,6 +349,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                       }
                                     }
                               })}
                             
@@ -278,6 +361,7 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Hp Potion" && size==="Small"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size==="Small"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -285,6 +369,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                          }
                                     }
                               })}
                                { (potionType === "Hp Potion" && size==="Medium")?
@@ -294,6 +379,7 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Hp Potion" && size==="Medium"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size==="Medium"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -301,6 +387,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                       }
                                     }
                               })}
                                 { (potionType === "Hp Potion" && size==="Large")?
@@ -310,6 +397,7 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Hp Potion" && size==="Large"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Hp Potion" && p.size==="Large"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -317,17 +405,19 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                       }
                                     }
                               })}
 
                         {/* POTIONTYPE::POWERUP POTION SIZE:ALL */}
-                   { (potionType === "Powerup Potion" && size==="All")?
+                   { (potionType === "Powerup Potion" && size==="All" && countPowerSmall!==0 )?
                               <div className="shop-categoryName">
                                     <p>Small</p>
                               </div>:""
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Powerup Potion" && size==="All"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion" && p.size==="Small"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -335,15 +425,17 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                          }
                                     }
                               })}
-                               { (potionType === "Powerup Potion" && size==="All")?
+                               { (potionType === "Powerup Potion" && size==="All" && countPowerMedium!==0)?
                               <div className="shop-categoryName">
                                     <p>Medium</p>
                               </div>:""
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Powerup Potion" && size==="All"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion" && p.size==="Medium"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -351,15 +443,17 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                       }
                                     }
                               })}
-                                { (potionType === "Powerup Potion" && size==="All")?
+                                { (potionType === "Powerup Potion" && size==="All" &&countPowerLarge!==0)?
                               <div className="shop-categoryName">
                                     <p>Large</p>
                               </div>:""
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Powerup Potion" && size==="All"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion" && p.size==="Large"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -367,6 +461,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                          }
                                     }
                               })}
 
@@ -378,6 +473,7 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Powerup Potion" && size==="Small"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion" && p.size==="Small"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -385,6 +481,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                          }
                                     }
                               })}
                                { (potionType === "Powerup Potion" && size==="Medium")?
@@ -394,6 +491,7 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Powerup Potion" && size==="Medium"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion" && p.size==="Medium"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -401,6 +499,7 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                          }
                                     }
                               })}
                                 { (potionType === "Powerup Potion" && size==="Large")?
@@ -410,6 +509,7 @@ function InventoryPotions(){
                               }
                               {inventory.potions.map((p,index)=>{
                                    if(potionType === "Powerup Potion" && size==="Large"){
+                                    if(p.inventUserId === authId){
                                           if(p.type==="Powerup Potion" && p.size==="Large"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
@@ -417,13 +517,14 @@ function InventoryPotions(){
                                                       </div> 
                                                 )
                                             }
+                                          }
                                     }
                               })}
                               
                     
                     
-                        </div> 
-                 </div>  
+                        </div> :""} 
+                 </div> 
 
 
                  <div className="inventory-preview">

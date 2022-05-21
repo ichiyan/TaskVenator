@@ -1,6 +1,6 @@
-import {Header, Link, React,$,
-    useEffect, useState} from "../../index";
-
+import axios from "axios";
+import {Header, Link, React,$,useEffect, useState} from "../../index";
+ 
 const Home = () => {
 
     const [isLogged, setIsLogged] = useState();
@@ -49,13 +49,14 @@ const Home = () => {
          );
     }
 
+
     return (
         <div>
             <Header page="home"/>
             {/* Hero Section */}
             <section id="hero" className="d-flex justify-content-center align-items-center">
                 <div className="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-                    <h1>Lorem Ipsum,<br/>At vero eos et </h1>
+                    <h1>Lorem Ipsum,<br/>Dolor sit amet</h1>
                     <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
                     {heroButtons}
                 </div>

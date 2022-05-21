@@ -15,7 +15,7 @@ class OutfitTableSeeder extends Seeder
     {
         DB::table('outfit')->insert([
         [
-            //warrior common weapon 
+            //warrior common weapon -done
             'id'=> '1',
             'outfit_type'=> 'Weapon',
             'sex'=> 'Unisex',
@@ -26,7 +26,8 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'shovel.png',
-            'directory'=> 'weapon/thrust/female/shovel.png',
+            'directory'=> 'weapon/thrust/',
+            'zPos' => '140',
             'outfit_infos'=>'1',
         ],[
             'id'=> '2',
@@ -39,7 +40,8 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'spear_black.png',
-            'directory'=> 'weapon/thrust/female/spear_black.png',
+            'directory'=> 'weapon/thrust/',
+            'zPos' => '140',
             'outfit_infos'=>'2'
         ],[
             'id'=> '3',
@@ -52,10 +54,11 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'pickaxe.png',
-            'directory'=> 'weapon/thrust/female/pickaxe.png',
+            'directory'=> 'weapon/slash/',
+            'zPos' => '140',
             'outfit_infos'=>'3'
         ],[
-            //uncommon type warrior weapon
+            //uncommon type warrior weapon -done
             'id'=> '4',
             'outfit_type'=> 'Weapon',
             'sex'=> 'Unisex',
@@ -66,10 +69,11 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> 'waraxe.png',
-            'directory'=> 'weapon/thrust/male/waraxe.png', 
+            'directory'=> 'weapon/slash_oversize/',
+            'zPos' => '140',
             'outfit_infos'=>'4'
         ],[
-          
+
             'id'=> '5',
             'outfit_type'=> 'Weapon',
             'sex'=> 'Unisex',
@@ -80,10 +84,11 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> 'halberd.png',
-            'directory'=> 'weapon/slash_oversize/female/female_halberd.png', 
+            'directory'=> 'weapon/slash_oversize/',
+            'zPos' => '150',
             'outfit_infos'=>'5'
         ],[
-            //rare warrior weap
+            //rare warrior weap - done
             'id'=> '6',
             'outfit_type'=> 'Weapon',
             'sex'=> 'None',
@@ -94,7 +99,8 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> 'glowsword_blue.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/glowsword_blue.png', 
+            'directory'=> 'weapon/slash_oversize_layered/all/universal/',
+            'zPos' => '150',
             'outfit_infos'=>'6'
         ],[
             'id'=> '7',
@@ -103,11 +109,12 @@ class OutfitTableSeeder extends Seeder
             'male_image'=> 'assets/images/weapons/glowsword_red.png',
             'female_image'=> '',
             'name'=> 'Glowing Red Sword',
-            'class'=> 'Warrior',   
+            'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> 'glowsword_red.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/glowsword_red.png', 
+            'directory'=> 'weapon/slash_oversize_layered/all/universal/',
+            'zPos' => '150',
             'outfit_infos'=>'7'
         ],[
             //COMMON MARKSMAN WEAPS
@@ -116,26 +123,28 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/10.png',
             'female_image'=> '',
-            'name'=> 'Common Bow1',
+            'name'=> 'Black Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> '10.png',
-            'directory'=> 'weapon/bow/10.png', //d
+            'directory'=> 'weapon/bow/', //d
+            'zPos' => '140',
             'outfit_infos'=>'8'
-          
+
         ],[
             'id'=> '9',
             'outfit_type'=> 'Weapon',
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/recurve.png',
             'female_image'=> '',
-            'name'=> 'Common Bow2',
+            'name'=> 'Wooden Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'recurve.png',
-            'directory'=> 'weapon/bow/recurve.png', //d
+            'directory'=> 'weapon/bow/', //d
+            'zPos' => '140',
             'outfit_infos'=>'9'
         ],[
             'id'=> '10',
@@ -143,12 +152,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/great.png',
             'female_image'=> '',
-            'name'=> 'Common Bow3',
+            'name'=> 'Normal Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'great.png',
-            'directory'=> 'weapon/bow/great.png', //d
+            'directory'=> 'weapon/bow/', //d
+            'zPos' => '140',
             'outfit_infos'=>'10'
         ],[
             //UNCOMMON MARKSMAN WEAP
@@ -157,12 +167,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/6.png',
             'female_image'=> '',
-            'name'=> 'Uncommon Bow1',
+            'name'=> 'Blue Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'weapon/bow/6.png', //d
+            'directory'=> 'weapon/bow/', //d
+            'zPos' => '140',
             'outfit_infos'=>'11'
         ],[
             'id'=> '12',
@@ -170,12 +181,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/7.png',
             'female_image'=> '',
-            'name'=> 'Uncommon Bow2',
+            'name'=> 'Orange Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> '7.png',
-            'directory'=> 'weapon/bow/7.png', //d
+            'directory'=> 'weapon/bow/', //d
+            'zPos' => '140',
             'outfit_infos'=>'12'
         ],[
             'id'=> '13',
@@ -183,12 +195,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/9.png',
             'female_image'=> '',
-            'name'=> 'Uncommon Bow2',
+            'name'=> 'Green Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> '9.png',
-            'directory'=> 'weapon/bow/9.png', //d
+            'directory'=> 'weapon/bow/', //d
+            'zPos' => '140',
             'outfit_infos'=>'13'
         ],[
             //RARE MARSKMAN WEAP
@@ -197,12 +210,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/8.png',
             'female_image'=> '',
-            'name'=> 'Rare Bow',
+            'name'=> 'Golden Bow',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> '8.png',
-            'directory'=> 'weapon/bow/8.png', //d
+            'directory'=> 'weapon/bow/', //d
+            'zPos' => '140',
             'outfit_infos'=>'14'
         ],[
             //COMMON MAGE WEAP
@@ -211,12 +225,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/weapons/male_cane.png',
             'female_image'=> 'assets/images/weapons/female_cane.png',
-            'name'=> 'Common Cane',
+            'name'=> 'Cane',
             'class'=> 'Mage',
             'rarity_type'=> 'Common',
             'body_part'=> '',
             'spritesheet_img_name'=> 'cane.png',
-            'directory'=> 'weapon/thrust/male/cane.png', 
+            'directory'=> 'weapon/thrust/',
+            'zPos' => '140',
             'outfit_infos'=>'15'
         ],[
             //UNCOMMON MAGE WEAP
@@ -225,12 +240,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/saber.png',
             'female_image'=> '',
-            'name'=> 'Uncommon MageWeap',
+            'name'=> 'Magic Dagger',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> '',
             'spritesheet_img_name'=> 'saber.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/saber.png', //d
+            'directory'=> 'weapon/slash_oversize_layered/all/', //d
+            'zPos' => '150',
             'outfit_infos'=>'16'
         ],[
         //RARE MAGE WEAP
@@ -239,12 +255,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/scythe.png',
             'female_image'=> '',
-            'name'=> 'Rare MageWeap',
+            'name'=> 'Reaper Scythe',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> '',
             'spritesheet_img_name'=> 'scythe.png',
-            'directory'=> 'weapon/slash_oversize_layered/all/scythe.png', //d
+            'directory'=> 'weapon/slash_oversize_layered/all/', //d
+            'zPos' => '150',
             'outfit_infos'=>'17'
         ],[
             //COMMON WARRIOR HEAD
@@ -258,7 +275,8 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'steel_1.png',
-            'directory'=> 'hat/legion/male/steel_1.png', 
+            'directory'=> 'hat/legion/',
+            'zPos' => '130',
             'outfit_infos'=>'18'
         ],[
             'id'=> '19',
@@ -271,7 +289,8 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'round.png',
-            'directory'=> 'hat/horned/round.png', 
+            'directory'=> 'hat/horned/',
+            'zPos' => '130',
             'outfit_infos'=>'19'
         ],[
             //UNCOMMON WARRIOR HEAD
@@ -285,7 +304,8 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'morion_faceplate_plumage.png',
-            'directory'=> 'hat/helmet/male/morion_faceplate_plumage.png', 
+            'directory'=> 'hat/helmet/',
+            'zPos' => '130',
             'outfit_infos'=>'20'
         ],[
             'id'=> '21',
@@ -298,7 +318,8 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'male.png',
-            'directory'=> 'hat/pirate/bonnie_feather/male.png', 
+            'directory'=> 'hat/pirate/bonnie_feather/',
+            'zPos' => '130',
             'outfit_infos'=>'21'
         ],[
             //RARE WARRIOR HEAD
@@ -312,7 +333,8 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'hat/horned/4.png', 
+            'directory'=> 'hat/horned/',
+            'zPos' => '130',
             'outfit_infos'=>'22'
         ],[
             'id'=> '23',
@@ -320,12 +342,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'None',
             'male_image'=> 'assets/images/armors/male_tricorne_captain_pirate_skull.png',
             'female_image'=> '',
-            'name'=> 'Tricorne Pirate Skull Helm',
+            'name'=> 'Tricorne Skull Helm',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
-            'spritesheet_img_name'=> 'male.png',
-            'directory'=> 'hat/pirate/tricorne_captain_pirate_skull/male.png', 
+            'spritesheet_img_name'=> 'walnut.png',
+            'directory'=> 'hat/pirate/tricorne_captain_pirate_skull/',
+            'zPos' => '130',
             'outfit_infos'=>'23'
         ],[
             'id'=> '24',
@@ -338,21 +361,23 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'hat/crown/4.png', 
+            'directory'=> 'hat/crown/',
+            'zPos' => '130',
             'outfit_infos'=>'24'
         ],[
-            //COMMON WARRIOR ARMS  
+            //COMMON WARRIOR ARMS
             'id'=> '25',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_2.png',
             'female_image'=> 'assets/images/armors/female_2.png',
-            'name'=> 'C-1 Arms',
+            'name'=> 'WAR-C-1 Arms',
             'class'=> 'Warrior',
             'rarity_type'=> 'Common',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '2.png',
-            'directory'=> 'arms/male/2.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'25'
         ],[
             //UNCOMMON WARRIOR ARMS
@@ -361,12 +386,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_5.png',
             'female_image'=> 'assets/images/armors/female_5.png',
-            'name'=> 'UC-1 Arms',
+            'name'=> 'WAR-UC-1 Arms',
             'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '5.png',
-            'directory'=> 'arms/male/5.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'26'
         ],[
             'id'=> '27',
@@ -374,12 +400,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_6.png',
             'female_image'=> 'assets/images/armors/female_6.png',
-            'name'=> 'UC-2 Arms',
+            'name'=> 'WAR-UC-2 Arms',
             'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'arms/male/6.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'27'
         ],[
             //RARE WARRIOR ARMS
@@ -388,12 +415,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_3.png',
             'female_image'=> 'assets/images/armors/female_3.png',
-            'name'=> 'R-1 Arms',
+            'name'=> 'WAR-R-1 Arms',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '3.png',
-            'directory'=> 'arms/male/3.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'28'
         ],[
             'id'=> '29',
@@ -401,12 +429,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_4.png',
             'female_image'=> 'assets/images/armors/female_4.png',
-            'name'=> 'R-2 Arms',
+            'name'=> 'WAR-R-2 Arms',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'arms/male/4.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'29'
         ],[
             //COMMON WARRIOR TORSO
@@ -415,12 +444,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_steel.png',
             'female_image'=> 'assets/images/armors/female_steel.png',
-            'name'=> 'C-1 Torso',
+            'name'=> 'WAR-C-1 Torso',
             'class'=> 'Warrior',
             'rarity_type'=> 'Common',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'steel.png',
-            'directory'=> 'torso/armour/legion/male/steel.png', 
+            'directory'=> 'torso/armour/legion/',
+            'zPos' => '60',
             'outfit_infos'=>'30'
         ],[
             //UNCOMMON WARRIOR TORSO
@@ -429,12 +459,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_15.png',
             'female_image'=> 'assets/images/armors/female_15.png',
-            'name'=> 'UC-1 Torso',
+            'name'=> 'WAR-UC-1 Torso',
             'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> '15.png',
-            'directory'=> 'torso/armour/plate/male/15.png', 
+            'directory'=> 'torso/armour/plate/',
+            'zPos' => '60',
             'outfit_infos'=>'31'
         ],[
             'id'=> '32',
@@ -442,12 +473,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Male',
             'male_image'=> 'assets/images/armors/male_brown.png',
             'female_image'=> '',
-            'name'=> 'UC-2 Torso',
-            'class'=> 'Warrior',    
+            'name'=> 'WAR-UC-2 Torso',
+            'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'torso/clothes/longsleeve/male/brown.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
+            'zPos' => '35',
             'outfit_infos'=>'32'
         ],[
             //RARE WARRIOR TORSO
@@ -456,12 +488,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Male',
             'male_image'=> 'assets/images/armors/male_yellow.png',
             'female_image'=> '',
-            'name'=> 'R-1 Torso',
+            'name'=> 'WAR-R-1 Torso',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'torso/clothes/longsleeve/male/yellow.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
+            'zPos' => '35',
             'outfit_infos'=>'33'
         ],[
             'id'=> '34',
@@ -469,12 +502,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_13.png',
             'female_image'=> 'assets/images/armors/female_13.png',
-            'name'=> 'R-2 Torso',
+            'name'=> 'WAR-R-2 Torso',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> '13.png',
-            'directory'=> 'torso/armour/plate/male/13.png', 
+            'directory'=> 'torso/armour/plate/',
+            'zPos' => '60',
             'outfit_infos'=>'34'
         ],[
             'id'=> '35',
@@ -482,12 +516,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_gold.png',
             'female_image'=> 'assets/images/armors/female_gold.png',
-            'name'=> 'R-3 Torso',
+            'name'=> 'WAR-R-3 Torso',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'gold.png',
-            'directory'=> 'torso/armour/legion/male/gold.png', 
+            'directory'=> 'torso/armour/legion/',
+            'zPos' => '60',
             'outfit_infos'=>'35'
         ],[
             //COMMON WARRIOR LEGS
@@ -496,12 +531,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_11.png',
             'female_image'=> 'assets/images/armors/female_11.png',
-            'name'=> 'C-1 Legs',
+            'name'=> 'WAR-C-1 Legs',
             'class'=> 'Warrior',
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '11.png',
-            'directory'=> 'legs/armour/male/11.png', 
+            'directory'=> 'legs/armour/',
+            'zPos' => '20',
             'outfit_infos'=>'36'
         ],[
             //UNCOMMON WARRIOR LEGS
@@ -510,12 +546,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_12.png',
             'female_image'=> 'assets/images/armors/female_12.png',
-            'name'=> 'UC-1 Legs',
+            'name'=> 'WAR-UC-1 Legs',
             'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '12.png',
-            'directory'=> 'legs/armour/male/12.png', 
+            'directory'=> 'legs/armour/',
+            'zPos' => '20',
             'outfit_infos'=>'37'
         ],[
             'id'=> '38',
@@ -523,12 +560,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Female',
             'male_image'=> '',
             'female_image'=> 'assets/images/armors/female_brown2.png',
-            'name'=> 'UC-2 Legs',
+            'name'=> 'WAR-UC-2 Legs',
             'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'legs/armour/male/brown.png', 
+            'directory'=> 'legs/armour/',
+            'zPos' => '20',
             'outfit_infos'=>'38'
         ],[
             'id'=> '39',
@@ -536,26 +574,28 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Male',
             'male_image'=> 'assets/images/armors/male_brown2.png',
             'female_image'=> '',
-            'name'=> 'UC-3 Legs',
+            'name'=> 'WAR-UC-3 Legs',
             'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'legs/armour/male/brown.png', 
+            'directory'=> 'legs/armour/',
+            'zPos' => '20',
             'outfit_infos'=>'39'
         ],[
             //RARE WARRIOR LEGS
             'id'=> '40',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
-            'male_image'=> 'assets/images/armors/male_9.jpg',
-            'female_image'=> 'assets/images/armors/female_9.jpg',
-            'name'=> 'R-1 Legs',
+            'male_image'=> 'assets/images/armors/R-1Legs.png',
+            'female_image'=> 'assets/images/armors/R-1Legs.png',
+            'name'=> 'WAR-R-1 Legs',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '9.jpg',
-            'directory'=> 'legs/armour/male/9.jpg', 
+            'directory'=> 'legs/armour/',
+            'zPos' => '20',
             'outfit_infos'=>'40'
         ],[
             'id'=> '41',
@@ -563,12 +603,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_10.png',
             'female_image'=> 'assets/images/armors/female_10.png',
-            'name'=> 'R-2 Legs',
+            'name'=> 'WAR-R-2 Legs',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '10.png',
-            'directory'=> 'legs/armour/male/10.png', 
+            'directory'=> 'legs/armour/',
+            'zPos' => '20',
             'outfit_infos'=>'41'
         ],[
             //COMMON WARRIOR FOOTWEAR
@@ -577,12 +618,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_5.png',
             'female_image'=> 'assets/images/armors/female2_5.png',
-            'name'=> 'C-1 Foot',
+            'name'=> 'WAR-C-1 Foot',
             'class'=> 'Warrior',
             'rarity_type'=> 'Common',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '5.png',
-            'directory'=> 'feet/armor/male/5.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'42'
         ],[
             //UNCOMMON WARRIOR FOOTWEAR
@@ -591,12 +633,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_7.png',
             'female_image'=> 'assets/images/armors/female2_7.png',
-            'name'=> 'UC-1 Foot',
+            'name'=> 'WAR-UC-1 Foot',
             'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '7.png',
-            'directory'=> 'feet/armor/male/7.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'43'
         ],[
             'id'=> '44',
@@ -604,12 +647,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_9.png',
             'female_image'=> 'assets/images/armors/female2_9.png',
-            'name'=> 'UC-2 Foot',
+            'name'=> 'WAR-UC-2 Foot',
             'class'=> 'Warrior',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '9.png',
-            'directory'=> 'feet/armor/male/9.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'44'
         ],[
             //RARE WARRIOR FOOTWEAR
@@ -618,12 +662,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_6.png',
             'female_image'=> 'assets/images/armors/female_6.png',
-            'name'=> 'R-1 Foot',
+            'name'=> 'WAR-R-1 Foot',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'feet/armor/male/6.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'45'
         ],[
             //COMMON MARKSMAN HEAD
@@ -632,12 +677,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_bandana_gray.png',
             'female_image'=> 'assets/images/armors/female_bandana_gray.png',
-            'name'=> 'C-1 Head',
+            'name'=> 'MRK-C-1 Head',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'bandana_gray.png',
-            'directory'=> 'hat/cloth/male/bandana_gray.png', 
+            'directory'=> 'hat/cloth/',
+            'zPos' => '130',
             'outfit_infos'=>'46'
         ],[
             //UNCOMMON MARKSMAN HEAD
@@ -646,25 +692,27 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/hood_black.png',
             'female_image'=> 'assets/images/armors/hood_black.png',
-            'name'=> 'UC-1 Head',
+            'name'=> 'MRK-UC-1 Head',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'hood_black.png',
-            'directory'=> 'hat/cloth/male/hood_black.png', 
+            'directory'=> 'hat/cloth/',
+            'zPos' => '130',
             'outfit_infos'=>'47'
         ],[
             'id'=> '48',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
-            'male_image'=> 'assets/images/armors/hijab.jpg',
-            'female_image'=> 'assets/images/armors/hijab.jpg',
-            'name'=> 'UC-2 Head',
+            'male_image'=> 'assets/images/armors/hijab.png',
+            'female_image'=> 'assets/images/armors/hijab.png',
+            'name'=> 'MRK-UC-2 Head',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'hijab.jpg',
-            'directory'=> 'hat/cloth/male/hijab.png', 
+            'directory'=> 'hat/cloth/',
+            'zPos' => '130',
             'outfit_infos'=>'48'
         ],[
             //RARE MARKSMAN HEAD
@@ -673,12 +721,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_hood_white.png',
             'female_image'=> 'assets/images/armors/female_hood_white.png',
-            'name'=> 'R-1 Head',
+            'name'=> 'MRK-R-1 Head',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'hood_white.png',
-            'directory'=> 'hat/cloth/male/hood_white.png', 
+            'directory'=> 'hat/cloth/',
+            'zPos' => '130',
             'outfit_infos'=>'49'
         ],[
             'id'=> '50',
@@ -686,26 +735,28 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_gold_2.png',
             'female_image'=> 'assets/images/armors/female_gold_2.png',
-            'name'=> 'R-2 Head',
+            'name'=> 'MRK-R-2 Head',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'gold_2.png',
-            'directory'=> 'hat/legion/male/gold_2.png', 
+            'directory'=> 'hat/legion/',
+            'zPos' => '130',
             'outfit_infos'=>'50'
         ],[
-            //COMMON MARKSMAN ARMS  
+            //COMMON MARKSMAN ARMS
             'id'=> '51',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_2.png',
             'female_image'=> 'assets/images/armors/female_2.png',
-            'name'=> 'C-1 Arms',
+            'name'=> 'MRK-C-1 Arms',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '2.png',
-            'directory'=> 'arms/male/2.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'51'
         ],[
             //UNCOMMON MARKSMAN ARMS
@@ -714,12 +765,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_5.png',
             'female_image'=> 'assets/images/armors/female_5.png',
-            'name'=> 'UC-1 Arms',
+            'name'=> 'MRK-UC-1 Arms',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '5.png',
-            'directory'=> 'arms/male/5.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'52'
         ],[
             'id'=> '53',
@@ -727,12 +779,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_6.png',
             'female_image'=> 'assets/images/armors/female_6.png',
-            'name'=> 'UC-2 Arms',
+            'name'=> 'MRK-UC-2 Arms',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'arms/male/6.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'53'
         ],[
             //RARE MARKSMAN ARMS
@@ -741,12 +794,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_3.png',
             'female_image'=> 'assets/images/armors/female_3.png',
-            'name'=> 'R-1 Arms',
+            'name'=> 'MRK-R-1 Arms',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '3.png',
-            'directory'=> 'arms/male/3.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'54'
         ],[
             'id'=> '55',
@@ -754,12 +808,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_4.png',
             'female_image'=> 'assets/images/armors/female_4.png',
-            'name'=> 'R-2 Arms',
+            'name'=> 'MRK-R-2 Arms',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'arms/male/4.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'55'
         ],[
             //COMMON MARKSMAN TORSO
@@ -768,12 +823,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_blue.png',
             'female_image'=> 'assets/images/armors/female_blue.png',
-            'name'=> 'C-1 Torso',
+            'name'=> 'MRK-C-1 Torso',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'torso/armour/leather/male/blue.png', 
+            'directory'=> 'torso/armour/leather/',
+            'zPos' => '60',
             'outfit_infos'=>'56'
         ],[
             //UNCOMMON MARKSMAN TORSO
@@ -782,12 +838,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_blue.png',
             'female_image'=> 'assets/images/armors/female2_blue.png',
-            'name'=> 'UC-1 Torso',
+            'name'=> 'MRK-UC-1 Torso',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'torso/clothes/longsleeve/male/blue.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
+            'zPos' => '35',
             'outfit_infos'=>'57'
         ],[
             'id'=> '58',
@@ -795,12 +852,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_maroon.png',
             'female_image'=> 'assets/images/armors/female_maroon.png',
-            'name'=> 'UC-2 Torso',
+            'name'=> 'MRK-UC-2 Torso',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'maroon.png',
-            'directory'=> 'torso/clothes/longsleeve/male/maroon.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
+            'zPos' => '35',
             'outfit_infos'=>'58'
         ],[
             'id'=> '59',
@@ -808,12 +866,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_black.png',
             'female_image'=> 'assets/images/armors/female_black.png',
-            'name'=> 'UC-3 Torso',
+            'name'=> 'MRK-UC-3 Torso',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'torso/clothes/longsleeve/male/black.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
+            'zPos' => '35',
             'outfit_infos'=>'59'
         ],[
             //RARE MARKSMAN TORSO
@@ -822,12 +881,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_white.png',
             'female_image'=> 'assets/images/armors/female2_white.png',
-            'name'=> 'R-1 Torso',
+            'name'=> 'MRK-R-1 Torso',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'white.png',
-            'directory'=> 'torso/clothes/longsleeve/male/white.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
+            'zPos' => '35',
             'outfit_infos'=>'60'
         ],[
             'id'=> '61',
@@ -835,26 +895,28 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_teal.png',
             'female_image'=> 'assets/images/armors/female_teal.png',
-            'name'=> 'R-2 Torso',
+            'name'=> 'MRK-R-2 Torso',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'torso/clothes/longsleeve/male/teal.png', 
+            'directory'=> 'torso/clothes/longsleeve/',
+            'zPos' => '35',
             'outfit_infos'=>'61'
         ],[
             //COMMON MARKSMAN LEGS
             'id'=> '62',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
-            'male_image'=> 'assets/images/armors/male_8.jpg',
-            'female_image'=> 'assets/images/armors/female_8.jpg',
-            'name'=> 'C-1 Legs',
+            'male_image'=> 'assets/images/armors/male_8.png',
+            'female_image'=> 'assets/images/armors/male_8.png',
+            'name'=> 'MRK-C-1 Legs',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '8.jpg',
-            'directory'=> 'legs/armour/male/8.png', 
+            'directory'=> 'legs/armour/',
+            'zPos' => '20',
             'outfit_infos'=>'62'
         ],[
             //UNCOMMON MARKSMAN LEGS
@@ -863,12 +925,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male3_blue.png',
             'female_image'=> 'assets/images/armors/female3_blue.png',
-            'name'=> 'UC-1 Legs',
+            'name'=> 'MRK-UC-1 Legs',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'legs/pants/male/blue.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'63'
         ],[
             'id'=> '64',
@@ -876,12 +939,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_black.png',
             'female_image'=> 'assets/images/armors/female2_black.png',
-            'name'=> 'UC-2 Legs',
+            'name'=> 'MRK-UC-2 Legs',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'legs/pants/male/black.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'64'
         ],[
             //RARE MARKSMAN LEGS
@@ -890,12 +954,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_teal.png',
             'female_image'=> 'assets/images/armors/female2_teal.png',
-            'name'=> 'R-1 Legs',
+            'name'=> 'MRK-R-1 Legs',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'legs/pants/male/teal.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'65'
         ],[
             'id'=> '66',
@@ -903,12 +968,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_white.png',
             'female_image'=> 'assets/images/armors/female2_white.png',
-            'name'=> 'R-2 Legs',
+            'name'=> 'MRK-R-2 Legs',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'white.png',
-            'directory'=> 'legs/pants/male/white.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'66'
         ],[
             'id'=> '67',
@@ -916,12 +982,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_yellow.png',
             'female_image'=> 'assets/images/armors/female2_yellow.png',
-            'name'=> 'R-3 Legs',
+            'name'=> 'MRK-R-3 Legs',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'legs/pants/male/yellow.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'67'
         ],[
             //COMMON MARKSMAN FOOTWEAR
@@ -930,12 +997,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male3_brown.png',
             'female_image'=> 'assets/images/armors/female3_brown.png',
-            'name'=> 'C-1 Foot',
+            'name'=> 'MRK-C-1 Foot',
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'feet/shoes/male/brown.png', 
+            'directory'=> 'feet/shoes/',
+            'zPos' => '15',
             'outfit_infos'=>'68'
         ],[
             //UNCOMMON MARKSMAN FOOTWEAR
@@ -944,12 +1012,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_maroon.png',
             'female_image'=> 'assets/images/armors/female2_maroon.png',
-            'name'=> 'UC-1 Foot',
+            'name'=> 'MRK-UC-1 Foot',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'maroon.png',
-            'directory'=> 'feet/shoes/male/maroon.png', 
+            'directory'=> 'feet/shoes/',
+            'zPos' => '15',
             'outfit_infos'=>'69'
         ],[
             'id'=> '70',
@@ -957,12 +1026,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_7.png',
             'female_image'=> 'assets/images/armors/female2_7.png',
-            'name'=> 'UC-2 Foot',
+            'name'=> 'MRK-UC-2 Foot',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '7.png',
-            'directory'=> 'feet/armor/male/7.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'70'
         ],[
             'id'=> '71',
@@ -970,12 +1040,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_9.png',
             'female_image'=> 'assets/images/armors/female2_9.png',
-            'name'=> 'UC-3 Foot',
+            'name'=> 'MRK-UC-3 Foot',
             'class'=> 'Marksman',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '9.png',
-            'directory'=> 'feet/armor/male/9.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'71'
         ],[
             //RARE MARKSMAN FOOTWEAR
@@ -984,12 +1055,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_6.png',
             'female_image'=> 'assets/images/armors/female_6.png',
-            'name'=> 'R-1 Foot',
+            'name'=> 'MRK-R-1 Foot',
             'class'=> 'Marksman',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'feet/armor/male/6.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'72'
         ],[
             //COMMON MAGE HEAD
@@ -998,12 +1070,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_brown_2.png',
             'female_image'=> 'assets/images/armors/female_brown_2.png',
-            'name'=> 'C-1 Head',
+            'name'=> 'MGE-C-1 Head',
             'class'=> 'Mage',
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'brown_2.png',
-            'directory'=> 'hat/magic/male/brown_2.png', 
+            'directory'=> 'hat/magic/',
+            'zPos' => '130',
             'outfit_infos'=>'73'
         ],[
             //UNCOMMON MAGE HEAD
@@ -1012,12 +1085,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_no_moon.png',
             'female_image'=> 'assets/images/armors/female_no_moon.png',
-            'name'=> 'UC-1 Head',
+            'name'=> 'MGE-UC-1 Head',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'no_moon.png',
-            'directory'=> 'hat/magic/male/no_moon.png', 
+            'directory'=> 'hat/magic/',
+            'zPos' => '130',
             'outfit_infos'=>'74'
         ],[
             'id'=> '75',
@@ -1025,12 +1099,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_red.png',
             'female_image'=> 'assets/images/armors/female_red.png',
-            'name'=> 'UC-2 Head',
+            'name'=> 'MGE-UC-2 Head',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'red.png',
-            'directory'=> 'hat/magic/male/red.png', 
+            'directory'=> 'hat/magic/',
+            'zPos' => '130',
             'outfit_infos'=>'75'
         ],[
             //RARE MAGE HEAD
@@ -1039,12 +1114,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male3_teal.png',
             'female_image'=> 'assets/images/armors/female3_teal.png',
-            'name'=> 'R-1 Head',
+            'name'=> 'MGE-R-1 Head',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'hat/magic/male/teal.png', 
+            'directory'=> 'hat/magic/',
+            'zPos' => '130',
             'outfit_infos'=>'76'
         ],[
             'id'=> '77',
@@ -1052,12 +1128,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male3_yellow.png',
             'female_image'=> 'assets/images/armors/female3_yellow.png',
-            'name'=> 'R-2 Head',
+            'name'=> 'MGE-R-2 Head',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'hat/magic/male/yellow.png', 
+            'directory'=> 'hat/magic/',
+            'zPos' => '130',
             'outfit_infos'=>'77'
         ],[
             'id'=> '78',
@@ -1065,26 +1142,28 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_moon.png',
             'female_image'=> 'assets/images/armors/female_moon.png',
-            'name'=> 'R-3 Head',
+            'name'=> 'MGE-R-3 Head',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'moon.png',
-            'directory'=> 'hat/magic/male/moon.png', 
+            'directory'=> 'hat/magic/',
+            'zPos' => '130',
             'outfit_infos'=>'78'
         ],[
-            //COMMON MAGE ARMS  
+            //COMMON MAGE ARMS
             'id'=> '79',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_2.png',
             'female_image'=> 'assets/images/armors/female_2.png',
-            'name'=> 'C-1 Arms',
+            'name'=> 'MGE-C-1 Arms',
             'class'=> 'Mage',
             'rarity_type'=> 'Common',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '2.png',
-            'directory'=> 'arms/male/2.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'79'
         ],[
             //UNCOMMON MAGE ARMS
@@ -1093,12 +1172,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_5.png',
             'female_image'=> 'assets/images/armors/female_5.png',
-            'name'=> 'UC-1 Arms',
+            'name'=> 'MGE-UC-1 Arms',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '5.png',
-            'directory'=> 'arms/male/5.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'80'
         ],[
             'id'=> '81',
@@ -1106,12 +1186,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_6.png',
             'female_image'=> 'assets/images/armors/female_6.png',
-            'name'=> 'UC-2 Arms',
+            'name'=> 'MGE-UC-2 Arms',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'arms/male/6.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'81'
         ],[
             //RARE MAGE ARMS
@@ -1120,12 +1201,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_3.png',
             'female_image'=> 'assets/images/armors/female_3.png',
-            'name'=> 'R-1 Arms',
+            'name'=> 'MGE-R-1 Arms',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '3.png',
-            'directory'=> 'arms/male/3.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'82'
         ],[
             'id'=> '83',
@@ -1133,12 +1215,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_4.png',
             'female_image'=> 'assets/images/armors/female_4.png',
-            'name'=> 'R-2 Arms',
+            'name'=> 'MGE-R-2 Arms',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Arms',
             'spritesheet_img_name'=> '4.png',
-            'directory'=> 'arms/male/4.png', 
+            'directory'=> 'arms/',
+            'zPos' => '60',
             'outfit_infos'=>'83'
         ],[
             //COMMON MAGE TORSO
@@ -1147,12 +1230,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Male',
             'male_image'=> 'assets/images/armors/male_dark_gray.png',
             'female_image'=> '',
-            'name'=> 'C-1 Torso',
+            'name'=> 'MGE-C-1 Torso',
             'class'=> 'Mage',
             'rarity_type'=> 'Common',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'dark_gray.png',
-            'directory'=> 'torso/jacket/trench/male/dark_gray.png', 
+            'directory'=> 'torso/jacket/trench/',
+            'zPos' => '55',
             'outfit_infos'=>'84'
         ],[
             //UNCOMMON MAGE TORSO
@@ -1161,12 +1245,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Male',
             'male_image'=> 'assets/images/armors/male4_blue.png',
             'female_image'=> '',
-            'name'=> 'UC-1 Torso',
+            'name'=> 'MGE-UC-1 Torso',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'torso/jacket/collared/male/blue.png', 
+            'directory'=> 'torso/jacket/collared/',
+            'zPos' => '55',
             'outfit_infos'=>'85'
         ],[
             'id'=> '86',
@@ -1174,12 +1259,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Male',
             'male_image'=> 'assets/images/armors/male3_maroon.png',
             'female_image'=> '',
-            'name'=> 'UC-2 Torso',
+            'name'=> 'MGE-UC-2 Torso',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'maroon.png',
-            'directory'=> 'torso/jacket/collared/male/maroon.png', 
+            'directory'=> 'torso/jacket/collared/',
+            'zPos' => '55',
             'outfit_infos'=>'86'
         ],[
             //RARE MAGE TORSO
@@ -1188,12 +1274,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Male',
             'male_image'=> 'assets/images/armors/male4_teal.png',
             'female_image'=> '',
-            'name'=> 'R-1 Torso',
+            'name'=> 'MGE-R-1 Torso',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'torso/jacket/collared/male/teal.png', 
+            'directory'=> 'torso/jacket/collared/',
+            'zPos' => '55',
             'outfit_infos'=>'87'
         ],[
             'id'=> '88',
@@ -1201,26 +1288,28 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Male',
             'male_image'=> 'assets/images/armors/male4_yellow.png',
             'female_image'=> '',
-            'name'=> 'R-2 Torso',
+            'name'=> 'MGE-R-2 Torso',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Torso',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'torso/jacket/collared/male/yellow.png', 
+            'directory'=> 'torso/jacket/collared/',
+            'zPos' => '55',
             'outfit_infos'=>'88'
         ],[
             //COMMON MAGE LEGS
             'id'=> '89',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
-            'male_image'=> 'assets/images/armors/male_8.jpg',
-            'female_image'=> 'assets/images/armors/female_8.jpg',
-            'name'=> 'C-1 Legs',
+            'male_image'=> 'assets/images/armors/male_8.png',
+            'female_image'=> 'assets/images/armors/male_8.png',
+            'name'=> 'MGE-C-1 Legs',
             'class'=> 'Mage',
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '8.jpg',
-            'directory'=> 'legs/armour/male/8.png', 
+            'directory'=> 'legs/armour/',
+            'zPos' => '20',
             'outfit_infos'=>'89'
         ],[
             //UNCOMMON MAGE LEGS
@@ -1229,12 +1318,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male3_blue.png',
             'female_image'=> 'assets/images/armors/female3_blue.png',
-            'name'=> 'UC-1 Legs',
+            'name'=> 'MGE-UC-1 Legs',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'blue.png',
-            'directory'=> 'legs/pants/male/blue.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'90'
         ],[
             'id'=> '91',
@@ -1242,26 +1332,28 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_black.png',
             'female_image'=> 'assets/images/armors/female2_black.png',
-            'name'=> 'UC-2 Legs',
+            'name'=> 'MGE-UC-2 Legs',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'black.png',
-            'directory'=> 'legs/pants/male/black.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'91'
         ],[
-            //RARE MARKSMAN LEGS
+            //RARE MAGE LEGS
             'id'=> '92',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_teal.png',
             'female_image'=> 'assets/images/armors/female2_teal.png',
-            'name'=> 'R-1 Legs',
+            'name'=> 'MGE-R-1 Legs',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'teal.png',
-            'directory'=> 'legs/pants/male/teal.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'92'
         ],[
             'id'=> '93',
@@ -1269,12 +1361,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_white.png',
             'female_image'=> 'assets/images/armors/female2_white.png',
-            'name'=> 'R-2 Legs',
+            'name'=> 'MGE-R-2 Legs',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'white.png',
-            'directory'=> 'legs/pants/male/white.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'93'
         ],[
             'id'=> '94',
@@ -1282,26 +1375,28 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_yellow.png',
             'female_image'=> 'assets/images/armors/female2_yellow.png',
-            'name'=> 'R-3 Legs',
+            'name'=> 'MGE-R-3 Legs',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'yellow.png',
-            'directory'=> 'legs/pants/male/yellow.png', 
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
             'outfit_infos'=>'94'
         ],[
-            //COMMON MARKSMAN FOOTWEAR
+            //COMMON MAGE FOOTWEAR
             'id'=> '95',
             'outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male3_brown.png',
             'female_image'=> 'assets/images/armors/female3_brown.png',
-            'name'=> 'C-1 Foot',
+            'name'=> 'MGE-C-1 Foot',
             'class'=> 'Mage',
             'rarity_type'=> 'Common',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'feet/shoes/male/brown.png', 
+            'directory'=> 'feet/shoes/',
+            'zPos' => '15',
             'outfit_infos'=>'95'
         ],[
             //UNCOMMON MARKSMAN FOOTWEAR
@@ -1310,12 +1405,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_maroon.png',
             'female_image'=> 'assets/images/armors/female2_maroon.png',
-            'name'=> 'UC-1 Foot',
+            'name'=> 'MGE-UC-1 Foot',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> 'maroon.png',
-            'directory'=> 'feet/shoes/male/maroon.png', 
+            'directory'=> 'feet/shoes/',
+            'zPos' => '15',
             'outfit_infos'=>'96'
         ],[
             'id'=> '97',
@@ -1323,12 +1419,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_7.png',
             'female_image'=> 'assets/images/armors/female2_7.png',
-            'name'=> 'UC-2 Foot',
+            'name'=> 'MGE-UC-2 Foot',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '7.png',
-            'directory'=> 'feet/armor/male/7.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'97'
         ],[
             'id'=> '98',
@@ -1336,12 +1433,13 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male2_9.png',
             'female_image'=> 'assets/images/armors/female2_9.png',
-            'name'=> 'UC-3 Foot',
+            'name'=> 'MGE-UC-3 Foot',
             'class'=> 'Mage',
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '9.png',
-            'directory'=> 'feet/armor/male/9.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'98'
         ],[
             //RARE MARKSMAN FOOTWEAR
@@ -1350,13 +1448,254 @@ class OutfitTableSeeder extends Seeder
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_6.png',
             'female_image'=> 'assets/images/armors/female_6.png',
-            'name'=> 'R-1 Foot',
+            'name'=> 'MGE-R-1 Foot',
             'class'=> 'Mage',
             'rarity_type'=> 'Rare',
             'body_part'=> 'Footwear',
             'spritesheet_img_name'=> '6.png',
-            'directory'=> 'feet/armor/male/6.png', 
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
             'outfit_infos'=>'99'
+        ],[
+            //DEFAULT WARRIOR HEAD
+            'id'=> '100',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorHead.png',
+            'female_image'=> 'assets/images/armors/warriorHead.png',
+            'name'=> 'WAR-Default Head',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Head',
+            'spritesheet_img_name'=> 'norman.png',
+            'directory'=> 'feet/armor/',
+            'zPos' => '130',
+            'outfit_infos'=>'100'
+        ],[
+            //DEFAULT WARRIOR ARMS
+            'id'=> '101',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorArms.png',
+            'female_image'=> 'assets/images/armors/warriorArms.png',
+            'name'=> 'WAR-Default Arms',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Arms',
+            'spritesheet_img_name'=> '1.png',
+            'directory'=> 'arms/',
+            'zPos' => '60',
+            'outfit_infos'=>'101'
+        ],[
+            //DEFAULT WARRIOR TORSO
+            'id'=> '102',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorTorso.png',
+            'female_image'=> 'assets/images/armors/warriorTorso.png',
+            'name'=> 'WAR-Default Torso',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Torso',
+            'spritesheet_img_name'=> 'gray.png',
+            'directory'=> 'torso/chainmail/',
+            'zPos' => '50',
+            'outfit_infos'=>'102'
+        ],[
+            //DEFAULT WARRIOR LEGS
+            'id'=> '103',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorLegs.png',
+            'female_image'=> 'assets/images/armors/warriorLegs.png',
+            'name'=> 'WAR-Default Legs',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Legs',
+            'spritesheet_img_name'=> '7.png',
+            'directory'=> 'legs/armour/',
+            'zPos' => '20',
+            'outfit_infos'=>'103'
+        ],[
+            //DEFAULT WARRIOR FOOTWEAR
+            'id'=> '104',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/warriorFeet.png',
+            'female_image'=> 'assets/images/armors/warriorFeet.png',
+            'name'=> 'WAR-Default Footwear',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Footwear',
+            'spritesheet_img_name'=> '4.png',
+            'directory'=> 'feet/armor/',
+            'zPos' => '15',
+            'outfit_infos'=>'104'
+        ],[
+            //DEFAULT WARRIOR WEAPON
+            'id'=> '105',
+            'outfit_type'=> 'Weapon',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/weapons/warriorWeapon.png',
+            'female_image'=> 'assets/images/weapons/warriorWeapon.png',
+            'name'=> 'WAR-Default Weapon',
+            'class'=> 'Warrior',
+            'rarity_type'=> 'Common',
+            'body_part'=> '',
+            'spritesheet_img_name'=> 'dagger.png',
+            'directory'=> 'weapon/slash/',
+            'zPos' => '140',
+            'outfit_infos'=>'105',
+        ],[
+            //DEFAULT MARKSMAN HEAD
+            'id'=> '106',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/marksmanHead.png',
+            'female_image'=> 'assets/images/armors/marksmanHead.png',
+            'name'=> 'MRK-Default Head',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Head',
+            'spritesheet_img_name'=> 'leather.png',
+            'directory'=> 'hat/cloth/',
+            'zPos' => '130',
+            'outfit_infos'=>'106'
+        ],[
+            //DEFAULT MARKSMAN TORSO
+            'id'=> '107',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/marksmanTorso.png',
+            'female_image'=> 'assets/images/armors/marksmanTorso.png',
+            'name'=> 'MRK-Default Torso',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Torso',
+            'spritesheet_img_name'=> 'green.png',
+            'directory'=> 'torso/clothes/longsleeve/',
+            'zPos' => '35',
+            'outfit_infos'=>'107'
+        ],[
+            //DEFAULT MARKSMAN LEGS
+            'id'=> '108',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/marksmanLegs.png',
+            'female_image'=> 'assets/images/armors/marksmanLegs.png',
+            'name'=> 'MRK-Default Legs',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Legs',
+            'spritesheet_img_name'=> 'green.png',
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
+            'outfit_infos'=>'108'
+        ],[
+            //DEFAULT MARKSMAN FOOTWEAR
+            'id'=> '109',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/marksmanFeet.png',
+            'female_image'=> 'assets/images/armors/marksmanFeet.png',
+            'name'=> 'MRK-Default Legs',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Footwear',
+            'spritesheet_img_name'=> 'black.png',
+            'directory'=> 'feet/shoes/',
+            'zPos' => '15',
+            'outfit_infos'=>'109'
+        ],[
+            //DEFAULT MARKSMAN WEAPON
+            'id'=> '110',
+            'outfit_type'=> 'Weapon',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/weapons/marksmanWeapon.png',
+            'female_image'=> 'assets/images/weapons/marksmanWeapon.png',
+            'name'=> 'MRK-Default Weapon',
+            'class'=> 'Marksman',
+            'rarity_type'=> 'Common',
+            'body_part'=> '',
+            'spritesheet_img_name'=> 'normal.png',
+            'directory'=> 'weapon/bow/',
+            'zPos' => '140',
+            'outfit_infos'=>'110'
+        ],[
+            //DEFAULT MAGE HEAD
+            'id'=> '111',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/mageHead.png',
+            'female_image'=> 'assets/images/armors/mageHead.png',
+            'name'=> 'MGE-Default Head',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Head',
+            'spritesheet_img_name'=> 'black.png',
+            'directory'=> 'hat/magic/',
+            'zPos' => '130',
+            'outfit_infos'=>'111'
+        ],[
+            //DEFAULT MAGE TORSO
+            'id'=> '112',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Male',
+            'male_image'=> 'assets/images/armors/mageTorso.png',
+            'female_image'=> '',
+            'name'=> 'MGE-Default Torso',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Torso',
+            'spritesheet_img_name'=> 'black.png',
+            'directory'=> 'torso/jacket/iverness/',
+            'zPos' => '55',
+            'outfit_infos'=>'112'
+        ],[
+            //DEFAULT MAGE LEGS
+            'id'=> '113',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/mageLegs.png',
+            'female_image'=> 'assets/images/armors/mageLegs.png',
+            'name'=> 'MGE-Default Legs',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Legs',
+            'spritesheet_img_name'=> 'navy.png',
+            'directory'=> 'legs/pants/',
+            'zPos' => '20',
+            'outfit_infos'=>'113'
+        ],[
+            //DEFAULT MAGE FOOTWEAR
+            'id'=> '114',
+            'outfit_type'=> 'Armor',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/armors/mageFeet.png',
+            'female_image'=> 'assets/images/armors/mageFeet.png',
+            'name'=> 'MGE-Default Feet',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> 'Footwear',
+            'spritesheet_img_name'=> 'black.png',
+            'directory'=> 'feet/shoes/',
+            'zPos' => '15',
+            'outfit_infos'=>'114'
+        ],[
+            //DEFAULT MAGE FOOTWEAR
+            'id'=> '115',
+            'outfit_type'=> 'Weapon',
+            'sex'=> 'Unisex',
+            'male_image'=> 'assets/images/weapons/mageWeapon.png',
+            'female_image'=> 'assets/images/weapons/mageWeapon.png',
+            'name'=> 'MGE-Default Weapon',
+            'class'=> 'Mage',
+            'rarity_type'=> 'Common',
+            'body_part'=> '',
+            'spritesheet_img_name'=> 'simple_staff.png',
+            'directory'=> 'weapon/thrust/',
+            'zPos' => '140',
+            'outfit_infos'=>'115'
         ]
     ]);
    }

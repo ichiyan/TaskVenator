@@ -5,33 +5,99 @@ import InventoryOutfitFilter from "./InventoryOutfitFilter";
 
 function InventoryOutfit(){
     const[inventory,setInventory]=useState({
-        items:[],
+        armors:[],
   });
+    const[head, setHead]=useState({
+        head:[],
+    })
+    const[commonArms, setCommonArms]=useState(0);
+
+    const[uncommonHead, setUncommonHead]=useState(0);
+    const[uncommonArms, setUncommonArms]=useState(0);
+    const[uncommonTorso, setUncommonTorso]=useState(0);
+    const[uncommonLegs, setUncommonLegs]=useState(0);
+    const[uncommonFootwear, setUncommonFootwear]=useState(0);
+
+    const[rareHead, setRareHead]=useState(0);
+    const[rareArms, setRareArms]=useState(0);
+    const[rareTorso, setRareTorso]=useState(0);
+    const[rareLegs, setRareLegs]=useState(0);
+    const[rareFootwear, setRareFootwear]=useState(0);
+
     const[authId, setAuthId]=useState("");
     const[preview, setPreview]=useState("");
     const[charClass,setCharClass]=useState("All");
     const[rarity, setRarity]=useState("All");
     const[bodyPart, setBodyPart]=useState("All");
     useEffect(() =>{
+        let c_arms=0;
+
+        let uc_head=0;
+        let uc_arms=0;
+        let uc_torso=0;
+        let uc_legs=0;
+        let uc_footwear=0;
+
+        let r_head=0;
+        let r_arms=0;
+        let r_torso=0;
+        let r_legs=0;
+        let r_footwear=0;
+
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-             
-                
                 setInventory({
-                   items:res.data.item
-                   
-              })
-              
+                   armors:res.data.item     
+              })   
               setAuthId(res.data.auth_id);
-              
-               
-                 
+
+              res.data.item.map(item=>{
+                if(item.rarity_type === "Common" && item.body_part ==="Arms"){
+                    c_arms++;
+                }else if(item.rarity_type === "Uncommon" && item.body_part ==="Head"){
+                      uc_head++;
+                }else if(item.rarity_type === "Uncommon" && item.body_part ==="Arms"){
+                    uc_arms++;
+                }else if(item.rarity_type === "Uncommon" && item.body_part ==="Torso"){
+                    uc_torso++;
+                }else if(item.rarity_type === "Uncommon" && item.body_part ==="Legs"){
+                    uc_legs++;
+                }else if(item.rarity_type === "Uncommon" && item.body_part ==="Footwear"){
+                    uc_footwear++;
+                }else if(item.rarity_type === "Rare" && item.body_part ==="Head"){
+                    r_head++;
+                }else if(item.rarity_type === "Rare" && item.body_part ==="Arms"){
+                    r_arms++;
+                }else if(item.rarity_type === "Rare" && item.body_part ==="Torso"){
+                    r_torso++;
+                }else if(item.rarity_type === "Rare" && item.body_part ==="Legs"){
+                    r_legs++;
+                }else if(item.rarity_type === "Rare" && item.body_part ==="Footwear"){
+                    r_footwear++;
+                }
+             })
+
+             setCommonArms(c_arms);
+
+             setUncommonHead(uc_head);
+             setUncommonArms(uc_arms);
+             setUncommonTorso(uc_torso);
+             setUncommonLegs(uc_legs);
+             setUncommonFootwear(uc_footwear);
+
+             setRareHead(r_head);
+             setRareArms(r_arms);
+             setRareTorso(r_torso);
+             setRareLegs(r_legs);
+             setRareFootwear(r_footwear);
+
           }
         })
      },[])
 
      useEffect(()=>{
-        console.log(inventory.items)
+        console.log(inventory.armors)
+        // console.log(head)
          
      },[inventory])
 
@@ -85,12 +151,12 @@ const bodyPartHandler=(e)=>{
                         <div className="shop-categoryName">
                             <h5>Head</h5>
                         </div>
-                        {inventory.items.map((w,index)=>{
+                        {inventory.armors.map((w,index)=>{
                             if(w.inventUserId === authId){
                                     if(w.body_part==="Head"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>   
                                             ) 
                                     }
@@ -98,16 +164,16 @@ const bodyPartHandler=(e)=>{
                         })}
                             </div>:""
                         }
-                        {(rarity==="All" && bodyPart==="All" )?<div>
+                        {(rarity==="All" && bodyPart==="All" && commonArms!==0)?<div>
                         <div className="shop-categoryName">
                             <h5>Arms</h5>
                         </div>
-                        {inventory.items.map((w,index)=>{
+                        {inventory.armors.map((w,index)=>{
                             if(w.inventUserId === authId){
                                     if(w.body_part==="Arms"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                             </div>   
                                         ) 
                                 }
@@ -119,12 +185,12 @@ const bodyPartHandler=(e)=>{
                         <div className="shop-categoryName">
                             <h5>Torso</h5>
                         </div>
-                        {inventory.items.map((w,index)=>{
+                        {inventory.armors.map((w,index)=>{
                             if(w.inventUserId === authId){
                                     if(w.body_part==="Torso"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                             </div>   
                                         ) 
                                 }
@@ -136,12 +202,12 @@ const bodyPartHandler=(e)=>{
                         <div className="shop-categoryName">
                             <h5>Legs</h5>
                         </div>
-                        {inventory.items.map((w,index)=>{
+                        {inventory.armors.map((w,index)=>{
                             if(w.inventUserId === authId){
                                     if(w.body_part==="Legs"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                             </div>   
                                         ) 
                                 }
@@ -153,12 +219,12 @@ const bodyPartHandler=(e)=>{
                         <div className="shop-categoryName">
                             <h5>Footwear</h5>
                         </div>
-                        {inventory.items.map((w,index)=>{
+                        {inventory.armors.map((w,index)=>{
                             if(w.inventUserId === authId){
                                     if(w.body_part==="Footwear"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                             </div>   
                                         ) 
                                 }
@@ -172,12 +238,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Head</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if( w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -189,12 +255,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Arms</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -206,12 +272,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -223,12 +289,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Legs</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -240,12 +306,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -258,12 +324,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Head</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if( w.rarity_type===rarity && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -271,16 +337,16 @@ const bodyPartHandler=(e)=>{
                                 })}
                                     </div>:""
                               }
-                            {(rarity==="Common" && bodyPart==="All" )?<div>
+                            {(rarity==="Common" && bodyPart==="All" && commonArms!==0 )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -292,12 +358,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -309,12 +375,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Legs</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -326,12 +392,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -344,12 +410,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Head</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -361,12 +427,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Arms</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -378,12 +444,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -395,12 +461,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Legs</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -412,12 +478,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -426,16 +492,16 @@ const bodyPartHandler=(e)=>{
                                     </div>:""
                               }
                             {/* RARITY:UNCOMMON BODYPART:ALL (DISPLAY ALL ARMORS) */}
-                            {(rarity==="Uncommon" && bodyPart==="All" )?<div>
+                            {(rarity==="Uncommon" && bodyPart==="All" && uncommonHead!==0 )?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if( w.rarity_type===rarity && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -443,16 +509,16 @@ const bodyPartHandler=(e)=>{
                                 })}
                                     </div>:""
                               }
-                            {(rarity==="Uncommon" && bodyPart==="All" )?<div>
+                            {(rarity==="Uncommon" && bodyPart==="All"&& uncommonArms!==0  )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -460,16 +526,16 @@ const bodyPartHandler=(e)=>{
                                 })}
                                     </div>:""
                               }
-                                  {(rarity==="Uncommon" && bodyPart==="All" )?<div>
+                                  {(rarity==="Uncommon" && bodyPart==="All" && uncommonTorso!==0 )?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -477,16 +543,16 @@ const bodyPartHandler=(e)=>{
                                 })}
                                     </div>:""
                               }
-                                  {(rarity==="Uncommon" && bodyPart==="All" )?<div>
+                                  {(rarity==="Uncommon" && bodyPart==="All"&& uncommonLegs!==0  )?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -494,16 +560,16 @@ const bodyPartHandler=(e)=>{
                                 })}
                                     </div>:""
                               }
-                                  {(rarity==="Uncommon" && bodyPart==="All" )?<div>
+                                  {(rarity==="Uncommon" && bodyPart==="All" && uncommonFootwear!==0 )?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -516,12 +582,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Head</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -533,12 +599,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Arms</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -550,12 +616,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -567,12 +633,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Legs</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -584,12 +650,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -598,16 +664,16 @@ const bodyPartHandler=(e)=>{
                                     </div>:""
                               }
                              {/* RARITY:UNCOMMON BODYPART:ALL (DISPLAY ALL ARMORS) */}
-                             {(rarity==="Rare" && bodyPart==="All" )?<div>
+                             {(rarity==="Rare" && bodyPart==="All" && rareHead!==0)?<div>
                               <div className="shop-categoryName">
                                     <p>Head</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if( w.rarity_type===rarity && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -615,16 +681,16 @@ const bodyPartHandler=(e)=>{
                                 })}
                                     </div>:""
                               }
-                            {(rarity==="Rare" && bodyPart==="All" )?<div>
+                            {(rarity==="Rare" && bodyPart==="All" && rareArms!==0 )?<div>
                               <div className="shop-categoryName">
                                     <p>Arms</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory}setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -632,16 +698,16 @@ const bodyPartHandler=(e)=>{
                                 })}
                                     </div>:""
                               }
-                                  {(rarity==="Rare" && bodyPart==="All" )?<div>
+                                  {(rarity==="Rare" && bodyPart==="All" && rareTorso!==0)?<div>
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -649,16 +715,16 @@ const bodyPartHandler=(e)=>{
                                 })}
                                     </div>:""
                               }
-                                  {(rarity==="Rare" && bodyPart==="All" )?<div>
+                                  {(rarity==="Rare" && bodyPart==="All" && rareLegs!==0)?<div>
                               <div className="shop-categoryName">
                                     <p>Legs</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -666,16 +732,16 @@ const bodyPartHandler=(e)=>{
                                 })}
                                     </div>:""
                               }
-                            {(rarity==="Rare" && bodyPart==="All" )?<div>
+                            {(rarity==="Rare" && bodyPart==="All" && rareFootwear!==0)?<div>
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -688,12 +754,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Head</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -705,12 +771,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Arms</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -722,12 +788,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Torso</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -739,12 +805,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Legs</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }
@@ -756,12 +822,12 @@ const bodyPartHandler=(e)=>{
                               <div className="shop-categoryName">
                                     <p>Footwear</p>
                               </div>
-                              {inventory.items.map((w,index)=>{
+                              {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} setPreview={setPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
                                                 </div>     
                                           ) 
                                      }

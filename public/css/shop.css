@@ -1,9 +1,21 @@
-    /* desinging shopp */
+    /* designing shop */
   .shop-parentOfAll{
     background-color: #383A59;
-    
   }
- 
+
+  .shop-wrapper{
+      display: flex !important;
+      flex-direction: row !important;
+  }
+
+  .shop-left{
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      margin-right: 3%;
+  }
+
+
   .shop-Form{
     display: flex;
     flex-direction: row;
@@ -21,7 +33,7 @@
 
   .shop-filtShop{
     display: flex;
-    flex-direction: row;   
+    flex-direction: row;
   }
   .shop-filter{
     display: flex;
@@ -36,13 +48,13 @@
     flex-direction: row;
     flex: 10.5;
   }
-  
-  
+
+
   .shop-weaponList{
-    
+
     display: flex;
     gap: 2rem;
-    
+
   }
   .shop-category{
     font: black;
@@ -61,6 +73,10 @@
     text-align: center;
     background-color: #8AFF80;
     width: 150px;
+    height:180px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 10px;
+    /* box-shadow: #33992a 0px 20px 30px -10px; */
   }
   .shop-itemsImage img{
     margin-top: 10px;
@@ -70,12 +86,13 @@
   .shop-outfitFilter{
     display: inline-block;
   }
-  
+
   /* css for buttons in shop */
   .shop-items Button{
     background-color: #FFFF80;
     width: 100px;
     margin-bottom: 10px;
+    border-radius: 10px;
   }
   .shop-items Button:hover{
     background-color: #C0C034;
@@ -83,6 +100,8 @@
   .shop-itemsInfo img{
     height:20px;
     width:20px;
+    margin-bottom: 2px;
+    margin-right: 6px;
   }
   .shop-empty{
     background-color: black;
@@ -97,7 +116,7 @@
   width: 200px;
   text-align: center;
   text-justify: inter-word;
-  
+
  }
  .shop-hide .shop-weaponInfo{
   text-align-last: left;
@@ -105,8 +124,8 @@
  .shop-Empty{
    background-color: black;
  }
- 
- 
+
+
   */
   /* button navigator */
   .shop-main_shop .btn-group{
@@ -121,17 +140,31 @@
   }
   .shop-weaponList{
     display: flex;
-    
+
   }
-  
+
   /* test div */
   .shop-categoryName p{
     margin: 10px;
     color: white;
-  
+
   }
   .shop-categoryName h5{
     margin: 10px;
     color: white;
-  
+
   }
+
+  #shop-preview-animations-box{
+    margin-top: 24%;
+    position: sticky;
+    top: 25%;
+    align-self: flex-start;
+  }
+
+  #previewAnimations {
+    border: 2px solid black;
+    width: 320px;
+    height: 320px;
+    image-rendering: pixelated;
+ }

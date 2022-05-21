@@ -1,50 +1,83 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
+import {Link, React, useEffect, useState,
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 import InventoryWeaponFilter from "./InventoryWeaponFilter";
+
 function InventoryWeapons(){
+
     const[inventory,setInventory]=useState({
         weapons:[],
-  });
-  const[authId, setAuthId]=useState("");
-  const[preview, setPreview]=useState("");
-  const[charClass,setCharClass]=useState("All");
-  const[rarity, setRarity]=useState("All");
-  const[bodyPart, setBodyPart]=useState("All");
+    });
+
+    const[countWeaponCommon, setCountWeaponCommon]=useState(0);
+    const[countWeaponUncommon, setCountWeaponUncommon]=useState(0);
+    const[countWeaponRare, setCountWeaponRare]=useState(0);
+    const[authId, setAuthId]=useState("");
+    const[avatarClass, setAvatarClass]= useState("");
+    const[preview, setPreview]=useState("");
+    const[charClass,setCharClass]=useState("All");
+    const[rarity, setRarity]=useState("All");
+    const[bodyPart, setBodyPart]=useState("All");
+
     useEffect(() =>{
+        let common =0;
+        let uncommon =0;
+        let rare=0;
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-             
+                // console.log(res.data.class[0].name)
                 console.log(res.data.weapon)
                 setInventory({
                     weapons:res.data.weapon
-                   
+                })
+                setAuthId(res.data.auth_id);
+                setAvatarClass(res.data.class[0].name);
+                // res.data.weapon.map(item=>{
+                //     if(item.class === avatarClass && item.inventUserId === authId ){
+                //         setInventory({
+                //             weapons:item
+                //         })
+                //     }
+                // })
+
+                res.data.weapon.map(item=>{
+                    if(item.rarity_type === "Common"){
+                          common++;
+                    }else if (item.rarity_type === "Uncommon"){
+                        uncommon++;
+                    }else{
+                        rare++;
+                    }
               })
-              
-              setAuthId(res.data.auth_id);
-              
-               
-                 
-          }
+              setCountWeaponCommon(common);
+              setCountWeaponUncommon(uncommon);
+              setCountWeaponRare(rare);
+
+            }
+            // console.log(inventory);
         })
      },[])
-     useEffect(()=>{
-           
-            
-     },[inventory])
 
-     const previewImage =(event)=>{
+     useEffect(()=>{
+        console.log(inventory);
+        // console.log(Object.keys(display2.armors).length);
+    },[inventory])
+
+    const previewImage =(event)=>{
         setPreview(event)
-   }
-   const rarityHandler=(e)=>{
-    setRarity(e.target.value);
-}
+    }
+
+    const rarityHandler=(e)=>{
+            setRarity(e.target.value);
+    }
+
+
     return(
         <section className="container party-section">
                 <div className="party-nav">
                 <div className="party-nav-item"><Link to="/inventory">All</Link></div>
                 <div className="party-nav-item"><Link to="/inventoryPotions">Potions</Link></div>
-                <div className="party-nav-item party-active-nav"><Link to="/inventoryWeapons">Weapons</Link></div>   
+                <div className="party-nav-item party-active-nav"><Link to="/inventoryWeapons">Weapons</Link></div>
                 <div className="party-nav-item"><Link to="/inventoryOutfit">Outfit</Link></div>
               </div>
 
@@ -58,7 +91,7 @@ function InventoryWeapons(){
                                           <option value="Rare">Rare</option>
                                     </select><br></br>
                   </div>
-                <div className="inventory-shop">      
+                <div className="inventory-shop">
                  <div className="inventory-category">
 
                      {/* RARITY:ALL common to rare DISPLAY ALL WEAPONS */}
@@ -71,15 +104,18 @@ function InventoryWeapons(){
                                     if(w.rarity_type==="Common"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
+
                             </div>:""
                         }
-                          {(rarity==="All")?<div>
+
+
+                          {(rarity==="All" && countWeaponUncommon !==0)?<div>
                         <div className="shop-categoryName">
                             <h5>Uncommon</h5>
                         </div>
@@ -88,15 +124,15 @@ function InventoryWeapons(){
                                     if(w.rarity_type==="Uncommon"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
                             </div>:""
                         }
-                          {(rarity==="All")?<div>
+                          {(rarity==="All" &&countWeaponRare!==0)?<div>
                         <div className="shop-categoryName">
                             <h5>Rare</h5>
                         </div>
@@ -105,14 +141,15 @@ function InventoryWeapons(){
                                     if(w.rarity_type==="Rare"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
                             </div>:""
                         }
+
                         {/* RARITY:Common Display Common Weapons */}
                         {(rarity==="Common")?<div>
                         <div className="shop-categoryName">
@@ -123,9 +160,9 @@ function InventoryWeapons(){
                                     if(w.rarity_type==="Common"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
@@ -140,9 +177,9 @@ function InventoryWeapons(){
                                     if(w.rarity_type===rarity){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
@@ -157,16 +194,16 @@ function InventoryWeapons(){
                                     if(w.rarity_type===rarity){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
                             </div>:""
                         }
-                        </div> 
-                 </div>  
+                        </div>
+                 </div>
 
 
 
@@ -175,7 +212,7 @@ function InventoryWeapons(){
                             <div className="inventory-categoryName">
                                 <h3>Equipped Items</h3>
                             </div>
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
+                            <div data-tip data-for="test" className="inventory-equippedItemsInfo">
                                 <div className="inventory-itemsImage">
                                 <img src={preview}></img>
                                 </div>
@@ -183,12 +220,12 @@ function InventoryWeapons(){
                                     <h6>asdasd</h6>
                                     <p>asdasd</p>
                                 </div>
-                            </div> 
+                            </div>
                             <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
                                     <div className="inventory-hide">
                                         <div className="inventory-itemsInfo">
                                                 <p>asdasdasd</p>
-                                        </div> 
+                                        </div>
                                     </div>
                             </ReactTooltip>
                             <div className="inventory-categoryName">
@@ -197,7 +234,7 @@ function InventoryWeapons(){
                      </div>
                      <div className="inventory-equipped2">
                          <div className="inventory-equipped2Left">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
+                            <div data-tip data-for="test" className="inventory-equippedItemsInfo">
                                 <div className="inventory-itemsImage">
                                 <img ></img>
                                 </div>
@@ -205,12 +242,12 @@ function InventoryWeapons(){
                                     <h6>asdasd</h6>
                                     <p>asdasd</p>
                                 </div>
-                            </div> 
+                            </div>
                             <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
                                     <div className="inventory-hide">
                                         <div className="inventory-itemsInfo">
                                                 <p>asdasdasd</p>
-                                        </div> 
+                                        </div>
                                     </div>
                             </ReactTooltip>
                             <div className="inventory-categoryName">
@@ -218,7 +255,7 @@ function InventoryWeapons(){
                             </div>
                         </div>
                         <div className="inventory-equipped2Right">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
+                            <div data-tip data-for="test" className="inventory-equippedItemsInfo">
                                 <div className="inventory-itemsImage">
                                 <img></img>
                                 </div>
@@ -226,12 +263,12 @@ function InventoryWeapons(){
                                     <h6>asdasd</h6>
                                     <p>asdasd</p>
                                 </div>
-                            </div> 
+                            </div>
                             <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
                                     <div className="inventory-hide">
                                         <div className="inventory-itemsInfo">
                                                 <p>asdasdasd</p>
-                                        </div> 
+                                        </div>
                                     </div>
                             </ReactTooltip>
                             <div className="inventory-categoryName">

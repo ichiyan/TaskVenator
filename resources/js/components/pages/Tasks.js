@@ -1,3 +1,4 @@
+import axios from "axios";
 import {Header, React,
     useEffect, useState, GroupTasks,TasksTab,
     AvatarHeader, Shop, Party, Outfit, All,
@@ -16,6 +17,15 @@ import {Header, React,
 
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
+    const [gems, setGems]= useState();
+
+    useEffect(()=>{
+        axios.get(`/api/gems`).then(res =>{
+              if(res.data.status===200){
+                setGems(res.data.gems);
+              }
+        });
+     },[])
 
     useEffect( () => {
         document.body.classList.add('internal-pages');
@@ -89,18 +99,16 @@ import {Header, React,
         renderTab = <GroupTasks/>;
     }else if (tab === "tasks"){
         renderTab = <TasksTab/>;
-    }else if (tab === "all"){
-        renderTab = <All/>;
-    }else if (tab === "outfit"){
-        renderTab = <Outfit/>;
-    }else if (tab === "weapons"){
-        renderTab = <Weapons/>;
-    }else if (tab === "potions"){
-        renderTab = <Potions/>;
+    // }else if (tab === "all"){
+    //     renderTab = <All setGems={setGems}/>;
+    // }else if (tab === "outfit"){
+    //     renderTab = <Outfit setGems={setGems}/>;
+    // }else if (tab === "weapons"){
+    //     renderTab = <Weapons setGems={setGems}/>;
+    // }else if (tab === "potions"){
+    //     renderTab = <Potions setGems={setGems}/>;
     }else if (tab === "shop"){
-        renderTab = <Shop/>;
-    }else if(tab ==="cards"){
-        renderTab =<Cards/>;
+        renderTab = <Shop setGems={setGems}/>;
     }else if(tab ==="inventory"){
         renderTab =<Inventory/>;
     }else if(tab ==="inventoryOutfit"){
@@ -112,10 +120,12 @@ import {Header, React,
     }
 
 
+
+
     return (
         // <SocketProvider>
             <div>
-                <Header page={tab}/>
+                <Header page={tab} gems={gems}/>
                 <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
                 <div className="main-section">
                     {
