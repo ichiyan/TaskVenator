@@ -64,7 +64,7 @@ class UserInfoController extends Controller
         $avatar->class()->associate($avatar_class);
         $avatar->save();
 
-   
+
         if($request->class === "warrior"){
             for($start=106; $start<112; $start++){
                 $inventory= new Inventory;
@@ -98,7 +98,7 @@ class UserInfoController extends Controller
                 $inventory->status='1';
                 $inventory->save();
             }
-  
+
         }else if($request->class === "marksman"){
             for($start=112; $start<117; $start++){
                 $inventory= new Inventory;
@@ -145,9 +145,11 @@ class UserInfoController extends Controller
                     }else{
                         $inventory->outfit_type= "Weapon";
                     }
+                    $inventory->status='1';
                 // $inventory->outfit_type= $outfit->outfit_type;
                     if($start===117){
                         $inventory->body_part= "Head";
+                        $inventory->status='0';
                     }else if($start === 118){
                         $inventory->body_part= "Torso";
                     }else if($start === 119){
@@ -156,14 +158,13 @@ class UserInfoController extends Controller
                         $inventory->body_part= "Footwear";
                     }
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
         }
-    
 
-        
- 
+
+
+
 
         return response()->json([
             'status' => 200,
@@ -217,7 +218,7 @@ class UserInfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

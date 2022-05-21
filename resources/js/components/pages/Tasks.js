@@ -99,24 +99,10 @@ import {Header, React,
         renderTab = <GroupTasks/>;
     }else if (tab === "tasks"){
         renderTab = <TasksTab/>;
-    // }else if (tab === "all"){
-    //     renderTab = <All setGems={setGems}/>;
-    // }else if (tab === "outfit"){
-    //     renderTab = <Outfit setGems={setGems}/>;
-    // }else if (tab === "weapons"){
-    //     renderTab = <Weapons setGems={setGems}/>;
-    // }else if (tab === "potions"){
-    //     renderTab = <Potions setGems={setGems}/>;
     }else if (tab === "shop"){
         renderTab = <Shop setGems={setGems}/>;
     }else if(tab ==="inventory"){
         renderTab =<Inventory/>;
-    }else if(tab ==="inventoryOutfit"){
-        renderTab =<InventoryOutfit/>;
-    }else if(tab ==="inventoryPotions"){
-        renderTab =<InventoryPotions/>;
-    }else if(tab ==="inventoryWeapons"){
-        renderTab =<InventoryWeapons/>;
     }
 
 

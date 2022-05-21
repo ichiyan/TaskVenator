@@ -1,9 +1,9 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
+import {Link, React, useEffect, useState,
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 import InventoryOutfitFilter from "./InventoryOutfitFilter";
 
-function InventoryOutfit(){
+function InventoryOutfit({updateAvatarPreview}){
     const[inventory,setInventory]=useState({
         armors:[],
   });
@@ -47,8 +47,8 @@ function InventoryOutfit(){
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
                 setInventory({
-                   armors:res.data.item     
-              })   
+                   armors:res.data.item
+              })
               setAuthId(res.data.auth_id);
 
               res.data.item.map(item=>{
@@ -93,12 +93,13 @@ function InventoryOutfit(){
 
           }
         })
+
      },[])
 
      useEffect(()=>{
         console.log(inventory.armors)
         // console.log(head)
-         
+
      },[inventory])
 
      const previewImage =(event)=>{
@@ -109,22 +110,13 @@ function InventoryOutfit(){
 }
 const classHandler=(e)=>{
       setCharClass(e.target.value);
-      
+
 }
 const bodyPartHandler=(e)=>{
       setBodyPart(e.target.value);
-      
+
 }
     return(
-        <section className="container party-section">
-            
-              <div className="party-nav">
-                <div className="party-nav-item"><Link to="/inventory">All</Link></div>
-                <div className="party-nav-item"><Link to="/inventoryPotions">Potions</Link></div>
-                <div className="party-nav-item"><Link to="/inventoryWeapons">Weapons</Link></div>   
-                <div className="party-nav-item party-active-nav"><Link to="/inventoryOutfit">Outfit</Link></div>
-              </div>
-           
               <div className="inventory-filtShop">
                   <div className="inventory-filter">
                                     <p>Rarity</p>
@@ -144,8 +136,8 @@ const bodyPartHandler=(e)=>{
                                           <option value="Footwear">Footwear</option>
                                     </select><br></br>
                   </div>
-                <div className="inventory-shop">      
-                 <div className="inventory-category">      
+                <div className="inventory-shop">
+                 <div className="inventory-category">
                         {/* RARITY: ALL BODYPART: ALL (DISPLAYING ALL ARMORS) */}
                         {(rarity==="All" && bodyPart==="All" )?<div>
                         <div className="shop-categoryName">
@@ -156,9 +148,9 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Head"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>   
-                                            ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                            )
                                     }
                                 }
                         })}
@@ -173,9 +165,9 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Arms"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                            </div>   
-                                        ) 
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                            </div>
+                                        )
                                 }
                             }
                         })}
@@ -190,9 +182,9 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Torso"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                            </div>   
-                                        ) 
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                            </div>
+                                        )
                                 }
                             }
                         })}
@@ -207,9 +199,9 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Legs"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                            </div>   
-                                        ) 
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                            </div>
+                                        )
                                 }
                             }
                         })}
@@ -224,9 +216,9 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Footwear"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                            </div>   
-                                        ) 
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                            </div>
+                                        )
                                 }
                             }
                         })}
@@ -243,9 +235,9 @@ const bodyPartHandler=(e)=>{
                                           if( w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -260,9 +252,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -277,9 +269,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -294,9 +286,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -311,9 +303,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -329,9 +321,9 @@ const bodyPartHandler=(e)=>{
                                           if( w.rarity_type===rarity && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -346,9 +338,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -363,9 +355,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -380,9 +372,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -397,9 +389,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -415,9 +407,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -432,9 +424,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -449,9 +441,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -466,9 +458,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -483,9 +475,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -501,9 +493,9 @@ const bodyPartHandler=(e)=>{
                                           if( w.rarity_type===rarity && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -518,9 +510,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -535,9 +527,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -552,9 +544,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -569,9 +561,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -587,9 +579,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -604,9 +596,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -621,9 +613,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -638,9 +630,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -655,9 +647,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -673,9 +665,9 @@ const bodyPartHandler=(e)=>{
                                           if( w.rarity_type===rarity && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -690,9 +682,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory}setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory}setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -707,9 +699,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -724,9 +716,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -741,9 +733,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -759,9 +751,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -776,9 +768,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -793,9 +785,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -810,9 +802,9 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
@@ -827,88 +819,17 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
-                                                </div>     
-                                          ) 
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                </div>
+                                          )
                                      }
                                     }
                                 })}
                                     </div>:""
                               }
-                        </div> 
-                 </div>  
-                 <div className="inventory-preview">
-                     <div className="inventory-equipped1">
-                            <div className="inventory-categoryName">
-                                <h3>Equipped Items</h3>
-                            </div>
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
-                                <div className="inventory-itemsImage">
-                                <img></img>
-                                </div>
-                                <div className="inventory-itemsInfo">
-                                    <h6>asdasd</h6>
-                                    <p>asdasd</p>
-                                </div>
-                            </div> 
-                            <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                    <div className="inventory-hide">
-                                        <div className="inventory-itemsInfo">
-                                                <p>asdasdasd</p>
-                                        </div> 
-                                    </div>
-                            </ReactTooltip>
-                            <div className="inventory-categoryName">
-                                <h5>Weapon</h5>
-                            </div>
-                     </div>
-                     <div className="inventory-equipped2">
-                         <div className="inventory-equipped2Left">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
-                                <div className="inventory-itemsImage">
-                                <img src={preview}></img>
-                                </div>
-                                <div className="inventory-itemsInfo">
-                                    <h6>asdasd</h6>
-                                    <p>asdasd</p>
-                                </div>
-                            </div> 
-                            <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                    <div className="inventory-hide">
-                                        <div className="inventory-itemsInfo">
-                                                <p>asdasdasd</p>
-                                        </div> 
-                                    </div>
-                            </ReactTooltip>
-                            <div className="inventory-categoryName">
-                                <h5>Costume</h5>
-                            </div>
                         </div>
-                        <div className="inventory-equipped2Right">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
-                                <div className="inventory-itemsImage">
-                                <img></img>
-                                </div>
-                                <div className="inventory-itemsInfo">
-                                    <h6>asdasd</h6>
-                                    <p>asdasd</p>
-                                </div>
-                            </div> 
-                            <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                    <div className="inventory-hide">
-                                        <div className="inventory-itemsInfo">
-                                                <p>asdasdasd</p>
-                                        </div> 
-                                    </div>
-                            </ReactTooltip>
-                            <div className="inventory-categoryName">
-                                <h5>Potion</h5>
-                            </div>
-                        </div>
-                     </div>
-                </div>
+                 </div>
             </div>
-      </section>
     );
 }
 export default InventoryOutfit;
