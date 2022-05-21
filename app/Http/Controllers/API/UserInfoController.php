@@ -47,6 +47,7 @@ class UserInfoController extends Controller
     {
         $user_info = new UserInfo();
         $user_info->username = $request->username;
+        $user_info->gems = 10;
 
         $avatar = $user_info->avatar()->create([
             'sex' =>  $request->sex,
