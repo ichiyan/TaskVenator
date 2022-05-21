@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import WeaponFilter from "./WeaponFilter";
 import OutfitFilter from "./OutfitFilter";
 
-function Shop({setGems}){
+function Shop({setGems,gems}){
 
     const [tab, setTab] = useState('all');
 
@@ -182,7 +182,7 @@ function Shop({setGems}){
                     <div onClick={() => setTab('outfit')} id='outfit' className="party-nav-item" ><Link to="">Outfit</Link></div>
                 </div>
 
-                <ShopTabs tab={tab} setGems={setGems} updatePreview={updatePreview}></ShopTabs>
+                <ShopTabs tab={tab} setGems={setGems} gems={gems} updatePreview={updatePreview}></ShopTabs>
             </div>
 
             <section id="shop-avatar-preview shop-right">

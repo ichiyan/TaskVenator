@@ -100,7 +100,7 @@ import {Header, React,
     }else if (tab === "tasks"){
         renderTab = <TasksTab/>;
     }else if (tab === "shop"){
-        renderTab = <Shop setGems={setGems}/>;
+        renderTab = <Shop setGems={setGems} gems={gems}/>;
     }else if(tab ==="inventory"){
         renderTab =<Inventory/>;
     }
