@@ -133,15 +133,13 @@ function Display ({clicked}){
                                                 <div className="shop-hide">
                                                       <div className="shop-itemsInfo">
                                                             <div className="shop-weaponInfo">
-                                                                  <h5>Attributes</h5>
-                                                                  <p>Physical Attack: {w.pAttack}</p>
-                                                                  <p>Magical Attack: {w.mAttack}</p>
-                                                                  <p>Physical Defense: {w.pDef}</p>
-                                                                  <p>Magical Defense: {w.mDef}</p>
-                                                                  <p>Strength: {w.str}</p>
-                                                                  <p>Agility: {w.agi}</p>
-                                                                  <p>Critical: {w.crit}</p>
-                                                                  <p>Critical Damage: {w.critDmg}</p>
+                                                            <h5>{data.type}&nbsp;Attributes</h5>
+                                                                  <p>Class: {data.class}</p>
+                                                                  <p>Strength: {data.str}</p>
+                                                                  <p>Intelligence: {data.int}</p>
+                                                                  <p>Agility: {data.agi}</p>
+                                                                  <p>Critical Chance: {data.crit_chance}</p>
+                                                                  <p>Critical Damage: {data.crit_dmg}</p>
                                                             </div>
                                                       </div>
                                                 </div>

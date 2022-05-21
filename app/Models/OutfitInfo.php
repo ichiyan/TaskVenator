@@ -11,14 +11,10 @@ class OutfitInfo extends Model
     use HasFactory;
     protected $table='outfit_info';
     protected $fillable =[
-        'p_attack', 
-        'm_attack', 
-        'p_def', 
-        'm_def',
         'str', 
         'int', 
         'agi', 
-        'crit', 
+        'crit_chance', 
         'crit_dmg', 
         'price'
     ];

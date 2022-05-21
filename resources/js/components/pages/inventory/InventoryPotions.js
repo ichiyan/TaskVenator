@@ -32,7 +32,7 @@ function InventoryPotions(){
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
                 
-                console.log(res.data.potion[0].type)
+            //     console.log(res.data.potion[0].type)
                 setInventory({
                     potions:res.data.potion
                    

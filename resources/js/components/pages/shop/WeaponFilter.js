@@ -89,15 +89,12 @@ function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
               <div className="shop-hide">
                     <div className="shop-itemsInfo">
                           <div className="shop-weaponInfo">
-                                <h5>{data.type}&nbsp;Attributes</h5>
+                               <h5>{data.type}&nbsp;Attributes</h5>
                                 <p>Class: {data.class}</p>
-                                <p>Physical Attack: {data.p_attack}</p>
-                                <p>Magical Attack: {data.m_attack}</p>
-                                <p>Physical Defense: {data.p_def}</p>
-                                <p>Magical Defense: {data.m_def}</p>
                                 <p>Strength: {data.str}</p>
+                                <p>Intelligence: {data.int}</p>
                                 <p>Agility: {data.agi}</p>
-                                <p>Critical: {data.crit}</p>
+                                <p>Critical Chance: {data.crit_chance}</p>
                                 <p>Critical Damage: {data.crit_dmg}</p>
                           </div>
                     </div>
