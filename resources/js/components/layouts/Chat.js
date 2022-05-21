@@ -35,14 +35,15 @@ const Chat = () => {
             if(res.data.status === 200){
 
                 var user_id = res.data.user_id;
+                console.log(user_id)
                 setUserId(user_id);
 
                 var partyMemId = [];
 
                 axios.get(`api/get_previous_messages`).then(res => {
                     if(res.data.status === 200){
-                        //fetch last_opened_chat from db
-                        var last_opened_chat = localStorage.getItem("last_opened_chat");
+                        var last_opened_chat = res.data.last_opened_chat;
+                        console.log(last_opened_chat);
                         res.data.data.forEach(item => {
                             setMessages(
                                 messages => [
@@ -56,7 +57,7 @@ const Chat = () => {
                                     }
                                 ]
                             );
-                            if( item.sender_id != user_id && new Date(dateTimeWithSecondsFormat(item.created_at)) > new Date(last_opened_chat)){
+                            if( item.sender_id != user_id && new Date(dateTimeWithSecondsFormat(item.created_at)) > last_opened_chat){
                                 unreadCount.current++;
                             }
                         });
@@ -66,12 +67,12 @@ const Chat = () => {
 
                 axios.get(`api/get_party_info`).then(res => {
                     if(res.data.status === 200){
-                        var data = res.data.data;
-                        var party_id = data.party.id;
+                        var data = res.data;
+                        var party_id = data.party_id;
                         setPartyId(party_id);
-                        setPartyName(data.party.party_name);
-                        setPartyCount(data.party_members_count);
-                        var members = data.party_members;
+                        setPartyName(data.party_name);
+                        setPartyCount(data.total_members);
+                        var members = data.members;
                         Object.keys(members).forEach( key => {
                             var val = members[key];
                             partyMemId.push(val.id);

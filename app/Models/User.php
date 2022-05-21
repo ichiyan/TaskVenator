@@ -44,7 +44,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function hasToDo(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function user_info(): HasOne
+    {
+        return $this->hasOne(UserInfo::class);
+    }
+
+    public function hasToDo(): HasMany
     {
         return $this->hasMany(Tasks::class);
     }
@@ -63,5 +68,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Battle::class);
     }
+    public function getItems(): HasMany
+    {
+        return $this->hasMany(Inventory::class, 'user_id', 'id');
+    }
+  
+    
 
 }

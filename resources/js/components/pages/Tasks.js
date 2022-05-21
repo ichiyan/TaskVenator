@@ -1,8 +1,8 @@
-import {Header, React, io, SocketContext,
-    useEffect, useState,
-    GroupTasks,TasksTab,
+import axios from "axios";
+import {Header, React,
+    useEffect, useState, GroupTasks,TasksTab,
     AvatarHeader, Shop, Party, Outfit, All,
-    Weapons, Potions, Cards, SocketProvider} from "../../index";
+    Weapons, Potions, Cards, Inventory, InventoryOutfit, InventoryWeapons, InventoryPotions} from "../../index";
 
 
  const Tasks = ({tab}) => {
@@ -17,11 +17,19 @@ import {Header, React, io, SocketContext,
 
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
+    const [gems, setGems]= useState();
 
+    useEffect(()=>{
+        axios.get(`/api/gems`).then(res =>{
+              if(res.data.status===200){
+                setGems(res.data.gems);
+              }
+        });
+     },[])
 
     useEffect( () => {
         document.body.classList.add('internal-pages');
-    });
+    }, []);
 
     const hitHandler = () => {
         let updatedHp;
@@ -91,36 +99,49 @@ import {Header, React, io, SocketContext,
         renderTab = <GroupTasks/>;
     }else if (tab === "tasks"){
         renderTab = <TasksTab/>;
-    }else if (tab === "all"){
-        renderTab = <All/>;
-    }else if (tab === "outfit"){
-        renderTab = <Outfit/>;
-    }else if (tab === "weapons"){
-        renderTab = <Weapons/>;
-    }else if (tab === "potions"){
-        renderTab = <Potions/>;
+    // }else if (tab === "all"){
+    //     renderTab = <All setGems={setGems}/>;
+    // }else if (tab === "outfit"){
+    //     renderTab = <Outfit setGems={setGems}/>;
+    // }else if (tab === "weapons"){
+    //     renderTab = <Weapons setGems={setGems}/>;
+    // }else if (tab === "potions"){
+    //     renderTab = <Potions setGems={setGems}/>;
     }else if (tab === "shop"){
-        renderTab = <Shop/>;
-    }else if(tab ==="cards"){
-        renderTab =<Cards/>;
+        renderTab = <Shop setGems={setGems}/>;
+    }else if(tab ==="inventory"){
+        renderTab =<Inventory/>;
+    }else if(tab ==="inventoryOutfit"){
+        renderTab =<InventoryOutfit/>;
+    }else if(tab ==="inventoryPotions"){
+        renderTab =<InventoryPotions/>;
+    }else if(tab ==="inventoryWeapons"){
+        renderTab =<InventoryWeapons/>;
     }
 
 
     return (
         // <SocketProvider>
             <div>
-                <Header page={tab}/>
-                <AvatarHeader hasParty="true" hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
+                <Header page={tab} gems={gems}/>
+                <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}/>
                 <div className="main-section">
-                    {/* main-section class in tasks.scss already sets margin-top to 15% */}
-                    {/* <p style={{color: "white"}}>TEST</p>
-                    <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
-                    <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
-                    <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button> */}
+                    {
+                        tab == "tasks"
+                        ?
+                            <div className="container">
+                                <p style={{color: "white"}}>TEST</p>
+                                <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
+                                <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
+                                <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
+                            </div>
+                        : null
+                    }
+
                     {renderTab}
                 </div>
             </div>
-      // </SocketProvider>
+    //   </SocketProvider>
     );
 }
 

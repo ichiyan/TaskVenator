@@ -26,7 +26,7 @@
     }
 
     .avatar-img-space{
-        background-color: #9580FF;
+        // background-color: #9580FF;
         height: 100%;
         width: 120px;
         padding: 0 !important;
@@ -208,18 +208,19 @@
         color: #fff;
         border-radius: 50px;
         border-color: #5fcf80;
-        margin: 7px;
+        // width: 100%;
     }
 
     .btn-custom-primary:hover{
         background-color: #5fcf80;
     }
 
-    .btn-custom-outline-primary{
+    .btn-custom-outline-primary.avatar-header-btn{
         border-radius: 50px;
         border-color: #5fcf80;
         color: #fff;
         margin: 7px;
+        background-color: transparent;
     }
 
     .btn-custom-outline-primary:hover{
@@ -232,6 +233,7 @@
 
     .party-info-btn{
         margin: 0 !important;
+        width: 100%;
     }
 
     .info-icon{

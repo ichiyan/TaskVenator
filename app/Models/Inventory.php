@@ -11,7 +11,7 @@ class Inventory extends Model
 {
     use HasFactory;
     protected $table = 'inventories';
-    protected $fillable = ['user_id', 'product', 'amount'];
+    protected $fillable = ['user_id', 'product','outfit_type','body_part', 'amount', 'status'];
 
     public function belongsToUser(): HasOne
     {
@@ -20,6 +20,8 @@ class Inventory extends Model
 
     public function contains(): HasOne
     {
-        return $this->hasOne(Product::class);
+        return $this->hasOne(Product::class, 'id', 'product');
     }
+    
+   
 }

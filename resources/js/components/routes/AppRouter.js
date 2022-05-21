@@ -6,8 +6,7 @@ import axios from 'axios';
 import Auth from "../pages/Auth";
 import Home from "../pages/Home";
 import Tasks from "../pages/Tasks";
-
-
+import { CharacterCustomization } from "../..";
 
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
@@ -28,19 +27,20 @@ const AppRouter = () => {
                 <Routes>
                     <Route path='/' exact element={<Home/>}></Route>
                     <Route path='/register' element={<Auth page="register"/>}></Route>
+                    <Route path='/character_customization' element={<Auth page="character_customization"/>}></Route>
                     <Route path='/login' element={<Auth page="login"/>}></Route>
                     <Route path='/tasks' element={<Tasks tab="tasks"/>}></Route>
                     <Route path='/party' element={<Tasks tab="party"/>}></Route>
                     <Route path='/group_tasks' element={<Tasks tab="group_tasks"/>}></Route>
                     <Route path='/shop' element={<Tasks tab="shop"/>}></Route>
-                    <Route path='/all' element={<Tasks tab="all"/>}></Route>
+                    {/* <Route path='/all' element={<Tasks tab="all"/>}></Route>
                     <Route path='/potions' element={<Tasks tab="potions"/>}></Route>
                     <Route path='/outfit' element={<Tasks tab="outfit"/>}></Route>
-                    <Route path='/weapons' element={<Tasks tab="weapons"/>}></Route>
-                    <Route path='/cards' element={<Tasks tab="cards"/>}></Route>
-                    
-                    
-    
+                    <Route path='/weapons' element={<Tasks tab="weapons"/>}></Route> */}
+                    <Route path='/inventory' element={<Tasks tab="inventory"/>}></Route>
+                    <Route path='/inventoryOutfit' element={<Tasks tab="inventoryOutfit"/>}></Route>
+                    <Route path='/inventoryPotions' element={<Tasks tab="inventoryPotions"/>}></Route>
+                    <Route path='/inventoryWeapons' element={<Tasks tab="inventoryWeapons"/>}></Route>
                 </Routes>
             </Router>
         </div>

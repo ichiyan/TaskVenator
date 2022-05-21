@@ -15,21 +15,18 @@ class CreateOutfitTable extends Migration
     {
         Schema::create('outfit', function (Blueprint $table) {
             $table->id();
-            $table->string('outfitType');
-            $table->string('image')->nullable();
+            $table->string('outfit_type');
+            $table->string('sex');
+            $table->string('male_image')->nullable();
+            $table->string('female_image')->nullable();
             $table->string('name');
             $table->string('class');
-            $table->string('type');
-            $table->integer('pAttack');
-            $table->integer('mAttack');
-            $table->integer('pDef');
-            $table->integer('mDef');
-            $table->integer('str');
-            $table->integer('int');
-            $table->integer('agi');
-            $table->integer('crit');
-            $table->integer('critDmg');
-            $table->integer('price');
+            $table->string('rarity_type');
+            $table->string('body_part')->nullable();
+            $table->string('spritesheet_img_name');
+            $table->string('directory');
+            $table->integer('zPos');
+            $table->foreignId('outfit_infos')->constrained('outfit_info', 'id');
             $table->timestamps();
         });
     }
