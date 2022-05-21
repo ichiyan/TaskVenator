@@ -52,6 +52,7 @@ function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
        const showItemOnAvatar = () => {
            console.log("ITEM CLICKED")
            updatePreview({
+               item_type: "weapon",
                body_part: data.body_part,
                sex: data.sex.toLowerCase(),
                base_src: 'assets/images/spritesheets/' + data.directory,

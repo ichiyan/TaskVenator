@@ -289,7 +289,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'round.png',
-            'directory'=> 'hat/horned/',
+            'directory'=> 'hat/formal/',
             'zPos' => '130',
             'outfit_infos'=>'19'
         ],[
@@ -339,9 +339,9 @@ class OutfitTableSeeder extends Seeder
         ],[
             'id'=> '23',
             'outfit_type'=> 'Armor',
-            'sex'=> 'None',
+            'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_tricorne_captain_pirate_skull.png',
-            'female_image'=> '',
+            'female_image'=> 'assets/images/armors/female_tricorne_captain_pirate_skull.png',
             'name'=> 'Tricorne Skull Helm',
             'class'=> 'Warrior',
             'rarity_type'=> 'Rare',
@@ -565,7 +565,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'legs/armour/',
+            'directory'=> 'legs/pants/',
             'zPos' => '20',
             'outfit_infos'=>'38'
         ],[
@@ -579,7 +579,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Uncommon',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> 'brown.png',
-            'directory'=> 'legs/armour/',
+            'directory'=> 'legs/pants/',
             'zPos' => '20',
             'outfit_infos'=>'39'
         ],[
@@ -594,7 +594,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Rare',
             'body_part'=> 'Legs',
             'spritesheet_img_name'=> '9.jpg',
-            'directory'=> 'legs/armour/',
+            'directory'=> 'legs/pants/',
             'zPos' => '20',
             'outfit_infos'=>'40'
         ],[
@@ -914,7 +914,7 @@ class OutfitTableSeeder extends Seeder
             'class'=> 'Marksman',
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
-            'spritesheet_img_name'=> '8.jpg',
+            'spritesheet_img_name'=> '8.png',
             'directory'=> 'legs/armour/',
             'zPos' => '20',
             'outfit_infos'=>'62'
@@ -1307,7 +1307,7 @@ class OutfitTableSeeder extends Seeder
             'class'=> 'Mage',
             'rarity_type'=> 'Common',
             'body_part'=> 'Legs',
-            'spritesheet_img_name'=> '8.jpg',
+            'spritesheet_img_name'=> '8.png',
             'directory'=> 'legs/armour/',
             'zPos' => '20',
             'outfit_infos'=>'89'
@@ -1468,7 +1468,7 @@ class OutfitTableSeeder extends Seeder
             'rarity_type'=> 'Common',
             'body_part'=> 'Head',
             'spritesheet_img_name'=> 'norman.png',
-            'directory'=> 'feet/armor/',
+            'directory'=> 'hat/helmet/',
             'zPos' => '130',
             'outfit_infos'=>'100'
         ],[

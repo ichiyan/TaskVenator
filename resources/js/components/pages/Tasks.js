@@ -139,7 +139,6 @@ import {Header, React,
                             </div>
                         : null
                     }
-
                     {renderTab}
                 </div>
             </div>

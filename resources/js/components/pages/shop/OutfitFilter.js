@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
-function OutfitFilter({data, value, avatarClass,setGems}){
+function OutfitFilter({data, value, avatarClass,setGems, updatePreview}){
     const [passProductId, setPassProductId]= useState({
           product: '',
           amount :'',
@@ -30,7 +30,7 @@ function OutfitFilter({data, value, avatarClass,setGems}){
 
 
      }
-     
+
      useEffect(() => {
       const data={
             product: passProductId.product,
@@ -43,7 +43,7 @@ function OutfitFilter({data, value, avatarClass,setGems}){
       }else{
             axios.post(`/api/addBought`, data).then(res =>{
                   if(res.data.status === 200){
-                     setGems(res.data.gems)   
+                     setGems(res.data.gems)
                      console.log(res.data.message);
                   }else {
                     // setPotion({...potion,error_list:res.data.errors});
@@ -55,10 +55,24 @@ function OutfitFilter({data, value, avatarClass,setGems}){
      }, [passProductId])
 
 
+     const showItemOnAvatar = () => {
+        console.log("ITEM CLICKED")
+        updatePreview({
+            item_type: "outfit",
+            //change footwear in db to feet
+            body_part:  data.body_part != "Footwear" ? data.body_part.toLowerCase(): "feet",
+            sex: data.sex.toLowerCase(),
+            base_src: 'assets/images/spritesheets/' + data.directory,
+            img_name: data.spritesheet_img_name,
+            zPos: data.zPos,
+        });
+    }
+
+
     return(
         <div data-tip data-for={data.name}  className="shop-returnMap">
         <div className="shop-items">
-            <div className="shop-itemsImage">
+            <div className="shop-itemsImage" onClick={showItemOnAvatar}>
               {
               (data.sex==="None" || data.sex==="Male")? <img src={data.male_image}></img>:<img src={data.female_image}></img>
              }

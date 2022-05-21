@@ -80,6 +80,7 @@ function Shop({setGems}){
         avatarCtx.current.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         avatarCtx.current.fillStyle = bgColor.current;
         avatarCtx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        //try to implement slash oversize by doubling second argument of drawImage if slash oversize -> also adjust selectionImg frames
         avatarCtx.current.drawImage(avatarImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
         if(charClass.current == "warrior"){
@@ -97,6 +98,22 @@ function Shop({setGems}){
                         frameY.current = 14;
                         cycles.current = 8;
                     }
+            })
+        }else if(charClass.current == "mage"){
+            selections.current.forEach(selection => {
+                if(selection.base_src.indexOf("thrust") != -1){
+                    frameY.current = 6;
+                    cycles.current = 7;
+                }else if(selection.base_src.indexOf("slash/") != -1){
+                    frameY.current = 14;
+                    cycles.current = 5;
+                }else if(selection.base_src.indexOf("slash_oversize") != -1){
+                    frameY.current = 10;
+                    cycles.current = 8;
+                }else{
+                    frameY.current = 14;
+                    cycles.current = 8;
+                }
             })
         }
 
@@ -127,10 +144,15 @@ function Shop({setGems}){
     const updatePreview = (item) => {
         console.log("IN SHOP")
         console.log(item)
-        selections.current = selections.current.filter(selection => selection.base_src.indexOf("weapon") == -1);
+
+        if(item.item_type == "weapon"){
+            selections.current = selections.current.filter(selection => selection.base_src.indexOf("weapon") == -1);
+        }else{
+            selections.current = selections.current.filter(selection =>  selection.hasOwnProperty('body_part') == false || selection.body_part.indexOf(item.body_part) == -1);
+        }
         selections.current.push(item)
+        console.log("SELECTIONS")
         console.log(selections.current)
-        // animate()
     }
 
 
@@ -154,6 +176,9 @@ function Shop({setGems}){
                 </div> */}
                 <div id="shop-preview-animations-box">
                     <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
+                    <center>
+                        <button className="btn-custom-primary reset-shop-preview-btn">Reset</button>
+                    </center>
                 </div>
             </section>
 

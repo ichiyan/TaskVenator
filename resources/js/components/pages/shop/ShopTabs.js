@@ -5,7 +5,7 @@ const ShopTabs = ({tab, setGems, updatePreview})=>{
     if(tab == 'all'){
         return <All setGems={setGems} updatePreview={updatePreview}></All>;
     }else if(tab == 'potions'){
-        return <Potions setGems={setGems} updatePreview={updatePreview}></Potions>
+        return <Potions setGems={setGems}></Potions>
     }else if (tab == 'weapons'){
         return <Weapons setGems={setGems} updatePreview={updatePreview}></Weapons>
     }else if(tab == 'outfit'){
