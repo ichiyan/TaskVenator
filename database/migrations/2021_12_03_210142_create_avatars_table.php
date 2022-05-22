@@ -24,7 +24,8 @@ class CreateAvatarsTable extends Migration
             $table->integer('agility');
             $table->integer('intelligence');
             $table->integer('current_hp');
-            $table->integer('current_xp');
+            $table->integer('current_xp')->default('0');
+            $table->integer('max_hp');
             $table->integer('max_xp');
             $table->integer('crit_chance');
             $table->integer('crit_damage');
