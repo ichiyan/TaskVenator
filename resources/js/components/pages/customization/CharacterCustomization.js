@@ -370,6 +370,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'legArmor',
+                    body_part: 'legs',
                     sex: "unisex",
                     image: warriorDefaultItems.legArmor,
                     img_name: '7.png',
@@ -379,6 +380,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'chainmail',
+                    body_part: 'torso',
                     sex: "unisex",
                     image: warriorDefaultItems.chainmail,
                     img_name: 'gray.png',
@@ -388,6 +390,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'plate',
+                    body_part: 'torso',
                     sex: "unisex",
                     image: warriorDefaultItems.plate,
                     img_name: '11.png',
@@ -397,6 +400,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'arms',
+                    body_part: 'arms',
                     sex: "unisex",
                     image: warriorDefaultItems.arms,
                     img_name: '1.png',
@@ -406,6 +410,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'shoulderPlate',
+                    body_part: 'shoulders',
                     sex: "unisex",
                     image: warriorDefaultItems.shoulderPlate,
                     img_name: '7.png',
@@ -415,6 +420,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'gloves',
+                    body_part: 'hands',
                     sex: "unisex",
                     image: warriorDefaultItems.gloves,
                     img_name: '1.png',
@@ -424,6 +430,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'shoes',
+                    body_part: 'feet',
                     sex: "unisex",
                     image: warriorDefaultItems.shoes,
                     img_name: '4.png',
@@ -433,6 +440,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'shield',
+                  body_part: ' none',
                     sex: "unisex",
                     image: warriorDefaultItems.shield,
                     img_name: 'round_brown.png',
@@ -442,6 +450,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'slashWeapon',
+                  body_part: ' none',
                     sex: "unisex",
                     image: warriorDefaultItems.slashWeapon,
                     img_name: 'dagger.png',
@@ -468,6 +477,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'mage',
                     name: 'legPants',
+                    body_part: 'legs',
                     sex: "unisex",
                     image: mageDefaultItems.legPants,
                     img_name: 'navy.png',
@@ -477,6 +487,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'mage',
                     name: 'shoes',
+                    body_part: 'feet',
                     sex: "unisex",
                     image: mageDefaultItems.shoes,
                     img_name: 'black.png',
@@ -486,6 +497,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'mage',
                     name: 'cloak',
+                    body_part: 'torso',
                     sex: "male",
                     image: mageDefaultItems.cloak,
                     img_name: 'black.png',
@@ -495,6 +507,8 @@ const CharacterCustomization = () => {
                 {
                     class: 'mage',
                     name: 'cape',
+                    //empty for now
+                  body_part: ' none',
                     sex: "unisex",
                     image: mageDefaultItems.cape,
                     img_name: 'black.png',
@@ -504,6 +518,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'mage',
                     name: 'scarf',
+                    body_part: 'neck',
                     sex: "none",
                     image: mageDefaultItems.scarf,
                     img_name: 'blue.png',
@@ -513,6 +528,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'mage',
                     name: 'weapon',
+                  body_part: ' none',
                     sex: "unisex",
                     image: mageDefaultItems.weapon,
                     img_name: 'simple_staff.png',
@@ -539,6 +555,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'legPants',
+                    body_part: 'legs',
                     sex: "unisex",
                     image: marksmanDefaultItems.legPants,
                     img_name: 'green.png',
@@ -548,6 +565,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'shoes',
+                    body_part: 'feet',
                     sex: "unisex",
                     image: marksmanDefaultItems.shoes,
                     img_name: 'black.png',
@@ -557,6 +575,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'shirt',
+                    body_part: 'torso',
                     sex: "unisex",
                     image: marksmanDefaultItems.shirt,
                     img_name: 'green.png',
@@ -566,6 +585,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'armor',
+                    body_part: 'torso',
                     sex: "unisex",
                     image: marksmanDefaultItems.armor,
                     img_name: 'brown.png',
@@ -575,6 +595,8 @@ const CharacterCustomization = () => {
                  {
                     class: 'marksman',
                     name: 'bauldron',
+                    //empty for now
+                  body_part: ' none',
                     sex: "unisex",
                     image: marksmanDefaultItems.bauldron,
                     img_name: 'brown.png',
@@ -584,6 +606,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'quiver',
+                  body_part: ' none',
                     sex: "none",
                     image: marksmanDefaultItems.quiver,
                     img_name: 'quiver.png',
@@ -593,6 +616,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'weapon',
+                  body_part: ' none',
                     sex: "none",
                     image: marksmanDefaultItems.weapon,
                     img_name: 'normal.png',
@@ -602,6 +626,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'ammo',
+                  body_part: ' none',
                     sex: "none",
                     image: marksmanDefaultItems.ammo,
                     img_name: 'arrow.png',

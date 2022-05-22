@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
-function PotionFilter({data, value, setGems}){
+function PotionFilter({data, value, setGems,gems}){
       const [passProductId, setPassProductId]= useState({
             product: '',
             amount :'',
@@ -11,7 +11,6 @@ function PotionFilter({data, value, setGems}){
 
        const submitToHandler=(e)=>{
              e.preventDefault();
-          Swal.fire("You have successfully bought the item");
             setPassProductId({
                     product:e.target.product.value,
                     amount: e.target.amount.value,
@@ -32,10 +31,11 @@ function PotionFilter({data, value, setGems}){
             }
             if(data.product === "" && data.amount===""){
                   //console.log("empty")
-            }else{
+            }else if((gems-data.amount)>=0){
                   
                   axios.post(`/api/addBought`, data).then(res =>{
                         if(res.data.status === 200){
+                              Swal.fire("You have successfully bought the item");
                               setGems(res.data.gems);
                               //setGems(123);
                               console.log("test");
@@ -43,6 +43,8 @@ function PotionFilter({data, value, setGems}){
                           // setPotion({...potion,error_list:res.data.errors});
                         }
                       });
+            }else{
+                  Swal.fire("Not Enough Gems :(");
             }
 
        }, [passProductId])
