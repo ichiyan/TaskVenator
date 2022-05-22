@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
     AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 
 
-const InventoryAll = () => {
+const InventoryAll = ({updateAvatarPreview, updateAvatarItems}) => {
 
     const[inventoryPotion,setInventoryPotion]=useState({
         potions:[],
@@ -104,7 +104,7 @@ const InventoryAll = () => {
                         if(w.inventUserId === authId){
                                 return (
                                     <div key={index} className="inventory-outfitFilter">
-                                        <InventoryWeaponFilter data= {w} inventory={inventoryWeapon} setInventory={setInventoryWeapon}/>
+                                        <InventoryWeaponFilter data= {w} inventory={inventoryWeapon} setInventory={setInventoryWeapon} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                     </div>
                                 )
                             }
@@ -120,7 +120,7 @@ const InventoryAll = () => {
                                 if(w.body_part==="Head"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} />
+                                                <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems} />
                                             </div>
                                         )
                                 }
@@ -134,7 +134,7 @@ const InventoryAll = () => {
                                 if(w.body_part==="Arms"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} />
+                                                <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems} />
                                             </div>
                                         )
                                 }
@@ -148,7 +148,7 @@ const InventoryAll = () => {
                                 if(w.body_part==="Torso"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} />
+                                                <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems} />
                                             </div>
                                         )
                                 }
@@ -162,7 +162,7 @@ const InventoryAll = () => {
                                 if(w.body_part==="Legs"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor}/>
+                                                <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                             </div>
                                         )
                                 }
@@ -176,7 +176,7 @@ const InventoryAll = () => {
                                 if(w.body_part==="Footwear"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w}  inventory={inventoryArmor} setInventory={setInventoryArmor}/>
+                                                <InventoryOutfitFilter data= {w}  inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                             </div>
                                         )
                                 }

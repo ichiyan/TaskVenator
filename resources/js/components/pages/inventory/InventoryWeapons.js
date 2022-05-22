@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 import InventoryWeaponFilter from "./InventoryWeaponFilter";
 
-function InventoryWeapons(){
+function InventoryWeapons({updateAvatarPreview, updateAvatarItems}){
 
     const[inventory,setInventory]=useState({
         weapons:[],
@@ -97,7 +97,7 @@ function InventoryWeapons(){
                                     if(w.rarity_type==="Common"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                             )
                                     }
@@ -117,7 +117,7 @@ function InventoryWeapons(){
                                     if(w.rarity_type==="Uncommon"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                             )
                                     }
@@ -134,7 +134,7 @@ function InventoryWeapons(){
                                     if(w.rarity_type==="Rare"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                             )
                                     }
@@ -153,7 +153,7 @@ function InventoryWeapons(){
                                     if(w.rarity_type==="Common"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                             )
                                     }
@@ -170,7 +170,7 @@ function InventoryWeapons(){
                                     if(w.rarity_type===rarity){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                             )
                                     }
@@ -187,7 +187,7 @@ function InventoryWeapons(){
                                     if(w.rarity_type===rarity){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview}/>
+                                                    <InventoryWeaponFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                             )
                                     }

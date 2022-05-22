@@ -190,8 +190,8 @@ function Shop({setGems,gems}){
                     <div className="text-center"></div>
                 </div> */}
                 <div id="shop-preview-animations-box">
-                    <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
                     <center>
+                        <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
                         <button onClick={resetAvatarPreview} className="btn-custom-primary reset-shop-preview-btn">Reset</button>
                     </center>
                 </div>

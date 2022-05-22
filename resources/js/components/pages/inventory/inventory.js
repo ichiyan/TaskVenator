@@ -29,7 +29,6 @@ function Inventory({hasUpdates, setHasUpdates}){
     const [items, setItems] = useState();
 
     const selections = useRef([]);
-    const actual_selections = useRef([]);
 
 
     useEffect(()=>{
@@ -41,6 +40,7 @@ function Inventory({hasUpdates, setHasUpdates}){
 
         axios.get(`api/get_user_info`).then(res => {
             var data = res.data;
+
             setAvatarClass(data.class);
             setItems(data.items);
 
@@ -49,7 +49,6 @@ function Inventory({hasUpdates, setHasUpdates}){
             isFemale.current = data.sex;
             skinTone.current = data.skin_tone;
             selections.current = data.items;
-            actual_selections.current = data.items;
 
             var chClass = charClass.current;
             if(chClass === "warrior"){
@@ -80,51 +79,56 @@ function Inventory({hasUpdates, setHasUpdates}){
         avatarCtx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         //try to implement slash oversize by doubling second argument of drawImage if slash oversize -> also adjust selectionImg frames
         avatarCtx.current.drawImage(avatarImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
-        if(charClass.current == "warrior"){
-            selections.current.forEach(selection => {
-                    if(selection.base_src.indexOf("thrust") != -1){
-                        frameY.current = 6;
-                        cycles.current = 7;
-                    }else if(selection.base_src.indexOf("slash/") != -1){
-                        frameY.current = 14;
-                        cycles.current = 5;
-                    }else if(selection.base_src.indexOf("slash_oversize") != -1){
-                        frameY.current = 10;
-                        cycles.current = 8;
-                    }else if(selection.base_src.indexOf("bow") != -1){
-                        frameY.current = 18;
-                        frameX.current = 2;
-                        cycles.current = 10;
+        selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 )
+        if(selections.current.filter(selection => selection.base_src.indexOf("weapon") != -1).length > 0){
+            if(charClass.current == "warrior"){
+                selections.current.forEach(selection => {
+                        if(selection.base_src.indexOf("thrust") != -1){
+                            frameY.current = 6;
+                            cycles.current = 7;
+                        }else if(selection.base_src.indexOf("slash/") != -1){
+                            frameY.current = 14;
+                            cycles.current = 5;
+                        }else if(selection.base_src.indexOf("slash_oversize") != -1){
+                            frameY.current = 10;
+                            cycles.current = 8;
+                        }else if(selection.base_src.indexOf("bow") != -1){
+                            frameY.current = 18;
+                            frameX.current = 2;
+                            cycles.current = 10;
+                        }else{
+                            frameY.current = 14;
+                            cycles.current = 8;
+                        }
+                })
+            }else if(charClass.current == "mage"){
+                selections.current.forEach(selection => {
+                    if(selection.img_name != "simple_staff.png") {
+                        if(selection.base_src.indexOf("thrust") != -1){
+                            frameY.current = 6;
+                            cycles.current = 7;
+                        }else if(selection.base_src.indexOf("slash/") != -1){
+                            frameY.current = 14;
+                            cycles.current = 5;
+                        }else if(selection.base_src.indexOf("slash_oversize") != -1){
+                            frameY.current = 10;
+                            cycles.current = 8;
+                        }else if(selection.base_src.indexOf("bow") != -1){
+                            frameY.current = 18;
+                            cycles.current = 10;
+                        }else{
+                            frameY.current = 14;
+                            cycles.current = 8;
+                        }
                     }else{
-                        frameY.current = 14;
-                        cycles.current = 8;
+                        frameY.current = 2;
+                        cycles.current = 6;
                     }
-            })
-        }else if(charClass.current == "mage"){
-            selections.current.forEach(selection => {
-                if(selection.img_name != "simple_staff.png") {
-                    if(selection.base_src.indexOf("thrust") != -1){
-                        frameY.current = 6;
-                        cycles.current = 7;
-                    }else if(selection.base_src.indexOf("slash/") != -1){
-                        frameY.current = 14;
-                        cycles.current = 5;
-                    }else if(selection.base_src.indexOf("slash_oversize") != -1){
-                        frameY.current = 10;
-                        cycles.current = 8;
-                    }else if(selection.base_src.indexOf("bow") != -1){
-                        frameY.current = 18;
-                        cycles.current = 10;
-                    }else{
-                        frameY.current = 14;
-                        cycles.current = 8;
-                    }
-                }else{
-                    frameY.current = 2;
-                    cycles.current = 6;
-                }
-            })
+                })
+            }
+        }else{
+            frameY.current = 10;
+            cycles.current = 8;
         }
 
         selections.current.forEach(selection => {
@@ -164,7 +168,6 @@ function Inventory({hasUpdates, setHasUpdates}){
      }
 
      const updateAvatarItems = () => {
-        // e.preventDefault()
 
         console.log("SELECTIONS")
         console.log(selections.current)
@@ -196,20 +199,18 @@ function Inventory({hasUpdates, setHasUpdates}){
                 <InventoryTabs tab={tab} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}></InventoryTabs>
             </div>
 
-            {/* <form onSubmit={updateAvatarItems}> */}
                 <section id="inventory-avatar-preview inventory-right">
                     {/* <div id='char-cust-header'>
                         <div className="text-center"></div>
                     </div> */}
                     <div id="inventory-preview-animations-box">
-                        <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
                         <center>
-                            {/* <input type="submit" name="submit" id="submit" className="btn-custom-primary save-btn" value="Save"/> */}
-                            <button onClick={updateAvatarItems}  className="btn-custom-primary save-btn">Save</button>
+                            <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
+                            {/* <button onClick={updateAvatarItems}  className="btn-custom-primary save-btn">Save</button>
+                            <button onClick={resetAvatarPreview}  className="btn-custom-primary save-btn">Reset</button> */}
                         </center>
                     </div>
                 </section>
-            {/* </form> */}
       </section>
     );
 }

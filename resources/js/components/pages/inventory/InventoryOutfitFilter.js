@@ -113,7 +113,7 @@ const equipUnequip = () => {
                             {/* <div className="inventory-itemsImage">
                             <img onClick={() => {previewImage(w.image)}} src={data.image}></img>
                             </div> */}
-                            <div className="shop-itemsImage" onClick={execUpdateAvatarPreview}>
+                            <div className="shop-itemsImage">
                              {
                                  (data.sex==="None" || data.sex==="Male")?
                                                     <img onClick={() => {setPreview(data.male_image)}} src={data.male_image}></img>

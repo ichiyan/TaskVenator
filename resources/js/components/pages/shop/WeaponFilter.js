@@ -17,7 +17,7 @@ function WeaponFilter({data, value, avatarClass,setGems,gems, updatePreview}){
              e.preventDefault();
 
           if(e.target.class.value===avatarClass){
-            
+
             setPassProductId({
                   product:e.target.product.value,
                   amount: e.target.amount.value,

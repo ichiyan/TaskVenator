@@ -4,7 +4,7 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 import InventoryOutfit from "./InventoryOutfit";
 
-function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
+function InventoryWeaponFilter({setPreview, inventory, setInventory, data, updateAvatarPreview, updateAvatarItems}){
 
     const [passProductId, setPassProductId]= useState({
             directory: '',
@@ -75,6 +75,31 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
     },[passProductId])
 
 
+    const execUpdateAvatarPreview = () => {
+        console.log(data)
+
+        var clickedItem = inventory.weapons.filter(item => item.id == data.id)
+
+        console.log("CLICKED ITEM")
+        console.log(clickedItem)
+
+        updateAvatarPreview({
+            item_type: "weapon",
+            status: clickedItem[0].status,
+            body_part:  data.body_part,
+            sex: data.sex.toLowerCase(),
+            base_src: 'assets/images/spritesheets/' + data.directory,
+            img_name: data.spritesheet_img_name,
+            zPos: data.zPos,
+        });
+    }
+
+    const equipUnequip = () => {
+        execUpdateAvatarPreview()
+        updateAvatarItems()
+    }
+
+
     return(
         <div data-tip data-for={data.name}  className="inventory-returnMap">
         <div className="inventory-items">
@@ -99,8 +124,8 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data}){
                               {/* <h1>{data.status}</h1> */}
                               {
                                   (data.status === 1)?
-                                   <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
-                                  :<Button type="submit"style={{backgroundColor: "yellow"}}>Equip</Button>
+                                   <Button  onClick={equipUnequip} type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
+                                  :<Button onClick={equipUnequip} type="submit"style={{backgroundColor: "yellow"}}>Equip</Button>
                               }
                         </form>
                 </div>
