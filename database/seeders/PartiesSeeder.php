@@ -18,11 +18,14 @@ class PartiesSeeder extends Seeder
             array(
                [
                     'party_name' => 'TaskVenator',
+                   'party_image' => 'add_later',
+                   'party_motto' => 'Let us finish this project!!',
                     'founded_on' => '2022-01-12 21:47:22',
                     'total_members' => 7,
+                   'max_members' => 10,
                     'battles_won' => 0,
                     'battles_lost' => 0,
-                    'party_creator' => 1,
+                    'founder' => 1,
                ],
             )
         );
@@ -31,37 +34,30 @@ class PartiesSeeder extends Seeder
                 [
                     'party_id' => 1,
                     'user_id' => 1,
-                    'status' => 1,
                 ],
                 [
                     'party_id' => 1,
                     'user_id' => 2,
-                    'status' => 1,
                 ],
                 [
                     'party_id' => 1,
                     'user_id' => 3,
-                    'status' => 1,
                 ],
                 [
                     'party_id' => 1,
                     'user_id' => 4,
-                    'status' => 1,
                 ],
                 [
                     'party_id' => 1,
                     'user_id' => 5,
-                    'status' => 1,
                 ],
                 [
                     'party_id' => 1,
                     'user_id' => 6,
-                    'status' => 1,
                 ],
                 [
                     'party_id' => 1,
                     'user_id' => 7,
-                    'status' => 1,
                 ],
             )
         );

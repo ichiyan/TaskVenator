@@ -16,8 +16,16 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        $this->call([AvatarClassesSeeder::class, UsersSeeder::class,  PartiesSeeder::class,
-                    OutfitInfoTableSeeder::class, OutfitTableSeeder::class, PotionTableSeeder::class, ProductsTableSeeder::class
+        $this->call([
+                    AttributeBaseStatAdditionsSeeder::class,
+                    AvatarClassesSeeder::class,
+                    BattlePerformanceSeeder::class,
+                    TaskDifficultiesSeeder::class,
+                    LevelsSeeder::class, UsersSeeder::class,
+                    OutfitInfoTableSeeder::class,
+                    OutfitTableSeeder::class,
+                    PotionTableSeeder::class, ProductsTableSeeder::class,
+                    PartiesSeeder::class,
         ]);
     }
 }

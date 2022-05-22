@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +14,7 @@ class OutfitInfoTableSeeder extends Seeder
     public function run()
     {
         DB::table('outfit_info')->insert([
-        
+
         [
             //common type warrior weapon info
             'id'=> '1',
