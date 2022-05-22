@@ -1,6 +1,8 @@
 import { React, Fragment, axios, useRef, useState, useEffect,
     FontAwesomeIcon, faInfoCircle,
     Carousel, PartyMemberAvatar } from '../../index';
+import JoinPartyModal from '../modals/JoinParty'
+import FormPartyModal from '../modals/FormParty'
 
 const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
                   xp, xpTotal, xpBarWidth, xpIncreaseWidth}) => {
@@ -125,7 +127,7 @@ return (
                        <span className="circle-icon">
                            <img className="class-icon" src={"assets/images/" + avatarClass + "-class-icon.png"}></img>
                        </span>
-                       <span className="username">{username}<p className="class">lvl {level} {avatarClass}</p></span>
+                       <span className="username">{username}<p className="class">lvl 12312312{level} {avatarClass}</p></span>
                    </div>
                     <div className="health-section">
                        <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>
@@ -164,15 +166,22 @@ return (
                    :   <Fragment>
                            <div className="col-7 text-center">
                                <p className="prompt">Tired of completing tasks and battling monsters alone?</p>
-                               <button className="btn btn-primary btn-custom-primary avatar-header-btn">Form a Party</button>
+                               <button className="btn btn-primary btn-custom-primary avatar-header-btn" data-bs-toggle="modal" data-bs-target="#form-a-party">Form a Party</button>
                                <span>
-                                   <button className="btn btn-outline-primary btn-custom-outline-primary avatar-header-btn">Join a Party</button>
+                                   <button className="btn btn-outline-primary btn-custom-outline-primary avatar-header-btn" data-bs-toggle="modal" data-bs-target="#join-a-party">Join a Party</button>
                                </span>
                            </div>
                        </Fragment>
                }
            </div>
        </div>
+
+
+       {/* Modals */}
+       <JoinPartyModal></JoinPartyModal>
+       <FormPartyModal></FormPartyModal>
+
+
    </div>
 );
 }

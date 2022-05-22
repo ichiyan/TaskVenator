@@ -1,0 +1,99 @@
+.pagination-container {
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+}
+
+.pagination-item {
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #2A2C37;
+    border: 0;
+    display: flex;
+    padding: 10px 15px;
+    align-items: center;
+    text-align: center;
+    color: #c7c7c7;
+    padding: 5px 12px;
+    margin: 10px;
+}
+
+.pagination-item.dots:hover {
+    background: #8c6fec;
+    color: white;
+    cursor: default;
+}
+
+.pagination-item:hover {
+    background: #8c6fec;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination-item.selected {
+    background: #6D4CD8;
+    color: white;
+}
+
+/* 
+.arrow::before {
+    position: relative;
+    content: '';
+    display: inline-block;
+    width: 0.4em;
+    height: 0.4em;
+    border-right: 0.12em solid rgba(0, 0, 0, 0.87);
+    border-top: 0.12em solid rgba(0, 0, 0, 0.87);
+}
+
+.arrow .left {
+    transform: rotate(-135deg) translate(-50%);
+}
+
+.arrow .right {
+    transform: rotate(45deg);
+} */
+.arrow {
+    height: 16px;
+    display: inline-block;
+    position: relative;
+}
+
+.pagination-item.disabled {
+    pointer-events: none;
+}
+
+.pagination-item .arrow::before {
+    border-right: 0.12em solid rgba(0, 0, 0, 0.43);
+    border-top: 0.12em solid rgba(0, 0, 0, 0.43);
+}
+
+.pagination-item:hover {
+    background: #8c6fec;
+    color: white;
+    cursor: pointer;
+}
+
+ul {
+    padding: 0px;
+}
+
+/* Small screen below */
+@media (max-width: 767px) {
+    .arrow {
+        height: 14px;
+    }
+    .pagination-item {
+        border-radius: 5px;
+        font-size: 12px;
+        background: rgba(109, 76, 216, 0.1);
+        border: 0;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #6D4CD8;
+        padding: 5px 12px;
+        margin: 0px 3px !important;
+    }
+}
