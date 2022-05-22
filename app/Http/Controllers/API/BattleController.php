@@ -18,7 +18,7 @@ class BattleController extends Controller
     public function index(): \Illuminate\Http\JsonResponse
     {
         //for individual battle
-        $id = Auth::id();
+        $id = Auth::hasUser();
         $battle= BattleIndividual::find(1);
         return response()->json([
             'status' => 200,

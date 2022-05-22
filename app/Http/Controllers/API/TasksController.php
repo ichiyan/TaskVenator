@@ -5,19 +5,24 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Tasks;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TasksController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
         //
         $tasks = Tasks::all();
-        return response()->json($tasks);
+        $id = Auth::hasUser();
+        return response()->json([
+            'status' => 200,
+            'tasks' => $tasks,
+        ]);
     }
 
     /**

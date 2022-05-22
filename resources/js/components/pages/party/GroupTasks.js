@@ -10,17 +10,22 @@ const GroupTasks = () => {
 
     var name1 = "Mhady"
     var name2 = "Lisette"
-    //const [taskList, setTaskList] = useState(data);
+    const [taskList, setTaskList] = useState({
+        tasks:[], id_user:null
+    });
 
-    // useEffect(() =>{
-    //     axios.get(`/api/tasks`).then(res =>{
-    //         if(res.data.status===200){
-    //             setDisplay2({
-    //                 outfit:res.data.outfit
-    //             })
-    //         }
-    //     })
-    // },[])
+    useEffect(() =>{
+        axios.get(`/api/tasks`).then(res =>{
+            if(res.data.status===200){
+                setTaskList({
+                    tasks:res.data.tasks
+                })
+            }
+            console.log(res.data.status)
+        })
+    },[])
+
+    console.log(taskList)
 
     return(
         <section className="container party-section">

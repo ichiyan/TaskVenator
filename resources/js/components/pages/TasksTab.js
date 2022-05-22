@@ -20,7 +20,7 @@ const TasksTab = () => {
     var colWidth = "30%";
     const [show, setShow] = useState(false);
     const [battle, setBattle] = useState({
-        battle:[], id_user:null
+        battle:[]
     });
     const handleShow = () =>setShow(!show);
 
@@ -43,7 +43,7 @@ const TasksTab = () => {
         })
     },[])
 
-    console.log("battle")
+    console.log(battle)
 
     return( //will change class names
         <section className="container tasks-section">
