@@ -53,9 +53,17 @@ export {default as CharacterCustomization} from "./components/pages/customizatio
 export {default as SelectionTab} from "./components/pages/customization/SelectionTab";
 
 export {default as Inventory} from "./components/pages/inventory/inventory";
+export {default as InventoryTabs} from "./components/pages/inventory/InventoryTabs";
+export {default as InventoryAll} from "./components/pages/inventory/InventoryAll";
 export {default as InventoryOutfit} from "./components/pages/inventory/InventoryOutfit";
 export {default as InventoryPotions} from "./components/pages/inventory/InventoryPotions";
 export {default as InventoryWeapons} from "./components/pages/inventory/InventoryWeapons";
+
+export {default as InventoryOutfitFilter} from "./components/pages/inventory/InventoryOutfitFilter";
+export {default as InventoryPotionFilter} from "./components/pages/inventory/InventoryPotionFilter";
+export {default as InventoryWeaponFilter} from "./components/pages/inventory/InventoryWeaponFilter";
+
+
 
 export {default as GroupMemberPublicTasks} from "./components/pages/tasks/GroupMemberPublicTasks";
 export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks";

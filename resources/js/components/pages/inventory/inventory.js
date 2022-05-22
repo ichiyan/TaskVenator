@@ -1,305 +1,216 @@
-import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
-      AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
-import InventoryPotionFilter from "./InventoryPotionFilter";
-import InventoryWeaponFilter from "./InventoryWeaponFilter";
-import InventoryOutfitFilter from "./InventoryOutfitFilter";
-function Inventory(){
-  
-    const[inventoryPotion,setInventoryPotion]=useState({
-        potions:[],
-    });
-    const[inventoryWeapon,setInventoryWeapon]=useState({
-        weapons:[],
-    });
-    const[inventoryArmor,setInventoryArmor]=useState({
-        armors:[],
-    });
-    const[authId, setAuthId]=useState("");
-    const[countHealth, setCountHealth]=useState(0);
-    const[countPower, setCountPower]=useState(0);
-    useEffect(() =>{
-        let healPotion =0;
-        let powerPotion =0;
-        axios.get(`/api/inventory`).then(res =>{
-            if(res.data.status===200){
-                // console.log(res.data)
-                // console.log(res.data.items)
-                // console.log(res.data.items[0].user_id)
-                // console.log(res.data.items[0].name)
-                // console.log(res.data.auth_id)
+import {Link, React, useEffect, useState, useRef,
+      InventoryTabs, axios } from "../../../index";
 
-                setInventoryPotion({
-                    potions:res.data.potion
-                   
+
+function Inventory({hasUpdates, setHasUpdates}){
+
+    const [tab, setTab] = useState('all');
+
+    const [avatarClass, setAvatarClass] = useState('');
+    const charClass = useRef();
+    const bgColor = useRef();
+    const sex = useRef();
+    const isFemale = useRef();
+    const skinTone = useRef();
+
+    const avatarCanvasRef = useRef();
+    const avatarCtx = useRef();
+    const [CANVAS_WIDTH, setCanvasWidth] = useState(120);
+    const [CANVAS_HEIGHT, setCanvasHeight] = useState(120);
+    const avatarImage = useRef();
+
+    const baseDir = 'assets/images/spritesheets/';
+    const spriteWidth = 64;         // 832px / 13 cols
+    const spriteHeight = 64;        // 1344px / 21 rows
+    const frameY = useRef(10);      // walking anim starts at the 11th row
+    const frameX = useRef(0);       // starts at top left of frameY
+    const cycles = useRef(8);       // walking anim has 9 cycles
+
+    const [items, setItems] = useState();
+
+    const selections = useRef([]);
+
+
+    useEffect(()=>{
+        document.querySelector('.party-nav-item.party-active-nav').classList.remove('party-active-nav');
+        document.getElementById(tab).classList.add('party-active-nav');
+    }, [tab])
+
+    useEffect(() => {
+
+        axios.get(`api/get_user_info`).then(res => {
+            var data = res.data;
+
+            setAvatarClass(data.class);
+            setItems(data.items);
+
+            charClass.current = data.class;
+            bgColor.current = data.background_color;
+            isFemale.current = data.sex;
+            skinTone.current = data.skin_tone;
+            selections.current = data.items;
+
+            var chClass = charClass.current;
+            if(chClass === "warrior"){
+                frameY.current = 14;
+                cycles.current = 5;
+            }else if(chClass === "mage"){
+                frameY.current = 2;
+                cycles.current = 6;
+            }else if(chClass === "marksman"){
+                frameY.current = 18;
+                cycles.current = 10;
+            }
+
+            var canvas = avatarCanvasRef.current;
+            avatarCtx.current = canvas.getContext('2d');
+            canvas.width = canvas.height = 120;
+
+            avatarImage.current = new Image();
+            avatarImage.current.src = isFemale.current ? baseDir + 'body/female/human/' + skinTone.current + '.png' : baseDir + 'body/male/human/' + skinTone.current + '.png';
+
+            animate()
+        });
+     }, []);
+
+     const animate = () => {
+        avatarCtx.current.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        avatarCtx.current.fillStyle = bgColor.current;
+        avatarCtx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        //try to implement slash oversize by doubling second argument of drawImage if slash oversize -> also adjust selectionImg frames
+        avatarCtx.current.drawImage(avatarImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 )
+        if(selections.current.filter(selection => selection.base_src.indexOf("weapon") != -1).length > 0){
+            if(charClass.current == "warrior"){
+                selections.current.forEach(selection => {
+                        if(selection.base_src.indexOf("thrust") != -1){
+                            frameY.current = 6;
+                            cycles.current = 7;
+                        }else if(selection.base_src.indexOf("slash/") != -1){
+                            frameY.current = 14;
+                            cycles.current = 5;
+                        }else if(selection.base_src.indexOf("slash_oversize") != -1){
+                            frameY.current = 10;
+                            cycles.current = 8;
+                        }else if(selection.base_src.indexOf("bow") != -1){
+                            frameY.current = 18;
+                            frameX.current = 2;
+                            cycles.current = 10;
+                        }else{
+                            frameY.current = 14;
+                            cycles.current = 8;
+                        }
                 })
-                setInventoryWeapon({
-                     weapons:res.data.weapon
-               
-                })
-                setInventoryArmor({
-                    armors:res.data.item
-           
-                })
-                setAuthId(res.data.auth_id);
-                res.data.potion.map(item=>{
-                    if(item.type === "Hp Potion"){
-                          healPotion++;
+            }else if(charClass.current == "mage"){
+                selections.current.forEach(selection => {
+                    if(selection.img_name != "simple_staff.png") {
+                        if(selection.base_src.indexOf("thrust") != -1){
+                            frameY.current = 6;
+                            cycles.current = 7;
+                        }else if(selection.base_src.indexOf("slash/") != -1){
+                            frameY.current = 14;
+                            cycles.current = 5;
+                        }else if(selection.base_src.indexOf("slash_oversize") != -1){
+                            frameY.current = 10;
+                            cycles.current = 8;
+                        }else if(selection.base_src.indexOf("bow") != -1){
+                            frameY.current = 18;
+                            cycles.current = 10;
+                        }else{
+                            frameY.current = 14;
+                            cycles.current = 8;
+                        }
                     }else{
-                        powerPotion++;
-                 
+                        frameY.current = 2;
+                        cycles.current = 6;
                     }
-              })
+                })
+            }
+        }else{
+            frameY.current = 10;
+            cycles.current = 8;
+        }
 
-              setCountHealth(healPotion);
-              setCountPower(powerPotion);
-          }
+        selections.current.forEach(selection => {
+            var selectionImg = new Image();
+            if ( selection.sex === "unisex"){
+                sex.current = isFemale.current ? "female" : "male";
+            }else{
+                sex.current = selection.sex;
+            }
+            if (sex.current === "none"){
+                selectionImg.src = selection.base_src + selection.img_name;
+            }else{
+                if(selection.base_src.indexOf("slash_oversize/") != -1){
+                    selectionImg.src = selection.base_src + sex.current + "/universal/" + selection.img_name;
+                }else{
+                    selectionImg.src = selection.base_src + sex.current + "/" + selection.img_name;
+                }
+            }
+            avatarCtx.current.drawImage(selectionImg, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+        });
+        if (frameX.current < cycles.current) frameX.current += 1;
+        else frameX.current = 0 ;
+        setTimeout(animate, 1000 / 8);
+     }
+
+     const updateAvatarPreview = (item) => {
+        if(item.status == 0){
+            selections.current.push(item)
+        }else{
+            if(item.item_type == "weapon"){
+                selections.current = selections.current.filter(selection => selection.base_src.indexOf("weapon") == -1);
+            }else{
+                selections.current = selections.current.filter(selection =>  selection.hasOwnProperty('body_part') == false || selection.body_part.indexOf(item.body_part) == -1);
+            }
+        }
+     }
+
+     const updateAvatarItems = () => {
+
+        console.log("SELECTIONS")
+        console.log(selections.current)
+
+        const data = {
+            items: selections.current,
+        }
+        axios.post(`/api/update_avatar_items`, data).then(res => {
+            if(res.data.status === 200){
+                console.log(res.data)
+                setHasUpdates(!hasUpdates)
+            }
         })
-     },[])
-    //  useEffect(()=>{
-    //     console.log(inventoryArmor);
-    //     console.log(inventoryPotion);
-    //     console.log(inventoryWeapon);
-    //  },[inventoryArmor,inventoryPotion,inventoryWeapon]);
-    return(
-        <section className="container party-section">
-            
-              <div className="party-nav">
-                <div className="party-nav-item party-active-nav"><Link to="/inventory">All</Link></div>
-                <div className="party-nav-item"><Link to="/inventoryPotions">Potions</Link></div>
-                <div className="party-nav-item"><Link to="/inventoryWeapons">Weapons</Link></div>   
-                <div className="party-nav-item"><Link to="/inventoryOutfit">Outfit</Link></div>
-              </div>
-           
-              <div className="inventory-filtShop">
-    
-                <div className="inventory-shop">      
-                 <div className="inventory-category1">
-                            
-                          {(inventoryPotion.potions.length!==0 && countHealth!==0)? 
-                                    <div className="shop-categoryName">
-                                         <h5>Health Potions</h5>
-                                  </div> :""}
-                              {inventoryPotion.potions.map((p,index)=>{
-                                     if(p.inventUserId === authId){
-                                          if(p.type==="Hp Potion"){
-                                                return (
-                                                      <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
-                                                )
-                                          }
-                                        }
-                                  })}
 
-                        {(inventoryPotion.potions.length!==0 && countPower!==0)? 
-                              <div className="shop-categoryName">
-                                    <h5>Powerup Potions</h5>
-                              </div> :""}
-                              
-                              {inventoryPotion.potions.map((p,index)=>{
-                                     if(p.inventUserId === authId){
-                                          if(p.type==="Powerup Potion"){
-                                                return (
-                                                      <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
-                                                )
-                                          }
-                                        }
-                              })}
-                               <div className="shop-categoryName">
-                                    <h5>Weapons</h5>
-                              </div>
-                              {/* <div className="shop-categoryName">
-                                 <p>Common</p>
-                              </div> */}
-                              {inventoryWeapon.weapons.map((w,index)=>{
-                             if(w.inventUserId === authId){
-                                    // if(w.rarity_type==="Common"){
-                                            return (
-                                                <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w} inventory={inventoryWeapon} setInventory={setInventoryWeapon}/>
-                                                </div>   
-                                            ) 
-                                            // }
-                                }
-                        })}
-                         {/* <div className="shop-categoryName">
-                                 <p>Uncommon</p>
-                              </div>
-                              {inventoryWeapon.weapons.map((w,index)=>{
-                              if(w.inventUserId === authId){
-                                    if(w.rarity_type==="Uncommon"){
-                                            return (
-                                                <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w}/>
-                                                </div>   
-                                            ) 
-                                            }
-                                }
-                        })}
-                            <div className="shop-categoryName">
-                                 <p>Rare</p>
-                              </div>
-                              {inventoryWeapon.weapons.map((w,index)=>{
-                              if(w.inventUserId === authId){
-                                    if(w.rarity_type==="Rare"){
-                                            return (
-                                                <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryWeaponFilter data= {w}/>
-                                                </div>   
-                                            ) 
-                                            }
-                                }
-                        })} */}
-                            <div className="shop-categoryName">
-                                 <h5>Armors</h5>
-                              </div>    
-                              <div className="shop-categoryName">
-                            <p>Head</p>
-                        </div>
-                        {inventoryArmor.armors.map((w,index)=>{
-                               if(w.inventUserId === authId){
-                                    if(w.body_part==="Head"){
-                                            return (
-                                                <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} />
-                                                </div>   
-                                            ) 
-                                    }
-                                    }       
-                        })}
-                        <div className="shop-categoryName">
-                            <p>Arms</p>
-                        </div>
-                        {inventoryArmor.armors.map((w,index)=>{
-                               if(w.inventUserId === authId){
-                                    if(w.body_part==="Arms"){
-                                            return (
-                                                <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} />
-                                                </div>   
-                                            ) 
-                                    }
-                                 }       
-                        })}
-                        <div className="shop-categoryName">
-                            <p>Torso</p>
-                        </div>
-                        {inventoryArmor.armors.map((w,index)=>{
-                               if(w.inventUserId === authId){
-                                    if(w.body_part==="Torso"){
-                                            return (
-                                                <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} />
-                                                </div>   
-                                            ) 
-                                    }
-                                }       
-                        })}
-                        <div className="shop-categoryName">
-                            <p>Legs</p>
-                        </div>
-                        {inventoryArmor.armors.map((w,index)=>{
-                               if(w.inventUserId === authId){
-                                    if(w.body_part==="Legs"){
-                                            return (
-                                                <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor}/>
-                                                </div>   
-                                            ) 
-                                    }
-                                }       
-                        })}
-                        <div className="shop-categoryName">
-                            <p>Footwear</p>
-                        </div>
-                        {inventoryArmor.armors.map((w,index)=>{
-                               if(w.inventUserId === authId){
-                                    if(w.body_part==="Footwear"){
-                                            return (
-                                                <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w}  inventory={inventoryArmor} setInventory={setInventoryArmor}/>
-                                                </div>   
-                                            )
-                                    } 
-                                 }       
-                        })}
-                        </div> 
-                      
-                 </div>  
-                 <div className="inventory-preview2">
-                     <div className="inventory-equipped1">
-                            <div className="inventory-categoryName">
-                                <h3>Equipped Items</h3>
-                            </div>
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
-                                <div className="inventory-itemsImage">
-                                <img></img>
-                                </div>
-                                <div className="inventory-itemsInfo">
-                                    <h6>asdasd</h6>
-                                    <p>asdasd</p>
-                                </div>
-                            </div> 
-                            <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                    <div className="inventory-hide">
-                                        <div className="inventory-itemsInfo">
-                                                <p>asdasdasd</p>
-                                        </div> 
-                                    </div>
-                            </ReactTooltip>
-                            <div className="inventory-categoryName">
-                                <h5>Weapon</h5>
-                            </div>
-                     </div>
-                     <div className="inventory-equipped2">
-                         <div className="inventory-equipped2Left">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
-                                <div className="inventory-itemsImage">
-                                <img></img>
-                                </div>
-                                <div className="inventory-itemsInfo">
-                                    <h6>asdasd</h6>
-                                    <p>asdasd</p>
-                                </div>
-                            </div> 
-                            <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                    <div className="inventory-hide">
-                                        <div className="inventory-itemsInfo">
-                                                <p>asdasdasd</p>
-                                        </div> 
-                                    </div>
-                            </ReactTooltip>
-                            <div className="inventory-categoryName">
-                                <h5>Costume</h5>
-                            </div>
-                        </div>
-                        <div className="inventory-equipped2Right">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
-                                <div className="inventory-itemsImage">
-                                <img></img>
-                                </div>
-                                <div className="inventory-itemsInfo">
-                                    <h6>asdasd</h6>
-                                    <p>asdasd</p>
-                                </div>
-                            </div> 
-                            <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                    <div className="inventory-hide">
-                                        <div className="inventory-itemsInfo">
-                                                <p>asdasdasd</p>
-                                        </div> 
-                                    </div>
-                            </ReactTooltip>
-                            <div className="inventory-categoryName">
-                                <h5>Potion</h5>
-                            </div>
-                        </div>
-                     </div>
+     }
+
+
+    return(
+        <section className="container inventory-wrapper">
+
+            <div className="inventory-left">
+                <div className="party-nav">
+                    <div onClick={() => setTab('all')}  id='all' className="party-nav-item party-active-nav" ><Link to="">All</Link></div>
+                    <div onClick={() => setTab('potions')} id='potions' className="party-nav-item" ><Link to="">Potions</Link></div>
+                    <div onClick={() => setTab('weapons')} id='weapons'  className="party-nav-item" ><Link to="">Weapons</Link></div>
+                    <div onClick={() => setTab('outfit')} id='outfit' className="party-nav-item" ><Link to="">Outfit</Link></div>
                 </div>
+
+                <InventoryTabs tab={tab} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}></InventoryTabs>
             </div>
+
+                <section id="inventory-avatar-preview inventory-right">
+                    {/* <div id='char-cust-header'>
+                        <div className="text-center"></div>
+                    </div> */}
+                    <div id="inventory-preview-animations-box">
+                        <center>
+                            <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
+                            {/* <button onClick={updateAvatarItems}  className="btn-custom-primary save-btn">Save</button>
+                            <button onClick={resetAvatarPreview}  className="btn-custom-primary save-btn">Reset</button> */}
+                        </center>
+                    </div>
+                </section>
       </section>
     );
 }

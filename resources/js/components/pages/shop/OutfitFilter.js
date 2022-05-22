@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
-function OutfitFilter({data, value, avatarClass,setGems}){
+function OutfitFilter({data, value, avatarClass,setGems,gems, updatePreview}){
     const [passProductId, setPassProductId]= useState({
           product: '',
           amount :'',
@@ -15,7 +15,6 @@ function OutfitFilter({data, value, avatarClass,setGems}){
       e.preventDefault();
       //     Swal.fire("You have successfully bought the item");
           if(e.target.class.value===avatarClass){
-            Swal.fire("You have successfully bought the item");
             setPassProductId({
                     product:e.target.product.value,
                     amount: e.target.amount.value,
@@ -30,7 +29,7 @@ function OutfitFilter({data, value, avatarClass,setGems}){
 
 
      }
-     
+
      useEffect(() => {
       const data={
             product: passProductId.product,
@@ -40,25 +39,42 @@ function OutfitFilter({data, value, avatarClass,setGems}){
       }
       if(data.product === "" || data.amount===""){
             console.log("empty")
-      }else{
+      }else if((gems-data.amount)>=0){
             axios.post(`/api/addBought`, data).then(res =>{
                   if(res.data.status === 200){
-                     setGems(res.data.gems)   
+                  Swal.fire("You have successfully bought the item");
+                     setGems(res.data.gems);
                      console.log(res.data.message);
                   }else {
                     // setPotion({...potion,error_list:res.data.errors});
                   }
                 });
+      }else{
+            Swal.fire("Not Enough Gems :(");
       }
 
 
      }, [passProductId])
 
 
+     const showItemOnAvatar = () => {
+        console.log("ITEM CLICKED")
+        updatePreview({
+            item_type: "outfit",
+            //change footwear in db to feet
+            body_part:  data.body_part != "Footwear" ? data.body_part.toLowerCase(): "feet",
+            sex: data.sex.toLowerCase(),
+            base_src: 'assets/images/spritesheets/' + data.directory,
+            img_name: data.spritesheet_img_name,
+            zPos: data.zPos,
+        });
+    }
+
+
     return(
         <div data-tip data-for={data.name}  className="shop-returnMap">
         <div className="shop-items">
-            <div className="shop-itemsImage">
+            <div className="shop-itemsImage" onClick={showItemOnAvatar}>
               {
               (data.sex==="None" || data.sex==="Male")? <img src={data.male_image}></img>:<img src={data.female_image}></img>
              }

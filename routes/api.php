@@ -57,11 +57,17 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('gems', [InventoryController::class, 'getGems']);
     Route::post('updategems', [InventoryController::class, 'updateGems']);
 
+    //updating avatar after equipping/unequipping items
+    Route::post('update_avatar_items', [UserInfoController::class, 'update']);
+
     //new task
     Route::post('newTask', [TasksController::class, 'create']);
     Route::get('tasks',[TasksController::class, 'index']);
 
     //ongoing battle
+    Route::get('battle',[BattleController::class, 'index']);
 
 });
-Route::get('battle',[BattleController::class, 'index']);
+
+
+

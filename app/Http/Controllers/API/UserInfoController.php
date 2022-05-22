@@ -47,6 +47,7 @@ class UserInfoController extends Controller
     {
         $user_info = new UserInfo();
         $user_info->username = $request->username;
+        $user_info->gems = 10;
 
         $avatar = $user_info->avatar()->create([
             'sex' =>  $request->sex,
@@ -145,9 +146,11 @@ class UserInfoController extends Controller
                     }else{
                         $inventory->outfit_type= "Weapon";
                     }
-                // $inventory->OutfitType= $outfit->OutfitType;
+                    $inventory->status='1';
+                // $inventory->outfit_type= $outfit->outfit_type;
                     if($start===117){
                         $inventory->body_part= "Head";
+                        $inventory->status='0';
                     }else if($start === 118){
                         $inventory->body_part= "Torso";
                     }else if($start === 119){
@@ -156,7 +159,6 @@ class UserInfoController extends Controller
                         $inventory->body_part= "Footwear";
                     }
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
         }
@@ -215,9 +217,15 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // DB::update('update avatars set items = ? where id = ?', [$request->items, Auth::id()]);
+
+        Avatar::where('id', Auth::id())->update(array('items' => $request->items));
+
+        return response()->json([
+            'status' => 200,
+        ]);
     }
 
     /**
