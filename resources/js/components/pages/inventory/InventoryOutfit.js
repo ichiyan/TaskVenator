@@ -156,7 +156,7 @@ const bodyPartHandler=(e)=>{
                         })}
                             </div>:""
                         }
-                        {(rarity==="All" && bodyPart==="All" && commonArms!==0)?<div>
+                        {(rarity==="All" && bodyPart==="All")?<div>
                         <div className="shop-categoryName">
                             <h5>Arms</h5>
                         </div>
