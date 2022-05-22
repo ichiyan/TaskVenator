@@ -11,9 +11,11 @@ class AvatarClass extends Model
 {
     use HasFactory;
     protected $table = 'avatar_classes';
-    protected $fillable = ['name', 'base_attack', 'magic_attack', 'base_defense', 'magic_defense'];
+    protected $fillable = ['name', 'strength', 'agility', 'intelligence', 'hp',
+                            'crit_chance', 'crit_damage', 'primary_attribute',
+                            'secondary_attribute', 'ternary_attribute'];
 
-    public function classed(): HasMany
+    public function has_avatars(): HasMany
     {
         return $this->hasMany(Avatar::class);
     }

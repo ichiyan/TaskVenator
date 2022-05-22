@@ -43,6 +43,8 @@ const TasksTab = () => {
         })
     },[])
 
+    console.log("battle")
+
     return( //will change class names
         <section className="container tasks-section">
             <div className="tasks-content" >

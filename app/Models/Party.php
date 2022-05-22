@@ -11,10 +11,8 @@ class Party extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'name',
-    ];
+    protected $fillable = ['party_name', 'party_image', 'party_motto', 'founded_on',
+                            'total_members', 'max_members', 'battles_won', 'battles_lost', 'founder'];
 
     public function party_members(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

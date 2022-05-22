@@ -17,8 +17,8 @@ class CreateInventoriesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users', 'id');
             $table->foreignId('product')->constrained('products', 'id');
-            $table->foreignId('outfit_type')->nullable()->constrained('outfit_types', 'id');
-            $table->foreignId('body_part')->nullable()->constrained('body_parts', 'id');
+            $table->foreignId('OutfitType')->nullable()->constrained('outfit_types', 'id');
+            $table->foreignId('bodyPart')->nullable()->constrained('body_parts', 'id');
             $table->integer('amount');
             $table->boolean('status')->default(0);  //1 if equipped otherwise 0
             $table->timestamps();

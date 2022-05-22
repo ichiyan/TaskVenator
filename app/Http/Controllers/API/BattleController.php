@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Battle;
+use App\Models\BattleIndividual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,7 @@ class BattleController extends Controller
     {
         //for individual battle
         $id = Auth::id();
-        $battle= Battle::find(1); //waiting for battle table to be restructured
+        $battle= BattleIndividual::find(1);
         return response()->json([
             'status' => 200,
             'battle' => $battle,

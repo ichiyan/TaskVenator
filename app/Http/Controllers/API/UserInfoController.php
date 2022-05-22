@@ -64,7 +64,7 @@ class UserInfoController extends Controller
         $avatar->class()->associate($avatar_class);
         $avatar->save();
 
-   
+
         if($request->class === "warrior"){
             for($start=106; $start<112; $start++){
                 $inventory= new Inventory;
@@ -72,7 +72,7 @@ class UserInfoController extends Controller
                 // $outfit= DB::table('products')
                 //             ->where('products.outfit', '=', $start)
                 //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                //             ->select('outfit.outfit_type', 'outfit.body_part')
+                //             ->select('outfit.OutfitType', 'outfit.bodyPart')
                 //             ->get();
                 $inventory->user_id= $user_id;
                 $inventory->product= $start;
@@ -81,7 +81,7 @@ class UserInfoController extends Controller
                     }else{
                         $inventory->outfit_type= "Weapon";
                     }
-                // $inventory->outfit_type= $outfit->outfit_type;
+                // $inventory->OutfitType= $outfit->OutfitType;
                     if($start===106){
                         $inventory->body_part= "Head";
                     }else if($start === 107){
@@ -93,12 +93,12 @@ class UserInfoController extends Controller
                     }else if($start === 110){
                         $inventory->body_part= "Footwear";
                     }
-                // $inventory->body_part= $outfit->body_part;
+                // $inventory->bodyPart= $outfit->bodyPart;
                 $inventory->amount='0';
                 $inventory->status='1';
                 $inventory->save();
             }
-  
+
         }else if($request->class === "marksman"){
             for($start=112; $start<117; $start++){
                 $inventory= new Inventory;
@@ -106,7 +106,7 @@ class UserInfoController extends Controller
                 // $outfit= DB::table('products')
                 //             ->where('products.outfit', '=', $start)
                 //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                //             ->select('outfit.outfit_type', 'outfit.body_part')
+                //             ->select('outfit.OutfitType', 'outfit.bodyPart')
                 //             ->get();
                 $inventory->user_id= $user_id;
                 $inventory->product= $start;
@@ -115,7 +115,7 @@ class UserInfoController extends Controller
                     }else{
                         $inventory->outfit_type= "Weapon";
                     }
-                // $inventory->outfit_type= $outfit->outfit_type;
+                // $inventory->OutfitType= $outfit->OutfitType;
                     if($start===112){
                         $inventory->body_part= "Head";
                     }else if($start === 113){
@@ -136,7 +136,7 @@ class UserInfoController extends Controller
                 // $outfit= DB::table('products')
                 //             ->where('products.outfit', '=', $start)
                 //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                //             ->select('outfit.outfit_type', 'outfit.body_part')
+                //             ->select('outfit.OutfitType', 'outfit.bodyPart')
                 //             ->get();
                 $inventory->user_id= $user_id;
                 $inventory->product= $start;
@@ -145,7 +145,7 @@ class UserInfoController extends Controller
                     }else{
                         $inventory->outfit_type= "Weapon";
                     }
-                // $inventory->outfit_type= $outfit->outfit_type;
+                // $inventory->OutfitType= $outfit->OutfitType;
                     if($start===117){
                         $inventory->body_part= "Head";
                     }else if($start === 118){
@@ -160,10 +160,10 @@ class UserInfoController extends Controller
                 $inventory->save();
             }
         }
-    
 
-        
- 
+
+
+
 
         return response()->json([
             'status' => 200,

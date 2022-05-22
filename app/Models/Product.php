@@ -10,7 +10,7 @@ class Product extends Model
 {
     use HasFactory;
     protected $table='products';
-    protected $fillable = ['card', 'potion', 'outfit'];
+    protected $fillable = ['weapon', 'potion', 'outfit', 'price'];
 
     public function featuresCard(): HasOne
     {
@@ -25,7 +25,4 @@ class Product extends Model
     {
         return $this->hasOne(Outfit::class, 'id', 'outfit');
     }
-    
-  
-    
 }

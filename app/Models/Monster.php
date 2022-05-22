@@ -11,15 +11,5 @@ class Monster extends Model
 {
     use HasFactory;
     protected $table = 'monsters';
-    protected $fillable = ['name', 'base_hp', 'base_attack', 'base_defense', 'image', 'class'];
-
-    public function classifiedAs(): HasOne
-    {
-        return $this->hasOne(MClass::class);
-    }
-
-    public function foughtIn(): HasMany
-    {
-        return $this->hasMany(Battle::class);
-    }
+    protected $fillable = ['name', 'image'];
 }

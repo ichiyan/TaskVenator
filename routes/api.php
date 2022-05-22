@@ -2,16 +2,16 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BattleController;
+use App\Http\Controllers\API\InventoryController;
 use App\Http\Controllers\API\MessageController;
 use App\Http\Controllers\API\OutfitController;
 use App\Http\Controllers\API\PartyController;
 use App\Http\Controllers\API\PotionController;
-use App\Http\Controllers\TasksController;
+use App\Http\Controllers\API\TasksController;
+use App\Http\Controllers\API\UserInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\API\InventoryController;
-use App\Http\Controllers\API\UserInfoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -56,13 +56,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
     //fetching remaining gems
     Route::get('gems', [InventoryController::class, 'getGems']);
     Route::post('updategems', [InventoryController::class, 'updateGems']);
+
+    //new task
+    Route::post('newTask', [TasksController::class, 'create']);
+    Route::get('tasks',[TasksController::class, 'index']);
+
+    //ongoing battle
+
 });
-
-
-
-//new task
-Route::post('newTask', [TasksController::class, 'create']);
-Route::get('tasks',[TasksController::class, 'index']);
-
-//ongoing battle
 Route::get('battle',[BattleController::class, 'index']);

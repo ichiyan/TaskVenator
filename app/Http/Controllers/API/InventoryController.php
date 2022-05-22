@@ -34,7 +34,7 @@ class InventoryController extends Controller
                 ->where('inventories.user_id','=',$user_id)
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('outfit','outfit.id','=','products.outfit')
-                ->where('outfit.outfit_type','=', "Armor")
+                ->where('outfit.OutfitType','=', 1)
                 ->where('outfit.class', '=', $avatarClass)
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*','outfit_info.*','inventories.*'  ,'inventories.user_id AS inventUserId']);
@@ -44,7 +44,7 @@ class InventoryController extends Controller
                 ->where('inventories.user_id','=',$user_id)
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('outfit','outfit.id','=','products.outfit')
-                ->where('outfit.outfit_type','=', "Weapon")
+                ->where('outfit.OutfitType','=', 2)
                 ->where('outfit.class', '=', $avatarClass)
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*','outfit_info.*','inventories.*','inventories.user_id AS inventUserId']);
@@ -67,13 +67,13 @@ class InventoryController extends Controller
 
     //     $weapon= DB::table('products')
     //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
-    //             ->where('outfit.outfit_type','=', "Weapon")
+    //             ->where('outfit.OutfitType','=', "Weapon")
     //             ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
     //             ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
 
     //    $armor= DB::table('products')
     //            ->join('outfit', 'outfit.id', '=', 'products.outfit')
-    //            ->where('outfit.outfit_type','=', "Armor")
+    //            ->where('outfit.OutfitType','=', "Armor")
     //            ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
     //            ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
         return response()->json([
@@ -93,8 +93,8 @@ class InventoryController extends Controller
         $user_id = Auth::id();
         $inventory->user_id= $user_id;
         $inventory->product= $request->input('product');
-        $inventory->outfit_type= $request->input('outfit_type');
-        $inventory->body_part=$request->input('body_part');
+        $inventory->outfit_type= $request->input('OutfitType');
+        $inventory->body_part=$request->input('bodyPart');
         $inventory->amount=$request->input('amount');
 
         $inventory->save();
@@ -126,8 +126,8 @@ class InventoryController extends Controller
 
         $user_id = Auth::id();
         $id= $request->input('inventoryId');
-        $body_part = $request->input('body_part');
-        $outfit_type = $request->input('outfit_type');
+        $body_part = $request->input('bodyPart');
+        $outfit_type = $request->input('OutfitType');
         $inventory = Inventory::find($id);
         $status = $request->input('status');
         $type= "Weapon";
@@ -142,15 +142,15 @@ class InventoryController extends Controller
 
                 //check if there is an item of the same type that is currently equipped
                 $to_unequip = DB::table('inventories')
-                        ->where('outfit_type', '=', $outfit_type)
-                        ->where('body_part', '=', $body_part)
+                        ->where('OutfitType', '=', $outfit_type)
+                        ->where('bodyPart', '=', $body_part)
                         ->where('status', '=', 1)
                         ->get();
 
                 if(count($to_unequip) != 0){
                     //if there is such item, unequip
                     $returnID = $to_unequip->pluck('id')[0];
-                    DB::update('update inventories set status = ? where status = ? && outfit_type = ? && user_id = ?',
+                    DB::update('update inventories set status = ? where status = ? && OutfitType = ? && user_id = ?',
                                 [0, 1 , 'Weapon', $user_id]);
                 }else{
                     $returnID = 0;
@@ -161,15 +161,15 @@ class InventoryController extends Controller
                           [1, $id, $user_id]);
             }else{
                 $to_unequip = DB::table('inventories')
-                        ->where('outfit_type', '=', $outfit_type)
-                        ->where('body_part', '=', $body_part)
+                        ->where('OutfitType', '=', $outfit_type)
+                        ->where('bodyPart', '=', $body_part)
                         ->where('status', '=', 1)
                         ->get();
 
                 if(count($to_unequip) != 0){
                     //if there is such item, unequip
                     $returnID = $to_unequip->pluck('id')[0];
-                    DB::update('update inventories set status = ? where status = ? && outfit_type = ? && body_part = ? && user_id = ?',
+                    DB::update('update inventories set status = ? where status = ? && OutfitType = ? && bodyPart = ? && user_id = ?',
                                 [0, 1 , 'Armor',$body_part, $user_id]);
                  }else{
                     $returnID = 0;

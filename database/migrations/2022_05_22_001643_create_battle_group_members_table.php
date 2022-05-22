@@ -29,6 +29,6 @@ class CreateBattleGroupMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('battle_group_members');
+        Schema::dropIfExists('BattleGroupMembers');
     }
 }

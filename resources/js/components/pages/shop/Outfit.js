@@ -1809,7 +1809,7 @@ function Outfit({setGems}){
                                     <p>Head</p>
                               </div>
                               {display2.armors.map((w,index)=>{
-                                          if(w.class===charClass && w.body_part==="Head" && w.rarity_type===rarity){
+                                          if(w.class===charClass && w.bodyPart==="Head" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
@@ -1824,7 +1824,7 @@ function Outfit({setGems}){
                                     <p>Arms</p>
                               </div>
                               {display2.armors.map((w,index)=>{
-                                          if(w.class===charClass && w.body_part==="Arms"&& w.rarity_type===rarity){
+                                          if(w.class===charClass && w.bodyPart==="Arms"&& w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
@@ -1839,7 +1839,7 @@ function Outfit({setGems}){
                                     <p>Torso</p>
                               </div>
                               {display2.armors.map((w,index)=>{
-                                          if(w.class===charClass && w.body_part==="Torso" && w.rarity_type===rarity){
+                                          if(w.class===charClass && w.bodyPart==="Torso" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
@@ -1854,7 +1854,7 @@ function Outfit({setGems}){
                                     <p>Legs</p>
                               </div>
                               {display2.armors.map((w,index)=>{
-                                          if(w.class===charClass && w.body_part==="Legs" && w.rarity_type===rarity){
+                                          if(w.class===charClass && w.bodyPart==="Legs" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
@@ -1869,7 +1869,7 @@ function Outfit({setGems}){
                                     <p>Footwear</p>
                               </div>
                               {display2.armors.map((w,index)=>{
-                                          if(w.class===charClass && w.body_part==="Footwear" && w.rarity_type===rarity){
+                                          if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
                                                 return (
                                                 <div key={index} className="shop-outfitFilter">
                                                 <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
