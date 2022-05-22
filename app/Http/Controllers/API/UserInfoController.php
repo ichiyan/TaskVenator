@@ -82,9 +82,11 @@ class UserInfoController extends Controller
                     }else{
                         $inventory->outfit_type= "Weapon";
                     }
+                    $inventory->status='1';
                 // $inventory->outfit_type= $outfit->outfit_type;
                     if($start===106){
                         $inventory->body_part= "Head";
+                        $inventory->status='0';
                     }else if($start === 107){
                         $inventory->body_part= "Arms";
                     }else if($start === 108){
@@ -96,7 +98,6 @@ class UserInfoController extends Controller
                     }
                 // $inventory->body_part= $outfit->body_part;
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
 
@@ -117,8 +118,10 @@ class UserInfoController extends Controller
                         $inventory->outfit_type= "Weapon";
                     }
                 // $inventory->outfit_type= $outfit->outfit_type;
+                    $inventory->status='1';
                     if($start===112){
                         $inventory->body_part= "Head";
+                        $inventory->status='0';
                     }else if($start === 113){
                         $inventory->body_part= "Torso";
                     }else if($start === 114){
@@ -127,7 +130,6 @@ class UserInfoController extends Controller
                         $inventory->body_part= "Footwear";
                     }
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
         }else{

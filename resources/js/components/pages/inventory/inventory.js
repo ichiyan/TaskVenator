@@ -162,7 +162,7 @@ function Inventory({hasUpdates, setHasUpdates}){
             if(item.item_type == "weapon"){
                 selections.current = selections.current.filter(selection => selection.base_src.indexOf("weapon") == -1);
             }else{
-                selections.current = selections.current.filter(selection =>  selection.hasOwnProperty('body_part') == false || selection.body_part.indexOf(item.body_part) == -1);
+                selections.current = selections.current.filter(selection =>  selection.hasOwnProperty('body_part') == false || selection.body_part == null || selection.body_part.indexOf(item.body_part) == -1);
             }
         }
      }

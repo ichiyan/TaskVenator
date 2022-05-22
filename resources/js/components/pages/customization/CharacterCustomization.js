@@ -440,7 +440,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'shield',
-                  body_part: ' none',
+                  body_part: 'none',
                     sex: "unisex",
                     image: warriorDefaultItems.shield,
                     img_name: 'round_brown.png',
@@ -450,7 +450,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'warrior',
                     name: 'slashWeapon',
-                  body_part: ' none',
+                  body_part: 'none',
                     sex: "unisex",
                     image: warriorDefaultItems.slashWeapon,
                     img_name: 'dagger.png',
@@ -508,7 +508,7 @@ const CharacterCustomization = () => {
                     class: 'mage',
                     name: 'cape',
                     //empty for now
-                  body_part: ' none',
+                  body_part: 'none',
                     sex: "unisex",
                     image: mageDefaultItems.cape,
                     img_name: 'black.png',
@@ -528,7 +528,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'mage',
                     name: 'weapon',
-                  body_part: ' none',
+                  body_part: 'none',
                     sex: "unisex",
                     image: mageDefaultItems.weapon,
                     img_name: 'simple_staff.png',
@@ -596,7 +596,7 @@ const CharacterCustomization = () => {
                     class: 'marksman',
                     name: 'bauldron',
                     //empty for now
-                  body_part: ' none',
+                  body_part: 'none',
                     sex: "unisex",
                     image: marksmanDefaultItems.bauldron,
                     img_name: 'brown.png',
@@ -606,7 +606,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'quiver',
-                  body_part: ' none',
+                  body_part: 'none',
                     sex: "none",
                     image: marksmanDefaultItems.quiver,
                     img_name: 'quiver.png',
@@ -616,7 +616,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'weapon',
-                  body_part: ' none',
+                  body_part: 'none',
                     sex: "none",
                     image: marksmanDefaultItems.weapon,
                     img_name: 'normal.png',
@@ -626,7 +626,7 @@ const CharacterCustomization = () => {
                 {
                     class: 'marksman',
                     name: 'ammo',
-                  body_part: ' none',
+                  body_part: 'none',
                     sex: "none",
                     image: marksmanDefaultItems.ammo,
                     img_name: 'arrow.png',
