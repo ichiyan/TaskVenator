@@ -338,7 +338,7 @@ class OutfitTableSeeder extends Seeder
             'outfit_infos'=>'22'
         ],[
             'id'=> '23',
-            'outfit_type'=> 'Armor',
+            'Outfit_type'=> 'Armor',
             'sex'=> 'Unisex',
             'male_image'=> 'assets/images/armors/male_tricorne_captain_pirate_skull.png',
             'female_image'=> 'assets/images/armors/female_tricorne_captain_pirate_skull.png',
@@ -1609,7 +1609,7 @@ class OutfitTableSeeder extends Seeder
         ],[
             //DEFAULT MARKSMAN WEAPON
             'id'=> '110',
-            'outfit_type'=> 'Weapon',
+            'OutfitType'=> 'Weapon',
             'sex'=> 'None',
             'male_image'=> 'assets/images/weapons/marksmanWeapon.png',
             'female_image'=> 'assets/images/weapons/marksmanWeapon.png',
