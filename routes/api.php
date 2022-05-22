@@ -57,12 +57,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('gems', [InventoryController::class, 'getGems']);
     Route::post('updategems', [InventoryController::class, 'updateGems']);
 
+    //new task
+    Route::post('newTask', [TasksController::class, 'create']);
+    Route::get('tasks',[TasksController::class, 'index']);
 
+    //ongoing battle
+    Route::get('battle',[BattleController::class, 'index']);
 });
 
-//new task
-Route::post('newTask', [TasksController::class, 'create']);
-Route::get('tasks',[TasksController::class, 'index']);
 
-//ongoing battle
-Route::get('battle',[BattleController::class, 'index']);

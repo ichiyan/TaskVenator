@@ -11,21 +11,23 @@ const GroupTasks = () => {
     var name1 = "Mhady"
     var name2 = "Lisette"
     const [taskList, setTaskList] = useState({
-        tasks:[], id_user:null
+        tasks:[], id:null
     });
 
     useEffect(() =>{
         axios.get(`/api/tasks`).then(res =>{
             if(res.data.status===200){
                 setTaskList({
-                    tasks:res.data.tasks
+                    tasks:res.data.tasks,
+                    id:res.data.id
                 })
             }
             console.log(res.data.status)
         })
     },[])
-
-    console.log(taskList)
+    console.log("TaskLists:")
+    console.log(taskList.id)
+    console.log(taskList.tasks)
 
     return(
         <section className="container party-section">
