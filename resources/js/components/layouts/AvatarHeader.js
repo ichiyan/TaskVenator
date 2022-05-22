@@ -3,7 +3,9 @@ import { React, Fragment, axios, useRef, useState, useEffect,
     Carousel, PartyMemberAvatar } from '../../index';
 
 const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
-                  xp, xpTotal, xpBarWidth, xpIncreaseWidth}) => {
+                        xp, xpTotal, xpBarWidth, xpIncreaseWidth,
+                        avatarCanvasRef, avatarClass, username, level, hasParty, partyMembers,
+                     }) => {
 
 
 const breakPoints = [
@@ -12,105 +14,6 @@ const breakPoints = [
    { width: 200, itemsToShow: 3},
    { width: 500, itemsToShow: 4},
 ];
-
-const [username, setUsername] = useState('');
-const [level, setLevel] = useState('');
-const [avatarClass, setAvatarClass] = useState('');
-const charClass = useRef();
-const bgColor = useRef();
-const sex = useRef();
-const isFemale = useRef();
-const skinTone = useRef();
-const frameX = useRef(4);
-const frameY = useRef();
-
-const avatarCanvasRef = useRef();
-const avatarCtx = useRef();
-const [CANVAS_WIDTH, setCanvasWidth] = useState(120);
-const [CANVAS_HEIGHT, setCanvasHeight] = useState(120);
-const avatarImage = useRef();
-
-const baseDir = 'assets/images/spritesheets/';
-const spriteWidth = 64;
-const spriteHeight = 64;
-
-const [items, setItems] = useState();
-const selections = useRef([]);
-
-const hasParty = useRef(0);
-const [partyMembers, setPartyMembers] = useState([]);
-
-useEffect(() => {
-
-   axios.get(`api/get_user_info`).then(res => {
-       var data = res.data;
-       hasParty.current = data.has_party;
-       setUsername(data.username);
-       setLevel(data.level);
-       setAvatarClass(data.class);
-       setItems(data.items);
-
-       charClass.current = data.class;
-       bgColor.current = data.background_color;
-       isFemale.current = data.sex;
-       skinTone.current = data.skin_tone;
-       selections.current = data.items;
-
-       animate();
-
-       if(data.has_party == 1){
-            axios.get(`api/get_party_info`).then(res => {
-                if(res.data.status == 200){
-                    setPartyMembers(res.data.members);
-                }
-            });
-       }
-   });
-
-}, []);
-
-const animate = () => {
-   var canvas = avatarCanvasRef.current;
-   avatarCtx.current = canvas.getContext('2d');
-   canvas.width = canvas.height = 120;
-
-   avatarImage.current = new Image();
-   avatarImage.current.src = isFemale.current ? baseDir + 'body/female/human/' + skinTone.current + '.png' : baseDir + 'body/male/human/' + skinTone.current + '.png';
-
-   var chClass = charClass.current;
-   if(chClass === "warrior"){
-       frameY.current = 14;
-   }else if(chClass === "mage"){
-       frameY.current = 2;
-   }else if(chClass === "marksman"){
-       frameY.current = 18;
-       frameX.current = 2;
-   }
-
-   avatarCtx.current.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-   avatarCtx.current.fillStyle = bgColor.current;
-   avatarCtx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-   avatarImage.current.onload = () => {
-       avatarCtx.current.drawImage(avatarImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-       selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
-       selections.current.forEach(selection => {
-           var selectionImg = new Image();
-           if ( selection.sex === "unisex" ){
-               sex.current = isFemale.current ? "female" : "male";
-           }else{
-               sex.current = selection.sex;
-           }
-           if (sex.current === "none"){
-               selectionImg.src = selection.base_src + selection.img_name;
-           }else{
-               selectionImg.src = selection.base_src + sex.current + "/" + selection.img_name;
-           }
-           selectionImg.onload = () => {
-               avatarCtx.current.drawImage(selectionImg, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-            }
-       });
-    }
-}
 
 return (
    <div className="avatar-header d-flex">

@@ -3,7 +3,7 @@ import {Link, React, useEffect, useState,
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 import InventoryOutfitFilter from "./InventoryOutfitFilter";
 
-function InventoryOutfit({updateAvatarPreview}){
+function InventoryOutfit({updateAvatarPreview, updateAvatarItems}){
     const[inventory,setInventory]=useState({
         armors:[],
   });
@@ -148,7 +148,7 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Head"){
                                             return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                             )
                                     }
@@ -165,7 +165,7 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Arms"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                             </div>
                                         )
                                 }
@@ -182,7 +182,7 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Torso"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                             </div>
                                         )
                                 }
@@ -199,7 +199,7 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Legs"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                             </div>
                                         )
                                 }
@@ -216,7 +216,7 @@ const bodyPartHandler=(e)=>{
                                     if(w.body_part==="Footwear"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
-                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                             </div>
                                         )
                                 }
@@ -235,7 +235,7 @@ const bodyPartHandler=(e)=>{
                                           if( w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -252,7 +252,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -269,7 +269,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -286,7 +286,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -303,7 +303,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -321,7 +321,7 @@ const bodyPartHandler=(e)=>{
                                           if( w.rarity_type===rarity && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -338,7 +338,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -355,7 +355,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -372,7 +372,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -389,7 +389,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -407,7 +407,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -424,7 +424,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -441,7 +441,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -458,7 +458,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -475,7 +475,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -493,7 +493,7 @@ const bodyPartHandler=(e)=>{
                                           if( w.rarity_type===rarity && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -510,7 +510,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -527,7 +527,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -544,7 +544,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -561,7 +561,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -579,7 +579,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -596,7 +596,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -613,7 +613,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -630,7 +630,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -647,7 +647,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -665,7 +665,7 @@ const bodyPartHandler=(e)=>{
                                           if( w.rarity_type===rarity && w.body_part==="Head"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -682,7 +682,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Arms"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory}setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory}setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -699,7 +699,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Torso"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -716,7 +716,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Legs"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -733,7 +733,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part==="Footwear"){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -751,7 +751,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -768,7 +768,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -785,7 +785,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -802,7 +802,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }
@@ -819,7 +819,7 @@ const bodyPartHandler=(e)=>{
                                           if(w.rarity_type===rarity && w.body_part===bodyPart){
                                                 return (
                                                 <div key={index} className="inventory-outfitFilter">
-                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview}/>
+                                                    <InventoryOutfitFilter data= {w} inventory={inventory} setInventory={setInventory} setPreview={setPreview} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
                                                 </div>
                                           )
                                      }

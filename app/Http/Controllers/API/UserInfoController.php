@@ -217,9 +217,15 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        // DB::update('update avatars set items = ? where id = ?', [$request->items, Auth::id()]);
 
+        Avatar::where('id', Auth::id())->update(array('items' => $request->items));
+
+        return response()->json([
+            'status' => 200,
+        ]);
     }
 
     /**

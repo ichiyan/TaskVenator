@@ -53,6 +53,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     //fetching remaining gems
     Route::get('gems', [InventoryController::class, 'getGems']);
     Route::post('updategems', [InventoryController::class, 'updateGems']);
+
+    //updating avatar after equipping/unequipping items
+    Route::post('update_avatar_items', [UserInfoController::class, 'update']);
+
 });
 
 

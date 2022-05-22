@@ -2,7 +2,7 @@ import Button from "@restart/ui/esm/Button";
 import {Link, React, useEffect, useState, ReactTooltip,axios } from "../../../index";
 
 
-function InventoryOutfitFilter({setPreview,inventory, setInventory, data, updateAvatarPreview}){
+function InventoryOutfitFilter({setPreview,inventory, setInventory, data, updateAvatarPreview, updateAvatarItems}){
     const [passProductId, setPassProductId]= useState({
         directory: '',
         spriteName:'',
@@ -101,6 +101,11 @@ const execUpdateAvatarPreview = () => {
     });
 }
 
+const equipUnequip = () => {
+    execUpdateAvatarPreview()
+    updateAvatarItems()
+}
+
 
     return(
         <div data-tip data-for={data.name}  className="inventory-returnMap">
@@ -127,8 +132,8 @@ const execUpdateAvatarPreview = () => {
                               {/* <h1>{data.status}</h1> */}
                               {
                                   (data.status === 1)?
-                                   <Button type="submit" onClick={execUpdateAvatarPreview} style={{backgroundColor: "#C0C034"}}>Unequip</Button>
-                                  :<Button type="submit" onClick={execUpdateAvatarPreview} style={{backgroundColor: "yellow"}}>Equip</Button>
+                                   <Button type="submit" onClick={equipUnequip} style={{backgroundColor: "#C0C034"}}>Unequip</Button>
+                                  :<Button type="submit" onClick={equipUnequip} style={{backgroundColor: "yellow"}}>Equip</Button>
                               }
 
                         </form>

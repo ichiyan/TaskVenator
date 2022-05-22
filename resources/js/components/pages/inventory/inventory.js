@@ -2,7 +2,7 @@ import {Link, React, useEffect, useState, useRef,
       InventoryTabs, axios } from "../../../index";
 
 
-function Inventory(){
+function Inventory({hasUpdates, setHasUpdates}){
 
     const [tab, setTab] = useState('all');
 
@@ -152,9 +152,6 @@ function Inventory(){
      }
 
      const updateAvatarPreview = (item) => {
-        console.log("CLICKED")
-        console.log(item)
-
         if(item.status == 0){
             selections.current.push(item)
         }else{
@@ -167,9 +164,21 @@ function Inventory(){
      }
 
      const updateAvatarItems = () => {
+        // e.preventDefault()
 
         console.log("SELECTIONS")
         console.log(selections.current)
+
+        const data = {
+            items: selections.current,
+        }
+        axios.post(`/api/update_avatar_items`, data).then(res => {
+            if(res.data.status === 200){
+                console.log(res.data)
+                setHasUpdates(!hasUpdates)
+            }
+        })
+
      }
 
 
@@ -184,23 +193,23 @@ function Inventory(){
                     <div onClick={() => setTab('outfit')} id='outfit' className="party-nav-item" ><Link to="">Outfit</Link></div>
                 </div>
 
-                <InventoryTabs tab={tab} updateAvatarPreview={updateAvatarPreview}></InventoryTabs>
+                <InventoryTabs tab={tab} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}></InventoryTabs>
             </div>
 
-
-            <section id="inventory-avatar-preview inventory-right">
-                {/* <div id='char-cust-header'>
-                    <div className="text-center"></div>
-                </div> */}
-                <div id="inventory-preview-animations-box">
-                    <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
-                    <center>
-                        <button onClick={updateAvatarItems}  className="btn-custom-primary save-btn">Save</button>
-                    </center>
-                </div>
-            </section>
-
-
+            {/* <form onSubmit={updateAvatarItems}> */}
+                <section id="inventory-avatar-preview inventory-right">
+                    {/* <div id='char-cust-header'>
+                        <div className="text-center"></div>
+                    </div> */}
+                    <div id="inventory-preview-animations-box">
+                        <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
+                        <center>
+                            {/* <input type="submit" name="submit" id="submit" className="btn-custom-primary save-btn" value="Save"/> */}
+                            <button onClick={updateAvatarItems}  className="btn-custom-primary save-btn">Save</button>
+                        </center>
+                    </div>
+                </section>
+            {/* </form> */}
       </section>
     );
 }
