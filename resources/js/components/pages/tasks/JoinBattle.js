@@ -26,9 +26,9 @@ const JoinBattle = () => {
 
             <Modal show={show} onHide={handleClose} className="join_battle_modal" size="md" scrollable centered>
                 <Modal.Header>
-                    <Modal.Title id="contained-modal-title-vcenter" >
+                    {/*<Modal.Title id="contained-modal-title-vcenter" >
                         Choose Battle
-                    </Modal.Title>
+                    </Modal.Title>*/}
                 </Modal.Header>
                 <Modal.Body className='modal_body'>
                     <BattleSelection />

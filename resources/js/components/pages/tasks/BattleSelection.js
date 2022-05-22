@@ -16,7 +16,7 @@ const BattleSelection = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div className="battle_button">
-                <button className="btn w-50  text-light">Battle</button>
+                <button className="battle_btn btn w-50 text-light">Battle</button>
             </div>
         </div>
     </div>
