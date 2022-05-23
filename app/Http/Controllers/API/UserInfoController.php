@@ -14,6 +14,7 @@ use App\Models\Level;
 use App\Models\Outfit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 class UserInfoController extends Controller
@@ -53,11 +54,24 @@ class UserInfoController extends Controller
         $avatar_class = AvatarClass::where('name', '=', $request->class)->first();
         $level1 = Level::where('level', '=', '1')->first();
 
+        $fileName = '';
+        $dir = '';
+        if(strlen($request->dataURL) > 128) {
+            list($ext, $data)   = explode(';', $request->dataURL);
+            list(, $data)       = explode(',', $data);
+            $data = base64_decode($data);
+
+            $fileName = Auth::id().'.jpg';
+            file_put_contents('assets/images/avatars/'.$fileName, $data);
+            $dir = 'assets/images/avatars/'.$fileName;
+        }
+
         $avatar = $user_info->avatar()->create([
             'sex' =>  $request->sex,
             'skin_tone' => $request->skin_tone,
             'background_color' => $request->background_color,
             'items' => $request->items,
+            'avatar_img' => $dir,
             'strength' => $avatar_class->strength,
             'agility' => $avatar_class->agility,
             'intelligence' => $avatar_class->intelligence,
@@ -216,7 +230,25 @@ class UserInfoController extends Controller
     {
         // DB::update('update avatars set items = ? where id = ?', [$request->items, Auth::id()]);
 
-        Avatar::where('id', Auth::id())->update(array('items' => $request->items));
+        $id = Auth::id();
+
+        $fileName = '';
+        $dir = '';
+        if(strlen($request->dataURL) > 128) {
+
+            if(Storage::exists('assets/images/avatars/'.$id.'.jpg')){
+                Storage::delete('assets/images/avatars/'.$id.'.jpg');
+            }
+            list($ext, $data)   = explode(';', $request->dataURL);
+            list(, $data)       = explode(',', $data);
+            $data = base64_decode($data);
+
+            $fileName = Auth::id().'.jpg';
+            file_put_contents('assets/images/avatars/'.$fileName, $data);
+            $dir = 'assets/images/avatars/'.$fileName;
+        }
+
+        Avatar::where('id', $id)->update(array('items' => $request->items, 'avatar_img' => $dir));
 
         return response()->json([
             'status' => 200,

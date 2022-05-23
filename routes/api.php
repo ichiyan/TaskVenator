@@ -69,6 +69,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //party
     Route::post('create_party', [PartyController::class, 'store']);
+    Route::get('show_parties', [PartyController::class, 'show']);
 
 });
 

@@ -172,8 +172,12 @@ function Inventory({hasUpdates, setHasUpdates}){
         console.log("SELECTIONS")
         console.log(selections.current)
 
+        let canvas = document.getElementById('previewAnimations');
+        let dataURL = canvas.toDataURL("image/png");
+
         const data = {
             items: selections.current,
+            dataURL: dataURL,
         }
         axios.post(`/api/update_avatar_items`, data).then(res => {
             if(res.data.status === 200){

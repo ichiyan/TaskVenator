@@ -52,6 +52,21 @@ class UsersSeeder extends Seeder
                     'email' => 'sanji@gmail.com',
                     'password' => bcrypt('p@ssw0rd'),
                 ],
+                [
+                    'name' => 'Ace',
+                    'email' => 'ace@gmail.com',
+                    'password' => bcrypt('p@ssw0rd'),
+                ],
+                [
+                    'name' => 'Law',
+                    'email' => 'law@gmail.com',
+                    'password' => bcrypt('p@ssw0rd'),
+                ],
+                [
+                    'name' => 'Eustass',
+                    'email' => 'eustass@gmail.com',
+                    'password' => bcrypt('p@ssw0rd'),
+                ],
             )
         );
 
@@ -99,6 +114,25 @@ class UsersSeeder extends Seeder
                     'last_opened_chat' => '2022-01-12 02:18:50',
                     'user_id' => 7
                 ],
+                [
+                    'username' => 'ace_08',
+                    'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
+                    'user_id' => 8
+                ],
+                [
+                    'username' => 'law_09',
+                    'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
+                    'user_id' => 9
+                ],
+                [
+                    'username' => 'eustass_10',
+                    'has_party' => 1,
+                    'last_opened_chat' => '2022-01-12 02:18:50',
+                    'user_id' => 10
+                ],
+
             )
         );
 
@@ -229,6 +263,60 @@ class UsersSeeder extends Seeder
                     'crit_damage' => 1,
                     'class_id' => 2,
                     'user_info_id' => 7,
+                ],
+                [
+                    'level' => 15,
+                    'sex' => 0,
+                    'skin_tone' => 'darkelf',
+                    'background_color' => '#9580FF',
+                    'items' => '[{"class":"mage","name":"shoes","sex":"unisex","image":[],"img_name":"black.png","base_src":"assets\/images\/spritesheets\/feet\/shoes\/","zPos":15},{"class":"mage","name":"legPants","sex":"unisex","image":[],"img_name":"navy.png","base_src":"assets\/images\/spritesheets\/legs\/pants\/","zPos":20},{"name":"eye color","sex":"unisex","image":[],"img_name":"purple.png","base_src":"assets\/images\/spritesheets\/eyes\/","zPos":20},{"class":"mage","name":"cloak","sex":"male","image":[],"img_name":"black.png","base_src":"assets\/images\/spritesheets\/torso\/jacket\/iverness\/","zPos":55},{"class":"mage","name":"cape","sex":"unisex","image":[],"img_name":"black.png","base_src":"assets\/images\/spritesheets\/cape\/solid\/","zPos":85},{"class":"mage","name":"scarf","sex":"none","image":[],"img_name":"blue.png","base_src":"assets\/images\/spritesheets\/neck\/scarf\/","zPos":90},{"name":"hair style","sex":"unisex","image":[],"img_name":"blue.png","base_src":"assets\/images\/spritesheets\/hair\/shorthawk\/","zPos":120},{"class":"mage","name":"weapon","sex":"unisex","image":[],"img_name":"simple_staff.png","base_src":"assets\/images\/spritesheets\/weapon\/thrust\/","zPos":140}]',
+                    'strength' => 1,
+                    'agility' => 1,
+                    'intelligence' => 1,
+                    'current_hp' => 1,
+                    'current_xp' => 1,
+                    'max_hp' => 1,
+                    'max_xp' => 1,
+                    'crit_chance' => 1,
+                    'crit_damage' => 1,
+                    'class_id' => 2,
+                    'user_info_id' => 8,
+                ],
+                [
+                    'level' => 15,
+                    'sex' => 0,
+                    'skin_tone' => 'darkelf',
+                    'background_color' => '#9580FF',
+                    'items' => '[{"class":"mage","name":"shoes","sex":"unisex","image":[],"img_name":"black.png","base_src":"assets\/images\/spritesheets\/feet\/shoes\/","zPos":15},{"class":"mage","name":"legPants","sex":"unisex","image":[],"img_name":"navy.png","base_src":"assets\/images\/spritesheets\/legs\/pants\/","zPos":20},{"name":"eye color","sex":"unisex","image":[],"img_name":"purple.png","base_src":"assets\/images\/spritesheets\/eyes\/","zPos":20},{"class":"mage","name":"cloak","sex":"male","image":[],"img_name":"black.png","base_src":"assets\/images\/spritesheets\/torso\/jacket\/iverness\/","zPos":55},{"class":"mage","name":"cape","sex":"unisex","image":[],"img_name":"black.png","base_src":"assets\/images\/spritesheets\/cape\/solid\/","zPos":85},{"class":"mage","name":"scarf","sex":"none","image":[],"img_name":"blue.png","base_src":"assets\/images\/spritesheets\/neck\/scarf\/","zPos":90},{"name":"hair style","sex":"unisex","image":[],"img_name":"blue.png","base_src":"assets\/images\/spritesheets\/hair\/shorthawk\/","zPos":120},{"class":"mage","name":"weapon","sex":"unisex","image":[],"img_name":"simple_staff.png","base_src":"assets\/images\/spritesheets\/weapon\/thrust\/","zPos":140}]',
+                    'strength' => 1,
+                    'agility' => 1,
+                    'intelligence' => 1,
+                    'current_hp' => 1,
+                    'current_xp' => 1,
+                    'max_hp' => 1,
+                    'max_xp' => 1,
+                    'crit_chance' => 1,
+                    'crit_damage' => 1,
+                    'class_id' => 2,
+                    'user_info_id' => 9,
+                ],
+                [
+                    'level' => 15,
+                    'sex' => 0,
+                    'skin_tone' => 'darkelf',
+                    'background_color' => '#9580FF',
+                    'items' => '[{"class":"mage","name":"shoes","sex":"unisex","image":[],"img_name":"black.png","base_src":"assets\/images\/spritesheets\/feet\/shoes\/","zPos":15},{"class":"mage","name":"legPants","sex":"unisex","image":[],"img_name":"navy.png","base_src":"assets\/images\/spritesheets\/legs\/pants\/","zPos":20},{"name":"eye color","sex":"unisex","image":[],"img_name":"purple.png","base_src":"assets\/images\/spritesheets\/eyes\/","zPos":20},{"class":"mage","name":"cloak","sex":"male","image":[],"img_name":"black.png","base_src":"assets\/images\/spritesheets\/torso\/jacket\/iverness\/","zPos":55},{"class":"mage","name":"cape","sex":"unisex","image":[],"img_name":"black.png","base_src":"assets\/images\/spritesheets\/cape\/solid\/","zPos":85},{"class":"mage","name":"scarf","sex":"none","image":[],"img_name":"blue.png","base_src":"assets\/images\/spritesheets\/neck\/scarf\/","zPos":90},{"name":"hair style","sex":"unisex","image":[],"img_name":"blue.png","base_src":"assets\/images\/spritesheets\/hair\/shorthawk\/","zPos":120},{"class":"mage","name":"weapon","sex":"unisex","image":[],"img_name":"simple_staff.png","base_src":"assets\/images\/spritesheets\/weapon\/thrust\/","zPos":140}]',
+                    'strength' => 1,
+                    'agility' => 1,
+                    'intelligence' => 1,
+                    'current_hp' => 1,
+                    'current_xp' => 1,
+                    'max_hp' => 1,
+                    'max_xp' => 1,
+                    'crit_chance' => 1,
+                    'crit_damage' => 1,
+                    'class_id' => 2,
+                    'user_info_id' => 10,
                 ],
             )
         );
