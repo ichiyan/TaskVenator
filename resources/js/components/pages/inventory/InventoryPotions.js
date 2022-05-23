@@ -1,5 +1,5 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
+import {Link, React, useEffect, useState,
       AddPotionForm, AddOutfitForm, AddCardForm, Swal, ReactTooltip,axios } from "../../../index";
 import InventoryPotionFilter from "./InventoryPotionFilter";
 function InventoryPotions(){
@@ -31,16 +31,16 @@ function InventoryPotions(){
           let h_large=0;
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-                
+
             //     console.log(res.data.potion[0].type)
                 setInventory({
                     potions:res.data.potion
-                   
+
               })
             //   console.log(inventory.potions.length)
-          
+
               setAuthId(res.data.auth_id);
-              
+
             //    for(var i; i<res.data.potion.length; i++){
             //          if(res.data.potion[0].type === "Hp Potion"){
             //               console.log("yes")
@@ -65,10 +65,10 @@ function InventoryPotions(){
                         }else{
                               p_large++;
                         }
-                 
+
                     }
               })
-              
+
             //   console.log(count);
 
               setCountHealth(healPotion);
@@ -95,22 +95,15 @@ function InventoryPotions(){
         setPreview(event)
    }
    const potionHandler=(e)=>{
-        
+
     setPotionType(e.target.value);
-    
+
     }
     const sizeHandler=(e)=>{
       setSize(e.target.value);
     }
     return(
-        <section className="container party-section">
-                <div className="party-nav">
-                <div className="party-nav-item"><Link to="/inventory">All</Link></div>
-                <div className="party-nav-item party-active-nav"><Link to="/inventoryPotions">Potions</Link></div>
-                <div className="party-nav-item"><Link to="/inventoryWeapons">Weapons</Link></div>   
-                <div className="party-nav-item"><Link to="/inventoryOutfit">Outfit</Link></div>
-              </div>
-            
+
               <div className="inventory-filtShop">
                   <div className="inventory-filter">
                                       <p>Potion Type</p>
@@ -128,8 +121,8 @@ function InventoryPotions(){
                                           </select><br></br>
                   </div>
                 <div className="inventory-shop">
-                {(inventory.potions.length!==0)?      
-                 <div className="inventory-category">    
+                {(inventory.potions.length!==0)?
+                 <div className="inventory-category">
                      {/* POTIONTYPE:ALL SIZE: ALL (DISPLAY ALL POTIONS) */}
                     { (potionType === "All" && size==="All" && countHealth!==0)?
                               <div className="shop-categoryName">
@@ -143,7 +136,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                       }
@@ -161,7 +154,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                       }
@@ -180,7 +173,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                       }
@@ -198,7 +191,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                       }
@@ -217,7 +210,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                            }
                                        }
@@ -235,7 +228,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                           }
@@ -254,7 +247,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                            }
                                       }
@@ -272,7 +265,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                       }
@@ -291,7 +284,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                           }
                                       }
@@ -310,7 +303,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                           }
@@ -328,7 +321,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                       }
@@ -346,13 +339,13 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                        }
                                     }
                               })}
-                            
+
                                 {/* POTIONTYPE::HPPOTION SIZE:Small down to large */}
                    { (potionType === "Hp Potion" && size==="Small")?
                               <div className="shop-categoryName">
@@ -366,7 +359,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                           }
@@ -384,7 +377,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                        }
@@ -402,7 +395,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                        }
@@ -422,7 +415,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                           }
@@ -440,7 +433,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                        }
@@ -458,7 +451,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                           }
@@ -478,7 +471,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                           }
@@ -496,7 +489,7 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                           }
@@ -514,96 +507,16 @@ function InventoryPotions(){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
                                                             <InventoryPotionFilter data= {p} value={p.id}/>
-                                                      </div> 
+                                                      </div>
                                                 )
                                             }
                                           }
                                     }
                               })}
-                              
-                    
-                    
-                        </div> :""} 
-                 </div> 
 
-
-                 <div className="inventory-preview">
-                     <div className="inventory-equipped1">
-                            <div className="inventory-categoryName">
-                                <h3>Equipped Items</h3>
-                            </div>
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
-                                <div className="inventory-itemsImage">
-                                <img></img>
-                                </div>
-                                <div className="inventory-itemsInfo">
-                                    <h6>asdasd</h6>
-                                    <p>asdasd</p>
-                                </div>
-                            </div> 
-                            <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                    <div className="inventory-hide">
-                                        <div className="inventory-itemsInfo">
-                                                <p>asdasdasd</p>
-                                        </div> 
-                                    </div>
-                            </ReactTooltip>
-                            <div className="inventory-categoryName">
-                                <h5>Weapon</h5>
-                            </div>
-                     </div>
-                     <div className="inventory-equipped2">
-                         <div className="inventory-equipped2Left">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
-                                <div className="inventory-itemsImage">
-                                <img src={preview}></img>
-                                </div>
-                                <div className="inventory-itemsInfo">
-                                    <h6>asdasd</h6>
-                                    <p>asdasd</p>
-                                </div>
-                            </div> 
-                            <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                    <div className="inventory-hide">
-                                        <div className="inventory-itemsInfo">
-                                                <p>asdasdasd</p>
-                                        </div> 
-                                    </div>
-                            </ReactTooltip>
-                            <div className="inventory-categoryName">
-                                <h5>Costume</h5>
-                            </div>
-                        </div>
-                        <div className="inventory-equipped2Right">
-                            <div data-tip data-for="test" className="inventory-equippedItemsInfo"> 
-                                <div className="inventory-itemsImage">
-                                <img></img>
-                                </div>
-                                <div className="inventory-itemsInfo">
-                                    <h6>asdasd</h6>
-                                    <p>asdasd</p>
-                                </div>
-                            </div> 
-                            <ReactTooltip id="test" place="right" aria-haspopup='true' className="inventory-toolTip">
-                                    <div className="inventory-hide">
-                                        <div className="inventory-itemsInfo">
-                                                <p>asdasdasd</p>
-                                        </div> 
-                                    </div>
-                            </ReactTooltip>
-                            <div className="inventory-categoryName">
-                                <h5>Potion</h5>
-                            </div>
-                        </div>
-                     </div>
-                </div>
+                        </div> :""}
+                 </div>
             </div>
-                 
-            
-              
-        </section>
-        
-        
     );
 }
 

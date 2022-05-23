@@ -17,6 +17,7 @@ class CreatePartyMembersTable extends Migration
             $table->id();
             $table->foreignId('party_id')->constrained('parties', 'id');
             $table->foreignId('user_id')->constrained('users', 'id');
+            $table->timestamps();
         });
     }
 

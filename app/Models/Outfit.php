@@ -23,7 +23,6 @@ class Outfit extends Model
         'directory',
         'zPos',
         'outfit_infos',
-
     ];
 
     public function featuredIn(): HasOne

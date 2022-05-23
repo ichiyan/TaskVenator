@@ -1,16 +1,15 @@
 import Button from "@restart/ui/esm/Button";
-import {Link, React, useEffect, useState, 
-    AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
-import Swal from 'sweetalert2';
-import InventoryOutfit from "./InventoryOutfit";
-function InventoryOutfitFilter({setPreview,inventory, setInventory, data}){
+import {Link, React, useEffect, useState, ReactTooltip,axios } from "../../../index";
+
+
+function InventoryOutfitFilter({setPreview,inventory, setInventory, data, updateAvatarPreview, updateAvatarItems}){
     const [passProductId, setPassProductId]= useState({
         directory: '',
         spriteName:'',
         inventoryId:'',
         status: '',
-        outfit_type: '',
-        body_part: ''
+        OutfitType: '',
+        bodyPart: ''
   });
     // const[style, setStyle]=useState({
     //     backgroundColor: "yellow",
@@ -27,13 +26,13 @@ function InventoryOutfitFilter({setPreview,inventory, setInventory, data}){
             spriteName:e.target.spriteName.value,
             inventoryId: e.target.inventoryId.value,
             status: e.target.status.value,
-            outfit_type: e.target.outfit_type.value,
-            body_part: e.target.body_part.value
+            OutfitType: e.target.OutfitType.value,
+            bodyPart: e.target.bodyPart.value
         })
+        console.log(passProductId)
 
 
-        
-      
+
 
   }
   useEffect(() => {
@@ -42,8 +41,8 @@ function InventoryOutfitFilter({setPreview,inventory, setInventory, data}){
         spriteName: passProductId.spriteName,
         inventoryId: passProductId.inventoryId,
         status: passProductId.status,
-        outfit_type: passProductId.outfit_type,
-        body_part: passProductId.body_part
+        OutfitType: passProductId.OutfitType,
+        bodyPart: passProductId.bodyPart
   }
   if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
         console.log("empty")
@@ -80,16 +79,43 @@ function InventoryOutfitFilter({setPreview,inventory, setInventory, data}){
     });
 }
 
-  },[passProductId])
+},[passProductId])
+
+
+const execUpdateAvatarPreview = () => {
+    console.log(data)
+
+    var clickedItem = inventory.armors.filter(item => item.id == data.id)
+
+    console.log("CLICKED ITEM")
+    console.log(clickedItem)
+
+    updateAvatarPreview({
+        item_type: "outfit",
+        status: clickedItem[0].status,
+        body_part:  data.body_part != "Footwear" ? data.body_part.toLowerCase(): "feet",
+        sex: data.sex.toLowerCase(),
+        base_src: 'assets/images/spritesheets/' + data.directory,
+        img_name: data.spritesheet_img_name,
+        zPos: data.zPos,
+    });
+}
+
+const equipUnequip = () => {
+    execUpdateAvatarPreview()
+    updateAvatarItems()
+}
+
+
     return(
         <div data-tip data-for={data.name}  className="inventory-returnMap">
-                    <div className="inventory-items"> 
+                    <div className="inventory-items">
                             {/* <div className="inventory-itemsImage">
                             <img onClick={() => {previewImage(w.image)}} src={data.image}></img>
                             </div> */}
                             <div className="shop-itemsImage">
                              {
-                                 (data.sex==="None" || data.sex==="Male")? 
+                                 (data.sex==="None" || data.sex==="Male")?
                                                     <img onClick={() => {setPreview(data.male_image)}} src={data.male_image}></img>
                                                     :<img onClick={() => {setPreview(data.female_image)}} src={data.female_image}></img>
                              }
@@ -98,21 +124,21 @@ function InventoryOutfitFilter({setPreview,inventory, setInventory, data}){
                                 <h6>{data.name}</h6>
                                 <form onSubmit={submitToHandler}>
                               <input name="inventoryId" type="hidden" value={data.id}/>
-                              <input name="outfit_type" type="hidden" value={data.outfit_type}/>
-                              <input name="body_part" type="hidden" value={data.body_part}/>
+                              <input name="OutfitType" type="hidden" value={data.OutfitType}/>
+                              <input name="bodyPart" type="hidden" value={data.bodyPart}/>
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
                               <input name="status" type="hidden" value={data.status}/>
                               {/* <h1>{data.status}</h1> */}
                               {
                                   (data.status === 1)?
-                                   <Button type="submit" style={{backgroundColor: "#C0C034"}}>Unequip</Button>
-                                  :<Button type="submit"style={{backgroundColor: "yellow"}}>Equip</Button>
+                                   <Button type="submit" onClick={equipUnequip} style={{backgroundColor: "#C0C034"}}>Unequip</Button>
+                                  :<Button type="submit" onClick={equipUnequip} style={{backgroundColor: "yellow"}}>Equip</Button>
                               }
-                              
+
                         </form>
                             </div>
-                    </div> 
+                    </div>
                     <ReactTooltip id={data.name} place="right" aria-haspopup='true' className="inventory-toolTip">
                             <div className="inventory-hide">
                                 <div className="inventory-itemsInfo">
@@ -125,10 +151,10 @@ function InventoryOutfitFilter({setPreview,inventory, setInventory, data}){
                                             <p>Critical Chance: {data.crit_chance}</p>
                                             <p>Critical Damage: {data.crit_dmg}</p>
                                         </div>
-                                </div> 
+                                </div>
                             </div>
                     </ReactTooltip>
-                </div>   
+                </div>
     );
 }
 

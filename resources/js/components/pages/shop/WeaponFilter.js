@@ -4,12 +4,12 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 
 
-function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
+function WeaponFilter({data, value, avatarClass,setGems,gems, updatePreview}){
       const [passProductId, setPassProductId]= useState({
             product: '',
             amount :'',
-            outfit_type: '',
-            body_part: ''
+            OutfitType: '',
+            bodyPart: ''
       });
 
 
@@ -17,12 +17,12 @@ function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
              e.preventDefault();
 
           if(e.target.class.value===avatarClass){
-            Swal.fire("You have successfully bought the item");
+
             setPassProductId({
                   product:e.target.product.value,
                   amount: e.target.amount.value,
-                  outfit_type: e.target.outfit_type.value,
-                  body_part: e.target.body_part.value,
+                  OutfitType: e.target.OutfitType.value,
+                  bodyPart: e.target.bodyPart.value,
             });
             }else{
                   Swal.fire("Failed to buy Item - Class Restriction");
@@ -30,21 +30,25 @@ function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
        }
 
        useEffect(() => {
+            console.log(passProductId);
             const data={
                   product: passProductId.product,
                   amount: passProductId.amount,
-                  outfit_type: passProductId.outfit_type,
-                  body_part: passProductId.body_part,
+                  OutfitType: passProductId.OutfitType,
+                  bodyPart: passProductId.bodyPart,
             }
             if(data.product === "" || data.amount==="" || data.type==="" ){
                   console.log("empty")
-            }else{
+            }else if((gems-data.amount)>=0){
                   axios.post(`/api/addBought`, data).then(res =>{
                         if(res.data.status === 200){
+                        Swal.fire("You have successfully bought the item");
                            setGems(res.data.gems);
                            console.log(res.data.message);
                         }
                       });
+            }else{
+                  Swal.fire("Not Enough Gems :(");
             }
 
        }, [passProductId])
@@ -52,6 +56,7 @@ function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
        const showItemOnAvatar = () => {
            console.log("ITEM CLICKED")
            updatePreview({
+               item_type: "weapon",
                body_part: data.body_part,
                sex: data.sex.toLowerCase(),
                base_src: 'assets/images/spritesheets/' + data.directory,
@@ -78,8 +83,8 @@ function WeaponFilter({data, value, avatarClass,setGems, updatePreview}){
                               <input name="product" type="hidden" value={value}/>
                               <input name="amount" type="hidden" value={data.price}/>
                               <input name="class" type="hidden" value={data.class}/>
-                              <input name="outfit_type" type="hidden" value={data.outfit_type}/>
-                              <input name="body_part" type="hidden" value={data.body_part}/>
+                              <input name="OutfitType" type="hidden" value={data.OutfitType}/>
+                              <input name="bodyPart" type="hidden" value={data.bodyPart}/>
                               <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br></Button>
                         </form>
                     </div>

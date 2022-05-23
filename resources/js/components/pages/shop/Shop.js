@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import WeaponFilter from "./WeaponFilter";
 import OutfitFilter from "./OutfitFilter";
 
-function Shop({setGems}){
+function Shop({setGems,gems}){
 
     const [tab, setTab] = useState('all');
 
@@ -32,6 +32,7 @@ function Shop({setGems}){
     const [items, setItems] = useState();
 
     const selections = useRef([]);
+    const actual_selections = useRef([]);
 
 
     useEffect(()=>{
@@ -51,6 +52,7 @@ function Shop({setGems}){
             isFemale.current = data.sex;
             skinTone.current = data.skin_tone;
             selections.current = data.items;
+            actual_selections.current = data.items;
 
             var chClass = charClass.current;
             if(chClass === "warrior"){
@@ -61,7 +63,6 @@ function Shop({setGems}){
                 cycles.current = 6;
             }else if(chClass === "marksman"){
                 frameY.current = 18;
-                frameX.current = 2;
                 cycles.current = 10;
             }
 
@@ -80,6 +81,7 @@ function Shop({setGems}){
         avatarCtx.current.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         avatarCtx.current.fillStyle = bgColor.current;
         avatarCtx.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        //try to implement slash oversize by doubling second argument of drawImage if slash oversize -> also adjust selectionImg frames
         avatarCtx.current.drawImage(avatarImage.current, frameX.current * spriteWidth, frameY.current * spriteHeight, spriteWidth, spriteHeight, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         selections.current.sort( (a, b) => (a.zPos > b.zPos) ? 1: -1 );
         if(charClass.current == "warrior"){
@@ -93,10 +95,38 @@ function Shop({setGems}){
                     }else if(selection.base_src.indexOf("slash_oversize") != -1){
                         frameY.current = 10;
                         cycles.current = 8;
+                    }else if(selection.base_src.indexOf("bow") != -1){
+                        frameY.current = 18;
+                        frameX.current = 2;
+                        cycles.current = 10;
                     }else{
                         frameY.current = 14;
                         cycles.current = 8;
                     }
+            })
+        }else if(charClass.current == "mage"){
+            selections.current.forEach(selection => {
+                if(selection.img_name != "simple_staff.png") {
+                    if(selection.base_src.indexOf("thrust") != -1){
+                        frameY.current = 6;
+                        cycles.current = 7;
+                    }else if(selection.base_src.indexOf("slash/") != -1){
+                        frameY.current = 14;
+                        cycles.current = 5;
+                    }else if(selection.base_src.indexOf("slash_oversize") != -1){
+                        frameY.current = 10;
+                        cycles.current = 8;
+                    }else if(selection.base_src.indexOf("bow") != -1){
+                        frameY.current = 18;
+                        cycles.current = 10;
+                    }else{
+                        frameY.current = 14;
+                        cycles.current = 8;
+                    }
+                }else{
+                    frameY.current = 2;
+                    cycles.current = 6;
+                }
             })
         }
 
@@ -127,12 +157,19 @@ function Shop({setGems}){
     const updatePreview = (item) => {
         console.log("IN SHOP")
         console.log(item)
-        selections.current = selections.current.filter(selection => selection.base_src.indexOf("weapon") == -1);
+        if(item.item_type == "weapon"){
+            selections.current = selections.current.filter(selection => selection.base_src.indexOf("weapon") == -1);
+        }else{
+            selections.current = selections.current.filter(selection =>  selection.hasOwnProperty('body_part') == false || selection.body_part.indexOf(item.body_part) == -1);
+        }
         selections.current.push(item)
+        console.log("SELECTIONS")
         console.log(selections.current)
-        // animate()
     }
 
+    const resetAvatarPreview = () => {
+        selections.current = actual_selections.current;
+    }
 
     return(
         <section className="container shop-wrapper">
@@ -145,7 +182,7 @@ function Shop({setGems}){
                     <div onClick={() => setTab('outfit')} id='outfit' className="party-nav-item" ><Link to="">Outfit</Link></div>
                 </div>
 
-                <ShopTabs tab={tab} setGems={setGems} updatePreview={updatePreview}></ShopTabs>
+                <ShopTabs tab={tab} setGems={setGems} gems={gems} updatePreview={updatePreview}></ShopTabs>
             </div>
 
             <section id="shop-avatar-preview shop-right">
@@ -153,7 +190,10 @@ function Shop({setGems}){
                     <div className="text-center"></div>
                 </div> */}
                 <div id="shop-preview-animations-box">
-                    <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
+                    <center>
+                        <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
+                        <button onClick={resetAvatarPreview} className="btn-custom-primary reset-shop-preview-btn">Reset</button>
+                    </center>
                 </div>
             </section>
 

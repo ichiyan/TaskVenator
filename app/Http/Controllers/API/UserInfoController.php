@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Inventory;
+use App\Models\Level;
 use App\Models\Outfit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -47,128 +48,118 @@ class UserInfoController extends Controller
     {
         $user_info = new UserInfo();
         $user_info->username = $request->username;
+        $user_info->gems = 10;
+
+        $avatar_class = AvatarClass::where('name', '=', $request->class)->first();
+        $level1 = Level::where('level', '=', '1')->first();
 
         $avatar = $user_info->avatar()->create([
             'sex' =>  $request->sex,
             'skin_tone' => $request->skin_tone,
             'background_color' => $request->background_color,
             'items' => $request->items,
+            'strength' => $avatar_class->strength,
+            'agility' => $avatar_class->agility,
+            'intelligence' => $avatar_class->intelligence,
+            'current_hp' => $avatar_class->hp,
+            'max_hp' => $avatar_class->hp,
+            'max_xp' => $level1->xp_needed,
+            'crit_chance' => $avatar_class->crit_chance,
+            'crit_damage' => $avatar_class->crit_damage,
         ]);
+
+        $avatar->class()->associate($avatar_class);
 
         $user = User::find(Auth::id());
         $user_info->user()->associate($user);
         $user_info->save();
         $user_info->avatar()->save($avatar);
 
-        $avatar_class = AvatarClass::where('name', '=', $request->class)->first();
-        $avatar->class()->associate($avatar_class);
         $avatar->save();
 
-
-        if($request->class === "warrior"){
+        if($request->class == "warrior"){
             for($start=106; $start<112; $start++){
                 $inventory= new Inventory;
                 $user_id = Auth::id();
-                // $outfit= DB::table('products')
-                //             ->where('products.outfit', '=', $start)
-                //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                //             ->select('outfit.OutfitType', 'outfit.bodyPart')
-                //             ->get();
                 $inventory->user_id= $user_id;
                 $inventory->product= $start;
                     if($start<111){
-                        $inventory->outfit_type= "Armor";
+                        $inventory->OutfitType= 1;
                     }else{
-                        $inventory->outfit_type= "Weapon";
+                        $inventory->OutfitType= 2;
                     }
-                // $inventory->OutfitType= $outfit->OutfitType;
+                    $inventory->status='1';
                     if($start===106){
-                        $inventory->body_part= "Head";
+                        $inventory->bodyPart= "Head";
+                        // $inventory->status='0';
                     }else if($start === 107){
-                        $inventory->body_part= "Arms";
+                        $inventory->bodyPart= "Arms";
                     }else if($start === 108){
-                        $inventory->body_part= "Torso";
+                        $inventory->bodyPart= "Torso";
                     }else if($start === 109){
-                        $inventory->body_part= "Legs";
+                        $inventory->bodyPart= "Legs";
                     }else if($start === 110){
-                        $inventory->body_part= "Footwear";
+                        $inventory->bodyPart= "Footwear";
                     }
-                // $inventory->bodyPart= $outfit->bodyPart;
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
 
-        }else if($request->class === "marksman"){
+        }else if($request->class == "marksman"){
             for($start=112; $start<117; $start++){
                 $inventory= new Inventory;
                 $user_id = Auth::id();
-                // $outfit= DB::table('products')
-                //             ->where('products.outfit', '=', $start)
-                //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                //             ->select('outfit.OutfitType', 'outfit.bodyPart')
-                //             ->get();
                 $inventory->user_id= $user_id;
                 $inventory->product= $start;
                     if($start<116){
-                        $inventory->outfit_type= "Armor";
+                        $inventory->OutfitType= 1;
                     }else{
-                        $inventory->outfit_type= "Weapon";
+                        $inventory->OutfitType= 2;
                     }
-                // $inventory->OutfitType= $outfit->OutfitType;
+                    $inventory->status='1';
                     if($start===112){
-                        $inventory->body_part= "Head";
+                        $inventory->bodyPart= "Head";
+                        // $inventory->status='0';
                     }else if($start === 113){
-                        $inventory->body_part= "Torso";
+                        $inventory->bodyPart= "Torso";
                     }else if($start === 114){
-                        $inventory->body_part= "Legs";
+                        $inventory->bodyPart= "Legs";
                     }else if($start === 115){
-                        $inventory->body_part= "Footwear";
+                        $inventory->bodyPart= "Footwear";
                     }
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
         }else{
             for($start=117; $start<122; $start++){
                 $inventory= new Inventory;
                 $user_id = Auth::id();
-                // $outfit= DB::table('products')
-                //             ->where('products.outfit', '=', $start)
-                //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                //             ->select('outfit.OutfitType', 'outfit.bodyPart')
-                //             ->get();
                 $inventory->user_id= $user_id;
                 $inventory->product= $start;
                     if($start<121){
-                        $inventory->outfit_type= "Armor";
+                        $inventory->OutfitType= 1;
                     }else{
-                        $inventory->outfit_type= "Weapon";
+                        $inventory->OutfitType= 2;
                     }
-                // $inventory->OutfitType= $outfit->OutfitType;
+                    $inventory->status='1';
                     if($start===117){
-                        $inventory->body_part= "Head";
+                        $inventory->bodyPart= "Head";
+                        // $inventory->status='0';
                     }else if($start === 118){
-                        $inventory->body_part= "Torso";
+                        $inventory->bodyPart= "Torso";
                     }else if($start === 119){
-                        $inventory->body_part= "Legs";
+                        $inventory->bodyPart= "Legs";
                     }else if($start === 120){
-                        $inventory->body_part= "Footwear";
+                        $inventory->bodyPart= "Footwear";
                     }
                 $inventory->amount='0';
-                $inventory->status='1';
                 $inventory->save();
             }
         }
 
-
-
-
-
         return response()->json([
             'status' => 200,
             'message' => 'User and Avatar Info Added Successfully',
-            'avatar' => $avatar_class
         ]);
     }
 
@@ -194,6 +185,12 @@ class UserInfoController extends Controller
             'skin_tone' => $avatar->skin_tone,
             'background_color' => $avatar->background_color,
             'items' => $avatar->items,
+            'curr_hp' => $avatar->current_hp,
+            'curr_xp' => $avatar->current_xp,
+            'max_hp' => $avatar->max_hp,
+            'max_xp' => $avatar->max_xp,
+            'crit_chance' => $avatar->crit_chance,
+            'crit_damage' => $avatar->crit_damage,
         ]);
     }
 
@@ -215,9 +212,15 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // DB::update('update avatars set items = ? where id = ?', [$request->items, Auth::id()]);
+
+        Avatar::where('id', Auth::id())->update(array('items' => $request->items));
+
+        return response()->json([
+            'status' => 200,
+        ]);
     }
 
     /**

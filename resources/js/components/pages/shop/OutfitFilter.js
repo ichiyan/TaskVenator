@@ -3,25 +3,27 @@ import {Link, React, useEffect, useState,
     AddPotionForm, AddOutfitForm, ReactTooltip,axios } from "../../../index";
 import Swal from 'sweetalert2';
 
-function OutfitFilter({data, value, avatarClass,setGems}){
+function OutfitFilter({data, value, avatarClass,setGems,gems, updatePreview}){
     const [passProductId, setPassProductId]= useState({
           product: '',
           amount :'',
-          outfit_type: '',
-          body_part: ''
+          OutfitType: '',
+          bodyPart: ''
     });
 
      const submitToHandler=(e)=>{
       e.preventDefault();
       //     Swal.fire("You have successfully bought the item");
+      // console.log(e.target.OutfitType.value)
           if(e.target.class.value===avatarClass){
-            Swal.fire("You have successfully bought the item");
             setPassProductId({
                     product:e.target.product.value,
                     amount: e.target.amount.value,
-                    outfit_type: e.target.outfit_type.value,
-                    body_part: e.target.body_part.value,
+                    OutfitType: e.target.OutfitType.value,
+                    bodyPart: e.target.bodyPart.value,
             });
+
+            // console.log(passProductId);
       }else{
             Swal.fire("Failed to buy Item - Class Restriction");
       }
@@ -30,35 +32,54 @@ function OutfitFilter({data, value, avatarClass,setGems}){
 
 
      }
-     
+
      useEffect(() => {
+           
+      console.log(passProductId);
       const data={
             product: passProductId.product,
             amount: passProductId.amount,
-            outfit_type: passProductId.outfit_type,
-            body_part: passProductId.body_part,
+            OutfitType: passProductId.OutfitType,
+            bodyPart: passProductId.bodyPart,
       }
       if(data.product === "" || data.amount===""){
             console.log("empty")
-      }else{
+      }else if((gems-data.amount)>=0){
             axios.post(`/api/addBought`, data).then(res =>{
                   if(res.data.status === 200){
-                     setGems(res.data.gems)   
+                  Swal.fire("You have successfully bought the item");
+                     setGems(res.data.gems);
                      console.log(res.data.message);
                   }else {
                     // setPotion({...potion,error_list:res.data.errors});
                   }
                 });
+      }else{
+            Swal.fire("Not Enough Gems :(");
       }
 
 
      }, [passProductId])
 
 
+     const showItemOnAvatar = () => {
+        console.log("ITEM CLICKED")
+        updatePreview({
+            item_type: "outfit",
+            //change footwear in db to feet
+            body_part:  data.body_part != "Footwear" ? data.body_part.toLowerCase(): "feet",
+            sex: data.sex.toLowerCase(),
+            base_src: 'assets/images/spritesheets/' + data.directory,
+            img_name: data.spritesheet_img_name,
+            zPos: data.zPos,
+        });
+    }
+
+
     return(
         <div data-tip data-for={data.name}  className="shop-returnMap">
         <div className="shop-items">
-            <div className="shop-itemsImage">
+            <div className="shop-itemsImage" onClick={showItemOnAvatar}>
               {
               (data.sex==="None" || data.sex==="Male")? <img src={data.male_image}></img>:<img src={data.female_image}></img>
              }
@@ -70,8 +91,8 @@ function OutfitFilter({data, value, avatarClass,setGems}){
                               <input name="product" type="hidden" value={value}/>
                               <input name="amount" type="hidden" value={data.price}/>
                               <input name="class" type="hidden" value={data.class}/>
-                              <input name="outfit_type" type="hidden" value={data.outfit_type}/>
-                              <input name="body_part" type="hidden" value={data.body_part}/>
+                              <input name="OutfitType" type="hidden" value={data.OutfitType}/>
+                              <input name="bodyPart" type="hidden" value={data.bodyPart}/>
                               <Button type="submit"><img src="assets/images/currency.png"></img>{data.price}<br></br></Button>
                         </form>
                     </div>

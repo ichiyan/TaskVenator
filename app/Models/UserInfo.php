@@ -12,7 +12,7 @@ class UserInfo extends Model
 {
     use HasFactory;
     protected $table = 'user_infos';
-    protected $fillable = ['username', 'gems', 'HP', 'warning_days', 'avatar', 'user_id'];
+    protected $fillable = ['username', 'gems', 'warning_days', 'has_party', 'last_opened_chat', 'is_in_battle','last_received_daily_hp','avatar', 'user_id'];
 
     public function avatar(): hasOne
     {

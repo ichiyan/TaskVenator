@@ -5,7 +5,7 @@ import {Link, React, useEffect, useState, AddPotionForm,
 import Swal from 'sweetalert2';
 import WeaponFilter from "./WeaponFilter";
 
-function Weapons({setGems, updatePreview}){
+function Weapons({setGems,gems, updatePreview}){
     var hpTotal = 50;
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
@@ -113,7 +113,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Warrior"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} updatePreview={updatePreview}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -128,7 +128,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Marksman"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                   <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                   <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -144,7 +144,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Mage"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                                 }
@@ -160,7 +160,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Warrior" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -175,7 +175,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Marksman" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -190,7 +190,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Mage" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -205,7 +205,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Warrior" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -220,7 +220,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Marksman" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -235,7 +235,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Mage" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -250,7 +250,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Warrior" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -265,7 +265,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Marksman" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -280,7 +280,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Mage" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -295,7 +295,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Warrior"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -310,7 +310,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Marksman"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -325,7 +325,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Mage"){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -340,7 +340,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Warrior" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -355,7 +355,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Marksman" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -370,7 +370,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Mage" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -385,7 +385,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Warrior" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -400,7 +400,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Marksman" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -415,7 +415,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Mage" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -430,7 +430,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Warrior" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -445,7 +445,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Marksman" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
@@ -460,7 +460,7 @@ function Weapons({setGems, updatePreview}){
                                   if(w.class==="Mage" && w.rarity_type===rarity){
                                     return (
                                     <div key={index} className="shop-outfitFilter">
-                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems}/>
+                                    <WeaponFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
                                     </div>
                                   )
                           }
