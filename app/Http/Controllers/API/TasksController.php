@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Tasks;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Table;
 
 class TasksController extends Controller
 {
@@ -19,6 +21,9 @@ class TasksController extends Controller
         //
         $tasks = Tasks::all();
         $id = Auth::hasUser();
+        $taskList = DB::table("tasks")
+                    ->where(owner, "=", $id)
+                    ->joinWhere(task_items, task_id, "=", id);
         return response()->json([
             'status' => 200,
             'tasks' => $tasks,

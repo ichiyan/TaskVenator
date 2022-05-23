@@ -32,6 +32,25 @@ const TasksTab = () => {
 
     var name1 = "SE Project"
 
+    const [taskList, setTaskList] = useState({
+        tasks:[], id:null
+    });
+
+    useEffect(() =>{
+        axios.get(`/api/tasks`).then(res =>{
+            if(res.data.status===200){
+                setTaskList({
+                    tasks:res.data.tasks,
+                    id:res.data.id
+                })
+            }
+            console.log(res.data.status)
+        })
+    },[])
+    console.log("TaskLists:")
+    console.log(taskList.id)
+    console.log(taskList.tasks)
+
     useEffect(() =>{
         axios.get(`/api/battle`).then(res =>{
             if(res.data.status===200){
@@ -42,8 +61,6 @@ const TasksTab = () => {
             }
         })
     },[])
-
-    console.log(battle)
 
     return( //will change class names
         <section className="container tasks-section">
