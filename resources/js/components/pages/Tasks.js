@@ -7,17 +7,52 @@ import {Header, React,
 
  const Tasks = ({tab}) => {
 
-    var hpTotal = 50;
-    var xpTotal = 50;
-    const [hp, setHp] = useState(50);
+    const [hp, setHp] = useState();
     const [xp, setXp] = useState(0);
-    const [hpBarWidth, sethpBarWidth] = useState("100");
+    const [hpTotal, setHpTotal] = useState();
+    const [xpTotal, setXpTotal] = useState();
+
+    const health = useRef();
+    const healthTotal = useRef();
+
+    const [hpBarWidth, sethpBarWidth] = useState();
     const [hpHitWidth, sethpHitWidth] = useState("0");
     const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
 
     const [xpBarWidth, setXPBarWidth] = useState("0");
     const [xpIncreaseWidth, setXPIncreaseWidth] = useState("0");
     const [gems, setGems]= useState();
+
+    const [username, setUsername] = useState('');
+    const [level, setLevel] = useState('');
+    const [avatarClass, setAvatarClass] = useState('');
+
+    const charClass = useRef();
+    const bgColor = useRef();
+    const sex = useRef();
+    const isFemale = useRef();
+    const skinTone = useRef();
+    const frameX = useRef(4);
+    const frameY = useRef();
+
+    const avatarCanvasRef = useRef();
+    const avatarCtx = useRef();
+    const [CANVAS_WIDTH, setCanvasWidth] = useState(120);
+    const [CANVAS_HEIGHT, setCanvasHeight] = useState(120);
+    const avatarImage = useRef();
+
+    const baseDir = 'assets/images/spritesheets/';
+    const spriteWidth = 64;
+    const spriteHeight = 64;
+
+    const [items, setItems] = useState();
+    const selections = useRef([]);
+
+    const [hasParty, setHasParty] = useState();
+    const [partyMembers, setPartyMembers] = useState([]);
+
+    const [hasUpdates, setHasUpdates] = useState(false);
+
 
     useEffect(()=>{
         axios.get(`/api/gems`).then(res =>{
@@ -30,6 +65,66 @@ import {Header, React,
     useEffect( () => {
         document.body.classList.add('internal-pages');
     }, []);
+
+    useEffect(() => {
+        axios.get(`api/get_user_info`).then(res => {
+            var data = res.data;
+            setUsername(data.username);
+            setLevel(data.level);
+            setAvatarClass(data.class);
+            setItems(data.items);
+
+            setHp(data.curr_hp);
+            sethpBarWidth(data.curr_hp);
+            setXp(data.curr_xp);
+            setHpTotal(data.max_hp);
+            setXpTotal(data.max_xp);
+
+            healthTotal.current = data.max_hp;
+            health.current = data.curr_hp;
+
+            if(data.has_party == 1){
+                setHasParty(1);
+                 axios.get(`api/get_party_info`).then(res => {
+                     if(res.data.status == 200){
+                         setPartyMembers(res.data.members);
+                     }
+                 });
+            }
+
+            let today = new Date();
+            if(data.last_received_daily_hp < today.setDate(today.getDate() - 1)){
+                // display modal => clicking confirmation btn calls receiveDailyBonusHP
+                receiveDailyBonusHP(data.curr_hp, data.max_hp)
+            }
+        });
+    }, []);
+
+
+    useEffect(() => {
+
+        axios.get(`api/get_user_info`).then(res => {
+            var data = res.data;
+            setItems(data.items);
+            charClass.current = data.class;
+            bgColor.current = data.background_color;
+            isFemale.current = data.sex;
+            skinTone.current = data.skin_tone;
+            selections.current = data.items;
+
+            animate();
+
+        });
+
+     }, [hasUpdates]);
+
+
+    const receiveDailyBonusHP = (current, total) => {
+        if(current < total){
+            let bonusHP = 2 * (2 + (level * 0.1))
+            healHandler(bonusHP)
+        }
+    }
 
     const hitHandler = () => {
         let updatedHp;
@@ -53,24 +148,41 @@ import {Header, React,
         }, 500);
     }
 
-    const healHandler = () => {
+    const healHandler = (added_hp) => {
         let updatedHp;
         let newHPBarWidth;
 
-        if(hp === hpTotal){
-            //    full health modal or sumn
-            updatedHp = hpTotal;
+        if(health.current === healthTotal.current || (health.current + added_hp) > healthTotal.current){
+            updatedHp = healthTotal.current;
         }else{
-            updatedHp = hp + 10;
-            newHPBarWidth = updatedHp / hpTotal * 100;
+            updatedHp = health.current + added_hp;
+            newHPBarWidth = updatedHp / healthTotal.current * 100;
         }
+
         setHp(updatedHp);
+        health.current = updatedHp;
 
         setHPIncreaseWidth(newHPBarWidth);
-
         setTimeout(function(){
             sethpBarWidth(newHPBarWidth);
         }, 500);
+
+        updateHealthDB()
+    }
+
+    const updateHealthDB = () => {
+
+        const data = {
+            curr_hp: health.current,
+            max_hp: healthTotal.current,
+        }
+
+        axios.post(`/api/update_health`, data).then(res => {
+            if(res.data.status === 200){
+                console.log(res.data.message)
+            }
+        })
+
     }
 
     const addXPHandler = () => {
@@ -91,64 +203,6 @@ import {Header, React,
         }, 500);
 
     }
-
-    const [username, setUsername] = useState('');
-    const [level, setLevel] = useState('');
-    const [avatarClass, setAvatarClass] = useState('');
-    const charClass = useRef();
-    const bgColor = useRef();
-    const sex = useRef();
-    const isFemale = useRef();
-    const skinTone = useRef();
-    const frameX = useRef(4);
-    const frameY = useRef();
-
-    const avatarCanvasRef = useRef();
-    const avatarCtx = useRef();
-    const [CANVAS_WIDTH, setCanvasWidth] = useState(120);
-    const [CANVAS_HEIGHT, setCanvasHeight] = useState(120);
-    const avatarImage = useRef();
-
-    const baseDir = 'assets/images/spritesheets/';
-    const spriteWidth = 64;
-    const spriteHeight = 64;
-
-    const [items, setItems] = useState();
-    const selections = useRef([]);
-
-    const hasParty = useRef(0);
-    const [partyMembers, setPartyMembers] = useState([]);
-
-    const [hasUpdates, setHasUpdates] = useState(false);
-
-    useEffect(() => {
-
-       axios.get(`api/get_user_info`).then(res => {
-           var data = res.data;
-           hasParty.current = data.has_party;
-           setUsername(data.username);
-           setLevel(data.level);
-           setAvatarClass(data.class);
-           setItems(data.items);
-
-           charClass.current = data.class;
-           bgColor.current = data.background_color;
-           isFemale.current = data.sex;
-           skinTone.current = data.skin_tone;
-           selections.current = data.items;
-
-           animate();
-
-           if(data.has_party == 1){
-                axios.get(`api/get_party_info`).then(res => {
-                    if(res.data.status == 200){
-                        setPartyMembers(res.data.members);
-                    }
-                });
-           }
-       });
-
-    }, [hasUpdates]);
 
     const animate = () => {
        var canvas = avatarCanvasRef.current;
@@ -219,7 +273,7 @@ import {Header, React,
                             <div className="container">
                                 <p style={{color: "white"}}>TEST</p>
                                 <button style={{margin: 10 + "px"}} className="btn btn-danger" onClick={hitHandler}>damage</button>
-                                <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={healHandler}>heal</button>
+                                <button  style={{margin: 10 + "px"}} className="btn btn-success" onClick={() => healHandler(5)}>heal</button>
                                 <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
                             </div>
                         : null

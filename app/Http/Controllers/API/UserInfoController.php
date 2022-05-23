@@ -193,6 +193,7 @@ class UserInfoController extends Controller
             'status' => 200,
             'username' => $user_info->username,
             'has_party' => $user_info->has_party,
+            'last_received_daily_hp' => $user_info->last_received_daily_hp,
             'level' => $avatar->level,
             'class' => $avatar->class->name,
             'sex' => $avatar->sex,
@@ -228,8 +229,6 @@ class UserInfoController extends Controller
      */
     public function update(Request $request)
     {
-
-
         $id = Auth::id();
 
         Avatar::where('id', $id)->update(array('items' => $request->items));
@@ -278,5 +277,14 @@ class UserInfoController extends Controller
 
     }
 
+    public function updateHealth (Request $request) {
+        $id = Auth::id();
+        Avatar::where('id', $id)->update(array('current_hp' => $request->curr_hp, 'max_hp' => $request->max_hp));
 
+        return response()->json([
+            'status' => 200,
+            'message' => 'HP updated',
+        ]);
+
+    }
 }
