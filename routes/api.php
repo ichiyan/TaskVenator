@@ -59,6 +59,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //updating avatar after equipping/unequipping items
     Route::post('update_avatar_items', [UserInfoController::class, 'update']);
+    Route::post('update_avatar_img', [UserInfoController::class, 'updateAvatarImg']);
 
     //new task
     Route::post('newTask', [TasksController::class, 'create']);

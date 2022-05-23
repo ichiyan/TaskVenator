@@ -33,20 +33,17 @@ var avatarClass= "Warrior";
   useEffect(()=>{
      axios.get(`/api/potions`).then(res =>{
            if(res.data.status===200){
-                 console.log(res.data.potion)
                  setDisplay1({
                        potions:res.data.potion
                  });
 
            }
-           console.log(display1.potions);
      })
   },[])
 
     useEffect(() =>{
      axios.get(`/api/outfit`).then(res =>{
            if(res.data.status===200){
-            console.log(res.data.weapon)
                  setDisplay2({
                        weapons:res.data.weapon
 
@@ -74,7 +71,6 @@ var avatarClass= "Warrior";
 }
 useEffect(()=>{
 //     setClicked(clicked);
-console.log(display3.armors)
 },[display3]);
 
 const buttonHandler=(e)=>{
@@ -110,7 +106,6 @@ const [passProductId, setPassProductId]= useState({
             axios.post(`/api/addBought`, data).then(res =>{
                   if(res.data.status === 200){
                         setGems(res.data.gems);
-                        console.log(res.data.message);
                         Swal.fire("You have successfully bought the item");
                   }else {
                     // setPotion({...potion,error_list:res.data.errors});

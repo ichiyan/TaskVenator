@@ -93,7 +93,7 @@ const execUpdateAvatarPreview = () => {
     updateAvatarPreview({
         item_type: "outfit",
         status: clickedItem[0].status,
-        body_part:  data.body_part != "Footwear" ? data.body_part.toLowerCase(): "feet",
+        body_part:  data.bodyPart != "Footwear" ? data.bodyPart.toLowerCase(): "feet",
         sex: data.sex.toLowerCase(),
         base_src: 'assets/images/spritesheets/' + data.directory,
         img_name: data.spritesheet_img_name,

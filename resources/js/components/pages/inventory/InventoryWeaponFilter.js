@@ -89,7 +89,7 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data, updat
         updateAvatarPreview({
             item_type: "weapon",
             status: clickedItem[0].status,
-            body_part:  data.body_part,
+            body_part:  data.bodyPart,
             sex: data.sex.toLowerCase(),
             base_src: 'assets/images/spritesheets/' + data.directory,
             img_name: data.spritesheet_img_name,

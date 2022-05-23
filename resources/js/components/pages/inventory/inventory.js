@@ -172,17 +172,21 @@ function Inventory({hasUpdates, setHasUpdates}){
         console.log("SELECTIONS")
         console.log(selections.current)
 
-        let canvas = document.getElementById('previewAnimations');
-        let dataURL = canvas.toDataURL("image/png");
+        // let canvas = document.getElementById('previewAnimations2');
+        // let dataURL = canvas.toDataURL("image/png");
 
         const data = {
             items: selections.current,
-            dataURL: dataURL,
         }
+
         axios.post(`/api/update_avatar_items`, data).then(res => {
             if(res.data.status === 200){
-                console.log(res.data)
                 setHasUpdates(!hasUpdates)
+                let canvas = document.getElementById('previewAnimations2');
+                let dataURL = canvas.toDataURL("image/png");
+                axios.post(`/api/update_avatar_img`, {dataURL}).then(res => {
+                    console.log(res.data)
+                })
             }
         })
 
@@ -209,7 +213,7 @@ function Inventory({hasUpdates, setHasUpdates}){
                     </div> */}
                     <div id="inventory-preview-animations-box">
                         <center>
-                            <canvas ref={avatarCanvasRef} id="previewAnimations"></canvas>
+                            <canvas ref={avatarCanvasRef} id="previewAnimations2"></canvas>
                             {/* <button onClick={updateAvatarItems}  className="btn-custom-primary save-btn">Save</button>
                             <button onClick={resetAvatarPreview}  className="btn-custom-primary save-btn">Reset</button> */}
                         </center>

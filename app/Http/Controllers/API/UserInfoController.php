@@ -105,7 +105,7 @@ class UserInfoController extends Controller
                     $inventory->status='1';
                     if($start===106){
                         $inventory->bodyPart= "Head";
-                        // $inventory->status='0';
+                        $inventory->status='0';
                     }else if($start === 107){
                         $inventory->bodyPart= "Arms";
                     }else if($start === 108){
@@ -133,7 +133,7 @@ class UserInfoController extends Controller
                     $inventory->status='1';
                     if($start===112){
                         $inventory->bodyPart= "Head";
-                        // $inventory->status='0';
+                        $inventory->status='0';
                     }else if($start === 113){
                         $inventory->bodyPart= "Torso";
                     }else if($start === 114){
@@ -158,7 +158,7 @@ class UserInfoController extends Controller
                     $inventory->status='1';
                     if($start===117){
                         $inventory->bodyPart= "Head";
-                        // $inventory->status='0';
+                        $inventory->status='0';
                     }else if($start === 118){
                         $inventory->bodyPart= "Torso";
                     }else if($start === 119){
@@ -228,7 +228,29 @@ class UserInfoController extends Controller
      */
     public function update(Request $request)
     {
-        // DB::update('update avatars set items = ? where id = ?', [$request->items, Auth::id()]);
+
+
+        $id = Auth::id();
+
+        Avatar::where('id', $id)->update(array('items' => $request->items));
+
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+    public function updateAvatarImg(Request $request){
 
         $id = Auth::id();
 
@@ -248,21 +270,13 @@ class UserInfoController extends Controller
             $dir = 'assets/images/avatars/'.$fileName;
         }
 
-        Avatar::where('id', $id)->update(array('items' => $request->items, 'avatar_img' => $dir));
+        Avatar::where('id', $id)->update(array('avatar_img' => $dir));
 
         return response()->json([
             'status' => 200,
         ]);
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
 }

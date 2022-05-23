@@ -30,7 +30,6 @@ function WeaponFilter({data, value, avatarClass,setGems,gems, updatePreview}){
        }
 
        useEffect(() => {
-            console.log(passProductId);
             const data={
                   product: passProductId.product,
                   amount: passProductId.amount,
@@ -38,13 +37,11 @@ function WeaponFilter({data, value, avatarClass,setGems,gems, updatePreview}){
                   bodyPart: passProductId.bodyPart,
             }
             if(data.product === "" || data.amount==="" || data.type==="" ){
-                  console.log("empty")
             }else if((gems-data.amount)>=0){
                   axios.post(`/api/addBought`, data).then(res =>{
                         if(res.data.status === 200){
                         Swal.fire("You have successfully bought the item");
                            setGems(res.data.gems);
-                           console.log(res.data.message);
                         }
                       });
             }else{
@@ -57,7 +54,7 @@ function WeaponFilter({data, value, avatarClass,setGems,gems, updatePreview}){
            console.log("ITEM CLICKED")
            updatePreview({
                item_type: "weapon",
-               body_part: data.body_part,
+               body_part: data.bodyPart,
                sex: data.sex.toLowerCase(),
                base_src: 'assets/images/spritesheets/' + data.directory,
                img_name: data.spritesheet_img_name,
