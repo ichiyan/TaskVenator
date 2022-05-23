@@ -132,13 +132,13 @@ const JoinPartyModal = () => {
                             <div className="col-5 px-4 bg-gradient">
                                 {
                                     rendered_list.length <= 0 ?
-                                        
+
                                         <img src="assets/images/avatar-mage.png" />
 
                                         : selected_party?.id &&
                                         <>
                                             <div className="">
-                                                <h2 style={{ color: '#95c5ed' }}>
+                                                <h2 style={{ color: '#9580FF' }}>
                                                     <img src={guild_logo_dir} alt="guild-logo" width="120" height="120" /> {selected_party.party_name}
                                                 </h2>
                                             </div>
@@ -177,7 +177,7 @@ const JoinPartyModal = () => {
                                                 </div>
                                             </div>
                                             <div className='pt-2 pb-4 d-flex justify-content-end'>
-                                                <button type="button" className="btn btn-success">JOIN PARTY</button>
+                                                <button type="button" className="btn-custom-primary join-form-party-btn">Join Party</button>
                                             </div>
                                         </>
                                 }
