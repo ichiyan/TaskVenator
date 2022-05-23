@@ -85,7 +85,9 @@ class PartyController extends Controller
             $party['founder'] = UserInfo::find( $party['founder'])->username;
             $party['party_members'] = $party->party_members;
             foreach($party['party_members'] as $member){
-                $member['user_info'] = $member->user->user_info;
+                $member['username'] = $member->user->user_info->username;
+                $member['avatar_img_dir'] = $member->user->user_info->avatar->avatar_img;
+                unset($member->user);
             }
         }
 

@@ -176,14 +176,14 @@ const JoinPartyModal = () => {
                                                     <div>
                                                         <div className='d-flex flex-wrap' style={{ overflow: 'auto' }}>
                                                             {
-                                                                partyMemberDummyData.map((item, index) => {
+                                                                selected_party.party_members.map((item, index) => {
                                                                     return (
                                                                         // u can implement a ReactToolTip
-                                                                        <div key={index} title={item.name}>
+                                                                        <div key={index} title={item.username}>
                                                                             <SmallAvatar
-                                                                                img_link={item.img_link}
+                                                                                img_link={item.avatar_img_dir}
                                                                                 current_index={index}
-                                                                                total_members={partyMemberDummyData.length}
+                                                                                total_members={selected_party.total_members}
                                                                             />
                                                                         </div>
                                                                     )
