@@ -73,8 +73,9 @@ var avatarClass= "Warrior";
     setClicked(event.target.value);
 }
 useEffect(()=>{
-    setClicked(clicked);
-},[clicked]);
+//     setClicked(clicked);
+console.log(display3.armors)
+},[display3]);
 
 const buttonHandler=(e)=>{
       Swal.fire("You have successfully bought the item");
@@ -251,7 +252,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Head</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Warrior" && w.body_part==="Head"){
+                                    if(w.class==="Warrior" && w.bodyPart==="Head"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -263,7 +264,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Arms</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Warrior" && w.body_part==="Arms"){
+                                    if(w.class==="Warrior" && w.bodyPart==="Arms"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -275,7 +276,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Torso</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Warrior" && w.body_part==="Torso"){
+                                    if(w.class==="Warrior" && w.bodyPart==="Torso"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -287,7 +288,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Legs</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Warrior" && w.body_part==="Legs"){
+                                    if(w.class==="Warrior" && w.bodyPartt==="Legs"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -296,10 +297,10 @@ const [passProductId, setPassProductId]= useState({
                                     }
                               })}
                          <div className="shop-categoryName">
-                              <p>Footwear</p>
+                              <p>Feet</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Warrior" && w.body_part==="Footwear"){
+                                    if(w.class==="Warrior" && w.bodyPart==="Footwear"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -314,7 +315,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Head</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Marksman" && w.body_part==="Head"){
+                                    if(w.class==="Marksman" && w.bodyPart==="Head"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -326,7 +327,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Arms</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Marksman" && w.body_part==="Arms"){
+                                    if(w.class==="Marksman" && w.bodyPart==="Arms"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -338,7 +339,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Torso</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Marksman" && w.body_part==="Torso"){
+                                    if(w.class==="Marksman" && w.bodyPart==="Torso"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -350,7 +351,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Legs</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Marksman" && w.body_part==="Legs"){
+                                    if(w.class==="Marksman" && w.bodyPart==="Legs"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -359,10 +360,10 @@ const [passProductId, setPassProductId]= useState({
                                     }
                               })}
                         <div className="shop-categoryName">
-                            <p>Footwear</p>
+                            <p>Feet</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Marksman" && w.body_part==="Footwear"){
+                                    if(w.class==="Marksman" && w.bodyPart==="Footwear"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -377,7 +378,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Head</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Mage" && w.body_part==="Head"){
+                                    if(w.class==="Mage" && w.bodyPart==="Head"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -389,7 +390,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Arms</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Mage" && w.body_part==="Arms"){
+                                    if(w.class==="Mage" && w.bodyPart==="Arms"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -401,7 +402,7 @@ const [passProductId, setPassProductId]= useState({
                               <p>Torso</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Mage" && w.body_part==="Torso"){
+                                    if(w.class==="Mage" && w.bodyPart==="Torso"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -413,7 +414,7 @@ const [passProductId, setPassProductId]= useState({
                             <p>Legs</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Mage" && w.body_part==="Legs"){
+                                    if(w.class==="Mage" && w.bodyPart==="Legs"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>
@@ -422,10 +423,10 @@ const [passProductId, setPassProductId]= useState({
                                     }
                               })}
                         <div className="shop-categoryName">
-                            <p>Footwear</p>
+                            <p>Feet</p>
                         </div>
                               {display3.armors.map((w,index)=>{
-                                    if(w.class==="Mage" && w.body_part==="Footwear"){
+                                    if(w.class==="Mage" && w.bodyPart==="Footwear"){
                                           return (
                                           <div key={index} className="shop-outfitFilter">
                                           <OutfitFilter data= {w} value={w.product_id} avatarClass={avatarClass} setGems={setGems} gems={gems} updatePreview={updatePreview}/>

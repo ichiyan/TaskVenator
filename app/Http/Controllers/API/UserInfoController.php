@@ -105,7 +105,7 @@ class UserInfoController extends Controller
                     $inventory->status='1';
                     if($start===106){
                         $inventory->bodyPart= "Head";
-                        $inventory->status='0';
+                        // $inventory->status='0';
                     }else if($start === 107){
                         $inventory->bodyPart= "Arms";
                     }else if($start === 108){
@@ -133,7 +133,7 @@ class UserInfoController extends Controller
                     $inventory->status='1';
                     if($start===112){
                         $inventory->bodyPart= "Head";
-                        $inventory->status='0';
+                        // $inventory->status='0';
                     }else if($start === 113){
                         $inventory->bodyPart= "Torso";
                     }else if($start === 114){
@@ -158,7 +158,7 @@ class UserInfoController extends Controller
                     $inventory->status='1';
                     if($start===117){
                         $inventory->bodyPart= "Head";
-                        $inventory->status='0';
+                        // $inventory->status='0';
                     }else if($start === 118){
                         $inventory->bodyPart= "Torso";
                     }else if($start === 119){
