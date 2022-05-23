@@ -44,15 +44,6 @@ const JoinPartyModal = () => {
 
             }
         })
-
-
-        // setPartyList(partyListDummyData)
-        // let list = formatList(partyListDummyData, page_num)
-        // setRenderedList(list)
-
-        // if (list.length <= 0) return
-        // setSelectedParty(partyListDummyData[0])
-
     }, [])
 
     const onPageChange = (page) => {

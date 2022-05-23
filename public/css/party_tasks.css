@@ -236,3 +236,128 @@ h1{
 .monster_info .battle_button .battle_btn{
     background-color: #9580FF;
 }
+
+
+/* party tab */
+
+.party-wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.content-left{
+    width: 25%;
+    margin-top: 4%;
+    background: linear-gradient(180deg,
+                rgba(0,0,0,0.2805497198879552) 0%,
+                rgba(61,61,61,0.26094187675070024) 31%,
+                rgba(111,111,111,0.2497373949579832) 61%,
+                rgba(144,144,144,0.2189250700280112) 100%
+                );
+}
+
+.content-right{
+    width: 75%;
+}
+
+.monster-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start !important;
+    row-gap: 12px;
+}
+
+.filling-empty-space-childs {
+    width: 490px;
+    height:0;
+}
+
+.monster-card-6 {
+    max-width: 400px;
+    background-color: #303444;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+    cursor: pointer;
+    height: 400px;
+}
+
+.monster-card-6 img {
+    transition: all 0.15s linear;
+}
+
+.monster-card-6 .monster-name {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #FFF;
+    padding: 15px 20px;
+    background: linear-gradient(140deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0) 50%);
+    transition: all 0.15s linear;
+}
+
+.monster-card-6 .monster-position {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.4);
+    left: 30px;
+    top: 100px;
+    transition: all 0.15s linear;
+}
+
+.monster-card-6 .monster-overview {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0));
+    color: #FFF;
+    padding: 50px 0px 20px 0px;
+    transition: all 0.15s linear;
+}
+
+.monster-card-6 .monster-overview h3 {
+    font-weight: bold;
+}
+
+.monster-card-6 .monster-overview p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.monster-card-6:hover img {
+    filter: brightness(80%);
+}
+
+.monster-card-6:hover .monster-name {
+    padding-left: 25px;
+    padding-top: 20px;
+}
+
+.monster-card-6:hover .monster-position {
+    left: 40px;
+}
+
+.monster-card-6:hover .monster-overview {
+    padding-bottom: 25px;
+}
+
+.btn-custom-primary.join-battle-btn{
+    width: 120px;
+    display: inline-block;
+    border: none;
+    background: #5FCF80;
+    color: #fff;
+    padding: 10px;
+    height: 45px;
+    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+ }
+
+ .btn-custom-primary.join-battle-btn:hover{
+    background-color: #3ac162;
+ }
