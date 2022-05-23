@@ -24,13 +24,13 @@ class OutfitController extends Controller
         // $items=Inventory::with('contains')->where('user_id', '==', '$user_id')->get();
         $weapon= DB::table('products')
                  ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                 ->where('outfit.OutfitType','=', 2)
+                 ->where('outfit.OutfitType','=', "Weapon")
                  ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                  ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
 
         $armor= DB::table('products')
                 ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                ->where('outfit.OutfitType','=', 1)
+                ->where('outfit.OutfitType','=', "Armor")
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
 

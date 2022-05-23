@@ -23,7 +23,7 @@ const InventoryAll = ({updateAvatarPreview, updateAvatarItems}) => {
         let powerPotion =0;
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
-                // console.log(res.data)
+                console.log(res.data)
                 // console.log(res.data.items)
                 // console.log(res.data.items[0].user_id)
                 // console.log(res.data.items[0].name)
@@ -53,6 +53,7 @@ const InventoryAll = ({updateAvatarPreview, updateAvatarItems}) => {
 
               setCountHealth(healPotion);
               setCountPower(powerPotion);
+            //   console.log(inventoryWeapon.weapons)
           }
         })
      },[])
@@ -117,7 +118,7 @@ const InventoryAll = ({updateAvatarPreview, updateAvatarItems}) => {
                     </div>
                     {inventoryArmor.armors.map((w,index)=>{
                         if(w.inventUserId === authId){
-                                if(w.body_part==="Head"){
+                                if(w.bodyPart==="Head"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
                                                 <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems} />
@@ -131,7 +132,7 @@ const InventoryAll = ({updateAvatarPreview, updateAvatarItems}) => {
                     </div>
                     {inventoryArmor.armors.map((w,index)=>{
                         if(w.inventUserId === authId){
-                                if(w.body_part==="Arms"){
+                                if(w.bodyPart==="Arms"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
                                                 <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems} />
@@ -145,7 +146,7 @@ const InventoryAll = ({updateAvatarPreview, updateAvatarItems}) => {
                     </div>
                     {inventoryArmor.armors.map((w,index)=>{
                         if(w.inventUserId === authId){
-                                if(w.body_part==="Torso"){
+                                if(w.bodyPart==="Torso"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
                                                 <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems} />
@@ -159,7 +160,7 @@ const InventoryAll = ({updateAvatarPreview, updateAvatarItems}) => {
                     </div>
                     {inventoryArmor.armors.map((w,index)=>{
                         if(w.inventUserId === authId){
-                                if(w.body_part==="Legs"){
+                                if(w.bodyPart==="Legs"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
                                                 <InventoryOutfitFilter data= {w} inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
@@ -173,7 +174,7 @@ const InventoryAll = ({updateAvatarPreview, updateAvatarItems}) => {
                     </div>
                     {inventoryArmor.armors.map((w,index)=>{
                         if(w.inventUserId === authId){
-                                if(w.body_part==="Footwear"){
+                                if(w.bodyPart==="Footwear"){
                                         return (
                                             <div key={index} className="inventory-outfitFilter">
                                                 <InventoryOutfitFilter data= {w}  inventory={inventoryArmor} setInventory={setInventoryArmor} updateAvatarPreview={updateAvatarPreview} updateAvatarItems={updateAvatarItems}/>
