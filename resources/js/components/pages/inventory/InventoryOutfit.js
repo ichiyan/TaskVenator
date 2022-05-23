@@ -133,7 +133,7 @@ const bodyPartHandler=(e)=>{
                                           <option value="Arms">Arms</option>
                                           <option value="Torso">Torso</option>
                                           <option value="Legs">Legs</option>
-                                          <option value="Footwear">Footwear</option>
+                                          <option value="Footwear">Feet</option>
                                     </select><br></br>
                   </div>
                 <div className="inventory-shop">
@@ -209,7 +209,7 @@ const bodyPartHandler=(e)=>{
                         }
                         {(rarity==="All" && bodyPart==="All" )?<div>
                         <div className="shop-categoryName">
-                            <h5>Footwear</h5>
+                            <h5>Feet</h5>
                         </div>
                         {inventory.armors.map((w,index)=>{
                             if(w.inventUserId === authId){
@@ -296,7 +296,7 @@ const bodyPartHandler=(e)=>{
                               }
                                   {(rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
@@ -382,7 +382,7 @@ const bodyPartHandler=(e)=>{
                               }
                                   {(rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
@@ -468,7 +468,7 @@ const bodyPartHandler=(e)=>{
                               }
                               {(rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
@@ -554,7 +554,7 @@ const bodyPartHandler=(e)=>{
                               }
                                   {(rarity==="Uncommon" && bodyPart==="All")?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
@@ -640,7 +640,7 @@ const bodyPartHandler=(e)=>{
                               }
                               {(rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
@@ -726,7 +726,7 @@ const bodyPartHandler=(e)=>{
                               }
                             {(rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){
@@ -812,7 +812,7 @@ const bodyPartHandler=(e)=>{
                               }
                               {(rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {inventory.armors.map((w,index)=>{
                                    if(w.inventUserId === authId){

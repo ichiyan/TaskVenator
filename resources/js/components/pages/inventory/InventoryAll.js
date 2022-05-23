@@ -170,7 +170,7 @@ const InventoryAll = ({updateAvatarPreview, updateAvatarItems}) => {
                             }
                     })}
                     <div className="shop-categoryName">
-                        <p>Footwear</p>
+                        <p>Feet</p>
                     </div>
                     {inventoryArmor.armors.map((w,index)=>{
                         if(w.inventUserId === authId){

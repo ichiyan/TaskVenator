@@ -297,7 +297,7 @@ const [passProductId, setPassProductId]= useState({
                                     }
                               })}
                          <div className="shop-categoryName">
-                              <p>Footwear</p>
+                              <p>Feet</p>
                         </div>
                               {display3.armors.map((w,index)=>{
                                     if(w.class==="Warrior" && w.bodyPart==="Footwear"){
@@ -360,7 +360,7 @@ const [passProductId, setPassProductId]= useState({
                                     }
                               })}
                         <div className="shop-categoryName">
-                            <p>Footwear</p>
+                            <p>Feet</p>
                         </div>
                               {display3.armors.map((w,index)=>{
                                     if(w.class==="Marksman" && w.bodyPart==="Footwear"){
@@ -423,7 +423,7 @@ const [passProductId, setPassProductId]= useState({
                                     }
                               })}
                         <div className="shop-categoryName">
-                            <p>Footwear</p>
+                            <p>Feet</p>
                         </div>
                               {display3.armors.map((w,index)=>{
                                     if(w.class==="Mage" && w.bodyPart==="Footwear"){

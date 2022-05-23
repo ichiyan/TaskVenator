@@ -94,7 +94,7 @@ function Outfit({setGems,gems, updatePreview}){
                                           <option value="Arms">Arms</option>
                                           <option value="Torso">Torso</option>
                                           <option value="Legs">Legs</option>
-                                          <option value="Footwear">Footwear</option>ePreview
+                                          <option value="Footwear">Feet</option>ePreview
                                     </select><br></br>
                   </div>
 
@@ -167,7 +167,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.bodyPart==="Footwear"){
@@ -247,7 +247,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Marksman" && w.bodyPart==="Footwear"){
@@ -327,7 +327,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Mage" && w.bodyPart==="Footwear"){
@@ -408,7 +408,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Warrior" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear"){
@@ -488,7 +488,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Marksman" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear"){
@@ -568,7 +568,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="All" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear"){
@@ -648,7 +648,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -728,7 +728,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Marksman" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -808,7 +808,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Mage" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -889,7 +889,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -970,7 +970,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Marksman" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1051,7 +1051,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Mage" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1133,7 +1133,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1214,7 +1214,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Marksman" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1295,7 +1295,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Mage" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1376,7 +1376,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Warrior" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1457,7 +1457,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Marksman" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1538,7 +1538,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="Common" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1619,7 +1619,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Warrior" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1700,7 +1700,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Marksman" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1781,7 +1781,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="Uncommon" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -1943,7 +1943,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Marksman" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -2024,7 +2024,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -2105,7 +2105,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Warrior" && rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear"){
@@ -2186,7 +2186,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Marksman" && rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear"){
@@ -2267,7 +2267,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear"){
@@ -2369,7 +2369,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.bodyPart==="Footwear"){
@@ -2470,7 +2470,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Marksman" && w.bodyPart==="Footwear"){
@@ -2571,7 +2571,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="All" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Mage" && w.bodyPart==="Footwear" ){
@@ -2673,7 +2673,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -2774,7 +2774,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Marksman" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -2875,7 +2875,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Mage" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -2977,7 +2977,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3078,7 +3078,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Marksman" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3179,7 +3179,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                               {(charClass==="All" && rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Mage" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3281,7 +3281,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Warrior" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3382,7 +3382,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Marksman" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3483,7 +3483,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="All" && rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class==="Mage" && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3565,7 +3565,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Warrior" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3647,7 +3647,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3714,7 +3714,7 @@ function Outfit({setGems,gems, updatePreview}){
 
                                  {(charClass==="Warrior" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart===bodyPart && w.rarity_type===rarity){
@@ -3796,7 +3796,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Marksman" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3873,7 +3873,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Marksman" && rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -3950,7 +3950,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                               {(charClass==="Marksman" && rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart===bodyPart && w.rarity_type===rarity){
@@ -4031,7 +4031,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                               {(charClass==="Warrior" && rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart===bodyPart && w.rarity_type===rarity){
@@ -4106,7 +4106,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                               {(charClass==="Warrior" && rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart===bodyPart && w.rarity_type===rarity){
@@ -4207,7 +4207,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="Rare" && bodyPart==="All" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart==="Footwear" && w.rarity_type===rarity){
@@ -4289,7 +4289,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="Common" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart===bodyPart && w.rarity_type===rarity){
@@ -4370,7 +4370,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="Uncommon" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart===bodyPart && w.rarity_type===rarity){
@@ -4451,7 +4451,7 @@ function Outfit({setGems,gems, updatePreview}){
                               }
                                  {(charClass==="Mage" && rarity==="Rare" && bodyPart==="Footwear" )?<div>
                               <div className="shop-categoryName">
-                                    <p>Footwear</p>
+                                    <p>Feet</p>
                               </div>
                               {display2.armors.map((w,index)=>{
                                           if(w.class===charClass && w.bodyPart===bodyPart && w.rarity_type===rarity){
