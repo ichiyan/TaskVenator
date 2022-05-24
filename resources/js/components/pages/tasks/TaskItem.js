@@ -10,7 +10,7 @@ const TaskItem = ({task, className, whenChecked, task_id, stat}) => {
     });
 
     const taskCompletedHandler = (e) =>{
-        // e.preventDefault();
+        e.preventDefault();
 
         const formData = new FormData();
         formData.append('done', done.task_status);
