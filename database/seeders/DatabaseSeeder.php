@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
                     OutfitInfoTableSeeder::class,
                     OutfitTableSeeder::class,
                     PotionTableSeeder::class, ProductsTableSeeder::class,
-                    PartiesSeeder::class,
+                    PartiesSeeder::class, TasksSeeder::class,
         ]);
     }
 }
