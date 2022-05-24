@@ -11,5 +11,5 @@ class Monster extends Model
 {
     use HasFactory;
     protected $table = 'monsters';
-    protected $fillable = ['name', 'image'];
+    protected $fillable = ['name', 'image','description'];
 }

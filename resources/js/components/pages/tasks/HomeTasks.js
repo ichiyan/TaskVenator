@@ -66,24 +66,23 @@ function HomeTasks ({task, updateXP}){
             {isActive && <div className="tasks-group-content accordion-content">
                 {/*{console.log("TEST")}*/}
                 {/*{console.log(taskEntry)}*/}
-                {console.log(taskItem)}
+                {/*{console.log(taskItem)}*/}
 
                 {taskItem.item.map((mapped_task, index)=>{
                     if ( taskEntry['id'] === mapped_task['task_id'] ) {
                         let cn = (mapped_task['is_complete']==1)? "checked-item" : "not-checked-item";
+                        // console.log(mapped_task['id'])
                         return(
                             <div key={index} className="task-item">
                             {/*<input value={mapped_task['is_complete']} type="checkbox" onClick={handleCheck}/>*/}
                             {/*<span className={isChecked(mapped_task)}>{mapped_task['content']}</span>*/}
                             <TaskItem
-                                    task={mapped_task['content']}
-                                    // className={isChecked(mapped_task['content'])}
-                                    className={cn}
-                                    whenChecked={handleCheck}
-                                    id={mapped_task['id']}
-                                    stat={mapped_task['is_complete']}
-                                    updateXP={updateXP}
-                             ></TaskItem>
+                                task={mapped_task['content']}
+                                // className={isChecked(mapped_task['content'])}
+                                className={cn}
+                                whenChecked={handleCheck}
+                                task_id={mapped_task['id']}
+                                stat={mapped_task['is_complete']} ></TaskItem>
                             </div>
                         )
                     }

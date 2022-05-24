@@ -14,7 +14,10 @@ const GroupTasks = () => {
         tasks:[], id:null
     });
     const [groupTaskList, setGroupTaskList] = useState({
-        party_members:[], id:null
+        members:[],
+        party_id:null,
+        total_members:0,
+        message:""
     });
 
     useEffect(() =>{
@@ -31,12 +34,14 @@ const GroupTasks = () => {
         axios.get(`/api/group_members`).then(res =>{
             if(res.data.status===200){
                 setGroupTaskList({
-                    party_members:res.data.party_members,
-                    id:res.data.id
+                    members: res.data.members,
+                    party_id:res.data.id,
+                    total_members:res.data.total_members,
+                    message:res.data.message
                 })
             }
             console.log(res.data.status)
-            console.log(res.data.party_members)
+            console.log(res.data.members)
         })
 
     },[])
@@ -56,7 +61,7 @@ const GroupTasks = () => {
                 <GroupMemberPublicTasks
                     name = {name2}
                 />
-                {/*{groupTaskList.party_members.map((one_member,index)=>{*/}
+                {/*{groupTaskList.members.map((one_member,index)=>{*/}
                 {/*    //is_in_progress column =>   0=not started;  -1=completed;   1=in progress*/}
                 {/*    // if(one_member['is_public'] === 1){*/}
                 {/*        return(*/}

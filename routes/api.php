@@ -67,11 +67,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('group_tasks',[TasksController::class, 'groupTasks']);
     Route::get('group_members',[TasksController::class, 'getPartyMembers']);
     Route::get('tasks_items',[TasksController::class, 'getTaskItems']);
-    Route::post('completeTask', [InventoryController::class, 'update']);
+    Route::post('completeTask', [TasksController::class, 'update']);
 
     //ongoing battle
     Route::get('battle',[BattleController::class, 'index']);
     Route::get('getMonsters',[BattleController::class, 'getMonsters']);
+    Route::post('joinBattle',[BattleController::class, 'joinBattle']);
+    Route::post('cancelbattle',[BattleController::class, 'cancelbattle']);
 
     //party
     Route::post('create_party', [PartyController::class, 'store']);
