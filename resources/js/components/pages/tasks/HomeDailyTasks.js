@@ -35,26 +35,22 @@ const HomeDailyTasks = () => {
                     <TaskItem
                         task={"tECHNOPRENUERSHIP"}
                         className={isChecked("tECHNOPRENUERSHIP")}
-                        whenChecked={handleCheck}
-                    />
+                        whenChecked={handleCheck}></TaskItem>
                     <TaskItem
                         task={"THESIS"}
                         className={isChecked("THESIS")}
-                        whenChecked={handleCheck}
-                    />
+                        whenChecked={handleCheck}></TaskItem>
                 </div>
                 <div className="tasks-daily-group">
                     <h4 className="tasks-daily-subtitle">task title</h4>
                     <TaskItem
                         task={"SIPP"}
                         className={isChecked("SIPP")}
-                        whenChecked={handleCheck}
-                    />
+                        whenChecked={handleCheck}></TaskItem>
                     <TaskItem
                         task={"ATFL"}
                         className={isChecked("ATFL")}
-                        whenChecked={handleCheck}
-                    />
+                        whenChecked={handleCheck}></TaskItem>
                 </div>
             </div>
 

@@ -11,10 +11,27 @@ const JoinBattle = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [monster,setMonster] = useState({
+        monster: [],
+    });
+
+    const [monsterHP,setMonsterHP] = useState(0);
+
+
+    useEffect(()=>{
+        axios.get(`/api/getMonsters`).then(res =>{
+            if(res.data.status===200){
+                setMonster({
+                    monster:res.data.monsters
+                });
+                setMonsterHP(res.data.hp);
+            }
+        })
+    },[]);
+
+
     var buttonText = "Join Battle";
 
-   
-    
     return (
         <div>
             <div className="">
@@ -25,22 +42,21 @@ const JoinBattle = () => {
 
 
             <Modal show={show} onHide={handleClose} className="join_battle_modal" size="md" scrollable centered>
-                <Modal.Header>
+                <Modal.Header className='border-0 modal-header' style={{ backgroundColor: "#383a59"}}>
                     {/*<Modal.Title id="contained-modal-title-vcenter" >
                         Choose Battle
                     </Modal.Title>*/}
+                    <p>Choose Battle</p>
                 </Modal.Header>
-                <Modal.Body className='modal_body'>
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
+                <Modal.Body className='modal_body' style={{ background: "linear-gradient(#292a41, #4b4c65)"}} >
+                    {monster.monster.map((mon,index)=>{
+                        return (
+                            <BattleSelection key={index} name={mon.name} hp={monsterHP}/>
+                        )
+                    })}
                 </Modal.Body>
-                <Modal.Footer></Modal.Footer>
-        </Modal>
+                <Modal.Footer className='border-0 ' style={{ backgroundColor: "#4b4c65"}}></Modal.Footer>
+            </Modal>
         );
         </div>
     );

@@ -17,14 +17,15 @@ class TasksSeeder extends Seeder
         //
         DB::table('tasks')->insert(
             array(
+                //0=not started;  -1=completed; else=in progress
                 ['title' => 'SIPP',
                     'show_when_done' => 1, 'is_in_progress' => 0, 'subtasks' => 2, 'owner' => 1, ],
                 ['title' => 'Thesis',
-                    'show_when_done' => 0, 'is_in_progress' => 0.5, 'subtasks' => 2, 'owner' => 1, ],
+                    'show_when_done' => 0, 'is_in_progress' => 1, 'subtasks' => 2, 'owner' => 1, ],
                 ['title' => 'Software Engineering',
-                    'show_when_done' => 1, 'is_in_progress' => 0.5, 'subtasks' => 2, 'owner' => 1, ],
+                    'show_when_done' => 1, 'is_in_progress' => 1, 'subtasks' => 2, 'owner' => 1, ],
                 ['title' => 'ATFL',
-                    'show_when_done' => 1, 'is_in_progress' => 1, 'subtasks' => 2, 'owner' => 2, ],
+                    'show_when_done' => 1, 'is_in_progress' => -1, 'subtasks' => 2, 'owner' => 2, ],
                 ['title' => 'DA',
                     'show_when_done' => 1, 'is_in_progress' => 0, 'subtasks' => 2, 'owner' => 2, ],
                 ['title' => 'AA',

@@ -6,6 +6,7 @@ import {
 import '../../../../public/css/party_tasks.css';
 import '../../../../public/css/tasks.scss';
 import axios from "axios";
+import OutfitFilter from "./shop/OutfitFilter";
 
 const TasksTab = () => {
     var hpTotal = 50;
@@ -20,8 +21,18 @@ const TasksTab = () => {
     var colWidth = "30%";
     const [show, setShow] = useState(false);
     const [battle, setBattle] = useState({
-        battle:[], id_user:null
+        battle:[]
     });
+    const [taskCount, setTaskCount] = useState({
+        in_progress: 0,
+        to_do_num: 0,
+        repeating_tasks: 0,
+        done_num: 0
+    });
+    const [taskList, setTaskList] = useState({
+        tasks:[], id:null
+    });
+
     const handleShow = () =>setShow(!show);
     if(show){
         colWidth = "30%";
@@ -29,7 +40,25 @@ const TasksTab = () => {
         colWidth = "45%";
     }
 
-    var name1 = "SE Project"
+    let count_progress = () =>{
+        let prev = 0
+        prev = taskCount.in_progress + 1
+        setTaskCount({in_progress: prev});
+    }
+
+    useEffect(() =>{
+        axios.get(`/api/tasks`).then(res =>{
+            if(res.data.status===200){
+                setTaskList({
+                    tasks:res.data.tasks,
+                    id:res.data.id
+                })
+            }
+        })
+    },[])
+    // console.log("TaskLists:")
+    // console.log(taskList.id)
+    console.log(taskList.tasks)
 
     useEffect(() =>{
         axios.get(`/api/battle`).then(res =>{
@@ -41,8 +70,6 @@ const TasksTab = () => {
             }
         })
     },[])
-
-    console.log("battle")
 
     return( //will change class names
         <section className="container tasks-section">
@@ -57,31 +84,62 @@ const TasksTab = () => {
 
                 <div className="tasks-col-container">
                     <div className="tasks-col col-t" style={{"width" : colWidth}} >
-                        <HomeTasks
-                            name = {name1}
-                        />
-                        <HomeTasks
-                            name = {name1}
-                        />
-                        <HomeTasks
-                            name = {name1}
-                        />
-                        <HomeTasks
-                            name = {name1}
-                        />
+                        <h3 className="col-t-label"> In Progress: {taskCount.in_progress} </h3>
+                        {/*button for new task after*/}
+                        {taskList.tasks.map((one_task,index)=>{
+                            //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
+                            if(one_task['is_in_progress'] === 1){
+                                // console.log(one_task['id'])
+                                // count_progress()
+                                return(
+                                        <HomeTasks
+                                            key = {one_task['id']}
+                                            task = {one_task}
+                                        />
+                                    )
+                            }
+                        }) }
+                        <h3 className="col-t-label"> To Do: {taskCount.to_do_num} </h3>
+                        {taskList.tasks.map((one_task,index)=>{
+                            //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
+                            if(one_task['is_in_progress'] === 0){
+                                // console.log("to do: ")
+                                // console.log(one_task['title'])
+                                // let prev = taskCount.in_progress + 1
+                                // setTaskCount({
+                                //     to_do_num: prev
+                                // });
+                                return(
+                                    <HomeTasks
+                                        key = {one_task['id']}
+                                        task = {one_task}
+                                    />
+                                )
+                            }
+                        }) }
                     </div>
                     <div className="tasks-col col-t" style={{"width" : colWidth}}>
+                        <h3 className="col-t-label"> Repeating Tasks: {taskCount.repeating_tasks} </h3>
                         <HomeDailyTasks/>
                         <HomeDailyTasks/>
-                        <HomeTasks
-                            name = {name1}
-                        />
-                        <HomeTasks
-                            name = {name1}
-                        />
-                        <HomeTasks
-                            name = {name1}
-                        />
+                        <h3 className="col-t-label"> Done: {taskCount.done_num} </h3>
+                        {taskList.tasks.map((one_task,index)=>{
+                            //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
+                            if(one_task['is_in_progress'] === -1 && one_task['show_when_done'] === 1){
+                                // console.log("show: ")
+                                // console.log(one_task['title'])
+                                // let prev = taskCount.in_progress + 1
+                                // setTaskCount({
+                                //     done_num: prev
+                                // });
+                                return(
+                                    <HomeTasks
+                                        key = {one_task['id']}
+                                        task = {one_task}
+                                    />
+                                )
+                            }
+                        }) }
                     </div>
                     {show && <div className="tasks-col col-battle">
                         {/* <Button>Forfeit battle</Button> */}
