@@ -286,6 +286,13 @@ h1{
     transition: .5s;
 }
 
+.monster_info .battle_button form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .monster_info .battle_button .battle_btn{
     background-color: #9580FF;
 }
