@@ -18,6 +18,7 @@ class CreateMonstersTable extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('image', 200)->nullable();
+            $table->string('description',200)->nullable();
             $table->timestamps();
         });
 
@@ -25,21 +26,27 @@ class CreateMonstersTable extends Migration
             array(
                 ['name' => 'Zombie',
                     'image' => "",
+                    'description' => "A corpse said to be revived by witchcraft",
                 ],
                 ['name' => 'Cthulhu',
                     'image' => "",
+                    'description' => "A Great Old One of great power who lies in a death-like slumber",
                 ],
                 ['name' => 'Cerberus',
                     'image' => "",
+                    'description' => "The monstrous watchdog of the underworld",
                 ],
                 ['name' => 'Ghoul',
                     'image' => "",
+                    'description' => "An evil spirit that rob graves and feed on dead bodies",
                 ],
                 ['name' => 'Dryads',
                     'image' => "",
+                    'description' => "A nymph inhabiting a forest or a tree",
                 ],
                 ['name' => 'Mummy',
                     'image' => "",
+                    'description' => "A animal whose soft tissues and organs have been preserved",
                 ],
             )
         );
