@@ -29,11 +29,20 @@ class PartyController extends Controller
            array_push($members_info, $member['user']['user_info']);
         }
 
+        $founder = UserInfo::where('id', $party->founder)->first()->username;
+
         return response()->json([
             'status' => 200,
             'party_id' => $party->id,
             'party_name' => $party->party_name,
+            'party_image' => $party->party_image,
             'total_members' => $party->total_members,
+            'max_members' => $party->max_members,
+            'party_motto' => $party->party_motto,
+            'founded_on' => $party->founded_on,
+            'founder_username' =>  $founder,
+            'battles_won' => $party->battles_won,
+            'battles_lost' => $party->battles_lost,
             'members' => $members_info,
             'message' => 'Party information retrieved successfully'
         ]);
@@ -82,7 +91,7 @@ class PartyController extends Controller
         $parties = Party::all();
 
         foreach ($parties as $party){
-            $party['founder'] = UserInfo::find( $party['founder'])->username;
+            $party['founder_username'] = UserInfo::find( $party['founder'])->username;
             $party['party_members'] = $party->party_members;
             foreach($party['party_members'] as $member){
                 $member['username'] = $member->user->user_info->username;

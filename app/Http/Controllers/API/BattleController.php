@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Battle;
 use App\Models\Monster;
+use App\Models\Avatar;
 use App\Models\BattleIndividual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -98,10 +99,16 @@ class BattleController extends Controller
     {
         $monsters= Monster::all();
         $count= Monster::all()->count();
+        $id = Auth::id();
+
+        $avatar = Avatar::find($id);
+        $hp = 100 + ($avatar->level * 8);
+
         return response()->json([
             'status' => 200,
             'monsters' => $monsters,
             'count' => $count,
+            'hp' => $hp,
         ]);
     }
 }

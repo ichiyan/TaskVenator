@@ -11,9 +11,10 @@ import {
     faDiceD20,
     faClock
 } from '@fortawesome/free-solid-svg-icons'
+import { io } from 'socket.io-client'
 
 
-const JoinPartyModal = () => {
+const JoinPartyModal = ({socket, id}) => {
 
     const PAGE_SIZE = 6
     const [party_list, setPartyList] = useState([])
@@ -51,6 +52,20 @@ const JoinPartyModal = () => {
         let list = formatList(party_list, page)
         setRenderedList(list)
         setSelectedParty(list[0])
+    }
+
+
+    const sendJoinPartyRequest = (receiver_id) => {
+        console.log("join party btn")
+        console.log(socket)
+        console.log(receiver_id)
+        console.log(id)
+
+        socket.emit("send_join_party_request", {
+            sender_id: id,
+            receiver_id: receiver_id,
+        })
+
     }
 
 
@@ -110,7 +125,7 @@ const JoinPartyModal = () => {
                                                                     <img src={item.party_image} alt="guild-logo" className='guild-logo' width="30" height="30"/> {item.party_name}
                                                                 </td>
                                                                 <td valign='middle'>
-                                                                    <p className='mb-0'>{item.founder}</p>
+                                                                    <p className='mb-0'>{item.founder_username}</p>
                                                                 </td>
                                                                 <td valign='middle'>
                                                                     <p className='mb-0'>{item.total_members}/{item.max_members}</p>
@@ -152,7 +167,7 @@ const JoinPartyModal = () => {
                                             </div>
                                             <hr className='bg-secondary' />
                                             <div>
-                                                <h4 className='text-white'><FontAwesomeIcon icon={faChessKing} className="me-1" /> {selected_party.founder}</h4>
+                                                <h4 className='text-white'><FontAwesomeIcon icon={faChessKing} className="me-1" /> {selected_party.founder_username}</h4>
                                                 <p className='text-white'><FontAwesomeIcon icon={faClock} className="me-1" /> {selected_party.founded_on}</p>
                                             </div>
                                             <hr className='bg-secondary' />
@@ -185,7 +200,7 @@ const JoinPartyModal = () => {
                                                 </div>
                                             </div>
                                             <div className='pt-2 pb-4 d-flex justify-content-end'>
-                                                <button type="button" className="btn-custom-primary join-form-party-btn">Join Party</button>
+                                                <button onClick={() => sendJoinPartyRequest(selected_party.founder)} type="button" className="btn-custom-primary join-form-party-btn">Join Party</button>
                                             </div>
                                         </>
                                 }

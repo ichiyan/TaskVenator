@@ -4,6 +4,9 @@ import {Link, React, useEffect, useState,
 import Swal from 'sweetalert2';
 import InventoryOutfit from "./InventoryOutfit";
 function InventoryPotionFilter({data}){
+      const [passProductId, setPassProductId]= useState({
+            inventoryId:'',
+      });
     return(
         <div className="inventory-returnMap">
         <div data-tip data-for={data.name} className="inventory-items"> 
@@ -12,11 +15,9 @@ function InventoryPotionFilter({data}){
               </div>
               <div className="inventory-potionsInfo">
                     <h6>{data.name}</h6>
-                    {/* <p>{data.size}</p> */}
-                    <Button type="submit"style={{backgroundColor: "yellow"}}>Use</Button>
-                    <div>
-                        
-                    </div>
+                    <form onSubmit={submitToHandler}>
+                         <Button type="submit"style={{backgroundColor: "yellow"}}>Use</Button>
+                    </form>
               </div>
         </div> 
         <ReactTooltip id={data.name} place="right" aria-haspopup='true' className="inventory-toolTip">

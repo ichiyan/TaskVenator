@@ -138,8 +138,17 @@ h1{
 
 }
 
+
+
 .join_battle_modal .modal_body::-webkit-scrollbar {
     display: none;
+}
+
+.join_battle_modal .modal-header p{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
 }
 
 .battle_selection{
@@ -414,3 +423,30 @@ h1{
  .btn-custom-primary.join-battle-btn:hover{
     background-color: #3ac162;
  }
+
+ .accept-icon{
+     color: #5FCF80;
+ }
+
+ .accept-icon:hover{
+     color: #3ac162;
+ }
+
+ .reject-icon{
+     color: #f55351;
+ }
+
+ .reject-icon:hover{
+    color: #d54542;
+ }
+
+
+ .avatar-circle {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    margin-left: 4px;
+    margin-right: 4px;
+}

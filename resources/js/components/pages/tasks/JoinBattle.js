@@ -15,6 +15,7 @@ const JoinBattle = () => {
         monster: [],
     });
 
+    const [monsterHP,setMonsterHP] = useState(0);
 
 
     useEffect(()=>{
@@ -23,6 +24,7 @@ const JoinBattle = () => {
                 setMonster({
                     monster:res.data.monsters
                 });
+                setMonsterHP(res.data.hp);
             }
         })
     },[]);
@@ -39,21 +41,22 @@ const JoinBattle = () => {
             </div>
 
 
-            <Modal show={show} onHide={handleClose} className="join_battle_modal " size="md" scrollable centered>
-                <Modal.Header className='border-0'>
+            <Modal show={show} onHide={handleClose} className="join_battle_modal" size="md" scrollable centered>
+                <Modal.Header className='border-0 modal-header' style={{ backgroundColor: "#383a59"}}>
                     {/*<Modal.Title id="contained-modal-title-vcenter" >
                         Choose Battle
                     </Modal.Title>*/}
+                    <p>Choose Battle</p>
                 </Modal.Header>
-                <Modal.Body className='modal_body '>
+                <Modal.Body className='modal_body' style={{ background: "linear-gradient(#292a41, #4b4c65)"}} >
                     {monster.monster.map((mon,index)=>{
                         return (
-                            <BattleSelection key={index} name={mon.name}/>
+                            <BattleSelection key={index} name={mon.name} hp={monsterHP}/>
                         )
                     })}
                 </Modal.Body>
-                <Modal.Footer className='border-0 '></Modal.Footer>
-        </Modal>
+                <Modal.Footer className='border-0 ' style={{ backgroundColor: "#4b4c65"}}></Modal.Footer>
+            </Modal>
         );
         </div>
     );

@@ -1,6 +1,6 @@
 import axios from "axios";
 import '../../../../public/css/form_party.css'
-import {Header, React,
+import {Header, React, io,
     useEffect, useState, useRef, GroupTasks,TasksTab,
     AvatarHeader, Shop, Party, Outfit, All,
     Weapons, Potions, Cards, Inventory, InventoryOutfit, InventoryWeapons, InventoryPotions, dateTimeWithSecondsFormat} from "../../index";
@@ -57,10 +57,17 @@ import { set } from "lodash";
 
     const [hasParty, setHasParty] = useState();
     const [partyMembers, setPartyMembers] = useState([]);
+    const [partyInfo, setPartyInfo] = useState({});
 
     const [hasUpdates, setHasUpdates] = useState(false);
 
-    const[showModal, setShowModal] = useState(true);
+    const ip_address = '127.0.0.1';
+    const socket_port = '8005';
+    const socket = io(ip_address + ':' + socket_port);
+
+    const id = useRef();
+    const [hasPartyUpdates, setHasPartyUpdates] = useState(false)
+    const[showModal, setShowModal] = useState(false);
 
 
 
@@ -75,6 +82,14 @@ import { set } from "lodash";
     useEffect( () => {
         document.body.classList.add('internal-pages');
     }, []);
+
+    useEffect( () => {
+        console.log("HEEEREE")
+        socket?.on("update_header", data => {
+            console.log(data)
+            setHasPartyUpdates(!hasPartyUpdates)
+        })
+    }, [socket])
 
     useEffect(() => {
         axios.get(`api/get_user_info`).then(res => {
@@ -97,14 +112,27 @@ import { set } from "lodash";
             healthTotal.current = data.max_hp;
             health.current = data.curr_hp;
 
-            
+
             // setDailyHp( 2 * (2 + (data.level * 0.1)));
 
             // console.log(dailyHp)
             if(data.has_party == 1){
                 setHasParty(1);
-                 axios.get(`api/get_party_info`).then(res => {
+                 axios.get(`/api/get_party_info`).then(res => {
                      if(res.data.status == 200){
+                         let data = res.data;
+                         setPartyInfo({
+                                party_id: data.party_id,
+                                party_name: data.party_name,
+                                party_image: data.party_image,
+                                total_members: data.total_members,
+                                max_members: data.max_members,
+                                party_motto: data.party_motto,
+                                founded_on: data.founded_on,
+                                founder_username: data.founder_username,
+                                battles_won: data.battles_won,
+                                battles_lost: data.battles_lost,
+                         })
                          setPartyMembers(res.data.members);
                      }
                  });
@@ -120,8 +148,28 @@ import { set } from "lodash";
                 console.log("asdasd")
 
             }
+
+            console.log(socket)
+
+            id.current = data.user_id;
+            console.log("here")
+            console.log(id.current)
+
+            let user_data = {
+                user_id: data.user_id,
+                has_party: data.has_party,
+            }
+
+            console.log(user_data)
+
+            // socket.on('connect', function() {
+                socket.emit('user_connected', user_data);
+                if(data.has_party == 1){
+                    socket.emit('update_online_status')
+                }
+            // });
         });
-    }, []);
+    }, [hasPartyUpdates]);
 
 
     useEffect(() => {
@@ -286,9 +334,10 @@ import { set } from "lodash";
         }
     }
 
+
     let renderTab = '';
     if  (tab === "party"){
-        renderTab =   <Party/>;
+        renderTab =   <Party socket={socket} setHasPartyUpdates={setHasPartyUpdates} hasPartyUpdates={hasPartyUpdates} partyInfo={partyInfo}/>;
     }else if (tab === "group_tasks"){
         renderTab = <GroupTasks/>;
     }else if (tab === "tasks"){
@@ -303,7 +352,7 @@ import { set } from "lodash";
         // <SocketProvider>
             <div>
                 <Header page={tab} gems={gems}/>
-                <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}
+                <AvatarHeader socket={socket} id={id.current} hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}
                               avatarCanvasRef={avatarCanvasRef} avatarClass={avatarClass} username={username} level={level} hasParty={hasParty} partyMembers={partyMembers}/>
                 <div className="main-section">
 
@@ -323,14 +372,9 @@ import { set } from "lodash";
                                                         <img src="assets/images/giphy.gif" height="150" width="150" style={{ minHeight: "150px", minWidth: "150px" }} />
                                                     </div>
                                                 </div>
-                                                <div className="432">
-                                                    <label htmlFor="party-name" className="form-label text-white">Party Name <span className='text-danger'>*</span></label>
-                                                    {/* <h1>You received: {bonusHP.current}</h1> */}
-                                                    <h1>You received: 0</h1>
-                                                </div>
-                                                <div className="123">
-                                                    <label htmlFor="party-max-members" className="form-label text-white">Number of Members <span className='text-danger'>*</span></label>
-                                                    <h1>IN BATTLE</h1>
+                                                <div className="battle-rewardsInfo">
+                                                    <h6 style={{color: "white"}}>Rewards</h6>
+                                                    <p style={{color: "white"}}><img src="assets/images/health-icon.png" style={{width: "20px",height: "20px", marginLeft: "5px", marginRight: "5px"}}></img>+ {bonusHP.current}</p>
                                                 </div>
                                             </div>
 
@@ -342,12 +386,8 @@ import { set } from "lodash";
                                                 </div>
                                                 <div>
                                                     <div className="432">
-                                                        <label htmlFor="party-name" className="form-label text-white">Party Name <span className='text-danger'>*</span></label>
+                                                        <label htmlFor="party-name" className="form-label text-white">Deduction</label>
                                                         <h1>You received: task</h1>
-                                                    </div>
-                                                    <div className="123">
-                                                        <label htmlFor="party-max-members" className="form-label text-white">Number of Members <span className='text-danger'>*</span></label>
-                                                        <h1>task</h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -357,11 +397,11 @@ import { set } from "lodash";
                                             <button type="submit" className="btn-custom-primary join-form-party-btn"  onClick={handleClose}>Close</button>
                                         </div>
                                     </div>
-                              
+
                             </div>
                         </div>
                 </div>
-            </div> 
+            </div>
                 {/* <Modal show={showModal} onHide={handleClose} size="lg">
                     <Modal.Header className="modal-content internal-pages"style={{ color:"white", marginLeft: "-1px", width: "800px", marginTop: "-1px" , borderRadius: "0px"}}>
                         <Modal.Title>Modal heading</Modal.Title>
