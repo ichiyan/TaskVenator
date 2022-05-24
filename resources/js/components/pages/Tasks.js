@@ -1,16 +1,22 @@
 import axios from "axios";
+import '../../../../public/css/form_party.css'
 import {Header, React,
     useEffect, useState, useRef, GroupTasks,TasksTab,
     AvatarHeader, Shop, Party, Outfit, All,
-    Weapons, Potions, Cards, Inventory, InventoryOutfit, InventoryWeapons, InventoryPotions} from "../../index";
+    Weapons, Potions, Cards, Inventory, InventoryOutfit, InventoryWeapons, InventoryPotions, dateTimeWithSecondsFormat} from "../../index";
 
-
+    import { Button, Modal } from 'react-bootstrap';
+import { set } from "lodash";
  const Tasks = ({tab}) => {
 
     const [hp, setHp] = useState();
     const [xp, setXp] = useState(0);
     const [hpTotal, setHpTotal] = useState();
     const [xpTotal, setXpTotal] = useState();
+    const [dailyHp, setDailyHp]= useState("0");
+    const bonusHP =useRef();
+
+    const[lastReceivedHp, setLastReceivedHp]= useState();
 
     const health = useRef();
     const healthTotal = useRef();
@@ -24,6 +30,7 @@ import {Header, React,
     const [gems, setGems]= useState();
 
     const [username, setUsername] = useState('');
+    const [hasBattle, setHasBattle] = useState('');
     const [level, setLevel] = useState('');
     const [avatarClass, setAvatarClass] = useState('');
 
@@ -53,6 +60,9 @@ import {Header, React,
 
     const [hasUpdates, setHasUpdates] = useState(false);
 
+    const[showModal, setShowModal] = useState(true);
+
+
 
     useEffect(()=>{
         axios.get(`/api/gems`).then(res =>{
@@ -69,6 +79,8 @@ import {Header, React,
     useEffect(() => {
         axios.get(`api/get_user_info`).then(res => {
             var data = res.data;
+            // console.log(data);
+            var dailyHp;
             setUsername(data.username);
             setLevel(data.level);
             setAvatarClass(data.class);
@@ -79,10 +91,16 @@ import {Header, React,
             setXp(data.curr_xp);
             setHpTotal(data.max_hp);
             setXpTotal(data.max_xp);
+            setHasBattle(data.is_in_battle);
+            setLastReceivedHp(data.last_received_daily_hp);
 
             healthTotal.current = data.max_hp;
             health.current = data.curr_hp;
 
+            
+            // setDailyHp( 2 * (2 + (data.level * 0.1)));
+
+            // console.log(dailyHp)
             if(data.has_party == 1){
                 setHasParty(1);
                  axios.get(`api/get_party_info`).then(res => {
@@ -93,9 +111,14 @@ import {Header, React,
             }
 
             let today = new Date();
-            if(data.last_received_daily_hp < today.setDate(today.getDate() - 1)){
+            if(new Date(dateTimeWithSecondsFormat(data.last_received_daily_hp)) < today.setDate(today.getDate() - 1)){
                 // display modal => clicking confirmation btn calls receiveDailyBonusHP
                 receiveDailyBonusHP(data.curr_hp, data.max_hp)
+
+                setShowModal(true);
+
+                console.log("asdasd")
+
             }
         });
     }, []);
@@ -121,9 +144,19 @@ import {Header, React,
 
     const receiveDailyBonusHP = (current, total) => {
         if(current < total){
-            let bonusHP = 2 * (2 + (level * 0.1))
-            healHandler(bonusHP)
+            bonusHP.current = 2 * (2 + (level * 0.1));
+            // console.log(bonusHP);
+            // healHandler(bonusHP);
+        }else{
+            //no display modal if zero
+            bonusHP.current=0;
+
         }
+        axios.post(`/api/update_last_received_daily_hp`).then(res =>{
+            if(res.data.message === 200){
+                console.log(res.data);
+            }
+        });
     }
 
     const hitHandler = () => {
@@ -204,6 +237,12 @@ import {Header, React,
 
     }
 
+    //closing modal and add daily hp
+    const handleClose =() =>{
+        setShowModal(false);
+        healHandler(bonusHP.current)
+    }
+
     const animate = () => {
        var canvas = avatarCanvasRef.current;
        avatarCtx.current = canvas.getContext('2d');
@@ -267,6 +306,81 @@ import {Header, React,
                 <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}
                               avatarCanvasRef={avatarCanvasRef} avatarClass={avatarClass} username={username} level={level} hasParty={hasParty} partyMembers={partyMembers}/>
                 <div className="main-section">
+
+                 <div className={"modal fade" + (showModal ? " show d-block" : " d-none")} id="test" show="1">
+                    <div className="modal-dialog modal-lg modal-dialog-centered">
+                        <div className="modal-content internal-pages">
+                            <div className="modal-header" style={{ borderBottom: "1px solid #2A2C37" }}>
+                                <h5 className="modal-title text-white">Daily Report</h5>
+                            </div>
+                            <div className="modal-body bg-gradient">
+                                    <div className="battle-main-container">
+
+                                       <div className="battle-info-container">
+                                            <div className="battle-left-container">
+                                                <div className="d-flex justify-content-left">
+                                                    <div className="position-relative">
+                                                        <img src="assets/images/giphy.gif" height="150" width="150" style={{ minHeight: "150px", minWidth: "150px" }} />
+                                                    </div>
+                                                </div>
+                                                <div className="432">
+                                                    <label htmlFor="party-name" className="form-label text-white">Party Name <span className='text-danger'>*</span></label>
+                                                    {/* <h1>You received: {bonusHP.current}</h1> */}
+                                                    <h1>You received: 0</h1>
+                                                </div>
+                                                <div className="123">
+                                                    <label htmlFor="party-max-members" className="form-label text-white">Number of Members <span className='text-danger'>*</span></label>
+                                                    <h1>IN BATTLE</h1>
+                                                </div>
+                                            </div>
+
+                                            <div className="battle-right-container">
+                                                <div className="d-flex justify-content-left">
+                                                    <div className="position-relative">
+                                                        <img src="assets/images/giphy.gif" height="150" width="150" style={{ minHeight: "150px", minWidth: "150px" }} />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="432">
+                                                        <label htmlFor="party-name" className="form-label text-white">Party Name <span className='text-danger'>*</span></label>
+                                                        <h1>You received: task</h1>
+                                                    </div>
+                                                    <div className="123">
+                                                        <label htmlFor="party-max-members" className="form-label text-white">Number of Members <span className='text-danger'>*</span></label>
+                                                        <h1>task</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className='pt-2  d-flex justify-content-end'>
+                                            <button type="submit" className="btn-custom-primary join-form-party-btn"  onClick={handleClose}>Close</button>
+                                        </div>
+                                    </div>
+                              
+                            </div>
+                        </div>
+                </div>
+            </div> 
+                {/* <Modal show={showModal} onHide={handleClose} size="lg">
+                    <Modal.Header className="modal-content internal-pages"style={{ color:"white", marginLeft: "-1px", width: "800px", marginTop: "-1px" , borderRadius: "0px"}}>
+                        <Modal.Title>Modal heading</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body className="modal-body internal-pages" style={{ marginLeft: "-0.5px", width: "795px", marginTop: "-1px" , borderRadius: "0px"}}>
+                            <div className="asd bg-gradient" style={{alignContent:"left"}}>
+                                <div>asdasdasdasd</div>
+                                <div>asdasdasdasd</div>
+                            </div>
+                            </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                        </Button>
+                        </Modal.Footer>
+                </Modal> */}
                     {
                         tab == "tasks"
                         ?

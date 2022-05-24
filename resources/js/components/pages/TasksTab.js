@@ -23,7 +23,6 @@ const TasksTab = () => {
         battle:[], id_user:null
     });
     const handleShow = () =>setShow(!show);
-
     if(show){
         colWidth = "30%";
     }else{
