@@ -4,7 +4,7 @@ import {Link, React, useEffect, useState,
 import '../../../../../public/css/party_tasks.css';
 import { join } from "lodash";
 
-const BattleSelection = ({name,hp,id,setShow,setInbattle}) => {
+const BattleSelection = ({name,hp,id,setShow,setInbattle,description}) => {
 
     const monster_picture = "assets/images/monsters/"+name+".gif"
 
@@ -64,7 +64,7 @@ const BattleSelection = ({name,hp,id,setShow,setInbattle}) => {
                 <p>{name}</p>
             </div>
             <div className="description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>{description}</p>
             </div>
             <div className="battle_button">
                     <input name="monsterid" type="hidden" value={id}/>
