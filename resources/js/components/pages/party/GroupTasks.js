@@ -13,6 +13,9 @@ const GroupTasks = () => {
     const [taskList, setTaskList] = useState({
         tasks:[], id:null
     });
+    const [groupTaskList, setGroupTaskList] = useState({
+        party_members:[], id:null
+    });
 
     useEffect(() =>{
         axios.get(`/api/tasks`).then(res =>{
@@ -24,10 +27,19 @@ const GroupTasks = () => {
             }
             console.log(res.data.status)
         })
+
+        axios.get(`/api/group_members`).then(res =>{
+            if(res.data.status===200){
+                setGroupTaskList({
+                    party_members:res.data.party_members,
+                    id:res.data.id
+                })
+            }
+            console.log(res.data.status)
+            console.log(res.data.party_members)
+        })
+
     },[])
-    console.log("TaskLists:")
-    console.log(taskList.id)
-    console.log(taskList.tasks)
 
     return(
         <section className="container party-section">
@@ -44,18 +56,30 @@ const GroupTasks = () => {
                 <GroupMemberPublicTasks
                     name = {name2}
                 />
+                {/*{groupTaskList.party_members.map((one_member,index)=>{*/}
+                {/*    //is_in_progress column =>   0=not started;  -1=completed;   1=in progress*/}
+                {/*    // if(one_member['is_public'] === 1){*/}
+                {/*        return(*/}
+                {/*            <GroupMemberPublicTasks*/}
+                {/*                key = {one_member['id']}*/}
+                {/*                member = {one_member}*/}
+                {/*            />*/}
+                {/*        )*/}
+                {/*    // }*/}
+                {/*}) }*/}
 
                 <h1>Home Tasks</h1>
-                <HomeTasks
-                    name = {name1}
-                />
-                <HomeTasks
-                    name = {name2}
-                />
-
-                <h1>Daily Tasks</h1>
-                <HomeDailyTasks/>
-                <HomeDailyTasks/>
+                {taskList.tasks.map((one_task,index)=>{
+                    //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
+                    if(one_task['is_in_progress'] === 0){
+                        return(
+                            <HomeTasks
+                                key = {one_task['id']}
+                                task = {one_task}
+                            />
+                        )
+                    }
+                }) }
             </div>
         </section>
     )

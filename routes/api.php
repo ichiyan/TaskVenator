@@ -64,6 +64,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     //new task
     Route::post('newTask', [TasksController::class, 'create']);
     Route::get('tasks',[TasksController::class, 'index']);
+    Route::get('group_tasks',[TasksController::class, 'groupTasks']);
+    Route::get('group_members',[TasksController::class, 'getPartyMembers']);
     Route::get('tasks_items',[TasksController::class, 'getTaskItems']);
     Route::post('completeTask', [InventoryController::class, 'update']);
 

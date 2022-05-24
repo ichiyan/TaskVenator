@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
+use App\Models\Party;
 use App\Models\TaskItem;
 use App\Models\Tasks;
 use Illuminate\Http\Request;
@@ -28,6 +29,59 @@ class TasksController extends Controller
         return response()->json([
             'status' => 200,
             'tasks' => $taskList,
+            'id' => $id
+        ]);
+    }
+
+    public function getPartyMembers(): \Illuminate\Http\JsonResponse
+    {
+        //
+        $id = Auth::id();
+        $has_party=DB::table('user_infos')
+            ->where('user_id', "=", $id)
+            ->get();
+        if($has_party->has_party == 1){
+            $party =DB::table('party_members')
+                ->where('user_id', "=", $id)
+                ->get();
+            $party_members =DB::table('party_members')
+                ->where('party_id', "=", $party->party_id)
+                ->get();
+        }
+
+        return response()->json([
+            'status' => 200,
+            'party_members' => $party_members,
+            'id' => $id
+        ]);
+    }
+
+    public function groupTasks(): \Illuminate\Http\JsonResponse
+    {
+        //
+        //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
+        $id = Auth::id();
+        $has_party=DB::table('user_infos')
+                    ->where('user_id', "=", $id)
+                    ->get();
+        if($has_party->has_party == 1){
+            $party =DB::table('party_members')
+                ->where('user_id', "=", $id)
+                ->get();
+            $party_members =DB::table('party_members')
+                ->where('party_id', "=", $party->party_id)
+                ->get();
+//            foreach($party_members as $party_member){
+//                $taskList = DB::table("tasks")
+//                    ->join('task_items', 'tasks.id', "=", 'task_items.task_id')
+//                    ->where('owner', "=", $id)
+//                    ->get();
+//            }
+        }
+
+        return response()->json([
+            'status' => 200,
+            'party_members' => $party_members,
             'id' => $id
         ]);
     }

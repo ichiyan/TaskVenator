@@ -1,7 +1,7 @@
 import {React, useEffect, useState, TaskItem, NewTaskForm, axios} from "../../../index";
 import '../../../../../public/css/party_tasks.css';
 
-const GroupMemberPublicTasks = ({name, taskList}) => {
+const GroupMemberPublicTasks = ({name, member}) => {
 
     const tasks = ["Apple", "Banana", "Tea", "Coffee"];
 
