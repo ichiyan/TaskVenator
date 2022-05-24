@@ -23,8 +23,8 @@ class PotionTableSeeder extends Seeder
                 'name'=>'S-Health Potion',
                 'type'=>'Hp Potion',
                 'size'=>'Small',
-                'effect'=>'20',
-                'description'=>'Heals 20 hp ',
+                'effect'=>'5',
+                'description'=>'Heals 5 hp ',
                 'price'=>'5',
 
             ],[
@@ -33,8 +33,8 @@ class PotionTableSeeder extends Seeder
                 'name'=>'M-Health Potion',
                 'type'=>'Hp Potion',
                 'size'=>'Medium',
-                'effect'=>'30',
-                'description'=>'Heals 30 hp ',
+                'effect'=>'10',
+                'description'=>'Heals 10 hp ',
                 'price'=>'10',
             ],[
                 'id'=>'3',
@@ -42,8 +42,8 @@ class PotionTableSeeder extends Seeder
                 'name'=>'L-Health Potion',
                 'type'=>'Hp Potion',
                 'size'=>'Large',
-                'effect'=>'50',
-                'description'=>'Heals 50 hp ',
+                'effect'=>'15',
+                'description'=>'Heals 15 hp ',
                 'price'=>'15',
             ],[
                 //POWERUP POTIONS
