@@ -5,7 +5,7 @@ import './BattleSelection.js';
 import axios from 'axios';
 import BattleSelection from './BattleSelection.js';
 
-const JoinBattle = () => {
+const JoinBattle = ({setInbattle}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -51,7 +51,7 @@ const JoinBattle = () => {
                 <Modal.Body className='modal_body' style={{ background: "linear-gradient(#292a41, #4b4c65)"}} >
                     {monster.monster.map((mon,index)=>{
                         return (
-                            <BattleSelection key={index} name={mon.name} hp={monsterHP}/>
+                            <BattleSelection key={index} name={mon.name} hp={monsterHP} id={mon.id} setShow={setShow} setInbattle={setInbattle}/>
                         )
                     })}
                 </Modal.Body>

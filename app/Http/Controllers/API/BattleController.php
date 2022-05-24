@@ -6,9 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Battle;
 use App\Models\Monster;
 use App\Models\Avatar;
+use App\Models\UserInfo;
+use App\Models\BattlePerformance;
 use App\Models\BattleIndividual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class BattleController extends Controller
 {
@@ -20,13 +24,32 @@ class BattleController extends Controller
     public function index(): \Illuminate\Http\JsonResponse
     {
         //for individual battle
-        $id = Auth::hasUser();
-        $battle= BattleIndividual::find(1);
-        return response()->json([
-            'status' => 200,
-            'battle' => $battle,
-            'id'=> $id
-        ]);
+        $id = Auth::id();
+        $user=UserInfo::find($id);
+        if($user->is_in_battle == 1){
+
+            $battle = DB::table('battle_individuals')->where('user_id', $id)->where('monster_remaining_hp','>',0)->first();
+            $monster = Monster::find($battle->monster_id);
+            $performance = BattlePerformance::find($battle->battle_performance_id);
+            $level = Avatar::find($id);
+
+
+            return response()->json([
+                'status' => 200,
+                'battle' => $battle,
+                'monster' => $monster,
+                'id' => $battle->id,
+                'performance' => $performance,
+                'level' => $level->level,
+                'message' => "you are in battle",
+            ]);
+        }else{
+            return response()->json([
+                'status' => 300,
+                'message' => "you are NOT in battle",
+            ]);
+        }
+        
     }
 
     /**
@@ -109,6 +132,46 @@ class BattleController extends Controller
             'monsters' => $monsters,
             'count' => $count,
             'hp' => $hp,
+        ]);
+    }
+
+    public function joinBattle(Request $request)
+    {
+        $id = Auth::id();
+
+        $user = UserInfo::find($id);
+        $user->is_in_battle = 1;
+        $user->save();
+
+        $join = new BattleIndividual;
+        $join->monster_id = $request->monsterid;
+        $join->user_id = $id;
+        $join->monster_remaining_hp = $request->monsterhp;
+        $join->battle_started = Carbon::now()->format('Y-m-d H:i:s');
+        $join->battle_performance_id = 5;
+        $join->save();
+
+
+        return response()->json([
+            'status' => 200,
+            'message' => "joined battle",
+        ]);
+    }
+
+    public function cancelbattle(Request $request)
+    {
+        $id = Auth::id();
+
+        $user = UserInfo::find($id);
+        $user->is_in_battle = 0;
+        $user->save();
+        
+        $battle = DB::table('battle_individuals')->where('id', $request->id)->delete();
+
+
+        return response()->json([
+            'status' => 200,
+            'message' => "battle cancelled!",
         ]);
     }
 }

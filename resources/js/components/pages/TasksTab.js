@@ -9,7 +9,7 @@ import axios from "axios";
 import OutfitFilter from "./shop/OutfitFilter";
 
 const TasksTab = () => {
-    var hpTotal = 50;
+    var hpTotal = 0;
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
     const [xp, setXp] = useState(0);
@@ -21,7 +21,10 @@ const TasksTab = () => {
     var colWidth = "30%";
     const [show, setShow] = useState(false);
     const [battle, setBattle] = useState({
-        battle:[]
+        name : '',
+        hp : '',
+        performance : '',
+        battle_id : ''
     });
     const [taskCount, setTaskCount] = useState({
         in_progress: 0,
@@ -60,27 +63,75 @@ const TasksTab = () => {
     // console.log(taskList.id)
     console.log(taskList.tasks)
 
+    const [inbattle,setInbattle] = useState(false);
+
+    const [battleinfo,setBattleinfo] = useState({
+        name : '',
+        hp: '',
+        performance : '',
+        battle_id : '',
+        level:''
+    });
+
     useEffect(() =>{
         axios.get(`/api/battle`).then(res =>{
             if(res.data.status===200){
-                setBattle({
-                    battle:res.data.battle,
-                    id_user:res.data.id
-                })
+                setInbattle(true);
+                handleShow(true);
+                setBattleinfo({
+                    name : res.data.monster.name,
+                    hp : res.data.battle.monster_remaining_hp,
+                    performance : res.data.performance.name,
+                    battle_id : res.data.battle.id,
+                    level: res.data.level
+                });
+                console.log(res.data.message);
+                console.log(battleinfo);
+            }else{
+                setInbattle(false);
+                handleShow(false);
+                console.log(res.data.message);
             }
         })
     },[])
 
+    const [image,setImage] = useState('assets/images/monsters/'+battleinfo.name+'.gif');
+
+    var monster_image = 'assets/images/monsters/'+battleinfo.name+'.gif';
+
+    const cancelbattle = () =>{
+        const data = {
+            id : battleinfo.battle_id
+        }
+        axios.post(`/api/cancelbattle`,data).then(res =>{
+            if(res.data.status===200){
+                setInbattle(false);
+                handleShow(false);
+                setBattleinfo({
+                    name : '',
+                    hp: '',
+                    performance : '',
+                    battle_id : '',
+                    level:''
+                });
+                console.log(res.data.message);
+            }
+        })
+    }
+    
+
     return( //will change class names
         <section className="container tasks-section">
             <div className="tasks-content" >
-                <div className="tasks-join-button-cont">
-                    {!show && <JoinBattle></JoinBattle>}
-                    <Button onClick={handleShow}  style={{"margin" : "1rem"}} className="tasks-join-button">
-                        {/*remove later once connected to DB*/}
-                        ongoing battle temp-toggle
-                    </Button>
-                </div>
+                {!inbattle ?
+                        <div className="tasks-join-button-cont">
+                            <JoinBattle setInbattle={setInbattle}></JoinBattle>
+                        </div>
+                    
+                    :
+                    ''
+                }
+                
 
                 <div className="tasks-col-container">
                     <div className="tasks-col col-t" style={{"width" : colWidth}} >
@@ -141,14 +192,14 @@ const TasksTab = () => {
                             }
                         }) }
                     </div>
-                    {show && <div className="tasks-col col-battle">
-                        {/* <Button>Forfeit battle</Button> */}
+                    {inbattle ?
+                        <div className="tasks-col col-battle">
                             <div className="party-avatar-info">
                                 <div  className="col avatar-header-info align-self-center">
                                         {/* <h1>ongoing battle here sdasd</h1> */}
-                                        <p style={{color: "white"}}>MONSTER NAME</p>
+                                        <p style={{color: "white"}}>{battleinfo.name}</p>
                                     <div className="monster-header">
-                                        <img className="class-icon" src="assets/images/monster4.gif"></img>
+                                        <img className="class-icon" src={'assets/images/monsters/'+battleinfo.name+'.gif'}></img>
                                     </div>
                                     <div className="col monster-header-info align-self-start">
                                             <div className="health-section">
@@ -159,20 +210,18 @@ const TasksTab = () => {
                                                     </div>
                                                     <div className="transition increase" style={{width: HpIncreaseWidth + "%"}}></div>
                                                 </span>
-                                                <span className="hp-txt">{hp}/{hpTotal}</span>
+                                                <span className="hp-txt">{battleinfo.hp}/{100+(battleinfo.level*8)}</span>
                                             </div>
                                             <div className="xp-section">
-                                                <span> <img className="health-icon" src="assets/images/xp-icon.png"></img></span>
-                                                <span className="xp-bar" data-total={xpTotal} data-value={xp}>
-                                                    <div className="xp bar"style={{width: xpBarWidth + "%"}}> </div>
-                                                    <div className="transition increase" style={{width: xpIncreaseWidth + "%"}}></div>
-                                                </span>
-                                                <span className="xp-txt">{xp}/{xpTotal}</span>
+                                                <button onClick={cancelbattle} className="btn btn-sm btn-danger">Cancel</button>
                                             </div>
                                     </div>
                                 </div>
                             </div>
-                    </div> }
+                        </div>
+                        :
+                        ''
+                    }
 
                 </div>
             </div>

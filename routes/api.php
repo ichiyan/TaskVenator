@@ -72,6 +72,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     //ongoing battle
     Route::get('battle',[BattleController::class, 'index']);
     Route::get('getMonsters',[BattleController::class, 'getMonsters']);
+    Route::post('joinBattle',[BattleController::class, 'joinBattle']);
+    Route::post('cancelbattle',[BattleController::class, 'cancelbattle']);
 
     //party
     Route::post('create_party', [PartyController::class, 'store']);
