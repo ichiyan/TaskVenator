@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Party;
+use App\Models\PartyMember;
 use App\Models\TaskItem;
 use App\Models\Tasks;
+use App\Models\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -36,24 +38,43 @@ class TasksController extends Controller
     public function getPartyMembers(): \Illuminate\Http\JsonResponse
     {
         //
-        $id = Auth::id();
-        $has_party=DB::table('user_infos')
-            ->where('user_id', "=", $id)
-            ->get();
-        if($has_party->has_party == 1){
-            $party =DB::table('party_members')
-                ->where('user_id', "=", $id)
-                ->get();
-            $party_members =DB::table('party_members')
-                ->where('party_id', "=", $party->party_id)
-                ->get();
+        $user_id = Auth::id();
+        $party = PartyMember::where('user_id', '=', $user_id)
+            ->first()
+            ->party;
+
+        $members = $party->party_members;
+        $members_info = [];
+        foreach ($members as $member) {
+            $member->user;
+            array_push($members_info, $member['user']);
         }
 
         return response()->json([
             'status' => 200,
-            'party_members' => $party_members,
-            'id' => $id
+            'party_id' => $party->id,
+            'total_members' => $party->total_members,
+            'members' => $members_info,
+            'message' => 'Party information retrieved successfully'
         ]);
+//        $id = Auth::id();
+//        $has_party=DB::table('user_infos')
+//            ->where('user_id', "=", $id)
+//            ->get();
+//        if($has_party->has_party == 1){
+//            $party =DB::table('party_members')
+//                ->where('user_id', "=", $id)
+//                ->get();
+//            $party_members =DB::table('party_members')
+//                ->where('party_id', "=", $party->party_id)
+//                ->get();
+//        }
+//
+//        return response()->json([
+//            'status' => 200,
+//            'party_members' => $party_members,
+//            'id' => $id
+//        ]);
     }
 
     public function groupTasks(): \Illuminate\Http\JsonResponse
@@ -167,21 +188,20 @@ class TasksController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
         $now = Carbon::now();
-        $completedTasks = 0;
 
-        $taskItem = TaskItem::find($id);
-        $taskItem->is_complete  = $request->get('done');
+        $taskItem = TaskItem::find($request->get('task_id'));
+        $taskItem->is_complete  = 1;
         $taskItem->date_complete  = $now;
         $taskItem->save();
 
-        $task_id= TaskItem::find($id)->task_id;
+        $task_id= TaskItem::find($request->get('task_id'))->task_id;
         //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
         $task = Tasks::find($task_id);
         $completedTasks = DB::table("tasks")
@@ -190,11 +210,6 @@ class TasksController extends Controller
                         ->where('task_items.is_complete', "=", 1)
                         ->count();
 
-//        foreach($otherItems  as $key => $item){
-//            if ($item->is_complete == 0) {
-//                $inc_count++;
-//            }
-//        }
         if($task->subtasks == $completedTasks){
             $task->is_in_progress = -1;
         }else if($task->is_in_progress == 0){
@@ -202,7 +217,10 @@ class TasksController extends Controller
         }
         $task->save();
 
-        return response()->json('Congratulations on Completing a Task!');
+        return response()->json([
+            'status' => 200,
+            'message' => 'Congratulations on Completing a Task!',
+        ]);
     }
 
     /**
