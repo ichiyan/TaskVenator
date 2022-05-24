@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Battle;
+use App\Models\Monster;
+use App\Models\Avatar;
 use App\Models\BattleIndividual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +20,7 @@ class BattleController extends Controller
     public function index(): \Illuminate\Http\JsonResponse
     {
         //for individual battle
-        $id = Auth::id();
+        $id = Auth::hasUser();
         $battle= BattleIndividual::find(1);
         return response()->json([
             'status' => 200,
@@ -91,5 +93,22 @@ class BattleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getMonsters(Request $request)
+    {
+        $monsters= Monster::all();
+        $count= Monster::all()->count();
+        $id = Auth::id();
+
+        $avatar = Avatar::find($id);
+        $hp = 100 + ($avatar->level * 8);
+
+        return response()->json([
+            'status' => 200,
+            'monsters' => $monsters,
+            'count' => $count,
+            'hp' => $hp,
+        ]);
     }
 }
