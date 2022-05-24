@@ -1,4 +1,4 @@
-import {Header, Link, React,$,
+import {Header, Footer, Link, React,$,
     useEffect, useState} from "../../index";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
             $("#landing-pixels").html("");
             var grid = 60,
                 windowWidth = $(window).width(),
-                windowHeight = $(window).height() * 0.50,
+                windowHeight = $(window).height() * 0.40,
                 pW = windowWidth/grid,
                 pH = pW,
                 rows = parseInt(windowHeight/pH);
@@ -54,13 +54,36 @@ const Home = () => {
             <Header page="home"/>
             {/* Hero Section */}
             <section id="hero" className="d-flex justify-content-center align-items-center">
-                <div className="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-                    <h1>Lorem Ipsum,<br/>At vero eos et </h1>
-                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+                <div className="container col-4" data-aos="zoom-in" data-aos-delay="100">
+                    <h1>Transform tasks<br/>into a game</h1>
+                    <h2>Become productive and complete tasks while having fun at the same time!</h2>
                     {heroButtons}
+                </div>
+                <div className="container col-4">
+                    <img src="/images/home.png"/>
                 </div>
             </section>
             <div id="landing-pixels"></div>
+
+            {/* Details */}
+            <div id="productivity" className="d-flex justify-content-center align-items-center">
+                <h1>Increase your productivity</h1>
+            </div>
+            <div id="details" className="d-flex justify-content-center align-items-center">
+                <div className="container col-md-offset-3">
+                    <img src="/images/levelup.png"/>
+                    <h2>Completing tasks allows you to level up and earn points for the shop</h2>
+                </div>
+                <div className="container col-md-offset-3" margin-top="-20px">
+                    <img src="/images/shop.png"/>
+                    <h2>You can use points to buy items for battles or customize your character's looks and gear</h2>
+                </div>
+                <div className="container col-md-offset-3">
+                    <img src="/images/friends.png"/>
+                    <h2>Complete tasks alone or team up with friends</h2>
+                </div>
+            </div>
+            <Footer page="home"/>
         </div>
     );
 }
