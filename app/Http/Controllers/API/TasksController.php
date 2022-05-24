@@ -52,7 +52,8 @@ class TasksController extends Controller
         return response()->json([
             'status' => 200,
             'party_members' => $party_members,
-            'id' => $id
+            'id' => $id,
+            'party' => $has_party,
         ]);
     }
 

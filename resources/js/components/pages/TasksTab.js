@@ -8,7 +8,7 @@ import '../../../../public/css/tasks.scss';
 import axios from "axios";
 import OutfitFilter from "./shop/OutfitFilter";
 
-const TasksTab = () => {
+const TasksTab = ({updateXP}) => {
     var hpTotal = 50;
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
@@ -95,6 +95,7 @@ const TasksTab = () => {
                                         <HomeTasks
                                             key = {one_task['id']}
                                             task = {one_task}
+                                            updateXP={updateXP}
                                         />
                                     )
                             }
@@ -113,6 +114,7 @@ const TasksTab = () => {
                                     <HomeTasks
                                         key = {one_task['id']}
                                         task = {one_task}
+                                        updateXP={updateXP}
                                     />
                                 )
                             }
@@ -136,6 +138,7 @@ const TasksTab = () => {
                                     <HomeTasks
                                         key = {one_task['id']}
                                         task = {one_task}
+                                        updateXP={updateXP}
                                     />
                                 )
                             }

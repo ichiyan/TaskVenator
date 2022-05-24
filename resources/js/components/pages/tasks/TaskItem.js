@@ -2,7 +2,7 @@ import {React, useEffect, useState,} from "../../../index";
 import '../../../../../public/css/party_tasks.css';
 import axios from "axios";
 
-const TaskItem = ({task, className, whenChecked, id, stat}) => {
+const TaskItem = ({task, className, whenChecked, id, stat, updateXP}) => {
     // let stat = (className == "checked-item")? 1:0;
     const [done, setDone]= useState(stat);
 
@@ -19,6 +19,8 @@ const TaskItem = ({task, className, whenChecked, id, stat}) => {
         }).catch(function (error) {
             console.log(error);
         })
+
+
     }
 
     return(

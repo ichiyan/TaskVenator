@@ -101,12 +101,17 @@ import { set } from "lodash";
             setItems(data.items);
 
             setHp(data.curr_hp);
-            sethpBarWidth(data.curr_hp);
             setXp(data.curr_xp);
             setHpTotal(data.max_hp);
             setXpTotal(data.max_xp);
             setHasBattle(data.is_in_battle);
             setLastReceivedHp(data.last_received_daily_hp);
+
+            let hp_bar_width = data.curr_hp / data.max_hp * 100;
+            sethpBarWidth(hp_bar_width)
+
+            let xp_bar_width = data.curr_xp / data.max_xp * 100;
+            setXPBarWidth(xp_bar_width)
 
             healthTotal.current = data.max_hp;
             health.current = data.curr_hp;
@@ -190,10 +195,7 @@ import { set } from "lodash";
     const receiveDailyBonusHP = (current, total) => {
         if(current < total){
             bonusHP.current = 2 * (2 + (level * 0.1));
-            // console.log(bonusHP);
-            // healHandler(bonusHP);
         }else{
-            //no display modal if zero
             bonusHP.current=0;
 
         }
@@ -203,6 +205,13 @@ import { set } from "lodash";
             }
         });
     }
+
+    const updateXP = (task_value) => {
+        xp_gain = (task_value * 0.2) * (1 + (0.5 * level)) * (1 + (0.04 * (level /2)));
+        addXPHandler(xp_gain)
+    }
+
+
 
     const hitHandler = () => {
         let updatedHp;
@@ -248,6 +257,25 @@ import { set } from "lodash";
         updateHealthDB()
     }
 
+    const addXPHandler = (added_xp) => {
+        let updatedXp = 0;
+        let newXPBarWidth;
+        if(xp === xpTotal){
+            newXPBarWidth = 0;
+        }else{
+            updatedXp = xp + added_xp;
+            newXPBarWidth = updatedXp / xpTotal * 100;
+        }
+        setXp(updatedXp);
+
+        setXPIncreaseWidth(newXPBarWidth);
+
+        setTimeout(function(){
+            setXPBarWidth(newXPBarWidth);
+        }, 500);
+
+    }
+
     const updateHealthDB = () => {
 
         const data = {
@@ -260,25 +288,6 @@ import { set } from "lodash";
                 console.log(res.data.message)
             }
         })
-
-    }
-
-    const addXPHandler = () => {
-        let updatedXp = 0;
-        let newXPBarWidth;
-        if(xp === xpTotal){
-            newXPBarWidth = 0;
-        }else{
-            updatedXp = xp + 10;
-            newXPBarWidth = updatedXp / xpTotal * 100;
-        }
-        setXp(updatedXp);
-
-        setXPIncreaseWidth(newXPBarWidth);
-
-        setTimeout(function(){
-            setXPBarWidth(newXPBarWidth);
-        }, 500);
 
     }
 
@@ -338,7 +347,7 @@ import { set } from "lodash";
     }else if (tab === "group_tasks"){
         renderTab = <GroupTasks/>;
     }else if (tab === "tasks"){
-        renderTab = <TasksTab/>;
+        renderTab = <TasksTab updateXP={updateXP}/>;
     }else if (tab === "shop"){
         renderTab = <Shop setGems={setGems} gems={gems}/>;
     }else if(tab ==="inventory"){
