@@ -60,7 +60,7 @@ import { set } from "lodash";
 
     const [hasUpdates, setHasUpdates] = useState(false);
 
-    const[showModal, setShowModal] = useState(true);
+    const[showModal, setShowModal] = useState(false);
 
 
 
