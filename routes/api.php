@@ -63,7 +63,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('update_avatar_img', [UserInfoController::class, 'updateAvatarImg']);
 
     //new task
-    Route::post('newTask', [TasksController::class, 'create']);
+    Route::post('newTask', [TasksController::class, 'store']);
     Route::get('tasks',[TasksController::class, 'index']);
     Route::get('group_tasks',[TasksController::class, 'groupTasks']);
     Route::get('group_members',[TasksController::class, 'getPartyMembers']);
