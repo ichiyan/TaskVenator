@@ -63,6 +63,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     //new task
     Route::post('newTask', [TasksController::class, 'create']);
     Route::get('tasks',[TasksController::class, 'index']);
+    Route::get('tasks_items',[TasksController::class, 'getTaskItems']);
+    Route::post('completeTask', [InventoryController::class, 'update']);
 
     //ongoing battle
     Route::get('battle',[BattleController::class, 'index']);

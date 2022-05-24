@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
 use App\Http\Controllers\Controller;
+use App\Models\TaskItem;
 use App\Models\Tasks;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use mysql_xdevapi\Table;
 
 class TasksController extends Controller
 {
@@ -19,14 +19,31 @@ class TasksController extends Controller
     public function index(): \Illuminate\Http\JsonResponse
     {
         //
-        $tasks = Tasks::all();
-        $id = Auth::hasUser();
+        //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
+        $id = Auth::id();
         $taskList = DB::table("tasks")
-                    ->where(owner, "=", $id)
-                    ->joinWhere(task_items, task_id, "=", id);
+                    ->where('owner', "=", $id)
+                    ->get();
+
         return response()->json([
             'status' => 200,
-            'tasks' => $tasks,
+            'tasks' => $taskList,
+            'id' => $id
+        ]);
+    }
+
+    public function getTaskItems(): \Illuminate\Http\JsonResponse
+    {
+        //
+        $id = Auth::id();
+        $taskItem = DB::table("tasks")
+            ->join('task_items', 'tasks.id', "=", 'task_items.task_id')
+//            ->where('tasks.id', "=", $task_id)
+            ->get();
+
+        return response()->json([
+            'status' => 200,
+            'taskItemDB' => $taskItem,
             'id' => $id
         ]);
     }
@@ -97,11 +114,41 @@ class TasksController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
         //
+        $now = Carbon::now();
+        $completedTasks = 0;
+
+        $taskItem = TaskItem::find($id);
+        $taskItem->is_complete  = $request->get('done');
+        $taskItem->date_complete  = $now;
+        $taskItem->save();
+
+        $task_id= TaskItem::find($id)->task_id;
+        //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
+        $task = Tasks::find($task_id);
+        $completedTasks = DB::table("tasks")
+                        ->join('task_items', 'tasks.id', "=", 'task_items.task_id')
+                        ->where('tasks.id', "=", $task_id)
+                        ->where('task_items.is_complete', "=", 1)
+                        ->count();
+
+//        foreach($otherItems  as $key => $item){
+//            if ($item->is_complete == 0) {
+//                $inc_count++;
+//            }
+//        }
+        if($task->subtasks == $completedTasks){
+            $task->is_in_progress = -1;
+        }else if($task->is_in_progress == 0){
+            $task->is_in_progress = 1;
+        }
+        $task->save();
+
+        return response()->json('Congratulations on Completing a Task!');
     }
 
     /**
