@@ -78,3 +78,31 @@
  .btn-custom-primary.join-form-party-btn:hover{
     background-color: #3ac162;
  }
+
+.battle-main-container{
+    /* background-color: yellow; */
+}
+.battle-info-container{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.battle-left-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+    width: 100%;
+}
+.battle-right-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color:aqua; */
+    width: 100%;
+}

@@ -194,6 +194,7 @@ class UserInfoController extends Controller
             'username' => $user_info->username,
             'has_party' => $user_info->has_party,
             'last_received_daily_hp' => $user_info->last_received_daily_hp,
+            'is_in_battle' => $user_info->is_in_battle,
             'level' => $avatar->level,
             'class' => $avatar->class->name,
             'sex' => $avatar->sex,
@@ -286,5 +287,15 @@ class UserInfoController extends Controller
             'message' => 'HP updated',
         ]);
 
+    }
+
+    public function updateLastReceivedDailyHp(){
+        $id= Auth::id();
+        UserInfo::where('id', $id)->update(array('last_received_daily_hp'=> now()));
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Date RECEIVED UPDATED',
+        ]);
     }
 }
