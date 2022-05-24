@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\Inventory;
 use App\Models\Level;
 use App\Models\Outfit;
+use App\Models\PartyMember;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -191,6 +192,7 @@ class UserInfoController extends Controller
 
         return response()->json([
             'status' => 200,
+            'user_id' => $user_id,
             'username' => $user_info->username,
             'has_party' => $user_info->has_party,
             'last_received_daily_hp' => $user_info->last_received_daily_hp,
@@ -206,6 +208,21 @@ class UserInfoController extends Controller
             'max_xp' => $avatar->max_xp,
             'crit_chance' => $avatar->crit_chance,
             'crit_damage' => $avatar->crit_damage,
+        ]);
+    }
+
+
+    public function getUserInfo(Request $request){
+
+        $sender =  User::find($request->id)->user_info;
+        $sender_avatar =   UserInfo::find($sender->id)->avatar->with('class')->where('user_info_id', '=', $request->id)->first();
+
+        return response()->json([
+            'status' => 200,
+            'username' => $sender->username,
+            'level' => $sender_avatar->level,
+            'class' => $sender_avatar->class,
+            'avatar_img' => $sender_avatar->avatar_img,
         ]);
     }
 
@@ -232,6 +249,18 @@ class UserInfoController extends Controller
         $id = Auth::id();
 
         Avatar::where('id', $id)->update(array('items' => $request->items));
+
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
+
+    public function updateHasParty(Request $request){
+        UserInfo::where('id', $request->user_id)->update(array('has_party' => 1));
+        PartyMember::create([
+            'user_id' => $request->user_id,
+            'party_id' => $request->party_id,
+        ]);
 
         return response()->json([
             'status' => 200,

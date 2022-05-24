@@ -1,5 +1,5 @@
 import axios from "axios";
-import {Header, React,
+import {Header, React, io,
     useEffect, useState, useRef, GroupTasks,TasksTab,
     AvatarHeader, Shop, Party, Outfit, All,
     Weapons, Potions, Cards, Inventory, InventoryOutfit, InventoryWeapons, InventoryPotions} from "../../index";
@@ -50,8 +50,16 @@ import {Header, React,
 
     const [hasParty, setHasParty] = useState();
     const [partyMembers, setPartyMembers] = useState([]);
+    const [partyInfo, setPartyInfo] = useState({});
 
     const [hasUpdates, setHasUpdates] = useState(false);
+
+    const ip_address = '127.0.0.1';
+    const socket_port = '8005';
+    const socket = io(ip_address + ':' + socket_port);
+
+    const id = useRef();
+    const [hasPartyUpdates, setHasPartyUpdates] = useState(false)
 
 
     useEffect(()=>{
@@ -65,6 +73,14 @@ import {Header, React,
     useEffect( () => {
         document.body.classList.add('internal-pages');
     }, []);
+
+    useEffect( () => {
+        console.log("HEEEREE")
+        socket?.on("update_header", data => {
+            console.log(data)
+            setHasPartyUpdates(!hasPartyUpdates)
+        })
+    }, [socket])
 
     useEffect(() => {
         axios.get(`api/get_user_info`).then(res => {
@@ -85,8 +101,21 @@ import {Header, React,
 
             if(data.has_party == 1){
                 setHasParty(1);
-                 axios.get(`api/get_party_info`).then(res => {
+                 axios.get(`/api/get_party_info`).then(res => {
                      if(res.data.status == 200){
+                         let data = res.data;
+                         setPartyInfo({
+                                party_id: data.party_id,
+                                party_name: data.party_name,
+                                party_image: data.party_image,
+                                total_members: data.total_members,
+                                max_members: data.max_members,
+                                party_motto: data.party_motto,
+                                founded_on: data.founded_on,
+                                founder_username: data.founder_username,
+                                battles_won: data.battles_won,
+                                battles_lost: data.battles_lost,
+                         })
                          setPartyMembers(res.data.members);
                      }
                  });
@@ -94,11 +123,30 @@ import {Header, React,
 
             let today = new Date();
             if(data.last_received_daily_hp < today.setDate(today.getDate() - 1)){
-                // display modal => clicking confirmation btn calls receiveDailyBonusHP
                 receiveDailyBonusHP(data.curr_hp, data.max_hp)
             }
+
+            console.log(socket)
+
+            id.current = data.user_id;
+            console.log("here")
+            console.log(id.current)
+
+            let user_data = {
+                user_id: data.user_id,
+                has_party: data.has_party,
+            }
+
+            console.log(user_data)
+
+            // socket.on('connect', function() {
+                socket.emit('user_connected', user_data);
+                if(data.has_party == 1){
+                    socket.emit('update_online_status')
+                }
+            // });
         });
-    }, []);
+    }, [hasPartyUpdates]);
 
 
     useEffect(() => {
@@ -122,8 +170,16 @@ import {Header, React,
     const receiveDailyBonusHP = (current, total) => {
         if(current < total){
             let bonusHP = 2 * (2 + (level * 0.1))
+
+            //open modal (after computing for gains/deductions based on tasks)
+            //then call heal/hit handlers (only heal handler has been adjusted)
             healHandler(bonusHP)
         }
+
+        // axios.post(`/api/update_last_received_daily_hp`).then(res => {
+
+        // })
+
     }
 
     const hitHandler = () => {
@@ -247,9 +303,10 @@ import {Header, React,
         }
     }
 
+
     let renderTab = '';
     if  (tab === "party"){
-        renderTab =   <Party/>;
+        renderTab =   <Party socket={socket} setHasPartyUpdates={setHasPartyUpdates} hasPartyUpdates={hasPartyUpdates} partyInfo={partyInfo}/>;
     }else if (tab === "group_tasks"){
         renderTab = <GroupTasks/>;
     }else if (tab === "tasks"){
@@ -264,7 +321,7 @@ import {Header, React,
         // <SocketProvider>
             <div>
                 <Header page={tab} gems={gems}/>
-                <AvatarHeader hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}
+                <AvatarHeader socket={socket} id={id.current} hp={hp} hpTotal={hpTotal} hpBarWidth={hpBarWidth} hpHitWidth={hpHitWidth} HpIncreaseWidth={HpIncreaseWidth} xp={xp} xpTotal={xpTotal} xpBarWidth={xpBarWidth} xpIncreaseWidth={xpIncreaseWidth}
                               avatarCanvasRef={avatarCanvasRef} avatarClass={avatarClass} username={username} level={level} hasParty={hasParty} partyMembers={partyMembers}/>
                 <div className="main-section">
                     {

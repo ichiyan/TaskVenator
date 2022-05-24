@@ -4,7 +4,7 @@ import { React, Fragment, axios, useRef, useState, useEffect,
 import JoinPartyModal from '../modals/JoinParty'
 import FormPartyModal from '../modals/FormParty'
 
-const AvatarHeader = ({hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
+const AvatarHeader = ({socket, id, hp, hpTotal, hpBarWidth, hpHitWidth, HpIncreaseWidth,
                         xp, xpTotal, xpBarWidth, xpIncreaseWidth,
                         avatarCanvasRef, avatarClass, username, level, hasParty, partyMembers,
                      }) => {
@@ -81,7 +81,7 @@ return (
 
 
        {/* Modals */}
-       <JoinPartyModal></JoinPartyModal>
+       <JoinPartyModal socket={socket} id={id}></JoinPartyModal>
        <FormPartyModal></FormPartyModal>
 
 

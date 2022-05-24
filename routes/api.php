@@ -71,6 +71,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     //party
     Route::post('create_party', [PartyController::class, 'store']);
     Route::get('show_parties', [PartyController::class, 'show']);
+    Route::post('get_other_user_info', [UserInfoController::class, 'getUserInfo']);
+    Route::post('update_has_party', [UserInfoController::class, 'updateHasParty']);
+
 
     //updating avatar status
     Route::post('update_health', [UserInfoController::class, 'updateHealth']);

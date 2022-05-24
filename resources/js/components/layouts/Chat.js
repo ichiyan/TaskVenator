@@ -3,7 +3,7 @@ import {React, Fragment, $, axios, io, useSocket,
         timeFormat, getCurrentDateTime, dateTimeWithSecondsFormat,
         FontAwesomeIcon, faPaperPlane, faCommentDots, faCircle} from "../../index";
 
-const Chat = () => {
+const Chat = ({socket}) => {
 
     //party name, party count should be broadcasted
     const [partyName, setPartyName] = useState();
@@ -79,9 +79,9 @@ const Chat = () => {
                         });
                         setPartyMembersId(partyMemId);
 
-                        var ip_address = '127.0.0.1';
-                        var socket_port = '8005';
-                        var socket = io(ip_address + ':' + socket_port);
+                        // var ip_address = '127.0.0.1';
+                        // var socket_port = '8005';
+                        // var socket = io(ip_address + ':' + socket_port);
 
                         console.log("chat")
                         console.log(socket)
@@ -94,11 +94,12 @@ const Chat = () => {
                                     user_id: user_id,
                                     chat_room: "party" + party_id,
                                 }
-                                socket.emit('user_connected', user_id);
+                                // socket.emit('user_connected', user_id);
                                 socket.emit('party_chat', chat_data);
                             });
 
                             socket.on('updateUserStatus', (data) => {
+                                console.log("online count");
                                 var onlineCtr = 0;
                                 $.each(data, function (key, val) {
                                     if(val !== null && val !==0 && partyMemId.includes(key)){
