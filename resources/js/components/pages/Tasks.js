@@ -323,14 +323,9 @@ import { set } from "lodash";
                                                         <img src="assets/images/giphy.gif" height="150" width="150" style={{ minHeight: "150px", minWidth: "150px" }} />
                                                     </div>
                                                 </div>
-                                                <div className="432">
-                                                    <label htmlFor="party-name" className="form-label text-white">Party Name <span className='text-danger'>*</span></label>
-                                                    {/* <h1>You received: {bonusHP.current}</h1> */}
-                                                    <h1>You received: 0</h1>
-                                                </div>
-                                                <div className="123">
-                                                    <label htmlFor="party-max-members" className="form-label text-white">Number of Members <span className='text-danger'>*</span></label>
-                                                    <h1>IN BATTLE</h1>
+                                                <div className="battle-rewardsInfo">
+                                                    <h6 style={{color: "white"}}>Rewards</h6>
+                                                    <p style={{color: "white"}}><img src="assets/images/health-icon.png" style={{width: "20px",height: "20px", marginLeft: "5px", marginRight: "5px"}}></img>+ {bonusHP.current}</p>
                                                 </div>
                                             </div>
 
@@ -342,12 +337,8 @@ import { set } from "lodash";
                                                 </div>
                                                 <div>
                                                     <div className="432">
-                                                        <label htmlFor="party-name" className="form-label text-white">Party Name <span className='text-danger'>*</span></label>
+                                                        <label htmlFor="party-name" className="form-label text-white">Deduction</label>
                                                         <h1>You received: task</h1>
-                                                    </div>
-                                                    <div className="123">
-                                                        <label htmlFor="party-max-members" className="form-label text-white">Number of Members <span className='text-danger'>*</span></label>
-                                                        <h1>task</h1>
                                                     </div>
                                                 </div>
                                             </div>
