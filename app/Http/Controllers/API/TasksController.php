@@ -197,29 +197,43 @@ class TasksController extends Controller
         $now = Carbon::now();
 
         $taskItem = TaskItem::find($request->get('task_id'));
-        $taskItem->is_complete  = 1;
-        $taskItem->date_complete  = $now;
-        $taskItem->save();
 
         $task_id= TaskItem::find($request->get('task_id'))->task_id;
         //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
         $task = Tasks::find($task_id);
         $completedTasks = DB::table("tasks")
-                        ->join('task_items', 'tasks.id', "=", 'task_items.task_id')
-                        ->where('tasks.id', "=", $task_id)
-                        ->where('task_items.is_complete', "=", 1)
-                        ->count();
+            ->join('task_items', 'tasks.id', "=", 'task_items.task_id')
+            ->where('tasks.id', "=", $task_id)
+            ->where('task_items.is_complete', "=", 1)
+            ->count();
 
-        if($task->subtasks == $completedTasks){
-            $task->is_in_progress = -1;
-        }else if($task->is_in_progress == 0){
-            $task->is_in_progress = 1;
+        if($taskItem->is_complete==0){
+            $taskItem->is_complete  = 1;
+            $taskItem->date_complete  = $now;
+
+            if($task->subtasks == $completedTasks+1){ //if complete
+                $task->is_in_progress = -1;
+            }else if($task->is_in_progress == 0){//if still in_progress
+                $task->is_in_progress = 1;
+            }
+            $message = 'Congratulations on Completing a Task!';
+        }else{ //undo completed task
+            $taskItem->is_complete  = 0;
+            $taskItem->date_complete  = null;
+
+            if($task->is_in_progress == -1){//turns to in_progress
+                $task->is_in_progress = 1;
+            }else if($task->is_in_progress == 1 && $completedTasks==0){
+                $task->is_in_progress = 0;
+            }
+            $message = 'You will finish it someday!';
         }
+        $taskItem->save();
         $task->save();
 
         return response()->json([
             'status' => 200,
-            'message' => 'Congratulations on Completing a Task!',
+            'message' => $message,
         ]);
     }
 

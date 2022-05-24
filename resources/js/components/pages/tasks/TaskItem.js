@@ -10,29 +10,24 @@ const TaskItem = ({task, className, whenChecked, task_id, stat}) => {
     });
 
     const taskCompletedHandler = (e) =>{
-        e.preventDefault();
-        // setDone({
-        //     task_status: stat,
-        //     id:task_id
-        // })
+        // e.preventDefault();
 
         const formData = new FormData();
         formData.append('done', done.task_status);
         formData.append('id', done.task_id);
         formData.append('test', 'task_id');
-        console.log("FORM DATA")
-        console.log(formData)
-        console.log(done)
+
         axios.post(`/api/completeTask`, done).then(res =>{
             if(res.data.status === 200){
                 alert(res.data.message);
-                console.log("FORM after")
-                console.log(res.data)
+                // console.log("FORM after")
+                // console.log(res.data)
+                // whenChecked(e)
             }
+        }).catch(function (error) {
+            console.log(error);
         })
-        //     .catch(function (error) {
-        //     console.log(error);
-        // })
+
     }
 
     return(
@@ -40,7 +35,7 @@ const TaskItem = ({task, className, whenChecked, task_id, stat}) => {
             {/*<input value={"item"} type="checkbox"/>*/}
             {/*<label className="task-item-content"> {task}</label>*/}
 
-            <input value={task} type="checkbox" onChange={taskCompletedHandler}/>
+            <input value={stat} type="checkbox" onChange={taskCompletedHandler}/>
             <span className={className} >{task}</span>
         </div>
     )
