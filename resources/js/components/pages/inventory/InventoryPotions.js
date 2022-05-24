@@ -32,7 +32,7 @@ function InventoryPotions(){
         axios.get(`/api/inventory`).then(res =>{
             if(res.data.status===200){
 
-            //     console.log(res.data.potion[0].type)
+                console.log(res.data.potion)
                 setInventory({
                     potions:res.data.potion
 
@@ -135,7 +135,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                           }
@@ -153,7 +153,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                           }
@@ -172,7 +172,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                           }
@@ -190,7 +190,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -209,7 +209,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                            }
@@ -227,7 +227,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -246,7 +246,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                            }
@@ -264,7 +264,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -283,7 +283,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size===size){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                           }
@@ -302,7 +302,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size==="Small"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -320,7 +320,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size==="Medium"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -338,7 +338,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size==="Large"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -358,7 +358,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size==="Small"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -376,7 +376,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size==="Medium"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -394,7 +394,7 @@ function InventoryPotions(){
                                           if(p.type==="Hp Potion" && p.size==="Large"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -414,7 +414,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion" && p.size==="Small"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -432,7 +432,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion" && p.size==="Medium"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -450,7 +450,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion" && p.size==="Large"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -470,7 +470,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion" && p.size==="Small"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -488,7 +488,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion" && p.size==="Medium"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }
@@ -506,7 +506,7 @@ function InventoryPotions(){
                                           if(p.type==="Powerup Potion" && p.size==="Large"){
                                                 return (
                                                       <div key={index} className="shop-outfitFilter">
-                                                            <InventoryPotionFilter data= {p} value={p.id}/>
+                                                            <InventoryPotionFilter data= {p} value={p.id} inventory={inventory} setInventory={setInventory}/>
                                                       </div>
                                                 )
                                             }

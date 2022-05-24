@@ -51,7 +51,7 @@ const JoinBattle = ({setInbattle}) => {
                 <Modal.Body className='modal_body' style={{ background: "linear-gradient(#292a41, #4b4c65)"}} >
                     {monster.monster.map((mon,index)=>{
                         return (
-                            <BattleSelection key={index} name={mon.name} hp={monsterHP} id={mon.id} setShow={setShow} setInbattle={setInbattle}/>
+                            <BattleSelection key={index} name={mon.name} hp={monsterHP} id={mon.id} setShow={setShow} setInbattle={setInbattle} description={mon.description}/>
                         )
                     })}
                 </Modal.Body>

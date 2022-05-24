@@ -50,6 +50,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('addBought', [InventoryController::class, 'store']);
     Route::post('update', [InventoryController::class, 'update']);
     Route::get('inventory', [InventoryController::class, 'index']);
+    Route::post('use_potion', [InventoryController::class, 'use_potion']);
 
     Route::get('getPotions', [InventoryController::class, 'getPotions']);
 
