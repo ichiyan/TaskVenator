@@ -11,10 +11,25 @@ const JoinBattle = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [monster,setMonster] = useState({
+        monster: [],
+    });
+
+
+
+    useEffect(()=>{
+        axios.get(`/api/getMonsters`).then(res =>{
+            if(res.data.status===200){
+                setMonster({
+                    monster:res.data.monsters
+                });
+            }
+        })
+    },[]);
+
+
     var buttonText = "Join Battle";
 
-   
-    
     return (
         <div>
             <div className="">
@@ -24,22 +39,20 @@ const JoinBattle = () => {
             </div>
 
 
-            <Modal show={show} onHide={handleClose} className="join_battle_modal" size="md" scrollable centered>
-                <Modal.Header>
+            <Modal show={show} onHide={handleClose} className="join_battle_modal " size="md" scrollable centered>
+                <Modal.Header className='border-0'>
                     {/*<Modal.Title id="contained-modal-title-vcenter" >
                         Choose Battle
                     </Modal.Title>*/}
                 </Modal.Header>
-                <Modal.Body className='modal_body'>
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
-                    <BattleSelection />
+                <Modal.Body className='modal_body '>
+                    {monster.monster.map((mon,index)=>{
+                        return (
+                            <BattleSelection key={index} name={mon.name}/>
+                        )
+                    })}
                 </Modal.Body>
-                <Modal.Footer></Modal.Footer>
+                <Modal.Footer className='border-0 '></Modal.Footer>
         </Modal>
         );
         </div>

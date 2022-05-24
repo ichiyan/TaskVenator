@@ -59,6 +59,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //updating avatar after equipping/unequipping items
     Route::post('update_avatar_items', [UserInfoController::class, 'update']);
+    Route::post('update_avatar_img', [UserInfoController::class, 'updateAvatarImg']);
 
     //new task
     Route::post('newTask', [TasksController::class, 'create']);
@@ -68,9 +69,15 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //ongoing battle
     Route::get('battle',[BattleController::class, 'index']);
+    Route::get('getMonsters',[BattleController::class, 'getMonsters']);
 
     //party
     Route::post('create_party', [PartyController::class, 'store']);
+    Route::get('show_parties', [PartyController::class, 'show']);
+
+    //updating avatar status
+    Route::post('update_health', [UserInfoController::class, 'updateHealth']);
+    Route::post('update_last_received_daily_hp', [UserInfoController::class, 'updateLastReceivedDailyHp']);
 
 });
 

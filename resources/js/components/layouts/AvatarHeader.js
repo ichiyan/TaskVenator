@@ -30,7 +30,7 @@ return (
                        <span className="circle-icon">
                            <img className="class-icon" src={"assets/images/" + avatarClass + "-class-icon.png"}></img>
                        </span>
-                       <span className="username">{username}<p className="class">lvl 12312312{level} {avatarClass}</p></span>
+                       <span className="username">{username}<p className="class">lvl {level} {avatarClass}</p></span>
                    </div>
                     <div className="health-section">
                        <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>
@@ -51,7 +51,7 @@ return (
                        <span className="xp-txt">{xp}/{xpTotal}</span>
                    </div>
                </div>
-               { hasParty.current === 1
+               { hasParty == 1
                    ?   <Fragment>
                            <div className="col-7 party-carousel">
                                <Carousel itemsToShow={4} pagination={false} breakPoints={breakPoints}>

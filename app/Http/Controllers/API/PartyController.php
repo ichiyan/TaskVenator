@@ -5,10 +5,13 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\PartyMember;
 use App\Models\Party;
+use App\Models\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+
+use function PHPSTORM_META\map;
 
 class PartyController extends Controller
 {
@@ -71,5 +74,31 @@ class PartyController extends Controller
             'message' => 'Party successfully created.',
         ]);
     }
+
+
+    public function show(){
+
+
+        $parties = Party::all();
+
+        foreach ($parties as $party){
+            $party['founder'] = UserInfo::find( $party['founder'])->username;
+            $party['party_members'] = $party->party_members;
+            foreach($party['party_members'] as $member){
+                $member['username'] = $member->user->user_info->username;
+                $member['avatar_img_dir'] = $member->user->user_info->avatar->avatar_img;
+                unset($member->user);
+            }
+        }
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Parties successfully displayed.',
+            'parties' => $parties,
+        ]);
+
+
+    }
+
 
 }

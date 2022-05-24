@@ -34,7 +34,6 @@ const TasksTab = () => {
     });
 
     const handleShow = () =>setShow(!show);
-
     if(show){
         colWidth = "30%";
     }else{

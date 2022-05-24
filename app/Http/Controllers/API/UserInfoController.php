@@ -14,6 +14,7 @@ use App\Models\Level;
 use App\Models\Outfit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 class UserInfoController extends Controller
@@ -53,11 +54,24 @@ class UserInfoController extends Controller
         $avatar_class = AvatarClass::where('name', '=', $request->class)->first();
         $level1 = Level::where('level', '=', '1')->first();
 
+        $fileName = '';
+        $dir = '';
+        if(strlen($request->dataURL) > 128) {
+            list($ext, $data)   = explode(';', $request->dataURL);
+            list(, $data)       = explode(',', $data);
+            $data = base64_decode($data);
+
+            $fileName = Auth::id().'.jpg';
+            file_put_contents('assets/images/avatars/'.$fileName, $data);
+            $dir = 'assets/images/avatars/'.$fileName;
+        }
+
         $avatar = $user_info->avatar()->create([
             'sex' =>  $request->sex,
             'skin_tone' => $request->skin_tone,
             'background_color' => $request->background_color,
             'items' => $request->items,
+            'avatar_img' => $dir,
             'strength' => $avatar_class->strength,
             'agility' => $avatar_class->agility,
             'intelligence' => $avatar_class->intelligence,
@@ -91,7 +105,7 @@ class UserInfoController extends Controller
                     $inventory->status='1';
                     if($start===106){
                         $inventory->bodyPart= "Head";
-                        // $inventory->status='0';
+                        $inventory->status='0';
                     }else if($start === 107){
                         $inventory->bodyPart= "Arms";
                     }else if($start === 108){
@@ -119,7 +133,7 @@ class UserInfoController extends Controller
                     $inventory->status='1';
                     if($start===112){
                         $inventory->bodyPart= "Head";
-                        // $inventory->status='0';
+                        $inventory->status='0';
                     }else if($start === 113){
                         $inventory->bodyPart= "Torso";
                     }else if($start === 114){
@@ -144,7 +158,7 @@ class UserInfoController extends Controller
                     $inventory->status='1';
                     if($start===117){
                         $inventory->bodyPart= "Head";
-                        // $inventory->status='0';
+                        $inventory->status='0';
                     }else if($start === 118){
                         $inventory->bodyPart= "Torso";
                     }else if($start === 119){
@@ -179,6 +193,8 @@ class UserInfoController extends Controller
             'status' => 200,
             'username' => $user_info->username,
             'has_party' => $user_info->has_party,
+            'last_received_daily_hp' => $user_info->last_received_daily_hp,
+            'is_in_battle' => $user_info->is_in_battle,
             'level' => $avatar->level,
             'class' => $avatar->class->name,
             'sex' => $avatar->sex,
@@ -214,9 +230,9 @@ class UserInfoController extends Controller
      */
     public function update(Request $request)
     {
-        // DB::update('update avatars set items = ? where id = ?', [$request->items, Auth::id()]);
+        $id = Auth::id();
 
-        Avatar::where('id', Auth::id())->update(array('items' => $request->items));
+        Avatar::where('id', $id)->update(array('items' => $request->items));
 
         return response()->json([
             'status' => 200,
@@ -232,5 +248,54 @@ class UserInfoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function updateAvatarImg(Request $request){
+
+        $id = Auth::id();
+
+        $fileName = '';
+        $dir = '';
+        if(strlen($request->dataURL) > 128) {
+
+            if(Storage::exists('assets/images/avatars/'.$id.'.jpg')){
+                Storage::delete('assets/images/avatars/'.$id.'.jpg');
+            }
+            list($ext, $data)   = explode(';', $request->dataURL);
+            list(, $data)       = explode(',', $data);
+            $data = base64_decode($data);
+
+            $fileName = Auth::id().'.jpg';
+            file_put_contents('assets/images/avatars/'.$fileName, $data);
+            $dir = 'assets/images/avatars/'.$fileName;
+        }
+
+        Avatar::where('id', $id)->update(array('avatar_img' => $dir));
+
+        return response()->json([
+            'status' => 200,
+        ]);
+
+    }
+
+    public function updateHealth (Request $request) {
+        $id = Auth::id();
+        Avatar::where('id', $id)->update(array('current_hp' => $request->curr_hp, 'max_hp' => $request->max_hp));
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'HP updated',
+        ]);
+
+    }
+
+    public function updateLastReceivedDailyHp(){
+        $id= Auth::id();
+        UserInfo::where('id', $id)->update(array('last_received_daily_hp'=> now()));
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Date RECEIVED UPDATED',
+        ]);
     }
 }

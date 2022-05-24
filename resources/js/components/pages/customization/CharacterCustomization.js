@@ -660,6 +660,9 @@ const CharacterCustomization = () => {
     const submitHandler = (e) => {
         e.preventDefault();
 
+        let canvas = document.getElementById('previewAnimations');
+        let dataURL = canvas.toDataURL("image/png");
+
         const data = {
             username: username,
             sex: isFemale.current,
@@ -667,6 +670,7 @@ const CharacterCustomization = () => {
             background_color: bgColor.current,
             items: selections,
             class: avatarClass.current,
+            dataURL: dataURL,
         }
 
         axios.post(`/api/create_avatar`, data).then(res => {

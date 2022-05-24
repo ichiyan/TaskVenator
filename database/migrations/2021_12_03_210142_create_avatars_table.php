@@ -20,6 +20,7 @@ class CreateAvatarsTable extends Migration
             $table->string('skin_tone')->comment('corresponding color name in spritesheet');
             $table->string('background_color')->comment('hex value');
             $table->json('items');
+            $table->string('avatar_img')->nullable();
             $table->integer('strength');
             $table->integer('agility');
             $table->integer('intelligence');

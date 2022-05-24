@@ -60,3 +60,11 @@
  .btn-custom-primary.join-form-party-btn:hover{
     background-color: #3ac162;
  }
+
+ .guild-logo{
+     margin-right: 10px;
+ }
+
+ .selected-guild-logo{
+     padding: 10px;
+ }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Battle;
+use App\Models\Monster;
 use App\Models\BattleIndividual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -91,5 +92,16 @@ class BattleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getMonsters(Request $request)
+    {
+        $monsters= Monster::all();
+        $count= Monster::all()->count();
+        return response()->json([
+            'status' => 200,
+            'monsters' => $monsters,
+            'count' => $count,
+        ]);
     }
 }

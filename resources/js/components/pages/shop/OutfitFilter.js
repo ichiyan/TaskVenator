@@ -34,8 +34,7 @@ function OutfitFilter({data, value, avatarClass,setGems,gems, updatePreview}){
      }
 
      useEffect(() => {
-           
-      console.log(passProductId);
+
       const data={
             product: passProductId.product,
             amount: passProductId.amount,
@@ -43,13 +42,11 @@ function OutfitFilter({data, value, avatarClass,setGems,gems, updatePreview}){
             bodyPart: passProductId.bodyPart,
       }
       if(data.product === "" || data.amount===""){
-            console.log("empty")
       }else if((gems-data.amount)>=0){
             axios.post(`/api/addBought`, data).then(res =>{
                   if(res.data.status === 200){
                   Swal.fire("You have successfully bought the item");
                      setGems(res.data.gems);
-                     console.log(res.data.message);
                   }else {
                     // setPotion({...potion,error_list:res.data.errors});
                   }
@@ -67,7 +64,7 @@ function OutfitFilter({data, value, avatarClass,setGems,gems, updatePreview}){
         updatePreview({
             item_type: "outfit",
             //change footwear in db to feet
-            body_part:  data.body_part != "Footwear" ? data.body_part.toLowerCase(): "feet",
+            body_part:  data.bodyPart != "Footwear" ? data.bodyPart.toLowerCase() : "feet",
             sex: data.sex.toLowerCase(),
             base_src: 'assets/images/spritesheets/' + data.directory,
             img_name: data.spritesheet_img_name,

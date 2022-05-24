@@ -53,7 +53,6 @@ function Weapons({setGems,gems, updatePreview}){
                       setAvatarClass("Mage")
                 }
            }
-           console.log(res.data.weapon)
      })
 
   },[])
@@ -66,7 +65,6 @@ function Weapons({setGems,gems, updatePreview}){
 // //      console.log(display2.weapons);
 //   }
   useEffect(()=>{
-      console.log(display2.weapons)
       // console.log(Object.keys(display2.weapons).length);
       // console.log(count);
   },[display2])
