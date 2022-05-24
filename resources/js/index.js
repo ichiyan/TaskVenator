@@ -61,6 +61,10 @@ export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks
 export {default as HomeTasks} from "./components/pages/tasks/HomeTasks";
 export {default as TaskItem} from "./components/pages/tasks/TaskItem";
 
+export {default as Contact} from "./components/pages/home/Contact";
+export {default as About} from "./components/pages/home/About";
+export {default as Features} from "./components/pages/home/Features";
+
 export {default as Auth} from "./components/pages/Auth";
 export {default as Home} from "./components/pages/Home";
 export {default as Tasks} from "./components/pages/Tasks";

@@ -74,7 +74,7 @@ const Home = () => {
                     <img src="/images/levelup.png"/>
                     <h2>Completing tasks allows you to level up and earn points for the shop</h2>
                 </div>
-                <div className="container col-md-offset-3" margin-top="-20px">
+                <div className="container col-md-offset-3">
                     <img src="/images/shop.png"/>
                     <h2>You can use points to buy items for battles or customize your character's looks and gear</h2>
                 </div>

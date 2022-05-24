@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import Auth from "../pages/Auth";
 import Home from "../pages/Home";
+import Other from "../pages/Other";
 import Tasks from "../pages/Tasks";
 import { CharacterCustomization } from "../..";
 
@@ -29,6 +30,9 @@ const AppRouter = () => {
                     <Route path='/register' element={<Auth page="register"/>}></Route>
                     <Route path='/character_customization' element={<Auth page="character_customization"/>}></Route>
                     <Route path='/login' element={<Auth page="login"/>}></Route>
+                    <Route path='/contact' element={<Other page="contact"/>}></Route>
+                    <Route path='/about' element={<Other page="about"/>}></Route>
+                    <Route path='/features' element={<Other page="features"/>}></Route>
                     <Route path='/tasks' element={<Tasks tab="tasks"/>}></Route>
                     <Route path='/party' element={<Tasks tab="party"/>}></Route>
                     <Route path='/group_tasks' element={<Tasks tab="group_tasks"/>}></Route>
