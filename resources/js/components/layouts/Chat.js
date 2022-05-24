@@ -88,7 +88,7 @@ const Chat = ({socket}) => {
 
                         // if(socket){
                         //     console.log("here")
-                            socket.on('connect', function() {
+                            // socket.on('connect', function() {
                                 let chat_data = {
                                     party_id: party_id,
                                     user_id: user_id,
@@ -96,18 +96,20 @@ const Chat = ({socket}) => {
                                 }
                                 // socket.emit('user_connected', user_id);
                                 socket.emit('party_chat', chat_data);
-                            });
+                            // });
 
-                            socket.on('updateUserStatus', (data) => {
-                                console.log("online count");
-                                var onlineCtr = 0;
-                                $.each(data, function (key, val) {
-                                    if(val !== null && val !==0 && partyMemId.includes(key)){
-                                        onlineCtr++;
-                                    }
-                                });
-                                setOnlineCount(onlineCtr);
-                            });
+                            // socket.on('updateUserStatus', (data) => {
+                            //     console.log("dataaaa")
+                            //     console.log(data)
+                            //     console.log("online count");
+                            //     var onlineCtr = 0;
+                            //     $.each(data, function (key, val) {
+                            //         if(val !== null && val !==0 && partyMemId.includes(key)){
+                            //             onlineCtr++;
+                            //         }
+                            //     });
+                            //     setOnlineCount(onlineCtr);
+                            // });
 
                             socket.on("partyMessage", function(msg){
                                 console.log("in chat")
@@ -211,7 +213,7 @@ const Chat = ({socket}) => {
                 <div className="client">
                     <div className="client-info">
                         <h1 className="party-name">{partyName}</h1>
-                        <p className="sub-info">{onlineCount}/{partyCount} online</p>
+                        {/* <p className="sub-info">{onlineCount}/{partyCount} online</p> */}
                     </div>
                 </div>
                 <div className="chats">

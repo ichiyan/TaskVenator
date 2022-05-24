@@ -45,18 +45,17 @@ const getUser = (user_id) => {
     return users.find(user => user.user_id == user_id);
 }
 
-io.on('connection', function (socket) {
+const onlineCtr = (party_id) => {
+    count = parties.filter((party) => party.party_id == party_id)
+    console.log(count)
+}
 
-    // socket.on("user_connected", function (user_id, has_party){
-    //     //users[user_id] = socket.id;
-    //     // io.emit('updateUserStatus', users);
-    //     addNewUser
-    //     console.log("user " + user_id + " connected");
-    // });
+io.on('connection', function (socket) {
 
     socket.on("user_connected", (user) => {
         addNewUser(user.user_id, user.has_party, socket.id);
         console.log("user " + user.user_id + " connected");
+        io.emit('updateUserStatus', users);
         console.log("USERS:");
         console.log(users);
     });
@@ -70,22 +69,24 @@ io.on('connection', function (socket) {
         console.log("join party request sent from " + sender_id + " to " + receiver_id)
     })
 
+    //notify acceptane needs recheck
     socket.on("notify_acceptance", ({receiver_id, party_id}) => {
-        console.log(receiver_id + " has been notified of party acceptance")
         const receiver = getUser(receiver_id);
         io.to(receiver.socket_id).emit("update_header", {
             party_id: party_id,
         })
-        // console.log(receiver_id + " has been notified of party acceptance")
+        console.log(receiver_id + " has been notified of party acceptance")
     })
 
     socket.on("update_online_status", function(){
-        //   console.log("online status updated")
-        //   io.emit('updateUserStatus', users);
+          console.log("online status updated")
+          io.emit('updateUserStatus', users);
     });
 
     socket.on("disconnect", () => {
         removeUser(socket.id);
+        io.emit('updateUserStatus', users);
+        console.log("user " + " disconnected");
     });
 
     //update

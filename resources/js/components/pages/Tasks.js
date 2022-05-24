@@ -84,7 +84,6 @@ import { set } from "lodash";
     }, []);
 
     useEffect( () => {
-        console.log("HEEEREE")
         socket?.on("update_header", data => {
             console.log(data)
             setHasPartyUpdates(!hasPartyUpdates)
@@ -152,8 +151,6 @@ import { set } from "lodash";
             console.log(socket)
 
             id.current = data.user_id;
-            console.log("here")
-            console.log(id.current)
 
             let user_data = {
                 user_id: data.user_id,
@@ -164,9 +161,9 @@ import { set } from "lodash";
 
             // socket.on('connect', function() {
                 socket.emit('user_connected', user_data);
-                if(data.has_party == 1){
+                // if(data.has_party == 1){
                     socket.emit('update_online_status')
-                }
+                // }
             // });
         });
     }, [hasPartyUpdates]);
