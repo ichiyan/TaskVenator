@@ -7,8 +7,12 @@ use App\Models\Battle;
 use App\Models\Monster;
 use App\Models\Avatar;
 use App\Models\BattleIndividual;
+use App\Models\BattleGroup;
+use App\Models\BattleGroupMembers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BattleController extends Controller
 {
@@ -104,11 +108,17 @@ class BattleController extends Controller
         $avatar = Avatar::find($id);
         $hp = 100 + ($avatar->level * 8);
 
+        $engaging= DB::table('battle_group_members')
+                  ->where('battle_group_members.user_id', '=', $id)
+                  ->join('battle_groups', 'battle_groups.id','=', 'battle_group_members.battle_group_id')
+                  ->get();
+
         return response()->json([
             'status' => 200,
             'monsters' => $monsters,
             'count' => $count,
             'hp' => $hp,
+            'engaging' =>$engaging
         ]);
     }
 }

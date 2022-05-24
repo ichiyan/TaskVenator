@@ -24,22 +24,22 @@ class CreateMonstersTable extends Migration
         DB::table('monsters')->insert(
             array(
                 ['name' => 'Zombie',
-                    'image' => "",
+                    'image' => "assets/images/monsters/Zombie.gif",
                 ],
                 ['name' => 'Cthulhu',
-                    'image' => "",
+                    'image' => "assets/images/monsters/Cthulhu.gif",
                 ],
                 ['name' => 'Cerberus',
-                    'image' => "",
+                    'image' => "assets/images/monsters/Cerberus.gif",
                 ],
                 ['name' => 'Ghoul',
-                    'image' => "",
+                    'image' => "assets/images/monsters/Ghoul.gif",
                 ],
                 ['name' => 'Dryads',
-                    'image' => "",
+                    'image' => "assets/images/monsters/Dryads.gif",
                 ],
                 ['name' => 'Mummy',
-                    'image' => "",
+                    'image' => "assets/images/monsters/Mummy.gif",
                 ],
             )
         );
