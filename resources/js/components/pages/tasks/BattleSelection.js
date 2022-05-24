@@ -1,7 +1,7 @@
 import {React, useEffect, useState, TaskItem} from "../../../index";
 import '../../../../../public/css/party_tasks.css';
 
-const BattleSelection = ({name}) => {
+const BattleSelection = ({name,hp}) => {
 
     const monster_picture = "assets/images/monsters/"+name+".gif"
 
@@ -13,7 +13,7 @@ const BattleSelection = ({name}) => {
             </div>
             <div className="hp">
                 <span>
-                    <img src="assets/images/health-icon.png"/> <p>100</p>
+                    <img src="assets/images/health-icon.png"/> <p>{hp}</p>
                 </span>
             </div>
         </div>

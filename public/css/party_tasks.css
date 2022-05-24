@@ -138,8 +138,17 @@ h1{
 
 }
 
+
+
 .join_battle_modal .modal_body::-webkit-scrollbar {
     display: none;
+}
+
+.join_battle_modal .modal-header p{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
 }
 
 .battle_selection{
