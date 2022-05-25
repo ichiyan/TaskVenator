@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Party;
 use App\Models\PartyMember;
+use App\Models\TaskDifficulty;
 use App\Models\TaskItem;
 use App\Models\Tasks;
 use App\Models\UserInfo;
@@ -198,6 +199,8 @@ class TasksController extends Controller
 
         $taskItem = TaskItem::find($request->get('task_id'));
 
+        $task_difficulty = TaskDifficulty::where('id', '=', $taskItem->task_difficulty)->first();
+
         $task_id= TaskItem::find($request->get('task_id'))->task_id;
         //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
         $task = Tasks::find($task_id);
@@ -216,6 +219,7 @@ class TasksController extends Controller
             }else if($task->is_in_progress == 0){//if still in_progress
                 $task->is_in_progress = 1;
             }
+            $is_completed = 1;
             $message = 'Congratulations on Completing a Task!';
         }else{ //undo completed task
             $taskItem->is_complete  = 0;
@@ -226,6 +230,7 @@ class TasksController extends Controller
             }else if($task->is_in_progress == 1 && $completedTasks==0){
                 $task->is_in_progress = 0;
             }
+            $is_completed = 0;
             $message = 'You will finish it someday!';
         }
         $taskItem->save();
@@ -233,6 +238,12 @@ class TasksController extends Controller
 
         return response()->json([
             'status' => 200,
+            'task_difficulty' => $taskItem->task_difficulty,
+            'test' =>$task_difficulty,
+            'task_value' => $task_difficulty->task_value,
+            'hp_gain' => $task_difficulty->hp_gain,
+            'gem_gain' => $task_difficulty->gem_gain,
+            'is_completed' => $is_completed,
             'message' => $message,
         ]);
     }

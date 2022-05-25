@@ -2,7 +2,7 @@ import {React, useEffect, useState, } from "../../../index";
 import '../../../../../public/css/party_tasks.css';
 import axios from "axios";
 
-const TaskItem = ({task, className, whenChecked, task_id, stat}) => {
+const TaskItem = ({task, className, whenChecked, task_id, stat, updateStats}) => {
     // let stat = (className == "checked-item")? 1:0;
     const [done, setDone]= useState({
         task_status: stat,
@@ -19,10 +19,13 @@ const TaskItem = ({task, className, whenChecked, task_id, stat}) => {
 
         axios.post(`/api/completeTask`, done).then(res =>{
             if(res.data.status === 200){
-                alert(res.data.message);
+                // alert(res.data.message);
                 // console.log("FORM after")
                 // console.log(res.data)
                 // whenChecked(e)
+                let data = res.data;
+                updateStats(data.task_value, data.hp_gain, data.gem_gain);
+
             }
         }).catch(function (error) {
             console.log(error);

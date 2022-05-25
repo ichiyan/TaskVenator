@@ -35,9 +35,9 @@ const JoinBattle = ({setInbattle}) => {
     return (
         <div>
             <div className="">
-                <Button variant="primary" onClick={handleShow} className="tasks-join-button">
+                <button className="btn-custom-primary join-battle-btn" onClick={handleShow}>
                     {buttonText}
-                </Button>
+                </button>
             </div>
 
 
@@ -57,7 +57,6 @@ const JoinBattle = ({setInbattle}) => {
                 </Modal.Body>
                 <Modal.Footer className='border-0 ' style={{ backgroundColor: "#4b4c65"}}></Modal.Footer>
             </Modal>
-        );
         </div>
     );
 }

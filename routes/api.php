@@ -85,6 +85,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     //updating avatar status
     Route::post('update_health', [UserInfoController::class, 'updateHealth']);
     Route::post('update_last_received_daily_hp', [UserInfoController::class, 'updateLastReceivedDailyHp']);
+    Route::post('update_hp_xp_gems', [UserInfoController::class, 'updateHpXpGems']);
 
 });
 

@@ -2,7 +2,7 @@ import {React, useEffect, useState, TaskItem} from "../../../index";
 import '../../../../../public/css/party_tasks.css';
 import axios from "axios";
 
-function HomeTasks ({task, updateXP}){
+function HomeTasks ({task, updateStats}){
 
     const tasks = ["Apple", "Banana", "Tea", "Coffee"];
     const [isActive, setIsActive] = useState(true);
@@ -82,7 +82,9 @@ function HomeTasks ({task, updateXP}){
                                 className={cn}
                                 whenChecked={handleCheck}
                                 task_id={mapped_task['id']}
-                                stat={mapped_task['is_complete']} ></TaskItem>
+                                stat={mapped_task['is_complete']}
+                                updateStats={updateStats}
+                                ></TaskItem>
                             </div>
                         )
                     }

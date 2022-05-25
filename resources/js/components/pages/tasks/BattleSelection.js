@@ -23,7 +23,7 @@ const BattleSelection = ({name,hp,id,setShow,setInbattle,description}) => {
         setFlag(1);
     }
 
- 
+
     useEffect(() => {
         const data={
             monsterhp: monsterinfo.monsterhp,
@@ -32,7 +32,7 @@ const BattleSelection = ({name,hp,id,setShow,setInbattle,description}) => {
         console.log(data);
         if(flag === 1){
             if(monsterinfo.monsterhp === '' && monsterinfo.monsterid === ''){
-                
+
             }else{
                 axios.post(`/api/joinBattle`, data).then(res =>{
                     if(res.data.status === 200){
@@ -68,8 +68,8 @@ const BattleSelection = ({name,hp,id,setShow,setInbattle,description}) => {
             </div>
             <div className="battle_button">
                     <input name="monsterid" type="hidden" value={id}/>
-                    <input name="monsterhp" type="hidden" value={hp}/> 
-                    <button onClick={()=>{join()}} className="battle_btn btn w-50 text-light close">Battle</button>
+                    <input name="monsterhp" type="hidden" value={hp}/>
+                    <button onClick={()=>{join()}} className="btn-custom-primary join-battle-btn btn w-50 text-light close">Battle</button>
             </div>
         </div>
     </div>

@@ -305,7 +305,7 @@
 # Battle Section
 --------------------------------------------------------------*/
 .col-battle{
-    height: 20rem;
+    height: auto;
     position: fixed;
     width: 30%;
     background-color:#343646;
@@ -355,7 +355,7 @@
 
             .monster-header img{
                 height: auto;
-                width: 130px;
+                max-width: 450px;
             }
             .first-row{
                 display: inline-block;
@@ -478,4 +478,9 @@
             }
          }
     }
+}
+
+.battle-wrapper{
+    display: flex;
+    flex-direction: column;
 }

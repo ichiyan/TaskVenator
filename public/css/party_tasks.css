@@ -431,6 +431,22 @@ h1{
     background-color: #3ac162;
  }
 
+ .btn-custom-danger.forfeit-battle-btn{
+    width: 120px;
+    display: inline-block;
+    border: none;
+    background: #f55351;
+    color: #fff;
+    padding: 10px;
+    height: 45px;
+    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+ }
+
+ .btn-custom-danger.join-forfeit-btn:hover{
+    background-color: #d54542;
+ }
+
  .accept-icon{
      color: #5FCF80;
  }

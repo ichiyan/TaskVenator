@@ -126,6 +126,13 @@ class InventoryController extends Controller
         ]);
     }
 
+    public function updateGems(Request $request){
+        UserInfo::where('id', '=', Auth::id())->update(array('gems' => $request->gems));
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
+
     public function update(Request $request){
 
         $user_id = Auth::id();
@@ -160,7 +167,7 @@ class InventoryController extends Controller
                 if(count($to_unequip) != 0){
                     //if there is such item, unequip
                     $returnID = $to_unequip->pluck('id')[0];
-                    DB::update('update inventories set status = ? where status = ? && OutfitType = ? && user_id = ?', 
+                    DB::update('update inventories set status = ? where status = ? && OutfitType = ? && user_id = ?',
                                 [0, 1 , 2, $user_id]);
                 }else{
                     $returnID = 0;

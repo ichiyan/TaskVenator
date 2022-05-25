@@ -21,6 +21,9 @@ import { set } from "lodash";
     const health = useRef();
     const healthTotal = useRef();
 
+    const exp = useRef();
+    const expTotal = useRef();
+
     const [hpBarWidth, sethpBarWidth] = useState();
     const [hpHitWidth, sethpHitWidth] = useState("0");
     const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
@@ -77,7 +80,7 @@ import { set } from "lodash";
                 setGems(res.data.gems);
               }
         });
-     },[])
+     },[gems])
 
     useEffect( () => {
         document.body.classList.add('internal-pages');
@@ -115,6 +118,10 @@ import { set } from "lodash";
 
             healthTotal.current = data.max_hp;
             health.current = data.curr_hp;
+
+            expTotal.current = data.max_xp;
+            exp.current = data.curr_xp;
+
 
 
             // setDailyHp( 2 * (2 + (data.level * 0.1)));
@@ -206,9 +213,31 @@ import { set } from "lodash";
         });
     }
 
-    const updateXP = (task_value) => {
-        xp_gain = (task_value * 0.2) * (1 + (0.5 * level)) * (1 + (0.04 * (level /2)));
+
+
+    const updateStats = (task_value, hp_gain, gem_gain) => {
+        var xp_gain = (task_value * 0.2) * (1 + (0.5 * level)) * (1 + (0.04 * (level /2)));
+        var xp_update = exp.current + xp_gain;
+        var hp_update = health.current + hp_gain;
+        var gems_update = gems + gem_gain;
+        console.log(xp_update)
         addXPHandler(xp_gain)
+
+        healHandler(hp_gain)
+        setGems(gems_update)
+
+        let data = {
+            gems: gems_update,
+            hp_gain: hp_update,
+            xp_gain: xp_update
+        }
+
+        axios.post(`/api/update_hp_xp_gems`, data).then(res => {
+            if(res.data.status == 200){
+                console.log(res.data)
+            }
+        })
+
     }
 
 
@@ -239,7 +268,7 @@ import { set } from "lodash";
         let updatedHp;
         let newHPBarWidth;
 
-        if(health.current === healthTotal.current || (health.current + added_hp) > healthTotal.current){
+        if(health.current == healthTotal.current || (health.current + added_hp) >= healthTotal.current){
             updatedHp = healthTotal.current;
         }else{
             updatedHp = health.current + added_hp;
@@ -260,13 +289,14 @@ import { set } from "lodash";
     const addXPHandler = (added_xp) => {
         let updatedXp = 0;
         let newXPBarWidth;
-        if(xp === xpTotal){
+        if(exp.current == expTotal.current){
             newXPBarWidth = 0;
         }else{
-            updatedXp = xp + added_xp;
-            newXPBarWidth = updatedXp / xpTotal * 100;
+            updatedXp = exp.current + added_xp;
+            newXPBarWidth = updatedXp / expTotal.current * 100;
         }
         setXp(updatedXp);
+        exp.current = updatedXp;
 
         setXPIncreaseWidth(newXPBarWidth);
 
@@ -347,7 +377,7 @@ import { set } from "lodash";
     }else if (tab === "group_tasks"){
         renderTab = <GroupTasks/>;
     }else if (tab === "tasks"){
-        renderTab = <TasksTab updateXP={updateXP}/>;
+        renderTab = <TasksTab updateStats={updateStats}/>;
     }else if (tab === "shop"){
         renderTab = <Shop setGems={setGems} gems={gems}/>;
     }else if(tab ==="inventory"){
@@ -427,7 +457,7 @@ import { set } from "lodash";
                         </Button>
                         </Modal.Footer>
                 </Modal> */}
-                    {
+                    {/* {
                         tab == "tasks"
                         ?
                             <div className="container">
@@ -437,7 +467,7 @@ import { set } from "lodash";
                                 <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
                             </div>
                         : null
-                    }
+                    } */}
                     {renderTab}
                 </div>
             </div>
