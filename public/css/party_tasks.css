@@ -473,3 +473,9 @@ h1{
     margin-left: 4px;
     margin-right: 4px;
 }
+
+.party-hp{
+    display: flex;
+    flex-direction: row;
+    gap:1rem
+}
