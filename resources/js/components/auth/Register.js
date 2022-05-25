@@ -78,7 +78,7 @@ const Register = () => {
                                 </div>
                                 <div className="form-group signup-signin-form-group">
                                     <input type="checkbox" name="agree-term" id="agree-term" className="agree-term" />
-                                    <label htmlFor="agree-term" className="label-agree-term"><span><span></span></span>I agree all statements in  <Link to="#" className="term-service">Terms of service</Link></label>
+                                    <label htmlFor="agree-term" className="label-agree-term"><span><span></span></span>I agree all statements in  <Link to="#" className="term-service" style={{color: "blue"}}>Terms of service</Link></label>
                                 </div>
                                 <div className="form-group signup-signin-form-group">
                                     <input type="submit" name="submit" id="submit" className="form-submit submit" value="Sign up"/>

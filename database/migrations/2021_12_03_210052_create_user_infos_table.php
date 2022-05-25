@@ -16,7 +16,7 @@ class CreateUserInfosTable extends Migration
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
             $table->string('username');
-            $table->integer('gems')->default('10');
+            $table->integer('gems')->default('60');
             //TBD: default warning days
             $table->integer('warning_days')->default('3');
             $table->integer('has_party')->default('0')->comment('0: no party, 1: has party');

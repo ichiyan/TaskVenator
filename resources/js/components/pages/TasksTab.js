@@ -50,6 +50,8 @@ const TasksTab = ({updateStats}) => {
         setTaskCount({in_progress: prev});
     }
 
+    const [test, setTest] = useState(0);
+
     useEffect(() =>{
         axios.get(`/api/tasks`).then(res =>{
             if(res.data.status===200){
@@ -57,6 +59,9 @@ const TasksTab = ({updateStats}) => {
                     tasks:res.data.tasks,
                     id:res.data.id
                 })
+                if(res.data.length == 0){
+                    setTest(1);
+                }
             }
         })
     },[])
@@ -137,7 +142,7 @@ const TasksTab = ({updateStats}) => {
 
                 <div className="tasks-col-container">
                     <div className="tasks-col col-t" style={{"width" : colWidth}} >
-                        <h3 className="col-t-label"> In Progress: {taskCount.in_progress} </h3>
+                        <h3 className="col-t-label"> In Progress:  </h3>
                         {/*button for new task after*/}
                         {taskList.tasks.map((one_task,index)=>{
                             //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
@@ -153,7 +158,7 @@ const TasksTab = ({updateStats}) => {
                                     )
                             }
                         }) }
-                        <h3 className="col-t-label"> To Do: {taskCount.to_do_num} </h3>
+                        <h3 className="col-t-label"> To Do:  </h3>
                         {taskList.tasks.map((one_task,index)=>{
                             //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
                             if(one_task['is_in_progress'] === 0){
@@ -174,10 +179,19 @@ const TasksTab = ({updateStats}) => {
                         }) }
                     </div>
                     <div className="tasks-col col-t" style={{"width" : colWidth}}>
-                        <h3 className="col-t-label"> Repeating Tasks: {taskCount.repeating_tasks} </h3>
-                        <HomeDailyTasks/>
-                        <HomeDailyTasks/>
-                        <h3 className="col-t-label"> Done: {taskCount.done_num} </h3>
+                        <h3 className="col-t-label"> Repeating Tasks: </h3>
+                        {
+                            test == 1 ?
+
+                                <Fragment>
+                                     <HomeDailyTasks/>
+                                    <HomeDailyTasks/>
+                                </Fragment>
+
+                            : ''
+                        }
+
+                        <h3 className="col-t-label"> Done:</h3>
                         {taskList.tasks.map((one_task,index)=>{
                             //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
                             if(one_task['is_in_progress'] === -1 && one_task['show_when_done'] === 1){

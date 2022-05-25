@@ -76,60 +76,70 @@ class UsersSeeder extends Seeder
                     'username' => 'axolotl',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 1
                 ],
                 [
                     'username' => 'capybara',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 2
                 ],
                 [
                     'username' => 'cat_emperor',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 3
                 ],
                 [
                     'username' => 'penguin',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 4
                 ],
                 [
                     'username' => 'jellyfish',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 5
                 ],
                 [
                     'username' => 'red_panda',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 6
                 ],
                 [
                     'username' => 'kurage',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 7
                 ],
                 [
                     'username' => 'norin',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 8
                 ],
                 [
                     'username' => 'dokyun',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 9
                 ],
                 [
                     'username' => 'kaiii',
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' =>  '2022-01-12 02:18:50',
                     'user_id' => 10
                 ],
 

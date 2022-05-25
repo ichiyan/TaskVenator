@@ -51,7 +51,7 @@ const FormParty = () => {
     }
 
     const submitHandler = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
 
         const partyFormData = new FormData()
         partyFormData.append("party_name", partyInfo.party_name)
