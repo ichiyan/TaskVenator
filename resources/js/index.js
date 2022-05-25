@@ -11,6 +11,7 @@ export {Swal} from 'sweetalert2';
 export {default as ReactTooltip} from 'react-tooltip';
 export {default as Carousel} from 'react-elastic-carousel';
 export { default as moment } from 'moment-timezone';
+export { Button, Modal } from 'react-bootstrap';
 
  /*--------------------------------------------------------------
 # Auth
@@ -69,6 +70,8 @@ export {default as GroupMemberPublicTasks} from "./components/pages/tasks/GroupM
 export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks";
 export {default as HomeTasks} from "./components/pages/tasks/HomeTasks";
 export {default as TaskItem} from "./components/pages/tasks/TaskItem";
+export {default as NewTaskForm} from "./components/pages/tasks/NewTaskForm";
+export {default as JoinBattle} from "./components/pages/tasks/JoinBattle";
 
 export {default as Contact} from "./components/pages/home/Contact";
 export {default as About} from "./components/pages/home/About";

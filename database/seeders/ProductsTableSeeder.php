@@ -14,686 +14,201 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert(
-            [
-        
-        [
-            //storing common type warrior weapon 
-             'id'=> '1',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '1',
-        ],[
-             'id'=> '2',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '2',
-        ],[
-            'id'=> '3',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '3',
-        ],[
-            //uncommon warrior weap
-            'id'=> '4',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '4',
-        ],[
-            'id'=> '5',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '5',
-        ],[
-            //rare warrior weap
-            'id'=> '6',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '6',
-        ],[
-            'id'=> '7',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '7',
-        ],[
-            //COMMON MARKSMAN WEAPS
-            'id'=> '8',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '8',
-        ],[
-            'id'=> '9',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '9',
-        ],[
-            'id'=> '10',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '10',
-        ],[
-            //UNCOMMON MARKSMAN WEAP
-            'id'=> '11',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '11',
-        ],[
-            'id'=> '12',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '12',
-        ],[
-            'id'=> '13',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '13',
-        ],[
-            //RARE MARKSMAN WEAP
-            'id'=> '14',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '14', //d
-        ],[
-            //COMMON MAGE WEAP
-            'id'=> '15',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '15',
-        ],[
-            //UNCOMMON MAGE WEAP
-            'id'=> '16',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '16',
-        ],[
-            //RARE MAGE WEAP
-            'id'=> '17',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '17',
-        ],[
-            //COMMON WARRIOR HEAD
-            'id'=> '18',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '18', 
-        ],[
-            'id'=> '19',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '19',
-        ],[
-            //UNCOMMON WARRIOR HEAD
-            'id'=> '20',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '20',
-        ],[
-            'id'=> '21',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '21',
-        ],[
-            //RARE WARRIOR HEAD
-            'id'=> '22',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '22',
-        ],[
-            'id'=> '23',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '23',
-        ],[
-            'id'=> '24',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '24',
-        ],[
-            //COMMON WARRIOR ARMS
-            'id'=> '25',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '25',
-        ],[
-            //UNCOMMON WARRIOR ARMS
-            'id'=> '26',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '26',
-        ],[
-            'id'=> '27',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '27',
-        ],[
-            //RARE WARRIOR ARMS
-            'id'=> '28',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '28',
-        ],[
-            'id'=> '29',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '29',
-        ],[
-            //COMMON WARRIOR TORSO
-            'id'=> '30',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '30',
-        ],[
-            //UNCOMMON WARRIOR TORSO
-            'id'=> '31',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '31',
-        ],[
-            'id'=> '32',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '32',
-        ],[
-            //RARE WARRIOR TORSO
-            'id'=> '33',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '33',
-        ],[
-            'id'=> '34',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '34',
-        ],[
-            'id'=> '35',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '35',
-        ],[
-            //COMMON WARRIOR LEGS
-            'id'=> '36',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '36',
-        ],[
-            //UNCOMMON WARRIOR LEGS
-            'id'=> '37',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '37',
-        ],[
-            'id'=> '38',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '38',
-        ],[
-            'id'=> '39',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '39',
-        ],[
-            //RARE WARRIOR LEGS
-            'id'=> '40',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '40',
-        ],[
-            'id'=> '41',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '41',
-        ],[
-            //COMMON WARRIOR FOOTWEAR
-            'id'=> '42',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '42',
-        ],[
-            //UNCOMMON WARRIOR FOOTWEAR
-            'id'=> '43',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '43',
-        ],[
-            'id'=> '44',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '44',
-        ],[
-            //RARE WARRIOR FOOTWEAR
-            'id'=> '45',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '45',
-        ],[
-            //COMMON MARKSMAN HEAD
-            'id'=> '46',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '46',
-        ],[
-            //UNCOMMON MARKSMAN HEAD
-            'id'=> '47',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '47',
-        ],[
-            'id'=> '48',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '48',
-        ],[
-            //RARE MARKSMAN HEAD
-            'id'=> '49',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '49',
-        ],[
-            'id'=> '50',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '50',
-        ],[
-            //COMMON MARKSMAN ARMS
-            'id'=> '51',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '51',
-        ],[
-            //UNCOMMON MARKSMAN ARMS
-            'id'=> '52',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '52',
-        ],[
-            'id'=> '53',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '53',
-        ],[
-            //RARE MARKSMAN ARMS
-            'id'=> '54',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '54',
-        ],[
-            'id'=> '55',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '55',
-        ],[
-            //COMMON MARKSMAN TORSO
-            'id'=> '56',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '56',
-        ],[
-            //UNCOMMON MARKSMAN TORSO
-            'id'=> '57',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '57',
-        ],[
-            'id'=> '58',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '58',
-        ],[
-            'id'=> '59',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '59',
-        ],[
-            //RARE MARKSMAN TORSO
-            'id'=> '60',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '60',
-        ],[
-            'id'=> '61',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '61',
-        ],[
-            //COMMON MARKSMAN LEGS
-            'id'=> '62',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '62',
-        ],[
-            //UNCOMMON MARKSMAN LEGS
-            'id'=> '63',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '63',
-        ],[
-            'id'=> '64',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '64',
-        ],[
-            //RARE MARKSMAN LEGS
-            'id'=> '65',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '65',
-        ],[
-            'id'=> '66',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '66',
-        ],[
-            'id'=> '67',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '67',
-        ],[
-            //COMMON MARKSMAN FOOTWEAR
-            'id'=> '68',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '68',
-        ],[
-            //UNCOMMON MARKSMAN FOOTWEAR
-            'id'=> '69',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '69',
-        ],[
-            'id'=> '70',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '70',
-        ],[
-            'id'=> '71',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '71',
-        ],[
-            //RARE MARKSMAN FOOTWEAR
-            'id'=> '72',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '72',
-        ],[
-            //COMMON MAGE HEAD
-            'id'=> '73',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '73', 
-        ],[
-            //UNCOMMON MAGE HEAD
-            'id'=> '74',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '74',
-        ],[
-            'id'=> '75',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '75',
-        ],[
-            //RARE MAGE HEAD
-            'id'=> '76',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '76',
-        ],[
-            'id'=> '77',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '77',
-        ],[
-            'id'=> '78',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '78',
-        ],[
-            //COMMON MAGE ARMS
-            'id'=> '79',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '79',
-        ],[
-            //UNCOMMON MAGE ARMS
-            'id'=> '80',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '80',
-        ],[
-            'id'=> '81',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '81',
-        ],[
-            //RARE MAGE ARMS
-            'id'=> '82',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '82',
-        ],[
-            'id'=> '83',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '83',
-        ],[
-            //COMMON MAGE TORSO
-            'id'=> '84',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '84',
-        ],[
-            //UNCOMMON MAGE TORSO
-            'id'=> '85',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '85',
-        ],[
-            'id'=> '86',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '86',
-        ],[
-            //RARE MAGE TORSO
-            'id'=> '87',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '87',
-        ],[
-            'id'=> '88',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '88',
-        ],[
-            //COMMON MAGE LEGS
-            'id'=> '89',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '89',
-        ],[
-            //UNCOMMON MAGE LEGS
-            'id'=> '90',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '90',
-        ],[
-            'id'=> '91',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '91',
-        ],[
-            //RARE MAGE LEGS
-            'id'=> '92',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '92',
-        ],[
-            'id'=> '93',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '93',
-        ],[
-            'id'=> '94',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '94',
-        ],[
-            //COMMON MARKSMAN FOOTWEAR
-            'id'=> '95',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '95',
-        ],[
-            //UNCOMMON MARKSMAN FOOTWEAR
-            'id'=> '96',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '96',
-        ],[
-            'id'=> '97',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '97',
-        ],[
-            'id'=> '98',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '98',
-        ],[
-            //RARE MARKSMAN FOOTWEAR
-            'id'=> '99',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '99',
-        ],[
-            //HEALING POTIONS
-            'id'=> '100',
-            'card'=> NULL,
-            'potion'=> '1',
-            'outfit'=> NULL,
-        ],[
-            'id'=> '101',
-            'card'=> NULL,
-            'potion'=> '2',
-            'outfit'=> NULL,
-        ],[
-            'id'=> '102',
-            'card'=> NULL,
-            'potion'=> '3',
-            'outfit'=> NULL,
-        ],[
-            //POWERUP POTIONS
-            'id'=> '103',
-            'card'=> NULL,
-            'potion'=> '4',
-            'outfit'=> NULL,
-        ],[
-            'id'=> '104',
-            'card'=> NULL,
-            'potion'=> '5',
-            'outfit'=> NULL,
-        ],[
-            'id'=> '105',
-            'card'=> NULL,
-            'potion'=> '6',
-            'outfit'=> NULL,
-        ],[
-            //DEFAULT WARRIOR HEAD
-            'id'=> '106',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '100',
-        ],[
-            //DEFAULT WARRIOR ARMS
-            'id'=> '107',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '101',
-        ],[
-            //DEFAULT WARRIOR TORSO
-            'id'=> '108',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '102',
-        ],[
-            //DEFAULT WARRIOR LEGS
-            'id'=> '109',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '103',
-        ],[
-            //DEFAULT WARRIOR FOOTWEAR
-            'id'=> '110',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '104',
-        ],[
-            //DEFAULT WARRIOR WEAPON
-            'id'=> '111',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '105',
-        ],[
-            //DEFAULT MARKSMAN HEAD
-            'id'=> '112',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '106',
-        ],[
-            //DEFAULT MARKSMAN TORSO
-            'id'=> '113',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '107',
-        ],[
-            //DEFAULT MARKSMAN LEGS
-            'id'=> '114',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '108',
-        ],[
-            //DEFAULT MARKSMAN FOOTWEAR
-            'id'=> '115',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '109',
-        ],[
-            //DEFAULT MARKSMAN WEAPON
-            'id'=> '116',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '110',
-        ],[
-            //DEFAULT MAGE HEAD
-            'id'=> '117',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '111',
-        ],[
-            //DEFAULT MAGE TORSO
-            'id'=> '118',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '112',
-        ],[
-            //DEFAULT MAGE LEGS
-            'id'=> '119',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '113',
-        ],[
-            //DEFAULT MAGE FOOTWEAR
-            'id'=> '120',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '114',
-        ],[
-            //DEFAULT MAGE WEAPON
-            'id'=> '121',
-            'card'=> NULL,
-            'potion'=> NULL,
-            'outfit'=> '115',
-        ]
-    ]);
+            array(
+                //storing common type warrior weapon
+                ['id'=> '1', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '1', 'price'=> 5],
+                ['id'=> '2', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '2', 'price'=> 5],
+                ['id'=> '3', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '3', 'price'=> 5],
+                //uncommon warrior weapon
+                ['id'=> '4','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '4','price'=> 5],
+                ['id'=> '5', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '5', 'price'=> 5],
+                //rare warrior weapon
+                ['id'=> '6', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '6', 'price'=> 5],
+                ['id'=> '7', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '7', 'price'=> 5],
+                //COMMON MARKSMAN WEAPON
+                ['id'=> '8', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '8', 'price'=> 5],
+                ['id'=> '9', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '9', 'price'=> 5],
+                ['id'=> '10','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '10', 'price'=> 5],
+                //UNCOMMON MARKSMAN WEAPON
+                ['id'=> '11', 'weapon'=> NULL,'potion'=> NULL, 'outfit'=> '11', 'price'=> 5],
+                ['id'=> '12', 'weapon'=> NULL,'potion'=> NULL, 'outfit'=> '12', 'price'=> 5],
+                ['id'=> '13','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '13','price'=> 5],
+                //RARE MARKSMAN WEAPON
+                ['id'=> '14', 'weapon'=> NULL,'potion'=> NULL, 'outfit'=> '14', 'price'=> 5],
+                //COMMON MAGE WEAPON
+                ['id'=> '15', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '15','price'=> 5],
+                //UNCOMMON MAGE WEAPON
+                ['id'=> '16','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '16','price'=> 5],
+                //RARE MAGE WEAPON
+                ['id'=> '17', 'weapon'=> NULL,'potion'=> NULL, 'outfit'=> '17','price'=> 5],
+                //COMMON WARRIOR HEAD
+                ['id'=> '18','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '18','price'=> 5],
+                ['id'=> '19','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '19','price'=> 5],
+                //UNCOMMON WARRIOR HEAD
+                ['id'=> '20', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '20','price'=> 5],
+                ['id'=> '21', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '21','price'=> 5],
+                //RARE WARRIOR HEAD
+                ['id'=> '22', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '22','price'=> 5],
+                ['id'=> '23', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '23','price'=> 5],
+                ['id'=> '24', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '24', 'price'=> 5],
+                //COMMON WARRIOR ARMS
+                ['id'=> '25', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '25', 'price'=> 5],
+                //UNCOMMON WARRIOR ARMS
+                ['id'=> '26', 'weapon'=> NULL,'potion'=> NULL, 'outfit'=> '26','price'=> 5],
+                ['id'=> '27', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '27', 'price'=> 5],
+                //RARE WARRIOR ARMS
+                ['id'=> '28', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '28', 'price'=> 5],
+                ['id'=> '29', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '29', 'price'=> 5],
+                //COMMON WARRIOR TORSO
+                ['id'=> '30', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '30','price'=> 5],
+                //UNCOMMON WARRIOR TORSO
+                ['id'=> '31','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '31', 'price'=> 5],
+                ['id'=> '32','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '32', 'price'=> 5],
+                //RARE WARRIOR TORSO
+                ['id'=> '33','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '33', 'price'=> 5],
+                ['id'=> '34','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '34', 'price'=> 5],
+                ['id'=> '35','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '35', 'price'=> 5],
+                //COMMON WARRIOR LEGS
+                ['id'=> '36','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '36', 'price'=> 5],
+                //UNCOMMON WARRIOR LEGS
+                ['id'=> '37', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '37', 'price'=> 5],
+                ['id'=> '38', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '38', 'price'=> 5],
+                ['id'=> '39', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '39', 'price'=> 5],
+                //RARE WARRIOR LEGS
+                ['id'=> '40', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '40', 'price'=> 5],
+                ['id'=> '41', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '41', 'price'=> 5],
+                //COMMON WARRIOR FOOTWEAR
+                ['id'=> '42', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '42', 'price'=> 5],
+                //UNCOMMON WARRIOR FOOTWEAR
+                ['id'=> '43', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '43', 'price'=> 5],
+                ['id'=> '44', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '44', 'price'=> 5],
+                //RARE WARRIOR FOOTWEAR
+                ['id'=> '45', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '45', 'price'=> 5],
+                //COMMON MARKSMAN HEAD
+                ['id'=> '46', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '46', 'price'=> 5],
+                //UNCOMMON MARKSMAN HEAD
+                ['id'=> '47', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '47', 'price'=> 5],
+                ['id'=> '48', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '48', 'price'=> 5],
+                //RARE MARKSMAN HEAD
+                ['id'=> '49', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '49', 'price'=> 5],
+                ['id'=> '50', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '50', 'price'=> 5],
+                //COMMON MARKSMAN ARMS
+                ['id'=> '51','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '51', 'price'=> 5],
+                //UNCOMMON MARKSMAN ARMS
+                ['id'=> '52', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '52', 'price'=> 5],
+                ['id'=> '53','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '53', 'price'=> 5],
+                //RARE MARKSMAN ARMS
+                ['id'=> '54', 'weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '54', 'price'=> 5],
+                ['id'=> '55','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '55', 'price'=> 5],
+                //COMMON MARKSMAN TORSO
+                ['id'=> '56','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '56', 'price'=> 5],
+                //UNCOMMON MARKSMAN TORSO
+                ['id'=> '57','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '57', 'price'=> 5],
+                ['id'=> '58','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '58', 'price'=> 5],
+                ['id'=> '59','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '59', 'price'=> 5],
+                //RARE MARKSMAN TORSO
+                ['id'=> '60','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '60', 'price'=> 5],
+                ['id'=> '61','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '61','price'=> 5],
+                //COMMON MARKSMAN LEGS
+                ['id'=> '62','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '62','price'=> 5],
+                //UNCOMMON MARKSMAN LEGS
+                ['id'=> '63','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '63','price'=> 5],
+                ['id'=> '64','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '64','price'=> 5],
+                //RARE MARKSMAN LEGS
+                ['id'=> '65','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '65','price'=> 5],
+                ['id'=> '66','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '66','price'=> 5],
+                ['id'=> '67','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '67','price'=> 5],
+                //COMMON MARKSMAN FOOTWEAR
+                ['id'=> '68','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '68','price'=> 5],
+                //UNCOMMON MARKSMAN FOOTWEAR
+                ['id'=> '69','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '69','price'=> 5],
+                ['id'=> '70','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '70','price'=> 5],
+                ['id'=> '71','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '71','price'=> 5],
+                //RARE MARKSMAN FOOTWEAR
+                ['id'=> '72','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '72','price'=> 5],
+                //COMMON MAGE HEAD
+                ['id'=> '73','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '73','price'=> 5],
+                //UNCOMMON MAGE HEAD
+                ['id'=> '74','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '74','price'=> 5],
+                ['id'=> '75','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '75','price'=> 5],
+                //RARE MAGE HEAD
+                ['id'=> '76','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '76','price'=> 5],
+                ['id'=> '77','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '77','price'=> 5],
+                ['id'=> '78','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '78','price'=> 5],
+                //COMMON MAGE ARMS
+                ['id'=> '79','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '79','price'=> 5],
+                //UNCOMMON MAGE ARMS
+                ['id'=> '80','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '80','price'=> 5],
+                ['id'=> '81','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '81','price'=> 5],
+                //RARE MAGE ARMS
+                ['id'=> '82','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '82','price'=> 5],
+                ['id'=> '83','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '83','price'=> 5],
+                //COMMON MAGE TORSO
+                ['id'=> '84','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '84','price'=> 5],
+                //UNCOMMON MAGE TORSO
+                ['id'=> '85','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '85','price'=> 5],
+                ['id'=> '86','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '86','price'=> 5],
+                //RARE MAGE TORSO
+                ['id'=> '87','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '87','price'=> 5],
+                ['id'=> '88','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '88','price'=> 5],
+                //COMMON MAGE LEGS
+                ['id'=> '89','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '89','price'=> 5],
+                //UNCOMMON MAGE LEGS
+                ['id'=> '90','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '90','price'=> 5],
+                ['id'=> '91','weapon'=> NULL, 'potion'=> NULL,'outfit'=> '91','price'=> 5],
+                //RARE MAGE LEGS
+                ['id'=> '92','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '92','price'=> 5],
+                ['id'=> '93','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '93','price'=> 5],
+                ['id'=> '94','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '94','price'=> 5],
+                //COMMON MARKSMAN FOOTWEAR
+                ['id'=> '95','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '95','price'=> 5],
+                //UNCOMMON MARKSMAN FOOTWEAR
+                ['id'=> '96','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '96', 'price'=> 5],
+                ['id'=> '97','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '97','price'=> 5],
+                ['id'=> '98','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '98','price'=> 5],
+                //RARE MARKSMAN FOOTWEAR
+                ['id'=> '99','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '99','price'=> 5],
+                //HEALING POTIONS
+                ['id'=> '100','weapon'=> NULL, 'potion'=> '1', 'outfit'=> NULL,'price'=> 5],
+                ['id'=> '101','weapon'=> NULL, 'potion'=> '2', 'outfit'=> NULL,'price'=> 5],
+                ['id'=> '102','weapon'=> NULL, 'potion'=> '3', 'outfit'=> NULL,'price'=> 5],
+                //POWERUP POTIONS
+                ['id'=> '103','weapon'=> NULL, 'potion'=> '4', 'outfit'=> NULL,'price'=> 5],
+                ['id'=> '104','weapon'=> NULL, 'potion'=> '5', 'outfit'=> NULL,'price'=> 5],
+                ['id'=> '105','weapon'=> NULL, 'potion'=> '6', 'outfit'=> NULL,'price'=> 5],
+                //DEFAULT WARRIOR HEAD
+                ['id'=> '106','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '100','price'=> 5],
+                //DEFAULT WARRIOR ARMS
+                ['id'=> '107','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '101','price'=> 5],
+                //DEFAULT WARRIOR TORSO
+                ['id'=> '108','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '102','price'=> 5],
+                //DEFAULT WARRIOR LEGS
+                ['id'=> '109','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '103','price'=> 5],
+                //DEFAULT WARRIOR FOOTWEAR
+                ['id'=> '110','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '104','price'=> 5],
+                //DEFAULT WARRIOR WEAPON
+                ['id'=> '111','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '105','price'=> 5],
+                //DEFAULT MARKSMAN HEAD
+                ['id'=> '112','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '106','price'=> 5],
+                //DEFAULT MARKSMAN TORSO
+                ['id'=> '113','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '107','price'=> 5],
+                //DEFAULT MARKSMAN LEGS
+                ['id'=> '114','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '108','price'=> 5],
+                //DEFAULT MARKSMAN FOOTWEAR
+                ['id'=> '115','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '109','price'=> 5],
+                //DEFAULT MARKSMAN WEAPON
+                ['id'=> '116','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '110','price'=> 5],
+                //DEFAULT MAGE HEAD
+                ['id'=> '117','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '111','price'=> 5],
+                //DEFAULT MAGE TORSO
+                ['id'=> '118','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '112','price'=> 5],
+                //DEFAULT MAGE LEGS
+                ['id'=> '119','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '113','price'=> 5],
+                //DEFAULT MAGE FOOTWEAR
+                ['id'=> '120','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '114','price'=> 5],
+                //DEFAULT MAGE WEAPON
+                ['id'=> '121','weapon'=> NULL, 'potion'=> NULL, 'outfit'=> '115','price'=> 5],
+            )
+        );
   }
 }

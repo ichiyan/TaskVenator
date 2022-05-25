@@ -1,6 +1,6 @@
 .upload-image-inner-container {
     background-color: #fff;
-    border: 1px solid #0dcaf0;
+    border: 1px solid #403c5c;
     width: 40px;
     height: 40px;
     border-radius: 100%;
@@ -8,7 +8,11 @@
     bottom: 0;
     right: 0;
 }
-  
+
+.border-info {
+    border-color: #9580FF !important;
+}
+
 .upload-image-inner-container:hover {
     background-color: rgb(228, 228, 228);
     cursor: pointer !important;
@@ -53,9 +57,68 @@
 
 .bg-gradient {
     background: linear-gradient(180deg,
-                rgba(0,0,0,0.2805497198879552) 0%, 
-                rgba(61,61,61,0.26094187675070024) 31%, 
+                rgba(0,0,0,0.2805497198879552) 0%,
+                rgba(61,61,61,0.26094187675070024) 31%,
                 rgba(111,111,111,0.2497373949579832) 61%,
                 rgba(144,144,144,0.2189250700280112) 100%
             ) !important;
+}
+
+.btn-custom-primary.join-form-party-btn{
+    width: 120px;
+    display: inline-block;
+    border: none;
+    background: #5FCF80;
+    color: #fff;
+    padding: 10px;
+    height: 50px;
+    box-shadow: 0px 15px 9.9px 0.1px rgba(0, 0, 0, 0.15);
+ }
+
+ .btn-custom-primary.join-form-party-btn:hover{
+    background-color: #3ac162;
+ }
+
+.battle-main-container{
+    /* background-color: yellow; */
+}
+.battle-info-container{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    /* border-right: 6px solid black; */
+}
+.battle-left-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    /* background-color: black; */
+    border-right: 1px solid rgb(32, 31, 31);
+    width: 100%;
+}
+.battle-rewardsInfo{
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: left; */
+    /* align-items: left;  */
+}
+.battle-rewardsInfo h6{
+    margin-left: 15%;
+}
+.battle-rewardsInfo p{
+    margin: auto;
+}
+.battle-right-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color:aqua; */
+    width: 100%;
 }

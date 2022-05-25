@@ -16,6 +16,7 @@ use App\Models\AvatarClass;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 class InventoryController extends Controller
 {
     public function index(Request $request){
@@ -34,7 +35,7 @@ class InventoryController extends Controller
                 ->where('inventories.user_id','=',$user_id)
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('outfit','outfit.id','=','products.outfit')
-                ->where('outfit.outfit_type','=', "Armor")
+                ->where('outfit.OutfitType','=', "Armor")
                 ->where('outfit.class', '=', $avatarClass)
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*','outfit_info.*','inventories.*'  ,'inventories.user_id AS inventUserId']);
@@ -44,7 +45,7 @@ class InventoryController extends Controller
                 ->where('inventories.user_id','=',$user_id)
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('outfit','outfit.id','=','products.outfit')
-                ->where('outfit.outfit_type','=', "Weapon")
+                ->where('outfit.OutfitType','=', "Weapon")
                 ->where('outfit.class', '=', $avatarClass)
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*','outfit_info.*','inventories.*','inventories.user_id AS inventUserId']);
@@ -54,7 +55,7 @@ class InventoryController extends Controller
                 ->where('inventories.user_id','=',$user_id)
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('potion','potion.id','=','products.potion')
-                ->select('potion.*', 'inventories.user_id AS inventUserId' )
+                ->select('potion.*','inventories.*', 'inventories.user_id AS inventUserId' )
                 ->get();
 
         // $class= DB::table('users')
@@ -67,13 +68,13 @@ class InventoryController extends Controller
 
     //     $weapon= DB::table('products')
     //             ->join('outfit', 'outfit.id', '=', 'products.outfit')
-    //             ->where('outfit.outfit_type','=', "Weapon")
+    //             ->where('outfit.OutfitType','=', "Weapon")
     //             ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
     //             ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
 
     //    $armor= DB::table('products')
     //            ->join('outfit', 'outfit.id', '=', 'products.outfit')
-    //            ->where('outfit.outfit_type','=', "Armor")
+    //            ->where('outfit.OutfitType','=', "Armor")
     //            ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
     //            ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
         return response()->json([
@@ -93,8 +94,12 @@ class InventoryController extends Controller
         $user_id = Auth::id();
         $inventory->user_id= $user_id;
         $inventory->product= $request->input('product');
-        $inventory->outfit_type= $request->input('outfit_type');
-        $inventory->body_part=$request->input('body_part');
+        if($request->input('OutfitType') === "Weapon"){
+            $inventory->OutfitType= 2;
+        }else{
+            $inventory->OutfitType= 1;
+        }
+        $inventory->bodyPart=$request->input('bodyPart');
         $inventory->amount=$request->input('amount');
 
         $inventory->save();
@@ -122,36 +127,49 @@ class InventoryController extends Controller
         ]);
     }
 
+    public function updateGems(Request $request){
+        UserInfo::where('id', '=', Auth::id())->update(array('gems' => $request->gems));
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
+
     public function update(Request $request){
 
         $user_id = Auth::id();
         $id= $request->input('inventoryId');
-        $body_part = $request->input('body_part');
-        $outfit_type = $request->input('outfit_type');
-        $inventory = Inventory::find($id);
+        $body_part = $request->input('bodyPart');
+        $outfit_type = $request->input('OutfitType');
+        // $inventory = Inventory::find($id);
         $status = $request->input('status');
         $type= "Weapon";
         $returnID = 0;
+
+        // if($request->input('OutfitType') === "Weapon"){
+        //     $outfit_type = 2;
+        // }else{
+        //     $outfit_type = 1;
+        // }
 
         if($status == 1){
             //unequip clicked item
             DB::update('update inventories set status = ? where id = ?  && user_id = ?',
                         [0, $id, $user_id]);
         }else{
-            if($outfit_type === "Weapon"){
+            if($outfit_type === "2"){
 
-                //check if there is an item of the same type that is currently equipped
+                // check if there is an item of the same type that is currently equipped
                 $to_unequip = DB::table('inventories')
-                        ->where('outfit_type', '=', $outfit_type)
-                        ->where('body_part', '=', $body_part)
+                        ->where('OutfitType', '=', $outfit_type)
+                        ->where('bodyPart', '=', $body_part)
                         ->where('status', '=', 1)
                         ->get();
 
                 if(count($to_unequip) != 0){
                     //if there is such item, unequip
                     $returnID = $to_unequip->pluck('id')[0];
-                    DB::update('update inventories set status = ? where status = ? && outfit_type = ? && user_id = ?',
-                                [0, 1 , 'Weapon', $user_id]);
+                    DB::update('update inventories set status = ? where status = ? && OutfitType = ? && user_id = ?',
+                                [0, 1 , 2, $user_id]);
                 }else{
                     $returnID = 0;
                 }
@@ -159,18 +177,19 @@ class InventoryController extends Controller
                 //equip clicked item
                 DB::update('update inventories set status = ? where id = ?  && user_id = ?',
                           [1, $id, $user_id]);
-            }else{
+            }
+        else{
                 $to_unequip = DB::table('inventories')
-                        ->where('outfit_type', '=', $outfit_type)
-                        ->where('body_part', '=', $body_part)
+                        ->where('OutfitType', '=', $outfit_type)
+                        ->where('bodyPart', '=', $body_part)
                         ->where('status', '=', 1)
                         ->get();
 
                 if(count($to_unequip) != 0){
                     //if there is such item, unequip
                     $returnID = $to_unequip->pluck('id')[0];
-                    DB::update('update inventories set status = ? where status = ? && outfit_type = ? && body_part = ? && user_id = ?',
-                                [0, 1 , 'Armor',$body_part, $user_id]);
+                    DB::update('update inventories set status = ? where status = ? && OutfitType = ? && bodyPart = ? && user_id = ?',
+                                [0, 1 , 1,$body_part, $user_id]);
                  }else{
                     $returnID = 0;
                  }
@@ -183,6 +202,25 @@ class InventoryController extends Controller
         return response()->json([
             'status' => 200,
             'id' => $returnID
+        ]);
+    }
+
+    public function use_potion(Request $request){
+        $user_id = Auth::id();
+        $id= $request->input('inventoryId');
+        $effect= $request->input('effect');
+        
+        $avatar= Avatar::find($user_id);
+        $avatar->current_hp= $avatar->current_hp + $effect;
+        $avatar->save();
+
+        // Avatar::where('id', $user_id)->update(array('current_hp'=>'0'));
+        DB::table('inventories')->where('id', $id)->delete();
+
+        return response()->json([
+            'status' => 200,
+            'message' => "potion used",
+            'id' => $id
         ]);
     }
 }

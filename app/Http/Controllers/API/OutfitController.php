@@ -24,16 +24,16 @@ class OutfitController extends Controller
         // $items=Inventory::with('contains')->where('user_id', '==', '$user_id')->get();
         $weapon= DB::table('products')
                  ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                 ->where('outfit.outfit_type','=', "Weapon")
+                 ->where('outfit.OutfitType','=', "Weapon")
                  ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                  ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
 
         $armor= DB::table('products')
                 ->join('outfit', 'outfit.id', '=', 'products.outfit')
-                ->where('outfit.outfit_type','=', "Armor")
+                ->where('outfit.OutfitType','=', "Armor")
                 ->join('outfit_info', 'outfit_info.id', '=', 'outfit.outfit_infos')
                 ->get(['outfit.*', 'outfit_info.*', 'products.id AS product_id']);
-        
+
         $class= DB::table('users')
                 ->where('avatars.user_info_id', '=', $user_id)
                 ->join('avatars', 'avatars.user_info_id', '=', 'users.id')
@@ -48,7 +48,7 @@ class OutfitController extends Controller
 
             // 'user_id' => $user_id,
             // 'items' => $items,
-            
+
         ]);
 }
     public function store(Request $request){
@@ -68,7 +68,7 @@ class OutfitController extends Controller
 
         $outfit= new Outfit;
         if($request->hasFile('male_image') && $request->hasFile('female_image')){
-            if($request->input('outfit_type')==="Weapon"){
+            if($request->input('OutfitType')===2){
                 $file1= $request->file('male_image');
                 $extension= $file1->getClientOriginalExtension();
                 $filename= time() .'.'.$extension;
@@ -93,10 +93,10 @@ class OutfitController extends Controller
                 $file2->move('assets/images/weapons', $filename);
                 $outfit->female_image = 'assets/images/armors/' .$filename;
             }
-               
+
 
         }else if($request->hasFile('male_image')){
-            if($request->input('outfit_type')==="Weapon"){
+            if($request->input('OutfitType')===2){
                 $file1= $request->file('male_image');
                 $extension= $file1->getClientOriginalExtension();
                 $filename= time() .'.'.$extension;
@@ -111,15 +111,15 @@ class OutfitController extends Controller
                 $outfit->male_image = 'assets/images/armors/' .$filename;
             }
         }else if($request->hasFile('female_image')){
-              if($request->input('outfit_type')==="Weapon"){
-         
+              if($request->input('OutfitType')===2){
+
                 $file2= $request->file('female_image');
                 $extension= $file2->getClientOriginalExtension();
                 $filename= time() .'.'.$extension;
                 $file2->move('assets/images/weapons', $filename);
                 $outfit->female_image = 'assets/images/weapons/' .$filename;
             }else{
-     
+
                 $file2= $request->file('female_image');
                 $extension= $file2->getClientOriginalExtension();
                 $filename= time() .'.'.$extension;
@@ -127,18 +127,18 @@ class OutfitController extends Controller
                 $outfit->female_image = 'assets/images/armors/' .$filename;
             }
         }
-        $outfit->outfit_type= $request->input('outfit_type');
+        $outfit->outfit_type= $request->input('OutfitType');
         $outfit->sex= $request->input('sex');
         $outfit->name= $request->input('name');
         $outfit->class= $request->input('class');
         $outfit->rarity_type= $request->input('rarity_type');
-        $outfit->body_part= $request->input('body_part');
+        $outfit->body_part= $request->input('bodyPart');
         $outfit->spritesheet_img_name= $request->input('spritesheet_img_name');
         $outfit->directory= $request->input('directory');
         $outfit->outfit_infos=$outfit_info->id;
         $outfit->save();
 
-      
+
         $product= new Product;
         $product->outfit= $outfit->id;
         $product->potion= NULL;

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateMonstersTable extends Migration
@@ -16,13 +17,39 @@ class CreateMonstersTable extends Migration
         Schema::create('monsters', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->integer('base_hp');
-            $table->integer('base_attack');
-            $table->integer('base_defense');
-            $table->string('image', 200);
-            $table->foreignId('class')->constrained('m_classes', 'id');
+            $table->string('image', 200)->nullable();
+            $table->string('description',200)->nullable();
             $table->timestamps();
         });
+
+        DB::table('monsters')->insert(
+            array(
+                ['name' => 'Zombie',
+                    'image' => "",
+                    'description' => "A corpse said to be revived by witchcraft",
+                ],
+                ['name' => 'Cthulhu',
+                    'image' => "",
+                    'description' => "A Great Old One of great power who lies in a death-like slumber",
+                ],
+                ['name' => 'Cerberus',
+                    'image' => "",
+                    'description' => "The monstrous watchdog of the underworld",
+                ],
+                ['name' => 'Ghoul',
+                    'image' => "",
+                    'description' => "An evil spirit that rob graves and feed on dead bodies",
+                ],
+                ['name' => 'Dryads',
+                    'image' => "",
+                    'description' => "A nymph inhabiting a forest or a tree",
+                ],
+                ['name' => 'Mummy',
+                    'image' => "",
+                    'description' => "A animal whose soft tissues and organs have been preserved",
+                ],
+            )
+        );
     }
 
     /**

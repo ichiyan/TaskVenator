@@ -18,10 +18,12 @@ class CreateTaskItemsTable extends Migration
             $table->string('content', 1000);
             $table->boolean('is_complete');
             $table->integer('frequency');
-            $table->date('deadline');
+            $table->dateTime('deadline');
+            $table->dateTime('date_complete')->nullable();
             $table->boolean('is_public');
             $table->integer('reminder');
-            $table->foreignId('tasks')->constrained('tasks', 'id');
+            $table->foreignId('task_id')->constrained('tasks', 'id');
+            $table->foreignId('task_difficulty')->constrained('task_difficulties', 'id');
             $table->timestamps();
         });
     }

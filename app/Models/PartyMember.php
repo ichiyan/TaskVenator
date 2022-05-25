@@ -13,7 +13,6 @@ class PartyMember extends Model
     protected $fillable = [
         'user_id',
         'party_id',
-        'status'
     ];
 
     public function party(): BelongsTo

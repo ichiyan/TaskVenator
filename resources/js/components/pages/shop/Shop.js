@@ -97,7 +97,6 @@ function Shop({setGems,gems}){
                         cycles.current = 8;
                     }else if(selection.base_src.indexOf("bow") != -1){
                         frameY.current = 18;
-                        frameX.current = 2;
                         cycles.current = 10;
                     }else{
                         frameY.current = 14;

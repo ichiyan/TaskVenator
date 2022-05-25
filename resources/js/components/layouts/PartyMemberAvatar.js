@@ -102,21 +102,21 @@ const PartyMemberAvatar = ({member}) => {
                     </div>
                      <div className="health-section">
                         <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>
-                        <span className="health-bar" data-total="50" data-value="50">
-                            <div className="hp bar" style={{width: "100%"}}>
+                        <span className="health-bar" data-total={member.avatar.max_hp} data-value={member.avatar.current_hp}>
+                            <div className="hp bar" style={{width: member.avatar.current_hp/member.avatar.max_hp * 100}}>
                                 <div className="transition decrease" style={{width: "0%"}}></div>
                             </div>
                             <div className="transition increase" style={{width: "0%"}}></div>
                         </span>
-                        <span className="hp-txt">50/50</span>
+                        <span className="hp-txt">{member.avatar.current_hp}/{member.avatar.max_hp}</span>
                     </div>
                     <div className="xp-section">
                         <span> <img className="health-icon" src="assets/images/xp-icon.png"></img></span>
-                        <span className="xp-bar" data-total="50" data-value="50">
-                            <div className="xp bar" style={{width: "100%"}}> </div>
+                        <span className="xp-bar" data-total={member.avatar.max_xp} data-value={member.avatar.current_xp}>
+                            <div className="xp bar" style={{width: member.avatar.current_xp/member.avatar.max_xp * 100}}> </div>
                             <div className="transition increase" style={{width: "0%"}}></div>
                         </span>
-                        <span className="xp-txt">50/50</span>
+                        <span className="xp-txt">{member.avatar.current_xp}/{member.avatar.max_xp}</span>
                     </div>
                 </div>
             </ReactTooltip>

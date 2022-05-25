@@ -12,6 +12,7 @@ var redis = new Redis();
 var users = [];
 var parties = [];
 
+
 http.listen(8005, function () {
     console.log('Listening to port 8005');
 });
@@ -32,20 +33,69 @@ redis.on('message', function(channel, message){
     }
 });
 
+const addNewUser = (user_id, has_party,socket_id) => {
+    !users.some((user) => user.user_id === user_id) && users.push({user_id, has_party, socket_id});
+}
+
+const removeUser = (socket_id) => {
+    users = users.filter((user) => user.socket_id !== socket_id);
+}
+
+const getUser = (user_id) => {
+    return users.find(user => user.user_id == user_id);
+}
+
+const onlineCtr = (party_id) => {
+    count = parties.filter((party) => party.party_id == party_id)
+    console.log(count)
+}
+
 io.on('connection', function (socket) {
 
-    socket.on("user_connected", function (user_id){
-        users[user_id] = socket.id;
+    socket.on("user_connected", (user) => {
+        addNewUser(user.user_id, user.has_party, socket.id);
+        console.log("user " + user.user_id + " connected");
         io.emit('updateUserStatus', users);
-        console.log("user " + user_id + " connected");
+        console.log("USERS:");
+        console.log(users);
     });
 
-    socket.on('disconnect', function () {
-        var i = users.indexOf(socket.id);
-        users.splice(i, 1, 0);
-        io.emit('updateUserStatus', users);
-        console.log("user " + i + " disconnected");
+    socket.on("send_join_party_request", ({sender_id, receiver_id}) => {
+        const receiver = getUser(receiver_id);
+        console.log(receiver)
+        io.to(receiver.socket_id).emit("get_request", {
+            sender_id: sender_id,
+        })
+        console.log("join party request sent from " + sender_id + " to " + receiver_id)
+    })
+
+    //notify acceptane needs recheck
+    socket.on("notify_acceptance", ({receiver_id, party_id}) => {
+        const receiver = getUser(receiver_id);
+        io.to(receiver.socket_id).emit("update_header", {
+            party_id: party_id,
+        })
+        console.log(receiver_id + " has been notified of party acceptance")
+    })
+
+    socket.on("update_online_status", function(){
+          console.log("online status updated")
+          io.emit('updateUserStatus', users);
     });
+
+    socket.on("disconnect", () => {
+        removeUser(socket.id);
+        io.emit('updateUserStatus', users);
+        console.log("user " + " disconnected");
+    });
+
+    //update
+    // socket.on('disconnect', function () {
+    //     var i = users.indexOf(socket.id);
+    //     users.splice(i, 1, 0);
+    //     io.emit('updateUserStatus', users);
+    //     console.log("user " + i + " disconnected");
+    // });
 
     socket.on('party_chat', function(data){
         data['socket_id'] = socket.id;

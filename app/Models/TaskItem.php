@@ -10,7 +10,8 @@ class TaskItem extends Model
     use HasFactory;
     protected $table = 'task_items';
     protected $fillable = ['content', 'is_complete', 'frequency',
-                        'deadline', 'is_public', 'reminder', 'tasks'];
+                        'deadline', 'date_complete', 'is_public',
+                        'reminder', 'task_id', 'task_difficulty'];
 
     public function tasked(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

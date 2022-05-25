@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Pagination from '../pagination/CustomPagination'
-import { FontAwesomeIcon } from '../../index'
+import { FontAwesomeIcon, axios } from '../../index'
 import { partyListDummyData, partyMemberDummyData } from '../pagination/PartyListDummyData'
 import SmallAvatar from './smallAvatar'
 import '../../../../public/css/small_avatar.css'
@@ -11,16 +11,17 @@ import {
     faDiceD20,
     faClock
 } from '@fortawesome/free-solid-svg-icons'
+import { io } from 'socket.io-client'
 
 
-const JoinPartyModal = () => {
+const JoinPartyModal = ({socket, id}) => {
 
-    const guild_logo_dir = '/assets/images/armors/female_gold_2.png'
     const PAGE_SIZE = 6
     const [party_list, setPartyList] = useState([])
     const [rendered_list, setRenderedList] = useState([])
     let [selected_party, setSelectedParty] = useState({})
     const [page_num, setPageNum] = useState(1)
+
     const formatList = (list, page) => {
         let page_size = PAGE_SIZE
         let size_max = page_size * page
@@ -30,12 +31,20 @@ const JoinPartyModal = () => {
     }
 
     useEffect(() => {
-        setPartyList(partyListDummyData)
-        let list = formatList(partyListDummyData, page_num)
-        setRenderedList(list)
 
-        if (list.length <= 0) return
-        setSelectedParty(partyListDummyData[0])
+        axios.get(`/api/show_parties`).then(res => {
+            if(res.data.status == 200){
+                console.log(res.data)
+                let party_list = res.data.parties
+                setPartyList(party_list)
+                let list = formatList(party_list, page_num)
+                setRenderedList(list)
+
+                if (list.length <= 0) return
+                setSelectedParty(party_list[0])
+
+            }
+        })
     }, [])
 
     const onPageChange = (page) => {
@@ -43,6 +52,20 @@ const JoinPartyModal = () => {
         let list = formatList(party_list, page)
         setRenderedList(list)
         setSelectedParty(list[0])
+    }
+
+
+    const sendJoinPartyRequest = (receiver_id) => {
+        console.log("join party btn")
+        console.log(socket)
+        console.log(receiver_id)
+        console.log(id)
+
+        socket.emit("send_join_party_request", {
+            sender_id: id,
+            receiver_id: receiver_id,
+        })
+
     }
 
 
@@ -99,13 +122,13 @@ const JoinPartyModal = () => {
                                                                 className={item.id === selected_party?.id ? 'custom-border-left' : null}
                                                             >
                                                                 <td>
-                                                                    <img src={guild_logo_dir} alt="guild-logo" /> {item.party_name}
+                                                                    <img src={item.party_image} alt="guild-logo" className='guild-logo' width="30" height="30"/> {item.party_name}
                                                                 </td>
                                                                 <td valign='middle'>
-                                                                    <p className='mb-0'>{item.party_creator}</p>
+                                                                    <p className='mb-0'>{item.founder_username}</p>
                                                                 </td>
                                                                 <td valign='middle'>
-                                                                    <p className='mb-0'>{item.current_members}/{item.total_members}</p>
+                                                                    <p className='mb-0'>{item.total_members}/{item.max_members}</p>
                                                                 </td>
                                                                 <td valign='middle'>
                                                                     <p className='mb-0'>{item.battles_won}/{item.battles_lost}</p>
@@ -132,25 +155,25 @@ const JoinPartyModal = () => {
                             <div className="col-5 px-4 bg-gradient">
                                 {
                                     rendered_list.length <= 0 ?
-                                        
+
                                         <img src="assets/images/avatar-mage.png" />
 
                                         : selected_party?.id &&
                                         <>
                                             <div className="">
-                                                <h2 style={{ color: '#95c5ed' }}>
-                                                    <img src={guild_logo_dir} alt="guild-logo" width="120" height="120" /> {selected_party.party_name}
+                                                <h2 style={{ color: '#9580FF' }}>
+                                                    <img src={selected_party.party_image} alt="guild-logo" className='selected-guild-logo' width="100" height="100" /> {selected_party.party_name}
                                                 </h2>
                                             </div>
                                             <hr className='bg-secondary' />
                                             <div>
-                                                <h4 className='text-white'><FontAwesomeIcon icon={faChessKing} className="me-1" /> {selected_party.party_creator}</h4>
+                                                <h4 className='text-white'><FontAwesomeIcon icon={faChessKing} className="me-1" /> {selected_party.founder_username}</h4>
                                                 <p className='text-white'><FontAwesomeIcon icon={faClock} className="me-1" /> {selected_party.founded_on}</p>
                                             </div>
                                             <hr className='bg-secondary' />
                                             <div>
                                                 <h4 className='text-white'>Party Motto</h4>
-                                                <p className='text-white'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, ratione!</p>
+                                                <p className='text-white'>{selected_party.party_motto}</p>
                                             </div>
                                             <hr className='bg-secondary' />
                                             <div>
@@ -159,14 +182,14 @@ const JoinPartyModal = () => {
                                                     <div>
                                                         <div className='d-flex flex-wrap' style={{ overflow: 'auto' }}>
                                                             {
-                                                                partyMemberDummyData.map((item, index) => {
+                                                                selected_party.party_members.map((item, index) => {
                                                                     return (
                                                                         // u can implement a ReactToolTip
-                                                                        <div key={index} title={item.name}>
+                                                                        <div key={index} title={item.username}>
                                                                             <SmallAvatar
-                                                                                img_link={item.img_link}
+                                                                                img_link={item.avatar_img_dir}
                                                                                 current_index={index}
-                                                                                total_members={partyMemberDummyData.length}
+                                                                                total_members={selected_party.total_members}
                                                                             />
                                                                         </div>
                                                                     )
@@ -177,7 +200,7 @@ const JoinPartyModal = () => {
                                                 </div>
                                             </div>
                                             <div className='pt-2 pb-4 d-flex justify-content-end'>
-                                                <button type="button" className="btn btn-success">JOIN PARTY</button>
+                                                <button onClick={() => sendJoinPartyRequest(selected_party.founder)} type="button" className="btn-custom-primary join-form-party-btn">Join Party</button>
                                             </div>
                                         </>
                                 }

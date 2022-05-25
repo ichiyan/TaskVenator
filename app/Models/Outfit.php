@@ -11,19 +11,18 @@ class Outfit extends Model
     use HasFactory;
     protected $table='outfit';
     protected $fillable =[
-        'outfit_type', 
-        'sex', 
-        'male_image', 
+        'OutfitType',
+        'sex',
+        'male_image',
         'female_image',
         'name',
         'class',
         'rarity_type',
-        'body_part',
-        'spritesheet_img_name', 
+        'bodyPart',
+        'spritesheet_img_name',
         'directory',
         'zPos',
         'outfit_infos',
-       
     ];
 
     public function featuredIn(): HasOne

@@ -16,7 +16,7 @@ function Display ({clicked}){
    useEffect(() =>{
       axios.get(`/api/outfit`).then(res =>{
             if(res.data.status===200){
-
+                  console.log(res.data)
                   setDisplay2({
                         outfit:res.data.outfit
 

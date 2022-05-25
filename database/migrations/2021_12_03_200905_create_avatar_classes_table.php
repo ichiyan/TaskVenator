@@ -16,10 +16,15 @@ class CreateAvatarClassesTable extends Migration
         Schema::create('avatar_classes', function (Blueprint $table) {
             $table->id();
             $table->string('name', 40);
-            $table->integer('base_attack');
-            $table->integer('magic_attack');
-            $table->integer('base_defense');
-            $table->integer('magic_defense');
+            $table->integer('strength');
+            $table->integer('agility');
+            $table->integer('intelligence');
+            $table->integer('hp');
+            $table->integer('crit_chance');
+            $table->integer('crit_damage'); //in %
+            $table->foreignId('primary_attribute')->constrained('attributes', 'id');
+            $table->foreignId('secondary_attribute')->constrained('attributes', 'id');
+            $table->foreignId('ternary_attribute')->constrained('attributes', 'id');
             $table->timestamps();
         });
     }

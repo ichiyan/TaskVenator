@@ -1,14 +1,17 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\BattleController;
+use App\Http\Controllers\API\InventoryController;
 use App\Http\Controllers\API\MessageController;
-use App\Http\Controllers\API\PotionController;
 use App\Http\Controllers\API\OutfitController;
 use App\Http\Controllers\API\PartyController;
-use App\Http\Controllers\API\InventoryController;
+use App\Http\Controllers\API\PotionController;
+use App\Http\Controllers\API\TasksController;
 use App\Http\Controllers\API\UserInfoController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -47,6 +50,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('addBought', [InventoryController::class, 'store']);
     Route::post('update', [InventoryController::class, 'update']);
     Route::get('inventory', [InventoryController::class, 'index']);
+    Route::post('use_potion', [InventoryController::class, 'use_potion']);
 
     Route::get('getPotions', [InventoryController::class, 'getPotions']);
 
@@ -56,6 +60,33 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //updating avatar after equipping/unequipping items
     Route::post('update_avatar_items', [UserInfoController::class, 'update']);
+    Route::post('update_avatar_img', [UserInfoController::class, 'updateAvatarImg']);
+
+    //new task
+    Route::post('newTask', [TasksController::class, 'store']);
+    Route::get('tasks',[TasksController::class, 'index']);
+    Route::get('group_tasks',[TasksController::class, 'groupTasks']);
+    Route::get('group_members',[TasksController::class, 'getPartyMembers']);
+    Route::get('tasks_items',[TasksController::class, 'getTaskItems']);
+    Route::post('completeTask', [TasksController::class, 'update']);
+
+    //ongoing battle
+    Route::get('battle',[BattleController::class, 'index']);
+    Route::get('getMonsters',[BattleController::class, 'getMonsters']);
+    Route::post('joinBattle',[BattleController::class, 'joinBattle']);
+    Route::post('cancelbattle',[BattleController::class, 'cancelbattle']);
+
+    //party
+    Route::post('create_party', [PartyController::class, 'store']);
+    Route::get('show_parties', [PartyController::class, 'show']);
+    Route::post('get_other_user_info', [UserInfoController::class, 'getUserInfo']);
+    Route::post('update_has_party', [UserInfoController::class, 'updateHasParty']);
+
+
+    //updating avatar status
+    Route::post('update_health', [UserInfoController::class, 'updateHealth']);
+    Route::post('update_last_received_daily_hp', [UserInfoController::class, 'updateLastReceivedDailyHp']);
+    Route::post('update_hp_xp_gems', [UserInfoController::class, 'updateHpXpGems']);
 
 });
 

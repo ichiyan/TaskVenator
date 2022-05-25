@@ -8,8 +8,8 @@ function InventoryOutfitFilter({setPreview,inventory, setInventory, data, update
         spriteName:'',
         inventoryId:'',
         status: '',
-        outfit_type: '',
-        body_part: ''
+        OutfitType: '',
+        bodyPart: ''
   });
     // const[style, setStyle]=useState({
     //     backgroundColor: "yellow",
@@ -26,10 +26,10 @@ function InventoryOutfitFilter({setPreview,inventory, setInventory, data, update
             spriteName:e.target.spriteName.value,
             inventoryId: e.target.inventoryId.value,
             status: e.target.status.value,
-            outfit_type: e.target.outfit_type.value,
-            body_part: e.target.body_part.value
+            OutfitType: e.target.OutfitType.value,
+            bodyPart: e.target.bodyPart.value
         })
-
+        console.log(passProductId)
 
 
 
@@ -41,8 +41,8 @@ function InventoryOutfitFilter({setPreview,inventory, setInventory, data, update
         spriteName: passProductId.spriteName,
         inventoryId: passProductId.inventoryId,
         status: passProductId.status,
-        outfit_type: passProductId.outfit_type,
-        body_part: passProductId.body_part
+        OutfitType: passProductId.OutfitType,
+        bodyPart: passProductId.bodyPart
   }
   if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
         console.log("empty")
@@ -93,7 +93,7 @@ const execUpdateAvatarPreview = () => {
     updateAvatarPreview({
         item_type: "outfit",
         status: clickedItem[0].status,
-        body_part:  data.body_part != "Footwear" ? data.body_part.toLowerCase(): "feet",
+        body_part:  data.bodyPart != "Footwear" ? data.bodyPart.toLowerCase(): "feet",
         sex: data.sex.toLowerCase(),
         base_src: 'assets/images/spritesheets/' + data.directory,
         img_name: data.spritesheet_img_name,
@@ -124,8 +124,8 @@ const equipUnequip = () => {
                                 <h6>{data.name}</h6>
                                 <form onSubmit={submitToHandler}>
                               <input name="inventoryId" type="hidden" value={data.id}/>
-                              <input name="outfit_type" type="hidden" value={data.outfit_type}/>
-                              <input name="body_part" type="hidden" value={data.body_part}/>
+                              <input name="OutfitType" type="hidden" value={data.OutfitType}/>
+                              <input name="bodyPart" type="hidden" value={data.bodyPart}/>
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
                               <input name="status" type="hidden" value={data.status}/>

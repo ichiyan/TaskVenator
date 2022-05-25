@@ -11,7 +11,7 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data, updat
             spriteName:'',
             inventoryId:'',
             status: '',
-            outfit_type: ''
+            OutfitType: ''
     });
 
     const submitToHandler=(e)=>{
@@ -22,21 +22,23 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data, updat
                 spriteName:e.target.spriteName.value,
                 inventoryId: e.target.inventoryId.value,
                 status: e.target.status.value,
-                outfit_type: e.target.outfit_type.value,
+                OutfitType: e.target.OutfitType.value,
             })
 
             // if(passProductId.status === 1){
 
             // }
+            console.log(passProductId)
     }
 
     useEffect(() => {
+        console.log(passProductId)
         const data={
             directory: passProductId.directory,
             spriteName: passProductId.spriteName,
             inventoryId: passProductId.inventoryId,
             status: passProductId.status,
-            outfit_type: passProductId.outfit_type,
+            OutfitType: passProductId.OutfitType,
         }
         if(data.directory === "" || data.spriteName==="" || data.inventoryId === ""){
                 // console.log("empty")
@@ -44,6 +46,7 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data, updat
             axios.post(`/api/update`, data).then(res =>{
                 if(res.data.status === 200){
                      //if there is a currently equipped item that needs to be unequipped
+                     console.log(res.data)
                     if(res.data.id !== 0){
                         if(inventory != undefined){
                             setInventory({
@@ -86,7 +89,7 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data, updat
         updateAvatarPreview({
             item_type: "weapon",
             status: clickedItem[0].status,
-            body_part:  data.body_part,
+            body_part:  data.bodyPart,
             sex: data.sex.toLowerCase(),
             base_src: 'assets/images/spritesheets/' + data.directory,
             img_name: data.spritesheet_img_name,
@@ -117,7 +120,7 @@ function InventoryWeaponFilter({setPreview, inventory, setInventory, data, updat
                     <h6>{data.name}</h6>
                      <form onSubmit={submitToHandler}>
                               <input name="inventoryId" type="hidden" value={data.id}/>
-                              <input name="outfit_type" type="hidden" value={data.outfit_type}/>
+                              <input name="OutfitType" type="hidden" value={data.OutfitType}/>
                               <input name="directory" type="hidden" value={data.directory}/>
                               <input name="spriteName" type="hidden" value={data.spritesheet_img_name}/>
                               <input name="status" type="hidden" value={data.status}/>
