@@ -1,0 +1,99 @@
+/*--------------------------------------------------------------
+# Feature
+--------------------------------------------------------------*/
+#top{
+    width: 100%;
+    height: 15vh;
+    background-color: white;
+    position: relative;
+}
+
+    #top h1{
+        color: #383A59;
+        padding-top: 20px;
+    }
+
+#features{
+    width: 100%;
+    height: 55vh;
+    background-color: white;
+    position: relative;
+}
+
+    #features .container{
+        margin-bottom: auto;
+        padding-top: 30px;
+    }
+
+    #features h2{
+        margin-top: 10px;
+        font-size: 24px;
+    }
+
+    #features h3{
+        margin-top: 10px;
+        font-size: 20px;
+        justify-content: center;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    #features p{
+        margin: 0 0 0 0;
+    }
+
+    #features img{
+        /* width: 50%; */
+        margin: auto;
+        display: block;
+    }
+
+/*--------------------------------------------------------------
+# Contact Us
+--------------------------------------------------------------*/
+#contact{
+    width: 100%;
+    height: 64.2vh;
+    background-color: white;
+    position: relative;
+}
+
+    #contact .container{
+        margin-bottom: auto;
+        padding-top: 30px;
+    }
+
+    #contact h1{
+        color: #383A59;
+    }
+
+    #contact h2{
+        margin-top: 10px;
+        font-size: 24px;
+    }
+
+    #contact h3{
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    #contact p{
+        margin: 0 0 0 0;
+    }
+    
+
+
+/*--------------------------------------------------------------
+# About Us
+--------------------------------------------------------------*/
+
+.about{
+    padding: 0 10px 0 10px;
+    justify-content: center;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.about h3{
+    text-indent: 40px;
+}

@@ -25,6 +25,7 @@ export {default as Register} from "./components/auth/Register";
 
 export {default as AvatarHeader} from "./components/layouts/AvatarHeader";
 export {default as Header} from "./components/layouts/Header";
+export {default as Footer} from "./components/layouts/Footer";
 export {default as HomeNavbar} from "./components/layouts/HomeNavbar";
 export {default as PartyMemberAvatar} from "./components/layouts/PartyMemberAvatar";
 export {default as TasksNavbar} from "./components/layouts/TasksNavbar";
@@ -68,6 +69,10 @@ export {default as GroupMemberPublicTasks} from "./components/pages/tasks/GroupM
 export {default as HomeDailyTasks} from "./components/pages/tasks/HomeDailyTasks";
 export {default as HomeTasks} from "./components/pages/tasks/HomeTasks";
 export {default as TaskItem} from "./components/pages/tasks/TaskItem";
+
+export {default as Contact} from "./components/pages/home/Contact";
+export {default as About} from "./components/pages/home/About";
+export {default as Features} from "./components/pages/home/Features";
 
 export {default as Auth} from "./components/pages/Auth";
 export {default as Home} from "./components/pages/Home";

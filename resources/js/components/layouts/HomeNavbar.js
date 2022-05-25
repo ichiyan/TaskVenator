@@ -7,11 +7,11 @@ const HomeNavbar = ({isLoggedIn}) => {
         <nav id="navbar" className="navbar order-last order-lg-0">
             <ul>
                 <li><Link className="active" to="/">Home</Link></li>
-                <li><Link to="">About</Link></li>
-                <li><Link to="">Features</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/features">Features</Link></li>
                 <li><Link to="">FAQs</Link></li>
                 <li><Link to="">Pricing</Link></li>
-                <li><Link to="">Contact</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
                 {
                     isLoggedIn === "true"
                     ? <li><Link to="/tasks">My Tasks</Link></li>
