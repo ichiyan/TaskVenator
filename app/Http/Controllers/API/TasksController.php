@@ -141,15 +141,56 @@ class TasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\JsonResponse
     {
         //
-        $tasks = new Tasks([
-            'title' => $request->get('title'),
-            'content' => $request->get('content')
-        ]);
+        $id = Auth::id();
+//        $tasks = new Tasks([
+//            'title' => $request->get('title'),
+//            'show_when_done' => $request->get('show_when_done'),
+//            'is_in_progress' => $request->get('is_in_progress'),
+//            'subtasks' => $request->get('subtasks'),
+//            'owner' => $request->get('owner'),
+//        ]);
+        $tasks = new Tasks;
+        $tasks->title = $request->get('title');
+        $tasks->show_when_done = $request->get('show_when_done');
+        $tasks->is_in_progress = $request->get('is_in_progress');
+        $tasks->subtasks = $request->get('subtasks');
+        $tasks->owner = $id;
         $tasks->save();
-        return response()->json('Successfully added');
+
+        $new_task_id = DB::table('tasks')
+                ->orderBy('id', 'desc')
+//                ->where('title', "=", $request->get('title'))
+                ->first()->id;
+//        $taskItem = new TaskItem([
+//            'content' => $request->get('content'),
+//            'is_complete' => $request->get('is_complete'),
+//            'frequency' => $request->get('frequency'),
+//            'deadline' => $request->get('deadline'),
+//            'date_complete' => null,
+//            'is_public' => $request->get('is_public'),
+//            'reminder' => $request->get('reminder'),
+//            'task_id' => $new_task_id,
+//            'task_difficulty' => $request->get('task_difficulty'),
+//        ]);
+        $taskItem = new TaskItem;
+        $taskItem->content = $request->get('content');
+        $taskItem->is_complete = $request->get('is_complete');
+        $taskItem->frequency = $request->get('frequency');
+        $taskItem->deadline = $request->get('deadline');
+        $taskItem->date_complete = null;
+        $taskItem->is_public = $request->get('is_public');
+        $taskItem->reminder = $request->get('reminder');
+        $taskItem->task_id = $new_task_id;
+        $taskItem->task_difficulty = $request->get('task_difficulty');
+        $taskItem->save();
+
+        return response()->json([
+            'status' => 200,
+            'message' =>'Successfully added',
+        ]);
     }
 
     /**

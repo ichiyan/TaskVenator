@@ -33,8 +33,7 @@ const GroupMemberPublicTasks = ({name, member}) => {
     return(
         <div className="tasks-group accordion">
             <div className="accordion-item">
-                <div
-                    className="tasks-group-header accordion-title"
+                <div className="tasks-group-header accordion-title"
                     onClick={() => setIsActive(!isActive)}>
                     <div className="tasks-group-title"> {name}'s tasks </div>
                     <div className="task-progress-bar">

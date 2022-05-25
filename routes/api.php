@@ -50,6 +50,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('addBought', [InventoryController::class, 'store']);
     Route::post('update', [InventoryController::class, 'update']);
     Route::get('inventory', [InventoryController::class, 'index']);
+    Route::post('use_potion', [InventoryController::class, 'use_potion']);
 
     Route::get('getPotions', [InventoryController::class, 'getPotions']);
 
@@ -62,7 +63,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('update_avatar_img', [UserInfoController::class, 'updateAvatarImg']);
 
     //new task
-    Route::post('newTask', [TasksController::class, 'create']);
+    Route::post('newTask', [TasksController::class, 'store']);
     Route::get('tasks',[TasksController::class, 'index']);
     Route::get('group_tasks',[TasksController::class, 'groupTasks']);
     Route::get('group_members',[TasksController::class, 'getPartyMembers']);

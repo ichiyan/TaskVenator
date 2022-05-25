@@ -10,7 +10,7 @@ const TaskItem = ({task, className, whenChecked, task_id, stat, updateStats}) =>
     });
 
     const taskCompletedHandler = (e) =>{
-        // e.preventDefault();
+        e.preventDefault();
 
         const formData = new FormData();
         formData.append('done', done.task_status);
@@ -39,7 +39,7 @@ const TaskItem = ({task, className, whenChecked, task_id, stat, updateStats}) =>
             {/*<input value={"item"} type="checkbox"/>*/}
             {/*<label className="task-item-content"> {task}</label>*/}
 
-            <input value={stat} type="checkbox" onChange={taskCompletedHandler}/>
+            <input defaultChecked={(stat==1)?true:false} type="checkbox" onChange={taskCompletedHandler}/>
             <span className={className} >{task}</span>
         </div>
     )

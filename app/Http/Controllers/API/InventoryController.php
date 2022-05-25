@@ -16,6 +16,7 @@ use App\Models\AvatarClass;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 class InventoryController extends Controller
 {
     public function index(Request $request){
@@ -54,7 +55,7 @@ class InventoryController extends Controller
                 ->where('inventories.user_id','=',$user_id)
                 ->join('products', 'products.id', '=', 'inventories.product')
                 ->join('potion','potion.id','=','products.potion')
-                ->select('potion.*', 'inventories.user_id AS inventUserId' )
+                ->select('potion.*','inventories.*', 'inventories.user_id AS inventUserId' )
                 ->get();
 
         // $class= DB::table('users')
@@ -201,6 +202,25 @@ class InventoryController extends Controller
         return response()->json([
             'status' => 200,
             'id' => $returnID
+        ]);
+    }
+
+    public function use_potion(Request $request){
+        $user_id = Auth::id();
+        $id= $request->input('inventoryId');
+        $effect= $request->input('effect');
+        
+        $avatar= Avatar::find($user_id);
+        $avatar->current_hp= $avatar->current_hp + $effect;
+        $avatar->save();
+
+        // Avatar::where('id', $user_id)->update(array('current_hp'=>'0'));
+        DB::table('inventories')->where('id', $id)->delete();
+
+        return response()->json([
+            'status' => 200,
+            'message' => "potion used",
+            'id' => $id
         ]);
     }
 }

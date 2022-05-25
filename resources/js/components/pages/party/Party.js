@@ -20,6 +20,10 @@ const Party = ({socket, setHasPartyUpdates, hasPartyUpdates, partyInfo}) => {
     const [joinPartyRequests, setJoinPartyRequests] = useState([])
 
     const sender_id = useRef()
+    const [monster,setMonster] = useState({
+        monster: [],
+    });
+    const [monsterHP,setMonsterHP] = useState(0);
 
     useEffect(() => {
         socket.on("get_request", data => {
@@ -41,7 +45,18 @@ const Party = ({socket, setHasPartyUpdates, hasPartyUpdates, partyInfo}) => {
         })
     }, [socket])
 
-
+    useEffect(()=>{
+        axios.get(`/api/getMonsters`).then(res =>{
+            if(res.data.status===200){
+                console.log(res.data)
+                setMonster({
+                    monster:res.data.monsters,
+                });
+                setMonsterHP(res.data.hp);
+            }
+        })
+    },[]);
+    
     const acceptJoin = () => {
         let data = {
             user_id: sender_id.current,
@@ -123,7 +138,43 @@ const Party = ({socket, setHasPartyUpdates, hasPartyUpdates, partyInfo}) => {
                     <div className="content-right">
                         <h2 className="text-white ms-5">Quests</h2>
                         <div className="monster-cards">
+
+                        {monster.monster.map((m,index)=>{
+                            return( 
                             <div className="monster-card-6">
+                                <img src={m.image} width="400" className="img img-responsive"></img>
+                                <div className="monster-name">{m.name}
+                                    <br/>Mon
+                                </div>
+                                <div className="monster-position">Lorem Ipsum Donor</div>
+                                <div className="monster-overview">
+                                    <div className="monster-overview">
+
+                                        <div className="d-flex justify-content-around text-center">
+                                            <div className="col-xs-4">
+                                            {(m.id)}
+                                                <h3>5</h3>
+                                                <p>Engaging</p>
+                                            </div>
+                                            <div className="col-xs-4">
+                                                <h3>50</h3>
+                                                <p>Sumn</p>
+                                            </div>
+                                            <div className="col-xs-4">
+                                                <h3>35</h3>
+                                                <p>Idk</p>
+                                            </div>
+                                        </div>
+                                        <div className='pt-2 me-4 d-flex justify-content-end'>
+                                            <button type="button" className="btn-custom-primary join-battle-btn">Join Battle</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            )
+                        })}
+
+                            {/* <div className="monster-card-6">
                                 <img src="https://3263vihaxx3jy9zn2ikegau7-wpengine.netdna-ssl.com/wp-content/uploads/2020/05/Managarm.gif" width="400" className="img img-responsive"></img>
                                 <div className="monster-name">Managarm
                                     <br/>Mon
@@ -151,9 +202,10 @@ const Party = ({socket, setHasPartyUpdates, hasPartyUpdates, partyInfo}) => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <div className="monster-card-6">
+
+                            {/* <div className="monster-card-6">
                                 <img src="https://3263vihaxx3jy9zn2ikegau7-wpengine.netdna-ssl.com/wp-content/uploads/2020/05/Managarm.gif" width="400" className="img img-responsive"></img>
                                 <div className="monster-name">Managarm
                                     <br/>Mon
@@ -181,38 +233,7 @@ const Party = ({socket, setHasPartyUpdates, hasPartyUpdates, partyInfo}) => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-
-                            <div className="monster-card-6">
-                                <img src="https://3263vihaxx3jy9zn2ikegau7-wpengine.netdna-ssl.com/wp-content/uploads/2020/05/Managarm.gif" width="400" className="img img-responsive"></img>
-                                <div className="monster-name">Managarm
-                                    <br/>Mon
-                                </div>
-                                <div className="monster-position">Lorem Ipsum Donor</div>
-                                <div className="monster-overview">
-                                    <div className="monster-overview">
-
-                                        <div className="d-flex justify-content-around text-center">
-                                            <div className="col-xs-4">
-                                                <h3>5</h3>
-                                                <p>Engaging</p>
-                                            </div>
-                                            <div className="col-xs-4">
-                                                <h3>50</h3>
-                                                <p>Sumn</p>
-                                            </div>
-                                            <div className="col-xs-4">
-                                                <h3>35</h3>
-                                                <p>Idk</p>
-                                            </div>
-                                        </div>
-                                        <div className='pt-2 me-4 d-flex justify-content-end'>
-                                            <button type="button" className="btn-custom-primary join-battle-btn">Join Battle</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> */}
 
 
                             <div className="filling-empty-space-childs "></div>

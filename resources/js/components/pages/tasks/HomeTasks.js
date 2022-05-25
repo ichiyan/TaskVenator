@@ -28,9 +28,6 @@ function HomeTasks ({task, updateStats}){
                     id:res.data.id
                 })
             }
-            // var d = res.data
-            // console.log(d)
-            // console.log(res.data.status)
         })
     },[])
 

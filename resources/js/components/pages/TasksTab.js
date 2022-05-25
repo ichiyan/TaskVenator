@@ -1,7 +1,7 @@
 import {
     Link, React, $,
     useEffect, useState, JoinBattle, HomeDailyTasks,
-    HomeTasks, Button
+    HomeTasks, Button, NewTaskForm
 } from "../../index";
 import '../../../../public/css/party_tasks.css';
 import '../../../../public/css/tasks.scss';
@@ -124,6 +124,7 @@ const TasksTab = ({updateStats}) => {
     return( //will change class names
         <section className="container tasks-section">
             <div className="tasks-content" >
+                <NewTaskForm/>
                 {!inbattle ?
                         <div className="tasks-join-button-cont">
                             <JoinBattle setInbattle={setInbattle}></JoinBattle>
