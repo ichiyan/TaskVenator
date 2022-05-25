@@ -63,7 +63,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('update_avatar_img', [UserInfoController::class, 'updateAvatarImg']);
 
     //new task
-    Route::post('newTask', [TasksController::class, 'create']);
+    Route::post('newTask', [TasksController::class, 'store']);
     Route::get('tasks',[TasksController::class, 'index']);
     Route::get('group_tasks',[TasksController::class, 'groupTasks']);
     Route::get('group_members',[TasksController::class, 'getPartyMembers']);
@@ -86,6 +86,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     //updating avatar status
     Route::post('update_health', [UserInfoController::class, 'updateHealth']);
     Route::post('update_last_received_daily_hp', [UserInfoController::class, 'updateLastReceivedDailyHp']);
+    Route::post('update_hp_xp_gems', [UserInfoController::class, 'updateHpXpGems']);
 
 });
 

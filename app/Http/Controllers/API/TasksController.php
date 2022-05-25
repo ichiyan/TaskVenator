@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Party;
 use App\Models\PartyMember;
+use App\Models\TaskDifficulty;
 use App\Models\TaskItem;
 use App\Models\Tasks;
 use App\Models\UserInfo;
@@ -140,15 +141,56 @@ class TasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\JsonResponse
     {
         //
-        $tasks = new Tasks([
-            'title' => $request->get('title'),
-            'content' => $request->get('content')
-        ]);
+        $id = Auth::id();
+//        $tasks = new Tasks([
+//            'title' => $request->get('title'),
+//            'show_when_done' => $request->get('show_when_done'),
+//            'is_in_progress' => $request->get('is_in_progress'),
+//            'subtasks' => $request->get('subtasks'),
+//            'owner' => $request->get('owner'),
+//        ]);
+        $tasks = new Tasks;
+        $tasks->title = $request->get('title');
+        $tasks->show_when_done = $request->get('show_when_done');
+        $tasks->is_in_progress = $request->get('is_in_progress');
+        $tasks->subtasks = $request->get('subtasks');
+        $tasks->owner = $id;
         $tasks->save();
-        return response()->json('Successfully added');
+
+        $new_task_id = DB::table('tasks')
+                ->orderBy('id', 'desc')
+//                ->where('title', "=", $request->get('title'))
+                ->first()->id;
+//        $taskItem = new TaskItem([
+//            'content' => $request->get('content'),
+//            'is_complete' => $request->get('is_complete'),
+//            'frequency' => $request->get('frequency'),
+//            'deadline' => $request->get('deadline'),
+//            'date_complete' => null,
+//            'is_public' => $request->get('is_public'),
+//            'reminder' => $request->get('reminder'),
+//            'task_id' => $new_task_id,
+//            'task_difficulty' => $request->get('task_difficulty'),
+//        ]);
+        $taskItem = new TaskItem;
+        $taskItem->content = $request->get('content');
+        $taskItem->is_complete = $request->get('is_complete');
+        $taskItem->frequency = $request->get('frequency');
+        $taskItem->deadline = $request->get('deadline');
+        $taskItem->date_complete = null;
+        $taskItem->is_public = $request->get('is_public');
+        $taskItem->reminder = $request->get('reminder');
+        $taskItem->task_id = $new_task_id;
+        $taskItem->task_difficulty = $request->get('task_difficulty');
+        $taskItem->save();
+
+        return response()->json([
+            'status' => 200,
+            'message' =>'Successfully added',
+        ]);
     }
 
     /**
@@ -198,6 +240,8 @@ class TasksController extends Controller
 
         $taskItem = TaskItem::find($request->get('task_id'));
 
+        $task_difficulty = TaskDifficulty::where('id', '=', $taskItem->task_difficulty)->first();
+
         $task_id= TaskItem::find($request->get('task_id'))->task_id;
         //is_in_progress column =>   0=not started;  -1=completed;   1=in progress
         $task = Tasks::find($task_id);
@@ -216,6 +260,7 @@ class TasksController extends Controller
             }else if($task->is_in_progress == 0){//if still in_progress
                 $task->is_in_progress = 1;
             }
+            $is_completed = 1;
             $message = 'Congratulations on Completing a Task!';
         }else{ //undo completed task
             $taskItem->is_complete  = 0;
@@ -226,6 +271,7 @@ class TasksController extends Controller
             }else if($task->is_in_progress == 1 && $completedTasks==0){
                 $task->is_in_progress = 0;
             }
+            $is_completed = 0;
             $message = 'You will finish it someday!';
         }
         $taskItem->save();
@@ -233,6 +279,12 @@ class TasksController extends Controller
 
         return response()->json([
             'status' => 200,
+            'task_difficulty' => $taskItem->task_difficulty,
+            'test' =>$task_difficulty,
+            'task_value' => $task_difficulty->task_value,
+            'hp_gain' => $task_difficulty->hp_gain,
+            'gem_gain' => $task_difficulty->gem_gain,
+            'is_completed' => $is_completed,
             'message' => $message,
         ]);
     }

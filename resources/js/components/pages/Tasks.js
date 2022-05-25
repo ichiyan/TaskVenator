@@ -21,6 +21,9 @@ import { set } from "lodash";
     const health = useRef();
     const healthTotal = useRef();
 
+    const exp = useRef();
+    const expTotal = useRef();
+
     const [hpBarWidth, sethpBarWidth] = useState();
     const [hpHitWidth, sethpHitWidth] = useState("0");
     const [HpIncreaseWidth, setHPIncreaseWidth] = useState("0");
@@ -77,14 +80,13 @@ import { set } from "lodash";
                 setGems(res.data.gems);
               }
         });
-     },[])
+     },[gems])
 
     useEffect( () => {
         document.body.classList.add('internal-pages');
     }, []);
 
     useEffect( () => {
-        console.log("HEEEREE")
         socket?.on("update_header", data => {
             console.log(data)
             setHasPartyUpdates(!hasPartyUpdates)
@@ -102,15 +104,24 @@ import { set } from "lodash";
             setItems(data.items);
 
             setHp(data.curr_hp);
-            sethpBarWidth(data.curr_hp);
             setXp(data.curr_xp);
             setHpTotal(data.max_hp);
             setXpTotal(data.max_xp);
             setHasBattle(data.is_in_battle);
             setLastReceivedHp(data.last_received_daily_hp);
 
+            let hp_bar_width = data.curr_hp / data.max_hp * 100;
+            sethpBarWidth(hp_bar_width)
+
+            let xp_bar_width = data.curr_xp / data.max_xp * 100;
+            setXPBarWidth(xp_bar_width)
+
             healthTotal.current = data.max_hp;
             health.current = data.curr_hp;
+
+            expTotal.current = data.max_xp;
+            exp.current = data.curr_xp;
+
 
 
             // setDailyHp( 2 * (2 + (data.level * 0.1)));
@@ -152,8 +163,6 @@ import { set } from "lodash";
             console.log(socket)
 
             id.current = data.user_id;
-            console.log("here")
-            console.log(id.current)
 
             let user_data = {
                 user_id: data.user_id,
@@ -164,9 +173,9 @@ import { set } from "lodash";
 
             // socket.on('connect', function() {
                 socket.emit('user_connected', user_data);
-                if(data.has_party == 1){
+                // if(data.has_party == 1){
                     socket.emit('update_online_status')
-                }
+                // }
             // });
         });
     }, [hasPartyUpdates]);
@@ -193,10 +202,7 @@ import { set } from "lodash";
     const receiveDailyBonusHP = (current, total) => {
         if(current < total){
             bonusHP.current = 2 * (2 + (level * 0.1));
-            // console.log(bonusHP);
-            // healHandler(bonusHP);
         }else{
-            //no display modal if zero
             bonusHP.current=0;
 
         }
@@ -206,6 +212,35 @@ import { set } from "lodash";
             }
         });
     }
+
+
+
+    const updateStats = (task_value, hp_gain, gem_gain) => {
+        var xp_gain = (task_value * 0.2) * (1 + (0.5 * level)) * (1 + (0.04 * (level /2)));
+        var xp_update = exp.current + xp_gain;
+        var hp_update = health.current + hp_gain;
+        var gems_update = gems + gem_gain;
+        console.log(xp_update)
+        addXPHandler(xp_gain)
+
+        healHandler(hp_gain)
+        setGems(gems_update)
+
+        let data = {
+            gems: gems_update,
+            hp_gain: hp_update,
+            xp_gain: xp_update
+        }
+
+        axios.post(`/api/update_hp_xp_gems`, data).then(res => {
+            if(res.data.status == 200){
+                console.log(res.data)
+            }
+        })
+
+    }
+
+
 
     const hitHandler = () => {
         let updatedHp;
@@ -233,7 +268,7 @@ import { set } from "lodash";
         let updatedHp;
         let newHPBarWidth;
 
-        if(health.current === healthTotal.current || (health.current + added_hp) > healthTotal.current){
+        if(health.current == healthTotal.current || (health.current + added_hp) >= healthTotal.current){
             updatedHp = healthTotal.current;
         }else{
             updatedHp = health.current + added_hp;
@@ -251,6 +286,26 @@ import { set } from "lodash";
         updateHealthDB()
     }
 
+    const addXPHandler = (added_xp) => {
+        let updatedXp = 0;
+        let newXPBarWidth;
+        if(exp.current == expTotal.current){
+            newXPBarWidth = 0;
+        }else{
+            updatedXp = exp.current + added_xp;
+            newXPBarWidth = updatedXp / expTotal.current * 100;
+        }
+        setXp(updatedXp);
+        exp.current = updatedXp;
+
+        setXPIncreaseWidth(newXPBarWidth);
+
+        setTimeout(function(){
+            setXPBarWidth(newXPBarWidth);
+        }, 500);
+
+    }
+
     const updateHealthDB = () => {
 
         const data = {
@@ -263,25 +318,6 @@ import { set } from "lodash";
                 console.log(res.data.message)
             }
         })
-
-    }
-
-    const addXPHandler = () => {
-        let updatedXp = 0;
-        let newXPBarWidth;
-        if(xp === xpTotal){
-            newXPBarWidth = 0;
-        }else{
-            updatedXp = xp + 10;
-            newXPBarWidth = updatedXp / xpTotal * 100;
-        }
-        setXp(updatedXp);
-
-        setXPIncreaseWidth(newXPBarWidth);
-
-        setTimeout(function(){
-            setXPBarWidth(newXPBarWidth);
-        }, 500);
 
     }
 
@@ -341,7 +377,7 @@ import { set } from "lodash";
     }else if (tab === "group_tasks"){
         renderTab = <GroupTasks/>;
     }else if (tab === "tasks"){
-        renderTab = <TasksTab/>;
+        renderTab = <TasksTab updateStats={updateStats}/>;
     }else if (tab === "shop"){
         renderTab = <Shop setGems={setGems} gems={gems}/>;
     }else if(tab ==="inventory"){
@@ -421,7 +457,7 @@ import { set } from "lodash";
                         </Button>
                         </Modal.Footer>
                 </Modal> */}
-                    {
+                    {/* {
                         tab == "tasks"
                         ?
                             <div className="container">
@@ -431,7 +467,7 @@ import { set } from "lodash";
                                 <button  style={{margin: 10 + "px"}} className="btn btn-primary" onClick={addXPHandler}>add XP</button>
                             </div>
                         : null
-                    }
+                    } */}
                     {renderTab}
                 </div>
             </div>

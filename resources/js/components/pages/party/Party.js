@@ -241,7 +241,7 @@ const Party = ({socket, setHasPartyUpdates, hasPartyUpdates, partyInfo}) => {
                     </div>
                 </div>
             </section>
-            {/* <Chat socket={socket}/> */}
+            <Chat socket={socket}/>
         </Fragment>
     )
 }

@@ -327,4 +327,20 @@ class UserInfoController extends Controller
             'message' => 'Date RECEIVED UPDATED',
         ]);
     }
+
+    public function updateHpXpGems(Request $request){
+
+        $id = Auth::id();
+        UserInfo::where('id', '=', $id)->update(array('gems' => $request->gems));
+
+        $stats =  Avatar::where('id', $id)->first();
+        Avatar::where('id', $id)->update(array('current_hp' => $request->hp_gain, 'current_xp' => $request->xp_gain));
+
+        return response()->json([
+            'status' => 200,
+             'test' => $stats,
+        ]);
+
+    }
+
 }

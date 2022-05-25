@@ -1,15 +1,16 @@
 import {
     Link, React, $,
     useEffect, useState, JoinBattle, HomeDailyTasks,
-    HomeTasks, Button
+    HomeTasks, Button, NewTaskForm
 } from "../../index";
 import '../../../../public/css/party_tasks.css';
 import '../../../../public/css/tasks.scss';
 import axios from "axios";
 import OutfitFilter from "./shop/OutfitFilter";
+import { Fragment } from "react";
 
-const TasksTab = () => {
-    var hpTotal = 0;
+const TasksTab = ({updateStats}) => {
+    var hpTotal = 50;
     var xpTotal = 50;
     const [hp, setHp] = useState(50);
     const [xp, setXp] = useState(0);
@@ -118,20 +119,21 @@ const TasksTab = () => {
             }
         })
     }
-    
+
 
     return( //will change class names
         <section className="container tasks-section">
             <div className="tasks-content" >
+                <NewTaskForm/>
                 {!inbattle ?
                         <div className="tasks-join-button-cont">
                             <JoinBattle setInbattle={setInbattle}></JoinBattle>
                         </div>
-                    
+
                     :
                     ''
                 }
-                
+
 
                 <div className="tasks-col-container">
                     <div className="tasks-col col-t" style={{"width" : colWidth}} >
@@ -146,6 +148,7 @@ const TasksTab = () => {
                                         <HomeTasks
                                             key = {one_task['id']}
                                             task = {one_task}
+                                            updateStats={updateStats}
                                         />
                                     )
                             }
@@ -164,6 +167,7 @@ const TasksTab = () => {
                                     <HomeTasks
                                         key = {one_task['id']}
                                         task = {one_task}
+                                        updateStats={updateStats}
                                     />
                                 )
                             }
@@ -187,38 +191,47 @@ const TasksTab = () => {
                                     <HomeTasks
                                         key = {one_task['id']}
                                         task = {one_task}
+                                        updateStats={updateStats}
                                     />
                                 )
                             }
                         }) }
                     </div>
                     {inbattle ?
-                        <div className="tasks-col col-battle">
-                            <div className="party-avatar-info">
-                                <div  className="col avatar-header-info align-self-center">
-                                        {/* <h1>ongoing battle here sdasd</h1> */}
-                                        <p style={{color: "white"}}>{battleinfo.name}</p>
-                                    <div className="monster-header">
-                                        <img className="class-icon" src={'assets/images/monsters/'+battleinfo.name+'.gif'}></img>
+                        <Fragment>
+                         <div className="tasks-col col-battle">
+                             {/* <div className="battle-wrapper"> */}
+                                <div className="party-avatar-info">
+                                    <div  className="col avatar-header-info align-self-center">
+                                            {/* <h1>ongoing battle here sdasd</h1> */}
+                                            <p style={{color: "white"}}>{battleinfo.name}</p>
+                                        <div className="monster-header">
+                                            <img className="class-icon" src={'assets/images/monsters/'+battleinfo.name+'.gif'} width="100" height="100"></img>
+                                        </div>
+                                        <div className="col monster-header-info align-self-start mb-3">
+                                                <div className="health-section">
+                                                    <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>
+                                                    <span className="health-bar" data-total={hpTotal} data-value={hp}>
+                                                        <div className="hp bar" style={{width: hpBarWidth + "%"}}>
+                                                            <div className="transition decrease" style={{width: hpHitWidth + "%"}}></div>
+                                                        </div>
+                                                        <div className="transition increase" style={{width: HpIncreaseWidth + "%"}}></div>
+                                                    </span>
+                                                    <span className="hp-txt">{battleinfo.hp}/{100+(battleinfo.level*8)}</span>
+                                                </div>
+                                                {/* <div className="xp-section"> */}
+                                                    {/* <button onClick={cancelbattle} className="btn-custom-danger forfeit-battle-btn mt-2">Forfeit</button> */}
+                                                {/* </div> */}
+                                        </div>
+
                                     </div>
-                                    <div className="col monster-header-info align-self-start">
-                                            <div className="health-section">
-                                                <span> <img className="health-icon" src="assets/images/health-icon.png"></img></span>
-                                                <span className="health-bar" data-total={hpTotal} data-value={hp}>
-                                                    <div className="hp bar" style={{width: hpBarWidth + "%"}}>
-                                                        <div className="transition decrease" style={{width: hpHitWidth + "%"}}></div>
-                                                    </div>
-                                                    <div className="transition increase" style={{width: HpIncreaseWidth + "%"}}></div>
-                                                </span>
-                                                <span className="hp-txt">{battleinfo.hp}/{100+(battleinfo.level*8)}</span>
-                                            </div>
-                                            <div className="xp-section">
-                                                <button onClick={cancelbattle} className="btn btn-sm btn-danger">Cancel</button>
-                                            </div>
-                                    </div>
+
                                 </div>
-                            </div>
+                            <center><button onClick={cancelbattle} className="btn-custom-danger forfeit-battle-btn mb-2" >Forfeit</button></center>
+                        {/* </div> */}
+
                         </div>
+                        </Fragment>
                         :
                         ''
                     }
