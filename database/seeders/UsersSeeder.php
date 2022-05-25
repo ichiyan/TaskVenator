@@ -74,62 +74,82 @@ class UsersSeeder extends Seeder
             array(
                 [
                     'username' => 'axolotl',
+                    'gems'=> 10,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 1
                 ],
                 [
                     'username' => 'capybara',
+                    'gems'=> 10,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 2
                 ],
                 [
                     'username' => 'cat_emperor',
+                    'gems'=> 10,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 3
                 ],
                 [
                     'username' => 'penguin',
+                    'gems'=> 10,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 4
                 ],
                 [
                     'username' => 'jellyfish',
+                    'gems'=> 10,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 5
                 ],
                 [
                     'username' => 'red_panda',
+                    'gems'=> 10,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 6
                 ],
                 [
                     'username' => 'kurage',
+                    'gems'=> 10,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 7
                 ],
                 [
                     'username' => 'norin',
+                    'gems'=> 10,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 8
                 ],
                 [
                     'username' => 'dokyun',
+                    'gems'=> 10,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 9
                 ],
                 [
                     'username' => 'kaiii',
+                    'gems'=> 500,
                     'has_party' => 1,
                     'last_opened_chat' => '2022-01-12 02:18:50',
+                    'last_received_daily_hp' => '2022-01-12 02:18:50',
                     'user_id' => 10
                 ],
 
@@ -319,7 +339,7 @@ class UsersSeeder extends Seeder
                     'strength' => 20,
                     'agility' => 15,
                     'intelligence' => 5,
-                    'current_hp' => 60,
+                    'current_hp' => 20,
                     'current_xp' => 0,
                     'max_hp' => 60,
                     'max_xp' => 25,
