@@ -87,13 +87,25 @@
 # About Us
 --------------------------------------------------------------*/
 
-.about{
+#details{
+    width: 100%;
+    height: 30vh;
+    background-color: white;
+    position: relative;
+}
+
+#details .container{
+    margin-bottom: 30px;
     padding: 0 10px 0 10px;
     justify-content: center;
     text-align: justify;
     text-justify: inter-word;
 }
 
-.about h3{
+#details h1{
+    color: #383A59;
+}
+
+.container h3{
     text-indent: 40px;
 }
