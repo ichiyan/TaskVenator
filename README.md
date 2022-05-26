@@ -1,13 +1,14 @@
 # TaskVenator
 - a gamified productivity application built using ReactJS and Laravel
-- Note: This project is still unfinished. Workable (and partially workable) features include:
+- Features:
     - Registration, Login, Logout
     - Avatar Customization (upon registration)
+    - To Do List 
     - Shop
     - Inventory
     - Party Tasks
     - Party Chat (in party tab)
-        - To test this feature, log into at least two accounts using these credentials: 
+        - To test this feature using existing accounts, log into at least two accounts using these credentials: 
             - email: gab@gmail.com, anne@gmail.com, or daves@gmail.com 
         	- password: p@ssw0rd
   
