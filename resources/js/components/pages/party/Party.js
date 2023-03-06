@@ -56,7 +56,7 @@ const Party = ({socket, setHasPartyUpdates, hasPartyUpdates, partyInfo}) => {
             }
         })
     },[]);
-    
+
     const acceptJoin = () => {
         let data = {
             user_id: sender_id.current,
@@ -140,29 +140,43 @@ const Party = ({socket, setHasPartyUpdates, hasPartyUpdates, partyInfo}) => {
                         <div className="monster-cards">
 
                         {monster.monster.map((m,index)=>{
-                            return( 
+                            return(
                             <div className="monster-card-6">
-                                <img src={m.image} width="400" className="img img-responsive"></img>
-                                <div className="monster-name">{m.name}
-                                    <br/>Mon
+                                <img src={m.image} width="400" height="300" className="img img-responsive"></img>
+                                <div className="monster-name">{m.name}</div>
+                                <div className="monster-stats">
+                                    {/* party battle monster hp TBD */}
+                                    <span><img src="assets/images/health-icon.png" width="20" className="mr-2"/> 150 </span>
                                 </div>
-                                <div className="monster-position">Lorem Ipsum Donor</div>
                                 <div className="monster-overview">
                                     <div className="monster-overview">
-
-                                        <div className="d-flex justify-content-around text-center">
-                                            <div className="col-xs-4">
-                                            {(m.id)}
-                                                <h3>5</h3>
-                                                <p>Engaging</p>
+                                        <div className="monster-position">{m.description}</div>
+                                        <div className="row text-center mt-4">
+                                            <div className="col">
+                                                <h2><img src="" height="45"/>0</h2>
+                                                {/* <p className>Engaging</p> */}
                                             </div>
-                                            <div className="col-xs-4">
-                                                <h3>50</h3>
-                                                <p>Sumn</p>
+                                            <div className="col">
+                                                <h2><img src="assets/images/potions/HealthPotionMedium.png" height="45"/></h2>
+                                                {/* <p>HP potion</p> */}
                                             </div>
-                                            <div className="col-xs-4">
-                                                <h3>35</h3>
-                                                <p>Idk</p>
+                                            <div className="col">
+                                                <h2><img src="assets/images/warrior-class-icon.png" height="45"/></h2>
+                                                {/* <p>Uncommon Weapon</p> */}
+                                            </div>
+                                        </div>
+                                        <div className="row text-center">
+                                            <div className="col">
+                                                {/* <h2><img src="" height="45"/>5</h2> */}
+                                                <p className>Engaging</p>
+                                            </div>
+                                            <div className="col">
+                                                {/* <h2><img src="assets/images/potions/HealthPotionMedium.png" height="45"/></h2> */}
+                                                <p>HP potion</p>
+                                            </div>
+                                            <div className="col">
+                                                {/* <h2><img src="assets/images/warrior-class-icon.png" height="45"/></h2> */}
+                                                <p>Weapon</p>
                                             </div>
                                         </div>
                                         <div className='pt-2 me-4 d-flex justify-content-end'>

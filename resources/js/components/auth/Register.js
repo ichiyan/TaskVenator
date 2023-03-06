@@ -68,12 +68,12 @@ const Register = () => {
                                     <span className="error-msg">{registerUser.error_list.email}</span>
                                 </div>
                                 <div className="form-group signup-signin-form-group">
-                                    <input type="text" className="form-input" name="password" id="password" placeholder="Password" onChange={inputHandler} value={registerUser.password}/>
+                                    <input type="password" className="form-input" name="password" id="password" placeholder="Password" onChange={inputHandler} value={registerUser.password}/>
                                     <span toggle="#password" className="zmdi zmdi-eye field-icon toggle-password"></span>
                                     <span className="error-msg">{registerUser.error_list.password}</span>
                                 </div>
                                 <div className="form-group signup-signin-form-group">
-                                    <input type="text" className="form-input" name="confirm_password" id="password" placeholder="Confirm Password" onChange={inputHandler} value={registerUser.confirm_password}/>
+                                    <input type="password" className="form-input" name="confirm_password" id="password" placeholder="Confirm Password" onChange={inputHandler} value={registerUser.confirm_password}/>
                                     <span toggle="#password" className="zmdi zmdi-eye field-icon toggle-password"></span>
                                 </div>
                                 <div className="form-group signup-signin-form-group">

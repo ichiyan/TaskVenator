@@ -38,7 +38,7 @@ class CreateMonstersTable extends Migration
                 ],
                 ['name' => 'Ghoul',
                     'image' => "assets/images/monsters/Ghoul.gif",
-                    'description' => "An evil spirit that rob graves and feed on dead bodies",
+                    'description' => "An evil spirit that robs graves and feeds on dead bodies",
                 ],
                 ['name' => 'Dryads',
                     'image' => "assets/images/monsters/Dryads.gif",
@@ -46,7 +46,7 @@ class CreateMonstersTable extends Migration
                 ],
                 ['name' => 'Mummy',
                     'image' => "assets/images/monsters/Mummy.gif",
-                    'description' => "A animal whose soft tissues and organs have been preserved",
+                    'description' => "An animal whose soft tissues and organs have been preserved",
                 ],
             )
         );

@@ -25,7 +25,7 @@ function OutfitFilter({data, value, avatarClass,setGems,gems, updatePreview}){
 
             // console.log(passProductId);
       }else{
-            Swal.fire("Failed to buy Item - Class Restriction");
+            Swal.fire("Class Restriction: Cannot buy item not intended for avatar's class.");
       }
 
 
