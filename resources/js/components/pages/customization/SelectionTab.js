@@ -126,7 +126,7 @@ const SelectionTab = ({tab, getClass, getBodyType, getBodyColor, getEyeColor, ge
                             <div onClick={getEyeColor} id='eye-red' className='color-preview' style={{ backgroundColor: '#ff3d62'}}></div>
                         </div>
                     </div>
-                    <div className='selections-label'>Accessories</div>
+                    {/* <div className='selections-label'>Accessories</div> */}
 
                 </section>
     }else if(tab === 'hair'){

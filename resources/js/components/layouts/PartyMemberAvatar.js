@@ -48,11 +48,11 @@ const PartyMemberAvatar = ({member}) => {
             frameY.current = 14;
         }else if(role == 2){
             avatarClass.current = 'mage';
-            frameY.current = 2;
-        }else{
-            avatarClass.current = 'marksman';
             frameY.current = 18;
             frameX.current = 2;
+        }else{
+            avatarClass.current = 'marksman';
+            frameY.current = 2;
         }
 
         avatarCtx.current.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);

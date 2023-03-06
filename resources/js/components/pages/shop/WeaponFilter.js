@@ -25,7 +25,7 @@ function WeaponFilter({data, value, avatarClass,setGems,gems, updatePreview}){
                   bodyPart: e.target.bodyPart.value,
             });
             }else{
-                  Swal.fire("Failed to buy Item - Class Restriction");
+                  Swal.fire("Class Restriction: Cannot buy item not intended for avatar's class.");
             }
        }
 
