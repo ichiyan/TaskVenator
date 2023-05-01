@@ -97,3 +97,30 @@
    ```
    php artisan queue:work
    ```
+
+## Screenshots
+
+![1 landing_page_hero](https://user-images.githubusercontent.com/74673566/235248899-18f65497-ba3b-4430-b382-d0c0be81a53a.png)
+
+| | | 
+|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="register" src="https://user-images.githubusercontent.com/74673566/235248957-b1ded6e4-38fd-4e7d-8af8-31707a534002.png"> | <img width="1604" alt="login" src="https://user-images.githubusercontent.com/74673566/235248967-00539345-470b-4077-b0c6-6cd171804dce.png">|
+
+
+<img width="1604" alt="character creation" src="https://user-images.githubusercontent.com/74673566/235251707-46493b0d-3ae6-4b5e-a869-74f9658c0eb3.gif">
+<img width="1604" alt="task page" src="https://user-images.githubusercontent.com/74673566/235249579-11f1fdb2-4be3-4dbc-a4a2-83648c598634.png">
+
+<img width="1604" alt="shop" src="https://user-images.githubusercontent.com/74673566/235518427-d743d4db-ad11-43dd-aa78-06f52830fa41.gif">
+<img width="1604" alt="inventory" src="https://user-images.githubusercontent.com/74673566/235252981-19bd4b41-ed01-4091-8f23-a2b2717d1345.gif">
+
+| | | 
+|:-------------------------:|:-------------------------:|
+|<img width="1400" alt="create party" src="https://user-images.githubusercontent.com/74673566/235252306-6959676c-c6cc-487c-ac9e-7cdfcff40000.png"><img width="1400" alt="join party" src="https://user-images.githubusercontent.com/74673566/235252393-6f385618-76fa-4aad-9497-916c0034a073.png">| <img width="" alt="party" src="https://user-images.githubusercontent.com/74673566/235252213-e1d1009c-73d6-45e3-b736-07f28e339ff8.png">|
+
+
+https://user-images.githubusercontent.com/74673566/235518504-e9c2449d-def1-4c28-a066-241c5850bd33.mp4
+
+
+
+
+
